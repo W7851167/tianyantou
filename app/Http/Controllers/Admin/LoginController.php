@@ -36,19 +36,20 @@ class LoginController extends AdminController
     public function login(Request $request)
     {
         if ($request->isMethod('post')) {
+
             $username = $request->username;
             $password = $request->password;
             $remember = $request->remember;
 
-            if (!$username || $password) return $this->error('用户名或密码错误!', '', 'true');
+            if (!$username || !$password) return $this->error('用户名或密码错误!', '', true);
 
             $result = $this->userRepository->checkLogin($username, $password, $remember);
 
             if ($result['status']) {
-                return $this->success('登陆成功!', '', true);
+                return $this->success('登陆成功!', url('/'), true);
             }
 
-            return $this->success('登陆失败!', '', true);
+            return $this->error('登陆失败!', '', true);
         }
 
         return view('admin.login');
