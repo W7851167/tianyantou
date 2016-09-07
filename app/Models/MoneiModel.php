@@ -8,4 +8,9 @@ class MoneiModel extends Model
 {
     public  $table = 'moneis';
     protected  $primaryKey = 'id';
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\UserModel');
+    }
 }
