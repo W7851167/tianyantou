@@ -11,9 +11,10 @@
  ***********************************************************************************/
 
 Route::group(['as' => 'admin.'], function () {
-    Route::get('/', function () {
-        return 'test!';
-    });
 
     Route::match(['get', 'post'], 'admin/login', ['as' => 'login', 'uses' => 'LoginController@login']);
+
+    Route::get('/', function () {
+        return '登陆成功';
+    });
 });
