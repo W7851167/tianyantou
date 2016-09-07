@@ -1,0 +1,10 @@
+/vendor
+/node_modules
+/.idea
+/storage
+.env
+*.json
+.DS_Store
+gulpfile.js
+server.php
+.svn
