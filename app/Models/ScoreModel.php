@@ -8,4 +8,9 @@ class ScoreModel extends Model
 {
     public  $table = 'scores';
     protected  $primaryKey = 'id';
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\UserModel');
+    }
 }
