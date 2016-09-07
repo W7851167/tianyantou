@@ -2,7 +2,7 @@
 /*********************************************************************************
  *  PhpStorm - phpad
  *-------------------------------------------------------------------------------
- * 版权所有: CopyRight By cw100.com
+ * 版权所有: CopyRight By
  * 文件内容简单说明
  *-------------------------------------------------------------------------------
  * $FILE:BaseModel.php
@@ -27,20 +27,18 @@ class BaseModel extends  Model
      * @return mixed
      * 返回数据模型列表
      */
-    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page = null)
+    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10)
     {
-        if (!is_array($fields)) {
+        if(!is_array($fields)) {
             $fields = explode(',', $fields);
             $fields = array_map('trim', $fields);
         }
+
         $query = $this->select($fields);
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
-        if (isset($page)) {
-            $limit = $pagesize * ($page - 1);
-            $result = $query->skip($limit)->take($pagesize)->get();
-        } else {
-            $result = $query->paginate($pagesize);
-        }
+
+        $result = $query->paginate($pagesize);
+
         return $result;
     }
 
