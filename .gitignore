@@ -1,11 +1,8 @@
 /vendor
 /node_modules
 .env
-<<<<<<< HEAD
 /.idea
 /storage
 *.json
 .DS_Store
-=======
-.idea
->>>>>>> 7c0bac6e3be004020c425e064c561f6cc6458017
+
