@@ -12,11 +12,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\BankModel;
+use App\Models\UserModel;
 
 class TestController  extends  Controller {
     public function index()
     {
-        $bank = BankModel::find(1);
-        dd($bank);
+        $bank = UserModel::find(1);
+        dd($bank->avatar->name);
     }
 }
