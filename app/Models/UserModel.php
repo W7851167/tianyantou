@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class UserModel extends BaseModelModel
+class UserModel extends BaseModel
 {
     public  $table = 'users';
     protected  $primaryKey = 'id';
