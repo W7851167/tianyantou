@@ -60,14 +60,5 @@ class Model extends BaseModel
 
         return $models;
     }
-
-    public function scopeOfUser($query, $type)
-    {
-        return $query->whereUserId($type);
-    }
-
-    public function scopeAuth($query)
-    {
-        return $query->whereUserId(\Auth::user()->id);
-    }
+    
 }
