@@ -8,8 +8,11 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL('css/admin/base.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL('/admin/css/base.css') }}">
+    @yield('style')
     <script src="{!!URL('admin/js/jquery.min.js')!!}"></script>
     <script src="{!!URL('admin/js/base.js')!!}"></script>
     <script src="{!!URL('admin/js/layer/layer.js')!!}"></script>
-    <script src="{!!URL('cw100_b2b/js/layer/minelayer.js')!!}"></script>
+    <script src="{!!URL('admin/js/layer/minelayer.js')!!}"></script>
+</head>
+<body>

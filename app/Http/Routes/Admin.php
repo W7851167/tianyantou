@@ -11,12 +11,8 @@
  ***********************************************************************************/
 
 Route::group(['as' => 'admin.'], function () {
-
     Route::match(['get', 'post'], 'login', ['as' => 'login', 'uses' => 'LoginController@login']);
-
-    Route::get('/', function () {
-        return '登陆成功';
-    });
+    Route::get('dashboard', ['as'=>'home.index','uses'=>'HomeController@index']);
 });
 
 Route::get('test','TestController@index');
