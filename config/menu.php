@@ -19,8 +19,8 @@ return [
             ['name'=>'添加用户', 'url'=>'user/add']
         ]],
         ['name' => '项目管理', 'url' => 'task','page'=>[
-            ['name'=>'公司管理', 'url'=>'task/corp'],
-            ['name'=>'创建公司', 'url'=>'task/cropcreate'],
+            ['name'=>'公司管理', 'url'=>'corp'],
+            ['name'=>'创建公司', 'url'=>'crop/create'],
             ['name'=>'项目管理', 'url'=>'task'],
             ['name'=>'创建项目', 'url'=>'task/create'],
         ]],

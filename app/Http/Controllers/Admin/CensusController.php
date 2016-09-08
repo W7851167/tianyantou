@@ -19,6 +19,6 @@ class CensusController extends  AdminController
 {
     public function index()
     {
-
+        return view('admin.census.index');
     }
 }
