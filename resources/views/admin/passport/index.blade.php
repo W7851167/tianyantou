@@ -60,7 +60,7 @@
         }
         if(error > 0)return false;
         var data = $("#myform").serialize();
-        $.post("{!! url('login') !!}",data,function(r){
+        $.post("{!! url('passport/login') !!}",data,function(r){
             if(r.status){
                 window.location.href = r.url;
             }else{
