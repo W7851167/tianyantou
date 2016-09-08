@@ -18,7 +18,9 @@ use App\Repositories\TaskRepository;
 
 class TaskController extends  AdminController
 {
-    public function __construct(TaskRepository $taskRepository) {
+    public function __construct(
+        TaskRepository $taskRepository
+    ) {
         $this->taskRepository = $taskRepository;
     }
 
