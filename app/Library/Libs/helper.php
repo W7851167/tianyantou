@@ -9,27 +9,42 @@
  * $Author:zxs
  * $Dtime:2016/9/8
  ***********************************************************************************/
+use Illuminate\Support\Facades\Request;
 
 /**
  * @param $url
  * 获取html菜单
  */
-function getNavConfig($url) {
+function getNavConfig($url=null) {
+    $url = $url ? $url : Request::path();
+    $url = ltrim($url,'/');
     $nav = config('menu.nav');
-    $sidebar = config('menu.sidebar');
     $navHtml = '';
+    $sidebarHtml = '';
+    $urls = [];
     foreach($nav as $key=>$value) {
         $navHtml .= '<div class="header-nav-inner">';
         $navHtml .= '<a href="' . url($value['url']) . '"';
-        $navHtml .= ($url == $value['page']) ? ' class="at"' : '';
-        $navHtml .= '>' . $value['name'] . '</a>';
-        if ($value['page'] != 'index') {
-            $navHtml .= '<ul class="menu rule-menu">';
-            foreach ($sidebar[$value['page']] as $k => $v) {
-                    $navHtml .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
-            }
-            $navHtml .= '</ul>';
+        if(!empty($value['page'])) {
+            $urls = array_pluck($value['page'],'url');
         }
+        if($url == $value['url'] || in_array($url,$urls)) {
+            $navHtml .= ' class="at"';
+            $sidebarHtml .= '<ul class="content-left-menu clearfix">';
+            if (!empty($value['page'])) {
+                foreach ($value['page'] as $sidebar) {
+                    $sidebarHtml .= '<li><a href="' . $sidebar['url'] . '"';
+                    if ($url == $sidebar['url']) {
+                        $sidebarHtml .= ' class="on"';
+                    }
+                    $sidebarHtml .= ' >' . $sidebar['name'] . '</a></li>';
+                }
+                $sidebarHtml .= '</ul>';
+            }
+        }
+        $navHtml .= '>' . $value['name'] . '</a>';
         $navHtml .= '</div>';
     }
+
+    return [$navHtml,$sidebarHtml];
 }
