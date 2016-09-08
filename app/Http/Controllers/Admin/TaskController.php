@@ -17,5 +17,8 @@ use App\Http\Controllers\AdminController;
 
 class TaskController extends  AdminController
 {
-
+    public function index()
+    {
+        return view('admin.task.index');
+    }
 }
