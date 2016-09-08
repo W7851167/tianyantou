@@ -1,6 +1,6 @@
 @extends('admin.common.layout')
 @section('style')
-
+    {!!HTML::style('admin/css/index.css')!!}
 @endsection
 @section('content')
     <div class="content-all">
@@ -8,7 +8,7 @@
             <div class="content-left ">
                 <div class="content-left-heaeder ">
                     <div class="content-left-header-pic clearfix">
-                        <a href="javascript:void(0)"><img src="{!! url('cw100_b2b/images/cw100.jpg')!!}"/></a>
+                        <a href="javascript:void(0)"><img src="{!! url('admin/images/user-middle.png')!!}"/></a>
                         <div class="content-left-header-pic-page">
                             <span>{!! $userInfo['username'] or ''!!}</span>
                             <p><a href="{!! url('/logout') !!}">退出登录</a></p>
@@ -28,14 +28,14 @@
             </div>
             <div class="content-right">
                 <div class="content-right-header clearfix">
-                    <img src="{!!url('cw100_b2b/images/u5.png')!!}"/>
-                    <a href="{!! url('/dashboard') !!}">商家管理中心&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+                    <img src="{!!url('admin/images/u5.png')!!}"/>
+                    <a href="{!! url('/dashboard') !!}">管理中心&nbsp;&nbsp;>&nbsp;&nbsp;</a>
                     <a href="{!! url('/dashboard') !!}">首页</a>
                 </div>
                 <div class="content-right-user clearfix">
                     <div class="content-right-user-lt clearfix">
                         <div class="content-right-user-lt-pic">
-                            <img src="{!! url('cw100_b2b/images/cw100.jpg')!!}"/>
+                            <img src="{!! url('admin/images/user.png')!!}"/>
                         </div>
                         <ul class="content-right-user-lt-name clearfix">
                             <li>
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="cancel-none">
                                     <p>
-                                        <img src="{!!url('cw100_b2b/images/u464.png')!!}"/>
+                                        <img src="{!!url('admin/images/u464.png')!!}"/>
                                         暂无公告!
                                     </p>
                                 </div>
@@ -242,7 +242,7 @@
                                 </div>
                                 <div class="cancel-none">
                                     <p>
-                                        <img src="{!!url('cw100_b2b/images/u464.png')!!}"/>
+                                        <img src="{!!url('admin/images/u464.png')!!}"/>
                                         暂无最新活动!
                                     </p>
                                 </div>
@@ -262,15 +262,10 @@
                 </table>
             </div>
             <div class="consult">
-                {{--<div class="consult-page">--}}
-                {{--<div class="consult-pic"><img src="{!!url('cw100_b2b/images/u384.png')!!}"></div>--}}
-                {{--<a href="javascript:void(0)">我要咨询</a>--}}
-                {{--</div>--}}
+
                 <div class="consult-message pr">
-                    <div class="consult-pic"><img src="{!!url('cw100_b2b/images/u384.png')!!}"></div>
-
+                    <div class="consult-pic"><img src="{!!url('admin/images/u384.png')!!}"></div>
                     <a href="{!!url('/message')  !!}" >您有<span>@if(!empty($counted)){!! $counted !!}@else 0 @endif</span>条消息</a>
-
                     <div class="consult-messageList pa">
                     </div>
                 </div>
