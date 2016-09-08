@@ -27,7 +27,7 @@ class LibraryServiceProvider extends ServiceProvider
             list($menu,$sidebarHtml) = getNavConfig();
             view()->share('menu', $menu);
             view()->share('silderMenu',$sidebarHtml);
-            //view()->share('user', $user);
+            view()->share('user', $user);
         }
     }
 
