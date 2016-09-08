@@ -33,6 +33,12 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('census', ['as' => 'census', 'uses' => 'CensusController@index']);
     //系统管理
     Route::get('system', ['as' => 'system', 'uses' => 'SystemController@index']);
+    //文章管理
+    Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
+    Route::get('news/create', ['as' => 'news.create', 'uses' => 'NewsController@create']);
+    Route::post('news/store/{id}', ['as' => 'news.store', 'uses' => 'NewsController@store']);
+    Route::match(['get', 'psot'], 'news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewsController@edit']);
+    Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewsController@del']);
 });
 
 Route::get('test', 'TestController@index');

@@ -26,6 +26,10 @@ return [
             ['name'=>'项目管理', 'url'=>'task'],
             ['name'=>'创建项目', 'url'=>'task/create'],
         ]],
+        ['name' => '文章管理', 'url' => 'news','page'=>[
+            ['name'=>'文章管理', 'url'=>'news'],
+            ['name'=>'发布文章', 'url'=>'news/create'],
+        ]],
         ['name' => '数据统计', 'url' => 'census','page'=>[
             ['name'=>'数据统计', 'url'=>'census'],
         ]],
