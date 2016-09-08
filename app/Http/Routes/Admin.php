@@ -12,9 +12,11 @@
 
 Route::group(['as' => 'admin.'], function () {
 
-    Route::match(['get', 'post'], 'admin/login', ['as' => 'login', 'uses' => 'LoginController@login']);
+    Route::match(['get', 'post'], 'login', ['as' => 'login', 'uses' => 'LoginController@login']);
 
     Route::get('/', function () {
         return '登陆成功';
     });
 });
+
+Route::get('test','TestController@index');

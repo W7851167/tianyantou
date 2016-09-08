@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class MoneiModel extends Model
+class MoneiModel extends BaseModel
 {
     public  $table = 'moneis';
     protected  $primaryKey = 'id';

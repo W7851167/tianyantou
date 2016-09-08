@@ -23,7 +23,6 @@ class LoginController extends AdminController
         UserRepository $userRepository
     )
     {
-        parent::__construct();
         $this->userRepository = $userRepository;
     }
 
@@ -52,6 +51,6 @@ class LoginController extends AdminController
             return $this->error('登陆失败!', '', true);
         }
 
-        return view('admin.login');
+        return view('admin.login.index');
     }
 }

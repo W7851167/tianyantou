@@ -25,5 +25,13 @@ class CorpController extends AdminController
         $this->taskRepository = $taskRepository;
     }
 
+    /**
+     * 公司列表页面
+     */
+    public function index()
+    {
+
+    }
+
 
 }

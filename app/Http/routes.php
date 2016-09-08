@@ -30,4 +30,3 @@ Route::group(array('domain' => $host, 'namespace'=>$namespace), function() use($
     require_once  __DIR__.'/Routes/' . $namespace .'.php';
 });
 
-//Route::get('test','TestController@index');
