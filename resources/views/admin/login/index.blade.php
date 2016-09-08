@@ -60,7 +60,7 @@
         }
         if(error > 0)return false;
         var data = $("#myform").serialize();
-        $.post("/admin/login",data,function(r){
+        $.post("{!! url('login') !!}",data,function(r){
             if(r.status){
                 window.location.href = r.url;
             }else{
