@@ -8,19 +8,18 @@
             <div class="content-left ">
                 <div class="content-left-heaeder ">
                     <div class="content-left-header-pic clearfix">
-                        <a href="javascript:void(0)"><img src="{!! url('admin/images/user-middle.png')!!}"/></a>
+                        <a href="javascript:void(0)"><img src="{!! url('admin/images/user-small.png')!!}"/></a>
                         <div class="content-left-header-pic-page">
                             <span>{!! $userInfo['username'] or ''!!}</span>
                             <p><a href="{!! url('/logout') !!}">退出登录</a></p>
-                            <p><a href="{!! url('/account/create') !!}">创建账户</a></p>
                         </div>
                     </div>
                     <div class="content-left-page">
                     </div>
                 </div>
                 <ul class="content-left-menu clearfix">
-                    <li><a class="on" href="">推荐操作1</a></li>
-                    <li><a href="">推荐操作2</a></li>
+                    <li><a class="on" href="{!! url('dashboard') !!}">控制面板</a></li>
+                    <li><a href="{!! url('user/password') !!}">修改密码</a></li>
                 </ul>
             </div>
             <div class="content-right">
@@ -66,34 +65,23 @@
                                     <div class="td-inner-tit-news ">
                                         <p>系统公告</p>
                                     </div>
-                                    <a href="###">更多公告>></a>
+                                    <a href="###">更多>></a>
                                 </div>
+                                <!--
                                 <div class="cancel-none">
                                     <p>
                                         <img src="{!!url('admin/images/u464.png')!!}"/>
                                         暂无公告!
                                     </p>
                                 </div>
+                                -->
                                 <ul class="td-inner-bulletin clearfix">
-                                    {{--<li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>--}}
-                                    {{--<li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>--}}
-                                    {{--<li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>--}}
-                                    {{--<li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>--}}
-                                    {{--<li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>--}}
+                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
+                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
+                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
+                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
+                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
                                 </ul>
-                                <!-- <div class="td-inner-tit-tel-line"></div>
-									 <div class="td-inner-tit relation clearfix">
-
-									 	<div class="td-inner-tit-line"></div>
-									 	<div class="td-inner-tit-news ">
-									 		<p>平台联系方123式</p>
-									 	</div>
-									 	<div style="clear: both;"></div>
-									 	<div class="td-inner-relation clearfix">
-									 		<p class="relation-tel"><i></i>电话：<span>010-12345678</span></p>
-									 		<p class="relation-tel"><i></i>邮箱：<span>cw100@cw100.com</span></p>
-									 	</div>
-									 </div>-->
                             </div>
                         </td>
                     </tr>
@@ -131,26 +119,26 @@
                                 <div class="td-inner-tit clearfix">
                                     <div class="td-inner-tit-line six"></div>
                                     <div class="td-inner-tit-news">
-                                        <p>最新活动</p>
-                                        <span>合理参与促销活动可以有效提升商品销量</span>
+                                        <p>最新资讯</p>
+                                        <span>资讯、动态内容</span>
                                     </div>
-                                    <a href="###">更多活动>></a>
+                                    <a href="###">更多>></a>
                                 </div>
+                                <!--
                                 <div class="cancel-none">
                                     <p>
                                         <img src="{!!url('admin/images/u464.png')!!}"/>
                                         暂无最新活动!
                                     </p>
                                 </div>
+                                -->
                                 <ul class="td-inner-active clearfix">
-                                    {{--<li>--}}
-                                    {{--<div class="td-inner-active-news">--}}
-                                    {{--<p><span>活动标题：</span><a href="###">家装厨卫节，满减大抢购-(10月01日-10月31日)</a></p>--}}
-                                    {{--<p>已有12家商家报名参与</p>--}}
-                                    {{--</div>--}}
-                                    {{--<a class="active-btn" href="###">参加活动</a>--}}
-                                    {{--</li>--}}
-
+                                    <li>
+                                    <div class="td-inner-active-news">
+                                        <p><a href="###">家装厨卫节，满减大抢购-(10月01日-10月31日)</a></p>
+                                    </div>
+                                    <a class="active-btn" href="###">参加活动</a>
+                                    </li>
                                 </ul>
                             </div>
                         </td>
