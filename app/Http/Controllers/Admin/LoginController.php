@@ -23,7 +23,6 @@ class LoginController extends AdminController
         UserRepository $userRepository
     )
     {
-        parent::__construct();
         $this->userRepository = $userRepository;
     }
 
