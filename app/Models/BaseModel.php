@@ -127,4 +127,33 @@ class BaseModel extends  Model
         }
         return $query;
     }
+
+    /**
+     * @param $data
+     * 编辑信息
+     */
+    public function  saveBy($data) {
+        $model = $this;
+        $data = $data ? $data : Request::all();
+        $data = array_except($data, ['_token', '_url', 's']);
+
+
+        if(!empty($data[$this->primaryKey])) {
+            $model = $this->find($this->primaryKey);
+            $model = $model ? $model : $this;
+            $this->setModelData($model, $data);
+            return $model->save();
+        }
+        return $this->query()->insertGetId($data);
+    }
+
+
+    private  function setModelData($model, $data)
+    {
+        foreach ($data as $key => $value) {
+            $model->{$key} = $value;
+        }
+        return $model;
+    }
+
 }
