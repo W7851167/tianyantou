@@ -19,7 +19,7 @@
                 </div>
                 <ul class="content-left-menu clearfix">
                     <li><a class="on" href="{!! url('dashboard') !!}">控制面板</a></li>
-                    <li><a href="{!! url('user/password') !!}">修改密码</a></li>
+                    <li><a href="">修改密码</a></li>
                 </ul>
             </div>
             <div class="content-right">
