@@ -21,6 +21,13 @@ class CorpController extends  AdminController
     public function __construct(TaskRepository $taskRepository) {
         $this->taskRepository = $taskRepository;
     }
-    
+
+    /**
+     * 公司列表页面
+     */
+    public function index()
+    {
+
+    }
 
 }
