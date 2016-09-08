@@ -23,10 +23,11 @@ class LibraryServiceProvider extends ServiceProvider
         $host =  $urls['host'];
         $prefix = explode('.', $host)[0];
         $user = Session::get('user.login');
-        if(strtolower($prefix) == 'admin' && !empty($user)) {
+        if(strtolower($prefix) == 'admin') {
             list($menu,$sidebarHtml) = getNavConfig();
             view()->share('menu', $menu);
             view()->share('silderMenu',$sidebarHtml);
+            //view()->share('user', $user);
         }
     }
 
