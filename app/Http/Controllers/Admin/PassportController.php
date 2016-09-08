@@ -64,4 +64,9 @@ class PassportController extends AdminController
             return redirect(url('passport/login'));
         }
     }
+
+    public function password(Request $request)
+    {
+        return view('admin.passport.forget_password');
+    }
 }
