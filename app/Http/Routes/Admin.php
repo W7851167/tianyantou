@@ -13,6 +13,7 @@
 Route::group(['as' => 'admin.'], function () {
     Route::match(['get', 'post'], 'login', ['as' => 'login', 'uses' => 'LoginController@login']);
     Route::get('dashboard', ['as'=>'home.index','uses'=>'HomeController@index']);
+    Route::get('user', ['as'=>'user.index','uses'=>'UserController@index']);
 });
 
 Route::get('test','TestController@index');

@@ -12,29 +12,24 @@
 
 return [
     'nav' => [
-        ['name' => '控制面板', 'url' => 'dashboard'],
-        ['name' => '用户管理', 'url' => 'user'],
-        ['name' => '项目管理', 'url' => 'task'],
-        ['name' => '数据统计', 'url' => 'census'],
-        ['name' => '系统管理', 'url' => 'system'],
-    ],
-    'sidebar' =>[
-        'user' => [
+        ['name' => '', 'url' => ''],
+        ['name' => '面板', 'url' => 'dashboard','page'=>null],
+        ['name' => '用户管理', 'url' => 'user','page'=>[
             ['name'=>'用户列表', 'url'=>'user'],
             ['name'=>'添加用户', 'url'=>'user/add']
-        ],
-        'task' => [
+        ]],
+        ['name' => '项目管理', 'url' => 'task','page'=>[
             ['name'=>'公司管理', 'url'=>'task/corp'],
             ['name'=>'创建公司', 'url'=>'task/cropcreate'],
             ['name'=>'项目管理', 'url'=>'task'],
             ['name'=>'创建项目', 'url'=>'task/create'],
-        ],
-        'census' => [
+        ]],
+        ['name' => '数据统计', 'url' => 'census','page'=>[
             ['name'=>'数据统计', 'url'=>'census'],
-        ],
-        'system' => [
+        ]],
+        ['name' => '系统管理', 'url' => 'system','page'=>[
             ['name'=>'系统管理', 'url'=>'system'],
             ['name'=>'角色管理', 'url'=>'system/role'],
-        ],
+        ]],
     ]
 ];
