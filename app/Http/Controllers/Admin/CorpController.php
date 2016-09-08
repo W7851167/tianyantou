@@ -14,8 +14,13 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\TaskRepository;
 
 class CorpController extends  AdminController
 {
+    public function __construct(TaskRepository $taskRepository) {
+        $this->taskRepository = $taskRepository;
+    }
+    
 
 }
