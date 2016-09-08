@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class WithdrawModel extends Model
+class WithdrawModel extends BaseModel
 {
     public  $table = 'withdraws';
     protected  $primaryKey = 'id';

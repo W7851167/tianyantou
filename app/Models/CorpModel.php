@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class CorpModel extends Model
+class CorpModel extends BaseModel
 {
     public  $table = 'corps';
     protected  $primaryKey = 'id';

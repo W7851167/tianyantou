@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class ScoreModel extends Model
+class ScoreModel extends BaseModel
 {
     public  $table = 'scores';
     protected  $primaryKey = 'id';

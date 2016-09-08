@@ -147,6 +147,18 @@ class BaseModel extends  Model
         return $this->query()->insertGetId($data);
     }
 
+    /**
+     * @param array $where
+     * @return mixed
+     * 根据条件统计总数
+     *
+     */
+    public function countBy($where = [])
+    {
+        $query = $this->createWhere($this, $where);
+        $result = $query->count();
+        return $result;
+    }
 
     private  function setModelData($model, $data)
     {
