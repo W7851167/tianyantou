@@ -1,7 +1,4 @@
 @extends('admin.common.layout')
-@section('style')
-    {!!HTML::style('admin/css/showrooms.css')!!}
-@stop
 @section('content')
     <div class="content-all">
         <div class="content clearfix">

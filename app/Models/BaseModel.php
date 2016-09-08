@@ -27,7 +27,7 @@ class BaseModel extends  Model
      * @return mixed
      * 返回数据模型列表
      */
-    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10)
+    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page=null)
     {
         if(!is_array($fields)) {
             $fields = explode(',', $fields);
@@ -36,9 +36,12 @@ class BaseModel extends  Model
 
         $query = $this->select($fields);
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
-
-        $result = $query->paginate($pagesize);
-
+        if (isset($page)) {
+            $limit = $pagesize * ($page - 1);
+            $result = $query->skip($limit)->take($pagesize)->get();
+        } else {
+            $result = $query->paginate($pagesize);
+        }
         return $result;
     }
 
