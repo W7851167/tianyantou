@@ -14,8 +14,9 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Session;
 
-class HomeController extends  AdminController
+class HomeController extends AdminController
 {
     public function index()
     {

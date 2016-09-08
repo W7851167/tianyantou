@@ -56,7 +56,10 @@ class UserRepository extends BaseRepository
         $sessionData['username'] = $data['username'];
         if(!empty($userModel->avatar->name))
             $sessionData['avatar'] = $userModel->avatar->name;
-        Session::put('user.login', $userModel);
+        Session::put('user.passport', $sessionData);
+
+        Session::put('peng','zhuang');
+
         return static::getSuccess('登录成功!');
     }
 

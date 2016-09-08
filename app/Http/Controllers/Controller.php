@@ -100,6 +100,7 @@ abstract class Controller extends BaseController
     protected function ajaxReturn($data, $type = '')
     {
         if (empty($type)) $type = 'JSON';
+        return response()->json($data);
         switch (strtoupper($type)) {
             case 'JSON' :
                 // 返回JSON数据格式到客户端 包含状态信息
