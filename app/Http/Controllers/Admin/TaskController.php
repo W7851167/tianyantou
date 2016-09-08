@@ -14,8 +14,16 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\TaskRepository;
 
 class TaskController extends  AdminController
 {
+    public function __construct(TaskRepository $taskRepository) {
+        $this->taskRepository = $taskRepository;
+    }
 
+    public function index()
+    {
+        return view('admin.task.index');
+    }
 }
