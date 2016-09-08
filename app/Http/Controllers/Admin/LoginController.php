@@ -45,7 +45,7 @@ class LoginController extends AdminController
             $result = $this->userRepository->checkLogin($username, $password, $remember);
 
             if ($result['status']) {
-                return $this->success('登陆成功!', url('/'), true);
+                return $this->success('登陆成功!', url('dashboard'), true);
             }
 
             return $this->error('登陆失败!', '', true);
