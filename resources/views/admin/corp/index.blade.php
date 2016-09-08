@@ -11,14 +11,14 @@
                     <div class="content-right-header clearfix">
                         <img src="{!!url('admin/images/u5.png')!!}"/>
                         <a href="{!! url('task') !!}">项目管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                        <a href="{!! url('task') !!}">项目列表</a>
+                        <a href="{!! url('task') !!}">公司列表</a>
                     </div>
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="javascript:void(0)" class="at">项目列表</a></p>
+                    <p><a href="javascript:void(0)" class="at">公司列表</a></p>
                     <p><a href="javascript:void(0)"></a></p>
-                    <a href="{!!url('/shop/add')!!}" class="buttonA">添加项目</a>
+                    <a href="{!!url('/shop/add')!!}" class="buttonA">创建公司</a>
                 </div>
                 @if(!empty($stores))
                     <table class="all_shopping" cellspacing="0">
@@ -36,7 +36,7 @@
                                 <td>{!! $store['location'] !!}</td>
                                 <td>{!! $store['tel'] !!}</td>
                                 <td>
-                                    <a href="{!! url('/shop/edit/'.$store['id']) !!}">编辑</a>
+                                    <a href="{!! url('corp/edit/'.$store['id']) !!}">编辑</a>
                                     <a href="{!! url('shop/manage/'.$store['id']) !!}">管理</a>
                                 </td>
                             </tr>

@@ -33,7 +33,7 @@ function getNavConfig($url=null) {
             $sidebarHtml .= '<ul class="content-left-menu clearfix">';
             if (!empty($value['page'])) {
                 foreach ($value['page'] as $sidebar) {
-                    $sidebarHtml .= '<li><a href="' . $sidebar['url'] . '"';
+                    $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
                     if ($url == $sidebar['url']) {
                         $sidebarHtml .= ' class="on"';
                     }

@@ -10,9 +10,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="{{ URL('/admin/css/base.css') }}">
     @yield('style')
-    <script src="{!!URL('admin/js/jquery.min.js')!!}"></script>
+    <script src="{!!URL('vendor/jquery/jquery.min.js')!!}"></script>
     <script src="{!!URL('admin/js/base.js')!!}"></script>
-    <script src="{!!URL('admin/js/layer/layer.js')!!}"></script>
-    <script src="{!!URL('admin/js/layer/minelayer.js')!!}"></script>
+    <script src="{!!URL('vendor/layer/layer.js')!!}"></script>
+    <script src="{!!URL('vendor/layer/minelayer.js')!!}"></script>
 </head>
 <body>

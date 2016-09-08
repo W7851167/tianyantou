@@ -20,7 +20,7 @@ return [
         ]],
         ['name' => '项目管理', 'url' => 'task','page'=>[
             ['name'=>'公司管理', 'url'=>'corp'],
-            ['name'=>'创建公司', 'url'=>'crop/create'],
+            ['name'=>'创建公司', 'url'=>'corp/create'],
             ['name'=>'项目管理', 'url'=>'task'],
             ['name'=>'创建项目', 'url'=>'task/create'],
         ]],

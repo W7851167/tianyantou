@@ -26,4 +26,9 @@ class TaskController extends  AdminController
     {
         return view('admin.task.index');
     }
+
+    public function create()
+    {
+        return view('admin.task.create');
+    }
 }
