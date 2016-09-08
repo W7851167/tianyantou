@@ -15,20 +15,21 @@ use Illuminate\Support\Facades\Request;
  * @param $url
  * 获取html菜单
  */
-function getNavConfig($url=null) {
+function getNavConfig($url = null)
+{
     $url = $url ? $url : Request::path();
-    $url = ltrim($url,'/');
+    $url = ltrim($url, '/');
     $nav = config('menu.nav');
     $navHtml = '';
     $sidebarHtml = '';
     $urls = [];
-    foreach($nav as $key=>$value) {
+    foreach ($nav as $key => $value) {
         $navHtml .= '<div class="header-nav-inner">';
         $navHtml .= '<a href="' . url($value['url']) . '"';
-        if(!empty($value['page'])) {
-            $urls = array_pluck($value['page'],'url');
+        if (!empty($value['page'])) {
+            $urls = array_pluck($value['page'], 'url');
         }
-        if($url == $value['url'] || in_array($url,$urls)) {
+        if ($url == $value['url'] || in_array($url, $urls)) {
             $navHtml .= ' class="at"';
             $sidebarHtml .= '<ul class="content-left-menu clearfix">';
             if (!empty($value['page'])) {
@@ -46,5 +47,5 @@ function getNavConfig($url=null) {
         $navHtml .= '</div>';
     }
 
-    return [$navHtml,$sidebarHtml];
+    return [$navHtml, $sidebarHtml];
 }
