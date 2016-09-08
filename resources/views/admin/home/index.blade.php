@@ -19,11 +19,8 @@
                     </div>
                 </div>
                 <ul class="content-left-menu clearfix">
-                    <li><a class="on" href="{!!url('store/info')!!}">基本信息</a></li>
-                    <li><a href="{!!url('goods/add/one')!!}">认领商品</a></li>
-                    {{--<li><a href="{!!url('goods/saleup')!!}">商品列表</a></li>--}}
-                    <li><a href="{!!url('goods/online/list')!!}">在售商品管理</a></li>
-                    <li><a href="{!!url('goods/offline/list')!!}">下家商品管理</a></li>
+                    <li><a class="on" href="">推荐操作1</a></li>
+                    <li><a href="">推荐操作2</a></li>
                 </ul>
             </div>
             <div class="content-right">
@@ -32,133 +29,32 @@
                     <a href="{!! url('/dashboard') !!}">管理中心&nbsp;&nbsp;>&nbsp;&nbsp;</a>
                     <a href="{!! url('/dashboard') !!}">首页</a>
                 </div>
-                <div class="content-right-user clearfix">
-                    <div class="content-right-user-lt clearfix">
-                        <div class="content-right-user-lt-pic">
-                            <img src="{!! url('admin/images/user.png')!!}"/>
-                        </div>
-                        <ul class="content-right-user-lt-name clearfix">
-                            <li>
-                                <span>用户姓名：</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>最后登录：</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>管理权限：</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>商家ID：</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>店铺ID：</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>商家类型：</span>
-                                <span>POP</span>
-                            </li>
-                            <li>
-                                <span>店铺名称：</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>有效期至：</span>
-                                <span>2016-10-10</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="content-right-user-rg">
-                        <p class="content-right-user-rg-tit">店铺动态评分：</p>
-                        <ul class="content-right-user-rg-nums">
-                            <li>专业<span class="yellow">{!! $shopInfo['comment_avg'] or '' !!}--<i class="line-icon"></i></span></li>
-                            <li>服务<span class="green">{!! $shopInfo['service_avg'] or ''!!}<i class="top-icon"></i></span></li>
-                            <li>发货<span class="yellow">{!! $shopInfo['shipping_avg'] or ''!!}<i class="down-icon"></i></span></li>
-                        </ul>
-                    </div>
-                </div>
                 <table border="0" cellspacing="" cellpadding="" class="content-news">
-                    <tr>
-                        <td width="488px" style="border-bottom: 1px solid #F2F2F2;">
-                            <div class="content-news-td-inner clearfix">
-                                <div class="td-inner-tit clearfix">
-                                    <div class="td-inner-tit-line frist"></div>
-                                    <div class="td-inner-tit-news">
-                                        <p>店铺及商品提示</p>
-                                        <span>您需要关注的店铺信息以及待处理事项</span>
-                                    </div>
-                                </div>
-                                <div class="td-inner-cue">
-                                    <p>店铺商品发布情况：<span></span></p>
-                                    <p>店铺运营推广：
-                                        {{--<span>参与活动数<strong class="yellow">1</strong></span>--}}
-                                    </p>
-                                </div>
-                                <ul class="td-inner-tag td-inner-tag-left clearfix">
-                                    <li><a href="{!!url('goods/online/list')!!}" class="on">出售中<span class="td-inner-tag-nums">{!! $count['online_goods'] or ''!!}</span></a></li>
-                                    <li><a href="{!!url('goods/offline/list')!!}" class="on">下架商品<span class="td-inner-tag-nums">{!! $count['offline_goods'] or ''!!}</span></a></li>
-                                    {{--<li><a href="###">违规下架</a></li>--}}
-                                    <li><a href="{!!url('consult/index')!!}">待回复咨询<span class="td-inner-tag-nums">@if(!empty($consult)){!! $consult !!} @else 0 @endif</span></a></li>
-                                    {{--                                    <li class="mg-lt-no"><a href="{!!url('/promote/promoteList')!!}">到期促销<span class="td-inner-tag-nums"></span></a></li>--}}
-                                    {{--<li><a href="###">到期套餐</a></li>--}}
-                                    {{--<li><a href="###">到期活动</a></li>--}}
-                                </ul>
-                            </div>
-                        </td>
-                        <td width="488px" style="border-left: 1px solid #F2F2F2;border-bottom: 1px solid #f2f2f2;">
-                            <div class="content-news-td-inner clearfix">
-                                <div class="td-inner-tit clearfix">
-                                    <div class="td-inner-tit-line second"></div>
-                                    <div class="td-inner-tit-news">
-                                        <p>交易提醒</p>
-                                        <span>您需要立即处理的交易订单</span>
-                                    </div>
-                                </div>
-                                {{--<div class="td-inner-cue">--}}
-                                {{--<p>最近售出：<span>交易中的订单<strong class="yellow">3</strong></span></p>--}}
-                                {{--<p>维权提示：<span>收到维权投诉<strong class="yellow">1</strong></span></p>--}}
-                                {{--</div>--}}
-                                <ul class="td-inner-tag td-inner-tag-sc clearfix">
-                                    <li><a href="{!! url('/order/list?s=10') !!}" class="on">待付款<span class="td-inner-tag-nums">{!! $count['nopay'] or ''!!}</span></a></li>
-                                    <li><a href="{!! url('/order/list?s=12') !!}" class="on">待发货<span class="td-inner-tag-nums">{!! $count['nodelivery'] or '' !!}</span></a></li>
-                                    {{--<li><a href="###">售前退款</a></li>--}}
-                                    {{--<li><a href="###">售后退款</a></li>--}}
-                                    {{--<li><a href="###">售前退货</a></li>--}}
-                                    {{--<li><a href="###">售后退货</a></li>--}}
-                                    {{--<li><a href="###" class="on">待确认账单<span class="td-inner-tag-nums">1</span></a></li>--}}
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
                     <tr>
                         <td width="448px" style="border-bottom: 1px solid #F2F2F2;">
                             <div class="content-news-td-inner clearfix">
                                 <div class="td-inner-tit clearfix">
                                     <div class="td-inner-tit-line three"></div>
                                     <div class="td-inner-tit-news">
-                                        <p>销量情况统计</p>
-                                        <span>按周期统计商家店铺的订单量和订单金额</span>
+                                        <p>用户统计</p>
+                                        <span>注册统计</span>
                                     </div>
                                 </div>
                                 <ul class="td-inner-stat clearfix">
                                     <li>
-                                        <p>项目</p>
-                                        <p>订单量</p>
-                                        <p>订单金额</p>
+                                        <p>统计情况</p>
+                                        <p>注册人数</p>
+                                        <p>邀请人数</p>
                                     </li>
                                     <li>
-                                        <p>昨日销量</p>
+                                        <p>当日注册</p>
                                         <p>{!! $count['yCount'] or 0 !!}</p>
-                                        <p>{!! 0 !!}</p>
+                                        <p>{!! $count['yCount'] or 0 !!}</p>
                                     </li>
                                     <li>
-                                        <p>月销量</p>
-                                        <p>{!! $count['mCount'] or 0 !!}</p>
-                                        <p>{!!0 !!}</p>
+                                        <p>当月注册</p>
+                                        <p>{!! $count['yCount'] or 0 !!}</p>
+                                        <p>{!! $count['yCount'] or 0 !!}</p>
                                     </li>
                                 </ul>
                             </div>
@@ -207,21 +103,21 @@
                                 <div class="td-inner-tit clearfix">
                                     <div class="td-inner-tit-line five"></div>
                                     <div class="td-inner-tit-news">
-                                        <p>商品销量排名</p>
-                                        <span>掌握30日内最热销的商品及时补充货源</span>
+                                        <p>项目排行</p>
+                                        <span>最热项目TOP10</span>
                                     </div>
                                 </div>
                                 <ul class="td-inner-hotgoods clearfix">
                                     <li>
                                         <p>排名</p>
-                                        <p>商品信息</p>
-                                        <p>销量</p>
+                                        <p>项目名称</p>
+                                        <p>完成人数</p>
                                     </li>
 
                                         <li>
-                                            <span class="green">sfsfds</span>
+                                            <span class="green">1</span>
                                             <a href="" class="blue" target="_blank">
-                                                <img src="">aaaaa
+                                               aaaaa
                                             </a>
                                             <span>20</span>
                                         </li>
