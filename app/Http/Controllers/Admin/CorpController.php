@@ -17,10 +17,13 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
-class CorpController extends  AdminController
+class CorpController extends AdminController
 {
-    public function __construct(TaskRepository $taskRepository)
-    {
+
+    public function __construct(
+        TaskRepository $taskRepository
+    ){
+
         $this->taskRepository = $taskRepository;
     }
 
@@ -54,4 +57,5 @@ class CorpController extends  AdminController
     {
         return view('admin.corp.edit');
     }
+
 }

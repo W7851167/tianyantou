@@ -22,7 +22,7 @@ class LibraryServiceProvider extends ServiceProvider
         $urls =  parse_url(Request::Url());
         $host =  $urls['host'];
         $prefix = explode('.', $host)[0];
-        $user = Session::get('user.login');
+        $user = Session::get('user.passport');
         if(strtolower($prefix) == 'admin') {
             list($menu,$sidebarHtml) = getNavConfig();
             view()->share('menu', $menu);

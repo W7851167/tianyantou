@@ -61,7 +61,7 @@ class PassportController extends AdminController
     public function logout()
     {
         if($this->userRepository->logout()) {
-            return redirect(url('passport/login'));
+            return redirect(url('passport/passport'));
         }
     }
 }

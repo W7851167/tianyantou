@@ -86,13 +86,13 @@
                                         <p>完成人数</p>
                                     </li>
 
-                                        <li>
-                                            <span class="green">1</span>
-                                            <a href="" class="blue" target="_blank">
-                                               aaaaa
-                                            </a>
-                                            <span>20</span>
-                                        </li>
+                                    <li>
+                                        <span class="green">1</span>
+                                        <a href="" class="blue" target="_blank">
+                                            aaaaa
+                                        </a>
+                                        <span>20</span>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -118,10 +118,10 @@
                                 -->
                                 <ul class="td-inner-active clearfix">
                                     <li>
-                                    <div class="td-inner-active-news">
-                                        <p><a href="###">家装厨卫节，满减大抢购-(10月01日-10月31日)</a></p>
-                                    </div>
-                                    <a class="active-btn" href="###">参加活动</a>
+                                        <div class="td-inner-active-news">
+                                            <p><a href="###">家装厨卫节，满减大抢购-(10月01日-10月31日)</a></p>
+                                        </div>
+                                        <a class="active-btn" href="###">参加活动</a>
                                     </li>
                                 </ul>
                             </div>
