@@ -5,23 +5,7 @@
 @section('content')
     <div class="content-all">
         <div class="content clearfix">
-            <div class="content-left ">
-                <div class="content-left-heaeder ">
-                    <div class="content-left-header-pic clearfix">
-                        <a href="javascript:void(0)"><img src="{!! url('admin/images/user-small.png')!!}"/></a>
-                        <div class="content-left-header-pic-page">
-                            <span>{!! $userInfo['username'] or ''!!}</span>
-                            <p><a href="{!! url('/logout') !!}">退出登录</a></p>
-                        </div>
-                    </div>
-                    <div class="content-left-page">
-                    </div>
-                </div>
-                <ul class="content-left-menu clearfix">
-                    <li><a class="on" href="{!! url('dashboard') !!}">控制面板</a></li>
-                    <li><a href="">修改密码</a></li>
-                </ul>
-            </div>
+            @include('admin.common.sidebar')
             <div class="content-right">
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>

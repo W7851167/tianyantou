@@ -7,7 +7,7 @@
                 <p class="header-logo-pg">系统管理中心</p>
 
                 <div class="header-right">
-                    <img src=""/>
+                    <img src="/admin/images/user-small.png"/>
 
                     <div class="header-right-administrator">
                         <a href="">管理员</a>
