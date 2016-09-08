@@ -25,10 +25,7 @@
             </div>
         </div>
         <div class="header-nav clearfix">
-            <?php
-                $menu = getNavConfig();
-                echo $menu[0];
-            ?>
+            {!! $menu or '' !!}
         </div>
     </div>
     <!-- END TOP_HEADER -->

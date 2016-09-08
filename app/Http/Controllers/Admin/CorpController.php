@@ -17,5 +17,13 @@ use App\Http\Controllers\AdminController;
 
 class CorpController extends  AdminController
 {
+    public function index()
+    {
+        return view('admin.corp.index');
+    }
 
+    public function create()
+    {
+        return view('admin.corp.create');
+    }
 }
