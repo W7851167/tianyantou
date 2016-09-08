@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>登录页</title>
     <link rel="stylesheet" type="text/css" href="{!! URL('/admin/css/login.css') !!}"/>
-    <script src="{!! URL('/admin/js/jquery.min.js') !!}" type="text/javascript" charset="utf-8"></script>
+    <script src="{!! URL('/vendor/jquery/jquery.min.js') !!}" type="text/javascript" charset="utf-8"></script>
     <style>
         .hide {display:none}
     </style>

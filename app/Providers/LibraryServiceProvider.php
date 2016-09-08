@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Library\Utils\Factory;
 use App\Library\Utils\LibraryFactory;
 use App\Library\Utils\LibraryManager;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
 class LibraryServiceProvider extends ServiceProvider
@@ -17,6 +19,15 @@ class LibraryServiceProvider extends ServiceProvider
     public function boot()
     {
         require app_path('Library/Libs/helper.php');
+        $urls =  parse_url(Request::Url());
+        $host =  $urls['host'];
+        $prefix = explode('.', $host)[0];
+        $user = Session::get('user.login');
+        if(strtolower($prefix) == 'admin' && !empty($user)) {
+            list($menu,$sidebarHtml) = getNavConfig();
+            view()->share('menu', $menu);
+            view()->share('silderMenu',$sidebarHtml);
+        }
     }
 
     /**

@@ -5,20 +5,20 @@
  * 版权所有: CopyRight By cw100.com
  * 文件内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:TestController.php
+ * $FILE:SystemController.php
  * $Author:zxs
- * $Dtime:2016/9/7
+ * $Dtime:2016/9/8
  ***********************************************************************************/
+
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\AdminController;
-use App\Models\BankModel;
-use App\Models\UserModel;
 
-class TestController  extends  AdminController {
+use App\Http\Controllers\AdminController;
+
+class SystemController extends  AdminController
+{
     public function index()
     {
-        $bank = UserModel::find(1);
-        dd($bank);
+        return view('admin.system.index');
     }
 }

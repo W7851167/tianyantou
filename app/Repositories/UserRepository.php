@@ -13,6 +13,7 @@
 namespace App\Repositories;
 
 use App\Models\UserModel;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 
 class UserRepository extends BaseRepository
@@ -40,20 +41,30 @@ class UserRepository extends BaseRepository
         if (!$userModel) {
             return $this->getError('该用户不存在!');
         }
-        $data = $userModel->toArray();
 
         //自动登录
         if ($remember && $res = Session::get('user.login')) {
-            if ($res['username'] == $data['username']) {
+            if ($res['username'] == $userModel->username) {
                 return static::getSuccess('登录成功!');
             }
         }
         //判断密码是否正确
-        if (!password_verify($password, $data['password'])) {
+        if (!password_verify($password, $userModel->password)) {
             return static::getError('密码不正确，请重新输入!');
         }
 
-        Session::put('user.login', $data);
+        Session::put('user.login', $userModel);
         return static::getSuccess('登录成功!');
+    }
+
+    public function logout()
+    {
+        try {
+            Session::forget('suppliers.login');
+            Session::forget(base64_encode(Request::ip()));
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

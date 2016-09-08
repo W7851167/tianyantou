@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
-class LoginController extends AdminController
+class PassportController extends AdminController
 {
     public function __construct(
         UserRepository $userRepository
@@ -52,5 +52,16 @@ class LoginController extends AdminController
         }
 
         return view('admin.login.index');
+    }
+
+    /**
+     * @return string
+     * 退出系统
+     */
+    public function logout()
+    {
+        if($this->userRepository->logout()) {
+            return redirect(url('passport/login'));
+        }
     }
 }
