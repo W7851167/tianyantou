@@ -53,12 +53,15 @@ class UserRepository extends BaseRepository
         if (!password_verify($password, $data['password'])) {
             return static::getError('密码不正确，请重新输入!');
         }
-        $sessionData['username'] = $data['username'];
-        if(!empty($userModel->avatar->name))
+        $sessionData = [
+            'id' => $data['id'],
+            'username' => $data['username'],
+        ];
+        if (!empty($userModel->avatar->name))
             $sessionData['avatar'] = $userModel->avatar->name;
         Session::put('user.passport', $sessionData);
 
-        Session::put('peng','zhuang');
+        Session::put('peng', 'zhuang');
 
         return static::getSuccess('登录成功!');
     }
