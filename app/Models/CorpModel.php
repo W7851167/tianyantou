@@ -13,4 +13,9 @@ class CorpModel extends BaseModel
     {
         return $this->morphOne('App\Models\ImageModel', 'item');
     }
+
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\TaskModel','corp_id');
+    }
 }

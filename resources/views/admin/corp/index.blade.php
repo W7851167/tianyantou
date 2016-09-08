@@ -18,30 +18,40 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">公司列表</a></p>
                     <p><a href="javascript:void(0)"></a></p>
-                    <a href="{!!url('/shop/add')!!}" class="buttonA">创建公司</a>
+                    <a href="{!!url('corp/create')!!}" class="buttonA">创建公司</a>
                 </div>
-
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='65'>门店ID</th>
-                            <th width="220">门店名称</th>
-                            <th width="400">门店地址</th>
-                            <th width="160">服务电话</th>
+                            <th width='120'>LOGO</th>
+                            <th width="150">平台名称</th>
+                            <th width="150">公司名称</th>
+                            <th width="250">地址</th>
+                            <th width="60">项目数</th>
+                            <th width="60">状态</th>
                             <th>操作</th>
                         </tr>
-
+                           @if(!empty($lists))
+                               @foreach($lists as $cv)
                             <tr>
-                                <td>111</td>
-                                <td>111</td>
-                                <td>111</td>
-                                <td>1111</td>
+                                <td>
+                                    <img src="{!! $cv->logo->name or '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                </td>
+                                <td>{!! $cv->platform !!}</td>
+                                <td>{!! $cv->name !!}</td>
+                                <td>{!! $cv->province !!}  {!! $cv->city !!}</td>
+                                <td>{!! $cv->tasks->count() !!}</td>
+                                <td>{!! $cv->status ? '正常' : '暂停'!!}</td>
                                 <td>
                                     <a href="">编辑</a>
                                     <a href="">管理</a>
                                 </td>
                             </tr>
-
+                            @endforeach
+                           @endif
                     </table>
+                <ul class="page_info page">
+                    {!! $pageHtml !!}
+                </ul>
             </div>
         </div>
     </div>
