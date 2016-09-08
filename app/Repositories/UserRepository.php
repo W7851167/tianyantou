@@ -42,17 +42,20 @@ class UserRepository extends BaseRepository
             return $this->getError('该用户不存在!');
         }
 
+        $data = $userModel->toArray();
         //自动登录
         if ($remember && $res = Session::get('user.login')) {
-            if ($res['username'] == $userModel->username) {
+            if ($res['username'] == $data['username']) {
                 return static::getSuccess('登录成功!');
             }
         }
         //判断密码是否正确
-        if (!password_verify($password, $userModel->password)) {
+        if (!password_verify($password, $data['password'])) {
             return static::getError('密码不正确，请重新输入!');
         }
-
+        $sessionData['username'] = $data['username'];
+        if(!empty($userModel->avatar->name))
+            $sessionData['avatar'] = $userModel->avatar->name;
         Session::put('user.login', $userModel);
         return static::getSuccess('登录成功!');
     }

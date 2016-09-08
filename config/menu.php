@@ -12,8 +12,10 @@
 
 return [
     'nav' => [
-        ['name' => '', 'url' => ''],
-        ['name' => '面板', 'url' => 'dashboard','page'=>null],
+        ['name' => '面板', 'url' => 'dashboard','page'=>[
+            ['name'=>'控制面板','url'=>'dashboard'],
+            ['name'=>'修改密码','url'=>'user/password'],
+        ]],
         ['name' => '用户管理', 'url' => 'user','page'=>[
             ['name'=>'用户列表', 'url'=>'user'],
             ['name'=>'添加用户', 'url'=>'user/add']

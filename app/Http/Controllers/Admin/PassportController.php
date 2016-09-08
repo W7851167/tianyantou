@@ -51,7 +51,7 @@ class PassportController extends AdminController
             return $this->error('登陆失败!', '', true);
         }
 
-        return view('admin.login.index');
+        return view('admin.passport.index');
     }
 
     /**
