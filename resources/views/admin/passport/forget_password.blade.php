@@ -1,6 +1,5 @@
 @extends('admin.common.layout')
 @section('style')
-    <script src="{!!URL('cw100_b2b/js/jquery.validate-1.13.1.js')!!}"></script>
     <link rel="stylesheet" type="text/css" href="{{ URL('admin/css/password.css') }}">
 @stop
 @section('content')
@@ -18,12 +17,12 @@
                 <div class="content-right-page">
                     <div class="content-basic">
                         <div class="content-basic-tit">
-                            <form id="c_password" action="{!!url('updatepwd/save')!!}" method="post">
+                            <form id="c_password" action="{!!url('passport/password')!!}" method="post">
                                 <div  class="password_change">
                                     {{csrf_field()}}
-                                    <p class="old_password"><span>原始密码：</span><input name="oldpwd" type="password"></p>
-                                    <p class="new_password"><span>新密码：</span><input id="newpwd" name="newpwd" type="password"><span class="password_prompt">密码长度6-14位，字母区分大小写</span></p>
-                                    <p class="confirm_password"><span>确认密码：</span><input name="password_confirmation" type="password"></p>
+                                    <p class="old_password"><span>原始密码：</span><input name="old" type="password"></p>
+                                    <p class="new_password"><span>新密码：</span><input id="newpwd" name="new" type="password"><span class="password_prompt">密码长度6-14位，字母区分大小写</span></p>
+                                    <p class="confirm_password"><span>确认密码：</span><input name="confirmation" type="password"></p>
                                     <p><input type="submit" value="确定"></p>
                                 </div>
                             </form>
@@ -36,6 +35,7 @@
             </div>
         </div>
     </div>
+    <script src="{!!URL('admin/js/jquery.validate.js')!!}"></script>
     <script>
         $('#c_password').validate({
             rules:{

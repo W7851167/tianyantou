@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Session;
 class AdminController extends Controller
 {
     protected $perpage = 20;
+    protected $user;
 
     public function __construct()
     {
-        view()->share('user', Session::get('user.passport'));
+        $this->user = Session::get('user.passport');
+        view()->share('user', $this->user);
     }
 
 
