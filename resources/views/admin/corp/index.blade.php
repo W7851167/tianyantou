@@ -1,6 +1,6 @@
 @extends('admin.common.layout')
 @section('style')
-    {!!HTML::style('admin/css/showrooms.css')!!}
+    {!!HTML::style('admin/css/lists.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -20,7 +20,7 @@
                     <p><a href="javascript:void(0)"></a></p>
                     <a href="{!!url('/shop/add')!!}" class="buttonA">创建公司</a>
                 </div>
-                @if(!empty($stores))
+
                     <table class="all_shopping" cellspacing="0">
                         <tr>
                             <th width='65'>门店ID</th>
@@ -29,20 +29,19 @@
                             <th width="160">服务电话</th>
                             <th>操作</th>
                         </tr>
-                        @foreach($stores as $store)
+
                             <tr>
-                                <td>{!! $store['id'] !!}</td>
-                                <td>{!! $store['name'] !!}</td>
-                                <td>{!! $store['location'] !!}</td>
-                                <td>{!! $store['tel'] !!}</td>
+                                <td>111</td>
+                                <td>111</td>
+                                <td>111</td>
+                                <td>1111</td>
                                 <td>
-                                    <a href="{!! url('corp/edit/'.$store['id']) !!}">编辑</a>
-                                    <a href="{!! url('shop/manage/'.$store['id']) !!}">管理</a>
+                                    <a href="">编辑</a>
+                                    <a href="">管理</a>
                                 </td>
                             </tr>
-                        @endforeach
+
                     </table>
-                @endif
             </div>
         </div>
     </div>

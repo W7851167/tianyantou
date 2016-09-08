@@ -26,5 +26,18 @@ class TaskRepository extends  BaseRepository
         $this->corpModel = $corpModel;
     }
 
+    /**
+     * @param $search
+     * @param $limit
+     * @param $page
+     * 获取公司列表
+     */
+    public function getCorpList($where=[], $limit, $page)
+    {
+        $lists = $this->corpModel->lists(['*'],$where,[],[], $limit, $page);
+        $counts = $this->corpModel->countBy($where);
+        return [$counts, $lists];
+    }
+
 
 }
