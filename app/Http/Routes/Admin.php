@@ -11,7 +11,10 @@
  ***********************************************************************************/
 
 Route::group(['as' => 'admin.'], function () {
-    Route::match(['get', 'post'], 'login', ['as' => 'login', 'uses' => 'LoginController@login']);
+    //登录退出
+    Route::match(['get', 'post'], 'passport/login', ['as' => 'login', 'uses' => 'PassportController@login']);
+    Route::any( 'passport/logout', ['as' => 'logout', 'uses' => 'PassportController@logout']);
+    //控制面板
     Route::get('dashboard', ['as'=>'home.index','uses'=>'HomeController@index']);
     //用户管理
     Route::get('user', ['as'=>'user.index','uses'=>'UserController@index']);
