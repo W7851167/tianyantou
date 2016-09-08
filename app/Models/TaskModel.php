@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class TaskModel extends Model
+class TaskModel extends BaseModel
 {
     public  $table = 'tasks';
     protected  $primaryKey = 'id';

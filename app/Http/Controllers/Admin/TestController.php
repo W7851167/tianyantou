@@ -9,15 +9,16 @@
  * $Author:zxs
  * $Dtime:2016/9/7
  ***********************************************************************************/
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\AdminController;
 use App\Models\BankModel;
 use App\Models\UserModel;
 
-class TestController  extends  Controller {
+class TestController  extends  AdminController {
     public function index()
     {
         $bank = UserModel::find(1);
-        dd($bank->avatar->name);
+        dd($bank);
     }
 }

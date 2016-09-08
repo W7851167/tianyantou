@@ -18,3 +18,5 @@ Route::group(['as' => 'admin.'], function () {
         return '登陆成功';
     });
 });
+
+Route::get('test','TestController@index');

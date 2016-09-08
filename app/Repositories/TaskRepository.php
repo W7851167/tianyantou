@@ -25,4 +25,6 @@ class TaskRepository extends  BaseRepository
         $this->taskModel = $taskModel;
         $this->corpModel = $corpModel;
     }
+
+
 }
