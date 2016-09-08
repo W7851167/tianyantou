@@ -28,7 +28,7 @@ class LoginController extends FrontController
 
         }
 
-        return view('front.login');
+        return view('front.passport');
     }
 
     public function register(Request $request)

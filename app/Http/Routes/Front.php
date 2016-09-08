@@ -14,5 +14,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::match(['get', 'post'], 'user/login.html', ['as' => 'front.login', 'uses' => 'LoginController@login']);
+Route::match(['get', 'post'], 'user/passport.html', ['as' => 'front.passport', 'uses' => 'LoginController@passport']);
 Route::match(['get', 'post'], 'user/register.html', ['as' => 'front.register', 'uses' => 'LoginController@register']);
