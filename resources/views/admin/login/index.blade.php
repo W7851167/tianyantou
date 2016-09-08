@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title>登录页</title>
-    <link rel="stylesheet" type="text/css" href="{!! URL('/css/admin/login.css') !!}"/>
-    <script src="{!! URL('/js/jquery.min.js') !!}" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="{!! URL('/admin/css/login.css') !!}"/>
+    <script src="{!! URL('/admin/js/jquery.min.js') !!}" type="text/javascript" charset="utf-8"></script>
     <style>
         .hide {display:none}
     </style>
