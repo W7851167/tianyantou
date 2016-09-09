@@ -50,7 +50,7 @@
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>状态：</div>
                             <div>
-                                <input type="radio" name = "data[status]" value="0">待发布
+                                <input type="radio" name = "data[status]" value="0" checked>待发布
                                 <input type="radio" name = "data[status]" value="1">已发布
                                 <input type="radio" name = "data[status]" value="2">已结束
                             </div>

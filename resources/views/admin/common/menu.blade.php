@@ -15,7 +15,7 @@
                         <div class="header-right-triangle"></div>
                         <div class="header-right-menu">
                             <ul>
-                                <li><a href="{!! url('user/password') !!}">修改密码</a></li>
+                                <li><a href="{!! url('passport/password') !!}">修改密码</a></li>
                                 <li><a href="{!! url('passport/logout') !!}">退出</a></li>
                             </ul>
                         </div>
