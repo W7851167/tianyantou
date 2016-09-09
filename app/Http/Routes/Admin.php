@@ -22,8 +22,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('withdraw', ['as' => 'withdraw', 'uses' => 'WithdrawController@index']);
     //项目管理
     Route::get('task', ['as' => 'task.index', 'uses' => 'TaskController@index']);
-    Route::get('task/create', ['as' => 'task.create', 'uses' => 'TaskController@create']);
-    Route::get('task/store/{id}', ['as' => 'task.store', 'uses' => 'TaskController@store']);
+    Route::get('task/create/{id?}', ['as' => 'task.create', 'uses' => 'TaskController@create']);
     Route::get('corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
     Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
     Route::any('corp/edit/{id}', ['as' => 'corp.store', 'uses' => 'CorpController@store']);

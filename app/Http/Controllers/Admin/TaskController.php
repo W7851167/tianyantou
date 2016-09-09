@@ -33,8 +33,16 @@ class TaskController extends  AdminController
         return view('admin.task.index', compact('lists','pageHtml'));
     }
 
-    public function create()
+    public function create(Request $request,$id=null)
     {
-        return view('admin.task.create');
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+        }
+        $corps = $this->taskRepository->getNormalCorps(['status'=>1]);
+        if(!empty($id)) {
+            $task = $this->taskRepository->taskModel->find($id);
+            return view('admin.task.create',compact('task','corps'));
+        }
+        return view('admin.task.create',compact('corps'));
     }
 }
