@@ -39,12 +39,6 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);
     Route::get('news/single', ['as' => 'news.single', 'uses' => 'NewController@single']);
     Route::get('news/multi', ['as' => 'news.multi', 'uses' => 'NewController@multi']);
-    //文章分类管理
-    Route::get('category', ['as' => 'category.index', 'uses' => 'CategoryController@index']);
-    Route::get('category/create', ['as' => 'category.create', 'uses' => 'CategoryController@create']);
-    Route::post('category/store/{id}', ['as' => 'category.store', 'uses' => 'CategoryController@store']);
-    Route::match(['get', 'post'], 'category/create/{id}', ['as' => 'category.edit', 'uses' => 'CategoryController@edit']);
-    Route::get('category/del/{id}', ['as' => 'category.del', 'uses' => 'CategoryController@del']);
 });
 
 Route::get('/', function () {
