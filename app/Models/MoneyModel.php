@@ -3,9 +3,9 @@
 namespace App\Models;
 
 
-class WithdrawModel extends BaseModel
+class MoneyModel extends BaseModel
 {
-    public  $table = 'withdraws';
+    public  $table = 'moneys';
     protected  $primaryKey = 'id';
 
     public function user()
