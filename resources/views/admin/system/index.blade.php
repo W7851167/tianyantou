@@ -16,9 +16,7 @@
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="javascript:void(0)" class="at">项目列表</a></p>
-                    <p><a href="javascript:void(0)"></a></p>
-                    <a href="{!!url('/shop/add')!!}" class="buttonA">添加项目</a>
+                    <p><a href="javascript:void(0)" class="at">系统功能</a></p>
                 </div>
                 @if(!empty($stores))
                     <table class="all_shopping" cellspacing="0">

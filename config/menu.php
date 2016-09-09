@@ -18,13 +18,11 @@ return [
         ]],
         ['name' => '用户管理', 'url' => 'user','page'=>[
             ['name'=>'用户列表', 'url'=>'user'],
-            ['name'=>'添加用户', 'url'=>'user/add']
+            ['name'=>'提现管理', 'url'=>'withdraw']
         ]],
         ['name' => '项目管理', 'url' => 'task','page'=>[
             ['name'=>'公司管理', 'url'=>'corp'],
-            ['name'=>'创建公司', 'url'=>'corp/create'],
             ['name'=>'项目管理', 'url'=>'task'],
-            ['name'=>'创建项目', 'url'=>'task/create'],
         ]],
         ['name' => '文章管理', 'url' => 'news','page'=>[
             ['name'=>'文章管理', 'url'=>'news'],

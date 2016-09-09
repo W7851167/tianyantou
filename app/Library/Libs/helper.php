@@ -29,7 +29,7 @@ function getNavConfig($url = null)
         if (!empty($value['page'])) {
             $urls = array_pluck($value['page'], 'url');
         }
-        if ($url == $value['url'] || in_array($url, $urls)) {
+        if ($url == $value['url'] || in_array($url, $urls) || substr($url,0,strlen($value['url'])) == $value['url']) {
             $navHtml .= ' class="at"';
             $sidebarHtml .= '<ul class="content-left-menu clearfix">';
             if (!empty($value['page'])) {

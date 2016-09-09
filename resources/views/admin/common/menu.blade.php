@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="" target="_blank">访问前端</a>
+                    <a href="{!! config('app.url') !!}" target="_blank">访问前端</a>
                 </div>
             </div>
         </div>

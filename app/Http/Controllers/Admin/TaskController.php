@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use App\Repositories\TaskRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class TaskController extends  AdminController
 {
@@ -24,13 +25,24 @@ class TaskController extends  AdminController
         $this->taskRepository = $taskRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.task.index');
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        list($count, $lists) = $this->taskRepository->getTaskList([], $this->perpage, $page);
+        $pageHtml = $this->pager($count,$page, $this->perpage);
+        return view('admin.task.index', compact('lists','pageHtml'));
     }
 
-    public function create()
+    public function create(Request $request,$id=null)
     {
-        return view('admin.task.create');
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+        }
+        $corps = $this->taskRepository->getNormalCorps(['status'=>1]);
+        if(!empty($id)) {
+            $task = $this->taskRepository->taskModel->find($id);
+            return view('admin.task.create',compact('task','corps'));
+        }
+        return view('admin.task.create',compact('corps'));
     }
 }

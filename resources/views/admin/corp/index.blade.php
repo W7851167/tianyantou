@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title') 公司信息 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
 @stop

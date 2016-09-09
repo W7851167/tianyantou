@@ -40,6 +40,32 @@ class TaskRepository extends  BaseRepository
     }
 
     /**
+     * @param array $where
+     * 获取所有项目
+     */
+    public function getNormalCorps($where=[])
+    {
+        $fields = ['*'];
+        return $this->corpModel->alls($fields,$where);
+    }
+
+
+
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     * 获取投标列表
+     */
+    public function getTaskList($where=[], $limit,$page)
+    {
+        $lists = $this->taskModel->lists(['*'],$where,[],[], $limit, $page);
+        $counts = $this->taskModel->countBy($where);
+        return [$counts, $lists];
+    }
+
+    /**
      * @param $data
      * 保存信息
      */
