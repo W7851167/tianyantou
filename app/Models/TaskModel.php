@@ -17,11 +17,11 @@ class TaskModel extends BaseModel
 
     public function corp()
     {
-        return $this->belongsTo('App\Models\CorpModel');
+        return $this->belongsTo('App\Models\CorpModel','corp_id');
     }
 
     public function admin()
     {
-        return $this->belongsTo('App\Models\UserModel');
+        return $this->belongsTo('App\Models\UserModel','user_id');
     }
 }

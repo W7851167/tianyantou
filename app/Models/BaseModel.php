@@ -46,6 +46,26 @@ class BaseModel extends  Model
     }
 
     /**
+     * @param array $fields
+     * @param array $where
+     * @param array $orderBy
+     * @param array $groupBy
+     * @return mixed
+     * 获取所有内容
+     */
+    public function alls($fields = ['*'], $where = [], $orderBy = [], $groupBy = [])
+    {
+        if(!is_array($fields)) {
+            $fields = explode(',', $fields);
+            $fields = array_map('trim', $fields);
+        }
+
+        $query = $this->select($fields);
+        $query = $this->createWhere($query, $where, $orderBy, $groupBy);
+        return $query->get();
+    }
+
+    /**
      * @param $query
      * @param array $where
      * @param array $orderBy

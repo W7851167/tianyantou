@@ -13,15 +13,18 @@
 namespace App\Repositories;
 
 
+use App\Models\CategoryModel;
 use App\Models\NewModel;
 
 class NewRepository extends BaseRepository
 {
     public function __construct(
-        NewModel $newModel
+        NewModel $newModel,
+        CategoryModel $categoryModel
     )
     {
         $this->newModel = $newModel;
+        $this->categoryModel = $categoryModel;
     }
 
     /**
@@ -38,6 +41,15 @@ class NewRepository extends BaseRepository
         $lists = $this->newModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->newModel->countBy($where);
         return [$count, $lists];
+    }
+
+    /**
+     * @return mixed
+     * 获取系统消息
+     */
+    public function getSystemCategorys($where)
+    {
+        return $this->categoryModel->alls(['id','title','created_at'],$where);
     }
 
 }
