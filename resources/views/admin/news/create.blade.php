@@ -25,8 +25,8 @@
                                 <td><span>*</span>案列内容：</td>
                                 <td>
                                     <div class="case_compile_content">
-                                        <textarea name="data[content]" id="content"></textarea>
-                                        @if(!empty($errors->first('data.content')))<span style="color: red">{!! $errors->first('data.content') !!}</span>@endif
+                                        <textarea name="content" id="content"></textarea>
+                                        @if(!empty($errors->first('content')))<span style="color: red">{!! $errors->first('data.content') !!}</span>@endif
                                     </div>
                                 </td>
                             </tr>

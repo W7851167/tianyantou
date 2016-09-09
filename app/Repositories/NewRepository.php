@@ -13,6 +13,7 @@
 namespace App\Repositories;
 
 
+use App\Models\ArticleModel;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
 
@@ -20,11 +21,13 @@ class NewRepository extends BaseRepository
 {
     public function __construct(
         NewModel $newModel,
-        CategoryModel $categoryModel
+        CategoryModel $categoryModel,
+        ArticleModel $articleModel
     )
     {
         $this->newModel = $newModel;
         $this->categoryModel = $categoryModel;
+        $this->articleModel = $articleModel;
     }
 
     /**
@@ -49,7 +52,7 @@ class NewRepository extends BaseRepository
      */
     public function getSystemCategorys($where)
     {
-        return $this->categoryModel->alls(['id','title','created_at','parent_id','page'],$where);
+        return $this->categoryModel->alls(['id', 'title', 'created_at', 'parent_id', 'page'], $where);
     }
 
 }
