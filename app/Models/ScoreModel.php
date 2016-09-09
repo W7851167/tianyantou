@@ -10,6 +10,6 @@ class ScoreModel extends BaseModel
 
     public function user()
     {
-        return $this->belongsTo('App\Models\UserModel');
+        return $this->belongsTo('App\Models\UserModel','user_id');
     }
 }

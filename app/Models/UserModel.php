@@ -23,7 +23,7 @@ class UserModel extends BaseModel
      */
     public function money()
     {
-        return $this->hasOne('App\Models\MoneiModel');
+        return $this->hasOne('App\Models\MoneyModel');
     }
 
     /**
