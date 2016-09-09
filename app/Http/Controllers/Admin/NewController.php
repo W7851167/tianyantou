@@ -154,7 +154,6 @@ class NewController extends AdminController
         $url = \Request::path();
         $url = ltrim($url, '/');
         $categorys = [
-            ['name' => '分类管理', 'url' => 'news/category'],
             ['name' => '单分类文章', 'url' => 'news/single'],
             ['name' => '列表文章', 'url' => 'news/multi'],
             ['name' => '帮助中心', 'url' => 'news/help'],
