@@ -1,5 +1,5 @@
 @extends('admin.common.layout')
-@section('title') 公司信息 @stop
+@section('title') 最新动态 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
 @stop
@@ -18,30 +18,31 @@
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}" class="at">公司介绍</a></p>
+                    <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}">公司介绍</a></p>
                     <p><a href="{!! url('corp/term',['id'=>$corp->id]) !!}">团队管理</a></p>
                     <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}">安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}">图片资料</a></p>
-                    <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
+                    <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}"  class="at">最新动态</a></p>
+                    <a href="{!!url('corp/newscreate')!!}" class="buttonA">创建动态</a>
                 </div>
-                <form  method="post" class="base_form">
-                    {!! csrf_field() !!}
-                    @if(!empty($corp))
-                        <input type="hidden" name="data[id]" value="{!! $corp->id !!}">
-                    @endif
-                    <div>
-                        <div class="infospaceAddContent clearfix">
-                            <div>
-                                <script name="content" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;"></script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w928">
-                        <div class="button">
-                            <input class="submit" type="submit"  value="保存">
-                        </div>
-                    </div>
-                </form>
+                <table class="all_shopping" cellspacing="0">
+                    <tr>
+                        <th>动态主图</th>
+                        <th>标题</th>
+                        <th>操作</th>
+                    </tr>
+                            <tr>
+                                <td width="200px;" height="150">
+                                    <img src="{!!  '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                </td>
+                                <td width="500px;">第五届中国财经峰会汇投网获“2016互联网金融典范企业”奖</td>
+                                <td style="width:150px; padding-left: 30px;">
+                                    <a href="{!! url('corp/create',['id'=>1]) !!}">编辑</a>
+                                    <a href="{!! url('corp/manage',['id'=>1]) !!}">删除</a>
+                                    <a href="{!! config('app.url') .'/about/news/1.html' !!}" target="_blank">查看</a>
+                                </td>
+                            </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -57,4 +58,4 @@
             });
         });
     </script>
-    @stop
+@stop

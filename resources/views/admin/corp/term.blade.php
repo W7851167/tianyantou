@@ -1,5 +1,5 @@
 @extends('admin.common.layout')
-@section('title') 公司信息 @stop
+@section('title') 团队管理 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
 @stop
@@ -18,30 +18,34 @@
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}" class="at">公司介绍</a></p>
-                    <p><a href="{!! url('corp/term',['id'=>$corp->id]) !!}">团队管理</a></p>
+                    <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}">公司介绍</a></p>
+                    <p><a href="{!! url('corp/term',['id'=>$corp->id]) !!}"  class="at">团队管理</a></p>
                     <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}">安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
+                    <a href="{!!url('corp/termcreate')!!}" class="buttonA">创建成员</a>
                 </div>
-                <form  method="post" class="base_form">
-                    {!! csrf_field() !!}
-                    @if(!empty($corp))
-                        <input type="hidden" name="data[id]" value="{!! $corp->id !!}">
-                    @endif
-                    <div>
-                        <div class="infospaceAddContent clearfix">
-                            <div>
-                                <script name="content" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;"></script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w928">
-                        <div class="button">
-                            <input class="submit" type="submit"  value="保存">
-                        </div>
-                    </div>
-                </form>
+                <table class="all_shopping" cellspacing="0">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                            <tr>
+                                <td width="200px;">
+                                    <img src="{!!  '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                </td>
+                                <td width="80px;">CTO</td>
+                                <td width="80px;">彭志壮</td>
+                                <td style="width:300px;">毕业于北京大学，理学学士。先后在北大方正集团，中国互动媒体集团、中信国检信息技术有限公司、迈奇通科技（北京）有限公司等多家公司...</td>
+                                <td style="width:150px; padding-left: 30px;">
+                                    <a href="{!! url('corp/create',['id'=>1]) !!}">编辑</a>
+                                    <a href="{!! url('corp/manage',['id'=>1]) !!}">删除</a>
+                                </td>
+                            </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -57,4 +61,4 @@
             });
         });
     </script>
-    @stop
+@stop

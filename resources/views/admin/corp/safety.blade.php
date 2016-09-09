@@ -1,5 +1,5 @@
 @extends('admin.common.layout')
-@section('title') 公司信息 @stop
+@section('title') 安全保障 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
 @stop
@@ -18,9 +18,9 @@
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}" class="at">公司介绍</a></p>
+                    <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}">公司介绍</a></p>
                     <p><a href="{!! url('corp/term',['id'=>$corp->id]) !!}">团队管理</a></p>
-                    <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}">安全保障</a></p>
+                    <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}"  class="at">安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
                 </div>
@@ -29,12 +29,25 @@
                     @if(!empty($corp))
                         <input type="hidden" name="data[id]" value="{!! $corp->id !!}">
                     @endif
-                    <div>
-                        <div class="infospaceAddContent clearfix">
-                            <div>
-                                <script name="content" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;"></script>
-                            </div>
-                        </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>备案域名：</div>
+                        <div><input type="text" name="data[domain]" placeholder="备案域名" value=""></div>
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>单位性质：</div>
+                        <div><input type="text" name="data[icp_corp_type]" placeholder="企业" value=""></div>
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>备案时间：</div>
+                        <div><input type="text" name="data[icp_time]" placeholder="备案时间" value=""></div>
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
+                        <div><input type="text" name="data[icp_corp_name]" placeholder="公司名称" value=""></div>
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>ICP备案号：</div>
+                        <div><input type="text" name="data[icp_no]" placeholder="京ICP备14019436号" value=""></div>
                     </div>
                     <div class="w928">
                         <div class="button">
