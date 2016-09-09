@@ -41,4 +41,6 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);
 });
 
-Route::get('test', 'TestController@index');
+Route::get('/', function(){
+    return  redirect(url('passport/login'));
+});
