@@ -6,7 +6,7 @@
  * 文章控制器管理
  *-------------------------------------------------------------------------------
  * $FILE:NewController.php
- * $Author:zxs
+ * $Author:pzz
  * $Dtime:2016/9/8
  ***********************************************************************************/
 
@@ -21,7 +21,8 @@ class NewController extends AdminController
 {
     public function __construct(
         NewRepository $new
-    ) {
+    )
+    {
         parent::__construct();
         $this->new = $new;
     }
@@ -40,7 +41,7 @@ class NewController extends AdminController
         $silderMenu = $this->getSiderbar();
         $this->pager($count, $page, $this->perpage);
         return view('admin.news.index', compact(
-            'news','silderMenu'
+            'news', 'silderMenu'
         ));
     }
 
@@ -54,7 +55,7 @@ class NewController extends AdminController
         $where['theme'] = 1;
         $lists = $this->new->getSystemCategorys($where);
         $silderMenu = $this->getSiderbar();
-        return view('admin.news.single',compact('lists','silderMenu'));
+        return view('admin.news.single', compact('lists', 'silderMenu'));
     }
 
 
@@ -69,7 +70,7 @@ class NewController extends AdminController
         $where['theme'] = 0;
         $categorys = $this->new->getSystemCategorys($where);
         $silderMenu = $this->getSiderbar();
-        return view('admin.news.multi',compact('lists','categorys','silderMenu'));
+        return view('admin.news.multi', compact('lists', 'categorys', 'silderMenu'));
     }
 
     /**
@@ -151,18 +152,19 @@ class NewController extends AdminController
     private function getSiderbar()
     {
         $url = \Request::path();
-        $url = ltrim($url,'/');
+        $url = ltrim($url, '/');
         $categorys = [
-            ['name'=>'单分类文章','url'=>'news/single'],
-            ['name'=>'列表文章','url'=>'news/multi'],
-            ['name'=>'帮助中心','url'=>'news/help'],
-            ['name'=>'公告/事件','url'=>'news/notice'],
+            ['name' => '分类管理', 'url' => 'news/category'],
+            ['name' => '单分类文章', 'url' => 'news/single'],
+            ['name' => '列表文章', 'url' => 'news/multi'],
+            ['name' => '帮助中心', 'url' => 'news/help'],
+            ['name' => '公告/事件', 'url' => 'news/notice'],
         ];
         $sidebarHtml = '';
         $sidebarHtml .= '<ul class="content-left-menu clearfix">';
         foreach ($categorys as $cat) {
             $sidebarHtml .= '<li><a href="' . url($cat['url']) . '"';
-            if (substr($url, 0,strlen($cat['url'])) === $cat['url']) {
+            if (substr($url, 0, strlen($cat['url'])) === $cat['url']) {
                 $sidebarHtml .= ' class="on"';
             }
             $sidebarHtml .= ' >' . $cat['name'] . '</a></li>';

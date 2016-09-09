@@ -17,10 +17,10 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         $user = Session::get('user.passport');
-//        if ($user or $request->is('/passport/login')) {
+        if ($user or $request->is('/passport/login')) {
             return $next($request);
-//        }
-//
-//        return redirect('passport/login');
+        }
+
+        return redirect('passport/login');
     }
 }

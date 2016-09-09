@@ -12,9 +12,9 @@ class UserModel extends BaseModel
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      * 获取用户头像数据
      */
-    public function avatar()
+    public function avatars()
     {
-        return $this->morphOne('App\Models\ImageModel', 'item');
+        return $this->morphMany('App\Models\ImageModel', 'item');
     }
 
     /**
