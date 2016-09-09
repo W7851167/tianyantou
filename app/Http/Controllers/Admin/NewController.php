@@ -140,7 +140,16 @@ class NewController extends AdminController
             return $this->error('发布文章失败');
         }
 
-        return view('admin.news.create');
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 0,
+            'theme' => 0,
+        ];
+        $categorys = $this->new->getSystemCategorys($where);
+
+        return view('admin.news.create',compact(
+            'categorys'
+        ));
     }
 
     /**

@@ -37,7 +37,8 @@
                                     <td>{!! $new->title !!}</td>
                                     <td>{!! $new->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/create/'.$new->id) !!}">编辑</a>
+                                        <a href="{!! url('news/edit/'.$new->id) !!}">编辑</a>
+                                        <a href="{!! url('news/del/'.$new->id) !!}">编辑</a>
                                     </td>
                                 </tr>
                             @endforeach
