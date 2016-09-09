@@ -1,3 +1,4 @@
+{!! HTML::script('vendor/jquery.form/jquery.form.min.js') !!}
 <div id="popup_box" style="display:none;">
     <div id="maskLevel"></div>
     <div class="popup_tag_box">
@@ -56,10 +57,6 @@
         //基础ajax提交
         $('.base_form').ajaxForm(options);
 
-        //瀑布流
-        $('#contents').masonry({
-            itemSelector : 'li',
-        });
 
         //弹出框
         $('.title_del_box').mousedown(function(e){
