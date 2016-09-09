@@ -6,7 +6,7 @@
 @include('admin.common.menu')
 @yield('content')
 <!-- body 部分结束 -->
-
+@include('admin.common.base')
 <!-- footer部分 -->
 @include('admin.common.footer')
 <!-- footer部分结束 -->
