@@ -23,6 +23,7 @@ class NewController extends AdminController
         NewRepository $new
     )
     {
+        parent::__construct();
         $this->new = $new;
     }
 
@@ -44,26 +45,76 @@ class NewController extends AdminController
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\View\View|void
+     *
+     * 发布文章
+     */
     public function create(Request $request)
     {
         if ($request->isMethod('post')) {
-
+            try {
+                $userModel = $this->new->newModel->create(array_merge(
+                    $request->all(), ['user_id' => $this->user['id']]
+                ));
+                if (!empty($userModel)) return $this->success('发布文章成功!');
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
+            return $this->error('发布文章失败');
         }
 
         return view('admin.news.create');
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\View\View|void
+     *
+     * 编辑文章
+     */
     public function edit($id, Request $request)
     {
         if ($request->isMethod('post')) {
+            $data = [
+                'title' => $request->get('title'),
+                'content' => $request->get('content'),
+                'type' => $request->get('type'),
+            ];
 
+            try {
+                $result = $this->new->newModel->whereId($id)->update($data);
+                if (!empty($result)) return $this->success('编辑文章成功!');
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
+            return $this->error('编辑文章失败!');
         }
 
-        return view('admin.news.edit');
+        $newModel = $this->new->newModel->find($id);
+        if (empty($newModel)) return $this->error('该文章不存在或已删除!');
+
+        return view('admin.news.edit', compact('newModel'));
     }
 
+    /**
+     * @param $id
+     *
+     * 删除文章
+     */
     public function del($id)
     {
+        $newModel = $this->new->newModel->find($id);
+        if (empty($newModel)) return $this->error('删除文章失败!');
 
+        try {
+            $result = $newModel->delete();
+            if (!empty($result)) return $this->success('删除文章成功!');
+        } catch (\Exception $e) {
+            $e->getMessage();
+        }
+        return $this->error('删除文章失败!');
     }
 }
