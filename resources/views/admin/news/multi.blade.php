@@ -14,15 +14,15 @@
                 </div>
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
-                        <p><a href="{!! url('news/multi') !!}" class="at">所有资讯</a></p>
+                        <p><a href="{!! url('news/multi') !!}" {!! Input::get('category')?'':'class="at"' !!}">所有资讯</a></p>
                         @if(!empty($categorys))
                             @foreach($categorys as $cat)
-                             <p><a href="{!! url('news/multi/' . $cat->page) !!}">{!! $cat->title !!}</a></p>
+                             <p><a href="{!! url('news/multi?category=' . $cat->id) !!}" {!! $cat->id==Input::get('category')? 'class="at"' :'' !!}>{!! $cat->title !!}</a></p>
                             @endforeach
                         @endif
                         <a href="{!! url('/news/create') !!}" class="buttonA">发布文章</a>
                     </div>
-                    @if(!empty($lists))
+                    @if(count($lists)>0)
                         <table class="client_cases" cellspacing="0">
                             <tr>
                                 <th width="100">编号</th>
@@ -37,7 +37,8 @@
                                     <td>{!! $new->title !!}</td>
                                     <td>{!! $new->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/create/'.$new->id) !!}">编辑</a>
+                                        <a href="{!! url('news/edit/'.$new->id) !!}">编辑</a>
+                                        <a href="{!! url('news/del/'.$new->id) !!}">编辑</a>
                                     </td>
                                 </tr>
                             @endforeach

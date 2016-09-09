@@ -17,16 +17,40 @@
                     <form action="{!! url('/news/create') !!}" method="POST" id="project_form">
                         <table class="case_specific" cellspacing="0">
                             <tr>
-                                <td width="200"><span>*</span>案例标题：</td>
-                                <td width="728"><input name="data[title]" class="case_input" type="text"></td>
-                                @if(!empty($errors->first('data.title')))<span style="color: red">{!! $errors->first('data.title') !!}</span>@endif
+                                <td width="200"><span>*</span>文章标题：</td>
+                                <td width="728"><input name="title" class="case_input" type="text"></td>
+                                @if(!empty($errors->first('title')))<span style="color: red">{!! $errors->first('data.title') !!}</span>@endif
+                            </tr>
+                            <tr>
+                                <td><span>*</span>文章分类：</td>
+                                <td width="728">
+                                    <select class="case_select" name="category_id">
+                                        @foreach($categorys as $cat)<option value="{!! $cat->id !!}">{!! $cat->title !!}</option>@endforeach
+                                    </select>
+                                    @if(!empty($errors->first('category_id')))<span style="color: red">{!! $errors->first('category_id') !!}</span>@endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="200"><span>*</span>文章描述：</td>
+                                <td width="728"><input name="description" class="case_input" type="text"></td>
+                                @if(!empty($errors->first('description')))<span style="color: red">{!! $errors->first('data.title') !!}</span>@endif
                             </tr>
                             <tr class="case_compile">
-                                <td><span>*</span>案列内容：</td>
+                                <td><span>*</span>文章内容：</td>
                                 <td>
                                     <div class="case_compile_content">
                                         <textarea name="content" id="content"></textarea>
                                         @if(!empty($errors->first('content')))<span style="color: red">{!! $errors->first('data.content') !!}</span>@endif
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="case_compile">
+                                <td><span>*</span>文章Logo：</td>
+                                <td width="728">
+                                    <div>
+                                        <input id="inputClick" class="upload" type="file" placeholder="">
+                                    </div>
+                                    <div class="container-img">
                                     </div>
                                 </td>
                             </tr>
