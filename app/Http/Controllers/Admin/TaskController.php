@@ -53,7 +53,7 @@ class TaskController extends  AdminController
                 $this->taskRepository->taskModel->saveBy($data);
                 return $this->success('创建项目完成',url('task'),true);
             } catch(\Exception $e) {
-                return $this->error($e->getMessage(),null, true);
+                return $this->error('创建项目异常，请联系开发人员',null, true);
             }
         }
         $corps = $this->taskRepository->getNormalCorps(['status'=>1]);
@@ -88,7 +88,21 @@ class TaskController extends  AdminController
             $this->taskRepository->untrashed($id);
                 return $this->success('还原数据完成',url('task',['status'=>0]));
         } catch (\Exception $e) {
-            return $this->error($e->getMessage(),url('tash'));
+            return $this->error('还原数据异常，请联系开发人员',url('tash'));
+        }
+    }
+
+    /**
+     * @param $id
+     * 删除任务
+     */
+    public function delete($id)
+    {
+        try{
+            $this->taskRepository->taskModel->find($id)->delete();
+            return $this->success('删除该项目完成',url('task/trashed'));
+        } catch (\Exception $e) {
+            return $this->error('删除该项目异常');
         }
     }
 }

@@ -56,7 +56,7 @@ class CorpController extends AdminController
                 $this->taskRepository->saveCorp($data);
                 return $this->success('创建公司信息完成',url('corp'),true);
             } catch (\Exception $e) {
-                return $this->error($e->getMessage(),null,true);
+                return $this->error('创建公司信息异常，请联系开发人员',null,true);
             }
         }
         if(!empty($id)) {
