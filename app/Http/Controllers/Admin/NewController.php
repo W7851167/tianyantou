@@ -25,6 +25,7 @@ class NewController extends AdminController
     {
         parent::__construct();
         $this->new = $new;
+
     }
 
     /**
