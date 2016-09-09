@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title') 创建项目 @stop
 @section('style')
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}

@@ -1,6 +1,7 @@
 @extends('admin.common.layout')
+@section('title')提现管理@stop
 @section('style')
-    {!!HTML::style('admin/css/form.css')!!}
+    {!!HTML::style('admin/css/lists.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -10,13 +11,13 @@
                 <div class="content-right-header clearfix">
                     <div class="content-right-header clearfix">
                         <img src="{!!url('admin/images/u5.png')!!}"/>
-                        <a href="{!! url('task') !!}">项目管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                        <a href="{!! url('task') !!}">项目列表</a>
+                        <a href="{!! url('user') !!}">用户管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+                        <a href="{!! url('withdraw') !!}">提现管理</a>
                     </div>
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="javascript:void(0)" class="at">系统功能</a></p>
+                    <p><a href="javascript:void(0)" class="at">提现管理</a></p>
                 </div>
                 @if(!empty($stores))
                     <table class="all_shopping" cellspacing="0">
