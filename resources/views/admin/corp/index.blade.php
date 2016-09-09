@@ -34,7 +34,7 @@
                                @foreach($lists as $cv)
                             <tr>
                                 <td>
-                                    <img src="{!! $cv->logo->name or '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                    <img src="{!! !empty($cv->logo) ? config('app.img_url') . $cv->logo : '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
                                 </td>
                                 <td>{!! $cv->platform !!}</td>
                                 <td>{!! $cv->name !!}</td>
@@ -42,8 +42,8 @@
                                 <td>{!! $cv->tasks->count() !!}</td>
                                 <td>{!! $cv->status ? '正常' : '暂停'!!}</td>
                                 <td>
-                                    <a href="">编辑</a>
-                                    <a href="">管理</a>
+                                    <a href="{!! url('corp/create',['id'=>$cv->id]) !!}">编辑</a>
+                                    <a href="{!! url('corp/manage',['id'=>$cv->id]) !!}">管理</a>
                                 </td>
                             </tr>
                             @endforeach

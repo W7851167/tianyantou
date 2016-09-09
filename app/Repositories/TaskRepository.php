@@ -39,5 +39,14 @@ class TaskRepository extends  BaseRepository
         return [$counts, $lists];
     }
 
+    /**
+     * @param $data
+     * 保存信息
+     */
+    public function saveCorp($data)
+    {
+        return $this->corpModel->saveBy($data);
+    }
+
 
 }
