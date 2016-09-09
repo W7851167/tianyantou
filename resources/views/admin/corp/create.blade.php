@@ -4,6 +4,8 @@
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
     {!!HTML::script('vendor/area/area.js')!!}
+    {!!HTML::style('vendor/datepicker/skin/WdatePicker.css')!!}
+    {!!HTML::script('vendor/datepicker/WdatePicker.js')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -86,7 +88,7 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>上线时间：</div>
-                            <div><input type="text" name="data[online]" placeholder="2016-09-09" value="{!! $corp->online or '' !!}"></div>
+                            <div><input class="Wdate" type="text" name="data[online]" placeholder="2016-09-09" value="{!! $corp->online or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">担保方式：</div>
@@ -177,5 +179,6 @@
             },
 
         });
+        $(function(){});
     </script>
 @stop
