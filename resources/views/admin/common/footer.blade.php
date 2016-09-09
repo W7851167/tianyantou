@@ -9,7 +9,7 @@
     <li>|</li>
     <li><a href="javascript:void(0)">联系我们</a></li>
     <li>|</li>
-    <li><a href="javascript:void(0)">关于厨卫百分百</a></li>
+    <li><a href="javascript:void(0)">关于我们</a></li>
 </ul>
 </div>
 </body>

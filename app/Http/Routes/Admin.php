@@ -21,11 +21,13 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::any('user/edit/{id}', ['as' => 'user.store', 'uses' => 'UserController@store']);
     Route::get('withdraw', ['as' => 'withdraw', 'uses' => 'WithdrawController@index']);
     //项目管理
-    Route::get('task', ['as' => 'task.index', 'uses' => 'TaskController@index']);
-    Route::get('task/create/{id?}', ['as' => 'task.create', 'uses' => 'TaskController@create']);
+    Route::get('task/{status?}', ['as' => 'task.index', 'uses' => 'TaskController@index'])->where('status', '[0-9]+');
+    Route::any('task/create/{id?}', ['as' => 'task.create', 'uses' => 'TaskController@create']);
+    Route::any('task/trashed', ['as' => 'task.trashed', 'uses' => 'TaskController@trashed']);
+    Route::get('task/untrashed/{id}', ['as' => 'task.untrashed', 'uses' => 'TaskController@untrashed']);
+    Route::get('task/delete/{id}', ['as' => 'task.delete', 'uses' => 'TaskController@delete']);
     Route::get('corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
     Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
-    Route::any('corp/edit/{id}', ['as' => 'corp.store', 'uses' => 'CorpController@store']);
     //统计管理
     Route::get('census', ['as' => 'census', 'uses' => 'CensusController@index']);
     //系统管理

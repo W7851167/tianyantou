@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CategoryModel extends BaseModel
 {
-    use SoftDeletes;
     public  $table = 'categorys';
     protected  $primaryKey = 'id';
 

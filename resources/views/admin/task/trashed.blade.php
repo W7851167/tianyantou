@@ -17,25 +17,21 @@
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="{!! url('task') !!}" @if(!isset($status))class="at" @endif>所有</a></p>
-                    <p><a href="{!! url('task',['status'=>0]) !!}" @if(isset($status) && $status == 0)class="at" @endif>待发布</a></p>
-                    <p><a href="{!! url('task',['status'=>1]) !!}" @if(!empty($status) && $status == 1)class="at" @endif>已发布</a></p>
-                    <p><a href="{!! url('task',['status'=>2]) !!}" @if(!empty($status) && $status == 2) class="at" @endif>已结束</a></p>
-                    <p><a href="{!! url('task/trashed')!!}">回收站</a></p>
-                    <a href="{!!url('task/create')!!}" class="buttonA">创建项目</a>
+                    <p><a href="{!! url('task') !!}" >所有</a></p>
+                    <p><a href="{!! url('task',['status'=>0]) !!}" >待发布</a></p>
+                    <p><a href="{!! url('task',['status'=>1]) !!}" >已发布</a></p>
+                    <p><a href="{!! url('task',['status'=>2]) !!}">已结束</a></p>
+                    <p><a href="{!! url('task/trashed')!!}" class="at">回收站</a></p>
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='100'>公司信息</th>
+                            <th width='120'>公司信息</th>
                             <th width="220">标题</th>
-                            <th width="100">标总额</th>
-                            <th width="60">年收益</th>
-                            <th width="65">赠收益</th>
+                            <th width="65">标总额</th>
+                            <th width="80">年收益率</th>
+                            <th width="65">赠收益率</th>
                             <th width="65">期限</th>
                             <th width="65">起诉金额</th>
-                            @if(!isset($status))
-                            <th width="65">状态</th>
-                            @endif
                             <th width="65">限额</th>
                             <th>操作</th>
                         </tr>
@@ -49,16 +45,9 @@
                                 <td>{!! $tv->mratio or 0!!}</td>
                                 <td>{!! $tv->term or 0!!}</td>
                                 <td>{!! $tv->sued or 0!!}</td>
-                                @if(!isset($status))
-                                <td>{!! $tv->status == 0 ? '待发布':($tv->status == 1 ? '已发布' : '已结束')!!}</td>
-                                @endif
                                 <td>{!! $tv->limit or 0!!}</td>
                                 <td>
-                                    <a href="{!! url('task/create',['id'=>$tv->id]) !!}">编辑</a>
-                                    @if(isset($status) && ($status == 0 || $status == 2))
-                                        <a href="{!! url('task/delete',['id'=>$tv->id]) !!}">删除</a>
-                                    @endif
-                                    <a href="{!! config('app.url') . url('platform/task',['id'=>$tv->id]) !!}">查看</a>
+                                    <a href="{!! url('task/untrashed',['id'=>$tv->id]) !!}">还原</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -20,8 +20,4 @@ class TaskModel extends BaseModel
         return $this->belongsTo('App\Models\CorpModel','corp_id');
     }
 
-    public function admin()
-    {
-        return $this->belongsTo('App\Models\UserModel','user_id');
-    }
 }
