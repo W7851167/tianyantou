@@ -5,7 +5,7 @@
  * 版权所有: CopyRight By phpad
  * 文章控制器管理
  *-------------------------------------------------------------------------------
- * $FILE:NewsController.php
+ * $FILE:NewController.php
  * $Author:zxs
  * $Dtime:2016/9/8
  ***********************************************************************************/
@@ -14,17 +14,34 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\NewRepository;
 use Illuminate\Http\Request;
 
-class NewsController extends AdminController
+class NewController extends AdminController
 {
-    public function __construct()
+    public function __construct(
+        NewRepository $new
+    )
     {
+        $this->new = $new;
     }
 
-    public function index()
+    /**
+     * @param Request $request
+     * @return \Illuminate\View\View
+     *
+     * 文章列表视图
+     */
+    public function index(Request $request)
     {
-        return view('admin.news.index');
+        $page = $request->page ? (int)$request->page : 1;
+        $where = ['id' => $this->user['id']];
+        list($count, $news) = $this->new->getNewList($where, $page);
+
+        $this->pager($count, $page, $this->perpage);
+        return view('admin.news.index', compact(
+            'news'
+        ));
     }
 
     public function create(Request $request)

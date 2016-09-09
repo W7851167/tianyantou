@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
-    protected $perpage = 20;
+    protected $perpage = 10;
     protected $user;
 
     public function __construct()

@@ -17,31 +17,34 @@
                         <p><a href="{!! url('/news') !!}" class="at">所有文章</a></p>
                         <a href="{!! url('/news/create') !!}" class="buttonA">发布文章</a>
                     </div>
-                    <table class="client_cases" cellspacing="0">
-                        <tr>
-                            <th width="100">编号</th>
-                            <th>标题</th>
-                            <th width="100">类型</th>
-                            <th width="160">创建时间</th>
-                            <th width="80">操作</th>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>title</td>
-                            <td>dfsfds</td>
-                            <td>2016-04-27 10:10:00</td>
-                            <td>
-                                <a href="{!! url('/news/edit/') !!}">编辑</a>
-                                <a href="{!! url('/news/del/') !!}">删除</a>
-                            </td>
-                        </tr>
-                    </table>
-                    {{--                        <ul class="page">{!! $page !!}</ul>--}}
-                    {{--@else--}}
-                    {{--<div class="navigation-page-none clearfix">--}}
-                    {{--<p>{!!HTML::image('cw100_b2b/images/u464.png')!!}您暂时没有发布任何客户案例!</p>--}}
-                    {{--</div>--}}
-                    {{--@endif--}}
+                    @if(count($news) > 0)
+                        <table class="client_cases" cellspacing="0">
+                            <tr>
+                                <th width="100">编号</th>
+                                <th>标题</th>
+                                <th width="100">类型</th>
+                                <th width="160">创建时间</th>
+                                <th width="80">操作</th>
+                            </tr>
+                            @foreach($news as $new)
+                                <tr>
+                                    <td>{!! $new->id !!}</td>
+                                    <td>{!! $new->title !!}</td>
+                                    <td>{!! $new->type !!}</td>
+                                    <td>{!! $new->created_at !!}</td>
+                                    <td>
+                                        <a href="{!! url('/news/edit/'.$new->id) !!}">编辑</a>
+                                        <a href="{!! url('/news/del/'.$new->id) !!}">删除</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                        <ul class="page">{!! $page !!}</ul>
+                    @else
+                        <div class="navigation-page-none clearfix">
+                            <p>{!!HTML::image('admin/images/u464.png')!!}您暂时没有发布任何文章!</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
