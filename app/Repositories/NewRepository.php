@@ -49,7 +49,7 @@ class NewRepository extends BaseRepository
      */
     public function getSystemCategorys($where)
     {
-        return $this->categoryModel->alls(['id','title','created_at'],$where);
+        return $this->categoryModel->alls(['id','title','created_at','parent_id','page'],$where);
     }
 
 }
