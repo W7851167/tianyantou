@@ -19,4 +19,13 @@ class CategoryModel extends BaseModel
     {
         return $this->hasMany('App\Models\NewModel','category_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     * 获取内容
+     */
+    public function article()
+    {
+        return $this->morphOne('App\Models\ArticleModel', 'item');
+    }
 }

@@ -21,11 +21,9 @@ class NewController extends AdminController
 {
     public function __construct(
         NewRepository $new
-    )
-    {
+    ) {
         parent::__construct();
         $this->new = $new;
-
     }
 
     /**
@@ -39,10 +37,10 @@ class NewController extends AdminController
         $page = $request->page ? (int)$request->page : 1;
         $where = ['id' => $this->user['id']];
         list($count, $news) = $this->new->getNewList($where, $page);
-
+        $silderMenu = $this->getSiderbar();
         $this->pager($count, $page, $this->perpage);
         return view('admin.news.index', compact(
-            'news'
+            'news','silderMenu'
         ));
     }
 
@@ -117,5 +115,28 @@ class NewController extends AdminController
             $e->getMessage();
         }
         return $this->error('删除文章失败!');
+    }
+
+    /**
+     * 生成自动的左侧菜单信息
+     */
+    private function getSiderbar()
+    {
+        $url = \Request::path();
+        $url = ltrim($url,'/');
+        $categorys = $this->new->getSystemCategorys();
+        $sidebarHtml = '';
+        $sidebarHtml .= '<ul class="content-left-menu clearfix">';
+        foreach ($categorys as $model) {
+            $path = 'news/'.$model->page;
+            $sidebarHtml .= '<li><a href="' . url($path) . '"';
+            if (substr($url, 0,strlen($path)) === $path) {
+                $sidebarHtml .= ' class="on"';
+            }
+            $sidebarHtml .= ' >' . $model->title . '</a></li>';
+        }
+        $sidebarHtml .= '</ul>';
+
+        return $sidebarHtml;
     }
 }

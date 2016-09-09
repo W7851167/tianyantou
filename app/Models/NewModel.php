@@ -12,11 +12,28 @@ class NewModel extends BaseModel
     protected  $primaryKey = 'id';
 
 
-    public function images()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     * 对应主图
+     */
+    public function image()
     {
-        return $this->morphMany('App\Models\ImageModel', 'item');
+        return $this->morphOne('App\Models\ImageModel', 'item');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     * 对应内容
+     */
+    public function article()
+    {
+        return $this->morphOne('App\Models\ArticleModel', 'item');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * 获取分类信息
+     */
     public function category()
     {
         return $this->belongsTo('App\Models\CategoryModel','category_id');
