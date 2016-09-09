@@ -47,9 +47,9 @@ class NewRepository extends BaseRepository
      * @return mixed
      * 获取系统消息
      */
-    public function getSystemCategorys()
+    public function getSystemCategorys($where)
     {
-        return $this->categoryModel->where('is_system',1)->get();
+        return $this->categoryModel->alls(['id','title','created_at'],$where);
     }
 
 }

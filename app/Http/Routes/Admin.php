@@ -39,6 +39,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::post('news/store/{id}', ['as' => 'news.store', 'uses' => 'NewController@store']);
     Route::match(['get', 'psot'], 'news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewController@edit']);
     Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);
+    Route::get('news/single',['as'=>'news.single','uses'=>'NewController@single']);
 });
 
 Route::get('/', function(){

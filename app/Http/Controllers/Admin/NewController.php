@@ -45,6 +45,29 @@ class NewController extends AdminController
     }
 
     /**
+     * 单文章管理情况
+     */
+    public function single()
+    {
+        $where['is_system'] = 1;
+        $where['parent_id'] = 0;
+        $where['theme'] = 1;
+        $lists = $this->new->getSystemCategorys($where);
+        $silderMenu = $this->getSiderbar();
+        return view('admin.news.single',compact('lists','silderMenu'));
+    }
+
+
+    /**
+     * @param Request $request
+     * 多图文管理页面
+     */
+    public function multi(Request $request)
+    {
+
+    }
+
+    /**
      * @param Request $request
      * @return \Illuminate\View\View|void
      *
@@ -124,16 +147,19 @@ class NewController extends AdminController
     {
         $url = \Request::path();
         $url = ltrim($url,'/');
-        $categorys = $this->new->getSystemCategorys();
+        $categorys = [
+            ['name'=>'单文章管理','url'=>'news/single'],
+            ['name'=>'列表文章管理','url'=>'news/multi'],
+            ['name'=>'帮助中心管理','url'=>'news/help'],
+        ];
         $sidebarHtml = '';
         $sidebarHtml .= '<ul class="content-left-menu clearfix">';
-        foreach ($categorys as $model) {
-            $path = 'news/'.$model->page;
-            $sidebarHtml .= '<li><a href="' . url($path) . '"';
-            if (substr($url, 0,strlen($path)) === $path) {
+        foreach ($categorys as $cat) {
+            $sidebarHtml .= '<li><a href="' . url($cat['url']) . '"';
+            if (substr($url, 0,strlen($cat['url'])) === $cat['url']) {
                 $sidebarHtml .= ' class="on"';
             }
-            $sidebarHtml .= ' >' . $model->title . '</a></li>';
+            $sidebarHtml .= ' >' . $cat['name'] . '</a></li>';
         }
         $sidebarHtml .= '</ul>';
 
