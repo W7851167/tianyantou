@@ -80,5 +80,41 @@ class CorpController extends AdminController
         return view('admin.corp.manage',compact('corp'));
     }
 
+    /**
+     * @param $id
+     * 公司下团队管理
+     */
+    public function term($id)
+    {
+        $corp = $this->taskRepository->corpModel->find($id);
+        return view('admin.corp.term',compact('corp'));
+    }
+
+    /**
+     * @param $id
+     * 安全保障
+     */
+    public function safety($id) {
+        $corp = $this->taskRepository->corpModel->find($id);
+        return view('admin.corp.safety',compact('corp'));
+    }
+
+    /**
+     * @param $id
+     * 图片资料
+     */
+    public function photos($id) {
+        $corp = $this->taskRepository->corpModel->find($id);
+        return view('admin.corp.photos',compact('corp'));
+    }
+
+    /**
+     * @param $id
+     * 平台动态
+     */
+    public function news($id) {
+        $corp = $this->taskRepository->corpModel->find($id);
+        return view('admin.corp.news',compact('corp'));
+    }
 
 }

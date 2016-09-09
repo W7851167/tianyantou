@@ -29,6 +29,10 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
     Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
     Route::any('corp/manage/{id?}', ['as' => 'corp.manage', 'uses' => 'CorpController@manage']);
+    Route::get('corp/term/{id?}', ['as' => 'corp.term', 'uses' => 'CorpController@term']);
+    Route::any('corp/safety/{id?}', ['as' => 'corp.safety', 'uses' => 'CorpController@safety']);
+    Route::any('corp/photos/{id?}', ['as' => 'corp.photos', 'uses' => 'CorpController@photos']);
+    Route::any('corp/news/{id?}', ['as' => 'corp.news', 'uses' => 'CorpController@news']);
     //统计管理
     Route::get('census', ['as' => 'census', 'uses' => 'CensusController@index']);
     //系统管理
