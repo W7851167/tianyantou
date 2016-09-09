@@ -58,6 +58,39 @@ class NewController extends AdminController
         return view('admin.news.single', compact('lists', 'silderMenu'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\View\View|void
+     *
+     * 编辑单篇文章
+     */
+    public function category($id, Request $request)
+    {
+        $category = $this->new->categoryModel->find($id);
+
+        if (empty($category)) return $this->error('此分类不存在!');
+
+        if ($request->isMethod('post')) {
+            $item = [
+                'item_id' => $id,
+                'item_type' => 'App\Models\Category',
+                'content' => $request->get('content'),
+            ];
+            try {
+                $result = $this->new->articleModel->create($item);
+                if ($result) return $this->success('编辑分类完成!', url('news/single'));
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
+            return $this->error('编辑分类失败!');
+        }
+
+        return view('admin.news.category', compact(
+            'category'
+        ));
+    }
+
 
     /**
      * @param Request $request

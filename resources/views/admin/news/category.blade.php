@@ -14,18 +14,14 @@
                     <a href="{!! url('/dashboard') !!}">首页</a>
                 </div>
                 <div class="content-right-page">
-                    <form action="{!! url('/news/create') !!}" method="POST" id="project_form">
+                    <form action="{!! url('/news/category/'.$category->id) !!}" method="POST" id="project_form">
+                        {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
-                            <tr>
-                                <td width="200"><span>*</span>案例标题：</td>
-                                <td width="728"><input name="data[title]" class="case_input" type="text"></td>
-                                @if(!empty($errors->first('data.title')))<span style="color: red">{!! $errors->first('data.title') !!}</span>@endif
-                            </tr>
                             <tr class="case_compile">
-                                <td><span>*</span>案列内容：</td>
+                                <td><span>*</span>内容：</td>
                                 <td>
                                     <div class="case_compile_content">
-                                        <textarea name="content" id="content"></textarea>
+                                        <textarea name="content" id="content">{!! $category->article->content or '' !!}</textarea>
                                         @if(!empty($errors->first('content')))<span style="color: red">{!! $errors->first('data.content') !!}</span>@endif
                                     </div>
                                 </td>
@@ -33,7 +29,7 @@
                         </table>
                         <div class="requirement_btm">
                             <button type="submit">提交</button>
-                            <a href="{!! url('/design/case/index') !!}">返回列表</a>
+                            <a href="{!! url('/news/single') !!}">返回列表</a>
                         </div>
                     </form>
                 </div>
@@ -44,7 +40,7 @@
     <script>
         {{--var ue = UE.getEditor("content");--}}
         {{--ue.ready(function() {--}}
-            {{--ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.--}}
+        {{--ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.--}}
         {{--});--}}
     </script>
 @stop
