@@ -14,9 +14,11 @@ namespace App\Models;
 
 
 use App\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BaseModel extends  Model
 {
+    use SoftDeletes;
     /**
      * @param array $fields
      * @param array $where
@@ -27,7 +29,7 @@ class BaseModel extends  Model
      * @return mixed
      * 返回数据模型列表
      */
-    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page=null)
+    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page=null,$trashed=0)
     {
         if(!is_array($fields)) {
             $fields = explode(',', $fields);
@@ -35,6 +37,10 @@ class BaseModel extends  Model
         }
 
         $query = $this->select($fields);
+        if($trashed == 1)
+            $query->withTrashed();
+        if($trashed == 2)
+            $query->onlyTrashed();
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
         if (isset($page)) {
             $limit = $pagesize * ($page - 1);
@@ -53,7 +59,7 @@ class BaseModel extends  Model
      * @return mixed
      * 获取所有内容
      */
-    public function alls($fields = ['*'], $where = [], $orderBy = [], $groupBy = [])
+    public function alls($fields = ['*'], $where = [], $orderBy = [], $groupBy = [],$trashed=0)
     {
         if(!is_array($fields)) {
             $fields = explode(',', $fields);
@@ -61,9 +67,14 @@ class BaseModel extends  Model
         }
 
         $query = $this->select($fields);
+        if($trashed == 1)
+            $query->withTrashed();
+        if($trashed == 2)
+            $query->onlyTrashed();
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
         return $query->get();
     }
+
 
     /**
      * @param $query

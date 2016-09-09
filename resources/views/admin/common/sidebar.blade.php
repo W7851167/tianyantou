@@ -2,7 +2,13 @@
     <div class="content-left-heaeder ">
         <div class="content-left-header-pic clearfix">
             <?php $user = \Session::get('user.passport'); ?>
-            <a href="javascript:void(0)"><img src="{!! config('app.img_url') . (isset($user['avatar']) ? $user['avatar'] : url('admin/images/user-small.png'))!!}"/></a>
+            <a href="javascript:void(0)">
+                @if(!empty($user['avatar']))
+                <img src="{!! config('app.img_url') . $user['avatar']!!}">
+                @else
+                <img src="{!!url('admin/images/user-small.png')!!}"/>
+               @endif
+            </a>
             <div class="content-left-header-pic-page">
                 <span>{!! $user['username'] !!}</span>
                 <p><a href="{!! url('passport/password') !!}">修改密码</a></p>

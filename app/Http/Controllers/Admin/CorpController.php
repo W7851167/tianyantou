@@ -70,13 +70,5 @@ class CorpController extends AdminController
         return view('admin.corp.create');
     }
 
-    /**
-     * @param $id
-     * 编辑公司信息
-     */
-    public function edit($id)
-    {
-        return view('admin.corp.edit');
-    }
 
 }
