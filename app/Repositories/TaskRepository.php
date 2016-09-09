@@ -41,6 +41,18 @@ class TaskRepository extends  BaseRepository
 
     /**
      * @param array $where
+     * 获取所有项目
+     */
+    public function getNormalCorps($where=[])
+    {
+        $fields = ['*'];
+        return $this->corpModel->alls($fields,$where);
+    }
+
+
+
+    /**
+     * @param array $where
      * @param $limit
      * @param $page
      * @return array

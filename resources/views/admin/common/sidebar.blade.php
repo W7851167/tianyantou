@@ -3,9 +3,9 @@
         <div class="content-left-header-pic clearfix">
             <a href="javascript:void(0)"><img src="{!! url('admin/images/user-small.png')!!}"/></a>
             <div class="content-left-header-pic-page">
-                <span>{!! $user['username'] or ''!!}</span>
+                <span>{!! \Session::get('user.login') !!}</span>
+                <p><a href="{!! url('user/password') !!}">修改密码</a></p>
                 <p><a href="{!! url('passport/logout') !!}">退出登录</a></p>
-                <p><a href="{!! url('/account/create') !!}">创建账户</a></p>
             </div>
         </div>
     </div>

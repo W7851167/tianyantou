@@ -23,8 +23,9 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     //项目管理
     Route::get('task', ['as' => 'task.index', 'uses' => 'TaskController@index']);
     Route::get('task/create/{id?}', ['as' => 'task.create', 'uses' => 'TaskController@create']);
-    Route::get('task/corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
-    Route::any('task/corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
+    Route::get('corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
+    Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
+    Route::any('corp/edit/{id}', ['as' => 'corp.store', 'uses' => 'CorpController@store']);
     //统计管理
     Route::get('census', ['as' => 'census', 'uses' => 'CensusController@index']);
     //系统管理
