@@ -64,7 +64,12 @@ class NewController extends AdminController
      */
     public function multi(Request $request)
     {
-
+        $where['is_system'] = 1;
+        $where['parent_id'] = 0;
+        $where['theme'] = 0;
+        $categorys = $this->new->getSystemCategorys($where);
+        $silderMenu = $this->getSiderbar();
+        return view('admin.news.multi',compact('lists','categorys','silderMenu'));
     }
 
     /**
@@ -148,9 +153,10 @@ class NewController extends AdminController
         $url = \Request::path();
         $url = ltrim($url,'/');
         $categorys = [
-            ['name'=>'单文章管理','url'=>'news/single'],
-            ['name'=>'列表文章管理','url'=>'news/multi'],
-            ['name'=>'帮助中心管理','url'=>'news/help'],
+            ['name'=>'单分类文章','url'=>'news/single'],
+            ['name'=>'列表文章','url'=>'news/multi'],
+            ['name'=>'帮助中心','url'=>'news/help'],
+            ['name'=>'公告/事件','url'=>'news/notice'],
         ];
         $sidebarHtml = '';
         $sidebarHtml .= '<ul class="content-left-menu clearfix">';

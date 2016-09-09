@@ -15,22 +15,29 @@
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
                         <p><a href="{!! url('news/multi') !!}" class="at">所有资讯</a></p>
+                        @if(!empty($categorys))
+                            @foreach($categorys as $cat)
+                             <p><a href="{!! url('news/multi/' . $cat->page) !!}">{!! $cat->title !!}</a></p>
+                            @endforeach
+                        @endif
+                        <a href="{!! url('/news/create') !!}" class="buttonA">发布文章</a>
                     </div>
                     @if(!empty($lists))
                         <table class="client_cases" cellspacing="0">
                             <tr>
                                 <th width="100">编号</th>
                                 <th>分类标题</th>
+                                <th>文章标题</th>
                                 <th width="160">创建时间</th>
                                 <th width="80">操作</th>
                             </tr>
-                            @foreach($lists as $cat)
+                            @foreach($lists as $new)
                                 <tr>
-                                    <td>{!! $cat->id !!}</td>
-                                    <td>{!! $cat->title !!}</td>
-                                    <td>{!! $cat->created_at !!}</td>
+                                    <td>{!! $new->id !!}</td>
+                                    <td>{!! $new->title !!}</td>
+                                    <td>{!! $new->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/category/'.$cat->id) !!}">编辑</a>
+                                        <a href="{!! url('news/create/'.$new->id) !!}">编辑</a>
                                     </td>
                                 </tr>
                             @endforeach
