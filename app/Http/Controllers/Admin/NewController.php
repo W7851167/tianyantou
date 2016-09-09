@@ -98,12 +98,26 @@ class NewController extends AdminController
      */
     public function multi(Request $request)
     {
-        $where['is_system'] = 1;
-        $where['parent_id'] = 0;
-        $where['theme'] = 0;
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 0,
+            'theme' => 0,
+        ];
         $categorys = $this->new->getSystemCategorys($where);
         $silderMenu = $this->getSiderbar();
-        return view('admin.news.multi', compact('lists', 'categorys', 'silderMenu'));
+
+        $page = $request->page ? (int)$request->page : 1;
+        $where = [];
+        if ($request->get('category')) {
+            $where = ['category_id' => $request->get('category')];
+        }
+        list($count, $lists) = $this->new->getNewList($where, $page);
+
+        $page = $this->pager($count, $page, $this->perpage);
+
+        return view('admin.news.multi', compact(
+            'lists', 'categorys', 'silderMenu', 'page'
+        ));
     }
 
     /**
