@@ -70,5 +70,15 @@ class CorpController extends AdminController
         return view('admin.corp.create');
     }
 
+    /**
+     * @param $id
+     * 公司管理信息
+     */
+    public function manage($id)
+    {
+        $corp = $this->taskRepository->corpModel->find($id);
+        return view('admin.corp.manage',compact('corp'));
+    }
+
 
 }

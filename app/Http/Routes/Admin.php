@@ -28,6 +28,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('task/delete/{id}', ['as' => 'task.delete', 'uses' => 'TaskController@delete']);
     Route::get('corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
     Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
+    Route::any('corp/manage/{id?}', ['as' => 'corp.manage', 'uses' => 'CorpController@manage']);
     //统计管理
     Route::get('census', ['as' => 'census', 'uses' => 'CensusController@index']);
     //系统管理
