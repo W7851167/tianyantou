@@ -1,7 +1,9 @@
 @extends('admin.common.layout')
+@section('title') 创建公司信息 @stop
 @section('style')
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
+    {!!HTML::script('vendor/area/area.js')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -11,144 +13,89 @@
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>
                     <a href="{!! url('task') !!}">项目管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                    <a href="{!! url('task') !!}">公司列表</a>
+                    <a href="{!! url('corp/create') !!}">创建公司</a>
                 </div>
-                <form action="{!! url('/shop/add') !!}" method="post" id="store_form">
-                    <input name="zoom" type="hidden" class="zoom">
+                <form  method="post" class="base_form">
                     {!! csrf_field() !!}
                     <div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>门店名称：</div>
-                            <div><input type="text" name="data[name]" placeholder=""></div>
+                            <div class="infospaceAddLeft"><span>*</span>平台名称：</div>
+                            <div><input type="text" name="data[platform]" placeholder="公司简称"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>分店名称：</div>
-                            <div><input type="text" name="data[branch_name]" placeholder="***分店"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft h80"><span>*</span>门店地址：</div>
-                            <div>
-                                <p>
-                                    <select name="province" class="province" @if(!empty($province_id)) data-id="{!! $province_id !!}" @endif>
-                                        <option>请选择</option>
-                                    </select>
-                                    <select name="city" class="city" >
-                                        <option value="">请选择</option>
-                                    </select>
-                                    <select name="area" class="district">
-                                        <option>请选择</option>
-                                    </select>
-                                </p>
-                                <p>
-                                    <input id="address" type="text" name="data[location]" placeholder="请输入详细地址">
-                                </p>
-
-                            </div>
-                        </div>
-                        <div class="infospaceAddMap clearfix">
-                            <!--选点-->
-                            <li>
-                                <div class="step_info_right">
-                                    <div class="Latitude_info">
-                                        <label>经度</label>
-                                        <input class="text1 latitude" name="dat[lat]" type="text">
-
-                                        <label>纬度</label>
-                                        <input class="text1 longitude" name="data[lng]" type="text">
-
-                                    </div>
-                                    <a class="select_tag" href="javascript:void(0);" onclick="showMap()">地图选点</a>
-                                </div>
-                            </li>
-                        </div>
-
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">经营类目：</div>
-                            <div>
-                                <select name="data[categories]" style="width: 240px;">
-                                    <option value="购物,综合商场">购物,综合商场</option>
-                                    <option value="购物,家具家具建材">购物,家具家具建材</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>服务电话：</div>
-                            <div><input type="text" name= "data[tel]" placeholder="010-13221321"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>营业时间：</div>
-                            <div><input type="text" name = "data[open_time]" placeholder="09:00-22:00"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>人均价格：</div>
-                            <div><input type="text" name = "data[avg_price]" placeholder=""></div>
-                        </div>
-                        <div class="infospaceAddContent add clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>特色服务：</div>
-                            <div>
-
-                                <input type="button" id="add-service" value="添加特色服务">
-                            </div>
-
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>门店简介：</div>
-                            <div><textarea class="addText" name="data[introduction]"></textarea></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>标签：</div>
-                            <div class="clearfix"><textarea name = "recommend" class="addText addTag"></textarea>
-                                {{--<input type="button" id="add2" value="添加标签">--}}
-                            </div>
-                        </div>
-
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>门店内景图：</div>
-                            <div class="sh_service_rp_all pr clearfix">
-                                <div class="uploader-list img_box_1 fl" id="tkupload" ></div>
-                                <div class="sh_service_rp_all_img fl pr">
-                                    <div class="sh_service_rp_z pa" id="upImg1">
-                                        <p></p><p></p>
-                                    </div>
-                                    <div class="sh_service_rp_z pa" id="upImg2">
-                                        <p></p><p></p>
-                                    </div>
-                                    <div class="sh_service_rp_z pa" id="upImg3">
-                                        <p></p><p></p>
-                                    </div>
-                                    <div class="sh_service_rp_z pa" id="upImg4">
-                                        <p></p><p></p>
-                                    </div>
-                                    <div class="sh_service_rp_z pa" id="upImg5">
-                                        <p></p><p></p>
-                                    </div>
-                                </div>
-                                <p class="hint">必须上传900*450px的图片！</p>
-                                <ul id="img_box_1"></ul>
-                            </div>
+                            <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
+                            <div><input type="text" name="data[name]" placeholder="公司全名"></div>
                         </div>
                         <div class="infospaceAddImg">
-                            <div class="infospaceAddLeft h80"><span>*</span>门店主图：</div>
+                            <div class="infospaceAddLeft h80"><span>*</span>公司Logo：</div>
                             <div id="storeimg">
-
-                                @if(!empty($errors->first('store')))<p style="color:red">{!! $errors->first('store') !!}</p>@endif
                                 <a class="clickUpload" id="uploadimg" href="javascript:void(0)">点击上传</a>
                             </div>
-                            <p class="hint">必须上传640*340px的图片！</p>
-                            <div class="imgbox">
-
+                            <p class="hint">必须上传180*180px的图片！</p>
+                            <div class="imgbox"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft h80"><span>*</span>公司地址：</div>
+                            <div>
+                                <p>
+                                    <select name="province" class="province" id="province">
+                                        <option>省</option>
+                                    </select>
+                                    <select name="city" class="city" id="city" >
+                                        <option value="">市</option>
+                                    </select>
+                                    <select name="county" class="county" id="county">
+                                        <option>区</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    <input  type="text" name="data[address]" placeholder="请输入详细地址">
+                                </p>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="infospaceAddLeft h80"><span>*</span>是否推送到微信：</div>
-                        <div> <input type="radio" name="data[is_push]" value="0" checked>否 <input type="radio" name="data[is_push]" value="1">是</div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>注册金额：</div>
+                            <div><input type="text" name="data[capital]" placeholder="2000万元"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>法人代表：</div>
+                            <div><input type="text" name="data[username]" placeholder="真实姓名"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>上线时间：</div>
+                            <div><input type="text" name="data[online]" placeholder="2016-09-09"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">担保方式：</div>
+                            <div><input type="text" name="data[pattern]" placeholder="风险准备金，双乾支付托管"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">担保机构：</div>
+                            <div><input type="text" name="data[assure]" placeholder="平安担保公司"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">评测等级：</div>
+                            <div><input type="text" name="data[level]" placeholder="平安担保公司"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>平台介绍：</div>
+                            <div><textarea class="addText" name="data[intro]"></textarea></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>风险控制：</div>
+                            <div class="clearfix"><textarea name = "data[risk]" class="addText"></textarea>
+                            </div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>推荐理由：</div>
+                            <div class="clearfix"><textarea name = "data[nominate]" class="addText"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="w928">
                         <div class="button">
                             <input class="submit" type="submit"  value="提交">
-                            <a href="{!! url('shop/index') !!}"><input class="return" type="button" value="返回列表"></a>
+                            <input class="return" type="reset" value="返回列表">
                         </div>
                     </div>
                 </form>
@@ -158,35 +105,38 @@
     </div>
     <!--添加相关推荐--->
     <!--选点-->
-    <div id="new_page" style="display:none;">
-        <div id="maskLevel"></div>
-        <div class="new_page_box">
-            <div class="select_tag_title">
-                <h3>地图选点</h3>
-                <a href="javascript:;" onClick="$('#new_page').hide();">&times;</a>
-            </div>
-            <div class="map_info">
-                <div class="info_400">
-                    <h3>搜索位置<span>（回车键提交）</span></h3>
-                    <input type="text" id="seach"  placeholder="按详细地址搜索如：中国,北京,腾信达">
-                </div>
-                <div class="info_190">
-                    <h3>经度</h3>
-                    <input type="text" class="latitude" value="">
-                </div>
-                <div class="info_190">
-                    <h3>纬度</h3>
-                    <input type="text" class="longitude" value="">
-                </div>
-                <div class="info_780">
-                    <div id="allmap" style="width: 100%;height: 100%;overflow: hidden;margin:0;"></div>
-                </div>
-            </div>
-            <div class="select_tag_input">
-                <input class="submit" type="button" onClick="$('#new_page').hide();" value="确定">
-                <input class="button" type="button" value="取消" onClick="$('#new_page').hide();">
-            </div>
-        </div>
-    </div>
 @stop
+@section('script')
+    <span id="queueID"></span>
+    {!! HTML::script('/vendor/uploadify/jquery.uploadify.js') !!}
+    {!!HTML::script('vendor/validate/jquery.validate.js')!!}
 
+    <script type="text/javascript">
+        _init_area(["\u7701","\u5e02","\u533a"]);
+        $('#uploadimg').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':180,'height0':180, 'type0':1, 'path': 'logo'},
+            'buttonText':'上传',
+            'width':'86',
+            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': false,
+            'button_height':32,
+            'button_width':86,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if (data.status == 1) {
+                    var html = '<img src="' + data.info[180180] + '"><a href="javascript:;">';
+                    html += '<input type="hidden" name="data[logo]" value="' + data.info[180180] + '" />'
+                    $('.imgbox').append(html);
+                }
+            },
+
+        });
+    </script>
+@stop
