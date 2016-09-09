@@ -5,9 +5,9 @@
  * 版权所有: CopyRight By cw100.com
  * 文件内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:SystemController.php
+ * $FILE:WithdrawController.php
  * $Author:zxs
- * $Dtime:2016/9/8
+ * $Dtime:2016/9/9
  ***********************************************************************************/
 
 namespace App\Http\Controllers\Admin;
@@ -15,19 +15,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 
-class SystemController extends  AdminController
+class WithdrawController extends  AdminController
 {
     public function index()
     {
-        return view('admin.system.index');
-    }
-
-    /**
-     * @return \Illuminate\View\View
-     * 角色管理
-     */
-    public function role()
-    {
-        return view('admin.system.index');
+        return view('admin.withdraw.index');
     }
 }

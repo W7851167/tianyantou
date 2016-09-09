@@ -40,6 +40,20 @@ class TaskRepository extends  BaseRepository
     }
 
     /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     * 获取投标列表
+     */
+    public function getTaskList($where=[], $limit,$page)
+    {
+        $lists = $this->taskModel->lists(['*'],$where,[],[], $limit, $page);
+        $counts = $this->taskModel->countBy($where);
+        return [$counts, $lists];
+    }
+
+    /**
      * @param $data
      * 保存信息
      */
