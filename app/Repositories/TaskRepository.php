@@ -21,7 +21,8 @@ class TaskRepository extends  BaseRepository
     public function __construct(
         TaskModel $taskModel,
         CorpModel $corpModel
-    ) {
+    )
+    {
         $this->taskModel = $taskModel;
         $this->corpModel = $corpModel;
     }
@@ -32,9 +33,9 @@ class TaskRepository extends  BaseRepository
      * @param $page
      * 获取公司列表
      */
-    public function getCorpList($where=[], $limit, $page)
+    public function getCorpList($where = [], $limit, $page)
     {
-        $lists = $this->corpModel->lists(['*'],$where,[],[], $limit, $page);
+        $lists = $this->corpModel->lists(['*'], $where, [], [], $limit, $page);
         $counts = $this->corpModel->countBy($where);
         return [$counts, $lists];
     }
@@ -43,12 +44,11 @@ class TaskRepository extends  BaseRepository
      * @param array $where
      * 获取所有项目
      */
-    public function getNormalCorps($where=[])
+    public function getNormalCorps($where = [])
     {
         $fields = ['*'];
-        return $this->corpModel->alls($fields,$where);
+        return $this->corpModel->alls($fields, $where);
     }
-
 
 
     /**
@@ -58,9 +58,9 @@ class TaskRepository extends  BaseRepository
      * @return array
      * 获取投标列表
      */
-    public function getTaskList($where=[], $limit,$page)
+    public function getTaskList($where = [], $limit, $page, $trashed=0)
     {
-        $lists = $this->taskModel->lists(['*'],$where,[],[], $limit, $page);
+        $lists = $this->taskModel->lists(['*'], $where, [], [], $limit, $page,$trashed);
         $counts = $this->taskModel->countBy($where);
         return [$counts, $lists];
     }
@@ -72,6 +72,16 @@ class TaskRepository extends  BaseRepository
     public function saveCorp($data)
     {
         return $this->corpModel->saveBy($data);
+    }
+
+    /**
+     * @param $id
+     *  还原回收站数据
+     */
+    public function untrashed($id)
+    {
+        $this->taskModel->withTrashed()->find($id)->restore();
+        return $this->taskModel->saveBy(['id'=>$id,'status'=>0]);
     }
 
 
