@@ -14,6 +14,6 @@
 </div>
 </body>
 <!-- END FOOTER -->
-@yield('javascript')
+@yield('script')
         <!-- END BODY -->
 </html>
