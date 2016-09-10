@@ -76,4 +76,18 @@ class UserRepository extends BaseRepository
             return false;
         }
     }
+
+    /**
+     * @param $where
+     * @param $limit
+     * @param $page
+     * 获取用户列表
+     */
+    public function getUserList($where=[], $limit,$page)
+    {
+        $orderBy = ['id' => 'desc'];
+        $lists = $this->userModel->lists("*", $where, $orderBy, [], $limit, $page);
+        $count = $this->userModel->countBy($where);
+        return [$count, $lists];
+    }
 }
