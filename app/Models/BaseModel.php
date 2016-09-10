@@ -173,9 +173,10 @@ class BaseModel extends  Model
 
         if(!empty($data[$this->primaryKey])) {
             $model = $this->findOrNew($data[$this->primaryKey]);
-            $model = $model ? $model : $this;
-            $this->setModelData($model, $data);
-            return $model->save();
+            if(!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
         }
         return $this->query()->insertGetId($data);
     }
