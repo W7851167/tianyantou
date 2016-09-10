@@ -106,6 +106,16 @@ class NewController extends AdminController
         ));
     }
 
+    public function help()
+    {
+        return view('admin.news.help');
+    }
+
+    public function notice()
+    {
+        return view('admin.news.notice');
+    }
+
     /**
      * @param NewCreateRequest $request
      * @param null $id
