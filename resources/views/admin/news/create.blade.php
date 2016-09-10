@@ -1,6 +1,7 @@
 @extends('admin.common.layout')
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -13,43 +14,43 @@
                     <a href="{!! url('/dashboard') !!}">首页</a>
                 </div>
                 <div class="content-right-page">
-                    <form action="{!! url('/news/create') !!}" method="POST" id="project_form">
+                    <form method="POST" class="base_form">
+                        @if(!empty($new))
+                            <input type="hidden" name="id" value="{!! $new->id !!}">
+                        @endif
                         {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
                             <tr>
                                 <td width="200"><span>*</span>文章标题：</td>
-                                <td width="728"><input name="title" class="case_input" type="text"></td>
-                                @if(!empty($errors->first('title')))<span style="color: red">{!! $errors->first('data.title') !!}</span>@endif
+                                <td width="728"><input name="title" class="case_input" type="text" value="{!! $new->title or '' !!}"></td>
                             </tr>
                             <tr>
                                 <td><span>*</span>文章分类：</td>
                                 <td width="728">
                                     <select class="case_select" name="category_id">
-                                        @foreach($categorys as $cat)<option value="{!! $cat->id !!}">{!! $cat->title !!}</option>@endforeach
+                                        @foreach($categorys as $cat)<option value="{!! $cat->id !!}" @if(isset($new->category_id) && $new->category_id==$cat->id)selected @endif>{!! $cat->title !!}</option>@endforeach
                                     </select>
-                                    @if(!empty($errors->first('category_id')))<span style="color: red">{!! $errors->first('category_id') !!}</span>@endif
                                 </td>
                             </tr>
                             <tr>
                                 <td><span>*</span>选择公司：</td>
                                 <td width="728">
                                     <select class="case_select" name="corp_id">
-                                        @foreach($corps as $cv)<option value="{!! $cv->id !!}">{!! $cv->name !!}</option>@endforeach
+                                        @foreach($corps as $cv)<option value="{!! $cv->id !!}" @if(isset($new->category_id) && $new->corp_id==$cv->id)selected @endif>{!! $cv->name !!}</option>@endforeach
                                     </select>
-                                    @if(!empty($errors->first('crop_id')))<span style="color: red">{!! $errors->first('crop_id') !!}</span>@endif
                                 </td>
                             </tr>
                             <tr>
                                 <td width="200"><span>*</span>文章描述：</td>
-                                <td width="728"><input name="description" class="case_input" type="text"></td>
-                                @if(!empty($errors->first('description')))<span style="color: red">{!! $errors->first('data.title') !!}</span>@endif
+                                <td width="728"><input name="description" class="case_input" type="text" value="{!! $new->description or '' !!}"></td>
                             </tr>
                             <tr class="case_compile">
                                 <td><span>*</span>文章内容：</td>
                                 <td>
                                     <div class="case_compile_content">
-                                        <textarea name="content" id="content"></textarea>
-                                        @if(!empty($errors->first('content')))<span style="color: red">{!! $errors->first('data.content') !!}</span>@endif
+                                        <script name="new_content" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;">
+                                            {!! $new->article->content or '' !!}
+                                        </script>
                                     </div>
                                 </td>
                             </tr>
@@ -57,28 +58,62 @@
                                 <td><span>*</span>文章Logo：</td>
                                 <td width="728">
                                     <div>
-                                        <input id="inputClick" class="upload" type="file" placeholder="">
+                                        <input id="uploadLogo" class="upload" type="file" placeholder="">
                                     </div>
                                     <div class="container-img">
+                                        @if(isset($new->image->name))
+                                            <div class="imgbox">
+                                                <img src="{!! config('app.img_url').$new->image->name !!}">
+                                            </div>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
                         </table>
                         <div class="requirement_btm">
-                            <button type="submit">提交</button>
-                            <a href="{!! url('/design/case/index') !!}">返回列表</a>
+                            <button class="submit" type="submit">提交</button>
+                            <a href="{!! url('/news/multi') !!}">返回列表</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <span id="queueID"></span>
+    {!! HTML::script('/vendor/uploadify/jquery.uploadify.js') !!}
+    {!!HTML::script('vendor/validate/jquery.validate.js')!!}
     {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
     {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
     <script>
         var ue = UE.getEditor("content");
         ue.ready(function() {
             ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
+        });
+    </script>
+    <script>
+        $('#uploadLogo').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':242,'height0':82, 'type0':1,'path': 'logo'},
+            'buttonText':'',
+            'width':'82',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': false,
+            'button_height':32,
+            'button_width':86,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if (data.status == 1) {
+                    var html = '<img style="width:242px;height:82px;" src="' + data.info[24282] + '">';
+                    html += '<input type="hidden" name="logo" value="' + data.info[24282] + '" />'
+                    $('.container-img').html(html);
+                }
+            },
+
         });
     </script>
 @stop

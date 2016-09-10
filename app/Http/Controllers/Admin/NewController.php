@@ -33,19 +33,29 @@ class NewController extends AdminController
 
     /**
      * @param Request $request
-     * @return \Illuminate\View\View
-     *
-     * 文章列表视图
+     * 多图文管理页面
      */
     public function index(Request $request)
     {
-        $page = $request->page ? (int)$request->page : 1;
-        $where = ['id' => $this->user['id']];
-        list($count, $news) = $this->new->getNewList($where, $page);
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 0,
+            'theme' => 0,
+        ];
+        $categorys = $this->new->getSystemCategorys($where);
         $silderMenu = $this->getSiderbar();
-        $this->pager($count, $page, $this->perpage);
-        return view('admin.news.index', compact(
-            'news', 'silderMenu'
+
+        $page = $request->page ? (int)$request->page : 1;
+        $where = [];
+        if ($request->get('category')) {
+            $where = ['category_id' => $request->get('category')];
+        }
+        list($count, $lists) = $this->new->getNewList($where, $page);
+
+        $page = $this->pager($count, $page, $this->perpage);
+
+        return view('admin.news.multi', compact(
+            'lists', 'categorys', 'silderMenu', 'page'
         ));
     }
 
@@ -97,52 +107,20 @@ class NewController extends AdminController
         ));
     }
 
-
     /**
-     * @param Request $request
-     * 多图文管理页面
-     */
-    public function multi(Request $request)
-    {
-        $where = [
-            'is_system' => 1,
-            'parent_id' => 0,
-            'theme' => 0,
-        ];
-        $categorys = $this->new->getSystemCategorys($where);
-        $silderMenu = $this->getSiderbar();
-
-        $page = $request->page ? (int)$request->page : 1;
-        $where = [];
-        if ($request->get('category')) {
-            $where = ['category_id' => $request->get('category')];
-        }
-        list($count, $lists) = $this->new->getNewList($where, $page);
-//        foreach ($lists as $nv) {
-//            var_dump($nv->category());
-//        }
-
-        $page = $this->pager($count, $page, $this->perpage);
-
-        return view('admin.news.multi', compact(
-            'lists', 'categorys', 'silderMenu', 'page'
-        ));
-    }
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\View\View|void
+     * @param NewCreateRequest $request
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      *
-     * 发布文章
+     * 多图文文章管理
      */
-    public function create(NewCreateRequest $request)
+    public function multi(NewCreateRequest $request, $id = null)
     {
         if ($request->isMethod('post')) {
-
             $data = $request->fillData();
-            $result = $this->new->saveMultiNews($data);
-            if ($result['status']) return $this->success('发布文章成功!');
-            return $this->error('发布文章失败');
+            $result = $this->new->saveMultiNew($data);
+            if ($result['status']) return $this->success('发布文章成功!', url('news'), true);
+            return $this->error('发布文章失败', null, true);
         }
 
         $where = [
@@ -153,40 +131,14 @@ class NewController extends AdminController
         $categorys = $this->new->getSystemCategorys($where);
         $corps = $this->task->getNormalCorps(['status' => 1]);
 
-        return view('admin.news.create', compact(
-            'categorys', 'corps'
-        ));
-    }
-
-    /**
-     * @param $id
-     * @param Request $request
-     * @return \Illuminate\View\View|void
-     *
-     * 编辑文章
-     */
-    public function edit($id, Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $data = [
-                'title' => $request->get('title'),
-                'content' => $request->get('content'),
-                'type' => $request->get('type'),
-            ];
-
-            try {
-                $result = $this->new->newModel->whereId($id)->update($data);
-                if (!empty($result)) return $this->success('编辑文章成功!');
-            } catch (\Exception $e) {
-                $e->getMessage();
-            }
-            return $this->error('编辑文章失败!');
+        if ($id) {
+            $new = $this->new->newModel->find($id);
+            if (empty($new)) return $this->error('该文章不存在或已删除!');
         }
 
-        $newModel = $this->new->newModel->find($id);
-        if (empty($newModel)) return $this->error('该文章不存在或已删除!');
-
-        return view('admin.news.edit', compact('newModel'));
+        return view('admin.news.create', compact(
+            'categorys', 'corps', 'new'
+        ));
     }
 
     /**
@@ -196,15 +148,10 @@ class NewController extends AdminController
      */
     public function del($id)
     {
-        $newModel = $this->new->newModel->find($id);
-        if (empty($newModel)) return $this->error('删除文章失败!');
+        $result = $this->new->deleteNews($id);
 
-        try {
-            $result = $newModel->delete();
-            if (!empty($result)) return $this->success('删除文章成功!');
-        } catch (\Exception $e) {
-            $e->getMessage();
-        }
+        if ($result['status']) return $this->success('删除文章成功!');
+
         return $this->error('删除文章失败!');
     }
 
