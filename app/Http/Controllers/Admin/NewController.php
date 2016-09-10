@@ -77,16 +77,18 @@ class NewController extends AdminController
         if ($request->isMethod('post')) {
             $item = [
                 'item_id' => $id,
-                'item_type' => 'App\Models\Category',
-                'content' => $request->get('content'),
+                'item_type' => 'App\Models\CategoryModel',
             ];
+            $content = $request->get('content');
             try {
-                $result = $this->new->articleModel->create($item);
-                if ($result) return $this->success('编辑分类完成!', url('news/single'));
+                $model = $this->new->articleModel->firstOrCreate($item);
+                $model->content = $content;
+                $model->save();
+                return $this->success('编辑单分类文章完成!', url('news/single'));
             } catch (\Exception $e) {
                 $e->getMessage();
             }
-            return $this->error('编辑分类失败!');
+            return $this->error('编辑单分类文章失败!');
         }
 
         return view('admin.news.category', compact(

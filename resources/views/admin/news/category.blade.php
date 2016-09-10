@@ -3,7 +3,6 @@
     {!!HTML::style('admin/css/news.css')!!}
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
-    {{--@include('UEditor::head')--}}
 @stop
 @section('content')
     <div class="content-all">
@@ -17,6 +16,7 @@
                 </div>
                 <div class="content-right-page">
                     <form method="POST" class="base_form">
+                        <input type="hidden" name="id" value="{!! $category->id !!}">
                         {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
                             <tr class="case_compile">
@@ -38,11 +38,12 @@
             </div>
         </div>
     </div>
-    <script src="/vendor/jquery/1.11.1/jquery.min.js"></script>
+    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
+    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
     <script>
-        {{--var ue = UE.getEditor("content");--}}
-        {{--ue.ready(function() {--}}
-        {{--ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.--}}
-        {{--});--}}
+        var ue = UE.getEditor("content");
+        ue.ready(function() {
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
+        });
     </script>
 @stop
