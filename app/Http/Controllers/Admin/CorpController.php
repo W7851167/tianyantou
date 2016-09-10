@@ -224,4 +224,17 @@ class CorpController extends AdminController
         return view('admin.corp.dynamic',compact('corpId','new'));
     }
 
+    /**
+     * @param $corpId
+     * @param $id
+     * 删除动态信息
+     */
+    public function newdelete($corpId,$id)
+    {
+        $result = $this->newRepository->deleteNews($id);
+        if($result['status'])
+            return $this->success('删除动态完成', url('corp/news',['id'=>$corpId]));
+        return $this->error('创建/编辑动态异常，请联系开发人员', url('corp/news',['id'=>$corpId]));
+    }
+
 }

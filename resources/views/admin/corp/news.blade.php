@@ -56,15 +56,3 @@
         </div>
     </div>
 @stop
-@section('script')
-    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
-    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
-    <script language="javascript">
-        $(function(){
-            var editor = UE.getEditor('content');
-            editor.ready(function() {
-                editor.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
-            });
-        });
-    </script>
-@stop

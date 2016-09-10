@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class NewModel extends BaseModel
 {
+    use SoftDeletes;
     public $table = 'news';
     protected $primaryKey = 'id';
 
