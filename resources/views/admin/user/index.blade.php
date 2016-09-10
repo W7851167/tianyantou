@@ -18,29 +18,36 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">用户列表</a></p>
                 </div>
-                @if(!empty($stores))
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='65'>门店ID</th>
-                            <th width="220">门店名称</th>
-                            <th width="400">门店地址</th>
-                            <th width="160">服务电话</th>
+                            <th width='65'>用户名</th>
+                            <th width='65'>手机认证</th>
+                            <th width='65'>邮箱认证</th>
+                            <th width='65'>身份认证</th>
+                            <th width="100">总资产</th>
+                            <th width="100">钱包</th>
+                            <th width="100">冻结返利</th>
+                            <th width="100">冻结提现</th>
+                            <th width="100">积分</th>
                             <th>操作</th>
                         </tr>
-                        @foreach($stores as $store)
+                        @foreach($lists as $uv)
                             <tr>
-                                <td>{!! $store['id'] !!}</td>
-                                <td>{!! $store['name'] !!}</td>
-                                <td>{!! $store['location'] !!}</td>
-                                <td>{!! $store['tel'] !!}</td>
+                                <td>{!! $uv->username !!}</td>
+                                <td>{!! !empty($uv->mobile) ? '已认证':'未认证' !!}</td>
+                                <td>{!! !empty($uv->email) ? '已认证':'未认证' !!}</td>
+                                <td>{!! !empty($uv->idno) ? '已认证':'未认证' !!}</td>
+                                <td>{!! $uv->money->total or 0.00!!}</td>
+                                <td>{!! $uv->money->money or 0.00 !!}</td>
+                                <td>{!! $uv->money->rebate or 0.00!!}</td>
+                                <td>{!! $uv->money->withdraw or 0.00!!}</td>
+                                <td>{!! $uv->money->score or 0.00!!}</td>
                                 <td>
-                                    <a href="{!! url('/shop/edit/'.$store['id']) !!}">编辑</a>
-                                    <a href="{!! url('shop/manage/'.$store['id']) !!}">管理</a>
+                                    <a href="{!! url('user/scoreadd',['id'=>$uv->id]) !!}">添加积分</a>
                                 </td>
                             </tr>
                         @endforeach
                     </table>
-                @endif
             </div>
         </div>
     </div>

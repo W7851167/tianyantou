@@ -23,7 +23,7 @@ class UserModel extends BaseModel
      */
     public function money()
     {
-        return $this->hasOne('App\Models\MoneyModel');
+        return $this->hasOne('App\Models\MoneyModel','user_id');
     }
 
     /**
@@ -32,7 +32,7 @@ class UserModel extends BaseModel
      */
     public function scores()
     {
-        return $this->hasMany('App\Models\ScoreModel');
+        return $this->hasMany('App\Models\ScoreModel','user_id');
     }
 
 }
