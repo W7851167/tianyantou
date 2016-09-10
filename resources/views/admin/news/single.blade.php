@@ -31,7 +31,7 @@
                                     <td>{!! $cat->title !!}</td>
                                     <td>{!! $cat->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/category/'.$cat->id) !!}">编辑</a>
+                                        <a href="{!! url('news/single/'.$cat->id) !!}">编辑</a>
                                     </td>
                                 </tr>
                             @endforeach

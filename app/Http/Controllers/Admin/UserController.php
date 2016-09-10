@@ -17,10 +17,13 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
-class UserController extends  AdminController
+class UserController extends AdminController
 {
-    public function __construct(UserRepository $userRepository)
+    public function __construct(
+        UserRepository $userRepository
+    )
     {
+        parent::__construct();
         $this->userRepository = $userRepository;
     }
 
@@ -33,8 +36,8 @@ class UserController extends  AdminController
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where['roles'] = '用户';
-        list($counts, $lists) = $this->userRepository->getUserList($where,$this->perpage, $page);
+        list($counts, $lists) = $this->userRepository->getUserList($where, $this->perpage, $page);
         $pageHtml = $this->pager($counts, $page, $this->perpage);
-        return view('admin.user.index',compact('lists','pageHtml'));
+        return view('admin.user.index', compact('lists', 'pageHtml'));
     }
 }

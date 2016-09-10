@@ -24,6 +24,9 @@ class AdminController extends Controller
     {
         $this->user = Session::get('user.passport');
         view()->share('user', $this->user);
+        list($menu, $sidebarHtml) = getNavConfig();
+        view()->share('menu', $menu);
+        view()->share('silderMenu', $sidebarHtml);
     }
 
 

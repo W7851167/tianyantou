@@ -37,13 +37,13 @@ class NewController extends AdminController
      */
     public function index(Request $request)
     {
+
         $where = [
             'is_system' => 1,
             'parent_id' => 0,
             'theme' => 0,
         ];
-        $categorys = $this->new->getSystemCategorys($where);
-        $silderMenu = $this->getSiderbar();
+        $categorys = $this->new->getSystemCategorys($where);;
 
         $page = $request->page ? (int)$request->page : 1;
         $where = [];
@@ -55,7 +55,7 @@ class NewController extends AdminController
         $page = $this->pager($count, $page, $this->perpage);
 
         return view('admin.news.multi', compact(
-            'lists', 'categorys', 'silderMenu', 'page'
+            'lists', 'categorys', 'page'
         ));
     }
 
@@ -68,8 +68,7 @@ class NewController extends AdminController
         $where['parent_id'] = 0;
         $where['theme'] = 1;
         $lists = $this->new->getSystemCategorys($where);
-        $silderMenu = $this->getSiderbar();
-        return view('admin.news.single', compact('lists', 'silderMenu'));
+        return view('admin.news.single', compact('lists'));
     }
 
     /**
@@ -153,32 +152,5 @@ class NewController extends AdminController
         if ($result['status']) return $this->success('删除文章成功!');
 
         return $this->error('删除文章失败!');
-    }
-
-    /**
-     * 生成自动的左侧菜单信息
-     */
-    private function getSiderbar()
-    {
-        $url = \Request::path();
-        $url = ltrim($url, '/');
-        $categorys = [
-            ['name' => '单分类文章', 'url' => 'news/single'],
-            ['name' => '列表文章', 'url' => 'news/multi'],
-            ['name' => '帮助中心', 'url' => 'news/help'],
-            ['name' => '公告/事件', 'url' => 'news/notice'],
-        ];
-        $sidebarHtml = '';
-        $sidebarHtml .= '<ul class="content-left-menu clearfix">';
-        foreach ($categorys as $cat) {
-            $sidebarHtml .= '<li><a href="' . url($cat['url']) . '"';
-            if (substr($url, 0, strlen($cat['url'])) === $cat['url']) {
-                $sidebarHtml .= ' class="on"';
-            }
-            $sidebarHtml .= ' >' . $cat['name'] . '</a></li>';
-        }
-        $sidebarHtml .= '</ul>';
-
-        return $sidebarHtml;
     }
 }
