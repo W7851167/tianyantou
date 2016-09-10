@@ -104,7 +104,7 @@ class PassportController extends AdminController
     public function uploadImg(Request $request) {
         $path =  $request->input('path') ?  $request->input('path') : 'imgs';
 
-        $path = base_path('/uploads/' . $path . '/');
+        $path = base_path('uploads/' . $path . '/');
         if(!file_exists($path)) mkdir( $path,0755,true);
 
         $upload = app()->make('LibraryManager')->create('Upload');
@@ -118,8 +118,8 @@ class PassportController extends AdminController
         }
         // 上传成功
         $src['name'] = $info['Filedata']['name'];
-        $src['master'] = $upload->rootPath. "/" . $info['Filedata']['savepath'].$info['Filedata']['savename'];
-        $src['master_url'] = config('app.img_url').str_replace(public_path('/data/'), '', $src['master'] );
+        $src['master'] = $upload->rootPath . $info['Filedata']['savepath'].$info['Filedata']['savename'];
+        $src['master_url'] = config('app.img_url').str_replace(base_path('uploads'), '', $src['master'] );
 
         $image = app()->make('LibraryManager')->create('Image');
         for($i=0;$i<5;$i++)
@@ -133,10 +133,10 @@ class PassportController extends AdminController
 
                 $file = preg_replace('/(\.\w+$)/i', '.jpg', $dir.'/'.$info['Filedata']['savename']);
                 $image->thumb(request('width'.$i),request('height'.$i),request('type'.$i,1))->save($file,'jpg');
-                $file = str_replace(base_path('/uploads/'), '', $file );
+                $file = str_replace(base_path('uploads'), '', $file );
                 $file = ltrim($file, '\\');
                 $file = ltrim($file, '/');
-                $src[request('width'.$i).request('height'.$i)] = config('app.img_url').'/' . $file;
+                $src[request('width'.$i).request('height'.$i)] = config('app.img_url') .'/'. $file;
             }
         }
 
