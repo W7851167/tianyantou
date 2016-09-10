@@ -30,4 +30,19 @@ class MetaModel extends BaseModel
             ->where('item_type',$data['item_type'])
             ->first();
     }
+
+    /**
+     * @param $data
+     * @return mixed
+     * 保存元数据信息
+     */
+    public function saveMeta($data)
+    {
+        if($model = $this->getMeta($data)) {
+            $model->meta_value = $data['meta_value'];
+            return $model->save();
+        } else {
+            return $this->firstOrCreate($data);
+        }
+    }
 }

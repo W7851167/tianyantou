@@ -190,13 +190,7 @@ class TaskRepository extends  BaseRepository
             $metaData['meta_key'] = $key;
             $metaData['meta_value'] = serialize($value);
             try {
-                if($model = $this->metaModel->getMeta($metaData))
-                {
-                    $model->meta_value = $metaData['meta_value'];
-                    $model->save();
-                } else {
-                    $this->metaModel->firstOrCreate($metaData);
-                }
+                $this->metaModel->saveMeta($metaData);
             } catch (QueryException $e) {
                 return static::getError($e->getMessage());
             }
