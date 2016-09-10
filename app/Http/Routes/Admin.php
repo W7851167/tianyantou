@@ -31,7 +31,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
     Route::any('corp/manage/{id?}', ['as' => 'corp.manage', 'uses' => 'CorpController@manage']);
     Route::any('corp/termcreate/{corp_id}/{id?}', ['as' => 'corp.termcreate', 'uses' => 'CorpController@termcreate']);
-    Route::get('corp/termdelete/{corp_id}/{id}', ['as'=>'corp.termdelete','uses'=>'CorpController@termdelete']);
+    Route::get('corp/termdelete/{corp_id}/{id}', ['as' => 'corp.termdelete', 'uses' => 'CorpController@termdelete']);
     Route::get('corp/term/{id?}', ['as' => 'corp.term', 'uses' => 'CorpController@term']);
     Route::any('corp/safety/{id?}', ['as' => 'corp.safety', 'uses' => 'CorpController@safety']);
     Route::any('corp/photos/{id?}', ['as' => 'corp.photos', 'uses' => 'CorpController@photos']);
@@ -45,13 +45,13 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('system/role', ['as' => 'system.role', 'uses' => 'SystemController@role']);
     //文章管理
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewController@index']);
-    Route::match(['get','post'],'news/create', ['as' => 'news.create', 'uses' => 'NewController@create']);
+    Route::match(['get', 'post'], 'news/create', ['as' => 'news.create', 'uses' => 'NewController@create']);
     Route::post('news/store/{id}', ['as' => 'news.store', 'uses' => 'NewController@store']);
     Route::match(['get', 'psot'], 'news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewController@edit']);
     Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);
     Route::get('news/single', ['as' => 'news.single', 'uses' => 'NewController@single']);
-    Route::match(['get','post'],'news/category/{id}', ['as' => 'news.category', 'uses' => 'NewController@category']);
-    Route::get('news/multi', ['as' => 'news.multi', 'uses' => 'NewController@multi']);
+    Route::match(['get', 'post'], 'news/category/{id}', ['as' => 'news.category', 'uses' => 'NewController@category']);
+    Route::match(['get', 'post'], 'news/multi/{id?}', ['as' => 'news.multi', 'uses' => 'NewController@multi']);
 });
 
 Route::get('/', function () {

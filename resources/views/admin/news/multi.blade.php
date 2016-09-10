@@ -14,13 +14,13 @@
                 </div>
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
-                        <p><a href="{!! url('news/multi') !!}" {!! Input::get('category')?'':'class="at"' !!}">所有资讯</a></p>
+                        <p><a href="{!! url('news') !!}" {!! Input::get('category')?'':'class="at"' !!}">所有资讯</a></p>
                         @if(!empty($categorys))
                             @foreach($categorys as $cat)
-                             <p><a href="{!! url('news/multi?category=' . $cat->id) !!}" {!! $cat->id==Input::get('category')? 'class="at"' :'' !!}>{!! $cat->title !!}</a></p>
+                             <p><a href="{!! url('news?category=' . $cat->id) !!}" {!! $cat->id==Input::get('category')? 'class="at"' :'' !!}>{!! $cat->title !!}</a></p>
                             @endforeach
                         @endif
-                        <a href="{!! url('/news/create') !!}" class="buttonA">发布文章</a>
+                        <a href="{!! url('/news/multi') !!}" class="buttonA">发布文章</a>
                     </div>
                     @if(count($lists)>0)
                         <table class="client_cases" cellspacing="0">
@@ -38,8 +38,8 @@
                                     <td>{!! $nv->categoryName($nv->category_id) !!}</td>
                                     <td>{!! $nv->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/edit/'.$nv->id) !!}">编辑</a>
-                                        <a href="{!! url('news/del/'.$nv->id) !!}">编辑</a>
+                                        <a href="{!! url('news/multi/'.$nv->id) !!}">编辑</a>
+                                        <a href="{!! url('news/multi/del/'.$nv->id) !!}">删除</a>
                                     </td>
                                 </tr>
                             @endforeach

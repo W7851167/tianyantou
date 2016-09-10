@@ -82,7 +82,7 @@ class NewRepository extends BaseRepository
      *
      * 保存多图文信息
      */
-    public function saveMultiNews($data)
+    public function saveMultiNew($data)
     {
         $result = $this->newModel->getConnection()->transaction(function () use ($data) {
             $logo = $data['logo'];
@@ -91,16 +91,15 @@ class NewRepository extends BaseRepository
 
             $id = $this->newModel->saveBy($data);
             $id = !empty($data['id']) ? $data['id'] : $id;
-            if(!empty($logo)) {
-                $saveData['name'] = $logo;
-                $saveData['item_id'] = $id;
-                $saveData['item_type'] = 'App\Models\NewModel';
-                $this->imageModel->saveImage($saveData,true);
+            $isSingle = !empty($data['id']) ? true : false;
+            $saveData = ['item_id' => $id, 'item_type' => 'App\Models\NewModel'];
+            if (!empty($logo)) {
+                $this->imageModel->saveImage(array_merge($saveData,
+                    ['name' => $logo]), $isSingle);
             }
-            if(!empty($content)) {
-                $saveData['content'] = $content;
-                unset($saveData['name']);
-                $this->articleModel->saveArticle($saveData,true);
+            if (!empty($content)) {
+                $this->articleModel->saveArticle(array_merge($saveData,
+                    ['content' => $content]), $isSingle);
             }
         });
         if ($result instanceof Exception) {
@@ -118,7 +117,7 @@ class NewRepository extends BaseRepository
     {
         $result = $this->newModel->getConnection()->transaction(function () use ($id) {
             $this->newModel->find($id)->delete();
-            $this->articleModel->deleteArticle($id,'App\Models\NewModel');
+            $this->articleModel->deleteArticle($id, 'App\Models\NewModel');
             $this->imageModel->deleteImage($id, 'App\Models\NewModel');
         });
 
