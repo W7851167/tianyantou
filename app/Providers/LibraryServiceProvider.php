@@ -19,6 +19,7 @@ class LibraryServiceProvider extends ServiceProvider
     public function boot()
     {
         require app_path('Library/Libs/helper.php');
+        require app_path('Library/Libs/models.php');
         $urls = parse_url(Request::Url());
         $host = $urls['host'];
         $prefix = explode('.', $host)[0];
