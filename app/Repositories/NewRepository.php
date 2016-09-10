@@ -88,18 +88,40 @@ class NewRepository extends BaseRepository
             $logo = $data['logo'];
             $content = $data['content'];
             $data = array_except($data, ['logo', 'content']);
-            $id = $this->newModel->insertGetId($data);
-            if ($logo) $this->imageModel->insert([
-                'name' => $logo,
-                'item_id' => $id,
-                'item_type' => 'App\Models\NewModel'
-            ]);
-            if ($content) $this->articleModel->insert([
-                'item_id' => $id,
-                'item_type' => 'App\Models\NewModel',
-                'content' => $content,
-            ]);
+
+            $id = $this->newModel->saveBy($data);
+            $id = !empty($data['id']) ? $data['id'] : $id;
+            if(!empty($logo)) {
+                $saveData['name'] = $logo;
+                $saveData['item_id'] = $id;
+                $saveData['item_type'] = 'App\Models\NewModel';
+                $this->imageModel->saveImage($saveData,true);
+            }
+            if(!empty($content)) {
+                $saveData['content'] = $content;
+                unset($saveData['name']);
+                $this->articleModel->saveArticle($saveData,true);
+            }
         });
+        if ($result instanceof Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('success', $result);
+        }
+    }
+
+    /**
+     * @param $id
+     * 删除新闻内容
+     */
+    public function deleteNews($id)
+    {
+        $result = $this->newModel->getConnection()->transaction(function () use ($id) {
+            $this->newModel->find($id)->delete();
+            $this->articleModel->deleteArticle($id,'App\Models\NewModel');
+            $this->imageModel->deleteImage($id, 'App\Models\NewModel');
+        });
+
         if ($result instanceof Exception) {
             return $this->getError($result->getMessage());
         } else {

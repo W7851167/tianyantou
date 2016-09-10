@@ -21,8 +21,7 @@ class ImageModel extends BaseModel
      * @param bool|false $isSignle 是否为一对一的修改
      * 保存信息
      */
-    public function saveImage($data, $isSignle=false){
-        $model = $this;
+    public function saveImage($data, $isSingle=false){
         $data = $data ? $data : Request::all();
         $data = array_except($data, ['_token', '_url', 's']);
         //传递主键
@@ -33,11 +32,11 @@ class ImageModel extends BaseModel
             return $model->save();
         }
         //单一修改
-        if($isSignle) {
+        if($isSingle) {
             if(!empty($data['item_id']) && !empty($data['item_type'])) {
                 $model = $this->where('item_id', $data['item_id'])->where('item_type',$data['item_type'])->first();
                 $model = $model ? $model : $this;
-                $this->setModelData($model, $data);
+                $model->name = $data['name'];
                 return $model->save();
             }
         }

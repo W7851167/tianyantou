@@ -83,7 +83,7 @@
             'onInit': function () {$("#queueID").hide();},
             'swf'      : '/vendor/uploadify/uploadify.swf',
             'uploader' : '/uploadImg',
-            'formData' :{'width0':188,'height0':223, 'type0':1,'path': 'logo'},
+            'formData' :{'width0':188,'height0':223, 'type0':1},
             'buttonText':'上传',
             'width':'82',
             'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
