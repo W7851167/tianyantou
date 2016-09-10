@@ -37,4 +37,22 @@ class UserController extends  AdminController
         $pageHtml = $this->pager($counts, $page, $this->perpage);
         return view('admin.user.index',compact('lists','pageHtml'));
     }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * 给用户添加积分
+     */
+    public function score(Request $request, $id)
+    {
+        $user = $this->userRepository->userModel->find($id);
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->userRepository->saveScore($data);
+            if($result['status'])
+                return $this->success($result['message'],url('user'), true);
+            return $this->error('给用户添加积分异常，请联系开发人员');
+        }
+        return view('admin.user.score',compact('user'));
+    }
 }

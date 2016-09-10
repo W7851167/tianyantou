@@ -17,8 +17,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('dashboard', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     //用户管理
     Route::get('user', ['as' => 'user.index', 'uses' => 'UserController@index']);
-    Route::get('user/create', ['as' => 'user.create', 'uses' => 'UserController@create']);
-    Route::any('user/edit/{id}', ['as' => 'user.store', 'uses' => 'UserController@store']);
+    Route::any('user/score/{user_id}', ['as' => 'user.score', 'uses' => 'UserController@score']);
     Route::get('withdraw', ['as' => 'withdraw', 'uses' => 'WithdrawController@index']);
     //项目管理
     Route::get('task/{status?}', ['as' => 'task.index', 'uses' => 'TaskController@index'])->where('status', '[0-9]+');
