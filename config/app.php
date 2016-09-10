@@ -149,7 +149,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\LibraryServiceProvider::class,
-        Stevenyangecho\UEditor\UEditorServiceProvider::class,
     ],
 
     /*

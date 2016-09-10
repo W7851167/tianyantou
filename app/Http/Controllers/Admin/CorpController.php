@@ -191,9 +191,27 @@ class CorpController extends AdminController
      * @param $id
      * 平台动态
      */
-    public function news($id) {
+    public function news(Request $request,$id) {
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $corp = $this->taskRepository->corpModel->find($id);
-        return view('admin.corp.news',compact('corp'));
+        $where['corp_id'] = $id;
+        $where['category_id'] = 13;
+        list($counts, $lists) = $this->newRepository->getNewList($where,$page, $this->perpage);
+        $pageHtml = $this->pager($counts,$page, $this->perpage);
+        return view('admin.corp.news',compact('corp', 'pageHtml', 'lists'));
+    }
+
+    /**
+     * @param Request $request
+     * @param $corpId
+     * 公司动态
+     */
+    public function dynamic(Request $request , $corpId)
+    {
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+        }
+        return view('admin.corp.dynamic',compact('corpId'));
     }
 
 }
