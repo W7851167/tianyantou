@@ -149,9 +149,21 @@ class CorpController extends AdminController
     public function safety(Request $request,$id) {
         $corp = $this->taskRepository->corpModel->find($id);
         if($request->isMethod('post')) {
-
+            $data = $request->get('data');
+            $result = $this->taskRepository->saveSafety($id,$data);
+            if($result['status'])
+                return $this->success($result['message'],url('corp/safety',['id'=>$id]),true);
+            return $this->error($result['message'],null,true);
         }
-        return view('admin.corp.safety',compact('corp'));
+        $metas['icp_domain'] = '';
+        $metas['icp_corp_type'] = '';
+        $metas['icp_time'] = '';
+        $metas['icp_corp_name'] = '';
+        $metas['icp_no'] = '';
+        if(!empty($corp->metas[0])) {
+           $metas = getMetas($corp->metas, $metas);
+        }
+        return view('admin.corp.safety',compact('corp','metas'));
     }
 
     /**

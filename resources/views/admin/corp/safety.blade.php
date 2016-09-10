@@ -2,6 +2,9 @@
 @section('title') 安全保障 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('vendor/datepicker/skin/WdatePicker.css')!!}
+    {!!HTML::script('vendor/datepicker/WdatePicker.js')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -26,28 +29,25 @@
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
-                    @if(!empty($corp))
-                        <input type="hidden" name="data[id]" value="{!! $corp->id !!}">
-                    @endif
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>备案域名：</div>
-                        <div><input type="text" name="data[icp_domain]" placeholder="备案域名" value=""></div>
+                        <div><input type="text" name="data[icp_domain]" placeholder="备案域名" value="{!! $metas['icp_domain'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>单位性质：</div>
-                        <div><input type="text" name="data[icp_corp_type]" placeholder="企业" value=""></div>
+                        <div><input type="text" name="data[icp_corp_type]" placeholder="企业" value="{!! $metas['icp_corp_type'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>备案时间：</div>
-                        <div><input type="text" name="data[icp_time]" placeholder="备案时间" value=""></div>
+                        <div><input type="text" class="Wdate" name="data[icp_time]" placeholder="备案时间" value="{!! $metas['icp_time'] or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
-                        <div><input type="text" name="data[icp_corp_name]" placeholder="公司名称" value=""></div>
+                        <div><input type="text" name="data[icp_corp_name]" placeholder="公司名称" value="{!! $metas['icp_corp_name'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>ICP备案号：</div>
-                        <div><input type="text" name="data[icp_no]" placeholder="京ICP备14019436号" value=""></div>
+                        <div><input type="text" name="data[icp_no]" placeholder="京ICP备14019436号" value="{!! $metas['icp_no'] or '' !!}"></div>
                     </div>
                     <div class="w928">
                         <div class="button">
@@ -59,15 +59,3 @@
         </div>
     </div>
 @stop
-@section('script')
-    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
-    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
-    <script language="javascript">
-        $(function(){
-            var editor = UE.getEditor('content');
-            editor.ready(function() {
-                editor.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
-            });
-        });
-    </script>
-    @stop
