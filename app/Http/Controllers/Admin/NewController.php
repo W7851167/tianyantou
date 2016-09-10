@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Http\Requests\NewCreateRequest;
 use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
@@ -117,6 +118,9 @@ class NewController extends AdminController
             $where = ['category_id' => $request->get('category')];
         }
         list($count, $lists) = $this->new->getNewList($where, $page);
+//        foreach ($lists as $nv) {
+//            var_dump($nv->category());
+//        }
 
         $page = $this->pager($count, $page, $this->perpage);
 
@@ -131,17 +135,13 @@ class NewController extends AdminController
      *
      * 发布文章
      */
-    public function create(Request $request)
+    public function create(NewCreateRequest $request)
     {
         if ($request->isMethod('post')) {
-            try {
-                $userModel = $this->new->newModel->create(array_merge(
-                    $request->all(), ['user_id' => $this->user['id']]
-                ));
-                if (!empty($userModel)) return $this->success('发布文章成功!');
-            } catch (\Exception $e) {
-                $e->getMessage();
-            }
+
+            $data = $request->fillData();
+            $result = $this->new->saveMultiNews($data);
+            if ($result['status']) return $this->success('发布文章成功!');
             return $this->error('发布文章失败');
         }
 

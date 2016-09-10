@@ -43,7 +43,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::get('system/role', ['as' => 'system.role', 'uses' => 'SystemController@role']);
     //文章管理
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewController@index']);
-    Route::get('news/create', ['as' => 'news.create', 'uses' => 'NewController@create']);
+    Route::match(['get','post'],'news/create', ['as' => 'news.create', 'uses' => 'NewController@create']);
     Route::post('news/store/{id}', ['as' => 'news.store', 'uses' => 'NewController@store']);
     Route::match(['get', 'psot'], 'news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewController@edit']);
     Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);

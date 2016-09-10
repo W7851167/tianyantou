@@ -15,6 +15,7 @@ namespace App\Repositories;
 
 use App\Models\ArticleModel;
 use App\Models\CategoryModel;
+use App\Models\ImageModel;
 use App\Models\NewModel;
 use Illuminate\Database\QueryException;
 
@@ -23,12 +24,14 @@ class NewRepository extends BaseRepository
     public function __construct(
         NewModel $newModel,
         CategoryModel $categoryModel,
-        ArticleModel $articleModel
+        ArticleModel $articleModel,
+        ImageModel $imageModel
     )
     {
         $this->newModel = $newModel;
         $this->categoryModel = $categoryModel;
         $this->articleModel = $articleModel;
+        $this->imageModel = $imageModel;
     }
 
     /**
@@ -61,13 +64,46 @@ class NewRepository extends BaseRepository
      * @param $itemType
      * @param $content
      */
-    public function saveArticle($data) {
+    public function saveArticle($data)
+    {
         try {
             $this->articleModel->saveBy($data);
             return static::getSuccess('保存文章内容完成');
-        } catch(QueryException  $e) {
+        } catch (QueryException  $e) {
             return static::getError($e->getMessage());
         }
     }
 
+    /**
+     * @param $data
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     *
+     * 保存多图文信息
+     */
+    public function saveMultiNews($data)
+    {
+        $result = $this->newModel->getConnection()->transaction(function () use ($data) {
+            $logo = $data['logo'];
+            $content = $data['content'];
+            $data = array_except($data, ['logo', 'content']);
+            $id = $this->newModel->insertGetId($data);
+            if ($logo) $this->imageModel->insert([
+                'name' => $logo,
+                'item_id' => $id,
+                'item_type' => 'App\Models\NewModel'
+            ]);
+            if ($content) $this->articleModel->insert([
+                'item_id' => $id,
+                'item_type' => 'App\Models\NewModel',
+                'content' => $content,
+            ]);
+        });
+        if ($result instanceof Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('success', $result);
+        }
+    }
 }
