@@ -115,7 +115,7 @@ class TaskRepository extends  BaseRepository
             $avatar = $data['avatar'];
             unset($data['avatar']);
         }
-        try {
+        $result = $this->corpTermModel->getConnection()->transaction(function() use($data,$avatar){
             $termId = $this->corpTermModel->saveBy($data);
             $termId = !empty($data['id']) ? $data['id'] : $termId;
             if(!empty($avatar)) {
@@ -124,9 +124,11 @@ class TaskRepository extends  BaseRepository
                 $imageData['name'] = $avatar;
                 $this->imageModel->saveImage($imageData,true);
             }
-            return static::getSuccess('创建公司团队成功');
-        } catch (QueryException $e) {
-            return static::getError($e->getMessage());
+        });
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('创建/编辑公司团队完成', $result);
         }
     }
 
