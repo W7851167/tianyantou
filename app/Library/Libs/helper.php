@@ -9,33 +9,35 @@
  * $Author:zxs
  * $Dtime:2016/9/8
  ***********************************************************************************/
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
 
 /**
  * @param $url
  * 获取html菜单
  */
-function getNavConfig($url = null)
+function getNavConfig()
 {
-    $url = $url ? $url : Request::path();
-    $url = ltrim($url, '/');
-    $nav = config('menu.nav');
-    $navHtml = '';
-    $sidebarHtml = '';
-    $urls = [];
+    $routeName = \Route::currentRouteName();
+    $routeName = explode('.', $routeName);
+    $one = isset($routeName['0']) ? $routeName[0] : '';
+    $two = isset($routeName['1']) ? $routeName[1] : '';
+
+    $nav = config('menu.menu');
+
+    $navHtml = $sidebarHtml = '';
+
     foreach ($nav as $key => $value) {
         $navHtml .= '<div class="header-nav-inner">';
         $navHtml .= '<a href="' . url($value['url']) . '"';
-        if (!empty($value['page'])) {
-            $urls = array_pluck($value['page'], 'url');
-        }
-        if ($url == $value['url'] || in_array($url, $urls) || substr($url,0,strlen($value['url'])) == $value['url']) {
+
+        if ($one == $value['tag']) {
             $navHtml .= ' class="at"';
             $sidebarHtml .= '<ul class="content-left-menu clearfix">';
-            if (!empty($value['page'])) {
-                foreach ($value['page'] as $sidebar) {
+            if (!empty($value['child'])) {
+                foreach ($value['child'] as $sidebar) {
+                    $tag = explode('.', $sidebar['tag']);
                     $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
-                    if ($url == $sidebar['url']) {
+                    if (isset($tag[1]) && ($two == $tag[1])) {
                         $sidebarHtml .= ' class="on"';
                     }
                     $sidebarHtml .= ' >' . $sidebar['name'] . '</a></li>';

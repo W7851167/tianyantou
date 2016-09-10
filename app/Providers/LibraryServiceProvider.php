@@ -24,11 +24,11 @@ class LibraryServiceProvider extends ServiceProvider
         $host = $urls['host'];
         $prefix = explode('.', $host)[0];
 
-        if (strtolower($prefix) == 'admin') {
-            list($menu, $sidebarHtml) = getNavConfig();
-            view()->share('menu', $menu);
-            view()->share('silderMenu', $sidebarHtml);
-        }
+//        if (strtolower($prefix) == 'admin') {
+//            list($menu, $sidebarHtml) = getNavConfig();
+//            view()->share('menu', $menu);
+//            view()->share('silderMenu', $sidebarHtml);
+//        }
     }
 
     /**
