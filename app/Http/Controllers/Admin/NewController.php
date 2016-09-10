@@ -111,8 +111,8 @@ class NewController extends AdminController
     {
         if ($request->isMethod('post')) {
             $data = $request->fillData();
-            $result = $this->new->saveMultiNew($data, $id);
-            if ($result['status']) return $this->success('发布文章成功!', url('news/multi'), true);
+            $result = $this->new->saveMultiNew($data);
+            if ($result['status']) return $this->success('发布文章成功!', url('news'), true);
             return $this->error('发布文章失败', null, true);
         }
 
@@ -131,36 +131,6 @@ class NewController extends AdminController
 
         return view('admin.news.create', compact(
             'categorys', 'corps', 'new'
-        ));
-    }
-
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\View\View|void
-     *
-     * 发布文章
-     */
-    public function create(NewCreateRequest $request)
-    {
-        if ($request->isMethod('post')) {
-
-            $data = $request->fillData();
-            $result = $this->new->saveMultiNews($data);
-            if ($result['status']) return $this->success('发布文章成功!', url('news/multi'), true);
-            return $this->error('发布文章失败', null, true);
-        }
-
-        $where = [
-            'is_system' => 1,
-            'parent_id' => 0,
-            'theme' => 0,
-        ];
-        $categorys = $this->new->getSystemCategorys($where);
-        $corps = $this->task->getNormalCorps(['status' => 1]);
-
-        return view('admin.news.create', compact(
-            'categorys', 'corps'
         ));
     }
 

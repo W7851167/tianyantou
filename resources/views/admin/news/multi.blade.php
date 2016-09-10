@@ -14,10 +14,10 @@
                 </div>
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
-                        <p><a href="{!! url('news/multi') !!}" {!! Input::get('category')?'':'class="at"' !!}">所有资讯</a></p>
+                        <p><a href="{!! url('news') !!}" {!! Input::get('category')?'':'class="at"' !!}">所有资讯</a></p>
                         @if(!empty($categorys))
                             @foreach($categorys as $cat)
-                             <p><a href="{!! url('news/multi?category=' . $cat->id) !!}" {!! $cat->id==Input::get('category')? 'class="at"' :'' !!}>{!! $cat->title !!}</a></p>
+                             <p><a href="{!! url('news?category=' . $cat->id) !!}" {!! $cat->id==Input::get('category')? 'class="at"' :'' !!}>{!! $cat->title !!}</a></p>
                             @endforeach
                         @endif
                         <a href="{!! url('/news/multi') !!}" class="buttonA">发布文章</a>

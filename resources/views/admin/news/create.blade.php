@@ -22,7 +22,7 @@
                         <table class="case_specific" cellspacing="0">
                             <tr>
                                 <td width="200"><span>*</span>文章标题：</td>
-                                <td width="728"><input name="title" class="case_input" type="text" value="{!! $new->id or '' !!}"></td>
+                                <td width="728"><input name="title" class="case_input" type="text" value="{!! $new->title or '' !!}"></td>
                             </tr>
                             <tr>
                                 <td><span>*</span>文章分类：</td>

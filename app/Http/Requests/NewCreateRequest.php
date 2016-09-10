@@ -33,6 +33,7 @@ class NewCreateRequest extends Request
     {
         $user = Session::get('user.passport');
         return [
+            'id' => $this->id ?: null,
             'user_id' => isset($user['id']) ? $user['id'] : 0,
             'category_id' => $this->category_id,
             'corp_id' => $this->corp_id,
