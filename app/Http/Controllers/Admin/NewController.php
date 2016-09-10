@@ -107,6 +107,13 @@ class NewController extends AdminController
         ));
     }
 
+    /**
+     * @param NewCreateRequest $request
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 多图文文章管理
+     */
     public function multi(NewCreateRequest $request, $id = null)
     {
         if ($request->isMethod('post')) {
@@ -136,61 +143,15 @@ class NewController extends AdminController
 
     /**
      * @param $id
-     * @param Request $request
-     * @return \Illuminate\View\View|void
-     *
-     * 编辑文章
-     */
-    public function edit($id, Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $data = [
-                'title' => $request->get('title'),
-                'content' => $request->get('content'),
-                'type' => $request->get('type'),
-            ];
-
-            try {
-                $result = $this->new->newModel->whereId($id)->update($data);
-                if (!empty($result)) return $this->success('编辑文章成功!');
-            } catch (\Exception $e) {
-                $e->getMessage();
-            }
-            return $this->error('编辑文章失败!');
-        }
-
-        $where = [
-            'is_system' => 1,
-            'parent_id' => 0,
-            'theme' => 0,
-        ];
-        $categorys = $this->new->getSystemCategorys($where);
-        $corps = $this->task->getNormalCorps(['status' => 1]);
-
-        $new = $this->new->newModel->find($id);
-        if (empty($new)) return $this->error('该文章不存在或已删除!');
-
-        return view('admin.news.edit', compact(
-            'new', 'categorys', 'corps'
-        ));
-    }
-
-    /**
-     * @param $id
      *
      * 删除文章
      */
     public function del($id)
     {
-        $newModel = $this->new->newModel->find($id);
-        if (empty($newModel)) return $this->error('删除文章失败!');
+        $result = $this->new->deleteNews($id);
 
-        try {
-            $result = $newModel->delete();
-            if (!empty($result)) return $this->success('删除文章成功!');
-        } catch (\Exception $e) {
-            $e->getMessage();
-        }
+        if ($result['status']) return $this->success('删除文章成功!');
+
         return $this->error('删除文章失败!');
     }
 

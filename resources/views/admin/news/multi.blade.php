@@ -39,7 +39,7 @@
                                     <td>{!! $nv->created_at !!}</td>
                                     <td>
                                         <a href="{!! url('news/multi/'.$nv->id) !!}">编辑</a>
-                                        <a href="{!! url('news/multi/del/'.$nv->id) !!}">删除</a>
+                                        <a href="{!! url('news/del/'.$nv->id) !!}">删除</a>
                                     </td>
                                 </tr>
                             @endforeach
