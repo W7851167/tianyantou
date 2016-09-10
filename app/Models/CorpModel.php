@@ -26,7 +26,7 @@ class CorpModel extends BaseModel
      */
     public function metas()
     {
-        return $this->morphOne('App\Models\MetaModel', 'item');
+        return $this->morphMany('App\Models\MetaModel', 'item');
     }
 
     /**

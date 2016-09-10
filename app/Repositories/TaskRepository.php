@@ -16,6 +16,7 @@ namespace App\Repositories;
 use App\Models\CorpModel;
 use App\Models\CorpTermModel;
 use App\Models\ImageModel;
+use App\Models\MetaModel;
 use App\Models\TaskModel;
 use Illuminate\Database\QueryException;
 
@@ -25,13 +26,15 @@ class TaskRepository extends  BaseRepository
         TaskModel $taskModel,
         CorpModel $corpModel,
         CorpTermModel $corpTermModel,
-        ImageModel $imageModel
+        ImageModel $imageModel,
+        MetaModel $metaModel
     )
     {
         $this->taskModel = $taskModel;
         $this->corpModel = $corpModel;
         $this->corpTermModel = $corpTermModel;
         $this->imageModel = $imageModel;
+        $this->metaModel = $metaModel;
     }
 
     /**
@@ -181,14 +184,22 @@ class TaskRepository extends  BaseRepository
     public function saveSafety($corpId,$data)
     {
        if(!is_array($data)) return static::getError('参数传递错误');
-        foreach($data as $key=>$value) {
+        while(list($key,$value) = each($data)) {
             $metaData['item_id'] = $corpId;
             $metaData['item_type'] = 'App\Models\CorpModel';
             $metaData['meta_key'] = $key;
             $metaData['meta_value'] = serialize($value);
-            $result = static::saveMeta($metaData);
-            if($result['status'] == 0)
-                return static::getError('创建/修改安全保障信息异常');
+            try {
+                if($model = $this->metaModel->getMeta($metaData))
+                {
+                    $model->meta_value = $metaData['meta_value'];
+                    $model->save();
+                } else {
+                    $this->metaModel->firstOrCreate($metaData);
+                }
+            } catch (QueryException $e) {
+                return static::getError($e->getMessage());
+            }
         }
         return static::getSuccess('创建/修改安装保障信息完成');
     }
