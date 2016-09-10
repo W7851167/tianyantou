@@ -1,6 +1,8 @@
 @extends('admin.common.layout')
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
     {{--@include('UEditor::head')--}}
 @stop
 @section('content')
@@ -14,7 +16,7 @@
                     <a href="{!! url('/dashboard') !!}">首页</a>
                 </div>
                 <div class="content-right-page">
-                    <form action="{!! url('/news/category/'.$category->id) !!}" method="POST" id="project_form">
+                    <form method="POST" class="base_form">
                         {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
                             <tr class="case_compile">
@@ -28,7 +30,7 @@
                             </tr>
                         </table>
                         <div class="requirement_btm">
-                            <button type="submit">提交</button>
+                            <button class="submit" type="submit">提交</button>
                             <a href="{!! url('/news/single') !!}">返回列表</a>
                         </div>
                     </form>
