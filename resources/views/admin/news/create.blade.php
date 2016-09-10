@@ -1,7 +1,7 @@
 @extends('admin.common.layout')
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
-    @include('UEditor::head')
+    {{--@include('UEditor::head')--}}
 @stop
 @section('content')
     <div class="content-all">
@@ -73,7 +73,9 @@
             </div>
         </div>
     </div>
-    <script src="/vendor/jquery/1.11.1/jquery.min.js"></script>
+    {{--<script src="/vendor/jquery/1.11.1/jquery.min.js"></script>--}}
+    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
+    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
     <script>
         var ue = UE.getEditor("content");
         ue.ready(function() {
