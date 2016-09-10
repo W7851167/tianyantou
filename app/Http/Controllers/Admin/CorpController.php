@@ -150,9 +150,9 @@ class CorpController extends AdminController
         $corp = $this->taskRepository->corpModel->find($id);
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            $result = $this->taskRepository->saveSafety($id,$data);
+            $result = $this->taskRepository->saveMeta($id,$data);
             if($result['status'])
-                return $this->success($result['message'],url('corp/safety',['id'=>$id]),true);
+                return $this->success('保存安全保障信息完成',url('corp/safety',['id'=>$id]),true);
             return $this->error($result['message'],null,true);
         }
         $metas['icp_domain'] = '';
@@ -170,9 +170,21 @@ class CorpController extends AdminController
      * @param $id
      * 图片资料
      */
-    public function photos($id) {
+    public function photos(Request $request,$id) {
         $corp = $this->taskRepository->corpModel->find($id);
-        return view('admin.corp.photos',compact('corp'));
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->taskRepository->saveMeta($id,$data);
+            if($result['status'])
+                return $this->success('保存图片资料完成',url('corp/photos',['id'=>$id]),true);
+            return $this->error($result['message'],null,true);
+        }
+        $metas['credentials'] = '';
+        $metas['office_address'] = '';
+        if(!empty($corp->metas[0])) {
+            $metas = getMetas($corp->metas, $metas);
+        }
+        return view('admin.corp.photos',compact('corp','metas'));
     }
 
     /**
