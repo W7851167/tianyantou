@@ -193,7 +193,7 @@ class BaseModel extends  Model
         return $result;
     }
 
-    private  function setModelData($model, $data)
+    protected  function setModelData($model, $data)
     {
         foreach ($data as $key => $value) {
             $model->{$key} = $value;

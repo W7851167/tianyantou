@@ -26,9 +26,12 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     Route::any('task/trashed', ['as' => 'task.trashed', 'uses' => 'TaskController@trashed']);
     Route::get('task/untrashed/{id}', ['as' => 'task.untrashed', 'uses' => 'TaskController@untrashed']);
     Route::get('task/delete/{id}', ['as' => 'task.delete', 'uses' => 'TaskController@delete']);
+    //平台管理
     Route::get('corp', ['as' => 'corp', 'uses' => 'CorpController@index']);
     Route::any('corp/create/{id?}', ['as' => 'corp.create', 'uses' => 'CorpController@create']);
     Route::any('corp/manage/{id?}', ['as' => 'corp.manage', 'uses' => 'CorpController@manage']);
+    Route::any('corp/termcreate/{corp_id}/{id?}', ['as' => 'corp.termcreate', 'uses' => 'CorpController@termcreate']);
+    Route::get('corp/termdelete/{corp_id}/{id}', ['as'=>'corp.termdelete','uses'=>'CorpController@termdelete']);
     Route::get('corp/term/{id?}', ['as' => 'corp.term', 'uses' => 'CorpController@term']);
     Route::any('corp/safety/{id?}', ['as' => 'corp.safety', 'uses' => 'CorpController@safety']);
     Route::any('corp/photos/{id?}', ['as' => 'corp.photos', 'uses' => 'CorpController@photos']);
