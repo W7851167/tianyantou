@@ -14,11 +14,27 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 
 class UserController extends  AdminController
 {
-    public function index()
+    public function __construct(UserRepository $userRepository)
     {
-        return view('admin.user.index');
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\View\View
+     * 用户列表页面
+     */
+    public function index(Request $request)
+    {
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        $where['roles'] = '用户';
+        list($counts, $lists) = $this->userRepository->getUserList($where,$this->perpage, $page);
+        $pageHtml = $this->pager($counts, $page, $this->perpage);
+        return view('admin.user.index',compact('lists','pageHtml'));
     }
 }
