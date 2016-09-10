@@ -41,8 +41,8 @@
                                 <td width="200px;">{!! $nv->title or '' !!}</td>
                                 <td width="400px;">{!! $nv->description or '' !!}</td>
                                 <td style="width:150px; padding-left: 30px;">
-                                    <a href="{!! url('corp/dynamic',['id'=>1]) !!}">编辑</a>
-                                    <a href="{!! url('corp/newdelete',['id'=>1]) !!}">删除</a>
+                                    <a href="{!! url('corp/dynamic',['corp_id'=>$corp->id,'id'=>$nv->id]) !!}">编辑</a>
+                                    <a href="{!! url('corp/newdelete',['corp_id'=>$corp->id,'id'=>$nv->id]) !!}">删除</a>
                                     <a href="{!! config('app.url') .'/about/news/1.html' !!}" target="_blank">查看</a>
                                 </td>
                             </tr>

@@ -29,6 +29,9 @@
                         <input type="hidden" name="data[corp_id]" value="{!! $corpId !!}">
                     @endif
                     <input type="hidden" name="data[category_id]" value="13">
+                    @if(!empty($new->id))
+                        <input type="hidden" name="data[id]" value="{!! $new->id !!}">
+                    @endif
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>标题：</div>
