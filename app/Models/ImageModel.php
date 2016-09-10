@@ -3,8 +3,11 @@
 namespace App\Models;
 
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class ImageModel extends BaseModel
 {
+    use SoftDeletes;
     public  $table = 'images';
     protected  $primaryKey = 'id';
 
@@ -39,6 +42,17 @@ class ImageModel extends BaseModel
             }
         }
         return $this->query()->insertGetId($data);
+    }
+
+    /**
+     * @param $itemId
+     * @param $itemType
+     * 通过item_id和item_type删除图片信息
+     */
+    public function deleteImage($itemId, $itemType) {
+        return $this->where('item_id',$itemId)
+            ->where('item_type',$itemType)
+            ->delete();
     }
 
 }

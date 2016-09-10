@@ -92,6 +92,17 @@ class CorpController extends AdminController
     }
 
     /**
+     * @param $id
+     * 公司下团队管理
+     */
+    public function term($id)
+    {
+        $corp = $this->taskRepository->corpModel->find($id);
+        return view('admin.corp.term',compact('corp'));
+    }
+
+
+    /**
      * @param Request $request
      * @param null $id
      * 创建编辑公司团队成员
@@ -119,13 +130,17 @@ class CorpController extends AdminController
 
     /**
      * @param $id
-     * 公司下团队管理
+     * 删除成员组信息
      */
-    public function term($id)
+    public function termdelete($corpId,$id)
     {
-        $corp = $this->taskRepository->corpModel->find($id);
-        return view('admin.corp.term',compact('corp'));
+        $result = $this->taskRepository->deleteCorpTerm($corpId,$id);
+        if($result['status'])
+            return $this->success($result['message'], url('corp/term',['id'=>$corpId]));
+        return $this->error($result['message']);
     }
+
+
 
     /**
      * @param $id
