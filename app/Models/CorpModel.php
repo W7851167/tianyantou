@@ -37,4 +37,12 @@ class CorpModel extends BaseModel
     {
         return $this->hasMany('App\Models\TaskModel','corp_id');
     }
+
+    /**
+     * 文章内容
+     */
+    public function article()
+    {
+        return $this->morphOne('App\Models\ArticleModel', 'item');
+    }
 }

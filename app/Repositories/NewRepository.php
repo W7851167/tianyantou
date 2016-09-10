@@ -16,6 +16,7 @@ namespace App\Repositories;
 use App\Models\ArticleModel;
 use App\Models\CategoryModel;
 use App\Models\NewModel;
+use Illuminate\Database\QueryException;
 
 class NewRepository extends BaseRepository
 {
@@ -53,6 +54,20 @@ class NewRepository extends BaseRepository
     public function getSystemCategorys($where)
     {
         return $this->categoryModel->alls(['id', 'title', 'created_at', 'parent_id', 'page'], $where);
+    }
+
+    /**
+     * @param $itemId
+     * @param $itemType
+     * @param $content
+     */
+    public function saveArticle($data) {
+        try {
+            $this->articleModel->saveBy($data);
+            return static::getSuccess('保存文章内容完成');
+        } catch(QueryException  $e) {
+            return static::getError($e->getMessage());
+        }
     }
 
 }

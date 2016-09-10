@@ -49,4 +49,5 @@ class BaseRepository
     public static function getSuccess($message, $data=null) {
         return static::getResult(1,$message, $data);
     }
+
 }

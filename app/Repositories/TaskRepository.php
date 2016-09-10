@@ -14,17 +14,21 @@ namespace App\Repositories;
 
 
 use App\Models\CorpModel;
+use App\Models\CorpTermModel;
 use App\Models\TaskModel;
+use Illuminate\Database\QueryException;
 
 class TaskRepository extends  BaseRepository
 {
     public function __construct(
         TaskModel $taskModel,
-        CorpModel $corpModel
+        CorpModel $corpModel,
+        CorpTermModel $corpTermModel
     )
     {
         $this->taskModel = $taskModel;
         $this->corpModel = $corpModel;
+        $this->corpTermModel = $corpTermModel;
     }
 
     /**
@@ -71,7 +75,12 @@ class TaskRepository extends  BaseRepository
      */
     public function saveCorp($data)
     {
-        return $this->corpModel->saveBy($data);
+        try {
+            $this->corpModel->saveBy($data);
+            return static::getSuccess('创建公司成功');
+        } catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
     }
 
     /**
@@ -80,8 +89,58 @@ class TaskRepository extends  BaseRepository
      */
     public function untrashed($id)
     {
-        $this->taskModel->withTrashed()->find($id)->restore();
-        return $this->taskModel->saveBy(['id'=>$id,'status'=>0]);
+        try {
+            $this->taskModel->withTrashed()->find($id)->restore();
+            $this->taskModel->saveBy(['id'=>$id,'status'=>0]);
+            return static::getSuccess('还原回收站数据完成');
+        } catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
+
+    }
+
+    /**
+     * @param $data
+     * 创建公司团队信息
+     */
+    public function saveCorpTerm($data)
+    {
+        try {
+            $this->corpTermModel->saveBy($data);
+            return static::getSuccess('创建公司团队成功');
+        } catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
+    }
+
+    /**
+     * @param $id
+     * @return array
+     * 删除任务
+     */
+    public function deleteTask($id)
+    {
+        try {
+            $this->taskModel->find($id)->delete();
+            return static::getError('删除项目数据完成');
+        }catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
+    }
+
+    /**
+     * @param $data
+     * @return array
+     * 保存编辑项目
+     */
+    public function saveTask($data)
+    {
+        try {
+            $this->taskModel->saveBy($data);
+            return static::getSuccess('创建/编辑项目完成');
+        }catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
     }
 
 
