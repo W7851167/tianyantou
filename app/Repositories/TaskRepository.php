@@ -129,6 +129,24 @@ class TaskRepository extends  BaseRepository
 
     /**
      * @param $id
+     * 删除成员组信息
+     */
+    public function deleteCorpTerm($corpId,$id)
+    {
+        try {
+            $term = $this->corpTermModel->find($id);
+            if($corpId != $term->corp_id)
+                return static::getError('您没有权限删除该组成员');
+            $term->delete();
+            $this->imageModel->deleteImage($id, 'App\Models\CorpTermModel');
+            return static::getSuccess('删除公司团队成员完成');
+        } catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
+    }
+
+    /**
+     * @param $id
      * @return array
      * 删除任务
      */

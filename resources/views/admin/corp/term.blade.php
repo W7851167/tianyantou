@@ -44,7 +44,7 @@
                                 <td style="width:300px;">{!! $tv->intro or '' !!}</td>
                                 <td style="width:150px; padding-left: 30px;">
                                     <a href="{!! url('corp/termcreate',['corp_id'=>$corp->id,'id'=>$tv->id]) !!}">编辑</a>
-                                    <a href="{!! url('corp/termdelete',['id'=>$tv->id]) !!}">删除</a>
+                                    <a href="{!! url('corp/termdelete',['corp_id'=>$corp->id,'id'=>$tv->id]) !!}">删除</a>
                                 </td>
                             </tr>
                         @endforeach
