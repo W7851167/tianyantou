@@ -96,9 +96,25 @@ class CorpController extends AdminController
      * @param null $id
      * 创建编辑公司团队成员
      */
-    public function termcreate(Request $request, $id=null)
+    public function termcreate(Request $request, $corpId, $id=null)
     {
+        $corp = $this->taskRepository->corpModel->find($corpId);
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $data['corp_id'] = $corpId;
+            if(!empty($data['avatar'])) {
+                $data['avatar'] = str_replace(config('app.img_url'), '', $data['avatar']);
+            }
+            $result = $this->taskRepository->saveCorpTerm($data);
+            if($result['status'])
+                return $this->success('创建/编辑公司团队成员完成',url('corp/term',['id'=>$corpId]),true);
+            return $this->error('创建/编辑公司团队成员异常，请联系开发人员');
+        }
 
+        if(!empty($id)) {
+            $term = $this->taskRepository->corpTermModel->find($id);
+        }
+        return view('admin.corp.termcreate',compact('corp','term'));
     }
 
     /**
