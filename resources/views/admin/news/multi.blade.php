@@ -26,19 +26,20 @@
                         <table class="client_cases" cellspacing="0">
                             <tr>
                                 <th width="100">编号</th>
-                                <th>分类标题</th>
                                 <th>文章标题</th>
+                                <th>分类标题</th>
                                 <th width="160">创建时间</th>
                                 <th width="80">操作</th>
                             </tr>
-                            @foreach($lists as $new)
+                            @foreach($lists as $nv)
                                 <tr>
-                                    <td>{!! $new->id !!}</td>
-                                    <td>{!! $new->title !!}</td>
-                                    <td>{!! $new->created_at !!}</td>
+                                    <td>{!! $nv->id !!}</td>
+                                    <td>{!! $nv->title !!}</td>
+                                    <td>{!! $nv->categoryName($nv->category_id) !!}</td>
+                                    <td>{!! $nv->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/edit/'.$new->id) !!}">编辑</a>
-                                        <a href="{!! url('news/del/'.$new->id) !!}">编辑</a>
+                                        <a href="{!! url('news/edit/'.$nv->id) !!}">编辑</a>
+                                        <a href="{!! url('news/del/'.$nv->id) !!}">编辑</a>
                                     </td>
                                 </tr>
                             @endforeach

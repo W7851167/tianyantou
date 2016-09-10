@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Session;
 
 class NewCreateRequest extends Request
 {
@@ -30,6 +31,15 @@ class NewCreateRequest extends Request
 
     public function fillData()
     {
-
+        $user = Session::get('user.passport');
+        return [
+            'user_id' => isset($user['id']) ? $user['id'] : 0,
+            'category_id' => $this->category_id,
+            'corp_id' => $this->corp_id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'content' => $this->content,
+            'logo' => $this->login,
+        ];
     }
 }
