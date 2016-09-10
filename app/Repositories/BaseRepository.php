@@ -13,6 +13,9 @@
 namespace App\Repositories;
 
 
+use App\Models\MetaModel;
+use Illuminate\Database\QueryException;
+
 class BaseRepository
 {
     /**
@@ -48,6 +51,31 @@ class BaseRepository
      */
     public static function getSuccess($message, $data=null) {
         return static::getResult(1,$message, $data);
+    }
+
+    /**
+     * @param $data
+     * 保存元数据
+     */
+    public static  function saveMeta($data)
+    {
+        try {
+            MetaModel::saveMeta($data);
+            return static::getSuccess('保存元数据完成');
+        } catch(QueryException $e) {
+            return static::getError($e->getMessage());
+        }
+    }
+
+    /**
+     * @param $metaKey
+     * @param $itemId
+     * @param $itemType
+     * 获取元数据信息
+     */
+    public static function getMeta($metaKey,$itemId, $itemType)
+    {
+        return MetaModel::getMeta($metaKey,$itemId,$itemType);
     }
 
 }

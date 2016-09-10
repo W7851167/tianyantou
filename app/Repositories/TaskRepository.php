@@ -175,5 +175,23 @@ class TaskRepository extends  BaseRepository
         }
     }
 
+    /**
+     * 保存安全保障信息
+     */
+    public function saveSafety($corpId,$data)
+    {
+       if(!is_array($data)) return static::getError('参数传递错误');
+        foreach($data as $key=>$value) {
+            $metaData['item_id'] = $corpId;
+            $metaData['item_type'] = 'App\Models\CorpModel';
+            $metaData['meta_key'] = $key;
+            $metaData['meta_value'] = serialize($value);
+            $result = static::saveMeta($metaData);
+            if($result['status'] == 0)
+                return static::getError('创建/修改安全保障信息异常');
+        }
+        return static::getSuccess('创建/修改安装保障信息完成');
+    }
+
 
 }

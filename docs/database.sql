@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-10 01:04:12
+Date: 2016-09-10 18:52:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,11 +28,13 @@ CREATE TABLE `ad_articles` (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_articles
 -- ----------------------------
+INSERT INTO `ad_articles` VALUES ('1', '1', 'App\\Models\\CorpModel', '<p>中国人的东西就是好用啊sdsfdsfdsfdsf sfsdfdsfs</p>', '2016-09-10 16:34:04', '2016-09-10 16:34:04', null);
+INSERT INTO `ad_articles` VALUES ('4', '2', 'App\\Models\\CorpModel', '<p>jhjkhjk jjhjjk</p>', '2016-09-10 16:36:04', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_banks`
@@ -104,6 +106,7 @@ INSERT INTO `ad_categorys` VALUES ('21', '其它说明', '0', '1', '7', null, '2
 DROP TABLE IF EXISTS `ad_corp_terms`;
 CREATE TABLE `ad_corp_terms` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `corp_id` int(11) NOT NULL DEFAULT '0' COMMENT '公司信息',
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '姓名',
   `position` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '职称',
   `intro` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '描述信息',
@@ -111,11 +114,13 @@ CREATE TABLE `ad_corp_terms` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_corp_terms
 -- ----------------------------
+INSERT INTO `ad_corp_terms` VALUES ('2', '1', '力量', 'CTO', '师傅师傅说分手的水电费师傅的说法', '2016-09-10 18:14:12', '2016-09-10 18:14:12', '2016-09-10 18:14:12');
+INSERT INTO `ad_corp_terms` VALUES ('3', '1', '李亮', 'CEO', '非常牛逼的人啊', '2016-09-10 18:14:50', '2016-09-10 18:14:50', null);
 
 -- ----------------------------
 -- Table structure for `ad_corps`
@@ -152,9 +157,9 @@ CREATE TABLE `ad_corps` (
 -- ----------------------------
 -- Records of ad_corps
 -- ----------------------------
-INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/logo/2016-09-09/19560/57d292a6eb406.jpg', '/logo/2016-09-09/180180/57d292a9ab408.jpg', null, '0.00', '0', '0', '5000', '老朱', '重庆市', '重庆市', '万盛区', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', null, '2016-09-09 21:57:28', '2016-09-09 21:57:28', null);
+INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/logo/2016-09-09/19560/57d292a6eb406.jpg', '/logo/2016-09-09/180180/57d292a9ab408.jpg', null, '0.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', null, '2016-09-10 16:44:43', '2016-09-10 16:44:43', null);
 INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/logo/2016-09-09/19560/57d272d15e098.jpg', '/logo/2016-09-09/180180/57d272d4e8d5b.jpg', '0.00', '0.00', '0', '0', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', null, '2016-09-09 18:44:37', '2016-09-09 18:44:37', null);
-INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/logo/2016-09-09/19560/57d28427510b9.jpg', '/logo/2016-09-09/180180/57d28434b9e3b.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', null, '2016-09-09 23:29:21', '2016-09-09 23:29:21', null);
+INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/logo/2016-09-09/19560/57d28427510b9.jpg', '/logo/2016-09-09/180180/57d28434b9e3b.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', null, '2016-09-10 16:55:48', '2016-09-10 16:55:48', null);
 
 -- ----------------------------
 -- Table structure for `ad_images`
@@ -167,13 +172,17 @@ CREATE TABLE `ad_images` (
   `item_type` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片类型',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_images
 -- ----------------------------
-INSERT INTO `ad_images` VALUES ('1', '1111', '1', 'App\\Models\\UserModel', '2016-09-07 18:24:45', null);
+INSERT INTO `ad_images` VALUES ('1', '1111', '1', 'App\\Models\\UserModel', '2016-09-07 18:24:45', null, null);
+INSERT INTO `ad_images` VALUES ('2', '/logo/2016-09-10/188223/57d3d9c74d148.jpg', '1', 'App\\Models\\CorpTermModel', '2016-09-10 18:13:32', '2016-09-10 18:13:32', '2016-09-10 18:13:32');
+INSERT INTO `ad_images` VALUES ('3', '/logo/2016-09-10/188223/57d3d93516a9a.jpg', '2', 'App\\Models\\CorpTermModel', '2016-09-10 18:14:12', '2016-09-10 18:14:12', '2016-09-10 18:14:12');
+INSERT INTO `ad_images` VALUES ('4', '/logo/2016-09-10/188223/57d3dd02ba0d6.jpg', '3', 'App\\Models\\CorpTermModel', '2016-09-10 18:14:33', '2016-09-10 18:14:33', null);
 
 -- ----------------------------
 -- Table structure for `ad_metas`
@@ -274,15 +283,17 @@ CREATE TABLE `ad_tasks` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_tasks
 -- ----------------------------
-INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0.00', '2016-09-09 23:29:21', '2016-09-09 23:29:21', null);
-INSERT INTO `ad_tasks` VALUES ('3', '1', 'aaasdf', '111111.00', '1111.00', '1', '111.00', '111', '11.00', '111', '111', '111', '1000.00', '2016-09-09 23:14:45', null, null);
-INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '2', '3.40', '20天', '200.00', '112313', '123123', '1231232', '1000.00', '2016-09-09 23:22:37', '2016-09-09 23:22:37', null);
+INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0.00', '2016-09-10 16:49:51', '2016-09-10 16:49:51', '2016-09-10 16:49:51');
+INSERT INTO `ad_tasks` VALUES ('3', '3', 'aaasdf', '111111.00', '1111.00', '1', '111.00', '111', '11.00', '111', '111', '111', '1000.00', '2016-09-10 16:54:11', '2016-09-10 16:54:11', null);
+INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '0', '3.40', '20天', '200.00', '112313', '123123', '1231232', '1000.00', '2016-09-10 16:10:26', '2016-09-10 16:10:26', null);
 INSERT INTO `ad_tasks` VALUES ('5', '1', '测试页面', '1111111.00', '22.00', '1', '111.00', '11', '1111.00', '112313', '11', '111', '111.00', '2016-09-09 23:21:20', null, null);
+INSERT INTO `ad_tasks` VALUES ('6', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '2016-09-10 16:53:20', null, null);
+INSERT INTO `ad_tasks` VALUES ('7', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '2016-09-10 16:53:51', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_users`

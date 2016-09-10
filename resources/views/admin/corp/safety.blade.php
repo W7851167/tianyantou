@@ -31,7 +31,7 @@
                     @endif
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>备案域名：</div>
-                        <div><input type="text" name="data[domain]" placeholder="备案域名" value=""></div>
+                        <div><input type="text" name="data[icp_domain]" placeholder="备案域名" value=""></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>单位性质：</div>
