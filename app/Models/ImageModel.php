@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Request;
 
 class ImageModel extends BaseModel
 {
@@ -24,9 +25,10 @@ class ImageModel extends BaseModel
     public function saveImage($data, $isSingle=false){
         $data = $data ? $data : Request::all();
         $data = array_except($data, ['_token', '_url', 's']);
+
         //传递主键
         if(!empty($data[$this->primaryKey])) {
-            $model = $this->findOrNew($data[$this->primaryKey]);
+            $model = $this->find($data[$this->primaryKey]);
             $model = $model ? $model : $this;
             $this->setModelData($model, $data);
             return $model->save();
