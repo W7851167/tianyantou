@@ -1,6 +1,7 @@
 @extends('admin.common.layout')
 @section('title') 图片资料 @stop
 @section('style')
+    {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/lists.css')!!}
 @stop
 @section('content')
@@ -32,28 +33,41 @@
                     <div class="infospaceAddImg">
                         <div class="infospaceAddLeft h80"><span>*</span>平台证件：</div>
                         <div id="storeimg">
-                            <a class="clickUpload" id="uploadLogo" href="javascript:void(0)">点击上传</a>
+                            <a class="clickUpload" id="uploadCredentials" href="javascript:void(0)">点击上传</a>
                         </div>
-                        <p class="hint">上传后生成206*154的缩略图，最多上传10张！</p>
-                        <ul class="imgbox" id="platformLogoShow" style="width: 206px;height: 154px;">
-                            @if(!empty($corp->platform_logo))
-                                <img style="width: 206px;height: 154px;" src="{!! config('app.img_url').$corp->platform_logo !!}">
-                                <input type="hidden" name="data[logo]" value="{!! $corp->platform_logo or '' !!}" />
+                        <p class="hint">上传后生成206*154的缩略图，最多上传6张！</p>
+                        <ul class="imgbox" id="uploadCredentialsShow" style="width: 650px;height: 350px;">
+                            @if(!empty($metas['credentials']))
+                                @foreach($metas['credentials'] as $credential)
+                                <img style="width: 206px;height: 154px;" src="{!! $credential !!}">
+                                <input type="hidden" name="data[credentials][]" value="{!! $credential or '' !!}" />
+                                @endforeach
                             @endif
                         </ul>
                     </div>
+                    <div class="infospaceAddContent clearfix">
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                    </div>
                     <div class="infospaceAddImg">
-                        <div class="infospaceAddLeft h80"><span>*</span>平台LOGO：</div>
+                        <div class="infospaceAddLeft h80"><span>*</span>办公环境：</div>
                         <div id="storeimg">
-                            <a class="clickUpload" id="uploadLogo" href="javascript:void(0)">点击上传</a>
+                            <a class="clickUpload" id="uploadOfficeAddress" href="javascript:void(0)">点击上传</a>
                         </div>
-                        <p class="hint">上传后生成206*154的缩略图，最多上传10张！</p>
-                        <ul class="imgbox" id="platformLogoShow" style="width: 206px;height: 154px;">
-                            @if(!empty($corp->platform_logo))
-                                <img style="width: 206px;height: 154px;" src="{!! config('app.img_url').$corp->platform_logo !!}">
-                                <input type="hidden" name="data[logo]" value="{!! $corp->platform_logo or '' !!}" />
-                            @endif
+                        <p class="hint">上传后生成206*154的缩略图，最多上传6张！</p>
+                        <ul class="imgbox" id="officeAddress" style="width: 650px;height: 350px;">
+                            @if(!empty($metas['office_address']))
+                                @foreach($metas['office_address'] as $officeAddress)
+                                    <img style="width: 206px;height: 154px;" src="{!! $officeAddress !!}">
+                                    <input type="hidden" name="data[office_address][]" value="{!! $officeAddress or '' !!}" />
+                                @endforeach
+                              @endif
                         </ul>
+                    </div>
+                    <div class="w928">
+                        <div class="button">
+                            <input class="submit" type="submit"  value="保存">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -61,14 +75,68 @@
     </div>
 @stop
 @section('script')
-    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
-    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
-    <script language="javascript">
-        $(function(){
-            var editor = UE.getEditor('content');
-            editor.ready(function() {
-                editor.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
-            });
+    <span id="queueID"></span>
+    {!! HTML::script('/vendor/uploadify/jquery.uploadify.js') !!}
+    {!!HTML::script('vendor/validate/jquery.validate.js')!!}
+    <script type="text/javascript">
+        $('#uploadCredentials').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':206,'height0':154, 'type0':1,'path': 'logo'},
+            'buttonText':'',
+            'width':'82',
+            //'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': true,
+            'button_height':36,
+            'button_width':88,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if($('#uploadCredentialsShow').find('img').length >= 6) {
+                    error('证件最多不能超过6张');
+                    return;
+                }
+                if (data.status == 1) {
+                    var html = '<img style="width:206px;" src="' + data.info[206154] + '">';
+                    html += '<input type="hidden" name="data[credentials][]" value="' + data.info[206154] + '" />'
+                    $('#uploadCredentialsShow').append(html);
+                }
+            },
+
+        });
+
+        $('#uploadOfficeAddress').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':206,'height0':154, 'type0':1,'path': 'logo'},
+            'buttonText':'',
+            'width':'82',
+            //'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': true,
+            'button_height':36,
+            'button_width':88,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if($('#officeAddress').find('img').length >= 6) {
+                    error('办公照片最多不能超过6张');
+                    return;
+                }
+                if (data.status == 1) {
+                    var html = '<img style="width:206px;" src="' + data.info[206154] + '">';
+                    html += '<input type="hidden" name="data[office_address][]" value="' + data.info[206154] + '" />'
+                    $('#officeAddress').append(html);
+                }
+            },
+
         });
     </script>
-    @stop
+@stop

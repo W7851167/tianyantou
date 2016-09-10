@@ -177,13 +177,12 @@ class TaskRepository extends  BaseRepository
             return static::getError($e->getMessage());
         }
     }
-
     /**
-     * 保存安全保障信息
-     */
-    public function saveSafety($corpId,$data)
+    * 保存安全保障信息
+    */
+    public function saveMeta($corpId,$data)
     {
-       if(!is_array($data)) return static::getError('参数传递错误');
+        if(!is_array($data)) return static::getError('参数传递错误');
         while(list($key,$value) = each($data)) {
             $metaData['item_id'] = $corpId;
             $metaData['item_type'] = 'App\Models\CorpModel';
@@ -195,7 +194,7 @@ class TaskRepository extends  BaseRepository
                 return static::getError($e->getMessage());
             }
         }
-        return static::getSuccess('创建/修改安装保障信息完成');
+        return static::getSuccess('创建/修改信息完成');
     }
 
 
