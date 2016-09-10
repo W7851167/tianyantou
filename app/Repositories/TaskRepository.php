@@ -15,6 +15,7 @@ namespace App\Repositories;
 
 use App\Models\CorpModel;
 use App\Models\CorpTermModel;
+use App\Models\ImageModel;
 use App\Models\TaskModel;
 use Illuminate\Database\QueryException;
 
@@ -23,12 +24,14 @@ class TaskRepository extends  BaseRepository
     public function __construct(
         TaskModel $taskModel,
         CorpModel $corpModel,
-        CorpTermModel $corpTermModel
+        CorpTermModel $corpTermModel,
+        ImageModel $imageModel
     )
     {
         $this->taskModel = $taskModel;
         $this->corpModel = $corpModel;
         $this->corpTermModel = $corpTermModel;
+        $this->imageModel = $imageModel;
     }
 
     /**
@@ -105,8 +108,19 @@ class TaskRepository extends  BaseRepository
      */
     public function saveCorpTerm($data)
     {
+        if(!empty($data['avatar'])) {
+            $avatar = $data['avatar'];
+            unset($data['avatar']);
+        }
         try {
-            $this->corpTermModel->saveBy($data);
+            $termId = $this->corpTermModel->saveBy($data);
+            $termId = !empty($data['id']) ? $data['id'] : $termId;
+            if(!empty($avatar)) {
+                $imageData['item_id'] = $termId;
+                $imageData['item_type'] = 'App\Models\CorpTermModel';
+                $imageData['name'] = $avatar;
+                $this->imageModel->saveImage($imageData,true);
+            }
             return static::getSuccess('创建公司团队成功');
         } catch (QueryException $e) {
             return static::getError($e->getMessage());

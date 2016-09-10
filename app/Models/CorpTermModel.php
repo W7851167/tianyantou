@@ -10,6 +10,6 @@ class CorpTermModel extends BaseModel
 
     public function avatar()
     {
-        return $this->morphTo('App\Models\ImageModel','item');
+        return $this->morphOne('App\Models\ImageModel','item');
     }
 }

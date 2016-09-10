@@ -45,4 +45,9 @@ class CorpModel extends BaseModel
     {
         return $this->morphOne('App\Models\ArticleModel', 'item');
     }
+
+    public function terms()
+    {
+        return $this->hasMany('App\Models\CorpTermModel','corp_id');
+    }
 }

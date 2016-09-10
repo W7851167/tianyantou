@@ -179,6 +179,5 @@
             },
 
         });
-        $(function(){});
     </script>
 @stop
