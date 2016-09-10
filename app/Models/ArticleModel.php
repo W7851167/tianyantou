@@ -29,17 +29,21 @@ class ArticleModel extends BaseModel
         //传递主键
         if(!empty($data[$this->primaryKey])) {
             $model = $this->findOrNew($data[$this->primaryKey]);
-            $model = $model ? $model : $this;
-            $this->setModelData($model, $data);
-            return $model->save();
+            if(!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
         }
         //单一修改
         if($isSingle) {
             if(!empty($data['item_id']) && !empty($data['item_type'])) {
-                $model = $this->where('item_id', $data['item_id'])->where('item_type',$data['item_type'])->first();
-                $model = $model ? $model : $this;
-               $model->content = $data['content'];
-                return $model->save();
+                $model = $this->where('item_id', $data['item_id'])
+                    ->where('item_type',$data['item_type'])
+                    ->first();
+                if(!empty($model)) {
+                    $this->setModelData($model, $data);
+                    return $model->save();
+                }
             }
         }
         return $this->query()->insertGetId($data);
