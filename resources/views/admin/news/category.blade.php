@@ -1,7 +1,8 @@
 @extends('admin.common.layout')
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
-    {{--@include('UEditor::head')--}}
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -14,7 +15,8 @@
                     <a href="{!! url('/dashboard') !!}">首页</a>
                 </div>
                 <div class="content-right-page">
-                    <form action="{!! url('/news/category/'.$category->id) !!}" method="POST" id="project_form">
+                    <form method="POST" class="base_form">
+                        <input type="hidden" name="id" value="{!! $category->id !!}">
                         {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
                             <tr class="case_compile">
@@ -28,7 +30,7 @@
                             </tr>
                         </table>
                         <div class="requirement_btm">
-                            <button type="submit">提交</button>
+                            <button class="submit" type="submit">提交</button>
                             <a href="{!! url('/news/single') !!}">返回列表</a>
                         </div>
                     </form>
@@ -36,11 +38,12 @@
             </div>
         </div>
     </div>
-    <script src="/vendor/jquery/1.11.1/jquery.min.js"></script>
+    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
+    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
     <script>
-        {{--var ue = UE.getEditor("content");--}}
-        {{--ue.ready(function() {--}}
-        {{--ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.--}}
-        {{--});--}}
+        var ue = UE.getEditor("content");
+        ue.ready(function() {
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
+        });
     </script>
 @stop

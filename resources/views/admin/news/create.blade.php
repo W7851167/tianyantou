@@ -1,7 +1,6 @@
 @extends('admin.common.layout')
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
-    {{--@include('UEditor::head')--}}
 @stop
 @section('content')
     <div class="content-all">
@@ -15,6 +14,7 @@
                 </div>
                 <div class="content-right-page">
                     <form action="{!! url('/news/create') !!}" method="POST" id="project_form">
+                        {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
                             <tr>
                                 <td width="200"><span>*</span>文章标题：</td>
@@ -28,6 +28,15 @@
                                         @foreach($categorys as $cat)<option value="{!! $cat->id !!}">{!! $cat->title !!}</option>@endforeach
                                     </select>
                                     @if(!empty($errors->first('category_id')))<span style="color: red">{!! $errors->first('category_id') !!}</span>@endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span>*</span>选择公司：</td>
+                                <td width="728">
+                                    <select class="case_select" name="corp_id">
+                                        @foreach($corps as $cv)<option value="{!! $cv->id !!}">{!! $cv->name !!}</option>@endforeach
+                                    </select>
+                                    @if(!empty($errors->first('crop_id')))<span style="color: red">{!! $errors->first('crop_id') !!}</span>@endif
                                 </td>
                             </tr>
                             <tr>
@@ -64,11 +73,12 @@
             </div>
         </div>
     </div>
-    <script src="/vendor/jquery/1.11.1/jquery.min.js"></script>
+    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
+    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
     <script>
-        {{--var ue = UE.getEditor("content");--}}
-        {{--ue.ready(function() {--}}
-            {{--ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.--}}
-        {{--});--}}
+        var ue = UE.getEditor("content");
+        ue.ready(function() {
+            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
+        });
     </script>
 @stop

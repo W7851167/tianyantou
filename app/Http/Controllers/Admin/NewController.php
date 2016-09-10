@@ -14,17 +14,21 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Http\Requests\NewCreateRequest;
 use App\Repositories\NewRepository;
+use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
 class NewController extends AdminController
 {
     public function __construct(
-        NewRepository $new
+        NewRepository $new,
+        TaskRepository $task
     )
     {
         parent::__construct();
         $this->new = $new;
+        $this->task = $task;
     }
 
     /**
@@ -74,16 +78,18 @@ class NewController extends AdminController
         if ($request->isMethod('post')) {
             $item = [
                 'item_id' => $id,
-                'item_type' => 'App\Models\Category',
-                'content' => $request->get('content'),
+                'item_type' => 'App\Models\CategoryModel',
             ];
+            $content = $request->get('content');
             try {
-                $result = $this->new->articleModel->create($item);
-                if ($result) return $this->success('编辑分类完成!', url('news/single'));
+                $model = $this->new->articleModel->firstOrCreate($item);
+                $model->content = $content;
+                $model->save();
+                return $this->success('编辑单分类文章完成!', url('news/single'));
             } catch (\Exception $e) {
                 $e->getMessage();
             }
-            return $this->error('编辑分类失败!');
+            return $this->error('编辑单分类文章失败!');
         }
 
         return view('admin.news.category', compact(
@@ -112,6 +118,9 @@ class NewController extends AdminController
             $where = ['category_id' => $request->get('category')];
         }
         list($count, $lists) = $this->new->getNewList($where, $page);
+//        foreach ($lists as $nv) {
+//            var_dump($nv->category());
+//        }
 
         $page = $this->pager($count, $page, $this->perpage);
 
@@ -126,17 +135,13 @@ class NewController extends AdminController
      *
      * 发布文章
      */
-    public function create(Request $request)
+    public function create(NewCreateRequest $request)
     {
         if ($request->isMethod('post')) {
-            try {
-                $userModel = $this->new->newModel->create(array_merge(
-                    $request->all(), ['user_id' => $this->user['id']]
-                ));
-                if (!empty($userModel)) return $this->success('发布文章成功!');
-            } catch (\Exception $e) {
-                $e->getMessage();
-            }
+
+            $data = $request->fillData();
+            $result = $this->new->saveMultiNews($data);
+            if ($result['status']) return $this->success('发布文章成功!');
             return $this->error('发布文章失败');
         }
 
@@ -146,9 +151,10 @@ class NewController extends AdminController
             'theme' => 0,
         ];
         $categorys = $this->new->getSystemCategorys($where);
+        $corps = $this->task->getNormalCorps(['status' => 1]);
 
-        return view('admin.news.create',compact(
-            'categorys'
+        return view('admin.news.create', compact(
+            'categorys', 'corps'
         ));
     }
 
