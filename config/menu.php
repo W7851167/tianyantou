@@ -10,35 +10,6 @@
  * $Dtime:2016/9/8
  ***********************************************************************************/
 
-//return [
-//    'nav' => [
-//        ['name' => '面板', 'url' => 'dashboard', 'page' => [
-//            ['name' => '控制面板', 'url' => 'dashboard'],
-//            ['name' => '修改密码', 'url' => 'passport/password'],
-//        ]],
-//        ['name' => '用户管理', 'url' => 'user', 'page' => [
-//            ['name' => '用户列表', 'url' => 'user'],
-//            ['name' => '提现管理', 'url' => 'withdraw']
-//        ]],
-//        ['name' => '项目管理', 'url' => 'task', 'page' => [
-//            ['name' => '公司管理', 'url' => 'corp'],
-//            ['name' => '项目管理', 'url' => 'task'],
-//        ]],
-//        ['name' => '文章管理', 'url' => 'news', 'page' => [
-//            ['name' => '文章管理', 'url' => 'news'],
-//            ['name' => '发布文章', 'url' => 'news/create'],
-//        ]],
-//        ['name' => '数据统计', 'url' => 'census', 'page' => [
-//            ['name' => '数据统计', 'url' => 'census'],
-//        ]],
-//        ['name' => '系统管理', 'url' => 'system', 'page' => [
-//            ['name' => '系统管理', 'url' => 'system'],
-//            ['name' => '角色管理', 'url' => 'system/role'],
-//        ]],
-//    ]
-//
-//];
-
 return [
     'menu' => [
         ['name' => '面板', 'url' => 'dashboard', 'tag' => 'home', 'child' => [

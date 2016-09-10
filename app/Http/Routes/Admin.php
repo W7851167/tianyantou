@@ -16,10 +16,13 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //控制面板
     Route::get('dashboard', ['as' => 'home.dashboard.index', 'uses' => 'HomeController@index']);
     //用户管理
+
     Route::get('user', ['as' => 'user.user.index', 'uses' => 'UserController@index']);
     Route::get('user/create', ['as' => 'user.user.create', 'uses' => 'UserController@create']);
     Route::any('user/edit/{id}', ['as' => 'user.user.store', 'uses' => 'UserController@store']);
+    Route::any('user/score/{user_id}', ['as' => 'user.score.index', 'uses' => 'UserController@score']);
     Route::get('withdraw', ['as' => 'user.withdraw.index', 'uses' => 'WithdrawController@index']);
+
     //项目管理
     Route::get('task/{status?}', ['as' => 'task.task.index', 'uses' => 'TaskController@index'])->where('status', '[0-9]+');
     Route::any('task/create/{id?}', ['as' => 'task.task.create', 'uses' => 'TaskController@create']);

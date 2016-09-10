@@ -35,4 +35,6 @@ class UserModel extends BaseModel
         return $this->hasMany('App\Models\ScoreModel','user_id');
     }
 
+
+
 }

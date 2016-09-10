@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-10 18:52:09
+Date: 2016-09-11 00:33:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,13 +28,17 @@ CREATE TABLE `ad_articles` (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_articles
 -- ----------------------------
 INSERT INTO `ad_articles` VALUES ('1', '1', 'App\\Models\\CorpModel', '<p>中国人的东西就是好用啊sdsfdsfdsfdsf sfsdfdsfs</p>', '2016-09-10 16:34:04', '2016-09-10 16:34:04', null);
 INSERT INTO `ad_articles` VALUES ('4', '2', 'App\\Models\\CorpModel', '<p>jhjkhjk jjhjjk</p>', '2016-09-10 16:36:04', null, null);
+INSERT INTO `ad_articles` VALUES ('5', '2', 'App\\Models\\NewModel', '<p>31231232131</p>', '2016-09-10 22:16:52', null, null);
+INSERT INTO `ad_articles` VALUES ('6', '3', 'App\\Models\\NewModel', '<p>13212312321</p>', '2016-09-10 22:18:53', null, null);
+INSERT INTO `ad_articles` VALUES ('7', '4', 'App\\Models\\NewModel', '<p>13212312321</p>', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
+INSERT INTO `ad_articles` VALUES ('11', '1', 'App\\Models\\NewModel', '<p>31231232131</p>', '2016-09-10 22:51:34', '2016-09-10 22:51:34', null);
 
 -- ----------------------------
 -- Table structure for `ad_banks`
@@ -52,11 +56,12 @@ CREATE TABLE `ad_banks` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_banks
 -- ----------------------------
+INSERT INTO `ad_banks` VALUES ('1', '2', '老朱', '招商银行', '北京市', '北京市', '通州区分账', '1123123131231', '2016-09-11 00:26:04', null);
 
 -- ----------------------------
 -- Table structure for `ad_categorys`
@@ -114,13 +119,14 @@ CREATE TABLE `ad_corp_terms` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_corp_terms
 -- ----------------------------
 INSERT INTO `ad_corp_terms` VALUES ('2', '1', '力量', 'CTO', '师傅师傅说分手的水电费师傅的说法', '2016-09-10 18:14:12', '2016-09-10 18:14:12', '2016-09-10 18:14:12');
 INSERT INTO `ad_corp_terms` VALUES ('3', '1', '李亮', 'CEO', '非常牛逼的人啊', '2016-09-10 18:14:50', '2016-09-10 18:14:50', null);
+INSERT INTO `ad_corp_terms` VALUES ('4', '2', 'qqq', 'qqq', 'qqq', '2016-09-10 22:56:46', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_corps`
@@ -169,12 +175,12 @@ CREATE TABLE `ad_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '图片ID',
   `name` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片地址名称',
   `item_id` int(11) NOT NULL,
-  `item_type` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片类型',
+  `item_type` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片类型',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_images
@@ -183,6 +189,16 @@ INSERT INTO `ad_images` VALUES ('1', '1111', '1', 'App\\Models\\UserModel', '201
 INSERT INTO `ad_images` VALUES ('2', '/logo/2016-09-10/188223/57d3d9c74d148.jpg', '1', 'App\\Models\\CorpTermModel', '2016-09-10 18:13:32', '2016-09-10 18:13:32', '2016-09-10 18:13:32');
 INSERT INTO `ad_images` VALUES ('3', '/logo/2016-09-10/188223/57d3d93516a9a.jpg', '2', 'App\\Models\\CorpTermModel', '2016-09-10 18:14:12', '2016-09-10 18:14:12', '2016-09-10 18:14:12');
 INSERT INTO `ad_images` VALUES ('4', '/logo/2016-09-10/188223/57d3dd02ba0d6.jpg', '3', 'App\\Models\\CorpTermModel', '2016-09-10 18:14:33', '2016-09-10 18:14:33', null);
+INSERT INTO `ad_images` VALUES ('5', '/imgs/2016-09-10/184125/57d415d05e79e.jpg', '2', 'App\\Models\\NewModel', '2016-09-10 22:17:38', null, null);
+INSERT INTO `ad_images` VALUES ('6', '/imgs/2016-09-10/184125/57d41e3ca29bf.jpg', '3', 'App\\Models\\NewModel', '2016-09-10 22:52:45', '2016-09-10 22:52:45', null);
+INSERT INTO `ad_images` VALUES ('7', '/imgs/2016-09-10/184125/57d416920ba3d.jpg', '4', 'App\\Models\\NewModel', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
+INSERT INTO `ad_images` VALUES ('8', '/imgs/2016-09-10/184125/57d4169d4ca1f.jpg', '5', 'App\\Models\\NewModel', '2016-09-10 22:44:30', '2016-09-10 22:44:30', '2016-09-10 22:44:30');
+INSERT INTO `ad_images` VALUES ('11', '/imgs/2016-09-10/184125/57d419982577d.jpg', '8', 'App\\Models\\NewModel', '2016-09-10 22:42:43', '2016-09-10 22:42:43', '2016-09-10 22:42:43');
+INSERT INTO `ad_images` VALUES ('12', '/imgs/2016-09-10/184125/57d41b11b1a44.jpg', '1', 'App\\Models\\NewModel', '2016-09-10 22:43:11', '2016-09-10 22:43:11', '2016-09-10 22:43:11');
+INSERT INTO `ad_images` VALUES ('13', '/imgs/2016-09-10/184125/57d41df4f35be.jpg', '1', 'App\\Models\\NewModel', '2016-09-10 22:51:34', '2016-09-10 22:51:34', null);
+INSERT INTO `ad_images` VALUES ('23', '/imgs/2016-09-10/188223/57d421af0f1e6.jpg', '0', '', '2016-09-10 23:08:23', '2016-09-10 23:08:23', null);
+INSERT INTO `ad_images` VALUES ('24', '/imgs/2016-09-10/188223/57d42266d431b.jpg', '0', '', '2016-09-10 23:10:33', '2016-09-10 23:10:33', null);
+INSERT INTO `ad_images` VALUES ('25', '/imgs/2016-09-10/188223/57d422853db40.jpg', '4', 'App\\Models\\CorpTermModel', '2016-09-10 23:14:24', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_metas`
@@ -195,11 +211,21 @@ CREATE TABLE `ad_metas` (
   `meta_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '数据表字段名称',
   `meta_value` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_metas
 -- ----------------------------
+INSERT INTO `ad_metas` VALUES ('18', '1', 'App\\Models\\CorpModel', 'icp_domain', 's:9:\"baidu.com\";');
+INSERT INTO `ad_metas` VALUES ('19', '1', 'App\\Models\\CorpModel', 'icp_corp_type', 's:6:\"企业\";');
+INSERT INTO `ad_metas` VALUES ('20', '1', 'App\\Models\\CorpModel', 'icp_time', 's:9:\"2016-9-16\";');
+INSERT INTO `ad_metas` VALUES ('21', '1', 'App\\Models\\CorpModel', 'icp_corp_name', 's:17:\"我要的公司11\";');
+INSERT INTO `ad_metas` VALUES ('22', '1', 'App\\Models\\CorpModel', 'icp_no', 's:12:\"内容迭代\";');
+INSERT INTO `ad_metas` VALUES ('25', '1', 'App\\Models\\CorpModel', 'id', 's:1:\"1\";');
+INSERT INTO `ad_metas` VALUES ('30', '1', 'App\\Models\\CorpModel', 'credentials', 'a:6:{i:0;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc7e13812.jpg\";i:1;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc7e61e5d.jpg\";i:2;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc7e941c4.jpg\";i:3;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc7ec68b2.jpg\";i:4;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc7f043c1.jpg\";i:5;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc7f37e65.jpg\";}');
+INSERT INTO `ad_metas` VALUES ('31', '1', 'App\\Models\\CorpModel', 'office_address', 'a:6:{i:0;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc8815223.jpg\";i:1;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc8848295.jpg\";i:2;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc8882110.jpg\";i:3;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc88e64d4.jpg\";i:4;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc892167e.jpg\";i:5;s:61:\"http://img.phpad.net/logo/2016-09-10/206154/57d3fc89605a6.jpg\";}');
+INSERT INTO `ad_metas` VALUES ('32', '2', 'App\\Models\\CorpModel', 'id', 's:1:\"2\";');
+INSERT INTO `ad_metas` VALUES ('33', '2', 'App\\Models\\CorpModel', 'credentials', 'a:1:{i:0;s:61:\"http://img.phpad.net/imgs/2016-09-10/206154/57d411161f6ab.jpg\";}');
 
 -- ----------------------------
 -- Table structure for `ad_moneys`
@@ -207,6 +233,7 @@ CREATE TABLE `ad_metas` (
 DROP TABLE IF EXISTS `ad_moneys`;
 CREATE TABLE `ad_moneys` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户信息',
   `total` decimal(10,2) DEFAULT '0.00' COMMENT '总资产',
   `rebate` decimal(10,2) DEFAULT '0.00' COMMENT '冻结返利',
   `withdraw` decimal(10,2) DEFAULT '0.00' COMMENT '提现冻结',
@@ -215,11 +242,12 @@ CREATE TABLE `ad_moneys` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_moneys
 -- ----------------------------
+INSERT INTO `ad_moneys` VALUES ('1', '2', '0.00', '0.00', '0.00', '0.00', '2', '2016-09-11 00:03:04', '2016-09-11 00:03:04');
 
 -- ----------------------------
 -- Table structure for `ad_news`
@@ -237,11 +265,15 @@ CREATE TABLE `ad_news` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_news
 -- ----------------------------
+INSERT INTO `ad_news` VALUES ('1', '0', '13', '321312', '2', '12313', '11', '2016-09-10 22:09:57', null, null);
+INSERT INTO `ad_news` VALUES ('2', '0', '13', '客户案例0627', '2', ' 123123123 ', '0', '2016-09-10 22:51:34', '2016-09-10 22:51:34', null);
+INSERT INTO `ad_news` VALUES ('3', '0', '13', '测试内容详情', '2', '7大支持内容啊   ', '0', '2016-09-10 22:52:45', '2016-09-10 22:52:45', null);
+INSERT INTO `ad_news` VALUES ('4', '0', '13', '12312221321', '2', ' 13213123 23442342', '0', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
 
 -- ----------------------------
 -- Table structure for `ad_scores`
@@ -255,11 +287,12 @@ CREATE TABLE `ad_scores` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_scores
 -- ----------------------------
+INSERT INTO `ad_scores` VALUES ('1', '2', '2', '赠送积分', '2016-09-11 00:03:04', '2016-09-11 00:03:04');
 
 -- ----------------------------
 -- Table structure for `ad_tasks`
@@ -322,12 +355,13 @@ CREATE TABLE `ad_users` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_users
 -- ----------------------------
 INSERT INTO `ad_users` VALUES ('1', 'zhuxishun', ' 老朱', null, null, null, '管理员', '$2y$10$XiJxXLNZlRqaN5fPmxKv9ejJ6NdRLIQY.PQ8cL0915VdfzuzMBnSm', null, null, null, null, null, null, null, null, null, null, null, '2016-09-08 10:29:30', null);
+INSERT INTO `ad_users` VALUES ('2', 'laozhu', '厨卫', null, null, null, '用户', '', null, null, null, null, null, null, null, null, null, null, null, '0000-00-00 00:00:00', null);
 
 -- ----------------------------
 -- Table structure for `ad_withdraws`
@@ -343,8 +377,9 @@ CREATE TABLE `ad_withdraws` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_withdraws
 -- ----------------------------
+INSERT INTO `ad_withdraws` VALUES ('1', '2', '1', '100.00', '0', null, '2016-09-11 00:24:36', null);

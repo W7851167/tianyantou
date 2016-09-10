@@ -7,6 +7,7 @@ class ScoreModel extends BaseModel
 {
     public  $table = 'scores';
     protected  $primaryKey = 'id';
+    protected $fillable = ['user_id','score','intro'];
 
     public function user()
     {
