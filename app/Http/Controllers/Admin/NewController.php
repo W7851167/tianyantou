@@ -15,16 +15,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use App\Repositories\NewRepository;
+use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
 class NewController extends AdminController
 {
     public function __construct(
-        NewRepository $new
+        NewRepository $new,
+        TaskRepository $task
     )
     {
         parent::__construct();
         $this->new = $new;
+        $this->task = $task;
     }
 
     /**
@@ -146,9 +149,10 @@ class NewController extends AdminController
             'theme' => 0,
         ];
         $categorys = $this->new->getSystemCategorys($where);
+        $corps = $this->task->getNormalCorps(['status' => 1]);
 
-        return view('admin.news.create',compact(
-            'categorys'
+        return view('admin.news.create', compact(
+            'categorys', 'corps'
         ));
     }
 
