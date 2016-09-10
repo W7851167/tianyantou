@@ -181,6 +181,18 @@ class BaseModel extends  Model
     }
 
     /**
+     * @param $data
+     * @param $where
+     * @return mixed
+     * 根据条件更新数据
+     */
+    public function updateBy($data, $where)
+    {
+        $query = $this->createWhere($this, $where);
+        return $query->update($data);
+    }
+
+    /**
      * @param array $where
      * @return mixed
      * 根据条件统计总数
