@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
@@ -21,10 +22,12 @@ class CorpController extends AdminController
 {
 
     public function __construct(
-        TaskRepository $taskRepository
+        TaskRepository $taskRepository,
+        NewRepository $newRepository
     ){
 
         $this->taskRepository = $taskRepository;
+        $this->newRepository = $newRepository;
     }
 
     /**
@@ -48,16 +51,14 @@ class CorpController extends AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            try {
-                if(!empty($data['logo']))
-                    $data['logo'] = str_replace(config('app.img_url'), '', $data['logo']);
-                if(!empty($data['platform_logo']))
-                    $data['platform_logo'] = str_replace(config('app.img_url'), '', $data['platform_logo']);
-                $this->taskRepository->saveCorp($data);
-                return $this->success('创建公司信息完成',url('corp'),true);
-            } catch (\Exception $e) {
-                return $this->error('创建公司信息异常，请联系开发人员',null,true);
-            }
+            if(!empty($data['logo']))
+                $data['logo'] = str_replace(config('app.img_url'), '', $data['logo']);
+            if(!empty($data['platform_logo']))
+                $data['platform_logo'] = str_replace(config('app.img_url'), '', $data['platform_logo']);
+            $result = $this->taskRepository->saveCorp($data);
+            if($result['status'])
+                return $this->success($result['message'],url('corp'),true);
+            return $this->error($result['message'],null,true);
         }
         if(!empty($id)) {
             $corp = $this->taskRepository->corpModel->find($id);
@@ -74,10 +75,30 @@ class CorpController extends AdminController
      * @param $id
      * 公司管理信息
      */
-    public function manage($id)
+    public function manage(Request $request,$id)
     {
         $corp = $this->taskRepository->corpModel->find($id);
+
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $data['item_type'] = 'App\Models\CorpModel';
+            $result = $this->newRepository->saveArticle($data);
+            if($result['status']) {
+                return $this->success($result['message'], url('corp/manage',['id'=>$id]),true);
+            }
+            return $this->error($result['message']);
+        }
         return view('admin.corp.manage',compact('corp'));
+    }
+
+    /**
+     * @param Request $request
+     * @param null $id
+     * 创建编辑公司团队成员
+     */
+    public function termcreate(Request $request, $id=null)
+    {
+
     }
 
     /**

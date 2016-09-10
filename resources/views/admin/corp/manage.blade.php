@@ -27,12 +27,17 @@
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
                     @if(!empty($corp))
-                        <input type="hidden" name="data[id]" value="{!! $corp->id !!}">
+                        <input type="hidden" name="data[item_id]" value="{!! $corp->id !!}">
                     @endif
+                    @if(!empty($corp->article->id))
+                        <input type="hidden" name="data[id]" value="{!! $corp->article->id !!}">
+                    @endif;
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div>
-                                <script name="content" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;"></script>
+                                <script name="data[content]" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;">
+                                    {!! $corp->article->content or '' !!}
+                                </script>
                             </div>
                         </div>
                     </div>

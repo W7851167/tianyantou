@@ -49,12 +49,11 @@ class TaskController extends  AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            try {
-                $this->taskRepository->taskModel->saveBy($data);
-                return $this->success('创建项目完成',url('task'),true);
-            } catch(\Exception $e) {
-                return $this->error('创建项目异常，请联系开发人员',null, true);
+            $result = $this->taskRepository->saveTask($data);
+            if($result['status']) {
+                return $this->success($result['message'],url('task'),true);
             }
+            return $this->error('创建项目异常，请联系开发人员',null, true);
         }
         $corps = $this->taskRepository->getNormalCorps(['status'=>1]);
         if(!empty($id)) {
@@ -84,12 +83,11 @@ class TaskController extends  AdminController
      */
     public function untrashed($id)
     {
-        try {
-            $this->taskRepository->untrashed($id);
-                return $this->success('还原数据完成',url('task',['status'=>0]));
-        } catch (\Exception $e) {
+            $result = $this->taskRepository->untrashed($id);
+            if($result['status']) {
+                return $this->success($result['message'],url('task',['status'=>0]));
+            }
             return $this->error('还原数据异常，请联系开发人员',url('tash'));
-        }
     }
 
     /**
@@ -98,11 +96,10 @@ class TaskController extends  AdminController
      */
     public function delete($id)
     {
-        try{
-            $this->taskRepository->taskModel->find($id)->delete();
-            return $this->success('删除该项目完成',url('task/trashed'));
-        } catch (\Exception $e) {
-            return $this->error('删除该项目异常');
-        }
+       $result = $this->taskRepository->deleteTask($id);
+        if($result['status'])
+            return $this->success($result['message'],url('task/trashed'));
+        return $this->error('删除该项目异常,请联系开发人员');
+
     }
 }
