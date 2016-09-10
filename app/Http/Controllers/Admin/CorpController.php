@@ -146,8 +146,11 @@ class CorpController extends AdminController
      * @param $id
      * 安全保障
      */
-    public function safety($id) {
+    public function safety(Request $request,$id) {
         $corp = $this->taskRepository->corpModel->find($id);
+        if($request->isMethod('post')) {
+
+        }
         return view('admin.corp.safety',compact('corp'));
     }
 
