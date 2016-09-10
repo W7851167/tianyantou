@@ -43,7 +43,7 @@
                                 <td>{!! $uv->money->withdraw or 0.00!!}</td>
                                 <td>{!! $uv->money->score or 0.00!!}</td>
                                 <td>
-                                    <a href="{!! url('user/scoreadd',['id'=>$uv->id]) !!}">添加积分</a>
+                                    <a href="{!! url('user/score',['id'=>$uv->id]) !!}">添加积分</a>
                                 </td>
                             </tr>
                         @endforeach
