@@ -46,12 +46,11 @@ Route::group(['as' => 'admin.', 'middleware' => 'admin.auth'], function () {
     //文章管理
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewController@index']);
     Route::match(['get', 'post'], 'news/create', ['as' => 'news.create', 'uses' => 'NewController@create']);
-    Route::post('news/store/{id}', ['as' => 'news.store', 'uses' => 'NewController@store']);
-    Route::match(['get', 'psot'], 'news/edit/{id}', ['as' => 'news.edit', 'uses' => 'NewController@edit']);
-    Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);
     Route::get('news/single', ['as' => 'news.single', 'uses' => 'NewController@single']);
     Route::match(['get', 'post'], 'news/category/{id}', ['as' => 'news.category', 'uses' => 'NewController@category']);
     Route::match(['get', 'post'], 'news/multi/{id?}', ['as' => 'news.multi', 'uses' => 'NewController@multi']);
+    Route::get('news/del/{id}', ['as' => 'news.del', 'uses' => 'NewController@del']);
+
 });
 
 Route::get('/', function () {
