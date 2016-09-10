@@ -3,8 +3,11 @@
 namespace App\Models;
 
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class TaskModel extends BaseModel
 {
+    use SoftDeletes;
     public  $table = 'tasks';
     protected  $primaryKey = 'id';
     protected  $touches = ['corp'];

@@ -3,8 +3,11 @@
 namespace App\Models;
 
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class CorpModel extends BaseModel
 {
+    use SoftDeletes;
     public  $table = 'corps';
     protected  $primaryKey = 'id';
 

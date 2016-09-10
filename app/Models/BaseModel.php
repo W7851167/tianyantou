@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BaseModel extends  Model
 {
-    use SoftDeletes;
     /**
      * @param array $fields
      * @param array $where
