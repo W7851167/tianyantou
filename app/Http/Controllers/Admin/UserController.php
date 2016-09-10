@@ -55,4 +55,16 @@ class UserController extends  AdminController
         }
         return view('admin.user.score',compact('user'));
     }
+
+    /**
+     * @param Request $request
+     * 提现管理
+     */
+    public function withdraw(Request $request)
+    {
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        list($counts, $lists) = $this->userRepository->getWithdrawList([],$this->perpage, $page);
+        $pageHtml = $this->pager($counts, $page, $this->perpage);
+        return view('admin.user.withdraw',compact('lists','pageHtml'));
+    }
 }
