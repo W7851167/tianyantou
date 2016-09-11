@@ -5,8 +5,8 @@ namespace App\Models;
 
 class UserModel extends BaseModel
 {
-    public  $table = 'users';
-    protected  $primaryKey = 'id';
+    public $table = 'users';
+    protected $primaryKey = 'id';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
@@ -23,7 +23,7 @@ class UserModel extends BaseModel
      */
     public function money()
     {
-        return $this->hasOne('App\Models\MoneyModel','user_id');
+        return $this->hasOne('App\Models\MoneyModel', 'user_id');
     }
 
     /**
@@ -32,9 +32,17 @@ class UserModel extends BaseModel
      */
     public function scores()
     {
-        return $this->hasMany('App\Models\ScoreModel','user_id');
+        return $this->hasMany('App\Models\ScoreModel', 'user_id');
     }
 
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     *
+     * 获取用户的银行卡/支付宝账号信息
+     */
+    public function bank()
+    {
+        return $this->hasOne('App\Models\BankModel', 'user_id');
+    }
 
 }

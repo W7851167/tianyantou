@@ -58,22 +58,22 @@
                                     <select name="data[city]" class="city" id="city" >
                                         <option value="">市</option>
                                     </select>
-                                    {{--<select name="data[county]" class="county" id="county">--}}
-                                        {{--<option>区</option>--}}
-                                    {{--</select>--}}
+                                    <select name="" class="county" id="county" style="display: none">
+                                        <option>区</option>
+                                    </select>
                                 </p>
                                 <p>
-                                    <input type="text" name="data[address]" placeholder="请输入详细地址" value="{!! $corp->address or '' !!}" style="margin-top: 18px;">
+                                    <input type="text" name="data[address]" placeholder="请输入详细地址" value="{!! $user->address or '' !!}" style="margin-top: 18px;">
                                 </p>
                             </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">学历：</div>
-                            <div><input type="text" name="data[gender]" value="{!! $user->education !!}"></div>
+                            <div><input type="text" name="data[gender]" value="{!! $user->education or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">职业：</div>
-                            <div><input type="text" name="data[industry]" value="{!! $user->industry !!}"></div>
+                            <div><input type="text" name="data[industry]" value="{!! $user->industry or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">性别：</div>
@@ -95,7 +95,7 @@
                     <div class="w928">
                         <div class="button">
                             <input class="submit" type="submit"  value="保存">
-                            <input class="return" type="reset" value="返回列表">
+                            <input class="return" type="reset" value="重置">
                         </div>
                     </div>
                 </form>
@@ -104,7 +104,7 @@
         </div>
     </div>
     <script>
-        @if(!empty($corp))
+        @if(!empty($user))
           _init_area({!! $area !!});
         @else
         _init_area(["\u7701","\u5e02","\u533a"]);

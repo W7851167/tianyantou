@@ -15,11 +15,8 @@
                         <a href="{!! url('user') !!}">用户列表</a>
                     </div>
                 </div>
-
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">用户列表</a></p>
-                    <p><a href="javascript:void(0)">银行卡列表</a></p>
-                    <p><a href="javascript:void(0)">支付宝列表</a></p>
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
@@ -47,6 +44,7 @@
                                 <td>{!! $uv->money->score or 0.00!!}</td>
                                 <td>
                                     <a href="{!! url('user/edit',['id'=>$uv->id]) !!}">编辑</a>
+                                    <a href="{!! url('user/manage',['id'=>$uv->id]) !!}">管理</a>
                                     <a href="{!! url('user/score',['id'=>$uv->id]) !!}">添加积分</a>
                                 </td>
                             </tr>
