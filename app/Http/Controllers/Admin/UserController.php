@@ -92,8 +92,8 @@ class UserController extends AdminController
         }
         $user = $this->userRepository->userModel->find($id);
 
-        $area[] = !empty($user->province) ? $user->province : '省';
-        $area[] = !empty($user->city) ? $user->city : '市';
+        $area[] = !empty($user->bank->province) ? $user->province : '省';
+        $area[] = !empty($user->bank->city) ? $user->city : '市';
         $area = json_encode($area);
         return view('admin.user.manage', compact('user', 'area'));
     }
