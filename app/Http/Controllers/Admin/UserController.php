@@ -49,14 +49,14 @@ class UserController extends AdminController
     public function score(Request $request, $id)
     {
         $user = $this->userRepository->userModel->find($id);
-        if($request->isMethod('post')) {
+        if ($request->isMethod('post')) {
             $data = $request->get('data');
             $result = $this->userRepository->saveScore($data);
-            if($result['status'])
-                return $this->success($result['message'],url('user'), true);
+            if ($result['status'])
+                return $this->success($result['message'], url('user'), true);
             return $this->error('给用户添加积分异常，请联系开发人员');
         }
-        return view('admin.user.score',compact('user'));
+        return view('admin.user.score', compact('user'));
     }
 
 }

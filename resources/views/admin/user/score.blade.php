@@ -38,7 +38,7 @@
                     <div class="w928">
                         <div class="button">
                             <input class="submit" type="submit"  value="保存">
-                            <input class="return" type="reset" value="返回列表">
+                            <input class="return" type="reset" value="重置">
                         </div>
                     </div>
                 </form>

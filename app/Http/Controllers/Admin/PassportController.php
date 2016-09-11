@@ -130,8 +130,8 @@ class PassportController extends AdminController
         // 上传成功
         $src['name'] = $info['Filedata']['name'];
         $openUrl = $upload->rootPath . $info['Filedata']['savepath'] . $info['Filedata']['savename'];
-        $src['master'] = str_replace(base_path('static/uploads'), '', $openUrl);
-        $src['master_url'] = config('app.static_url') . str_replace(base_path('static/uploads'), '', $openUrl);
+        $src['master'] = str_replace(base_path('static'), '', $openUrl);
+        $src['master_url'] = config('app.static_url') . str_replace(base_path('static'), '', $openUrl);
 
         $image = app()->make('LibraryManager')->create('Image');
         for ($i = 0; $i < 5; $i++) {
@@ -143,7 +143,7 @@ class PassportController extends AdminController
 
                 $file = preg_replace('/(\.\w+$)/i', '.jpg', $dir . '/' . $info['Filedata']['savename']);
                 $image->thumb(request('width' . $i), request('height' . $i), request('type' . $i, 1))->save($file, 'jpg');
-                $file = str_replace(base_path('static/uploads'), '', $file);
+                $file = str_replace(base_path('static'), '', $file);
                 $file = ltrim($file, '\\');
                 $file = ltrim($file, '/');
                 $src[request('width' . $i) . request('height' . $i)] = config('app.static_url') . '/' . $file;
