@@ -3,8 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <title>登录页</title>
-    <link rel="stylesheet" type="text/css" href="{!! URL('/admin/css/login.css') !!}"/>
-    <script src="{!! URL('/vendor/jquery/jquery.min.js') !!}" type="text/javascript" charset="utf-8"></script>
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
+    {!! HTML::style('admin/css/login.css') !!}
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
+    {{--<link media="all" type="text/css" rel="stylesheet" href="http://admin.phpad.net/admin/css/dialog.css">--}}
+
+    {{--<link media="all" type="text/css" rel="stylesheet" href="http://admin.phpad.net/admin/css/form.css">--}}
+
+    <script src="http://admin.phpad.net/vendor/jquery/jquery.min.js"></script>
+    <script src="http://admin.phpad.net/admin/js/base.js"></script>
+    <script src="http://admin.phpad.net/vendor/layer/layer.js"></script>
+    <script src="http://admin.phpad.net/vendor/layer/minelayer.js"></script>
     <style>
         .hide {display:none}
     </style>
@@ -13,8 +23,8 @@
 <div class="content">
     <ul class="content-bg"><li></li><li></li><li></li></ul>
     <div class="content-ct">
-        <form id="myform">
-            <input type="hidden" value="{!! csrf_token() !!}" name="_token">
+        <form method="post" class="base_form">
+            {!! csrf_field() !!}
             <div class="content-ct-page clearfix">
                 <div class="content-page-tit clearfix"><strong>欢迎登录</strong><p>后台管理系统</p></div>
                 <div class="content-page-int">
@@ -26,7 +36,7 @@
                     <p class="alert alert-danger"></p>
                 </div>
                 <div class="content-page-int">
-                    <a class="page-btn" id="sub-btn" href="javascript:void(0);">登录</a>
+                    <button class="submit" id="sub-btn">登录</button>
                 </div>
 
                 <div class="content-page-low clearfix">
@@ -39,7 +49,7 @@
         </form>
     </div>
 </div>
-
+@include('admin.common.base')
 </body>
 
 <script type="text/javascript">
@@ -60,13 +70,13 @@
         }
         if(error > 0)return false;
         var data = $("#myform").serialize();
-        $.post("{!! url('passport/login') !!}",data,function(r){
-            if(r.status){
-                window.location.href = r.url;
-            }else{
-                $(".alert-danger").text(r.message);
-            }
-        });
+        {{--$.post("{!! url('passport/login') !!}",data,function(r){--}}
+            {{--if(r.status){--}}
+                {{--window.location.href = r.url;--}}
+            {{--}else{--}}
+                {{--$(".alert-danger").text(r.message);--}}
+            {{--}--}}
+        {{--});--}}
     });
 </script>
 <script type="text/javascript">

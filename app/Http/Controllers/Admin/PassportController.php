@@ -41,16 +41,18 @@ class PassportController extends AdminController
             $password = $request->password;
             $remember = $request->remember;
 
-            if (!$username || !$password) return $this->error('用户名或密码错误!', '', true);
+            if (!$username || !$password) return $this->error('用户名或密码错误1!', '', true);
 
-            $result = $this->userRepository->checkLogin($username, $password, $remember);
+            $result = $this->userRepository->checkLogin($username, $password, true, $remember);
 
             if ($result['status']) {
                 return $this->success('登陆成功!', url('dashboard'), true);
             }
 
-            return $this->error('用户名或密码错误!', '', true);
+            return $this->error($result['message'], '', true);
         }
+
+        if($this->user) return redirect('dashboard');
 
         return view('admin.passport.index');
     }
@@ -80,12 +82,12 @@ class PassportController extends AdminController
                 return back()->with('errors', '原密码不正确!');
 
             try {
-            $result = $this->userRepository->userModel->whereId($this->user['id'])
-                ->update(['password' => \Hash::make($new)]);
-            if ($result) {
-                $this->userRepository->logout();
-                return redirect('passport/login');
-            }
+                $result = $this->userRepository->userModel->whereId($this->user['id'])
+                    ->update(['password' => \Hash::make($new)]);
+                if ($result) {
+                    $this->userRepository->logout();
+                    return redirect('passport/login');
+                }
             } catch (\Exception $e) {
                 $e->getMessage();
             }
@@ -101,45 +103,44 @@ class PassportController extends AdminController
      *
      * 通过flash插件上传图片
      */
-    public function uploadImg(Request $request) {
-        $path =  $request->input('path') ?  $request->input('path') : 'imgs';
+    public function uploadImg(Request $request)
+    {
+        $path = $request->input('path') ? $request->input('path') : 'imgs';
 
         $path = base_path('uploads/' . $path . '/');
-        if(!file_exists($path)) mkdir( $path,0755,true);
+        if (!file_exists($path)) mkdir($path, 0755, true);
 
         $upload = app()->make('LibraryManager')->create('Upload');
-        $upload->maxSize   =     2097152 ;// 设置附件上传大小
-        $upload->exts      =     array('jpg', 'jpeg', 'png');// 设置附件上传类型
-        $upload->rootPath  =     $path; // 设置附件上传目录
+        $upload->maxSize = 2097152;// 设置附件上传大小
+        $upload->exts = array('jpg', 'jpeg', 'png');// 设置附件上传类型
+        $upload->rootPath = $path; // 设置附件上传目录
         // 上传文件
         $info = $upload->upload();
         if (!$info) {
-            $this->error($upload->getError(),'',true);
+            $this->error($upload->getError(), '', true);
         }
         // 上传成功
         $src['name'] = $info['Filedata']['name'];
-        $src['master'] = $upload->rootPath . $info['Filedata']['savepath'].$info['Filedata']['savename'];
-        $src['master_url'] = config('app.img_url').str_replace(base_path('uploads'), '', $src['master'] );
+        $src['master'] = $upload->rootPath . $info['Filedata']['savepath'] . $info['Filedata']['savename'];
+        $src['master_url'] = config('app.img_url') . str_replace(base_path('uploads'), '', $src['master']);
 
         $image = app()->make('LibraryManager')->create('Image');
-        for($i=0;$i<5;$i++)
-        {
+        for ($i = 0; $i < 5; $i++) {
             $image->open($src['master']);
-            if(request('width'.$i) && request('height'.$i))
-            {
-                $dir = $upload->rootPath.$info['Filedata']['savepath'].request('width'.$i).request('height'.$i);
-                if(!file_exists($dir))
-                    mkdir($dir,0755,true);
+            if (request('width' . $i) && request('height' . $i)) {
+                $dir = $upload->rootPath . $info['Filedata']['savepath'] . request('width' . $i) . request('height' . $i);
+                if (!file_exists($dir))
+                    mkdir($dir, 0755, true);
 
-                $file = preg_replace('/(\.\w+$)/i', '.jpg', $dir.'/'.$info['Filedata']['savename']);
-                $image->thumb(request('width'.$i),request('height'.$i),request('type'.$i,1))->save($file,'jpg');
-                $file = str_replace(base_path('uploads'), '', $file );
+                $file = preg_replace('/(\.\w+$)/i', '.jpg', $dir . '/' . $info['Filedata']['savename']);
+                $image->thumb(request('width' . $i), request('height' . $i), request('type' . $i, 1))->save($file, 'jpg');
+                $file = str_replace(base_path('uploads'), '', $file);
                 $file = ltrim($file, '\\');
                 $file = ltrim($file, '/');
-                $src[request('width'.$i).request('height'.$i)] = config('app.img_url') .'/'. $file;
+                $src[request('width' . $i) . request('height' . $i)] = config('app.img_url') . '/' . $file;
             }
         }
 
-        return $this->success($src,'', true);
+        return $this->success($src, '', true);
     }
 }

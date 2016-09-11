@@ -47,28 +47,31 @@ class UserRepository extends BaseRepository
      *
      * 验证登录信息
      */
-    public function checkLogin($username, $password, $remember = 0)
+    public function checkLogin($username, $password, $isAdmin = false, $remember = 0)
     {
         $userModel = $this->userModel->where('username', $username)->first();
 
-        if (!$userModel) {
-            return $this->getError('该用户不存在!');
+        if (!$userModel) return $this->getError('该用户不存在!');
+
+        if ($isAdmin) {
+            if ($userModel->roles != '管理员')
+                return $this->getError('此账号非管理员账号!');
         }
 
-        $data = $userModel->toArray();
         //自动登录
         if ($remember && $res = Session::get('user.passport')) {
-            if ($res['username'] == $data['username']) {
+            if ($res['username'] == $userModel->username) {
                 return static::getSuccess('登录成功!');
             }
         }
         //判断密码是否正确
-        if (!password_verify($password, $data['password'])) {
+        if (!password_verify($password, $userModel->password)) {
             return static::getError('密码不正确，请重新输入!');
         }
         $sessionData = [
-            'id' => $data['id'],
-            'username' => $data['username'],
+            'id' => $userModel->id,
+            'username' => $userModel->username,
+            'role' => $userModel->roles,
         ];
         if (!empty($userModel->avatar->name))
             $sessionData['avatar'] = $userModel->avatar->name;
@@ -96,7 +99,7 @@ class UserRepository extends BaseRepository
      * @param $page
      * 获取用户列表
      */
-    public function getUserList($where=[], $limit,$page)
+    public function getUserList($where = [], $limit, $page)
     {
         $orderBy = ['id' => 'desc'];
         $lists = $this->userModel->lists("*", $where, $orderBy, [], $limit, $page);
@@ -110,9 +113,9 @@ class UserRepository extends BaseRepository
      */
     public function saveScore($data)
     {
-        $result = $this->moneyModel->getConnection()->transaction(function()use($data){
+        $result = $this->moneyModel->getConnection()->transaction(function () use ($data) {
             $userId = $data['id'] ? $data['id'] : $data['user_id'];
-            $moneyModel = $this->moneyModel->where('user_id',$userId)->first();
+            $moneyModel = $this->moneyModel->where('user_id', $userId)->first();
             $moneyModel->increment('score', (int)$data['score']);
             //记录积分日志
             $logData['user_id'] = $userId;
@@ -120,7 +123,7 @@ class UserRepository extends BaseRepository
             $logData['intro'] = $data['intro'];
             $this->scoreModel->create($logData);
         });
-        if($result instanceof QueryException) {
+        if ($result instanceof QueryException) {
             return static::getError($result->getMessage());
         }
         return static::getSuccess('添加用户积分操作完成');
@@ -132,7 +135,7 @@ class UserRepository extends BaseRepository
      * @param $page
      * 提现处理
      */
-    public function  getWithdrawList($where=[], $limit, $page)
+    public function getWithdrawList($where = [], $limit, $page)
     {
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->withdrawModel->lists("*", $where, $orderBy, [], $limit, $page);
@@ -146,15 +149,15 @@ class UserRepository extends BaseRepository
      */
     public function saveWithdraw($data)
     {
-        $result = $this->withdrawModel->getConnection()->transaction(function() use($data){
+        $result = $this->withdrawModel->getConnection()->transaction(function () use ($data) {
             $this->withdrawModel->saveBy($data);
             $userModel = $this->userModel->find($data['user_id']);
-            $userModel->money->decrement('withdraw',$data['price']);
-            if($data['status'] == 2) {
+            $userModel->money->decrement('withdraw', $data['price']);
+            if ($data['status'] == 2) {
                 $userModel->money->increment('money', $data['price']);
             }
         });
-        if($result instanceof \Exception) {
+        if ($result instanceof \Exception) {
             return static::getError($result->getMessage());
         }
         return static::getSuccess('审核提现记录数据完成');
