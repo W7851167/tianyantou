@@ -13,18 +13,25 @@
 namespace App\Http\Controllers\Admin;
 
 
-
 use App\Http\Controllers\AdminController;
+use App\Repositories\NewRepository;
 
 class HomeController extends AdminController
 {
-    public function __construct()
+    public function __construct(
+        NewRepository $new
+    )
     {
         parent::__construct();
+        $this->new = $new;
     }
 
     public function index()
     {
-        return view('admin.home.index');
+        $notices = $this->new->newModel->where('category_id', 0)->take(8)->get();
+//        var_dump($notices);
+        return view('admin.home.index', compact(
+            'notices'
+        ));
     }
 }

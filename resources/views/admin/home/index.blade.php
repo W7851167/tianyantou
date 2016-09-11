@@ -49,23 +49,19 @@
                                     <div class="td-inner-tit-news ">
                                         <p>系统公告</p>
                                     </div>
-                                    <a href="###">更多>></a>
+                                    <a href="{!! url('news/notice') !!}">更多>></a>
                                 </div>
-                                <!--
-                                <div class="cancel-none">
-                                    <p>
-                                        <img src="{!!url('admin/images/u464.png')!!}"/>
-                                        暂无公告!
-                                    </p>
-                                </div>
-                                -->
+                                @if(count($notices))
                                 <ul class="td-inner-bulletin clearfix">
-                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
-                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
-                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
-                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
-                                    <li><i></i><a href="###">总系统发布的公告标题总系统发布的公告标题</a><span>[2015-10-10]</span></li>
+                                    @foreach($notices as $nv)
+                                        <li><i></i><a href="###">{!! $nv->title !!}</a><span>[{!! $nv->created_at !!}]</span></li>
+                                    @endforeach
                                 </ul>
+                                @else
+                                <div class="cancel-none">
+                                    <p><img src="{!!url('admin/images/u464.png')!!}"/>暂无公告!</p>
+                                </div>
+                                @endif
                             </div>
                         </td>
                     </tr>

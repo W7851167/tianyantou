@@ -23,10 +23,10 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //控制面板
     Route::get('dashboard', ['as' => 'home.dashboard.index', 'uses' => 'HomeController@index']);
     //用户管理
-    Route::get('user', ['as' => 'user.index', 'uses' => 'UserController@index']);
-    Route::any('user/score/{user_id}', ['as' => 'user.score', 'uses' => 'UserController@score']);
-    Route::get('withdraw', ['as' => 'withdraw', 'uses' => 'WithdrawController@index']);
-    Route::any('withdraw/create/{id}', ['as' => 'withdraw.create', 'uses' => 'WithdrawController@create']);
+    Route::get('user', ['as' => 'user.user.index', 'uses' => 'UserController@index']);
+    Route::any('user/score/{user_id}', ['as' => 'user.user.score', 'uses' => 'UserController@score']);
+    Route::get('withdraw', ['as' => 'user.withdraw.index', 'uses' => 'WithdrawController@index']);
+    Route::any('withdraw/create/{id}', ['as' => 'user.withdraw.create', 'uses' => 'WithdrawController@create']);
     //项目管理
     Route::get('task/{status?}', ['as' => 'task.task.index', 'uses' => 'TaskController@index'])->where('status', '[0-9]+');
     Route::any('task/create/{id?}', ['as' => 'task.task.create', 'uses' => 'TaskController@create']);
