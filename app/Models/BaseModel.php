@@ -16,7 +16,7 @@ namespace App\Models;
 use App\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BaseModel extends  Model
+class BaseModel extends Model
 {
     /**
      * @param array $fields
@@ -28,17 +28,17 @@ class BaseModel extends  Model
      * @return mixed
      * 返回数据模型列表
      */
-    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page=null,$trashed=0)
+    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page = null, $trashed = 0)
     {
-        if(!is_array($fields)) {
+        if (!is_array($fields)) {
             $fields = explode(',', $fields);
             $fields = array_map('trim', $fields);
         }
 
         $query = $this->select($fields);
-        if($trashed == 1)
+        if ($trashed == 1)
             $query->withTrashed();
-        if($trashed == 2)
+        if ($trashed == 2)
             $query->onlyTrashed();
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
         if (isset($page)) {
@@ -58,17 +58,17 @@ class BaseModel extends  Model
      * @return mixed
      * 获取所有内容
      */
-    public function alls($fields = ['*'], $where = [], $orderBy = [], $groupBy = [],$trashed=0)
+    public function alls($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $trashed = 0)
     {
-        if(!is_array($fields)) {
+        if (!is_array($fields)) {
             $fields = explode(',', $fields);
             $fields = array_map('trim', $fields);
         }
 
         $query = $this->select($fields);
-        if($trashed == 1)
+        if ($trashed == 1)
             $query->withTrashed();
-        if($trashed == 2)
+        if ($trashed == 2)
             $query->onlyTrashed();
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
         return $query->get();
@@ -165,15 +165,16 @@ class BaseModel extends  Model
      * @param $data
      * 编辑信息
      */
-    public function  saveBy($data) {
+    public function saveBy($data)
+    {
         $model = $this;
         $data = $data ? $data : Request::all();
         $data = array_except($data, ['_token', '_url', 's']);
 
 
-        if(!empty($data[$this->primaryKey])) {
+        if (!empty($data[$this->primaryKey])) {
             $model = $this->findOrNew($data[$this->primaryKey]);
-            if(!empty($model)) {
+            if (!empty($model)) {
                 $this->setModelData($model, $data);
                 return $model->save();
             }
@@ -206,7 +207,7 @@ class BaseModel extends  Model
         return $result;
     }
 
-    protected  function setModelData($model, $data)
+    protected function setModelData($model, $data)
     {
         foreach ($data as $key => $value) {
             $model->{$key} = $value;

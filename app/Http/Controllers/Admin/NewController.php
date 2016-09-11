@@ -200,7 +200,7 @@ class NewController extends AdminController
     public function notice(Request $request)
     {
         $page = $request->page ? (int)$request->page : 1;
-        $where = ['category_id' => 0,];
+        $where = ['category_id' => 0];
         list($count, $lists) = $this->new->getNewList($where, $page);
 
         $page = $this->pager($count, $page, $this->perpage);
