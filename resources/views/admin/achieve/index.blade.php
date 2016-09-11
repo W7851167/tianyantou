@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="list_03">
                                     <span class="number_gray">
-                                        {!! $rv->status == 0 ? '已领取' : ($rv->status == 1 ? '已交': '已审核') !!}
+                                        {!! $rv->status == 0 ? '已领取' : ($rv->status == 1 ? '已审核': '已交任务') !!}
                                     </span>
                                 </div>
                                 <div class="list_04">

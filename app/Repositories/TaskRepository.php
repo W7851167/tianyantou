@@ -17,6 +17,7 @@ use App\Models\CorpModel;
 use App\Models\CorpTermModel;
 use App\Models\ImageModel;
 use App\Models\MetaModel;
+use App\Models\MoneyModel;
 use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
 use Illuminate\Database\QueryException;
@@ -29,7 +30,8 @@ class TaskRepository extends  BaseRepository
         CorpTermModel $corpTermModel,
         ImageModel $imageModel,
         MetaModel $metaModel,
-        TaskReceiveModel $taskReceiveModel
+        TaskReceiveModel $taskReceiveModel,
+        MoneyModel $moneyModel
     )
     {
         $this->taskModel = $taskModel;
@@ -38,6 +40,7 @@ class TaskRepository extends  BaseRepository
         $this->imageModel = $imageModel;
         $this->metaModel = $metaModel;
         $this->taskReceiveModel = $taskReceiveModel;
+        $this->moneyModel = $moneyModel;
     }
 
     /**
@@ -217,6 +220,30 @@ class TaskRepository extends  BaseRepository
             }
         }
         return static::getSuccess('创建/修改信息完成');
+    }
+
+    /**
+     * @param $data
+     * @throws \Exception
+     * @throws \Throwable
+     * 保存任务
+     */
+    public function saveReceive($data)
+    {
+        $result = $this->taskReceiveModel->getConnection()->transaction(function() use($data){
+            $receiveId = $this->taskReceiveModel->saveBy($data);
+            $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
+            //审核完成、可用金额增加
+            if($data['status'] == 1) {
+                $receiveModel = $this->taskReceiveModel->find($receiveId);
+                $receiveModel->user->money->increment('money',$receiveModel->total);
+            }
+        });
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('创建/保存任务完成', $result);
+        }
     }
 
 

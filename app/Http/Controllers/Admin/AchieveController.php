@@ -36,4 +36,22 @@ class AchieveController extends  AdminController
         $pageHtml = $this->pager($count,$page, $this->perpage);
         return view('admin.achieve.index', compact('lists','pageHtml'));
     }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * 审核操作
+     */
+    public function create(Request $request,$id)
+    {
+        $receive = $this->taskRepository->taskReceiveModel->find($id);
+        if($request->isMethod('post')) {
+            $data  = $request->get('data');
+            $result = $this->taskRepository->saveReceive($data);
+            if($result['status'])
+                return $this->success($result['message'],url('achieve'),true);
+            return $this->error('审核任务异常，请联系开发人员');
+        }
+        return view('admin.achieve.create',compact('receive'));
+    }
 }
