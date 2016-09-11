@@ -22,7 +22,7 @@ class HomeController extends AdminController
         NewRepository $new
     )
     {
-        parent::__construct();
+        parent::__initalize();
         $this->new = $new;
     }
 

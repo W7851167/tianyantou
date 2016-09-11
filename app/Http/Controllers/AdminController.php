@@ -20,7 +20,8 @@ class AdminController extends Controller
     protected $perpage = 10;
     protected $user;
 
-    public function __construct()
+
+    public function __initalize()
     {
         $this->user = Session::get('user.passport');
         view()->share('user', $this->user);
