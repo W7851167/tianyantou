@@ -88,7 +88,7 @@ class NewController extends AdminController
             if (empty($new)) return $this->error('该文章不存在或已删除!');
         }
 
-        return view('admin.news.createmulti', compact(
+        return view('admin.news.multicreate', compact(
             'categorys', 'corps', 'new'
         ));
     }
