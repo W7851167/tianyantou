@@ -35,7 +35,7 @@
                             <p class="hint">必须上传195*60的图片！</p>
                             <ul class="imgbox" id="platformLogoShow" style="width: 195px;height: 60px;">
                                 @if(!empty($corp->platform_logo))
-                                    <img style="width: 195px;height: 60px;" src="{!! config('app.img_url').$corp->platform_logo !!}">
+                                    <img style="width: 195px;height: 60px;" src="{!! config('app.static_url').$corp->platform_logo !!}">
                                     <input type="hidden" name="data[logo]" value="{!! $corp->platform_logo or '' !!}" />
                                @endif
                             </ul>
@@ -52,7 +52,7 @@
                             <p class="hint">必须上传180*180px生成的图片！</p>
                             <ul class="imgbox" id="logoShow" style="width: 180px;height: 180px;">
                                 @if(!empty($corp->logo))
-                                    <img style="width:180px;" src="{!! config('app.img_url').$corp->logo !!}">
+                                    <img style="width:180px;" src="{!! config('app.static_url').$corp->logo !!}">
                                     <input type="hidden" name="data[logo]" value="{!! $corp->logo or '' !!}" />
                                 @endif
                             </ul>

@@ -36,7 +36,7 @@
                                @foreach($lists as $cv)
                             <tr>
                                 <td>
-                                    <img src="{!! !empty($cv->logo) ? config('app.img_url') . $cv->logo : '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                    <img src="{!! !empty($cv->logo) ? config('app.static_url') . $cv->logo : '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
                                 </td>
                                 <td>{!! $cv->platform !!}</td>
                                 <td>{!! $cv->name !!}</td>

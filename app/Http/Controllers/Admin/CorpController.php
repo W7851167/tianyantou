@@ -52,9 +52,9 @@ class CorpController extends AdminController
         if($request->isMethod('post')) {
             $data = $request->get('data');
             if(!empty($data['logo']))
-                $data['logo'] = str_replace(config('app.img_url'), '', $data['logo']);
+                $data['logo'] = str_replace(config('app.static_url'), '', $data['logo']);
             if(!empty($data['platform_logo']))
-                $data['platform_logo'] = str_replace(config('app.img_url'), '', $data['platform_logo']);
+                $data['platform_logo'] = str_replace(config('app.static_url'), '', $data['platform_logo']);
             $result = $this->taskRepository->saveCorp($data);
             if($result['status'])
                 return $this->success($result['message'],url('corp'),true);
@@ -114,7 +114,7 @@ class CorpController extends AdminController
             $data = $request->get('data');
             $data['corp_id'] = $corpId;
             if(!empty($data['avatar'])) {
-                $data['avatar'] = str_replace(config('app.img_url'), '', $data['avatar']);
+                $data['avatar'] = str_replace(config('app.static_url'), '', $data['avatar']);
             }
             $result = $this->taskRepository->saveCorpTerm($data);
             if($result['status'])
@@ -211,7 +211,7 @@ class CorpController extends AdminController
         if($request->isMethod('post')) {
             $data = $request->get('data');
             if(!empty($data['logo']))
-                $data['logo'] = str_replace(config('app.img_url'), '', $data['logo']);
+                $data['logo'] = str_replace(config('app.static_url'), '', $data['logo']);
             $result = $this->newRepository->saveMultiNews($data);
             if($result['status'])
                 return $this->success('创建/编辑动态完成', url('corp/news',['id'=>$corpId]),true);

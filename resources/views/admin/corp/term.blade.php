@@ -37,7 +37,7 @@
                             @foreach($corp->terms as $tv)
                             <tr>
                                 <td width="200px;">
-                                    <img src="@if(!empty($tv->avatar->name)){!! config('app.img_url') . $tv->avatar->name !!}@else{!! '/admin/images/user-small.png' !!}@endif" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                    <img src="@if(!empty($tv->avatar->name)){!! config('app.static_url') . $tv->avatar->name !!}@else{!! '/admin/images/user-small.png' !!}@endif" style="width: 80px; margin-left: -20px; margin-top: 20px;">
                                 </td>
                                 <td width="80px;">{!! $tv->position or '' !!}</td>
                                 <td width="80px;">{!! $tv->name or '' !!}</td>

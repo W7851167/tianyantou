@@ -52,7 +52,7 @@ class PassportController extends AdminController
             return $this->error($result['message'], '', true);
         }
 
-        if($this->user) return redirect('dashboard');
+        if ($this->user) return redirect('dashboard');
 
         return view('admin.passport.index');
     }
@@ -107,7 +107,7 @@ class PassportController extends AdminController
     {
         $path = $request->input('path') ? $request->input('path') : 'imgs';
 
-        $path = base_path('uploads/' . $path . '/');
+        $path = base_path('static/uploads/' . $path . '/');
         if (!file_exists($path)) mkdir($path, 0755, true);
 
         $upload = app()->make('LibraryManager')->create('Upload');
@@ -121,12 +121,13 @@ class PassportController extends AdminController
         }
         // 上传成功
         $src['name'] = $info['Filedata']['name'];
-        $src['master'] = $upload->rootPath . $info['Filedata']['savepath'] . $info['Filedata']['savename'];
-        $src['master_url'] = config('app.img_url') . str_replace(base_path('uploads'), '', $src['master']);
+        $openUrl = $upload->rootPath . $info['Filedata']['savepath'] . $info['Filedata']['savename'];
+        $src['master'] = str_replace(base_path('static/uploads'), '', $openUrl);
+        $src['master_url'] = config('app.static_url') . str_replace(base_path('static/uploads'), '', $openUrl);
 
         $image = app()->make('LibraryManager')->create('Image');
         for ($i = 0; $i < 5; $i++) {
-            $image->open($src['master']);
+            $image->open($openUrl);
             if (request('width' . $i) && request('height' . $i)) {
                 $dir = $upload->rootPath . $info['Filedata']['savepath'] . request('width' . $i) . request('height' . $i);
                 if (!file_exists($dir))
@@ -134,13 +135,12 @@ class PassportController extends AdminController
 
                 $file = preg_replace('/(\.\w+$)/i', '.jpg', $dir . '/' . $info['Filedata']['savename']);
                 $image->thumb(request('width' . $i), request('height' . $i), request('type' . $i, 1))->save($file, 'jpg');
-                $file = str_replace(base_path('uploads'), '', $file);
+                $file = str_replace(base_path('static/uploads'), '', $file);
                 $file = ltrim($file, '\\');
                 $file = ltrim($file, '/');
-                $src[request('width' . $i) . request('height' . $i)] = config('app.img_url') . '/' . $file;
+                $src[request('width' . $i) . request('height' . $i)] = config('app.static_url') . '/' . $file;
             }
         }
-
         return $this->success($src, '', true);
     }
 }

@@ -36,7 +36,7 @@
                         @foreach($lists as $nv)
                             <tr>
                                 <td width="200px;" height="150">
-                                    <img src="{!! !empty($nv->image->name) ? config('app.img_url') . $nv->image->name :  '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
+                                    <img src="{!! !empty($nv->image->name) ? config('app.static_url') . $nv->image->name :  '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
                                 </td>
                                 <td width="200px;">{!! $nv->title or '' !!}</td>
                                 <td width="400px;">{!! $nv->description or '' !!}</td>
