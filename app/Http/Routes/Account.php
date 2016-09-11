@@ -13,4 +13,5 @@ Route::group(['middle.account'],function(){
     Route::get('/', ['as'=>'index','uses'=>'HomeController@index']);
 });
 Route::get('signin.html','PassportController@signin');
+Route::get('signin/captcha','PassportController@captcha');
 Route::get('register.html','PassportController@register');
