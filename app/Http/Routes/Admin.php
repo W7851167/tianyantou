@@ -24,6 +24,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('dashboard', ['as' => 'home.dashboard.index', 'uses' => 'HomeController@index']);
     //用户管理
     Route::get('user', ['as' => 'user.user.index', 'uses' => 'UserController@index']);
+    Route::match(['get', 'post'], 'user/edit/{id}', ['as' => 'user.user.edit', 'uses' => 'UserController@edit']);
     Route::any('user/score/{user_id}', ['as' => 'user.user.score', 'uses' => 'UserController@score']);
     Route::get('withdraw', ['as' => 'user.withdraw.index', 'uses' => 'WithdrawController@index']);
     Route::any('withdraw/create/{id}', ['as' => 'user.withdraw.create', 'uses' => 'WithdrawController@create']);

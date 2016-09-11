@@ -41,6 +41,16 @@ class UserController extends AdminController
         return view('admin.user.index', compact('lists', 'pageHtml'));
     }
 
+    public function edit($id, Request $request)
+    {
+        if ($request->isMethod('post')) {
+
+        }
+        $user = $this->userRepository->userModel->find($id);
+
+        return view('admin.user.edit', compact('user'));
+    }
+
     /**
      * @param Request $request
      * @param $id
