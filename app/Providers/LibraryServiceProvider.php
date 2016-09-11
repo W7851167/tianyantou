@@ -20,15 +20,6 @@ class LibraryServiceProvider extends ServiceProvider
     {
         require app_path('Library/Libs/helper.php');
         require app_path('Library/Libs/models.php');
-        $urls = parse_url(Request::Url());
-        $host = $urls['host'];
-        $prefix = explode('.', $host)[0];
-
-//        if (strtolower($prefix) == 'admin') {
-//            list($menu, $sidebarHtml) = getNavConfig();
-//            view()->share('menu', $menu);
-//            view()->share('silderMenu', $sidebarHtml);
-//        }
     }
 
     /**
