@@ -27,8 +27,10 @@
                     <table class="all_shopping" cellspacing="0">
                         <tr>
                             <th width='100'>公司信息</th>
-                            <th width="220">标题</th>
-                            <th width="100">标总额</th>
+                            <th width="180">标题</th>
+                            <th width="60">库存</th>
+                            <th width="60">领取</th>
+                            <th width="60">完成</th>
                             <th width="60">年收益</th>
                             <th width="65">赠收益</th>
                             <th width="65">期限</th>
@@ -43,8 +45,10 @@
                         @foreach($lists as $tv)
                             <tr>
                                 <td>{!! $tv->corp->platform or '' !!}</td>
-                                <td>{!! $tv->title or '' !!}</td>
-                                <td>{!! $tv->total or 0 !!}</td>
+                                <td>{!! str_limit($tv->title,20) !!}</td>
+                                <td>{!! $tv->nums or 0!!}</td>
+                                <td>{!! $tv->receives->where('status',0)->count() !!}</td>
+                                <td>{!! $tv->receives->where('status',1)->count() !!}</td>
                                 <td>{!! $tv->ratio or 0!!}</td>
                                 <td>{!! $tv->mratio or 0!!}</td>
                                 <td>{!! $tv->term or 0!!}</td>

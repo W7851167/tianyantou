@@ -5,8 +5,9 @@ namespace App\Models;
 
 class TaskReceiveModel extends BaseModel
 {
-    public $table = 'task_achieves';
+    public $table = 'task_receives';
     protected $primaryKey = 'id';
+    public  $timestamps = false;
 
     /**
      * 获取任务名称
