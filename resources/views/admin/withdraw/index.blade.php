@@ -17,31 +17,40 @@
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="javascript:void(0)" class="at">提现管理</a></p>
+                    <p><a href="javascript:void(0)" class="at">提现列表</a></p>
                 </div>
-                @if(!empty($stores))
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='65'>门店ID</th>
-                            <th width="220">门店名称</th>
-                            <th width="400">门店地址</th>
-                            <th width="160">服务电话</th>
+                            <th width='65'>用户名</th>
+                            <th width='65'>开户名</th>
+                            <th width='100'>开户银行</th>
+                            <th width='100'>省/市</th>
+                            <th width="100">支行名称</th>
+                            <th width="150">卡号</th>
+                            <th width="80">金额</th>
+                            <th width="80">手续费</th>
+                            <th width="80">提现时间</th>
+                            <th width="80">状态</th>
                             <th>操作</th>
                         </tr>
-                        @foreach($stores as $store)
+                        @foreach($lists as $wv)
                             <tr>
-                                <td>{!! $store['id'] !!}</td>
-                                <td>{!! $store['name'] !!}</td>
-                                <td>{!! $store['location'] !!}</td>
-                                <td>{!! $store['tel'] !!}</td>
+                                <td>{!! $wv->user->username or ''!!}</td>
+                                <td>{!! $wv->bank->hold_name or ''  !!}</td>
+                                <td>{!! $wv->bank->bank_name or ''  !!}</td>
+                                <td>{!! $wv->bank->province or ''  !!}/{!! $wv->bank->city or ''  !!}</td>
+                                <td>{!! $wv->bank->branch_name or ''  !!}</td>
+                                <td>{!! $wv->bank->cardno or ''  !!}</td>
+                                <td>{!! $wv->price or 0.00 !!}</td>
+                                <td>{!! $wv->commission or 0.00 !!}</td>
+                                <td>{!! date('m/d',strtotime($wv->created_at))  !!}</td>
+                                <td>{!! $wv->status == 0 ? '申请中' :  ($wv->status == 1) ? '已派发':'拒绝派发'  !!}</td>
                                 <td>
-                                    <a href="{!! url('/shop/edit/'.$store['id']) !!}">编辑</a>
-                                    <a href="{!! url('shop/manage/'.$store['id']) !!}">管理</a>
+                                    <a href="{!! url('withdraw/create',['id'=>$wv->id]) !!}">审核</a>
                                 </td>
                             </tr>
                         @endforeach
                     </table>
-                @endif
             </div>
         </div>
     </div>
