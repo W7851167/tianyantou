@@ -91,6 +91,10 @@
                             <div><input class="Wdate" type="text" name="data[online]" placeholder="2016-09-09" value="{!! $corp->online or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>每个任务完成数限定：</div>
+                            <div><input type="text" name="data[limit]" placeholder="任务完成数限定" value="{!! $corp->limit or 1 !!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">担保方式：</div>
                             <div><input type="text" name="data[pattern]" placeholder="风险准备金，双乾支付托管" value="{!! $corp->pattern or '' !!}"></div>
                         </div>
