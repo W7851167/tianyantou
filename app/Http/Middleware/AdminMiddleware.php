@@ -17,7 +17,9 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         $user = Session::get('user.passport');
-        if ($user or $request->is('/passport/login')) {
+
+        if ($user or $request->is('passport/login') or $request->is('passport/logout')) {
+
             return $next($request);
         }
 
