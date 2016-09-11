@@ -17,6 +17,11 @@ use App\Http\Controllers\FrontController;
 
 class PassportController extends  FrontController
 {
+    public function __construct()
+    {
+        parent::__initalize();
+    }
+
     /**
      * 登录
      */
