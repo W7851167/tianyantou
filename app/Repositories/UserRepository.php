@@ -139,4 +139,24 @@ class UserRepository extends BaseRepository
         $count = $this->withdrawModel->countBy($where);
         return [$count, $lists];
     }
+
+    /**
+     * @param $data
+     * 审核提现记录
+     */
+    public function saveWithdraw($data)
+    {
+        $result = $this->withdrawModel->getConnection()->transaction(function() use($data){
+            $this->withdrawModel->saveBy($data);
+            $userModel = $this->userModel->find($data['user_id']);
+            $userModel->money->decrement('withdraw',$data['price']);
+            if($data['status'] == 2) {
+                $userModel->money->increment('money', $data['price']);
+            }
+        });
+        if($result instanceof \Exception) {
+            return static::getError($result->getMessage());
+        }
+        return static::getSuccess('审核提现记录数据完成');
+    }
 }
