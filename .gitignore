@@ -5,5 +5,5 @@
 /storage
 *.json
 .DS_Store
-/uploads
+/static/uploads
 .idea
