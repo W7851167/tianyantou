@@ -45,7 +45,8 @@ class TaskRepository extends  BaseRepository
      */
     public function getCorpList($where = [], $limit, $page)
     {
-        $lists = $this->corpModel->lists(['*'], $where, [], [], $limit, $page);
+        $order['id'] = 'desc';
+        $lists = $this->corpModel->lists(['*'], $where, $order, [], $limit, $page);
         $counts = $this->corpModel->countBy($where);
         return [$counts, $lists];
     }
@@ -57,7 +58,8 @@ class TaskRepository extends  BaseRepository
     public function getNormalCorps($where = [])
     {
         $fields = ['*'];
-        return $this->corpModel->alls($fields, $where);
+        $order['id'] = 'desc';
+        return $this->corpModel->alls($fields, $where,$order);
     }
 
 
@@ -70,7 +72,8 @@ class TaskRepository extends  BaseRepository
      */
     public function getTaskList($where = [], $limit, $page, $trashed=0)
     {
-        $lists = $this->taskModel->lists(['*'], $where, [], [], $limit, $page,$trashed);
+        $order['id'] = 'desc';
+        $lists = $this->taskModel->lists(['*'], $where, $order, [], $limit, $page,$trashed);
         $counts = $this->taskModel->countBy($where);
         return [$counts, $lists];
     }

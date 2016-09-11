@@ -71,6 +71,14 @@
                             <div><input type="text" name = "data[term]" placeholder="比如7天/3个月" value="{!! $task->term or 0 !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>库存：</div>
+                            <div><input type="text" name = "data[nums]" placeholder="数值" value="{!! $task->nums or 0 !!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>URL：</div>
+                            <div><input type="text" name = "data[url]" placeholder="第三方跳转URL" value="{!! $task->url or ''!!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>保障方式：</div>
                             <div><input type="text" name = "data[ensure]" placeholder="比如 第三方担保"  value="{!! $task->ensure or 0 !!}"></div>
                         </div>

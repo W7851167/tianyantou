@@ -62,7 +62,6 @@
                                     @if(isset($status) && ($status == 0 || $status == 2))
                                         <a href="{!! url('task/delete',['id'=>$tv->id]) !!}">删除</a>
                                     @endif
-                                    <a href="{!! config('app.url') . url('platform/task',['id'=>$tv->id]) !!}">查看</a>
                                 </td>
                             </tr>
                         @endforeach
