@@ -152,7 +152,7 @@
                 if (data.status == 1) {
                     var html = '<img style="width:180px;" src="' + data.info[180180] + '">';
                     html += '<input type="hidden" name="data[logo]" value="' + data.info[180180] + '" />'
-                    $('#logoShow').append(html);
+                    $('#logoShow').html(html);
                 }
             },
 
@@ -178,7 +178,7 @@
                 if (data.status == 1) {
                     var html = '<img style="width:195px;height:60px;" src="' + data.info[19560] + '">';
                     html += '<input type="hidden" name="data[platform_logo]" value="' + data.info[19560] + '" />'
-                    $('#platformLogoShow').append(html);
+                    $('#platformLogoShow').html(html);
                 }
             },
 
