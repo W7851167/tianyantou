@@ -68,33 +68,41 @@ class PassportController extends AdminController
         }
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 修改密码
+     */
     public function password(Request $request)
     {
         if ($request->isMethod('post')) {
             $old = $request->get('old');
             $new = $request->get('new');
             $confirmation = $request->get('confirmation');
+            if (!$new || !$confirmation)
+                return $this->error('新密码不能为空!', null, true);
             if ($new !== $confirmation)
-                return back()->with('errors', '两次密码不正确!');
+                return $this->error('两次密码不正确!', null, true);
 
             $userModel = $this->userRepository->userModel->find($this->user['id']);
             if (!password_verify($old, $userModel->password ?: ''))
-                return back()->with('errors', '原密码不正确!');
+                return $this->error('原密码不正确!', null, true);
 
             try {
                 $result = $this->userRepository->userModel->whereId($this->user['id'])
                     ->update(['password' => \Hash::make($new)]);
                 if ($result) {
                     $this->userRepository->logout();
-                    return redirect('passport/login');
+                    return $this->success('修改密码成功!', url('passport/login'), true);
                 }
             } catch (\Exception $e) {
                 $e->getMessage();
             }
-            return back()->with('errror', '修改密码失败!');
+            return $this->error('修改密码失败!', null, true);
         }
 
-        return view('admin.passport.forget_password');
+        return view('admin.passport.password');
     }
 
     /**

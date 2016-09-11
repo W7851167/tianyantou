@@ -12,7 +12,8 @@
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>
                     <a href="{!! url('/news') !!}">文章管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                    <a href="{!! url('/news/single') !!}">单文章管理</a>
+                    <a href="{!! url('/news/single') !!}">单文章管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+                    <a href="javascript:void(0);">编辑</a>
                 </div>
                 <div class="content-right-page">
                     <form method="POST" class="base_form">
