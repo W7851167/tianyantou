@@ -21,6 +21,8 @@ if (strtolower($prefix) == 'www') {
     $namespace = 'Front';
 } else if(strtolower($prefix) == 'admin') {
     $namespace = 'Admin';
+} else if(strtolower($prefix) == 'account') {
+    $namespace = 'Account';
 } else { //解决composer时自动查找localhost的问题
     $namespace = 'Front';
 }
