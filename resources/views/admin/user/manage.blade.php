@@ -29,13 +29,13 @@
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">账号类型：</div>
                             <div>
-                                <select name="data[type]" style="width: 240px;">
+                                <select name="data[type]" id="bank-type" style="width: 240px;">
                                     <option value="1" @if(!empty($user->bank->type) && $user->bank->type == 1)selected @endif>支付宝</option>
                                     <option value="0" @if(!empty($user->bank->type) || $user->bank->type == 0)selected @endif>银行卡</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddContent clearfix bank-content" @if(isset($user->bank->type)&&$user->bank_type==1)style="display: none" @endif>
                             <div class="infospaceAddLeft">开户行名称：</div>
                             <div>
                                 <select name="data[bank_name]" style="width: 240px;">
@@ -73,7 +73,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddContent clearfix bank-content" @if(isset($user->bank->type)&&$user->bank_type==1)style="display: none" @endif>
                             <div class="infospaceAddLeft h80">银行地址：</div>
                             <div>
                                 <p>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">{!! empty($user->bank->type)?'银行卡号':'支付宝账号' !!}：</div>
+                            <div class="infospaceAddLeft bank-cardno">{!! empty($user->bank->type)?'银行卡号':'支付宝账号' !!}：</div>
                             <div><input type="text" name="data[cardno]" value="{!! $user->bank->cardno or '' !!}"></div>
                         </div>
                     </div>
@@ -114,5 +114,15 @@
         @else
         _init_area(["\u7701","\u5e02","\u533a"]);
         @endif
+        $("#bank-type").on("change",function(){
+            if($(this).val() == 1){
+                $(".bank-content").fadeOut();
+                $("input[name=data[bank_name]]").attr('value','');
+                $(".bank-cardno").text("支付宝账号:");
+            }else{
+                $(".bank-content").fadeIn();
+                $(".bank-cardno").text("银行卡号:");
+            }
+        });
     </script>
 @stop
