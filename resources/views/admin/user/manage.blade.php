@@ -30,8 +30,8 @@
                             <div class="infospaceAddLeft">账号类型：</div>
                             <div>
                                 <select name="data[type]" id="bank-type" style="width: 240px;">
-                                    <option value="1" @if(!empty($user->bank->type) && $user->bank->type == 1)selected @endif>支付宝</option>
                                     <option value="0" @if(!empty($user->bank->type) && $user->bank->type == 0)selected @endif>银行卡</option>
+                                    <option value="1" @if(!empty($user->bank->type) && $user->bank->type == 1)selected @endif>支付宝</option>
                                 </select>
                             </div>
                         </div>
