@@ -20,10 +20,10 @@
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='65'>用户名</th>
-                            <th width='65'>手机认证</th>
-                            <th width='65'>邮箱认证</th>
-                            <th width='65'>QQ</th>
+                            <th width='70'>用户名</th>
+                            <th width='120'>手机号</th>
+                            <th width='120'>邮箱</th>
+                            {{--<th width='65'>QQ</th>--}}
                             <th width="100">总资产</th>
                             <th width="100">钱包</th>
                             <th width="100">冻结返利</th>
@@ -34,9 +34,9 @@
                         @foreach($lists as $uv)
                             <tr>
                                 <td>{!! $uv->username !!}</td>
-                                <td>{!! !empty($uv->mobile) ? '已认证':'未认证' !!}</td>
-                                <td>{!! !empty($uv->email) ? '已认证':'未认证' !!}</td>
-                                <td>{!! !empty($uv->qq) ? '已认证':'未认证' !!}</td>
+                                <td>{!! $uv->mobile ? :'---' !!}</td>
+                                <td>{!! $uv->email ? :'---' !!}</td>
+                                {{--<td>{!! $uv->qq ? :'---' !!}</td>--}}
                                 <td>{!! $uv->money->total or 0.00!!}</td>
                                 <td>{!! $uv->money->money or 0.00 !!}</td>
                                 <td>{!! $uv->money->rebate or 0.00!!}</td>

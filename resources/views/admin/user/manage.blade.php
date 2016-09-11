@@ -23,7 +23,7 @@
                     <input type="hidden" name="data[user_id]" value="{!! $user->id !!}">
                     <div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">{!! empty($user->bank->type)?'开户名':'支付宝账号名' !!}：</div>
+                            <div class="infospaceAddLeft">账号名：</div>
                             <div><input type="text" name="data[hold_name]" value="{!! $user->bank->hold_name or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
@@ -31,11 +31,11 @@
                             <div>
                                 <select name="data[type]" id="bank-type" style="width: 240px;">
                                     <option value="1" @if(!empty($user->bank->type) && $user->bank->type == 1)selected @endif>支付宝</option>
-                                    <option value="0" @if(!empty($user->bank->type) || $user->bank->type == 0)selected @endif>银行卡</option>
+                                    <option value="0" @if(!empty($user->bank->type) && $user->bank->type == 0)selected @endif>银行卡</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="infospaceAddContent clearfix bank-content" @if(isset($user->bank->type)&&$user->bank_type==1)style="display: none" @endif>
+                        <div class="infospaceAddContent clearfix bank-content" @if(!empty($user->bank->type)&&$user->bank->type==1)style="display: none" @endif>
                             <div class="infospaceAddLeft">开户行名称：</div>
                             <div>
                                 <select name="data[bank_name]" style="width: 240px;">
@@ -73,7 +73,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="infospaceAddContent clearfix bank-content" @if(isset($user->bank->type)&&$user->bank_type==1)style="display: none" @endif>
+                        <div class="infospaceAddContent clearfix bank-content" @if(!empty($user->bank->type)&&$user->bank->type==1)style="display: none" @endif>
                             <div class="infospaceAddLeft h80">银行地址：</div>
                             <div>
                                 <p>
@@ -117,7 +117,8 @@
         $("#bank-type").on("change",function(){
             if($(this).val() == 1){
                 $(".bank-content").fadeOut();
-                $("input[name=data[bank_name]]").attr('value','');
+                $(".bank-content").find('option:selected').attr('value','');
+                $(".bank-content").find('input').attr('value','');
                 $(".bank-cardno").text("支付宝账号:");
             }else{
                 $(".bank-content").fadeIn();
