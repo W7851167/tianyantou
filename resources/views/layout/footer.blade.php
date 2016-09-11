@@ -191,10 +191,6 @@
         </div>
     </div>
 </div>
-<div class="ad-float" id="action-728">
-    <a class="close-btn"><i class="iconfont">&#xe68b;</i></a>
-    <a href="http://topics.touzhijia.com/activities/anniversaryParty" title="梦想有礼 之家2周年" target="_blank"></a>
-</div>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/layer/layer.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.form.min.js"></script>

@@ -50,7 +50,7 @@
       content: '\<\div style="padding:30px 20px;text-align:center;">请登录后再进行操作\<\/div>',
       btn: ['立即登录'],
       success:function(layero,index) {
-        layero.find('.layui-layer-btn0').attr('href','https://account.touzhijia.com/signin.html');
+        layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/signin.html');
       }
     });
   }
@@ -146,7 +146,7 @@
                 content: '\<\div style="padding:30px 20px;text-align:center;">请登录后再进行操作\<\/div>',
                 btn: ['立即登录'],
                 success:function(layero,index) {
-                  layero.find('.layui-layer-btn0').attr('href','https://account.touzhijia.com/signin.html');
+                  layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/signin.html');
                 }
               });
             } else {
@@ -172,7 +172,7 @@ function showRaiseRateCouponTipBox(data) {
     btn: ['立即投资', '查看详情'],
     success:function(layero,index) {
       layero.find('.layui-layer-btn0').attr('href', data.TicketInfo.PlatformUrl);
-      layero.find('.layui-layer-btn1').attr('href', 'https://account.touzhijia.com/coupon/index.html');
+      layero.find('.layui-layer-btn1').attr('href', 'http://account.phpad.net/coupon/index.html');
     }
   });
 }
@@ -187,7 +187,7 @@ function showJiaCouponTipBox(data) {
     btn: ['查看详情','立即使用'],
     success:function(layero,index) {
       layero.find('.layui-layer-btn1').attr({'href':'http://www.jia.com/page/bd/zztzj/94787.html?code=' + data.VirtualItem.Code, 'target':'_blank'});
-      layero.find('.layui-layer-btn0').attr('href', 'https://account.touzhijia.com/shop.html');
+      layero.find('.layui-layer-btn0').attr('href', 'http://account.phpad.net/shop.html');
     }
   });
 }
