@@ -29,7 +29,7 @@
                                 <td><span>*</span>公告内容：</td>
                                 <td>
                                     <div class="case_compile_content">
-                                        <script name="data[content]" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;">
+                                        <script name="data[content]" id="content" type="text/plain" style="height:360px;width:500px;">
                                             {!! $new->article->content or '' !!}
                                         </script>
                                     </div>

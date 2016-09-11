@@ -57,7 +57,7 @@
                                     <div class="container-img">
                                         @if(isset($new->image->name))
                                         <div class="imgbox">
-                                            <img src="{!! config('app.img_url').$new->image->name !!}">
+                                            <img src="{!! config('app.static_url').$new->image->name !!}">
                                         </div>
                                         @endif
                                     </div>

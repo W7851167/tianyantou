@@ -39,7 +39,7 @@
                             <p class="hint">必须上传188*223的图片！</p>
                             <ul class="imgbox"  style="width: 188px;height: 223px;">
                                   @if(!empty($term->avatar->name))
-                                    <img style="width: 188px;height: 223px;" src="{!! config('app.img_url') . $term->avatar->name !!}">
+                                    <img style="width: 188px;height: 223px;" src="{!! config('app.static_url') . $term->avatar->name !!}">
                                     <input type="hidden" name="data[avatar]" value="{!! $term->avatar->name !!}" />
                                   @endif
                             </ul>

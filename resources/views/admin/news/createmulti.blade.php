@@ -49,7 +49,7 @@
                                 <td><span>*</span>文章内容：</td>
                                 <td>
                                     <div class="case_compile_content">
-                                        <script name="new_content" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;">
+                                        <script name="new_content" id="content" type="text/plain" style="width:500px;">
                                             {!! $new->article->content or '' !!}
                                         </script>
                                     </div>
@@ -64,7 +64,7 @@
                                     <div class="container-img">
                                         @if(isset($new->image->name))
                                             <div class="imgbox">
-                                                <img src="{!! config('app.img_url').$new->image->name !!}">
+                                                <img src="{!! config('app.static_url').$new->image->name !!}">
                                             </div>
                                         @endif
                                     </div>

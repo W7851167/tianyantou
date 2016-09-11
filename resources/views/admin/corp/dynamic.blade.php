@@ -45,7 +45,7 @@
                             <p class="hint">必须上传184*125的图片！</p>
                             <ul class="imgbox"  style="width: 184px;height: 125px;">
                                 @if(!empty($new->image->name))
-                                    <img style="width: 195px;height: 60px;" src="{!! config('app.img_url').$new->image->name !!}">
+                                    <img style="width: 195px;height: 60px;" src="{!! config('app.static_url').$new->image->name !!}">
                                     <input type="hidden" name="data[logo]" value="{!! $new->image->name or '' !!}" />
                                @endif
                             </ul>

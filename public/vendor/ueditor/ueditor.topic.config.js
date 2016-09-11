@@ -84,7 +84,7 @@
         //首行缩进距离,默认是2em
         //,indentValue:'2em'
         ,allowDivTransToP:false
-        ,initialFrameWidth:850  //初始化编辑器宽度,默认1000
+        ,initialFrameWidth:710  //初始化编辑器宽度,默认1000
         ,initialFrameHeight:350  //初始化编辑器高度,默认320
 
         //,readonly : false //编辑器初始化结束后,编辑区域是否是只读的，默认是false

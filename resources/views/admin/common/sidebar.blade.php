@@ -4,7 +4,7 @@
             <?php $user = \Session::get('user.passport'); ?>
             <a href="javascript:void(0)">
                 @if(!empty($user['avatar']))
-                <img src="{!! config('app.img_url') . $user['avatar']!!}">
+                <img src="{!! config('app.static_url') . $user['avatar']!!}">
                 @else
                 <img src="{!!url('admin/images/user-small.png')!!}"/>
                @endif
