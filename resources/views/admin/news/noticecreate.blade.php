@@ -12,7 +12,7 @@
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>
                     <a href="{!! url('/news') !!}">文章管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                    <a href="{!! url('/news/help') !!}">帮助中心</a>
+                    <a href="{!! url('/news/notice') !!}">公告/事件</a>
                 </div>
                 <div class="content-right-page">
                     <form method="POST" class="base_form">
@@ -22,19 +22,11 @@
                         {!! csrf_field() !!}
                         <table class="case_specific" cellspacing="0">
                             <tr>
-                                <td width="200"><span>*</span>文章标题：</td>
+                                <td width="200"><span>*</span>公告标题：</td>
                                 <td width="728"><input name="data[title]" class="case_input" type="text" value="{!! $new->title or '' !!}"></td>
                             </tr>
-                            <tr>
-                                <td><span>*</span>文章分类：</td>
-                                <td width="728">
-                                    <select class="case_select" name="data[category_id]">
-                                        @foreach($categorys as $cat)<option value="{!! $cat->id !!}" @if(isset($new->category_id) && $new->category_id==$cat->id)selected @endif>{!! $cat->title !!}</option>@endforeach
-                                    </select>
-                                </td>
-                            </tr>
                             <tr class="case_compile">
-                                <td><span>*</span>文章内容：</td>
+                                <td><span>*</span>公告内容：</td>
                                 <td>
                                     <div class="case_compile_content">
                                         <script name="data[content]" id="content" type="text/plain" style="height:360px;width:500px;margin-left:30px;">
