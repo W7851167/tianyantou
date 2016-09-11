@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use App\Repositories\UserRepository;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class UserController extends AdminController
@@ -41,12 +42,29 @@ class UserController extends AdminController
         return view('admin.user.index', compact('lists', 'pageHtml'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 更新用户信息
+     */
     public function edit($id, Request $request)
     {
         if ($request->isMethod('post')) {
-
+            $data = $request->get('data');
+            try {
+                $result = $this->userRepository->userModel->saveBy($data);
+                if ($result) return $this->success('更新用户信息成功!', url('user'), true);
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
+            return $this->error('更新用户信息失败!', null, true);
         }
         $user = $this->userRepository->userModel->find($id);
+
+        $area[] = !empty($user->province) ? $user->province : '省';
+        $area[] = !empty($user->city) ? $user->city : '市';
 
         return view('admin.user.edit', compact('user'));
     }

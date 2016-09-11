@@ -3,6 +3,7 @@
 @section('style')
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
+    {!!HTML::script('vendor/area/area.js')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -21,27 +22,23 @@
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">用户：</div>
-                            <div><input type="text" name="data[username]" value="{!! $user->username !!}"  disabled></div>
+                            <div><input type="text" name="data[username]" value="{!! $user->username !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">用户昵称：</div>
-                            <div><input type="text" name="data[nickname]" value="{!! $user->nickname !!}"  disabled></div>
+                            <div><input type="text" name="data[nickname]" value="{!! $user->nickname !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">qq：</div>
-                            <div><input type="text" name="data[qq]" value="{!! $user->qq !!}"  disabled></div>
+                            <div><input type="text" name="data[qq]" value="{!! $user->qq !!}"></div>
                         </div>
-                        {{--<div class="infospaceAddContent clearfix">--}}
-                            {{--<div class="infospaceAddLeft">省/市：</div>--}}
-                            {{--<div><input type="text" name="area" value=""  disabled></div>--}}
-                        {{--</div>--}}
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">真实姓名：</div>
-                            <div><input type="text" name="data[realname]" value="{!! $user->realname !!}"  disabled></div>
+                            <div><input type="text" name="data[realname]" value="{!! $user->realname !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">身份证号码：</div>
-                            <div><input type="text" name="data[idno]" value="{!! $user->idno !!}"  disabled></div>
+                            <div><input type="text" name="data[idno]" value="{!! $user->idno !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">邮箱：</div>
@@ -61,18 +58,14 @@
                                     <select name="data[city]" class="city" id="city" >
                                         <option value="">市</option>
                                     </select>
-                                    <select name="data[county]" class="county" id="county">
-                                        <option>区</option>
-                                    </select>
+                                    {{--<select name="data[county]" class="county" id="county">--}}
+                                        {{--<option>区</option>--}}
+                                    {{--</select>--}}
                                 </p>
                                 <p>
-                                    <input  type="text" name="data[address]" placeholder="请输入详细地址" value="{!! $corp->address or '' !!}">
+                                    <input type="text" name="data[address]" placeholder="请输入详细地址" value="{!! $corp->address or '' !!}" style="margin-top: 18px;">
                                 </p>
                             </div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">性别：</div>
-                            <div><input type="text" name="data[gender]" value="{!! $user->gender !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">学历：</div>
@@ -83,8 +76,16 @@
                             <div><input type="text" name="data[industry]" value="{!! $user->industry !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">性别：</div>
+                            <input type="radio" name ="data[gender]" value="已婚" @if($user->gender == '男') checked @endif style="margin-left: 20px">男
+                            <input type="radio" name ="data[gender]" value="未婚" @if($user->gender == '女') checked @endif style="margin-left: 20px">女
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">婚姻：</div>
-                            <div><input type="text" name="data[marriage]" value="{!! $user->marriage !!}"></div>
+                            <div>
+                                <input type="radio" name ="data[marriage]" value="已婚" @if($user->marriage == '已婚') checked @endif style="margin-left: 20px">已婚
+                                <input type="radio" name ="data[marriage]" value="未婚" @if($user->marriage == '未婚') checked @endif style="margin-left: 20px">未婚
+                            </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">签名：</div>
@@ -102,6 +103,11 @@
             </div>
         </div>
     </div>
-    <!--添加相关推荐--->
-    <!--选点-->
+    <script>
+        @if(!empty($corp))
+          _init_area({!! $area !!});
+        @else
+        _init_area(["\u7701","\u5e02","\u533a"]);
+        @endif
+    </script>
 @stop
