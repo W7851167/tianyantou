@@ -238,6 +238,7 @@ class TaskRepository extends  BaseRepository
                 $receiveModel = $this->taskReceiveModel->find($receiveId);
                 $receiveModel->user->money->increment('money',$receiveModel->total);
             }
+            //驳回审核,不做任何操作
         });
         if ($result instanceof \Exception) {
             return $this->getError($result->getMessage());

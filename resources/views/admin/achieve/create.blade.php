@@ -58,20 +58,25 @@
                             <div class="infospaceAddLeft">审核：</div>
                             <div>
                                 <input type="radio" name="data[status]"  value="1" @if($receive->status ==1) checked @endif>审核
-                                <input type="radio" name="data[status]"  value="2" @if($receive->status ==2) checked @endif>交任务
+                                <input type="radio" name="data[status]"  value="2" @if($receive->status ==3) checked @endif>驳回
                             </div>
                         </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">说明：</div>
+                            <div><textarea class="addText" name="data[intro]">{!! $receive->intro or '' !!}</textarea></div>
+                        </div>
                     </div>
-                    <div class="w928">
+
+                    <div class="w928" @if($receive->status == 0 || $receive->status == 1) style="display: none;" @endif>
                         <div class="button">
                             <input class="submit" type="submit"  value="提交">
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
     <!--添加相关推荐--->
     <!--选点-->
 @stop
+
