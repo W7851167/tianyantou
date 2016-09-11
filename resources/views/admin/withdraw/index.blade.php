@@ -2,6 +2,7 @@
 @section('title')提现管理@stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
+    {!! HTML::style('admin/css/pop.css') !!}
 @stop
 @section('content')
     <div class="content-all">
@@ -38,12 +39,12 @@
                             @foreach($lists as $wv)
                                 <tr>
                                     <td>
-                                        <input type="checkbox" name="">
+                                        <input type="checkbox" name="" value="{!! $wv->id or '' !!}">
                                     </td>
                                     <td>{!! $wv->user->username or ''!!}</td>
                                     <td>{!! $wv->bank->hold_name or ''  !!}</td>
                                     <td>{!! $wv->bank->bank_name or ''  !!}</td>
-    {{--                                <td>{!! $wv->bank->province or ''  !!}/{!! $wv->bank->city or ''  !!}</td>--}}
+                                    {{--                                <td>{!! $wv->bank->province or ''  !!}/{!! $wv->bank->city or ''  !!}</td>--}}
                                     <td>{!! $wv->bank->branch_name or ''  !!}</td>
                                     <td>{!! $wv->bank->cardno or ''  !!}</td>
                                     <td>{!! $wv->price or 0.00 !!}</td>
@@ -57,7 +58,8 @@
                             @endforeach
                             <tr>
                                 <td colspan="11">
-                                    <input type="checkbox" class="checkAll" style="float: left;margin-left: 24px;margin-top: 15px;">
+                                    <input type="checkbox" class="checkAll"
+                                           style="float: left;margin-left: 24px;margin-top: 15px;">
                                     <button type="button" class="all-del">删除</button>
                                 </td>
                             </tr>
@@ -79,9 +81,10 @@
                 <a href="javascript:;" onClick="$('#del_menu_icon').hide();">&times;</a>
             </div>
             <div class="del_icon_content">
-                <label>确定删除？</label>
-                <form action="http://b2b.cw100.cn/wechat/menu/del" method="post" class="base_form">
+                <form action="{!! url('withdraw/batch') !!}" method="post" class="base_form">
                     <input type="hidden" name="id" id="id" />
+                    <input type="radio" name="" value="" checked style="margin-left: 15px;">通过
+                    <input type="radio" name="" value="" style="margin-left: 15px;">驳回
                     <input class="submit" type="submit" value="确定">
                     <input class="button" type="button" onClick="$('#del_menu_icon').hide();" value="取消">
                 </form>
@@ -89,10 +92,10 @@
         </div>
     </div>
     <script>
-        $(".checkAll").click(function(){
+        $(".checkAll").click(function () {
             $("[type=checkbox]").prop("checked", this.checked);
         });
-        $('.all-del').click(function(){
+        $('.all-del').click(function () {
             $('#del_menu_icon').show();
             $('#del_menu_icon').find('#id').val($(this).attr('id'));
         })
