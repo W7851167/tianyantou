@@ -110,6 +110,36 @@ class NewRepository extends BaseRepository
     }
 
     /**
+     * @param $data
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     *
+     * 保存帮助中心文章信息
+     */
+    public function saveHelpNew($data)
+    {
+        $result = $this->newModel->getConnection()->transaction(function () use ($data) {
+            $content = $data['content'];
+            $data = array_except($data, ['content']);
+
+            $id = $this->newModel->saveBy($data);
+            $id = !empty($data['id']) ? $data['id'] : $id;
+            $isSingle = !empty($data['id']) ? true : false;
+            $saveData = ['item_id' => $id, 'item_type' => 'App\Models\NewModel'];
+            if (!empty($content)) {
+                $this->articleModel->saveArticle(array_merge($saveData,
+                    ['content' => $content]), $isSingle);
+            }
+        });
+        if ($result instanceof Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('success', $result);
+        }
+    }
+
+    /**
      * @param $id
      * 删除新闻内容
      */

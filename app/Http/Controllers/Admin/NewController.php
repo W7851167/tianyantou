@@ -43,14 +43,15 @@ class NewController extends AdminController
             'parent_id' => 0,
             'theme' => 0,
         ];
-        $categorys = $this->new->getSystemCategorys($where);;
+        $categorys = $this->new->getSystemCategorys($where);
 
         $page = $request->page ? (int)$request->page : 1;
-        $where = [];
+        $categoryIds = array_column($categorys->toArray(), 'id');
+        $nWhere['in'] = ['category_id' => $categoryIds,];
         if ($request->get('category')) {
-            $where = ['category_id' => $request->get('category')];
+            $nWhere = ['category_id' => $request->get('category')];
         }
-        list($count, $lists) = $this->new->getNewList($where, $page);
+        list($count, $lists) = $this->new->getNewList($nWhere, $page);
 
         $page = $this->pager($count, $page, $this->perpage);
 
@@ -106,11 +107,6 @@ class NewController extends AdminController
         ));
     }
 
-    public function help()
-    {
-        return view('admin.news.help');
-    }
-
     public function notice()
     {
         return view('admin.news.notice');
@@ -148,6 +144,61 @@ class NewController extends AdminController
         return view('admin.news.create', compact(
             'categorys', 'corps', 'new'
         ));
+    }
+
+    /**
+     * @param Request $request
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 帮助中心列表
+     */
+    public function help(Request $request, $id = null)
+    {
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 7,
+            'theme' => 0,
+        ];
+        $categorys = $this->new->getSystemCategorys($where);
+
+        $page = $request->page ? (int)$request->page : 1;
+        $categoryIds = array_column($categorys->toArray(), 'id');
+        $nWhere['in'] = [
+            'category_id' => $categoryIds,
+        ];
+        if ($request->get('category')) {
+            $nWhere = ['category_id' => $request->get('category')];
+        }
+        list($count, $lists) = $this->new->getNewList($nWhere, $page);
+        $page = $this->pager($count, $page, $this->perpage);
+
+        return view('admin.news.help', compact(
+            'categorys', 'lists', 'page'
+        ));
+    }
+
+    public function helpcreate(Request $request, $id = null)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->new->saveHelpNew($data);
+            if ($result['status']) return $this->success('发布文章成功!', url('news/help'), true);
+            return $this->error('发布文章失败', null, true);
+        }
+
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 7,
+            'theme' => 0,
+        ];
+        $categorys = $this->new->getSystemCategorys($where);
+
+        if ($id) {
+            $new = $this->new->newModel->find($id);
+            if (empty($new)) return $this->error('该文章不存在或已删除!');
+        }
+        return view('admin.news.helpcreate', compact('categorys', 'new'));
     }
 
     /**

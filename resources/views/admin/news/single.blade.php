@@ -15,7 +15,7 @@
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
                         <p><a href="{!! url('news/single') !!}" class="at">单文章管理</a></p>
-                        <a href="{!! url('/news/create') !!}" class="buttonA">发布单文章</a>
+                        {{--<a href="{!! url('/news/create') !!}" class="buttonA">发布单文章</a>--}}
                     </div>
                     @if(!empty($lists))
                         <table class="client_cases" cellspacing="0">
