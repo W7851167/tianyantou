@@ -23,6 +23,7 @@ return [
         ['name' => '项目管理', 'url' => 'task', 'tag' => 'task', 'child' => [
             ['name' => '公司管理', 'url' => 'corp', 'tag' => 'task.corp.index'],
             ['name' => '项目管理', 'url' => 'task', 'tag' => 'task.task.index'],
+            ['name' => '任务管理', 'url' => 'achieve', 'tag' => 'task.achieve.index'],
         ]],
         ['name' => '文章管理', 'url' => 'news/multi', 'tag' => 'news', 'child' => [
             ['name' => '单分类文章', 'url' => 'news/single', 'tag' => 'news.single.index'],
