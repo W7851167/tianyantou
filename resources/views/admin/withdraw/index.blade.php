@@ -15,43 +15,86 @@
                         <a href="{!! url('withdraw') !!}">提现管理</a>
                     </div>
                 </div>
-
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">提现列表</a></p>
                 </div>
-                    <table class="all_shopping" cellspacing="0">
-                        <tr>
-                            <th width='65'>用户名</th>
-                            <th width='65'>开户名</th>
-                            <th width='100'>开户银行</th>
-                            <th width='100'>省/市</th>
-                            <th width="100">支行名称</th>
-                            <th width="150">卡号</th>
-                            <th width="80">金额</th>
-                            <th width="80">手续费</th>
-                            <th width="80">提现时间</th>
-                            <th width="80">状态</th>
-                            <th>操作</th>
-                        </tr>
-                        @foreach($lists as $wv)
+                @if(count($lists) > 0)
+                    <form action="">
+                        <table class="all_shopping" cellspacing="0">
                             <tr>
-                                <td>{!! $wv->user->username or ''!!}</td>
-                                <td>{!! $wv->bank->hold_name or ''  !!}</td>
-                                <td>{!! $wv->bank->bank_name or ''  !!}</td>
-                                <td>{!! $wv->bank->province or ''  !!}/{!! $wv->bank->city or ''  !!}</td>
-                                <td>{!! $wv->bank->branch_name or ''  !!}</td>
-                                <td>{!! $wv->bank->cardno or ''  !!}</td>
-                                <td>{!! $wv->price or 0.00 !!}</td>
-                                <td>{!! $wv->commission or 0.00 !!}</td>
-                                <td>{!! date('m/d',strtotime($wv->created_at))  !!}</td>
-                                <td>{!! $wv->status == 0 ? '申请中' :  ($wv->status == 1) ? '已派发':'拒绝派发'  !!}</td>
-                                <td>
-                                    <a href="{!! url('withdraw/create',['id'=>$wv->id]) !!}">审核</a>
+                                <th width='65'></th>
+                                <th width='65'>用户名</th>
+                                <th width='65'>账户名</th>
+                                <th width='100'>开户银行</th>
+                                {{--<th width='100'>省/市</th>--}}
+                                <th width="100">支行名称</th>
+                                <th width="150">卡号</th>
+                                <th width="80">金额</th>
+                                <th width="80">手续费</th>
+                                <th width="80">提现时间</th>
+                                <th width="80">状态</th>
+                                <th>操作</th>
+                            </tr>
+                            @foreach($lists as $wv)
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="">
+                                    </td>
+                                    <td>{!! $wv->user->username or ''!!}</td>
+                                    <td>{!! $wv->bank->hold_name or ''  !!}</td>
+                                    <td>{!! $wv->bank->bank_name or ''  !!}</td>
+    {{--                                <td>{!! $wv->bank->province or ''  !!}/{!! $wv->bank->city or ''  !!}</td>--}}
+                                    <td>{!! $wv->bank->branch_name or ''  !!}</td>
+                                    <td>{!! $wv->bank->cardno or ''  !!}</td>
+                                    <td>{!! $wv->price or 0.00 !!}</td>
+                                    <td>{!! $wv->commission or 0.00 !!}</td>
+                                    <td>{!! date('m/d',strtotime($wv->created_at))  !!}</td>
+                                    <td>{!! $wv->status == 0 ? '申请中' :  ($wv->status == 1) ? '已派发':'拒绝派发'  !!}</td>
+                                    <td>
+                                        <a href="{!! url('withdraw/create',['id'=>$wv->id]) !!}">审核</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            <tr>
+                                <td colspan="11">
+                                    <input type="checkbox" class="checkAll" style="float: left;margin-left: 24px;margin-top: 15px;">
+                                    <button type="button" class="all-del">删除</button>
                                 </td>
                             </tr>
-                        @endforeach
-                    </table>
+                        </table>
+                    </form>
+                @else
+                    <div class="system-page-none clearfix">
+                        <p>{!!HTML::image('cw100_b2b/images/u464.png')!!}您的店铺暂时没有设置导航</p>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
+    <div id="del_menu_icon" style="display:none;">
+        <div id="maskLevel"></div>
+        <div class="del_icon_box">
+            <div class="del_icon_title">
+                <h3>提示</h3>
+                <a href="javascript:;" onClick="$('#del_menu_icon').hide();">&times;</a>
+            </div>
+            <div class="del_icon_content">
+                <label>确定删除？</label>
+                <form action="http://b2b.cw100.cn/wechat/menu/del" method="post" class="base_form">
+                    <input type="hidden" name="id" id="id" />
+                    <input class="submit" type="submit" value="确定">
+                    <input class="button" type="button" onClick="$('#del_menu_icon').hide();" value="取消">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".checkAll").click(function(){
+            $("[type=checkbox]").prop("checked", this.checked);
+        });
+        $('.all-del').click(function(){
+            $('#del_menu_icon').show();
+            $('#del_menu_icon').find('#id').val($(this).attr('id'));
+        })
+    </script>
 @stop
