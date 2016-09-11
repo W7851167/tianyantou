@@ -14,11 +14,26 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\TaskRepository;
+use Illuminate\Http\Request;
 
 class AchieveController extends  AdminController
 {
-    public function index()
+    public  function  __construct(TaskRepository $taskRepository)
     {
+        $this->taskRepository = $taskRepository;
+    }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\View\View
+     * 获取任务列表
+     */
+    public function index(Request $request)
+    {
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        list($count, $lists) = $this->taskRepository->getReceiveList([], $this->perpage, $page);
+        $pageHtml = $this->pager($count,$page, $this->perpage);
+        return view('admin.achieve.index', compact('lists','pageHtml'));
     }
 }

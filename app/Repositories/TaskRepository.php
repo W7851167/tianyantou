@@ -18,6 +18,7 @@ use App\Models\CorpTermModel;
 use App\Models\ImageModel;
 use App\Models\MetaModel;
 use App\Models\TaskModel;
+use App\Models\TaskReceiveModel;
 use Illuminate\Database\QueryException;
 
 class TaskRepository extends  BaseRepository
@@ -27,7 +28,8 @@ class TaskRepository extends  BaseRepository
         CorpModel $corpModel,
         CorpTermModel $corpTermModel,
         ImageModel $imageModel,
-        MetaModel $metaModel
+        MetaModel $metaModel,
+        TaskReceiveModel $taskReceiveModel
     )
     {
         $this->taskModel = $taskModel;
@@ -35,6 +37,7 @@ class TaskRepository extends  BaseRepository
         $this->corpTermModel = $corpTermModel;
         $this->imageModel = $imageModel;
         $this->metaModel = $metaModel;
+        $this->taskReceiveModel = $taskReceiveModel;
     }
 
     /**
@@ -78,6 +81,20 @@ class TaskRepository extends  BaseRepository
         return [$counts, $lists];
     }
 
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     * 获取投标列表
+     */
+    public function getReceiveList($where = [], $limit, $page)
+    {
+        $order['id'] = 'desc';
+        $lists = $this->taskReceiveModel->lists(['*'], $where, $order, [], $limit, $page);
+        $counts = $this->taskReceiveModel->countBy($where);
+        return [$counts, $lists];
+    }
     /**
      * @param $data
      * 保存信息
