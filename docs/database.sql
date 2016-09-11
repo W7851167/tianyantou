@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-11 16:31:22
+Date: 2016-09-11 16:52:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -155,6 +155,7 @@ CREATE TABLE `ad_corps` (
   `assure` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '担保机构',
   `level` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0' COMMENT '等级',
   `intro` text COLLATE utf8_unicode_ci COMMENT '平台介绍',
+  `limit` tinyint(1) DEFAULT '0' COMMENT '交任务的数量数',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除操作',
@@ -164,9 +165,9 @@ CREATE TABLE `ad_corps` (
 -- ----------------------------
 -- Records of ad_corps
 -- ----------------------------
-INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/logo/2016-09-09/19560/57d292a6eb406.jpg', '/logo/2016-09-09/180180/57d292a9ab408.jpg', null, '0.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', null, '2016-09-10 16:44:43', '2016-09-10 16:44:43', null);
-INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/logo/2016-09-09/19560/57d272d15e098.jpg', '/logo/2016-09-09/180180/57d272d4e8d5b.jpg', '0.00', '0.00', '0', '0', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', null, '2016-09-09 18:44:37', '2016-09-09 18:44:37', null);
-INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/logo/2016-09-09/19560/57d28427510b9.jpg', '/logo/2016-09-09/180180/57d28434b9e3b.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', null, '2016-09-10 16:55:48', '2016-09-10 16:55:48', null);
+INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/logo/2016-09-09/19560/57d292a6eb406.jpg', '/logo/2016-09-09/180180/57d292a9ab408.jpg', null, '0.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', null, '0', '2016-09-10 16:44:43', '2016-09-10 16:44:43', null);
+INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/logo/2016-09-09/19560/57d272d15e098.jpg', '/logo/2016-09-09/180180/57d272d4e8d5b.jpg', '0.00', '0.00', '0', '0', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', null, '0', '2016-09-09 18:44:37', '2016-09-09 18:44:37', null);
+INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/logo/2016-09-09/19560/57d28427510b9.jpg', '/logo/2016-09-09/180180/57d28434b9e3b.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', null, '0', '2016-09-10 16:55:48', '2016-09-10 16:55:48', null);
 
 -- ----------------------------
 -- Table structure for `ad_images`
@@ -330,7 +331,7 @@ CREATE TABLE `ad_task_receives` (
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、领取 2、已交任务 1、已审核',
   `create_time` int(11) DEFAULT '0' COMMENT '领取任务时间',
   `commit_time` int(11) DEFAULT '0' COMMENT '提交任务时间',
-  `checked_time` int(11) DEFAULT '0' COMMENT '审核时间',
+  `complete_time` int(11) DEFAULT '0' COMMENT '审核时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
