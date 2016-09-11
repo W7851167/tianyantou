@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang='zh'>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,6 +15,12 @@
             "email_flag":{!! $user->email or 0 !!},
             "mobile_flag":{!! $user->mobile or 0 !!},
             "bank_flag":{!! $user->bank or 0 !!},
+        };
+        var DOMAIN = {
+            "www": "{!! config('app.url') !!}",
+            "account":"{!! config('app.account_url') !!}",
+            "static":"{!! config('app.static_url') !!}",
+            "admin":"{!! config('app.admin_url') !!}"
         };
     </script>
     <div id="head-top">
@@ -71,10 +79,6 @@
                 <a href="{!! config('app.url') !!}" style="padding-left:26px;">
                     <img src="{!! config('app.static_url') !!}/images/common/logo.png"
                          alt="投之家,p2p理财,投资理财,p2p网贷"/>
-                </a>
-                <a href="{!! config('app.url') !!}/activities/anniversaryParty" target="_blank">
-                    <img src="{!! config('app.static_url') !!}/images/common/logo_anniversary_2nd.gif"
-                         alt="梦想有礼，天眼上线">
                 </a>
             </h1>
 
