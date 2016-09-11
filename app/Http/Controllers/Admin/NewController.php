@@ -107,11 +107,6 @@ class NewController extends AdminController
         ));
     }
 
-    public function notice()
-    {
-        return view('admin.news.notice');
-    }
-
     /**
      * @param NewCreateRequest $request
      * @param null $id
@@ -199,6 +194,33 @@ class NewController extends AdminController
             if (empty($new)) return $this->error('该文章不存在或已删除!');
         }
         return view('admin.news.helpcreate', compact('categorys', 'new'));
+    }
+
+    public function notice(Request $request)
+    {
+        $page = $request->page ? (int)$request->page : 1;
+        $where = ['category_id' => 0,];
+        list($count, $lists) = $this->new->getNewList($where, $page);
+
+        $page = $this->pager($count, $page, $this->perpage);
+
+        return view('admin.news.notice', compact('lists', 'page'));
+    }
+
+    public function noticecreate(Request $request, $id = null)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->new->saveHelpNew($data);
+            if ($result['status']) return $this->success('发布公告成功!', url('news/notice'), true);
+            return $this->error('发布公告失败', null, true);
+        }
+
+        if ($id) {
+            $new = $this->new->newModel->find($id);
+            if (empty($new)) return $this->error('该公告不存在或已删除!');
+        }
+        return view('admin.news.noticecreate', compact('new'));
     }
 
     /**

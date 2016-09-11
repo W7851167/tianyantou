@@ -55,6 +55,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('news/help', ['as' => 'news.help.index', 'uses' => 'NewController@help']);
     Route::match(['get','post'],'news/help/create/{id?}', ['as' => 'news.help.edit', 'uses' => 'NewController@helpcreate']);
     Route::get('news/notice', ['as' => 'news.notice.index', 'uses' => 'NewController@notice']);
+    Route::match(['get','post'],'news/notice/create/{id?}', ['as' => 'news.notice.edit', 'uses' => 'NewController@noticecreate']);
 
 });
 
