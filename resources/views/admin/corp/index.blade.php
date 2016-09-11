@@ -26,7 +26,8 @@
                             <th width='120'>LOGO</th>
                             <th width="150">平台名称</th>
                             <th width="150">公司名称</th>
-                            <th width="250">地址</th>
+                            <th width="150">地址</th>
+                            <th width="60">限定</th>
                             <th width="60">项目数</th>
                             <th width="60">状态</th>
                             <th>操作</th>
@@ -40,6 +41,7 @@
                                 <td>{!! $cv->platform !!}</td>
                                 <td>{!! $cv->name !!}</td>
                                 <td>{!! $cv->province !!}  {!! $cv->city !!}</td>
+                                <td>{!! $cv->limit!!}</td>
                                 <td>{!! $cv->tasks->count() !!}</td>
                                 <td>{!! $cv->status ? '正常' : '暂停'!!}</td>
                                 <td>

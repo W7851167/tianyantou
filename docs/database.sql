@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-11 00:33:16
+Date: 2016-09-11 16:52:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,6 +49,7 @@ CREATE TABLE `ad_banks` (
   `user_id` int(11) unsigned NOT NULL,
   `hold_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '开户名/或支付宝名称',
   `bank_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '开户行名称',
+  `type` tinyint(1) DEFAULT '0' COMMENT '0、银行卡信息 1、支付宝',
   `province` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '省',
   `city` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '市',
   `branch_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '支行名称',
@@ -61,7 +62,7 @@ CREATE TABLE `ad_banks` (
 -- ----------------------------
 -- Records of ad_banks
 -- ----------------------------
-INSERT INTO `ad_banks` VALUES ('1', '2', '老朱', '招商银行', '北京市', '北京市', '通州区分账', '1123123131231', '2016-09-11 00:26:04', null);
+INSERT INTO `ad_banks` VALUES ('1', '2', '老朱', '招商银行', '0', '北京市', '北京市', '通州区分账', '1123123131231', '2016-09-11 00:26:04', null);
 
 -- ----------------------------
 -- Table structure for `ad_categorys`
@@ -154,6 +155,7 @@ CREATE TABLE `ad_corps` (
   `assure` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '担保机构',
   `level` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0' COMMENT '等级',
   `intro` text COLLATE utf8_unicode_ci COMMENT '平台介绍',
+  `limit` tinyint(1) DEFAULT '0' COMMENT '交任务的数量数',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除操作',
@@ -163,9 +165,9 @@ CREATE TABLE `ad_corps` (
 -- ----------------------------
 -- Records of ad_corps
 -- ----------------------------
-INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/logo/2016-09-09/19560/57d292a6eb406.jpg', '/logo/2016-09-09/180180/57d292a9ab408.jpg', null, '0.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', null, '2016-09-10 16:44:43', '2016-09-10 16:44:43', null);
-INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/logo/2016-09-09/19560/57d272d15e098.jpg', '/logo/2016-09-09/180180/57d272d4e8d5b.jpg', '0.00', '0.00', '0', '0', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', null, '2016-09-09 18:44:37', '2016-09-09 18:44:37', null);
-INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/logo/2016-09-09/19560/57d28427510b9.jpg', '/logo/2016-09-09/180180/57d28434b9e3b.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', null, '2016-09-10 16:55:48', '2016-09-10 16:55:48', null);
+INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/logo/2016-09-09/19560/57d292a6eb406.jpg', '/logo/2016-09-09/180180/57d292a9ab408.jpg', null, '0.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', null, '0', '2016-09-10 16:44:43', '2016-09-10 16:44:43', null);
+INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/logo/2016-09-09/19560/57d272d15e098.jpg', '/logo/2016-09-09/180180/57d272d4e8d5b.jpg', '0.00', '0.00', '0', '0', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', null, '0', '2016-09-09 18:44:37', '2016-09-09 18:44:37', null);
+INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/logo/2016-09-09/19560/57d28427510b9.jpg', '/logo/2016-09-09/180180/57d28434b9e3b.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', null, '0', '2016-09-10 16:55:48', '2016-09-10 16:55:48', null);
 
 -- ----------------------------
 -- Table structure for `ad_images`
@@ -247,7 +249,7 @@ CREATE TABLE `ad_moneys` (
 -- ----------------------------
 -- Records of ad_moneys
 -- ----------------------------
-INSERT INTO `ad_moneys` VALUES ('1', '2', '0.00', '0.00', '0.00', '0.00', '2', '2016-09-11 00:03:04', '2016-09-11 00:03:04');
+INSERT INTO `ad_moneys` VALUES ('1', '2', '0.00', '0.00', '0.00', '0.00', '4450', '2016-09-11 14:12:09', '2016-09-11 14:12:09');
 
 -- ----------------------------
 -- Table structure for `ad_news`
@@ -287,12 +289,55 @@ CREATE TABLE `ad_scores` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_scores
 -- ----------------------------
 INSERT INTO `ad_scores` VALUES ('1', '2', '2', '赠送积分', '2016-09-11 00:03:04', '2016-09-11 00:03:04');
+INSERT INTO `ad_scores` VALUES ('2', '2', '4', '增加积分', '2016-09-11 13:51:31', '2016-09-11 13:51:31');
+INSERT INTO `ad_scores` VALUES ('3', '2', '4444', '1', '2016-09-11 14:12:09', '2016-09-11 14:12:09');
+
+-- ----------------------------
+-- Table structure for `ad_task_achieves`
+-- ----------------------------
+DROP TABLE IF EXISTS `ad_task_achieves`;
+CREATE TABLE `ad_task_achieves` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `task_id` int(11) NOT NULL DEFAULT '0' COMMENT '任务ID',
+  `receive_id` int(11) NOT NULL DEFAULT '0' COMMENT '领取ID',
+  `order_sn` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '订单ID',
+  `realname` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '真实用户名',
+  `mobile` char(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '手机号码',
+  `price` decimal(10,2) DEFAULT '0.00' COMMENT '投资金额',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of ad_task_achieves
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ad_task_receives`
+-- ----------------------------
+DROP TABLE IF EXISTS `ad_task_receives`;
+CREATE TABLE `ad_task_receives` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `corp_id` int(11) NOT NULL DEFAULT '0' COMMENT '平台ID',
+  `task_id` int(11) NOT NULL DEFAULT '0' COMMENT '任务ID',
+  `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '领取人ID',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、领取 2、已交任务 1、已审核',
+  `create_time` int(11) DEFAULT '0' COMMENT '领取任务时间',
+  `commit_time` int(11) DEFAULT '0' COMMENT '提交任务时间',
+  `complete_time` int(11) DEFAULT '0' COMMENT '审核时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of ad_task_receives
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_tasks`
@@ -312,6 +357,8 @@ CREATE TABLE `ad_tasks` (
   `repay` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '还款方式',
   `accrual` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '计息方式(T+0到账\\T+1到账)',
   `limit` decimal(10,2) DEFAULT '0.00' COMMENT '投标限额(元)',
+  `nums` int(11) DEFAULT '0' COMMENT '库存数量',
+  `url` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT '跳转地址 ',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除',
@@ -321,12 +368,12 @@ CREATE TABLE `ad_tasks` (
 -- ----------------------------
 -- Records of ad_tasks
 -- ----------------------------
-INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0.00', '2016-09-10 16:49:51', '2016-09-10 16:49:51', '2016-09-10 16:49:51');
-INSERT INTO `ad_tasks` VALUES ('3', '3', 'aaasdf', '111111.00', '1111.00', '1', '111.00', '111', '11.00', '111', '111', '111', '1000.00', '2016-09-10 16:54:11', '2016-09-10 16:54:11', null);
-INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '0', '3.40', '20天', '200.00', '112313', '123123', '1231232', '1000.00', '2016-09-10 16:10:26', '2016-09-10 16:10:26', null);
-INSERT INTO `ad_tasks` VALUES ('5', '1', '测试页面', '1111111.00', '22.00', '1', '111.00', '11', '1111.00', '112313', '11', '111', '111.00', '2016-09-09 23:21:20', null, null);
-INSERT INTO `ad_tasks` VALUES ('6', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '2016-09-10 16:53:20', null, null);
-INSERT INTO `ad_tasks` VALUES ('7', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '2016-09-10 16:53:51', null, null);
+INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0.00', '0', '', '2016-09-10 16:49:51', '2016-09-10 16:49:51', '2016-09-10 16:49:51');
+INSERT INTO `ad_tasks` VALUES ('3', '3', 'aaasdf', '111111.00', '1111.00', '1', '111.00', '111', '11.00', '111', '111', '111', '1000.00', '0', '', '2016-09-10 16:54:11', '2016-09-10 16:54:11', null);
+INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '0', '3.40', '20天', '200.00', '112313', '123123', '1231232', '1000.00', '0', '', '2016-09-10 16:10:26', '2016-09-10 16:10:26', null);
+INSERT INTO `ad_tasks` VALUES ('5', '1', '测试页面', '1111111.00', '22.00', '1', '111.00', '11', '1111.00', '112313', '11', '111', '111.00', '0', '', '2016-09-09 23:21:20', null, null);
+INSERT INTO `ad_tasks` VALUES ('6', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '0', '', '2016-09-10 16:53:20', null, null);
+INSERT INTO `ad_tasks` VALUES ('7', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '0', '', '2016-09-10 16:53:51', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_users`
@@ -335,7 +382,8 @@ DROP TABLE IF EXISTS `ad_users`;
 CREATE TABLE `ad_users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `username` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名',
-  `nickname` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户昵称',
+  `nickname` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户昵称',
+  `qq` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'qq账号',
   `realname` char(12) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '真实姓名',
   `idno` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '身份证号码',
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '邮箱验证',
@@ -360,8 +408,8 @@ CREATE TABLE `ad_users` (
 -- ----------------------------
 -- Records of ad_users
 -- ----------------------------
-INSERT INTO `ad_users` VALUES ('1', 'zhuxishun', ' 老朱', null, null, null, '管理员', '$2y$10$XiJxXLNZlRqaN5fPmxKv9ejJ6NdRLIQY.PQ8cL0915VdfzuzMBnSm', null, null, null, null, null, null, null, null, null, null, null, '2016-09-08 10:29:30', null);
-INSERT INTO `ad_users` VALUES ('2', 'laozhu', '厨卫', null, null, null, '用户', '', null, null, null, null, null, null, null, null, null, null, null, '0000-00-00 00:00:00', null);
+INSERT INTO `ad_users` VALUES ('1', 'zhuxishun', ' 老朱', null, null, null, null, '管理员', '$2y$10$XiJxXLNZlRqaN5fPmxKv9ejJ6NdRLIQY.PQ8cL0915VdfzuzMBnSm', null, null, null, null, null, null, null, null, null, null, null, '2016-09-08 10:29:30', null);
+INSERT INTO `ad_users` VALUES ('2', 'laozhu', '厨卫', null, null, null, null, '用户', '', null, null, null, null, null, null, null, null, null, null, null, '0000-00-00 00:00:00', null);
 
 -- ----------------------------
 -- Table structure for `ad_withdraws`
@@ -371,7 +419,8 @@ CREATE TABLE `ad_withdraws` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `bank_id` int(11) NOT NULL DEFAULT '0' COMMENT '银行ID',
-  `price` decimal(20,2) NOT NULL DEFAULT '0.00' COMMENT '提现金额',
+  `price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '提现金额',
+  `commission` decimal(10,2) DEFAULT '0.00' COMMENT '0.00',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态 0、申请提现 1、已派发 2、拒绝提现',
   `reason` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '拒绝原因',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -382,4 +431,4 @@ CREATE TABLE `ad_withdraws` (
 -- ----------------------------
 -- Records of ad_withdraws
 -- ----------------------------
-INSERT INTO `ad_withdraws` VALUES ('1', '2', '1', '100.00', '0', null, '2016-09-11 00:24:36', null);
+INSERT INTO `ad_withdraws` VALUES ('1', '2', '1', '100.00', '0.00', '1', '审核通过', '2016-09-11 09:18:39', '2016-09-11 09:18:39');
