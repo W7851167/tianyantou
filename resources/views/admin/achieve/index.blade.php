@@ -41,7 +41,7 @@
                                         {!! $rv->status == 0 ? '已领取' : ($rv->status == 1 ? '已审核': '已交任务') !!}
                                     </span>
                                 </div>
-                                <div class="list_04">
+                                <div class="list_03">
                                     @if(!empty($rv->status != 0))
                                     <a data-tab="1" style="float:left;" href="javascript:;" class="zs_tab">展开</a>
                                     @endif
