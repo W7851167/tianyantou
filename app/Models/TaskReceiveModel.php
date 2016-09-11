@@ -31,4 +31,9 @@ class TaskReceiveModel extends BaseModel
     {
         return $this->belongsTo('App\Models\UserModel','user_id');
     }
+
+    public function achieves()
+    {
+        return $this->hasMany('App\Models\TaskAchieveModel','receive_id');
+    }
 }

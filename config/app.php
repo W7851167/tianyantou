@@ -29,7 +29,6 @@ return [
     'url' => 'http://www.phpad.net',
     'admin_url' => 'http://admin.phpad.net',
     'static_url'=>'http://static.phpad.net',
-    'img_url' =>'http://img.phpad.net',
     'account_url' =>'http://account.phpad.net',
     /*
     |--------------------------------------------------------------------------
