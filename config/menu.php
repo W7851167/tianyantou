@@ -24,9 +24,9 @@ return [
             ['name' => '公司管理', 'url' => 'corp', 'tag' => 'task.corp.index'],
             ['name' => '项目管理', 'url' => 'task', 'tag' => 'task.task.index'],
         ]],
-        ['name' => '文章管理', 'url' => 'news', 'tag' => 'news', 'child' => [
+        ['name' => '文章管理', 'url' => 'news/multi', 'tag' => 'news', 'child' => [
             ['name' => '单分类文章', 'url' => 'news/single', 'tag' => 'news.single.index'],
-            ['name' => '列表文章', 'url' => 'news', 'tag' => 'news.multi.index'],
+            ['name' => '列表文章', 'url' => 'news/multi', 'tag' => 'news.multi.index'],
             ['name' => '帮助中心', 'url' => 'news/help', 'tag' => 'news.help.index'],
             ['name' => '公告/事件', 'url' => 'news/notice', 'tag' => 'news.notice.index'],
         ]],

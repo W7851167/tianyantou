@@ -10,7 +10,7 @@
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>
                     <a href="{!! url('/news') !!}">文章管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                    <a href="{!! url('/dashboard') !!}">首页</a>
+                    <a href="{!! url('/news') !!}">列表文章</a>
                 </div>
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
@@ -20,7 +20,7 @@
                              <p><a href="{!! url('news?category=' . $cat->id) !!}" {!! $cat->id==Input::get('category')? 'class="at"' :'' !!}>{!! $cat->title !!}</a></p>
                             @endforeach
                         @endif
-                        <a href="{!! url('/news/multi') !!}" class="buttonA">发布文章</a>
+                        <a href="{!! url('/news/multi/create') !!}" class="buttonA">发布文章</a>
                     </div>
                     @if(count($lists)>0)
                         <table class="client_cases" cellspacing="0">
@@ -38,7 +38,7 @@
                                     <td>{!! $nv->categoryName($nv->category_id) !!}</td>
                                     <td>{!! $nv->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/multi/'.$nv->id) !!}">编辑</a>
+                                        <a href="{!! url('news/multi/create/'.$nv->id) !!}">编辑</a>
                                         <a href="{!! url('news/del/'.$nv->id) !!}">删除</a>
                                     </td>
                                 </tr>

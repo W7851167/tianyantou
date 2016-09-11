@@ -47,15 +47,14 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('system', ['as' => 'system.system.index', 'uses' => 'SystemController@index']);
     Route::get('system/role', ['as' => 'system.role.index', 'uses' => 'SystemController@role']);
     //文章管理
-    Route::get('news', ['as' => 'news.multi.index', 'uses' => 'NewController@index']);
-    Route::get('news/single', ['as' => 'news.single.index', 'uses' => 'NewController@single']);
-    Route::match(['get', 'post'], 'news/single/{id}', ['as' => 'news.single.edit', 'uses' => 'NewController@category']);
-    Route::match(['get', 'post'], 'news/multi/{id?}', ['as' => 'news.multi.edit', 'uses' => 'NewController@multi']);
-    Route::get('news/del/{id}', ['as' => 'news.multi.del', 'uses' => 'NewController@del']);
+    Route::get('news/multi', ['as' => 'news.multi.index', 'uses' => 'NewController@index']);
+    Route::match(['get', 'post'], 'news/multi/create/{id?}', ['as' => 'news.multi.edit', 'uses' => 'NewController@createmulti']);
+    Route::match(['get', 'post'], 'news/single/{id?}', ['as' => 'news.single.index', 'uses' => 'NewController@single']);
     Route::get('news/help', ['as' => 'news.help.index', 'uses' => 'NewController@help']);
-    Route::match(['get','post'],'news/help/create/{id?}', ['as' => 'news.help.edit', 'uses' => 'NewController@helpcreate']);
+    Route::match(['get', 'post'], 'news/help/create/{id?}', ['as' => 'news.help.edit', 'uses' => 'NewController@helpcreate']);
     Route::get('news/notice', ['as' => 'news.notice.index', 'uses' => 'NewController@notice']);
-    Route::match(['get','post'],'news/notice/create/{id?}', ['as' => 'news.notice.edit', 'uses' => 'NewController@noticecreate']);
+    Route::match(['get', 'post'], 'news/notice/create/{id?}', ['as' => 'news.notice.edit', 'uses' => 'NewController@noticecreate']);
+    Route::get('news/del/{id}', ['as' => 'news.news.del', 'uses' => 'NewController@del']);
 
 });
 

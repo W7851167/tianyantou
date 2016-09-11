@@ -10,7 +10,7 @@
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>
                     <a href="{!! url('/news') !!}">文章管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                    <a href="{!! url('/dashboard') !!}">首页</a>
+                    <a href="{!! url('/news/single') !!}">公告管理</a>
                 </div>
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
@@ -32,6 +32,7 @@
                                     <td>{!! $cat->created_at !!}</td>
                                     <td>
                                         <a href="{!! url('news/notice/create/'.$cat->id) !!}">编辑</a>
+                                        <a href="{!! url('news/del/'.$cat->id) !!}">删除</a>
                                     </td>
                                 </tr>
                             @endforeach

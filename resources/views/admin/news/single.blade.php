@@ -10,12 +10,11 @@
                 <div class="content-right-header clearfix">
                     <img src="{!!url('admin/images/u5.png')!!}"/>
                     <a href="{!! url('/news') !!}">文章管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                    <a href="{!! url('/dashboard') !!}">首页</a>
+                    <a href="{!! url('/news/single') !!}">单文章管理</a>
                 </div>
                 <div class="content-right-page">
                     <div class="content-right-tit clearfix">
                         <p><a href="{!! url('news/single') !!}" class="at">单文章管理</a></p>
-                        {{--<a href="{!! url('/news/create') !!}" class="buttonA">发布单文章</a>--}}
                     </div>
                     @if(!empty($lists))
                         <table class="client_cases" cellspacing="0">
