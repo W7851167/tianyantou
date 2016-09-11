@@ -32,7 +32,7 @@
                     @endif
                     @if(!empty($corp->article->id))
                         <input type="hidden" name="data[id]" value="{!! $corp->article->id !!}">
-                    @endif;
+                    @endif
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div>

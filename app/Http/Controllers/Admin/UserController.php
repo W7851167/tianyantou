@@ -65,8 +65,37 @@ class UserController extends AdminController
 
         $area[] = !empty($user->province) ? $user->province : '省';
         $area[] = !empty($user->city) ? $user->city : '市';
+        $area = json_encode($area);
 
-        return view('admin.user.edit', compact('user'));
+        return view('admin.user.edit', compact('user', 'area'));
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 用户银行卡/支付信息管理
+     */
+    public function manage($id, Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+
+            try {
+                $result = $this->userRepository->bankModel->saveBy($data);
+                if ($result) return $this->success('更新用户账号信息完成!', url('user'), true);
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
+            return $this->success('更新用户账号信息失败!', null, true);
+        }
+        $user = $this->userRepository->userModel->find($id);
+
+        $area[] = !empty($user->province) ? $user->province : '省';
+        $area[] = !empty($user->city) ? $user->city : '市';
+        $area = json_encode($area);
+        return view('admin.user.manage', compact('user', 'area'));
     }
 
     /**
