@@ -37,4 +37,9 @@ class PassportController extends  FrontController
        return view('account.passport.register');
     }
 
+    public function captcha()
+    {
+
+    }
+
 }

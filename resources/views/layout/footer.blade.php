@@ -60,7 +60,7 @@
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="投之家APP下载" title="投之家APP下载" />
+                        <img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />
                         <span>投之家APP下载</span>
                     </p>
                     <p id="f-fuwuhao">

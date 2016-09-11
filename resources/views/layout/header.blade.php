@@ -73,7 +73,7 @@
                          alt="投之家,p2p理财,投资理财,p2p网贷"/>
                 </a>
                 <a href="{!! config('app.url') !!}/activities/anniversaryParty" target="_blank">
-                    <img src="{!! config('app.url') !!}/images/common/logo_anniversary_2nd.gif"
+                    <img src="{!! config('app.static_url') !!}/images/common/logo_anniversary_2nd.gif"
                          alt="梦想有礼，天眼上线">
                 </a>
             </h1>
