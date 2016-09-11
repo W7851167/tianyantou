@@ -24,7 +24,7 @@ class UserController extends AdminController
         UserRepository $userRepository
     )
     {
-        parent::__construct();
+        parent::__initalize();
         $this->userRepository = $userRepository;
     }
 

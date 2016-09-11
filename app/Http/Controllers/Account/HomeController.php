@@ -2,15 +2,26 @@
 /*********************************************************************************
  *  PhpStorm - phpad
  *-------------------------------------------------------------------------------
- * 版权所有: CopyRight By phpad
- * 用户中心路由控制
+ * 版权所有: CopyRight By cw100.com
+ * 文件内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:Account.php
+ * $FILE:IndexController.php
  * $Author:zxs
  * $Dtime:2016/9/11
  ***********************************************************************************/
-Route::group(['middle.account'],function(){
-    Route::get('/', ['as'=>'index','uses'=>'HomeController@index']);
-});
-Route::get('signin.html','PassportController@signin');
-Route::get('register.html','PassportController@register');
+
+namespace App\Http\Controllers\Account;
+
+
+use App\Http\Controllers\FrontController;
+
+class HomeController extends  FrontController
+{
+    public function index()
+    {
+        if(!empty(\Session::get('user.passport'))) {
+            return redirect(url('signin.html'));
+        }
+
+    }
+}

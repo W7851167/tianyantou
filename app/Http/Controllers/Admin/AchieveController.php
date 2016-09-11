@@ -21,7 +21,7 @@ class AchieveController extends  AdminController
 {
     public  function  __construct(TaskRepository $taskRepository)
     {
-        parent::__construct();
+        parent::__initalize();
         $this->taskRepository = $taskRepository;
     }
 

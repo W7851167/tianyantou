@@ -19,7 +19,7 @@ class CensusController extends  AdminController
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__initalize();
     }
 
     public function index()

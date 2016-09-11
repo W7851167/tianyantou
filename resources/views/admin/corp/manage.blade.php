@@ -53,8 +53,8 @@
     </div>
 @stop
 @section('script')
-    <script language="javascript" src="{!! config('app.static_url') . '/vendor/ueditor/ueditor.topic.config.js' !!}"></script>
-    <script language="javascript" src="{!! config('app.static_url') . '/vendor/ueditor/ueditor.all.min.js' !!}"></script>
+    {!! HTML::script('vendor/ueditor/ueditor.topic.config.js') !!}
+    {!! HTML::script('vendor/ueditor/ueditor.all.min.js') !!}
     <script language="javascript">
         $(function(){
             var editor = UE.getEditor('content');

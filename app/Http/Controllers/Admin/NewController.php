@@ -26,7 +26,7 @@ class NewController extends AdminController
         TaskRepository $task
     )
     {
-        parent::__construct();
+        parent::__initalize();
         $this->new = $new;
         $this->task = $task;
     }
