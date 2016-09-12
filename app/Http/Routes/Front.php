@@ -13,4 +13,4 @@
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 
 //文章管理
-Route::get('about/{type}.html', ['as' => 'help', 'uses' => 'AboutController@index']);
+Route::get('about/{page}.html', ['as' => 'help', 'uses' => 'AboutController@index']);
