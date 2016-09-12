@@ -1,16 +1,29 @@
 <?php
 /*********************************************************************************
- *  系统前台 - 路由
+ * 帮助中心控制器
  *-------------------------------------------------------------------------------
- * 版权所有: CopyRight By
- * 文件内容简单说明
+ * 版权所有: CopyRight By phpad
+ * 帮助中心内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:Front.php
+ * $FILE:AboutController.php
  * $Author:pzz
  * $Dtime:2016/9/7
  ***********************************************************************************/
 
-Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+namespace App\Http\Front;
 
-//文章管理
-Route::get('about/{type}.html', ['as' => 'help', 'uses' => 'AboutController@index']);
+
+use App\Http\Controllers\FrontController;
+
+class AboutController extends FrontController
+{
+    public function __construct()
+    {
+        parent::__initalize();
+    }
+
+    public function index($type)
+    {
+
+    }
+}
