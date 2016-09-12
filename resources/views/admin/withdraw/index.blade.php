@@ -3,6 +3,8 @@
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
     {!! HTML::style('admin/css/pop.css') !!}
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -39,7 +41,9 @@
                             @foreach($lists as $wv)
                                 <tr>
                                     <td>
-                                        <input type="checkbox" name="" value="{!! $wv->id or '' !!}">
+                                        {{--@if($wv->status == 0)--}}
+                                        <input type="checkbox" class="withdraw-ids" value="{!! $wv->id or '' !!}">
+                                        {{--@endif--}}
                                     </td>
                                     <td>{!! $wv->user->username or ''!!}</td>
                                     <td>{!! $wv->bank->hold_name or ''  !!}</td>
@@ -82,9 +86,9 @@
             </div>
             <div class="del_icon_content">
                 <form action="{!! url('withdraw/batch') !!}" method="post" class="base_form">
-                    <input type="hidden" name="id" id="id" />
-                    <input type="radio" name="" value="" checked style="margin-left: 15px;">通过
-                    <input type="radio" name="" value="" style="margin-left: 15px;">驳回
+                    <input type="hidden" name="ids" id="withdraw-id" />
+                    <input type="radio" name="status" value="1" checked style="margin-left: 15px;">通过
+                    <input type="radio" name="status" value="2" style="margin-left: 15px;">驳回
                     <input class="submit" type="submit" value="确定">
                     <input class="button" type="button" onClick="$('#del_menu_icon').hide();" value="取消">
                 </form>
@@ -96,8 +100,17 @@
             $("[type=checkbox]").prop("checked", this.checked);
         });
         $('.all-del').click(function () {
-            $('#del_menu_icon').show();
-            $('#del_menu_icon').find('#id').val($(this).attr('id'));
+            var ids = [];
+            $(".withdraw-ids:checked").each(function(){
+                ids.push($(this).val());
+            });
+            console.log(ids.length);
+            if(ids.length < 1){
+                error('未选中任何提现记录!');
+            } else{
+                $('#del_menu_icon').show();
+                $('#del_menu_icon').find('#withdraw-id').val(ids.join(','));
+            }
         })
     </script>
 @stop
