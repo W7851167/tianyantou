@@ -46,6 +46,7 @@ class AboutController extends FrontController
     {
         $category = $this->new->categoryModel->wherePage($page)->first();
         if (empty($category)) return redirect('adbout/company.html');
+        view()->share('category',$category);
 
         $where = ['is_system' => 1, 'parent_id' => 0];
         $categorys = $this->new->getSystemCategorys($where);
@@ -70,9 +71,7 @@ class AboutController extends FrontController
      */
     private function single($category)
     {
-        return view('front.about.' . $category->page, compact(
-            'category'
-        ));
+        return view('front.about.' . $category->page);
     }
 
     /**
