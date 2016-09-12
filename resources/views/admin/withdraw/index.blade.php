@@ -53,7 +53,7 @@
                                     <td>{!! $wv->price or 0.00 !!}</td>
                                     <td>{!! $wv->commission or 0.00 !!}</td>
                                     <td>{!! date('m/d',strtotime($wv->created_at))  !!}</td>
-                                    <td>{!! $wv->status == 0 ? '申请中' :  ($wv->status == 1) ? '已派发':'拒绝派发'  !!}</td>
+                                    <td>{!! $wv->status == 0 ? '申请中' :  ($wv->status == 1 ? '已派发':'拒绝派发')  !!}</td>
                                     <td>
                                         <a href="{!! url('withdraw/create',['id'=>$wv->id]) !!}">审核</a>
                                     </td>
