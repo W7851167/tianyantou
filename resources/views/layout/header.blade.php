@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang='zh'>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>用户注册_投之家</title>
+    <title>@yield('title')</title>
+    <meta name="keywords" content="@yield('description')">
+    <meta name="description" content="@yield('description')">
+    <meta name="author" content="p2p网贷,p2p理财,天眼投投资理财平台" />
+    <meta name="searchtitle" content="p2p网贷,p2p理财,天眼投投资理财平台" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/css.css?ver={!! date("YmdHis",time()) !!}" />
     @yield('style')
 </head>
 <body>
