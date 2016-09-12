@@ -24,7 +24,7 @@ class CorpController extends AdminController
     public function __construct(
         TaskRepository $taskRepository,
         NewRepository $newRepository
-    ){
+    ) {
         parent::__initalize();
         $this->taskRepository = $taskRepository;
         $this->newRepository = $newRepository;
