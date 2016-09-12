@@ -41,7 +41,7 @@
                             @foreach($lists as $wv)
                                 <tr>
                                     <td>
-                                        <input type="checkbox" class="withdraw-ids" value="{!! $wv->id or '' !!}" @if($wv->status)disabled @endif>
+                                        <input type="checkbox" class="withdraw-ids" value="{!! $wv->id or '' !!}" @if($wv->status)disabled  readonly @endif>
                                     </td>
                                     </td>
                                     <td>{!! $wv->user->username or ''!!}</td>
