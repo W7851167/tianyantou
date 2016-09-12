@@ -45,6 +45,7 @@
                                         <input type="checkbox" class="withdraw-ids" value="{!! $wv->id or '' !!}">
                                         @endif
                                     </td>
+                                    </td>
                                     <td>{!! $wv->user->username or ''!!}</td>
                                     <td>{!! $wv->bank->hold_name or ''  !!}</td>
                                     <td>{!! $wv->bank->bank_name or ''  !!}</td>

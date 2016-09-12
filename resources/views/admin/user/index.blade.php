@@ -23,7 +23,6 @@
                             <th width='70'>用户名</th>
                             <th width='120'>手机号</th>
                             <th width='120'>邮箱</th>
-                            {{--<th width='65'>QQ</th>--}}
                             <th width="100">总资产</th>
                             <th width="100">钱包</th>
                             <th width="100">冻结返利</th>
@@ -36,7 +35,6 @@
                                 <td>{!! $uv->username !!}</td>
                                 <td>{!! $uv->mobile ? :'---' !!}</td>
                                 <td>{!! $uv->email ? :'---' !!}</td>
-                                {{--<td>{!! $uv->qq ? :'---' !!}</td>--}}
                                 <td>{!! $uv->money->total or 0.00!!}</td>
                                 <td>{!! $uv->money->money or 0.00 !!}</td>
                                 <td>{!! $uv->money->rebate or 0.00!!}</td>

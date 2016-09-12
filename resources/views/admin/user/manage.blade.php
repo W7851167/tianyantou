@@ -117,7 +117,8 @@
         $("#bank-type").on("change",function(){
             if($(this).val() == 1){
                 $(".bank-content").fadeOut();
-                $(".bank-content").find('option:selected').attr('value','');
+                _init_area(["\u7701","\u5e02","\u533a"]);
+                $('.bank-content option:first-child').attr('selected','selected');
                 $(".bank-content").find('input').attr('value','');
                 $(".bank-cardno").text("支付宝账号:");
             }else{
