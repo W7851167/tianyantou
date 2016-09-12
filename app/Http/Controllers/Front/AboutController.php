@@ -56,7 +56,9 @@ class AboutController extends FrontController
      */
     private function single($category)
     {
-        return view('front.about.' . $category->page);
+        return view('front.about.' . $category->page,compact(
+            'category'
+        ));
     }
 
     /**
