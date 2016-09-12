@@ -62,8 +62,8 @@
                             <tr>
                                 <td colspan="11">
                                     <input type="checkbox" class="checkAll"
-                                           style="float: left;margin-left: 24px;margin-top: 15px;">
-                                    <button type="button" class="all-del">删除</button>
+                                           style="float: left;margin-left: 24px;margin-top: 15px;">全选
+                                    <button type="button" class="all-del">审核</button>
                                 </td>
                             </tr>
                         </table>
@@ -84,6 +84,7 @@
                 <a href="javascript:;" onClick="$('#del_menu_icon').hide();">&times;</a>
             </div>
             <div class="del_icon_content">
+                 <h4>请选择下面操作批量进行审核！</h4>
                 <form action="{!! url('withdraw/batch') !!}" method="post" class="base_form">
                     <input type="hidden" name="ids" id="withdraw-id" />
                     <input type="radio" name="status" value="1" checked style="margin-left: 15px;">通过
