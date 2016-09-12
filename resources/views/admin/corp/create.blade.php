@@ -57,6 +57,19 @@
                                 @endif
                             </ul>
                         </div>
+                        <div class="infospaceAddImg clearfix">
+                            <div class="infospaceAddLeft h80"><span>*</span>广告图：</div>
+                            <div>
+                                <a class="clickUpload" id="adLogoId" href="javascript:void(0)">点击上传</a>
+                            </div>
+                            <p class="hint">必须上传294*129px生成的图片！</p>
+                            <ul class="imgbox" id="adLogoShow" style="width: 180px;height: 180px;">
+                                @if(!empty($corp->ad_logo))
+                                    <img style="width:180px;" src="{!! config('app.static_url').$corp->ad_logo !!}">
+                                    <input type="hidden" name="data[logo]" value="{!! $corp->ad_logo or '' !!}" />
+                                @endif
+                            </ul>
+                        </div>
                         <div class="infospaceAddContent clearfix">
                         </div>
                         <div class="infospaceAddContent clearfix">
@@ -180,8 +193,32 @@
                     html += '<input type="hidden" name="data[platform_logo]" value="' + data.info[19560] + '" />'
                     $('#platformLogoShow').html(html);
                 }
-            },
+            }
+        });
 
+        $('#adLogoId').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':294,'height0':129, 'type0':1},
+            'buttonText':'',
+            'width':'82',
+            //'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': false,
+            'button_height':32,
+            'button_width':86,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if (data.status == 1) {
+                    var html = '<img style="width:294px;height:129px;" src="' + data.info[294129] + '">';
+                    html += '<input type="hidden" name="data[platform_logo]" value="' + data.info[294129] + '" />'
+                    $('#adLogoShow').html(html);
+                }
+            }
         });
     </script>
 @stop
