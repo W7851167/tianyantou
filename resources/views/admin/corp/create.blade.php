@@ -221,7 +221,7 @@
                 data = eval('('+data+')');
                 if (data.status == 1) {
                     var html = '<img style="width:294px;height:129px;" src="' + data.info[294129] + '">';
-                    html += '<input type="hidden" name="data[platform_logo]" value="' + data.info[294129] + '" />'
+                    html += '<input type="hidden" name="data[ad_logo]" value="' + data.info[294129] + '" />'
                     $('#adLogoShow').html(html);
                 }
             }
