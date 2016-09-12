@@ -57,15 +57,21 @@
                                 @endif
                             </ul>
                         </div>
+                        <div class="infospaceAddContent clearfix">
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>注册金额：</div>
+                            <div><input type="text" name="data[capital]" placeholder="2000万元" value="{!! $corp->capital or '' !!}"></div>
+                        </div>
                         <div class="infospaceAddImg clearfix">
                             <div class="infospaceAddLeft h80"><span>*</span>广告图：</div>
                             <div>
                                 <a class="clickUpload" id="adLogoId" href="javascript:void(0)">点击上传</a>
                             </div>
                             <p class="hint">必须上传294*129px生成的图片！</p>
-                            <ul class="imgbox" id="adLogoShow" style="width: 180px;height: 180px;">
+                            <ul class="imgbox" id="adLogoShow" style="width: 294px;height: 129px;">
                                 @if(!empty($corp->ad_logo))
-                                    <img style="width:180px;" src="{!! config('app.static_url').$corp->ad_logo !!}">
+                                    <img style="width:294px;" src="{!! config('app.static_url').$corp->ad_logo !!}">
                                     <input type="hidden" name="data[logo]" value="{!! $corp->ad_logo or '' !!}" />
                                 @endif
                             </ul>
