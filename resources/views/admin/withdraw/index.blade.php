@@ -41,9 +41,9 @@
                             @foreach($lists as $wv)
                                 <tr>
                                     <td>
-                                        {{--@if($wv->status == 0)--}}
+                                        @if($wv->status == 0)
                                         <input type="checkbox" class="withdraw-ids" value="{!! $wv->id or '' !!}">
-                                        {{--@endif--}}
+                                        @endif
                                     </td>
                                     <td>{!! $wv->user->username or ''!!}</td>
                                     <td>{!! $wv->bank->hold_name or ''  !!}</td>
