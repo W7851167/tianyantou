@@ -104,9 +104,8 @@ class NewRepository extends BaseRepository
         });
         if ($result instanceof Exception) {
             return $this->getError($result->getMessage());
-        } else {
-            return $this->getSuccess('success', $result);
         }
+        return $this->getSuccess('success', $result);
     }
 
     /**

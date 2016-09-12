@@ -72,38 +72,15 @@ class WithdrawController extends AdminController
      */
     public function batch(Request $request)
     {
-        $ids = explode(',', $request->get('ids'));
-        $status = $request->get('status');
-        if (!$ids) return $this->error('未选中任何提现记录!');
+        $data['ids'] = explode(',', $request->get('ids'));
+        $data['status'] = $request->get('status');
+        if (!$data['ids']) return $this->error('未选中任何提现记录!');
 
-        $error = 1;
-        foreach ($ids as $id) {
-            $withdraw = $this->userRepository->withdrawModel->find($id);
-            if (!($withdraw->user instanceof Model)) {
-                $error++;
-                continue;
-            }
-            if (!($withdraw->user->money instanceof Model)) {
-                $error++;
-                continue;
-            }
-            $item = [
-                'id' => $id,
-                'user_id' => $withdraw->user_id,
-                'price' => $withdraw->price,
-                'commission' => $withdraw->commission,
-                'status' => $status,
-                'reason' => '批量操作',
-            ];
-            $result = $this->userRepository->saveWithdraw($item);
-            if (!$result['status']) $error++;
+        $result = $this->userRepository->saveWithdraws($data);
+        if ($result['status']) {
+            $message = '批量提现审核完成' . (count($data['ids']) - $result['data']) . '条记录,审核失败' . $result['data'] . '条记录 !';
+            return $this->success($message, url('withdraw'), true);
         }
-
-        if ($error > 0) {
-            $message = '批量提现审核完成' . (count($ids) - $error) . '条记录,审核失败' . $error . '条记录!';
-            return $this->error($message, null, true);
-        }
-
-        return $this->success('批量提现审核完成', url('withdraw'), true);
+        return $this->error('批量提现审核失败!', null, true);
     }
 }
