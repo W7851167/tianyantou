@@ -10,7 +10,7 @@
  * $Dtime:2016/9/7
  ***********************************************************************************/
 
-namespace App\Http\Front;
+namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
