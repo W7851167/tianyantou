@@ -68,4 +68,4 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
 });
 
-
+Route::get('test/me','TestController@me');
