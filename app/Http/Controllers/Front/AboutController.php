@@ -27,6 +27,16 @@ class AboutController extends FrontController
     }
 
     /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     * 重定向到关于我们页面
+     */
+    public function about()
+    {
+        return redirect('about/company.html');
+    }
+
+    /**
      * @param $page
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      *
@@ -35,7 +45,7 @@ class AboutController extends FrontController
     public function index($page)
     {
         $category = $this->new->categoryModel->wherePage($page)->first();
-        if (empty($category)) return redirect('adbout/help.html');
+        if (empty($category)) return redirect('adbout/company.html');
 
         if ($category->theme == 0)
             return $this->multi($category);
@@ -48,7 +58,7 @@ class AboutController extends FrontController
         if ($category->theme == 4)
             return $this->monthly($category);
 
-        return redirect('about/help.html');
+        return redirect('about/company.html');
     }
 
     /**
@@ -56,7 +66,7 @@ class AboutController extends FrontController
      */
     private function single($category)
     {
-        return view('front.about.' . $category->page,compact(
+        return view('front.about.' . $category->page, compact(
             'category'
         ));
     }
