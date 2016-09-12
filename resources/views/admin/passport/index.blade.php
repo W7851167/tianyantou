@@ -9,8 +9,8 @@
     {!!HTML::style('admin/css/form.css')!!}
     {!! HTML::script('vendor/jquery/jquery.min.js') !!}
     {!! HTML::script('admin/js/base.js') !!}
-    {!! HTML::script('vendor/jquery/layer/layer.js') !!}
-    {!! HTML::script('vendor/jquery/layer/minelayer.js') !!}
+    {!! HTML::script('vendor/layer/layer.js') !!}
+    {!! HTML::script('vendor/layer/minelayer.js') !!}
     <style>
         .hide {display:none}
     </style>
