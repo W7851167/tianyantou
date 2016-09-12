@@ -10,7 +10,11 @@
  * $Dtime:2016/9/7
  ***********************************************************************************/
 
+//首页
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+//选平台
+Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
+Route::get('platform/project.html', ['as' => 'platform.project', 'uses' => 'PlatformController@project']);
 
 //文章管理
 Route::get('about', 'AboutController@about');
