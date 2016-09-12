@@ -10,7 +10,7 @@
  * $Dtime:2016/9/7
  ***********************************************************************************/
 
-namespace App\Http\Front;
+namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
@@ -46,6 +46,10 @@ class AboutController extends FrontController
     {
         $category = $this->new->categoryModel->wherePage($page)->first();
         if (empty($category)) return redirect('adbout/company.html');
+
+        $where = ['is_system' => 1, 'parent_id' => 0];
+        $categorys = $this->new->getSystemCategorys($where);
+        view()->share('categorys', $categorys);
 
         if ($category->theme == 0)
             return $this->multi($category);
