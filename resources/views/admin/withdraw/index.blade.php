@@ -98,7 +98,7 @@
     </div>
     <script>
         $(".checkAll").click(function () {
-            $("[type=checkbox]").prop("checked", this.checked);
+            $("[type=checkbox]:enabled").prop("checked", this.checked);
         });
         $('.all-del').click(function () {
             var ids = [];
