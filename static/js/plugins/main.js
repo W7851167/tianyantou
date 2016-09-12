@@ -153,11 +153,11 @@ function showPlatDown()
       success: function(layero, index){
         
       layero.find('.layui-layer-btn0').on('click', function() {
-        location.href= 'https://account.touzhijia.com/register.html';
+        location.href= 'http://account.phpad.net/register.html';
       })
       layero.find('.layui-layer-btn1').attr('href',platLink).attr('onclick',"javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat-click', 'signin']);");
 
-//     layero.find('.layui-layer-btn1').attr('href','https://account.touzhijia.com/signin.html').attr('onclick',"javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat-click', 'direct-go']);");
+//     layero.find('.layui-layer-btn1').attr('href','http://account.phpad.net/signin.html').attr('onclick',"javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat-click', 'direct-go']);");
       }
     });
   });
@@ -168,7 +168,7 @@ function showPlatDown()
       title: '请先登录',
       type: 1,
       area: ['400px','540px'],
-      content: '\<form id="login" method="post" action=""><p>还不是会员？<a href="https://www.touzhijia.com/user/register.html">新用户注册</a></p><div id="log-error" class="error"><i class="iconfont">&#xe664;</i><span>用户不存在</span></div><div class="input-box"><input id="log-username" class="input-style input-size" type="text" placeholder="请输入您的用户名/邮箱/手机" /><i class="iconfont">&#xe604;</i></div><div class="input-box"><input id="log-password" class="input-style input-size" type="text" placeholder="请输入登录密码"/><i class="iconfont">&#xe603;</i></div><p class="submit-box"><span id="is-check"><i class="iconfont">&#xe619;</i>记住用户名</span><a href="https://www.touzhijia.cn/user/reset_password.html">忘记密码？</a></p><div class="btn-box"><input id="log-submit" type="submit" class="btn-blue button-size" value="登录"></div><p><span>您还可以通过使用合作账号登录：</span><div class="partner-box"><a class="partner" href="https://www.touzhijia.cn/ologin/wdzj.html"><i id="partner-wdzj"></i>网贷之家账号</a><a class="partner" href="https://www.touzhijia.cn/ologin/sina.html"><i id="partner-weibo"></i>新浪微博账号</a></div></p>\<\/form>',
+      content: '\<form id="login" method="post" action=""><p>还不是会员？<a href="http://www.phpad.net/user/register.html">新用户注册</a></p><div id="log-error" class="error"><i class="iconfont">&#xe664;</i><span>用户不存在</span></div><div class="input-box"><input id="log-username" class="input-style input-size" type="text" placeholder="请输入您的用户名/邮箱/手机" /><i class="iconfont">&#xe604;</i></div><div class="input-box"><input id="log-password" class="input-style input-size" type="text" placeholder="请输入登录密码"/><i class="iconfont">&#xe603;</i></div><p class="submit-box"><span id="is-check"><i class="iconfont">&#xe619;</i>记住用户名</span><a href="https://www.touzhijia.cn/user/reset_password.html">忘记密码？</a></p><div class="btn-box"><input id="log-submit" type="submit" class="btn-blue button-size" value="登录"></div><p><span>您还可以通过使用合作账号登录：</span><div class="partner-box"><a class="partner" href="https://www.touzhijia.cn/ologin/wdzj.html"><i id="partner-wdzj"></i>网贷之家账号</a><a class="partner" href="https://www.touzhijia.cn/ologin/sina.html"><i id="partner-weibo"></i>新浪微博账号</a></div></p>\<\/form>',
       success: function(layero, index){
         formCheckBtn();
         formLoginCheck();
@@ -487,10 +487,10 @@ $(function(){
           btn: ['注册绑定平台','登录'],
           success:function(layero, index) {
             layero.find('.layui-layer-btn0').on('click', function(){
-              location.href= 'https://account.touzhijia.com/register.html';
+              location.href= 'http://account.phpad.net/register.html';
             })
             layero.find('.layui-layer-btn1').on('click', function() {
-              location.href= 'https://account.touzhijia.com/signin.html';
+              location.href= 'http://account.phpad.net/signin.html';
             })
           }
         });
@@ -509,7 +509,7 @@ $(function(){
               btn: ['去认证'],
               success:function(layero, index) {
                 layero.find('.layui-layer-btn0').on('click', function() {
-                    location.href= 'https://account.touzhijia.com/safe.html#valid-nickname';
+                    location.href= 'http://account.phpad.net/safe.html#valid-nickname';
                 })
               }
             });
@@ -878,7 +878,7 @@ $(function(){
     //   return showPlatDown();
     // }
     var invest_id = $(this).attr('data-invest-id');
-    var url       = 'https://www.touzhijia.com/platform/login/'+platname+'/'+invest_id;
+    var url       = 'http://www.phpad.net/platform/login/'+platname+'/'+invest_id;
     var third_url = $(this).attr("data-inversurl");
     var data      = {url:third_url};
     if(!USER.islogin) {
@@ -890,17 +890,17 @@ $(function(){
         btn: ['注册绑定平台','登录'],
         success:function(layero, index) {
           layero.find('.layui-layer-btn0').on('click', function(){
-            location.href= 'https://account.touzhijia.com/register.html';
+            location.href= 'http://account.phpad.net/register.html';
           })  
           layero.find('.layui-layer-btn1').on('click', function() {
-            location.href= 'https://account.touzhijia.com/signin.html';
+            location.href= 'http://account.phpad.net/signin.html';
           })
         }
       });
     }else {
       //用户已登录
         if(USER.invest_flag) {
-          window.open('https://www.touzhijia.com/platform/login/' + platname + '/' + invest_id + '?url=' + third_url);
+          window.open('http://www.phpad.net/platform/login/' + platname + '/' + invest_id + '?url=' + third_url);
         }else {
           layer.open({
             title:'认证提醒',
@@ -910,7 +910,7 @@ $(function(){
             btn: ['去认证'],
             success:function(layero, index) {
               layero.find('.layui-layer-btn0').on('click', function() {
-                  location.href= 'https://account.touzhijia.com/safe.html#valid-nickname';
+                  location.href= 'http://account.phpad.net/safe.html#valid-nickname';
               })
             }
           });
@@ -1145,7 +1145,7 @@ $(function(){
         }else {
           var boxCont = '';
           var investInfo = data.investInfo;
-          var autobuyUrl = 'https://account.touzhijia.com/debt/autobuy.html';
+          var autobuyUrl = 'http://account.phpad.net/debt/autobuy.html';
           if(investInfo.type == 2) {
             boxCont = '<div class="invest-completed">\
             <h3><i class="iconfont">&#xe61b;</i>恭喜您！购买成功。债权信息如下：</h3>\
@@ -1155,7 +1155,7 @@ $(function(){
             债权期限：<span class="time">'+investInfo.period+'</span><br />\
             预期收益：<span class="rate">'+investInfo.receiveAmount+'</span><br />\
             预约自动续购还可享受<span style="color:red">加息奖励</span>,<a href="'+autobuyUrl+'" target="_blank">查看详情>></a><br />\
-            <div style="border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;padding:0.5em;margin:0 0.75em 0 0;background-color:#fffbe8;border:1px dashed #fff1a9;margin-top: 15px;color:#f0983e;margin-left: -30px;font-size: 13px;"><b>活期产品</b>重磅推荐：年化<b>8%</b>以上，随存随取，当日计息。<a style="color:red" target="_blank" href="https://www.touzhijia.com/current/">了解详情</a></div>\
+            <div style="border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;padding:0.5em;margin:0 0.75em 0 0;background-color:#fffbe8;border:1px dashed #fff1a9;margin-top: 15px;color:#f0983e;margin-left: -30px;font-size: 13px;"><b>活期产品</b>重磅推荐：年化<b>8%</b>以上，随存随取，当日计息。<a style="color:red" target="_blank" href="http://www.phpad.net/current/">了解详情</a></div>\
             </p>\
             </div>';
           }else if(investInfo.type == 1 || investInfo.type == 0) {
@@ -1167,7 +1167,7 @@ $(function(){
             购买期限：<span class="time">'+investInfo.period+'</span><br />\
             回购利率：<span class="rate">'+investInfo.rate+'%</span><br />\
             预约自动续购还可享受<span style="color:red">加息奖励</span>,<a href="'+autobuyUrl+'" target="_blank">查看详情>></a><br />\
-            <div style="border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;padding:0.5em;margin:0 0.75em 0 0;background-color:#fffbe8;border:1px dashed #fff1a9;margin-top: 15px;color:#f0983e;margin-left: -30px;font-size: 13px;"><b>活期产品</b>重磅推荐：年化<b>8%</b>以上，随存随取，当日计息。<a style="color:red" target="_blank" href="https://www.touzhijia.com/current/">了解详情</a></div>\
+            <div style="border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;padding:0.5em;margin:0 0.75em 0 0;background-color:#fffbe8;border:1px dashed #fff1a9;margin-top: 15px;color:#f0983e;margin-left: -30px;font-size: 13px;"><b>活期产品</b>重磅推荐：年化<b>8%</b>以上，随存随取，当日计息。<a style="color:red" target="_blank" href="http://www.phpad.net/current/">了解详情</a></div>\
             </p>\
             </div>';
           } else {
@@ -1178,7 +1178,7 @@ $(function(){
             购买金额：<span class="money">'+investInfo.effectAmount+'元</span><br />\
             购买期限：<span class="time">'+investInfo.period+'</span><br />\
             回购利率：<span class="rate">'+investInfo.rate+'%</span><br />\
-            专享债权享受1.2倍收益，一路高息不停！<a href="https://www.touzhijia.com/debt/" target="_blank">立即抢购>></a><br />\
+            专享债权享受1.2倍收益，一路高息不停！<a href="http://www.phpad.net/debt/" target="_blank">立即抢购>></a><br />\
             </p>\
             </div>';
           }
@@ -1190,9 +1190,9 @@ $(function(){
             content: boxCont,
             btn: ['查看详情','继续购买'],
             success: function(layero, index){
-              var gotoUrl = 'https://account.touzhijia.com/';
+              var gotoUrl = 'http://account.phpad.net/';
               if (investInfo.type == 1 || investInfo.type == 0 || investInfo.type == 2) {
-                gotoUrl = 'https://account.touzhijia.com/debt';
+                gotoUrl = 'http://account.phpad.net/debt';
               }
               layero.find('.layui-layer-btn0').attr('href', gotoUrl);
               var href= location.href;
@@ -1260,8 +1260,8 @@ $(function(){
 
   var appTip = $('<div class="app-tip"><img src="//static.touzhijia.com/images/platform/app2wm(200-200).png"></div>'),
       wechatTip = $('<div class="wechat-tip"><img src="//static.touzhijia.com/images/secondmarket/detail-erma.jpg"></div>'),
-      autoTip = $('<div class="app-tip auto-tip"><p>设置预约续购，回款的本息将自动投出。可在我的投之家-<a href="https://account.touzhijia.com/debt/autoreserve.html" target="_blank">理财管理</a>进行设置</p></div>'),
-      autoBuyTip = $('<div class="app-tip autoBuy-tip"><p>设置自动购买，账户中的余额将自动投出。可在我的投之家-<a href="https://account.touzhijia.com/debt/autobuy.html" target="_blank">理财管理</a>进行设置</p></div>');
+      autoTip = $('<div class="app-tip auto-tip"><p>设置预约续购，回款的本息将自动投出。可在我的投之家-<a href="http://account.phpad.net/debt/autoreserve.html" target="_blank">理财管理</a>进行设置</p></div>'),
+      autoBuyTip = $('<div class="app-tip autoBuy-tip"><p>设置自动购买，账户中的余额将自动投出。可在我的投之家-<a href="http://account.phpad.net/debt/autobuy.html" target="_blank">理财管理</a>进行设置</p></div>');
   $('#borrow-buy-records').on('mouseover','.appTip',function(e){
     var x = e.pageX + 15,
         y = e.pageY + 10;

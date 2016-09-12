@@ -17,6 +17,11 @@ use App\Http\Controllers\FrontController;
 
 class PassportController extends  FrontController
 {
+    public function __construct()
+    {
+        parent::__initalize();
+    }
+
     /**
      * 登录
      */
@@ -30,6 +35,11 @@ class PassportController extends  FrontController
     public function register()
     {
        return view('account.passport.register');
+    }
+
+    public function captcha()
+    {
+
     }
 
 }

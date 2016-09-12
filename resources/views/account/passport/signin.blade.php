@@ -50,10 +50,6 @@
     </div>  <div id="head-btm">
         <div id="head-btm-main">
             <h1 id="logo">
-                <!--<a href="">
-                    <img src="" alt="投之家,p2p理财,投资理财,p2p网贷"
-                         title="投之家-中国领先的P2P网贷投资平台，您的个人理财专家"/>
-                </a>-->
                 <a href="https://www.touzhijia.com/" style="padding-left:26px;">
                     <img src="//static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="投之家,p2p理财,投资理财,p2p网贷"/>
                 </a>

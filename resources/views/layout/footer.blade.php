@@ -39,36 +39,36 @@
             <div class="area-top">
                 <div class="f-map">
                     <ul>
-                        <li><a href="https://www.touzhijia.com/about/company.html">关于我们</a></li>
-                        <li><a href="https://www.touzhijia.com/about/consultant.html">专家顾问</a></li>
-                        <li><a href="https://www.touzhijia.com/about/team.html">团队介绍</a></li>
-                        <li><a href="https://www.touzhijia.com/about/contact.html">联系我们</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/company.html">关于我们</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/consultant.html">专家顾问</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/team.html">团队介绍</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/contact.html">联系我们</a></li>
                     </ul>
                     <ul>
-                        <li><a href="https://www.touzhijia.com/about/safety.html">安全评级</a></li>
-                        <li><a href="https://www.touzhijia.com/about/media.html">媒体报道</a></li>
-                        <!--<li><a href="https://www.touzhijia.com/topic/t1110.html">三重保障</a></li>-->
-                        <li><a href="https://www.touzhijia.com/guide.html">新手指引</a></li>
-                        <li><a href="https://www.touzhijia.com/about/plan.html">T盾保障</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/safety.html">安全评级</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/media.html">媒体报道</a></li>
+                        <!--<li><a href="{!! config('app.url') !!}/topic/t1110.html">三重保障</a></li>-->
+                        <li><a href="{!! config('app.url') !!}/guide.html">新手指引</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/plan.html">T盾保障</a></li>
                     </ul>
                     <ul>
-                        <li><a href="https://www.touzhijia.com/about/career.html">招贤纳士</a></li>
-                        <li><a href="https://www.touzhijia.com/about/strategy.html">投资攻略</a></li>
-                        <li><a href="https://www.touzhijia.com/about/dynamic.html">行业新闻</a></li>
-                        <li><a href="https://www.touzhijia.com/about/notice.html">网站公告</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/career.html">招贤纳士</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/strategy.html">投资攻略</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/dynamic.html">行业新闻</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/notice.html">网站公告</a></li>
                     </ul>
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="//static.touzhijia.com/images/common/f_app.png" alt="投之家APP下载" title="投之家APP下载" />
+                        <img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />
                         <span>投之家APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="//static.touzhijia.com/images/common/f_service.png" alt="投之家服务号" title="投之家服务号" />
+                        <img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="投之家服务号" title="投之家服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
-            <img src="//static.touzhijia.com/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />
+            <img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />
             <span>理财顾问微信号</span>
           </p>-->
                 </div>
@@ -99,15 +99,15 @@
     <div class="figure">
         <div class="eye1" id="eye1"></div>
         <div class="eye2" id="eye2"></div>
-        <a href="https://www.touzhijia.com/mascot.html" class="peoplelink" target="_blank" title="投之家吉祥物"></a>
-        <!-- https://www.touzhijia.com/mascot.html  -->
+        <a href="{!! config('app.url') !!}/mascot.html" class="peoplelink" target="_blank" title="投之家吉祥物"></a>
+        <!-- {!! config('app.url') !!}/mascot.html  -->
     </div>
     <p class="onoroff"><a href="javascript:void(0);"></a></p>
     <ul>
         <li>
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe627;</i><br/>公告</a>
             <div class="hovercon">
-                <p class="tap-show phonep"><a href="https://www.touzhijia.com/about/notice.html">投之家公告</a></p>
+                <p class="tap-show phonep"><a href="{!! config('app.url') !!}/about/notice.html">投之家公告</a></p>
             </div>
         </li>
         <li>
@@ -128,7 +128,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="//static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="投之家公众号" width="130">
+                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png6" alt="投之家公众号" width="130">
                     <span>投之家服务号</span>
                 </p>
             </div>
@@ -191,18 +191,9 @@
         </div>
     </div>
 </div>
-<div class="ad-float" id="action-728">
-    <a class="close-btn"><i class="iconfont">&#xe68b;</i></a>
-    <a href="http://topics.touzhijia.com/activities/anniversaryParty" title="梦想有礼 之家2周年" target="_blank"></a>
-</div>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/layer/layer.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.form.min.js"></script>
-<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>
-<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
-<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
-<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login-frontend.js"></script>
-<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
+@yield('script')
 </body>
 </html>

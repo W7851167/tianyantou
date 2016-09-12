@@ -1,7 +1,7 @@
-@include('layout.main')
+@extends('layout.main')
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
-@stop
+    @stop
 @section('content')
 <div class="wrap user-center">
     <div class="container clearfix">
@@ -10,16 +10,16 @@
                 <div id="register-box" class="form-group">
                     <h2>会员注册<br /><span>注册投之家账户，开启网贷之旅</span><p>已有<em>2,499,046</em>人加入投之家</p></h2>
                     <div class="side-area">
-                        <p>已有账号？<a href="https://account.touzhijia.com/signin.html">直接登录</a></p>
+                        <p>已有账号？<a href="{!! config('app.account_url') !!}m/signin.html">直接登录</a></p>
                         <p>
                             <span>用第三方账号直接登陆</span>
                         </p>
                         <div class="partner-box">
-                            <a href="https://account.touzhijia.com/thirdparty/login/weixin.html" class="partner" target="_blank"><img alt="微信" src="//static.touzhijia.com/images/user/reg-weixin.png?ver=20160431006"></a>
-                            <a href="https://account.touzhijia.com/thirdparty/login/qq.html" class="partner" target="_blank"><img alt="腾讯QQ" src="//static.touzhijia.com/images/user/reg-qq.png?ver=20160431006"></a>
+                            <a href="{!! config('app.account_url') !!}m/thirdparty/login/weixin.html" class="partner" target="_blank"><img alt="微信" src="{!! config('app.static_url') !!}/images/user/reg-weixin.png?ver=20160431006"></a>
+                            <a href="{!! config('app.account_url') !!}m/thirdparty/login/qq.html" class="partner" target="_blank"><img alt="腾讯QQ" src="{!! config('app.static_url') !!}/images/user/reg-qq.png?ver=20160431006"></a>
                         </div>
                         <div class="event-img">
-                            <a href="#"><img src="//static.touzhijia.com/images/ads/register_award.jpg?ver=20160431006" style="margin-top:62px;"></a>
+                            <a href="#"><img src="{!! config('app.static_url') !!}/images/ads/register_award.jpg" style="margin-top:62px;"></a>
                         </div>
                     </div>
                     <form id="register" data-toggle="ajaxForm" method="post">
@@ -60,7 +60,7 @@
                             <input name="r_popid" class="input-style input-size" type="text" placeholder="选填(手机号，邀请好友注册，得50元红包)" value=""/>
                         </div>
                         <p class="submit-box">
-                            <span id="is-check">点击注册即同意投之家&nbsp;<a id="user-agreement" href="https://account.touzhijia.com/register/protocol.html" target="blank">《用户协议》</a></span>
+                            <span id="is-check">点击注册即同意投之家&nbsp;<a id="user-agreement" href="{!! config('app.account_url') !!}m/register/protocol.html" target="blank">《用户协议》</a></span>
                         </p>
                         <div class="btn-box">
                             <input type="submit" class="btn-blue button-size" value="立即注册">
@@ -72,4 +72,11 @@
     </div>
 </div>
     @stop
-
+@section('script')
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login-frontend.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
+    @stop

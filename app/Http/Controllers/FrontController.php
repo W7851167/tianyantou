@@ -15,12 +15,12 @@ namespace App\Http\Controllers;
 
 class FrontController extends Controller
 {
-    protected $userInfo;
+    protected $user;
 
 
-    public function __destruct()
+    public function __initalize()
     {
-        $this->userInfo = \Session::get('user.passport');
-        view()->share('userInfo', $this->userInfo);
+        $this->user = \Session::get('user.passport');
+        view()->share('user', $this->user);
     }
 }

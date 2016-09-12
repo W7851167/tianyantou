@@ -364,7 +364,7 @@
           area = ['320px', '220px'];
         }
         var tips = {
-          202:'充值订单正在处理中，你可以查看<a href="https://account.touzhijia.com/wallet/rechargelist.html">充值记录</a>跟踪订单状态', 
+          202:'充值订单正在处理中，你可以查看<a href="http://account.phpad.net/wallet/rechargelist.html">充值记录</a>跟踪订单状态',
           200:'恭喜您！充值成功'
         };
         var boxConfig = {
@@ -374,7 +374,7 @@
             content: '<div style="display:inline-block;*zoom:1;vertical-align:middle;">' + tips[status] + '</div>',
             btn : ['查看记录', '继续充值'],
             success: function(layero, index) {
-              layero.find('.layui-layer-btn0').attr('href','https://account.touzhijia.com/wallet/rechargelist.html');
+              layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/wallet/rechargelist.html');
               var href= location.href;
               layero.find('.layui-layer-btn1').attr('href', href);
             }
