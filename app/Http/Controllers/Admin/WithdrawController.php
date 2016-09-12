@@ -80,14 +80,17 @@ class WithdrawController extends AdminController
         foreach ($ids as $id) {
             $withdraw = $this->userRepository->withdrawModel->find($id);
             if (!($withdraw->user instanceof Model)) {
-                $error++;continue;
+                $error++;
+                continue;
             }
             if (!($withdraw->user->money instanceof Model)) {
-                $error++;continue;
+                $error++;
+                continue;
             }
             $item = [
                 'id' => $id,
-                'user_id' => $withdraw->price,
+                'user_id' => $withdraw->user_id,
+                'price' => $withdraw->price,
                 'commission' => $withdraw->commission,
                 'status' => $status,
                 'reason' => '批量操作',
@@ -97,7 +100,8 @@ class WithdrawController extends AdminController
         }
 
         if ($error > 0) {
-            return $this->error('批量提现审核完成' . (count($ids) - $error) . '条记录,审核失败' . $error . '条记录!');
+            $message = '批量提现审核完成' . (count($ids) - $error) . '条记录,审核失败' . $error . '条记录!';
+            return $this->error($message, null, true);
         }
 
         return $this->success('批量提现审核完成', url('withdraw'), true);

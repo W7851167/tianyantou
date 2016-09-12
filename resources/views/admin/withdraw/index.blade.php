@@ -92,6 +92,7 @@
                     <input class="submit" type="submit" value="确定">
                     <input class="button" type="button" onClick="$('#del_menu_icon').hide();" value="取消">
                 </form>
+                </form>
             </div>
         </div>
     </div>
