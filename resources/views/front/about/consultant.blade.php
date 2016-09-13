@@ -1,10 +1,6 @@
 @extends('layout.main')
-@section('style')
-    <meta name="keywords" content="专家顾问，投之家专家顾问，投之家顾问团队，投之家理财投资平台">
-    <meta name="description" content="投之家是国内领先的P2P网贷评级、选标和服务平台，为您提供精选多项P2P组合，分散投资债券理财，为投资者推荐优良的P2P选标和P2P投资服务。">
-    <meta name="author" content="p2p网贷,p2p理财,投之家投资理财平台" />
-    <meta name="searchtitle" content="p2p网贷,p2p理财,投之家投资理财平台" />
-    <link rel="stylesheet" href="//static.touzhijia.com/css/css.css?ver=20160431006" />
+@section('title')
+{!! $category->title or '' !!} - 关于我们 - 天眼投
 @stop
 
 @section('content')
