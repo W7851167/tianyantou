@@ -11,7 +11,7 @@
         <div class="banner-con">
             <div class="banner-play" id="banner-play-mod">
                 <div class="banner-play-con imgplaycon">
-                    <a href="{!! config('app.topics_url') !!}/activities/anniversaryParty" title="梦想有礼，之家两周年庆" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160902/20160902114415_14070.jpg?ver={!! time() !!}" alt="梦想有礼，之家两周年庆"/></a>
+                    <a href="{!! config('app.topics_url') !!}/activities/anniversaryParty" title="梦想有礼，之家两周年庆" target="_blank"><img src="{!! config('app.static_url') !!}/upload/image/banner/20160902/20160902114415_14070.jpg?ver={!! time() !!}" alt="梦想有礼，之家两周年庆"/></a>
                     <a href="{!! config('app.topics_url') !!}/activities/anniversary" title="天眼投两周年庆暨A轮融资发布会" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160902/20160902145203_56236.png?ver={!! time() !!}" alt="天眼投两周年庆暨A轮融资发布会"/></a>
                     <a href="{!! config('app.topics_url') !!}/monthly/201608" title="天眼投8月运营报告" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160902/20160902190437_65949.jpg?ver={!! time() !!}" alt="天眼投8月运营报告"/></a>
                     <a href="{!! config('app.ask_url') !!}/question/77" title="天眼投两周年送好礼" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160831/20160831211411_85242.png?ver={!! time() !!}" alt="天眼投两周年送好礼"/></a>
@@ -578,11 +578,12 @@
 <!--内容结束-->
 @stop
 <!--底部开始-->
-@section('scrip')
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/normalplugins.js?ver={!! time() !!}"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery.dotdotdot.min.js?ver={!! time() !!}"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/main.js?ver={!! time() !!}"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/mainindex.js?ver={!! time() !!}"></script>
+@section('script')
+<link rel="stylesheet" href="{!! config('app.static_url') !!}/css/pagestyle/wx_qr.css">
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/normalplugins.js?ver={!! time() !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.dotdotdot.min.js?ver={!! time() !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/main.js?ver={!! time() !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/mainindex.js?ver={!! time() !!}"></script>
 <script>
     $(document).ready(function(){
         $('div.other-debt-list-live li div').removeClass('fixedbd');
