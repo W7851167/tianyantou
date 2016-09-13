@@ -8,7 +8,6 @@
 @section('content')
 <div class="wrap user-center">
     <div class="container clearfix">
-
         <div class="l-side-menu">
             <ul class="first-menu">
                 <li>
