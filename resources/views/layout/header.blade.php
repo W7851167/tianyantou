@@ -37,11 +37,6 @@
             <div class="top-menu">
                 <div class="log">欢迎来到天眼投！请<a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
                     <a href="{!! config('app.account_url') !!}/register.html" alt="注册">注册</a>
-                    <div class="code-login">
-                        <h3>微信扫码 安全登录</h3>
-                        <div class="code-img" id="topbar-wx-qrcode">
-                        </div>
-                    </div>
                 </div>
                 @else
                 <div class="my-menu">
