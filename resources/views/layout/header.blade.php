@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">
-    <title>@yield('title')</title>
+    <title>天眼投-@yield('title')</title>
     <meta name="keywords" content="@yield('description')">
     <meta name="description" content="@yield('description')">
     <meta name="author" content="p2p网贷,p2p理财,天眼投投资理财平台" />
@@ -35,7 +35,7 @@
             <p>服务热线：400-883-1803（工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00）</p>
             @if(empty($user['username']))
             <div class="top-menu">
-                <div class="log">欢迎来到投之家！请<a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
+                <div class="log">欢迎来到天眼投！请<a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
                     <a href="{!! config('app.account_url') !!}/register.html" alt="注册">注册</a>
                     <div class="code-login">
                         <h3>微信扫码 安全登录</h3>

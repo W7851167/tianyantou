@@ -21,7 +21,7 @@
                     <li><a href="http://topics.touzhijia.com/monthly/201603"><img src="//static.touzhijia.com/images/about/monthly/201603.jpg?ver=20160431006" alt="2016年3月月报" /></a></li>
                     <li><a href="http://topics.touzhijia.com/monthly/201602"><img src="//static.touzhijia.com/images/about/monthly/20160304.jpg?ver=20160431006" alt="2016年2月月报" /></a></li>
                     <li><a href="http://topics.touzhijia.com/monthly/201601"><img src="//static.touzhijia.com/images/about/monthly/201601.jpg?ver=20160431006" alt="2016年1月月报" /></a></li>
-                    <li><a href="https://www.touzhijia.com/annual/index.html"><img src="//static.touzhijia.com/images/about/monthly/20160115.jpg?ver=20160431006" alt="2015年年报" /></a></li>
+                    <li><a href="{!! config('app.url') !!}/annual/index.html"><img src="//static.touzhijia.com/images/about/monthly/20160115.jpg?ver=20160431006" alt="2015年年报" /></a></li>
                     <li><a href="http://topics.touzhijia.com/monthly/201511"><img src="//static.touzhijia.com/images/about/monthly/20151203.jpg?ver=20160431006" alt="2015年11月月报" /></a></li>
                     <li><a href="http://topics.touzhijia.com/monthly/201510"><img src="//static.touzhijia.com/images/about/monthly/20151103.jpg?ver=20160431006" alt="2015年10月月报" /></a></li>
                     <li><a href="http://topics.touzhijia.com/monthly/201509"><img src="//static.touzhijia.com/images/about/monthly/20151008.jpg?ver=20160431006" alt="2015年9月月报" /></a></li>

@@ -29,7 +29,7 @@
                                 <li id="faq1_1" name="faq1_1">
                                     <i class="iconfont">&#xe672;</i>
                                     <h3>注册流程？</h3>
-                                    <p class="second-menu">步骤1：打开<a href="https://www.touzhijia.com">www.touzhijia.com</a>，点击顶栏的注册，进入注册页面。 </p>
+                                    <p class="second-menu">步骤1：打开<a href="{!! config('app.url') !!}">www.touzhijia.com</a>，点击顶栏的注册，进入注册页面。 </p>
                                     <p class="second-menu">步骤2：输入用户名、登录密码、手机号和验证码，然后点击【立即注册】。</p>
                                 </li>
                                 <li id="faq1_2" name="faq1_2">
