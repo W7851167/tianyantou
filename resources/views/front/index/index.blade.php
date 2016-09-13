@@ -210,14 +210,4 @@
         $('div.other-debt-list-live li div').removeClass('fixedbd');
     });
 </script>  <!--其他-->
-
-<!-- Piwik -->
-<script type="text/javascript">
-    $(function() {
-        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri={!! config('app.account_url') !!}/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=http://static.tianyantou.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
-                </iframe>\
-                <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
-        $('#topbar-wx-qrcode').append(weixinBox);
-    })
-</script>
 @stop
