@@ -12,7 +12,7 @@
             <h2>最新动态</h2>
             <div class="content latest">
                 <div class="axis-box">                <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3184.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160831/1472634275.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3184.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160831/1472634275.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3184.html" target="_blank">天眼投CEO黄诗樵受邀主讲《吴晓波频道》金融社群</a></h3>
                             <span>2016-08-31 17:04:35</span><span>来源：天眼投</span>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3183.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160829/1472450458.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3183.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160829/1472450458.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3183.html" target="_blank">徐红伟：监管将打破舆论鸿沟 实力玩家入局P2P</a></h3>
                             <span>2016-08-29 14:00:58</span><span>来源：天眼投</span>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3179.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160822/1471852327.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3179.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160822/1471852327.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3179.html" target="_blank">携手珠宝贷，【第二十期】之家哥俱乐部在杭州成功举办</a></h3>
                             <span>2016-08-22 15:52:07</span><span>来源：天眼投</span>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3178.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160818/1471484796.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3178.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160818/1471484796.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3178.html" target="_blank">资本寒冬下，天眼投逆势完成8000万A轮融资</a></h3>
                             <span>2016-08-18 09:43:34</span><span>来源：天眼投</span>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3173.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160815/1471231094.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3173.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160815/1471231094.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3173.html" target="_blank">全国金融与证券投资大赛访问团一行参观天眼投</a></h3>
                             <span>2016-08-15 11:18:14</span><span>来源：天眼投</span>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3170.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160808/1470650541.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3170.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160808/1470650541.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3170.html" target="_blank"> “明镜”系统正式启动，天眼投两家合作平台入选广东互金协会</a></h3>
                             <span>2016-08-08 18:02:21</span><span>来源：天眼投</span>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3169.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160804/1470281010.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3169.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160804/1470281010.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3169.html" target="_blank">成交量同比翻一番，天眼投七月再创佳绩</a></h3>
                             <span>2016-08-04 11:23:30</span><span>来源：天眼投</span>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3164.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160725/1469445768.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3164.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160725/1469445768.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3164.html" target="_blank">之家哥俱乐部走进成都、西安</a></h3>
                             <span>2016-07-25 19:22:48</span><span>来源：天眼投</span>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3160.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160720/1468999422.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3160.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160720/1468999422.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3160.html" target="_blank">徐红伟：P2P网贷的生命力在哪里？</a></h3>
                             <span>2016-07-20 15:23:42</span><span>来源：天眼投</span>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/latest/3151.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160712/1468288508.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/latest/3151.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160712/1468288508.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/latest/3151.html" target="_blank">黄诗樵受邀出席2016透析中国民间投资困境及解局高峰论坛</a></h3>
                             <span>2016-07-12 09:55:08</span><span>来源：天眼投</span>

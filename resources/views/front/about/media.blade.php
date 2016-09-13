@@ -12,7 +12,7 @@
             <h2>媒体报道</h2>
             <div class="content media">
                 <div class="axis-box">                <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3182.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160825/1472110959.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3182.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160825/1472110959.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3182.html" target="_blank">P2P监管细则影响有多大？ 听听从业者怎么说</a></h3>
                             <span>2016-08-25 15:42:39</span><span>来源：天眼投</span>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3181.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160825/1472102728.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3181.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160825/1472102728.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3181.html" target="_blank">互金大咖谈《网络借贷信息中介机构业务活动管理暂行办法》</a></h3>
                             <span>2016-08-25 13:25:28</span><span>来源：天眼投</span>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3180.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160825/1472101950.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3180.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160825/1472101950.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3180.html" target="_blank">业内解读网贷监管细则：短期对平台运营有较大影响</a></h3>
                             <span>2016-08-25 13:12:30</span><span>来源：天眼投</span>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3177.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160816/1471328162.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3177.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160816/1471328162.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3177.html" target="_blank">第三方互联网金融服务平台天眼投完成8000万A轮融资</a></h3>
                             <span>2016-08-16 14:16:02</span><span>来源：天眼投</span>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3176.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160816/1471327993.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3176.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160816/1471327993.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3176.html" target="_blank">P2P垂直搜索引擎“天眼投”宣布获8000万融资</a></h3>
                             <span>2016-08-16 14:13:13</span><span>来源：天眼投</span>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3175.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160816/1471327856.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3175.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160816/1471327856.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3175.html" target="_blank">资本寒冬下，天眼投逆势完成8000万A轮融资</a></h3>
                             <span>2016-08-16 14:10:56</span><span>来源：天眼投</span>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3144.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160701/1467340109.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3144.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160701/1467340109.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3144.html" target="_blank">天眼投CEO黄诗樵：刺激与转型，互联网金融发展的S型曲线</a></h3>
                             <span>2016-07-01 10:28:29</span><span>来源：天眼投</span>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3143.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160704/1467601830.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3143.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160704/1467601830.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3143.html" target="_blank">近10家P2P出海布局 做全球化资产配置风险在哪</a></h3>
                             <span>2016-07-01 10:27:13</span><span>来源：天眼投</span>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3142.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160701/1467339953.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3142.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160701/1467339953.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3142.html" target="_blank">天眼投CEO黄诗樵：提高互联网金融平台相对的安全性</a></h3>
                             <span>2016-07-01 10:25:53</span><span>来源：天眼投</span>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/media/3141.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160701/1467339733.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/media/3141.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160701/1467339733.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/media/3141.html" target="_blank">首创互金直播新玩法 天眼投518单日成交量猛破5800万</a></h3>
                             <span>2016-07-01 10:22:13</span><span>来源：天眼投</span>

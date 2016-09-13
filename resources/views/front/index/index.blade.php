@@ -12,11 +12,11 @@
             <div class="banner-play" id="banner-play-mod">
                 <div class="banner-play-con imgplaycon">
                     <a href="{!! config('app.topics_url') !!}/activities/anniversaryParty" title="梦想有礼，之家两周年庆" target="_blank"><img src="{!! config('app.static_url') !!}/upload/image/banner/20160902/20160902114415_14070.jpg?ver={!! time() !!}" alt="梦想有礼，之家两周年庆"/></a>
-                    <a href="{!! config('app.topics_url') !!}/activities/anniversary" title="天眼投两周年庆暨A轮融资发布会" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160902/20160902145203_56236.png?ver={!! time() !!}" alt="天眼投两周年庆暨A轮融资发布会"/></a>
-                    <a href="{!! config('app.topics_url') !!}/monthly/201608" title="天眼投8月运营报告" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160902/20160902190437_65949.jpg?ver={!! time() !!}" alt="天眼投8月运营报告"/></a>
-                    <a href="{!! config('app.ask_url') !!}/question/77" title="天眼投两周年送好礼" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160831/20160831211411_85242.png?ver={!! time() !!}" alt="天眼投两周年送好礼"/></a>
-                    <a href="{!! config('app.topics_url') !!}/newregister" title="新手注册享三重好礼" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160831/20160831152615_97248.png?ver={!! time() !!}" alt="新手注册享三重好礼"/></a>
-                    <a href="{!! config('app.url') !!}/about/consultant.html" title="天眼投专家顾问团队" target="_blank"><img src="//static.touzhijia.com/upload/image/banner/20160418/20160418095418_13566.jpg?ver={!! time() !!}" alt="天眼投专家顾问团队"/></a>
+                    <a href="{!! config('app.topics_url') !!}/activities/anniversary" title="天眼投两周年庆暨A轮融资发布会" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160902/20160902145203_56236.png?ver={!! time() !!}" alt="天眼投两周年庆暨A轮融资发布会"/></a>
+                    <a href="{!! config('app.topics_url') !!}/monthly/201608" title="天眼投8月运营报告" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160902/20160902190437_65949.jpg?ver={!! time() !!}" alt="天眼投8月运营报告"/></a>
+                    <a href="{!! config('app.ask_url') !!}/question/77" title="天眼投两周年送好礼" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160831/20160831211411_85242.png?ver={!! time() !!}" alt="天眼投两周年送好礼"/></a>
+                    <a href="{!! config('app.topics_url') !!}/newregister" title="新手注册享三重好礼" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160831/20160831152615_97248.png?ver={!! time() !!}" alt="新手注册享三重好礼"/></a>
+                    <a href="{!! config('app.url') !!}/about/consultant.html" title="天眼投专家顾问团队" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160418/20160418095418_13566.jpg?ver={!! time() !!}" alt="天眼投专家顾问团队"/></a>
                 </div>
                 <a href="javascript:void(0);" class="perbtn"><i class="iconfont">&#xe65f;</i></a>
                 <a href="javascript:void(0);" class="nextbtn"><i class="iconfont">&#xe660;</i></a>
@@ -108,11 +108,11 @@
             <ul class="platform-list-con">
                 <li>
                     <p class="platform-ad">
-                        <a en-name="erongsuo" href="{!! config('app.url') !!}/platform/detail_erongsuo.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/erongsuo.jpg?ver={!! time() !!}" height="129" width="294" alt="e融所"></a>
+                        <a en-name="erongsuo" href="{!! config('app.url') !!}/platform/detail_erongsuo.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/erongsuo.jpg?ver={!! time() !!}" height="129" width="294" alt="e融所"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_erongsuo.html" target="_blank" class="plat-logo" title="e融所">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/201608081012379276.png?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/201608081012379276.png?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="新手福利标160909X">新手福利标160909X        </h4>
                         <div class="platform-data">
@@ -138,11 +138,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="huitouwang" href="{!! config('app.url') !!}/platform/detail_huitouwang.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/huitouwang.jpg?ver={!! time() !!}" height="129" width="294" alt="汇投网"></a>
+                        <a en-name="huitouwang" href="{!! config('app.url') !!}/platform/detail_huitouwang.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/huitouwang.jpg?ver={!! time() !!}" height="129" width="294" alt="汇投网"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_huitouwang.html" target="_blank" class="plat-logo" title="汇投网">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/2016071813583224369.jpg?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016071813583224369.jpg?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="新手专属-JQ201609075">新手专属-JQ20160907...        </h4>
                         <div class="platform-data">
@@ -168,11 +168,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="xinyongbao" href="{!! config('app.url') !!}/platform/detail_xinyongbao.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/xinyongbao.jpg?ver={!! time() !!}" height="129" width="294" alt="信用宝"></a>
+                        <a en-name="xinyongbao" href="{!! config('app.url') !!}/platform/detail_xinyongbao.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/xinyongbao.jpg?ver={!! time() !!}" height="129" width="294" alt="信用宝"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_xinyongbao.html" target="_blank" class="plat-logo" title="信用宝">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/2016042614212639089.jpg?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016042614212639089.jpg?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="信投宝_27848">信投宝_27848        </h4>
                         <div class="platform-data">
@@ -198,11 +198,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="rxdai" href="{!! config('app.url') !!}/platform/detail_rxdai.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/rxdai.jpg?ver={!! time() !!}" height="129" width="294" alt="投哪网"></a>
+                        <a en-name="rxdai" href="{!! config('app.url') !!}/platform/detail_rxdai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/rxdai.jpg?ver={!! time() !!}" height="129" width="294" alt="投哪网"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_rxdai.html" target="_blank" class="plat-logo" title="投哪网">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/2014112621334890473.jpg?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2014112621334890473.jpg?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="年省心Ⅱ">年省心Ⅱ        </h4>
                         <div class="platform-data">
@@ -228,11 +228,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="duanrongwang" href="{!! config('app.url') !!}/platform/detail_duanrongwang.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/duanrongwang.jpg?ver={!! time() !!}" height="129" width="294" alt="短融网"></a>
+                        <a en-name="duanrongwang" href="{!! config('app.url') !!}/platform/detail_duanrongwang.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/duanrongwang.jpg?ver={!! time() !!}" height="129" width="294" alt="短融网"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_duanrongwang.html" target="_blank" class="plat-logo" title="短融网">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/2016080213010267196.jpg?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016080213010267196.jpg?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="车押宝C201605103">车押宝C201605103        </h4>
                         <div class="platform-data">
@@ -258,11 +258,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="zhubaodai" href="{!! config('app.url') !!}/platform/detail_zhubaodai.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/zhubaodai.jpg?ver={!! time() !!}" height="129" width="294" alt="珠宝贷"></a>
+                        <a en-name="zhubaodai" href="{!! config('app.url') !!}/platform/detail_zhubaodai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/zhubaodai.jpg?ver={!! time() !!}" height="129" width="294" alt="珠宝贷"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_zhubaodai.html" target="_blank" class="plat-logo" title="珠宝贷">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/2015041617455587746.jpg?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2015041617455587746.jpg?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="珠宝贷201609090035">珠宝贷201609090035        </h4>
                         <div class="platform-data">
@@ -288,11 +288,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="huiyingdai" href="{!! config('app.url') !!}/platform/detail_huiyingdai.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/huiyingdai.jpg?ver={!! time() !!}" height="129" width="294" alt="汇盈金服"></a>
+                        <a en-name="huiyingdai" href="{!! config('app.url') !!}/platform/detail_huiyingdai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/huiyingdai.jpg?ver={!! time() !!}" height="129" width="294" alt="汇盈金服"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_huiyingdai.html" target="_blank" class="plat-logo" title="汇盈金服">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/20150804140609844.jpg?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/20150804140609844.jpg?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="潍坊市徐先生个人房产抵押借款第一期【共四期】">潍坊市徐先生个人房产抵押借款第...        </h4>
                         <div class="platform-data">
@@ -318,11 +318,11 @@
                     </div>
                 </li>                                                                                            <li>
                     <p class="platform-ad">
-                        <a en-name="kaixindai" href="{!! config('app.url') !!}/platform/detail_kaixindai.html"  target="_blank" title="点击了解详情"><img src="//static.touzhijia.com/images/index/new/kaixindai.jpg?ver={!! time() !!}" height="129" width="294" alt="开鑫贷"></a>
+                        <a en-name="kaixindai" href="{!! config('app.url') !!}/platform/detail_kaixindai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/kaixindai.jpg?ver={!! time() !!}" height="129" width="294" alt="开鑫贷"></a>
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/detail_kaixindai.html" target="_blank" class="plat-logo" title="开鑫贷">
-                            <img src="//static.touzhijia.com/upload/image/bidimg/logo_img/2016050315091179206.png?ver={!! time() !!}" width="70" alt="">
+                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016050315091179206.png?ver={!! time() !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="变现贷BX160910041367">变现贷BX1609100413...        </h4>
                         <div class="platform-data">
@@ -372,7 +372,7 @@
                         <div class="brand-debt-box">
                             <div class="soldout-tip"><a href="{!! config('app.url') !!}/shop/item/lMZHjC3ACJ0q3f8utFsZ.html" style="color:#5E7AD4" target="_blank">去信用宝官网投资，享1.0%额外加息！</a><a href="{!! config('app.url') !!}/shop/item/lMZHjC3ACJ0q3f8utFsZ.html" class="btn" target="_blank" data-baidu-track="平台加息券" data-baidu-track-action="click" data-baidu-track-label="信用宝1.0%">兑换加息券</a></div>
                             <a href="{!! config('app.url') !!}/debt/borrow/P20160901001.html" target="_blank">
-                                <h4><img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg?ver={!! time() !!}" alt="" /></h4>
+                                <h4><img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg?ver={!! time() !!}" alt="" /></h4>
                                 <div class="debt-info">
                                     <p class="debt-rate">年化收益率<br><b>8.80<em>%</em></b></p>
                                     <p class="debt-money">期限<br><b>1月<em></em></b></p>
@@ -389,7 +389,7 @@
                         <div class="brand-debt-box">
                             <div class="soldout-tip"><a href="{!! config('app.url') !!}/shop/item/HC1BUfoZ5k062gNSwfuE.html" style="color:#5E7AD4" target="_blank">去达人贷官网投资，享1.0%额外加息！</a><a href="{!! config('app.url') !!}/shop/item/HC1BUfoZ5k062gNSwfuE.html" class="btn" target="_blank" data-baidu-track="平台加息券" data-baidu-track-action="click" data-baidu-track-label="达人贷1.0%">兑换加息券</a></div>
                             <a href="{!! config('app.url') !!}/debt/borrow/P20160901012.html" target="_blank">
-                                <h4><img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver={!! time() !!}" alt="" /></h4>
+                                <h4><img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver={!! time() !!}" alt="" /></h4>
                                 <div class="debt-info">
                                     <p class="debt-rate">年化收益率<br><b>8.50<em>%</em></b></p>
                                     <p class="debt-money">期限<br><b>1月<em></em></b></p>
@@ -419,7 +419,7 @@
                     <ul>
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/3184.html" target="_blank" class="img-link">
-                                <img src="//static.touzhijia.com/upload/image/20160831/1472634275.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵受邀主讲《吴晓波频道》金融社群" height="95">
+                                <img src="http://static.tianyantou.com/upload/image/20160831/1472634275.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵受邀主讲《吴晓波频道》金融社群" height="95">
                             </a>
                             <p class="link-con">
                                 <a href="{!! config('app.url') !!}/about/latest/3184.html" target="_blank">天眼投CEO黄诗樵受邀主讲《吴晓波频道》金融社群</a>
@@ -428,7 +428,7 @@
                         </li>
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/3183.html" target="_blank" class="img-link">
-                                <img src="//static.touzhijia.com/upload/image/20160829/1472450458.jpg?ver={!! time() !!}" alt="徐红伟：监管将打破舆论鸿沟 实力玩家入局P2P" height="95">
+                                <img src="http://static.tianyantou.com/upload/image/20160829/1472450458.jpg?ver={!! time() !!}" alt="徐红伟：监管将打破舆论鸿沟 实力玩家入局P2P" height="95">
                             </a>
                             <p class="link-con">
                                 <a href="{!! config('app.url') !!}/about/latest/3183.html" target="_blank">徐红伟：监管将打破舆论鸿沟 实力玩家入局P2P</a>
@@ -439,7 +439,7 @@
                     <ul class="media-report">
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/2274.html?source=touzhijia&subsource=index.top.banner5&pk_campaign=touzhijia&pk_kwd=index.top.banner5&hmsr=touzhijia&hmpl=default&hmcu=default&hmkw=index.top.banner5" class="img-link" target="_blank">
-                                <img src="//static.touzhijia.com/upload/image/20151112/1447301221.jpg?ver={!! time() !!}" alt="黄诗樵接受CCTV采访实录" height="95">
+                                <img src="http://static.tianyantou.com/upload/image/20151112/1447301221.jpg?ver={!! time() !!}" alt="黄诗樵接受CCTV采访实录" height="95">
                                 <span class="playicon"></span>
                             </a>
 
@@ -450,7 +450,7 @@
                         </li>
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/2255.html" class="img-link" target="_blank">
-                                <img src="//static.touzhijia.com/upload/image/20151202/1449024206.jpg?ver={!! time() !!}" alt="《创客深圳》节目：天眼投一年成交20亿的背后" height="95">
+                                <img src="http://static.tianyantou.com/upload/image/20151202/1449024206.jpg?ver={!! time() !!}" alt="《创客深圳》节目：天眼投一年成交20亿的背后" height="95">
                                 <span class="playicon"></span>
                             </a>
 
@@ -482,61 +482,61 @@
                 <ul>
                     <li>
                         <a target="_bank"  href="http://www.jiemian.com/article/816591.html"  title="P2P监管细则影响有多大？ 听听从业者怎么说">
-                            <img src="//static.touzhijia.com/upload/image/20160825/1472110959.jpg?ver={!! time() !!}" alt="P2P监管细则影响有多大？ 听听从业者怎么说" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160825/1472110959.jpg?ver={!! time() !!}" alt="P2P监管细则影响有多大？ 听听从业者怎么说" style="height:55px;">
                             <span>P2P监管细则影响有多大？ 听听从业者怎么说</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://www.ccstock.cn/money/licai/2016-08-24/A1472033442822.html?from=singlemessage&isappinstalled=0"  title="互金大咖谈《网络借贷信息中介机构业务活动管理暂行办法》">
-                            <img src="//static.touzhijia.com/upload/image/20160825/1472102728.jpg?ver={!! time() !!}" alt="互金大咖谈《网络借贷信息中介机构业务活动管理暂行办法》" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160825/1472102728.jpg?ver={!! time() !!}" alt="互金大咖谈《网络借贷信息中介机构业务活动管理暂行办法》" style="height:55px;">
                             <span>互金大咖谈《网络借贷信息中介机构业务活动管理暂行办法》</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://m.hexun.com/news/2016-08-24/185688453.html?from=singlemessage&isappinstalled=0"  title="业内解读网贷监管细则：短期对平台运营有较大影响">
-                            <img src="//static.touzhijia.com/upload/image/20160825/1472101950.jpg?ver={!! time() !!}" alt="业内解读网贷监管细则：短期对平台运营有较大影响" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160825/1472101950.jpg?ver={!! time() !!}" alt="业内解读网贷监管细则：短期对平台运营有较大影响" style="height:55px;">
                             <span>业内解读网贷监管细则：短期对平台运营有较大影响</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://kuaixun.stcn.com/2016/0811/12833206.shtml#userconsent#"  title="第三方互联网金融服务平台天眼投完成8000万A轮融资">
-                            <img src="//static.touzhijia.com/upload/image/20160816/1471328162.jpg?ver={!! time() !!}" alt="第三方互联网金融服务平台天眼投完成8000万A轮融资" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160816/1471328162.jpg?ver={!! time() !!}" alt="第三方互联网金融服务平台天眼投完成8000万A轮融资" style="height:55px;">
                             <span>第三方互联网金融服务平台天眼投完成8000万A轮融资</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://tech.163.com/16/0811/15/BU6U6ALG00097U7V.html"  title="P2P垂直搜索引擎“天眼投”宣布获8000万融资">
-                            <img src="//static.touzhijia.com/upload/image/20160816/1471327993.jpg?ver={!! time() !!}" alt="P2P垂直搜索引擎“天眼投”宣布获8000万融资" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160816/1471327993.jpg?ver={!! time() !!}" alt="P2P垂直搜索引擎“天眼投”宣布获8000万融资" style="height:55px;">
                             <span>P2P垂直搜索引擎“天眼投”宣布获8000万融资</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://xiaofei.china.com.cn/news/info-11-9-228590.html"  title="资本寒冬下，天眼投逆势完成8000万A轮融资">
-                            <img src="//static.touzhijia.com/upload/image/20160816/1471327856.jpg?ver={!! time() !!}" alt="资本寒冬下，天眼投逆势完成8000万A轮融资" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160816/1471327856.jpg?ver={!! time() !!}" alt="资本寒冬下，天眼投逆势完成8000万A轮融资" style="height:55px;">
                             <span>资本寒冬下，天眼投逆势完成8000万A轮融资</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://ln.ifeng.com/a/20160526/4589678_0.shtml"  title="天眼投CEO黄诗樵：刺激与转型，互联网金融发展的S型曲线">
-                            <img src="//static.touzhijia.com/upload/image/20160701/1467340109.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵：刺激与转型，互联网金融发展的S型曲线" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160701/1467340109.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵：刺激与转型，互联网金融发展的S型曲线" style="height:55px;">
                             <span>天眼投CEO黄诗樵：刺激与转型，互联网金融发展的S型曲线</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://gd.sina.com.cn/finance/szitfin/2016-06-27/cj-ifxtmweh2562862.shtml?qq-pf-to=pcqq.c2c"  title="近10家P2P出海布局 做全球化资产配置风险在哪">
-                            <img src="//static.touzhijia.com/upload/image/20160704/1467601830.jpg?ver={!! time() !!}" alt="近10家P2P出海布局 做全球化资产配置风险在哪" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160704/1467601830.jpg?ver={!! time() !!}" alt="近10家P2P出海布局 做全球化资产配置风险在哪" style="height:55px;">
                             <span>近10家P2P出海布局 做全球化资产配置风险在哪</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://www.iimedia.cn/41881.html"  title="天眼投CEO黄诗樵：提高互联网金融平台相对的安全性">
-                            <img src="//static.touzhijia.com/upload/image/20160701/1467339953.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵：提高互联网金融平台相对的安全性" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160701/1467339953.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵：提高互联网金融平台相对的安全性" style="height:55px;">
                             <span>天眼投CEO黄诗樵：提高互联网金融平台相对的安全性</span>
                         </a>
                     </li>
                     <li>
                         <a target="_bank"  href="http://ah.ifeng.com/a/20160519/4566336_0.shtml"  title="首创互金直播新玩法 天眼投518单日成交量猛破5800万">
-                            <img src="//static.touzhijia.com/upload/image/20160701/1467339733.jpg?ver={!! time() !!}" alt="首创互金直播新玩法 天眼投518单日成交量猛破5800万" style="height:55px;">
+                            <img src="http://static.tianyantou.com/upload/image/20160701/1467339733.jpg?ver={!! time() !!}" alt="首创互金直播新玩法 天眼投518单日成交量猛破5800万" style="height:55px;">
                             <span>首创互金直播新玩法 天眼投518单日成交量猛破5800万</span>
                         </a>
                     </li>
@@ -593,7 +593,7 @@
 <!-- Piwik -->
 <script type="text/javascript">
     $(function() {
-        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri={!! config('app.account_url') !!}/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=//static.touzhijia.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
+        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri={!! config('app.account_url') !!}/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=http://static.tianyantou.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
                 </iframe>\
                 <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
         $('#topbar-wx-qrcode').append(weixinBox);

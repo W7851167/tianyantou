@@ -15,7 +15,7 @@
 <div id="notfound" class="wrap">
     <div class="container">
         <div class="content">
-            <img src="//static.touzhijia.com/images/404/404.jpg">
+            <img src="http://static.tianyantou.com/images/404/404.jpg">
             <p><span>糟糕，您要访问的页面不见了！</span><br />请核对您输入的页面地址是否正确哦~</p>
             <div class="btns">
                 <a href="javascript:history.back();" class="btn btn-blue btn-l">返回上一级页面</a>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="dns-prefetch" href="//static.touzhijia.com">
+    <link rel="dns-prefetch" href="http://static.tianyantou.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">  <title>天眼投 - 个人中心</title>
     <meta property="qc:admins" content="24105710553756464752012116375747716" />
-    <link rel="stylesheet" href="//static.touzhijia.com/css/account.css?ver=20160431006" />
+    <link rel="stylesheet" href="http://static.tianyantou.com/css/account.css?ver=20160431006" />
 </head>
 <body>
 
@@ -46,7 +46,7 @@
                         <div class="user-img">
                             <a href="https://account.touzhijia.com/">
                                 <i class="shape-circle"></i>
-                                <img src="//static.touzhijia.com/images/user/headerimg1.png?ver=20160431006" width="80" height="80"><h3>您好，<span id="user-name" title="zhuxishun">zhuxishun</span></h3>
+                                <img src="http://static.tianyantou.com/images/user/headerimg1.png?ver=20160431006" width="80" height="80"><h3>您好，<span id="user-name" title="zhuxishun">zhuxishun</span></h3>
                             </a>
                         </div>
                         <div class="menu-list">
@@ -72,7 +72,7 @@
                 <div class="contact">
                     <a href="http://weibo.com/touzhijia" target="_blank" class="h_weibo"></a>
                     <a id="h_weixin" href="#" class="h_weixin"></a>
-                    <img class="show-img" src="//static.touzhijia.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
+                    <img class="show-img" src="http://static.tianyantou.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
                 </div>
             </div>
         </div>
@@ -84,10 +84,10 @@
                          title="天眼投-中国领先的P2P网贷投资平台，您的个人理财专家"/>
                 </a>-->
                 <a href="https://www.touzhijia.com/" style="padding-left:26px;">
-                    <img src="//static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
+                    <img src="http://static.tianyantou.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
                 </a>
                 <a href="http://topics.touzhijia.com/activities/anniversaryParty" target="_blank">
-                    <img src="//static.touzhijia.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
+                    <img src="http://static.tianyantou.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
                 </a>
             </h1>
 
@@ -128,7 +128,7 @@
             <ul class="first-menu">
                 <li>
                     <div class="user-avatar">
-                        <img src="//static.touzhijia.com/images/user/headerimg1.png?ver=20160431006" alt="" width="100" height="100">
+                        <img src="http://static.tianyantou.com/images/user/headerimg1.png?ver=20160431006" alt="" width="100" height="100">
         <span class="user-nickname" title="zhuxishun">
           zhuxishun                  </span>
                         <p class="accoount-validation mt10">
@@ -206,154 +206,154 @@
                                         <dd class="pay-banks" >
                                             <a href="javascript:;" class="selected">
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
                                                     <input type="radio" style="display:none" name="bank" value="601398" checked="checked">
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
                                                     <input type="radio" style="display:none" name="bank" value="601818" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
                                                     <input type="radio" style="display:none" name="bank" value="601939" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
                                                     <input type="radio" style="display:none" name="bank" value="600036" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
                                                     <input type="radio" style="display:none" name="bank" value="601328" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
                                                     <input type="radio" style="display:none" name="bank" value="162703" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
                                                     <input type="radio" style="display:none" name="bank" value="000001" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601169" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900002.png?ver=20160431006" alt="成都银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900002.png?ver=20160431006" alt="成都银行">
                                                     <input type="radio" style="display:none" name="bank" value="900002" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600000.png?ver=20160431006" alt="浦东发展银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600000.png?ver=20160431006" alt="浦东发展银行">
                                                     <input type="radio" style="display:none" name="bank" value="600000" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
                                                     <input type="radio" style="display:none" name="bank" value="600015" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
                                                     <input type="radio" style="display:none" name="bank" value="900003" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/002142.png?ver=20160431006" alt="宁波银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/002142.png?ver=20160431006" alt="宁波银行">
                                                     <input type="radio" style="display:none" name="bank" value="002142" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601009.png?ver=20160431006" alt="南京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601009.png?ver=20160431006" alt="南京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601009" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
                                                     <input type="radio" style="display:none" name="bank" value="601166" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900007.png?ver=20160431006" alt="北京农商行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900007.png?ver=20160431006" alt="北京农商行">
                                                     <input type="radio" style="display:none" name="bank" value="900007" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900008.png?ver=20160431006" alt="杭州银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900008.png?ver=20160431006" alt="杭州银行">
                                                     <input type="radio" style="display:none" name="bank" value="900008" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900009.png?ver=20160431006" alt="恒丰银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900009.png?ver=20160431006" alt="恒丰银行">
                                                     <input type="radio" style="display:none" name="bank" value="900009" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900010.png?ver=20160431006" alt="中国邮政储蓄银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900010.png?ver=20160431006" alt="中国邮政储蓄银行">
                                                     <input type="radio" style="display:none" name="bank" value="900010" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900011.png?ver=20160431006" alt="青岛银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900011.png?ver=20160431006" alt="青岛银行">
                                                     <input type="radio" style="display:none" name="bank" value="900011" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900012.png?ver=20160431006" alt="上海农商行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900012.png?ver=20160431006" alt="上海农商行">
                                                     <input type="radio" style="display:none" name="bank" value="900012" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900013.png?ver=20160431006" alt="重庆农商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900013.png?ver=20160431006" alt="重庆农商银行">
                                                     <input type="radio" style="display:none" name="bank" value="900013" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
@@ -370,133 +370,133 @@
                                         <dd class="pay-banks" >
                                             <a href="javascript:;" class="selected">
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
                                                     <input type="radio" style="display:none" name="bank" value="601398" checked="checked">
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
                                                     <input type="radio" style="display:none" name="bank" value="601818" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
                                                     <input type="radio" style="display:none" name="bank" value="601939" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
                                                     <input type="radio" style="display:none" name="bank" value="600036" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601988.png?ver=20160431006" alt="中国银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601988.png?ver=20160431006" alt="中国银行">
                                                     <input type="radio" style="display:none" name="bank" value="601988" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
                                                     <input type="radio" style="display:none" name="bank" value="601328" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
                                                     <input type="radio" style="display:none" name="bank" value="162703" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600016.png?ver=20160431006" alt="中国民生银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600016.png?ver=20160431006" alt="中国民生银行">
                                                     <input type="radio" style="display:none" name="bank" value="600016" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601998.png?ver=20160431006" alt="中信银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601998.png?ver=20160431006" alt="中信银行">
                                                     <input type="radio" style="display:none" name="bank" value="601998" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
                                                     <input type="radio" style="display:none" name="bank" value="000001" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601169" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900002.png?ver=20160431006" alt="成都银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900002.png?ver=20160431006" alt="成都银行">
                                                     <input type="radio" style="display:none" name="bank" value="900002" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
                                                     <input type="radio" style="display:none" name="bank" value="600015" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
                                                     <input type="radio" style="display:none" name="bank" value="900003" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900004.png?ver=20160431006" alt="渤海银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900004.png?ver=20160431006" alt="渤海银行">
                                                     <input type="radio" style="display:none" name="bank" value="900004" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/002142.png?ver=20160431006" alt="宁波银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/002142.png?ver=20160431006" alt="宁波银行">
                                                     <input type="radio" style="display:none" name="bank" value="002142" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601009.png?ver=20160431006" alt="南京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601009.png?ver=20160431006" alt="南京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601009" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900005.png?ver=20160431006" alt="BEA东亚银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900005.png?ver=20160431006" alt="BEA东亚银行">
                                                     <input type="radio" style="display:none" name="bank" value="900005" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
                                                     <input type="radio" style="display:none" name="bank" value="601166" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
@@ -513,133 +513,133 @@
                                         <dd class="pay-banks" >
                                             <a href="javascript:;" class="selected">
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
                                                     <input type="radio" style="display:none" name="bank" value="601398" checked="checked">
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
                                                     <input type="radio" style="display:none" name="bank" value="601818" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
                                                     <input type="radio" style="display:none" name="bank" value="601939" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601288.png?ver=20160431006" alt="中国农业银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601288.png?ver=20160431006" alt="中国农业银行">
                                                     <input type="radio" style="display:none" name="bank" value="601288" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
                                                     <input type="radio" style="display:none" name="bank" value="600036" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601988.png?ver=20160431006" alt="中国银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601988.png?ver=20160431006" alt="中国银行">
                                                     <input type="radio" style="display:none" name="bank" value="601988" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
                                                     <input type="radio" style="display:none" name="bank" value="601328" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
                                                     <input type="radio" style="display:none" name="bank" value="162703" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600016.png?ver=20160431006" alt="中国民生银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600016.png?ver=20160431006" alt="中国民生银行">
                                                     <input type="radio" style="display:none" name="bank" value="600016" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601998.png?ver=20160431006" alt="中信银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601998.png?ver=20160431006" alt="中信银行">
                                                     <input type="radio" style="display:none" name="bank" value="601998" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
                                                     <input type="radio" style="display:none" name="bank" value="000001" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601169" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600000.png?ver=20160431006" alt="浦东发展银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600000.png?ver=20160431006" alt="浦东发展银行">
                                                     <input type="radio" style="display:none" name="bank" value="600000" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
                                                     <input type="radio" style="display:none" name="bank" value="600015" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
                                                     <input type="radio" style="display:none" name="bank" value="900003" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/002142.png?ver=20160431006" alt="宁波银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/002142.png?ver=20160431006" alt="宁波银行">
                                                     <input type="radio" style="display:none" name="bank" value="002142" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601009.png?ver=20160431006" alt="南京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601009.png?ver=20160431006" alt="南京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601009" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
                                                     <input type="radio" style="display:none" name="bank" value="601166" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900006.png?ver=20160431006" alt="天津银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900006.png?ver=20160431006" alt="天津银行">
                                                     <input type="radio" style="display:none" name="bank" value="900006" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
@@ -656,119 +656,119 @@
                                         <dd class="pay-banks" >
                                             <a href="javascript:;" class="selected">
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601398.png?ver=20160431006" alt="中国工商银行">
                                                     <input type="radio" style="display:none" name="bank" value="601398" checked="checked">
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601818.png?ver=20160431006" alt="中国光大银行">
                                                     <input type="radio" style="display:none" name="bank" value="601818" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601939.png?ver=20160431006" alt="中国建设银行">
                                                     <input type="radio" style="display:none" name="bank" value="601939" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600036.png?ver=20160431006" alt="招商银行">
                                                     <input type="radio" style="display:none" name="bank" value="600036" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601988.png?ver=20160431006" alt="中国银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601988.png?ver=20160431006" alt="中国银行">
                                                     <input type="radio" style="display:none" name="bank" value="601988" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601328.png?ver=20160431006" alt="交通银行">
                                                     <input type="radio" style="display:none" name="bank" value="601328" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/162703.png?ver=20160431006" alt="广发银行">
                                                     <input type="radio" style="display:none" name="bank" value="162703" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600016.png?ver=20160431006" alt="中国民生银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600016.png?ver=20160431006" alt="中国民生银行">
                                                     <input type="radio" style="display:none" name="bank" value="600016" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601998.png?ver=20160431006" alt="中信银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601998.png?ver=20160431006" alt="中信银行">
                                                     <input type="radio" style="display:none" name="bank" value="601998" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/000001.png?ver=20160431006" alt="平安银行">
                                                     <input type="radio" style="display:none" name="bank" value="000001" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601169.png?ver=20160431006" alt="北京银行">
                                                     <input type="radio" style="display:none" name="bank" value="601169" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/600015.png?ver=20160431006" alt="华夏银行">
                                                     <input type="radio" style="display:none" name="bank" value="600015" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900003.png?ver=20160431006" alt="上海银行">
                                                     <input type="radio" style="display:none" name="bank" value="900003" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/601166.png?ver=20160431006" alt="兴业银行">
                                                     <input type="radio" style="display:none" name="bank" value="601166" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900007.png?ver=20160431006" alt="北京农商行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900007.png?ver=20160431006" alt="北京农商行">
                                                     <input type="radio" style="display:none" name="bank" value="900007" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900010.png?ver=20160431006" alt="中国邮政储蓄银行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900010.png?ver=20160431006" alt="中国邮政储蓄银行">
                                                     <input type="radio" style="display:none" name="bank" value="900010" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
                                             </a>
                                             <a href="javascript:;" >
                                                 <label>
-                                                    <img src="//static.touzhijia.com/images/banklogo/900012.png?ver=20160431006" alt="上海农商行">
+                                                    <img src="http://static.tianyantou.com/images/banklogo/900012.png?ver=20160431006" alt="上海农商行">
                                                     <input type="radio" style="display:none" name="bank" value="900012" >
                                                 </label>
                                                 <i class="iconfont icon-checked">&#xe67b;</i>
@@ -933,15 +933,15 @@
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="//static.touzhijia.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
+                        <img src="http://static.tianyantou.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
                         <span>天眼投APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="//static.touzhijia.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
+                        <img src="http://static.tianyantou.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
-            <img src="//static.touzhijia.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
+            <img src="http://static.tianyantou.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
             <span>理财顾问微信号</span>
           </p>-->
                 </div>
@@ -1008,7 +1008,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="//static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
+                    <img src="http://static.tianyantou.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
@@ -1071,15 +1071,15 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/layer/layer.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery.form.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/ucenter.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/pagination.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/actions.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/form.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/tab.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/recharge.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/layer/layer.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery.form.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/ucenter.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/pagination.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/actions.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/form.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/tab.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/recharge.js?ver=20160431006"></script>
 
 <script>
     var _hmt = _hmt || [];
@@ -1114,7 +1114,7 @@
         s.parentNode.insertBefore(g, s);
     })();
     $(function() {
-        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=//static.touzhijia.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
+        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=http://static.tianyantou.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
                 </iframe>\
                 <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
         $('#topbar-wx-qrcode').append(weixinBox);
