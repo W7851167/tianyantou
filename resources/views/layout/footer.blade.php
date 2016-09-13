@@ -47,7 +47,6 @@
                     <ul>
                         <li><a href="{!! config('app.url') !!}/about/safety.html">安全评级</a></li>
                         <li><a href="{!! config('app.url') !!}/about/media.html">媒体报道</a></li>
-                        <!--<li><a href="{!! config('app.url') !!}/topic/t1110.html">三重保障</a></li>-->
                         <li><a href="{!! config('app.url') !!}/guide.html">新手指引</a></li>
                         <li><a href="{!! config('app.url') !!}/about/plan.html">T盾保障</a></li>
                     </ul>
@@ -59,18 +58,18 @@
                     </ul>
                 </div>
                 <div class="f-code">
-                    <p id="f-dingyuhao">
-                        <img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />
-                        <span>天眼投APP下载</span>
-                    </p>
-                    <p id="f-fuwuhao">
-                        <img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />
-                        <span>官方服务号</span>
-                    </p>
-                    <!--<p id="f-wechat">
-            <img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />
-            <span>理财顾问微信号</span>
-          </p>-->
+                    {{--<p id="f-dingyuhao">--}}
+                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />--}}
+                        {{--<span>天眼投APP下载</span>--}}
+                    {{--</p>--}}
+                    {{--<p id="f-fuwuhao">--}}
+                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />--}}
+                        {{--<span>官方服务号</span>--}}
+                    {{--</p>--}}
+                    {{--<!--<p id="f-wechat">--}}
+            {{--<img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />--}}
+            {{--<span>理财顾问微信号</span>--}}
+          {{--</p>-->--}}
                 </div>
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
@@ -122,15 +121,6 @@
                 <div class="tap-show customer-service">
                     <p class="server-time"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA2NTc2NF8zMzA1NzBfNDAwODgzMTgwM18yXw" target="_blank">在线咨询</a></p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
-            <div class="hovercon wenxin-hovercon">
-                <p class="tap-show wenxinp">
-                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png" alt="天眼投公众号" width="130">
-                    <span>天眼投服务号</span>
-                </p>
             </div>
         </li>
         <li>
@@ -193,7 +183,7 @@
 </div>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
-
+<!--
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/ucenter.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/pagination.js"></script>
@@ -208,7 +198,7 @@
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/platform-charts.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.cookie.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/account.upgrade.js"></script>
-
+-->
 @yield('script')
 </body>
 </html>
