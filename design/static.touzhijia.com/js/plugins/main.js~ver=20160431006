@@ -145,10 +145,10 @@ function showPlatDown()
     e.stopPropagation();
     var platLink = $(this).attr('href'); 
     layer.open({
-      title:'登录投之家账号',
+      title:'登录天眼投账号',
       type: 1,
       area: ['600px', '320px'],
-      content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过投之家绑定平台！一站式管理多个平台投资，还能享受投之家的<span>T盾计划</span>保障服务！</p>\<\/div>',
+      content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过天眼投绑定平台！一站式管理多个平台投资，还能享受天眼投的<span>T盾计划</span>保障服务！</p>\<\/div>',
       btn: ['注册绑定平台','登录'],
       success: function(layero, index){
         
@@ -480,10 +480,10 @@ $(function(){
       // }
       if(!USER.islogin) {
         layer.open({
-          title:'登录投之家账号',
+          title:'登录天眼投账号',
           type: 1,
           area: ['600px', '320px'],
-          content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过投之家绑定平台！一站式管理多个平台投资，还能享受投之家的<span>T盾计划</span>保障服务！</p>\<\/div>',
+          content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过天眼投绑定平台！一站式管理多个平台投资，还能享受天眼投的<span>T盾计划</span>保障服务！</p>\<\/div>',
           btn: ['注册绑定平台','登录'],
           success:function(layero, index) {
             layero.find('.layui-layer-btn0').on('click', function(){
@@ -505,7 +505,7 @@ $(function(){
               title:'认证提醒',
               type: 1,
               area: ['550px', '220px'],
-              content: '<div style="padding:30px 20px;">亲，设置用户名、完成实名认证和邮箱验证,投之家才能更好为您服务哦！</div>',
+              content: '<div style="padding:30px 20px;">亲，设置用户名、完成实名认证和邮箱验证,天眼投才能更好为您服务哦！</div>',
               btn: ['去认证'],
               success:function(layero, index) {
                 layero.find('.layui-layer-btn0').on('click', function() {
@@ -883,10 +883,10 @@ $(function(){
     var data      = {url:third_url};
     if(!USER.islogin) {
       layer.open({
-        title:'登录投之家账号',
+        title:'登录天眼投账号',
         type: 1,
         area: ['600px', '320px'],
-        content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过投之家绑定平台，多平台投资，一站式管理，<br />还可享投之家<span>T盾保障</span>计划！</p>\<\/div>',
+        content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过天眼投绑定平台，多平台投资，一站式管理，<br />还可享天眼投<span>T盾保障</span>计划！</p>\<\/div>',
         btn: ['注册绑定平台','登录'],
         success:function(layero, index) {
           layero.find('.layui-layer-btn0').on('click', function(){
@@ -906,7 +906,7 @@ $(function(){
             title:'认证提醒',
             type: 1,
             area: ['550px', '220px'],
-            content: '<div style="padding:30px 20px;">亲，设置用户名、完成实名认证和邮箱验证,投之家才能更好为您服务哦！</div>',
+            content: '<div style="padding:30px 20px;">亲，设置用户名、完成实名认证和邮箱验证,天眼投才能更好为您服务哦！</div>',
             btn: ['去认证'],
             success:function(layero, index) {
               layero.find('.layui-layer-btn0').on('click', function() {
@@ -1260,8 +1260,8 @@ $(function(){
 
   var appTip = $('<div class="app-tip"><img src="//static.touzhijia.com/images/platform/app2wm(200-200).png"></div>'),
       wechatTip = $('<div class="wechat-tip"><img src="//static.touzhijia.com/images/secondmarket/detail-erma.jpg"></div>'),
-      autoTip = $('<div class="app-tip auto-tip"><p>设置预约续购，回款的本息将自动投出。可在我的投之家-<a href="https://account.touzhijia.com/debt/autoreserve.html" target="_blank">理财管理</a>进行设置</p></div>'),
-      autoBuyTip = $('<div class="app-tip autoBuy-tip"><p>设置自动购买，账户中的余额将自动投出。可在我的投之家-<a href="https://account.touzhijia.com/debt/autobuy.html" target="_blank">理财管理</a>进行设置</p></div>');
+      autoTip = $('<div class="app-tip auto-tip"><p>设置预约续购，回款的本息将自动投出。可在我的天眼投-<a href="https://account.touzhijia.com/debt/autoreserve.html" target="_blank">理财管理</a>进行设置</p></div>'),
+      autoBuyTip = $('<div class="app-tip autoBuy-tip"><p>设置自动购买，账户中的余额将自动投出。可在我的天眼投-<a href="https://account.touzhijia.com/debt/autobuy.html" target="_blank">理财管理</a>进行设置</p></div>');
   $('#borrow-buy-records').on('mouseover','.appTip',function(e){
     var x = e.pageX + 15,
         y = e.pageY + 10;

@@ -8,7 +8,7 @@
         <div class="main">
             <div id="register-bg">
                 <div id="register-box" class="form-group">
-                    <h2>会员注册<br /><span>注册投之家账户，开启网贷之旅</span><p>已有<em>2,499,046</em>人加入投之家</p></h2>
+                    <h2>会员注册<br /><span>注册天眼投账户，开启网贷之旅</span><p>已有<em>2,499,046</em>人加入天眼投</p></h2>
                     <div class="side-area">
                         <p>已有账号？<a href="{!! config('app.account_url') !!}m/signin.html">直接登录</a></p>
                         <p>
@@ -60,7 +60,7 @@
                             <input name="r_popid" class="input-style input-size" type="text" placeholder="选填(手机号，邀请好友注册，得50元红包)" value=""/>
                         </div>
                         <p class="submit-box">
-                            <span id="is-check">点击注册即同意投之家&nbsp;<a id="user-agreement" href="{!! config('app.account_url') !!}m/register/protocol.html" target="blank">《用户协议》</a></span>
+                            <span id="is-check">点击注册即同意天眼投&nbsp;<a id="user-agreement" href="{!! config('app.account_url') !!}m/register/protocol.html" target="blank">《用户协议》</a></span>
                         </p>
                         <div class="btn-box">
                             <input type="submit" class="btn-blue button-size" value="立即注册">

@@ -7,7 +7,7 @@
             <dd>
                 <i class="f-reasons-2"></i>
                 <div>
-                    <h4>投之家三重保障</h4>
+                    <h4>天眼投三重保障</h4>
                     <p>三重保障为你保驾护航</p>
                 </div>
             </dd>
@@ -61,10 +61,10 @@
                 <div class="f-code">
                     <p id="f-dingyuhao">
                         <img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />
-                        <span>投之家APP下载</span>
+                        <span>天眼投APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="投之家服务号" title="投之家服务号" />
+                        <img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
@@ -75,7 +75,7 @@
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
                     <h2>400&nbsp;883&nbsp;1803</h2>
-                    <p>投之家投资交流3群：452691932</p>
+                    <p>天眼投投资交流3群：452691932</p>
                     <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="area-btm">
                 <p>
                     公司地址：深圳市南山区特发信息科技大厦6楼<br />
-                    版权所有：深圳投之家金融信息服务有限公司&nbsp;&nbsp;粤ICP备15053881号-2
+                    版权所有：深圳天眼投金融信息服务有限公司&nbsp;&nbsp;粤ICP备15053881号-2
                 </p>
             </div>
         </div>
@@ -99,7 +99,7 @@
     <div class="figure">
         <div class="eye1" id="eye1"></div>
         <div class="eye2" id="eye2"></div>
-        <a href="{!! config('app.url') !!}/mascot.html" class="peoplelink" target="_blank" title="投之家吉祥物"></a>
+        <a href="{!! config('app.url') !!}/mascot.html" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>
         <!-- {!! config('app.url') !!}/mascot.html  -->
     </div>
     <p class="onoroff"><a href="javascript:void(0);"></a></p>
@@ -107,7 +107,7 @@
         <li>
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe627;</i><br/>公告</a>
             <div class="hovercon">
-                <p class="tap-show phonep"><a href="{!! config('app.url') !!}/about/notice.html">投之家公告</a></p>
+                <p class="tap-show phonep"><a href="{!! config('app.url') !!}/about/notice.html">天眼投公告</a></p>
             </div>
         </li>
         <li>
@@ -128,8 +128,8 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png6" alt="投之家公众号" width="130">
-                    <span>投之家服务号</span>
+                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png6" alt="天眼投公众号" width="130">
+                    <span>天眼投服务号</span>
                 </p>
             </div>
         </li>
