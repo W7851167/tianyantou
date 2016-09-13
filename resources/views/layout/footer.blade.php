@@ -59,23 +59,22 @@
                     </ul>
                 </div>
                 <div class="f-code">
-                    <p id="f-dingyuhao">
-                        <img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />
-                        <span>天眼投APP下载</span>
-                    </p>
-                    <p id="f-fuwuhao">
-                        <img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />
-                        <span>官方服务号</span>
-                    </p>
-                    <!--<p id="f-wechat">
-            <img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />
-            <span>理财顾问微信号</span>
-          </p>-->
+                    {{--<p id="f-dingyuhao">--}}
+                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />--}}
+                        {{--<span>天眼投APP下载</span>--}}
+                    {{--</p>--}}
+                    {{--<p id="f-fuwuhao">--}}
+                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />--}}
+                        {{--<span>官方服务号</span>--}}
+                    {{--</p>--}}
+                    {{--<!--<p id="f-wechat">--}}
+            {{--<img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />--}}
+            {{--<span>理财顾问微信号</span>--}}
+          {{--</p>-->--}}
                 </div>
                 <div class="f-hotline">
-                    <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
-                    <h2>400&nbsp;883&nbsp;1803</h2>
-                    <p>天眼投投资交流3群：452691932</p>
+                    <span><i class="iconfont">&#xe615;</i>天眼投投资交流3群：452691932</span>
+                    <h2>工作&nbsp;节假</h2>
                     <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
                 </div>
             </div>
@@ -122,15 +121,6 @@
                 <div class="tap-show customer-service">
                     <p class="server-time"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA2NTc2NF8zMzA1NzBfNDAwODgzMTgwM18yXw" target="_blank">在线咨询</a></p>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
-            <div class="hovercon wenxin-hovercon">
-                <p class="tap-show wenxinp">
-                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png" alt="天眼投公众号" width="130">
-                    <span>天眼投服务号</span>
-                </p>
             </div>
         </li>
         <li>
