@@ -183,6 +183,22 @@
 </div>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
+<!--
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/ucenter.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/pagination.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/actions.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/form.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/highcharts.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/moment.min.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/lang-all.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/tab.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/incomechart.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/platform-charts.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/account.upgrade.js"></script>
+-->
 @yield('script')
 </body>
 </html>
