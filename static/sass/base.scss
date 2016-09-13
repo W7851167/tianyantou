@@ -1,0 +1,176 @@
+/*reset  normalize*/
+body,form,ul,li,p,h1,h2,h3,h4,h5,h6,dd,dl,dt,i,em,span,div,table,a,img,strong{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;font-style: normal;}
+ul,li{list-style:none;}
+img{border:0;}
+a{text-decoration:none;outline:none;}
+a:focus{outline: none;} 
+a:hover{text-decoration:none;}
+input, textarea, select, button { font-size: 100%;vertical-align:middle;margin:0;padding:0; font-family:"Microsoft YaHei",Arial;outline:none; background: none;border: none;}
+em,i{font-style:normal;}
+table{border-collapse:collapse;border-spacing:0; width:100%;}
+p{word-wrap:break-word}
+
+/*define iconfont*/
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot'); /* IE9*/
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('../fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*base parameter*/
+@import "basestyle/parameter";
+/*base style*/
+@import "basestyle/effect";
+@import "basestyle/animate";
+@import "basestyle/link";
+@import "basestyle/head";
+@import "basestyle/foot";
+@import "basestyle/title";
+@import "basestyle/button";
+@import "basestyle/list";
+@import "basestyle/table";
+@import "basestyle/form";
+@import "basestyle/paging";
+@import "basestyle/tab";
+@import "basestyle/filter";
+@import "basestyle/overlayer";
+@import "basestyle/carousel";
+@import "basestyle/tagscloud";
+@import "basestyle/share";
+/*all*/
+html,body{
+  width: $WIDTH_ALL;
+  min-width: 1200px;
+  font-family: $FONT_CN;
+  font-size: $FONT_LEVEL2;
+  color:$TEXT_MAIN;
+  line-height: $TEXT_LH;
+  background-color: $BODY_BG;
+}
+.bg_white{
+  background-color: #FFF;
+}
+/*content*/
+.wrap{
+  width: $WIDTH_ALL;
+}
+.container{
+  width: $MAIN_WIDTH;
+  min-width: $MAIN_WIDTH;
+  margin:0 auto;
+  overflow: hidden;
+  h2{
+    @include list-title;
+  }
+  /*Bread crumbs nav*/
+  .main-nav{
+    width: $WIDTH_ALL;
+    height: 52px;
+    line-height: 52px;
+    span{
+      float: left;
+    }
+    li{
+      float: left;
+      & + li:before{
+        color: #999;
+        content: '>';
+        padding: 0 3px;
+      }
+    }
+    a{
+      @extend .main-link;
+      color: $MAIN_BLUE;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .nav-location{
+      font-weight: bold;
+      color: $TEXT_MAIN;
+    }
+  }
+  .main{
+    box-sizing: border-box;
+    border: $MAIN_BORDER;
+    background-color: #FFF;
+    margin-bottom: $GAP;
+    & > h2{
+      @extend .title-black-bold;
+      @extend .block-title-style;
+      @include list-title;
+      .iconfont{
+        font-size: $FONT_LEVEL5;
+        color: $MAIN_BLUE;
+      }
+    }
+  }
+  .tworow{
+    width: 890px;
+    box-sizing: border-box;
+    float: left;
+    margin-right: -1px;
+  }
+  .threerow{
+    width: 578px;
+    float: left;
+  }
+}
+a{
+  @extend .main-link;
+}
+/*side*/
+.leftside{
+  float: left;
+  width: 300px;
+  margin-right: $GAP;
+}
+.rightside{
+  float: right;
+  width: 300px;
+  margin-left: $GAP;
+} 
+.r-side-menu,.l-side-menu{
+  width: 298px;
+  border: $MAIN_BORDER;
+  background-color: #FFF;
+  margin-bottom: $GAP;
+  & > h2{
+    @extend .title-black-bold;
+    @include list-title;
+    padding: 0 20px;
+  }
+}
+.r-side-menu{
+  float: right;
+  margin-left: $GAP;
+}
+.l-side-menu{
+  float: left;
+  margin-right: $GAP;
+}
+.noborder{
+  border: none !important;
+  & > a{
+    border: none;
+  }
+}
+.time{
+  color: #999;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+

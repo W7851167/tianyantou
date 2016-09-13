@@ -1,0 +1,553 @@
+#loginpage,
+#registerpage {
+  .log-bg {
+    background-color: #7AD5F5;
+  }
+  .bg-img {
+    position: relative;
+    height: 705px;
+    background:#F4BC1F url(../images/login/main_bg.png) center top no-repeat;
+    margin: $M_CENTER;
+  }
+  .btn-white-o {
+    @extend .btn-m;
+    display: block;
+    position: absolute;
+    left: 339px;
+    bottom: 191px;
+    color: #FFF;
+    &:hover {
+      color: #FFF;
+    }
+  }
+}
+
+
+
+#loginpage{
+  background-color: #FFD552;
+}
+
+#login-bg,
+#register-bg {
+  background-color: nth($RGBA_B_OPACITY, 1);
+  @include MAIN_RADIUS;
+}
+
+#login-bg {
+  position: absolute;
+  top: 75px;
+  right: 45px;
+  padding: 4px;
+}
+
+#login-box,
+#register-box,#account-box {
+  background-color: #FFF;
+  h2 {
+    font-size: $FONT_LEVEL7;
+    font-weight: normal;
+    color: $TEXT_STRONG;
+    line-height: 1;
+    background-color: #FBFBFB;
+    border-bottom: $UNDER_BORDER;
+    padding: $P_TIT;
+    span {
+      font-size: $FONT_LEVEL2;
+      color: #999;
+    }
+    p {
+      font-size: $FONT_LEVEL2;
+      color: $TEXT_MAIN;
+      float: right;
+      *margin-top: -15px;
+      em {
+        color: $MAIN_BLUE;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+#login-box {
+  position: relative;
+  width: 380px;
+  padding-bottom: 30px;
+  h2 a{
+    line-height: 32px;
+    color:$MAIN_BLUE;
+    font-size: $FONT_LEVEL2;
+  }
+  .code-login{
+    position: relative;
+    text-align: center;
+    padding: 50px 30px 30px;
+    display: none;
+    h3{
+      @extend .title-gray-normal;
+      color: #999;
+    }
+    .error{
+      position: relative;
+      top: -30px;
+      height: 30px;
+      line-height: 30px;
+      color: #F12F2F;
+      background-color: #FFF;
+      display: none;
+      .iconfont{
+        margin-right: 5px;
+      }
+    }
+    .code-img{
+      margin: 10px 0;
+      img{
+        width: 180px;
+        border: $UNDER_BORDER;
+        padding: 15px;
+      }
+    }
+    .code-panel{
+      a{
+        color: #999;
+        @include TRANS_ALL;
+        &:hover{
+          color: $MAIN_BLUE;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .code-btn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    .switch-login{
+      display: block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      text-indent: -9999px;
+      background: url(../images/login/login-qricon-01.png) no-repeat -60px 0;
+      @include TRANS_ALL;
+      &.code-on {
+        background-position: 0 -60px;
+      }
+    }
+    .msg{
+      position: absolute;
+      top: 10px;
+      right: 50px;
+      display: block;
+      width: 145px;
+      font-size: $FONT_LEVEL1;
+      color: #CCC;
+      img{
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      b{
+        color: $GREEN;
+        letter-spacing: 1px;
+        margin: 0 1px;
+      }
+    }
+  }
+  .login-other-box{
+    margin-bottom: 20px;
+    .partner-box{
+      margin-top: 3px;
+      margin-bottom: -36px;
+    }
+  }
+}
+#loginpage .content{
+  position: relative;
+  width: 1200px;
+  min-width: 1200px;
+  height: 705px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom:1;
+}
+
+#register-box {
+  .side-area {
+    float: right;
+    width: 417px;
+    height: 500px;
+    margin-top: 40px;
+    text-indent: 70px;
+    border-left: $UNDER_BORDER;
+    p {
+      margin: 30px 0 10px;
+      font-size: $FONT_LEVEL3;
+      span {
+        display: block;
+      }
+    }
+    .partner-box {
+      line-height: 50px;
+      margin-bottom: 30px;
+      .partner{
+        height: 34px;
+        @extend .main-link;
+        color: $TEXT_MAIN;
+        margin-right: 10px;
+        &:hover img{
+          border: 1px solid $MAIN_BLUE;
+        }
+        img{
+          padding: 0 5px;
+          border: $UNDER_BORDER;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          -o-border-radius: 3px;
+          border-radius: 3px;
+          @include TRANS_ALL;
+        }
+        i {
+          display: inline-block;
+          width: 30px;
+          height: 27px;
+          background: url(../images/login/parter.png) no-repeat;
+          margin-right: 10px;
+          vertical-align: middle;
+        }
+        #partner-wdzj {
+          background-position: 0 0;
+        }
+        #partner-weibo {
+          background-position: -30px 0;
+        }
+      }
+    }
+    .event-img{
+      margin-top: 20px;
+    }
+  }
+}
+
+// old IE transparent
+@mixin IE_B_OPACITY($OPACITY:nth($OPACITY, 1)) {
+  @media \0screen\,
+  screen\9 {
+    @content;
+  }
+}
+/* @include IE_B_OPACITY {
+  #loginpage {
+    .content {
+      position: absolute;
+      top: 75px;
+      right: 45px;
+    }
+  }
+
+  #login-bg,
+  #register-bg {
+    position: static;
+    background-color: #000;
+    filter: Alpha(opacity=$OPACITY);    
+    *zoom: 1;
+    #login-box,
+    #register-box {
+      position: relative;
+      background-color: #FFF;
+    }
+  }
+} */
+#login,
+#register,
+.side-area {
+  p {
+    margin-top: 25px;
+    color: #999;
+    span {
+      font-size: $FONT_LEVEL2;
+      color: $TEXT_MAIN;
+    }
+    a {
+      color: $MAIN_BLUE;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+#login,
+#register,#account {
+  .submit-box {
+    line-height: 1;
+    margin-top: 20px;
+    .iconfont {
+      font-size: $FONT_LEVEL4;
+      color: $MAIN_BLUE;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    span {
+      color: $TEXT_MAIN;
+      margin-right: 90px;
+      @extend %cursor-pointer;
+    }
+  }
+  .input-box {
+    position: relative;
+    font-size: 0;
+    label,
+    input {
+      vertical-align: middle;
+    }
+    label {
+      display: inline-block;
+      font-size: $FONT_LEVEL3;
+      text-indent: $P_TIT;
+    }
+    .input-size {
+      height: 43px;
+      font-size: $FONT_LEVEL2;
+      line-height: 43px\9;
+      vertical-align: middle;
+      padding: 0 40px 0 14px;
+      @include TRANS_ALL;
+    }
+    & > .iconfont {
+      position: absolute;
+      top: 5px;
+      font-size: $FONT_LEVEL5;
+      color: #CCC;
+    }
+  }
+  .btn-box {
+    .button-size {
+      margin-top: 25px;
+      font-size: $FONT_LEVEL4;
+      height: 45px;
+    }
+  }
+  .partner-box {
+    margin-top: 10px;
+    padding-left: 90px;
+    .partner {
+      @extend .main-link;
+      color: $TEXT_MAIN;
+      i {
+        vertical-align: middle;
+        display: inline-block;
+        width: 30px;
+        height: 27px;
+        background: url(../images/login/parter.png) no-repeat;
+        margin-right: 10px;
+      }
+      #partner-wdzj {
+        background-position: 0 center;
+      }
+      #partner-weibo {
+        background-position: -30px center;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+#login {
+  .submit-box{
+    span{
+      margin-right: 128px;
+    }
+  }
+  .button-size{
+    width: 296px;
+  }
+
+  .input-box {
+    margin: 0 0 25px;
+    label {
+      width: 98px;
+      text-align: center;
+    }
+    & > .iconfont {
+      right: 20px;
+    }
+  }
+  .input-size {
+    width: 240px;
+  }
+  #log-captcha {
+    width: 80px;
+    margin-right: 13px;
+  }
+  .is-check{
+    position: relative;
+    input[type="checkbox"]{
+      position: absolute;
+      width:20px;
+      height:20px;
+      left:0;
+      opacity:0;
+      filter:alpha(opacity=0);
+      z-index:1;
+    }
+    *zoom:1;
+  }
+  .captcha-img {
+    width: 150px;
+    height: 45px;
+    vertical-align: middle;
+    cursor:pointer;
+  }
+  .error {
+    position: absolute;
+    top:0px;
+    height: 30px;
+    line-height: 30px;
+    margin-top:15px;
+    color: #F12F2F;
+    & > i {
+      margin-right: 5px;
+      font-size: $FONT_LEVEL4;
+      color: #FF6A6A;
+    }
+    span {
+      font-size: $FONT_LEVEL2;
+    }
+  }
+}
+
+#register,#account {
+  width: 780px;
+  padding-top: 30px;
+  p,
+  .btn-box {
+    margin-left: 156px;
+  }
+  .input-box {
+    label {
+      width: 146px;
+      text-align: right;
+      padding-right: 10px;
+    }
+    & > .iconfont {
+      left: 492px;
+    }
+  }
+  .input-size {
+    width: 314px;
+  }
+  #reg-captcha,#ac-captcha {
+    width: 134px;
+    margin-right: 13px;
+  }
+  .button-size {
+    @extend .btn-l;
+    width: 370px;
+  }
+  .code-btn-size {
+    display: inline-block;
+    @extend .btn-l;
+    width: 165px;
+    height: 43px;
+    line-height: 43px;
+    vertical-align: middle;
+  }
+  input[type="submit"] {
+    margin-bottom: 85px;
+  }
+  .error {
+    height: 30px;
+    line-height: 24px;
+    font-size: 12px;
+    color: $TEXT_MAIN;
+    margin: 0 254px 0 156px;
+    visibility: hidden;
+    & > i {
+      display: inline-block;
+      vertical-align: top;
+      width: 24px;
+      height: 24px;
+      background: url(../images/icon/icons_yjr.png) no-repeat;
+      &.icon-ok {
+        background-position: -1px -114px;
+      }
+      &.icon-error {
+        background-position: -1px -143px;
+      }
+    }
+  }
+  #captcha-error {
+    margin-right: 434px;
+  }
+}
+
+
+/*ie7*/
+
+#login-box,
+#register-box,#account-box {
+  *background-color: #FFF;
+  h2 {
+    a{
+      *margin:-48px 20px 0 0;
+    }
+    p {
+      *margin-top: -15px;
+    }
+  }
+}
+
+#login,
+#register,#account {
+  .input-box {
+    label {
+      *text-indent: 0;
+    }
+  }
+}
+
+#register,#account {
+  *padding-top: 55px;
+}
+#login{
+  position: relative;
+  padding-top: 45px;
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
+  *zoom:1;
+  .partner-box{
+    padding-left: 0;
+  }
+}
+.registered {
+  padding: 120px 0 70px;
+  .registered-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    text-align: center;
+    h1 {
+      margin-bottom: 60px;
+      font-size: $FONT_LEVEL7;
+      color: $TEXT_STRONG;
+      .iconfont {
+        margin-right: 15px;
+        vertical-align: middle;
+        font-size: 60px;
+        color: $MAIN_BLUE;
+      }
+    }
+  }
+  .transfer-links {
+    .btn-blue-o {
+      margin-right: 10px;
+    }
+  }
+  .remind-info {
+    margin-top: 45px;
+    em {
+      color: $MAIN_BLUE;
+    }
+  }
+}
