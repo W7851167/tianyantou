@@ -1,4 +1,7 @@
 @extends('layout.main')
+@section('title')
+{!! $category->title or '' !!} - 关于我们 - 天眼投
+@stop
 
 @section('content')
 <!--BODY START-->
