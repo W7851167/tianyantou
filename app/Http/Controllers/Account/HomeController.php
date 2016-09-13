@@ -19,9 +19,11 @@ class HomeController extends  FrontController
 {
     public function index()
     {
-        if(!empty(\Session::get('user.passport'))) {
-            return redirect(url('signin.html'));
-        }
+//        if(!empty(\Session::get('user.passport'))) {
+//            return redirect(url('signin.html'));
+//        }
+        return view('account.index.index');
 
     }
+
 }

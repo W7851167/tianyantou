@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="dns-prefetch" href="https://static.touzhijia.com/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="always" name="referrer">  <title>天眼投 - 个人中心</title>
+    <meta property="qc:admins" content="24105710553756464752012116375747716" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
+</head>
+<body>
+
+
+<!-- Copyright � 2005. Spidersoft Ltd -->
+<style>
+    A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
+    A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
+    A.info          {color:#2F5BFF;background:transparent;text-decoration:none}
+    A.info:hover    {color:green;background:transparent;text-decoration:underline}
+</style>
+<div style='BORDER: 1px solid #DCE6F4; MARGIN-TOP: 20px; MARGIN-BOTTOM: 20px; MARGIN-LEFT: 5px; MARGIN-RIGHT: 5px; PADDING: 5px; BACKGROUND-COLOR: #eef8ff;line-height:180%; COLOR: #000000; font-family: Arial; font-size: 8pt; width=100%; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr="#FFFFFFFF", EndColorStr="#F2F5FAFF");'>
+    This page was saved using <a class="applink" href="http://www.spidersoft.com"><b>WebZIP 7.0.3.1030</b></a> <a class="applink" href="http://www.spidersoft.com"><b>offline browser</b></a>  (Unregistered) on  09/10/16 1:38:23.<br>
+    <b>Address:</b> <a class="info" href="https://account.touzhijia.com/">https://account.touzhijia.com/</a><br>
+    <b>Title:</b> 天眼投 - 个人中心 &nbsp;&bull;&nbsp; <b>Size:</b> 31666<br></div>
+<!-- /Copyright � 2005. Spidersoft Ltd -->
+
+
+<div id="head">
+    <script type="text/javascript">
+        var USER = {
+            "username":"zhuxishun",
+            "islogin":1,
+            "email_flag": 1,
+            "telephone_flag": 1,
+            "bank_flag": 0,
+            "security_question_flag": 0,
+            "invest_flag":1  };
+    </script>
+    <div id="head-top">
+        <div id="head-top-main">
+            <p>服务热线：400-883-1803（工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00）</p>
+            <div class="top-menu">
+                <div class="my-menu">
+                    <a id="my-menu" href="account.touzhijia.html">我的天眼投<i></i></a>
+                    <div class="menu-box">
+                        <div class="user-img">
+                            <a href="account.touzhijia.html">
+                                <i class="shape-circle"></i>
+                                <img src="https://static.touzhijia.com/images/user/headerimg1.png?ver=20160431006" width="80" height="80"><h3>您好，<span id="user-name" title="zhuxishun">zhuxishun</span></h3>
+                            </a>
+                            </a>
+                        </div>
+                        <div class="menu-list">
+                            <ul>
+                                <li><a href="wallet/recharge.html"><i class="iconfont">&#xe63f;</i>账户充值</a></li>
+                                <li><a href="debt.html"><i class="iconfont">&#xe641;</i>理财管理</a></li>
+                                <li><a href="wallet/book.html"><i class="iconfont">&#xe640;</i>资金流水</a></li>
+                                <li><a href="safe.html"><i class="iconfont">&#xe63e;</i>安全中心</a></li>
+                            </ul>
+                            <a href="signout.html" class="logout">安全退出<i class="iconfont">&#xe642;</i></a>
+                        </div>
+                    </div>
+                </div>
+                <span class="line"></span>
+                <a href="http://topics.touzhijia.com/20150910" target="_blank">天眼投APP</a>
+                <span class="line"></span>
+                <a href="../www.touzhijia.com/about/help.html">帮助中心</a>
+                <span class="line"></span>
+                <a href="../www.touzhijia.com/about/company.html">关于我们</a>
+                <span class="line"></span>
+                <a href="http://wenda.touzhijia.com/">投资问答</a>
+                <span class="line"></span>
+                <div class="contact">
+                    <a href="http://weibo.com/touzhijia" target="_blank" class="h_weibo"></a>
+                    <a id="h_weixin" href="#" class="h_weixin"></a>
+                    <img class="show-img" src="../static.touzhijia.com/images/common/h_weixin.jpg~ver=20160431006.jpg" width="163">
+                </div>
+            </div>
+        </div>
+    </div>  <div id="head-btm">
+        <div id="head-btm-main">
+            <h1 id="logo">
+                <!--<a href="">
+                    <img src="" alt="天眼投,p2p理财,投资理财,p2p网贷"
+                         title="天眼投-中国领先的P2P网贷投资平台，您的个人理财专家"/>
+                </a>-->
+                <a href="../www.touzhijia.com/www.touzhijia.html" style="padding-left:26px;">
+                    <img src="https://static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
+                </a>
+                <a href="http://topics.touzhijia.com/activities/anniversaryParty" target="_blank">
+                    <img src="../static.touzhijia.com/images/common/logo_anniversary_2nd.gif~ver=20160431006.gif" alt="梦想有礼，之家2周年">
+                </a>
+            </h1>
+
+            <div class="main-menu">
+                <div class="curr-line"></div>
+                <ul>
+                    <li class="" ><a
+                                href="../www.touzhijia.com/www.touzhijia.html"  >首页</a>
+                    </li>
+                    <li class="" ><a
+                                href="../www.touzhijia.com/platform/platform.html"  >选平台</a>
+                    </li>
+                    <li class="" ><a
+                                href="../www.touzhijia.com/platform/project.html"  >选标中心</a>
+                    </li>
+                    <li class="" ><a
+                                href="../www.touzhijia.com/current/current.html"  >活期</a>
+                    </li>
+                    <li class="" ><a
+                                href="../www.touzhijia.com/debt/debt.html"  >定期</a>
+                    </li>
+                    <li class="" style="padding-right:17px"><a
+                                href="http://ask.touzhijia.com/" target="_blank" >社区</a>
+                        <span class="iconfont newicon" style="margin-top: 22px;margin-left: -8px;">&#xe64d;</span>
+                    </li>
+                    <li class="" ><a
+                                href="../www.touzhijia.com/shop/shop.html"  >积分商城</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div></div>
+
+<div class="wrap user-center">
+    <div class="container clearfix">
+
+        <div class="l-side-menu">
+            <ul class="first-menu">
+                <li>
+                    <div class="user-avatar">
+                        <img src="https://static.touzhijia.com/images/user/headerimg1.png?ver=20160431006" alt="" width="100" height="100">
+        <span class="user-nickname" title="zhuxishun">
+          zhuxishun                  </span>
+                        <p class="accoount-validation mt10">
+                            <a href="safe.html" title="身份验证" class="activated" ><i class="icon-identity"></i></a>
+                            <a href="safe.html" title="手机验证" class="activated" ><i class="icon-phoneno"></i></a>
+                            <a href="safe.html" title="邮箱验证" class="activated" ><i class="icon-email"></i></a>
+                            <a href="safe.html" title="银行卡验证"  ><i class="icon-bankcard"></i></a>
+                        </p>
+                        <div class="checkin-area">
+                            <div class="check-in ">
+                                <p>积分：<span>20</span></p>
+                            </div>
+                            <i>+5</i>
+                            <div class="checkin-rules">
+                                <p>您已连续签到 <em class="checkin-days">0</em>
+                                    天，今日签到<em class="check-points">+1</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="current"><a href="account.touzhijia.html"><i class="iconfont">&#xe61c;</i>我的天眼投</a></li>      <li><h3><i class="iconfont">&#xe634;</i>理财管理</h3><ul class="second-menu"><li><a href="huoqi.html">活期</a></li><li><a href="debt.html">定期</a></li><li><a href="debt/transfer.html">债权转让</a></li><li><a href="debt/autobuy.html">自动购买</a></li></ul></li>      <li><h3><i class="iconfont">&#xe685;</i>全网通</h3><ul class="second-menu"><li><a href="networth/index.html">投资记录</a></li></ul></li>      <li><h3><i class="iconfont">&#xe612;</i>平台管理<span class="iconfont newicon">&#xe64d;</span></h3><ul class="second-menu"><li><a href="platforms/statistic.html">平台统计</a></li><li><a href="platforms/analysis.html">投资明细</a></li><li><a href="platform/bind.html">平台绑定</a></li></ul></li>      <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3><ul class="second-menu"><li><a href="wallet/recharge.html">充值</a></li><li><a href="wallet/withdraw.html">提现</a></li><li><a href="wallet/book.html">资金流水</a></li></ul></li>      <li><h3><i class="iconfont">&#xe632;</i>账号管理</h3><ul class="second-menu"><li><a href="safe.html">安全中心</a></li><li><a href="bankcard.html">银行卡</a></li></ul></li>      <li><h3><i class="iconfont">&#xe62f;</i>活动专区</h3><ul class="second-menu"><li><a href="activity/recommend.html">邀请奖励</a></li><li><a href="activity/tcode.html">专享T码</a></li><li><a href="shop.html">兑换记录</a></li></ul></li>      <li><a href="coupon/index.html"><i class="iconfont">&#xe699;</i>理财券</a></li>      <li><a href="message.html"><i class="iconfont">&#xe62d;</i>消息中心</a></li>    </ul>
+        </div>
+        <div class="main tworow">
+            <div class="main-inner">
+                <div class="info-wrap clearfix">
+                    <dl class="info-description-mod">
+                        <dt>资产总额(元)
+                            <a href="javascript:void(0)">
+                                <i>?</i>
+                                <p>资产总额【<span>0.00</span>元】= 待回款本金【<span>0.00</span>元】+ 活期金额【<span>0.00</span>元】+ 冻结金额【<span>0.00</span>元】+ 账户余额【<span>0.00</span>元】</p>
+                            </a>
+                        </dt>
+                        <dd>0.00</dd>
+                    </dl>
+                    <dl class="info-description-mod">
+                        <dt>借款本息(元)</dt>
+                        <dd>0.00</dd>
+                    </dl>
+                    <dl class="info-description-mod">
+                        <dt>冻结金额(元)</dt>
+                        <dd>0.00</dd>
+                    </dl>
+                    <dl class="info-description-mod">
+                        <dt>账户余额(元)</dt>
+                        <dd>0.00</dd>
+                    </dl>
+                    <div class="shortcuts">
+                        <a href="wallet/recharge.html" class="btn-recharge btn-s">充值</a>
+                        <a href="wallet/withdraw.html" class="btn-widthdraw btn-s">提现</a>
+                    </div>
+                </div>
+
+                <div class="info-detail-wrap clearfix">
+                    <dl>
+                        <dt><i class="info-icon ic-calendar"></i></dt>
+                        <dd>您在天眼投理财<br><em>2</em>天</dd>
+                    </dl>
+                    <dl>
+                        <dt><i class="info-icon ic-dollar"></i></dt>
+                        <dd>累计收益
+                            <a href="javascript:void(0)">
+                                <i>?</i>
+                                <p>投资收益【<span>0.00</span>元】+ 天眼投奖励(包含理财券奖励)【<span>0.00</span>元】</p>
+                            </a>
+                            <br><em>0.00</em>元
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><i class="info-icon ic-awards"></i></dt>
+                        <dd>之家奖励<br><em>0.00</em>元</dd>
+                    </dl>
+                </div>
+
+                <!-- <div class="module-devider"></div>
+                <a href="javascript:;" class="broadcast-placeholder">
+                  <img src="https://static.touzhijia.com/images/user/report.png?ver=20160431006" alt="" width="926" height="60">
+                </a> -->
+                <div class="module-devider"></div>
+                <div>
+                    <div class="content-unit  madeup"  id="huoqi"  >
+                        <div class="unit-bd unit-5 ">
+                            <dl >
+                                <dt><h3>活期</h3></dt>
+                            </dl>
+                            <dl >
+                                <dt>活期金额(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl >
+                                <dt>已赚收益(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl >
+                                <dt>昨日收益(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl  class="last-item">
+                                <dt>年化收益率</dt>
+                                <dd>6.68%</dd>
+                            </dl>
+                        </div>
+                    </div>      <div class="content-unit  madeup"  id="debt"  >
+                        <div class="unit-bd unit-5 ">
+                            <dl >
+                                <dt><h3>定期</h3></dt>
+                            </dl>
+                            <dl >
+                                <dt>待回款本金(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl >
+                                <dt>待回款收益(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl >
+                                <dt>已赚取收益(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl  class="last-item">
+                                <dt>加权年化收益率</dt>
+                                <dd>0.00%</dd>
+                            </dl>
+                        </div>
+                    </div>      <div class="content-unit  madeup"  id="applyloan"  >
+                        <div class="unit-bd unit-5 ">
+                            <dl >
+                                <dt><h3>全网通</h3></dt>
+                            </dl>
+                            <dl >
+                                <dt>待回款本金(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl >
+                                <dt>待回款收益(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl >
+                                <dt>已赚取收益(元)</dt>
+                                <dd>0.00</dd>
+                            </dl>
+                            <dl  class="last-item">
+                                <dt>加权年化收益率</dt>
+                                <dd>0.00%</dd>
+                            </dl>
+                        </div>
+                    </div>    </div>
+
+                <!--平台投资-->
+                <div class="module-devider"></div>
+                <div class="plat-invest">
+                    <h2>平台投资<a rel="btn-fresh" href="javascript:void(0)" class="fresh"><i class="iconfont"></i></a></h2>
+                    <div style="text-align: center; font-size: 16px; padding: 30px;" id="no-plat-distribution-data">
+                        <p>21道风控精选平台，高达18%年化收益，还有1%加息券等着您----<a style="color: #2AA3CE;" href="../www.touzhijia.com/platform/project.html">去看看>></a></p>
+                    </div>
+                </div>
+                <div class="module-devider"></div>
+                <input name="utoken" type="hidden" value="f33727ce94e40d191cd7b45e80cc86d6">
+                <div class="chart-calendar">
+                    <div class="tab click-tab">
+                        <ul class="tab-nav">
+                            <li class="active"><a href="javascript:void(0);">资金日历</a></li>
+                            <li><a href="javascript:void(0);">近半年收益</a></li>
+                        </ul>
+                        <div class="tab-main">
+                            <div class="active">
+                                <p class="summary-info">&nbsp;&nbsp;<em></em></p>
+                                <ul class="color-tags clearfx">
+                                    <li style="color:#2aa3ce;"><i style="background-color:#2aa3ce;"></i>已还</li>
+                                    <li style="color:#fb4242"><i style="background-color:#fb4242"></i>待还</li>
+                                    <li style="color:#FB9142;"><i style="background-color:#FB9142;"></i>已收</li>
+                                    <li style="color:#79B32B;"><i style="background-color:#79B32B;"></i>待收</li>
+                                </ul>
+                                <div id="paieback-calendar" class="paieback-calendar">
+                                </div>
+                            </div>
+                            <div >
+                                <div id="profit-chart" class="profit-chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-devider"></div>
+                <div class="module-section">
+                    <h4 class="sec-tit">去这里赚钱</h4>
+                    <!-- 与原有的一样 -->
+                    <ul class="logolink">
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_erongsuo.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="e融所">
+                                <p class="logoimgp">
+                                    <img src="https://static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" alt="e融所" title="e融所" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_huitouwang.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-1']);" target="_blank" title="汇投网">
+                                <p class="logoimgp">
+                                    <img src="../static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016071813583280943.jpg~ver=20160431006.jpg" alt="汇投网" title="汇投网" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_xinyongbao.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-2']);" target="_blank" title="信用宝">
+                                <p class="logoimgp">
+                                    <img src="../static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg~ver=20160431006.jpg" alt="信用宝" title="信用宝" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_rxdai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-3']);" target="_blank" title="投哪网">
+                                <p class="logoimgp">
+                                    <img src="../static.touzhijia.com/upload/image/bidimg/logo_recommend_img/201411262133482121.jpg~ver=20160431006.jpg" alt="投哪网" title="投哪网" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_duanrongwang.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-4']);" target="_blank" title="短融网">
+                                <p class="logoimgp">
+                                    <img src="../static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080213010228018.jpg~ver=20160431006.jpg" alt="短融网" title="短融网" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_zhubaodai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-5']);" target="_blank" title="珠宝贷">
+                                <p class="logoimgp">
+                                    <img src="../static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015041617455545546.jpg~ver=20160431006.jpg" alt="珠宝贷" title="珠宝贷" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_huiyingdai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-6']);" target="_blank" title="汇盈金服">
+                                <p class="logoimgp">
+                                    <img src="../static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015080414060923178.jpg~ver=20160431006.jpg" alt="汇盈金服" title="汇盈金服" height="55">
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../www.touzhijia.com/platform/detail_kaixindai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-7']);" target="_blank" title="开鑫贷">
+                                <p class="logoimgp">
+                                    <img src="https://static.touzhijia.com/upload/image/bidimg/logo_recommend_img/201605031509119460.png?ver=20160431006" alt="开鑫贷" title="开鑫贷" height="55">
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="foot">
+    <div id="foot-top">
+        <dl id="foot-top-main">
+            <dt>
+                <i class="f-reasons-1"></i>
+            </dt>
+            <dd>
+                <i class="f-reasons-2"></i>
+                <div>
+                    <h4>天眼投三重保障</h4>
+                    <p>三重保障为你保驾护航</p>
+                </div>
+            </dd>
+            <dd>
+                <i class="f-reasons-3"></i>
+                <div>
+                    <h4>权威的专家指导</h4>
+                    <p>顾问委员会保驾护航</p>
+                </div>
+            </dd>
+            <dd>
+                <i class="f-reasons-4"></i>
+                <div>
+                    <h4>权威的安全评级</h4>
+                    <p>实地认证考察结合运营数据</p>
+                </div>
+            </dd>
+            <dd>
+                <i class="f-reasons-5"></i>
+                <div>
+                    <h4>顶尖风投亿级融资</h4>
+                    <p>赛富、创东方助力新未来</p>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <div id="foot-btm">
+        <div id="foot-btm-main">
+            <div class="area-top">
+                <div class="f-map">
+                    <ul>
+                        <li><a href="../www.touzhijia.com/about/company.html">关于我们</a></li>
+                        <li><a href="../www.touzhijia.com/about/consultant.html">专家顾问</a></li>
+                        <li><a href="../www.touzhijia.com/about/team.html">团队介绍</a></li>
+                        <li><a href="../www.touzhijia.com/about/contact.html">联系我们</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="../www.touzhijia.com/about/safety.html">安全评级</a></li>
+                        <li><a href="../www.touzhijia.com/about/media.html">媒体报道</a></li>
+                        <!--<li><a href="../www.touzhijia.com/topic/t1110.html">三重保障</a></li>-->
+                        <li><a href="../www.touzhijia.com/guide.html">新手指引</a></li>
+                        <li><a href="../www.touzhijia.com/about/plan.html">T盾保障</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="../www.touzhijia.com/about/career.html">招贤纳士</a></li>
+                        <li><a href="../www.touzhijia.com/about/strategy.html">投资攻略</a></li>
+                        <li><a href="../www.touzhijia.com/about/dynamic.html">行业新闻</a></li>
+                        <li><a href="../www.touzhijia.com/about/notice.html">网站公告</a></li>
+                    </ul>
+                </div>
+                <div class="f-code">
+                    <p id="f-dingyuhao">
+                        <img src="https://static.touzhijia.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
+                        <span>天眼投APP下载</span>
+                    </p>
+                    <p id="f-fuwuhao">
+                        <img src="https://static.touzhijia.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
+                        <span>官方服务号</span>
+                    </p>
+                    <!--<p id="f-wechat">
+            <img src="https://static.touzhijia.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
+            <span>理财顾问微信号</span>
+          </p>-->
+                </div>
+                <div class="f-hotline">
+                    <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
+                    <h2>400&nbsp;883&nbsp;1803</h2>
+                    <p>天眼投投资交流3群：452691932</p>
+                    <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
+                </div>
+            </div>
+            <div class="area-mid">
+                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.touzhijia.com" target="_blank"></a></span>
+                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.touzhijia.com" target="_blank"></a></span>
+                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&at=business" target="_blank"></a></span>
+                <span class="f-authen-4"><a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank"></a></span>
+            </div>
+            <div class="area-btm">
+                <p>
+                    公司地址：深圳市南山区特发信息科技大厦6楼<br />
+                    版权所有：深圳天眼投金融信息服务有限公司&nbsp;&nbsp;粤ICP备15053881号-2
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ad-float" id="action-728">
+    <a class="close-btn"><i class="iconfont">&#xe68b;</i></a>
+    <a href="http://topics.touzhijia.com/activities/anniversaryParty" title="梦想有礼 之家2周年" target="_blank"></a>
+</div>
+
+
+<div class="main-float-nav" id="main-float-navo" closebz="0">
+    <p class="close-nav"><a href="javascript:void(0);"><i class="iconfont">&#xe68b;</i></a></p>
+    <div class="figure">
+        <div class="eye1" id="eye1"></div>
+        <div class="eye2" id="eye2"></div>
+        <a href="../www.touzhijia.com/mascot.html" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>
+        <!-- https://www.touzhijia.com/mascot.html  -->
+    </div>
+    <p class="onoroff"><a href="javascript:void(0);"></a></p>
+    <ul>
+        <li>
+            <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe627;</i><br/>公告</a>
+            <div class="hovercon">
+                <p class="tap-show phonep"><a href="../www.touzhijia.com/about/notice.html">天眼投公告</a></p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60d;</i><br/>电话</a>
+            <div class="hovercon">
+                <p class="tap-show phonep">400 883 1803</p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe605;</i><br/>顾问</a>
+            <div class="hovercon server-hovercon">
+                <div class="tap-show customer-service">
+                    <p class="server-time"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA2NTc2NF8zMzA1NzBfNDAwODgzMTgwM18yXw" target="_blank">在线咨询</a></p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
+            <div class="hovercon wenxin-hovercon">
+                <p class="tap-show wenxinp">
+                    <img src="https://static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
+                    <span>天眼投服务号</span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);" class="returntop float-link"><i class="iconfont">&#xe670;</i><br/>顶部</a>
+            <div class="hovercon">
+                <p class="tap-show return-top"><a href="javascript:void(0);" class="returntop">返回顶部</a></p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="a_calc" class="alertbox">
+    <div class="boxbody">
+        <div class="boxheight">
+            <div class="boxcen ovf">
+                <div class="layer div_calc">
+                    <div class="counter">
+                        <form id="calcform">
+                            <ul>
+                                <li>
+                                    <p  class="inls_til">投资金额：</p>
+                                    <p class="inls_con"><input type="text" placeholder="" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d]/g,'') " id="amount" class="txt">&nbsp;元</p>
+                                </li>
+                                <li>
+                                    <p  class="inls_til">投入时长：</p>
+                                    <p class="inls_con"><input type="text" placeholder="" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d]/g,'') " id="deadline" class="txt" style="width:117px;">&nbsp;<span style="vertical-align: middle;"><input type="radio" name="time" value="1" checked="checked" style="margin-top:4px;"/>月 <input type="radio" name="time" value="2" style="margin-top:4px;"/>日</span></p>
+                                </li>
+                                <li>
+                                    <p  class="inls_til">年化利率：</p>
+                                    <p class="inls_con"><input type="text" placeholder="" onbeforepaste="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" onkeyup="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" id="interestRate" class="txt">&nbsp;％</p>
+                                </li>
+                                <li>
+                                    <p  class="inls_til">奖励比率：</p>
+                                    <p class="inls_con"><input type="text" placeholder="" onbeforepaste="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" onkeyup="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" id="creditRate" class="txt">&nbsp;％</p>
+                                </li>
+                                <li>
+                                    <p  class="inls_til">赎回方式：</p>
+                                    <p class="inls_con">
+                                        <select id="rePayWaySelect1" class="sel">
+                                            <option value="1">到期还本息</option>
+                                            <option value="2">按月还本息</option>
+                                            <option value="3">按季还本息</option>
+                                        </select>
+                                        <select style="display:none;" id="rePayWaySelect2" class="sel">
+                                            <option value="1">到期还本息</option>
+                                        </select>
+                                    </p>
+                                </li>
+                            </ul>
+                        </form>
+                        <div class="count_box_btn">
+                            <a href="javascript:void(0);" id="calcBtn" onclick=";" class="btn_count" title="计算">计算</a>
+                            <a href="javascript:void(0);" id="cancelCalcBtn" onclick="" class="btn_cencel" title="重置">重置</a>
+                        </div>
+                        <div class="result" id="resultCon" style="display:none"><span >本息合计：<i id="sumAmount">0</i> 元</span><span >利息收入：<i id="interest">0</i> 元</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/jquery-1.11.3.min.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/layer/layer.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/jquery.form.min.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/ucenter.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/pagination.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/actions.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/form.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/highcharts.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/fullcalendar/moment.min.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/fullcalendar/fullcalendar.min.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/fullcalendar/lang-all.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/tab.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/incomechart.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/platform-charts.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/lib/jquery.cookie.js~ver=20160431006"></script>
+<script type="text/javascript" src="../static.touzhijia.com/js/plugins/account.upgrade.js~ver=20160431006"></script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?35ff7ac4a0a7f3ffe61aaf8d3737077e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        $("[data-baidu-track]").on("click", function () {
+            var category = $(this).attr('data-baidu-track'),
+                    action = $(this).attr('data-baidu-track-action') || '',
+                    label = $(this).attr('data-baidu-track-label');
+            _hmt.push(['_trackEvent', category, 'click', label]);
+        });
+    })();
+</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+        var u = "//www.touzhijia.com/tongji/";
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', 7]);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'piwik.js';
+        s.parentNode.insertBefore(g, s);
+    })();
+    $(function() {
+        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=//static.touzhijia.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
+                </iframe>\
+                <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
+        $('#topbar-wx-qrcode').append(weixinBox);
+    })
+</script>
+<noscript><p><img src="https://www.touzhijia.com/tongji/piwik.php?idsite=7" style="border:0;" alt=""/></p></noscript>
+<!-- End Piwik Code -->
+<style type="text/css">
+    #cnzz_stat_icon_1258437437 {
+        display:none;
+    }
+</style>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258437437'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258437437' type='text/javascript'%3E%3C/script%3E"));</script></body>
+</html>

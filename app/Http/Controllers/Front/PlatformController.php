@@ -24,7 +24,7 @@ class PlatformController extends FrontController
 
     public function index()
     {
-        return view('front.platform.index');
+        return view('front.platform.platform');
     }
 
     public function project()

@@ -13,7 +13,7 @@
     $ref.load($target.attr('href'), function(res, status, xhr) {
       window.clearTimeout(timerId);
       if (status == "error") {
-        $ref.text('系统繁忙请稍后重试，投之家客服电话 400-883-1803');
+        $ref.text('系统繁忙请稍后重试，天眼投客服电话 400-883-1803');
       }
       //usercenter readapt
       if(!!Ucenter){

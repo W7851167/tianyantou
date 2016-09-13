@@ -134,7 +134,7 @@ function enableButton($elem, enable) {
       
       var ct = xhr.getResponseHeader('content-type');
       var $message = $form.find('.msg-wrap');
-      var messageText = '系统繁忙请稍后重试，投之家客服电话 400-883-1803';
+      var messageText = '系统繁忙请稍后重试，天眼投客服电话 400-883-1803';
       if (ct.indexOf('plain') > -1) {
         messageText = xhr.responseText;
       }

@@ -49,7 +49,7 @@ function registerActionCallback(name, callback) {
         if (ct.indexOf('plain') > -1) {
           messageBox(xhr.responseText, 2);
         } else {
-          messageBox('系统繁忙请稍后重试，投之家客服电话 400-883-1803', 2);
+          messageBox('系统繁忙请稍后重试，天眼投客服电话 400-883-1803', 2);
         }
       }
     });

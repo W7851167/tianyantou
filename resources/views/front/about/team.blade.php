@@ -14,7 +14,7 @@
                 <div class="style-quote noborder" style="margin-bottom: 0;">
                     <i class="l-quote"></i>
                     <i class="r-quote"></i>
-                    <p>投之家的成长离不开众多投资人的肯定和支持，感谢你们一路的支持，让我们知道努力是值得的，在这里，之家哥和之家妹将不断的优化平台的至美体验。</p>
+                    <p>天眼投的成长离不开众多投资人的肯定和支持，感谢你们一路的支持，让我们知道努力是值得的，在这里，之家哥和之家妹将不断的优化平台的至美体验。</p>
                 </div>
                 <img src="//static.touzhijia.com/images/about/teams.jpg?ver=20160431006">
             </div>
