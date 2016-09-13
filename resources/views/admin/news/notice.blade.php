@@ -22,17 +22,19 @@
                             <tr>
                                 <th width="100">编号</th>
                                 <th>公告标题</th>
+                                <th>分类标题</th>
                                 <th width="160">创建时间</th>
                                 <th width="80">操作</th>
                             </tr>
-                            @foreach($lists as $cat)
+                            @foreach($lists as $nv)
                                 <tr>
-                                    <td>{!! $cat->id !!}</td>
-                                    <td>{!! $cat->title !!}</td>
-                                    <td>{!! $cat->created_at !!}</td>
+                                    <td>{!! $nv->id !!}</td>
+                                    <td>{!! $nv->title !!}</td>
+                                    <td>{!! $nv->categoryName($nv->category_id) !!}</td>
+                                    <td>{!! $nv->created_at !!}</td>
                                     <td>
-                                        <a href="{!! url('news/notice/create/'.$cat->id) !!}">编辑</a>
-                                        <a href="{!! url('news/del/'.$cat->id) !!}">删除</a>
+                                        <a href="{!! url('news/notice/create/'.$nv->id) !!}">编辑</a>
+                                        <a href="{!! url('news/del/'.$nv->id) !!}">删除</a>
                                     </td>
                                 </tr>
                             @endforeach

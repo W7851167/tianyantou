@@ -199,9 +199,16 @@ class NewController extends AdminController
      */
     public function notice(Request $request)
     {
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 0,
+            'theme' => 3,
+        ];
+        $categorys = $this->new->getSystemCategorys($where);
         $page = $request->page ? (int)$request->page : 1;
-        $where = ['category_id' => 0];
-        list($count, $lists) = $this->new->getNewList($where, $page);
+        $categoryIds = array_column($categorys->toArray(), 'id');
+        $nWhere['in'] = ['category_id' => $categoryIds];
+        list($count, $lists) = $this->new->getNewList($nWhere, $page);
 
         $page = $this->pager($count, $page, $this->perpage);
 
@@ -224,11 +231,18 @@ class NewController extends AdminController
             return $this->error('发布公告失败', null, true);
         }
 
+        $where = [
+            'is_system' => 1,
+            'parent_id' => 0,
+            'theme' => 3,
+        ];
+        $categorys = $this->new->getSystemCategorys($where);
+
         if ($id) {
             $new = $this->new->newModel->find($id);
             if (empty($new)) return $this->error('该公告不存在或已删除!');
         }
-        return view('admin.news.noticecreate', compact('new'));
+        return view('admin.news.noticecreate', compact('new','categorys'));
     }
 
     /**
