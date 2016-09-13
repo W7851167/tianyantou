@@ -128,7 +128,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png6" alt="天眼投公众号" width="130">
+                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
