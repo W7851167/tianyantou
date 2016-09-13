@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>积分商城- 天眼投</title>
-    <link rel="stylesheet" href="//static.touzhijia.com/css/css.css?ver=20160431006" />
+    <link rel="stylesheet" href="http://static.tianyantou.com/css/css.css?ver=20160431006" />
 </head>
 <body>
 <div id="head">
@@ -40,7 +40,7 @@
                 <div class="contact">
                     <a href="http://weibo.com/touzhijia" target="_blank" class="h_weibo"></a>
                     <a id="h_weixin" href="#" class="h_weixin"></a>
-                    <img class="show-img" src="//static.touzhijia.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
+                    <img class="show-img" src="http://static.tianyantou.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
                 </div>
             </div>
         </div>
@@ -52,10 +52,10 @@
                          title="天眼投-中国领先的P2P网贷投资平台，您的个人理财专家"/>
                 </a>-->
                 <a href="https://www.touzhijia.com/" style="padding-left:26px;">
-                    <img src="//static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
+                    <img src="http://static.tianyantou.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
                 </a>
                 <a href="http://topics.touzhijia.com/activities/anniversaryParty" target="_blank">
-                    <img src="//static.touzhijia.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
+                    <img src="http://static.tianyantou.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
                 </a>
             </h1>
 
@@ -137,9 +137,9 @@
                 <div class="imgplay" id="mall-carousel">
                     <div class="imgplaycon">
                         <ul class="imglistcon">
-                            <li><a href="/shop/mission"><img src="//static.touzhijia.com/images/mall/carousel/3.jpg" /></a></li>
-                            <!--<li><a href="https://account.touzhijia.com/shop.html"><img src="//static.touzhijia.com/images/mall/carousel/1.jpg" /></a></li>
-                            <li><a href="/"><img src="//static.touzhijia.com/images/mall/carousel/2.jpg" /></a></li>-->
+                            <li><a href="/shop/mission"><img src="http://static.tianyantou.com/images/mall/carousel/3.jpg" /></a></li>
+                            <!--<li><a href="https://account.touzhijia.com/shop.html"><img src="http://static.tianyantou.com/images/mall/carousel/1.jpg" /></a></li>
+                            <li><a href="/"><img src="http://static.tianyantou.com/images/mall/carousel/2.jpg" /></a></li>-->
                         </ul>
                     </div>
                     <!--<p class="imgnav"><span class="active"></span><span></span></p>-->
@@ -168,29 +168,29 @@
                                     <table border="0" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td class="lottery-unit lottery-unit-0" class-id="0" data-id="oilcthQEBLX26Yf4IgsK">
-                                                <img src="https://static.touzhijia.com/images/shop/items/e38c0bd83dbc181d5af22f7cd328db22-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/e38c0bd83dbc181d5af22f7cd328db22-20160118.jpg" width="100">
                                                 <span>iPhone6s Plus</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-1" class-id="1" data-id="IDmOkm0SJ7DopJq9Tgc6">
-                                                <img src="https://static.touzhijia.com/images/shop/items/2ad97206607a25866fed00c06e12e1e6-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/2ad97206607a25866fed00c06e12e1e6-20160118.jpg" width="100">
                                                 <span>10元投资券</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-2" class-id="2" data-id="D7G84tWWRibjXXeqcjm9">
-                                                <img src="https://static.touzhijia.com/images/shop/items/e7ec1ec1e8aab3c43d6b4c645fb768fd-20160621.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/e7ec1ec1e8aab3c43d6b4c645fb768fd-20160621.jpg" width="100">
                                                 <span>悦卡洗车器</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-3" class-id="3" data-id="UtlriZ10tCS8BJd66PCO">
-                                                <img src="https://static.touzhijia.com/images/shop/items/47f04a17b94c4060e463cf7a2bc5ba43-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/47f04a17b94c4060e463cf7a2bc5ba43-20160118.jpg" width="100">
                                                 <span>钻石T码</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-4" class-id="4" data-id="eLE4c96VWOG6mh8loOt0">
-                                                <img src="https://static.touzhijia.com/images/shop/items/94b942c05d73cefe4c17e56493bfd99c-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/94b942c05d73cefe4c17e56493bfd99c-20160118.jpg" width="100">
                                                 <span>iPad mini4</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="lottery-unit lottery-unit-13" class-id="13" data-id="mSNk56AQgG4slCTLWgzk">
-                                                <img src="https://static.touzhijia.com/images/shop/items/7eca58fa55d885dd01259884ccdb926a-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/7eca58fa55d885dd01259884ccdb926a-20160118.jpg" width="100">
                                                 <span>黄金T码</span>
                                             </td>
                                             <td class="lottery-btn" colspan="3" rowspan="2">
@@ -198,37 +198,37 @@
                                                 <a class="go" rel="go" href="javascript:void(0);"></a>
                                             </td>
                                             <td class="lottery-unit lottery-unit-5" class-id="5" data-id="nrDGZbyIMoNla4qdv1HR">
-                                                <img src="https://static.touzhijia.com/images/shop/items/6bd09a78fb59f69a4b5d536e08ddd921-20160621.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/6bd09a78fb59f69a4b5d536e08ddd921-20160621.jpg" width="100">
                                                 <span>美的挂烫机</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="lottery-unit lottery-unit-12" class-id="12" data-id="Gno73v0tZW2pY7yW6ch5">
-                                                <img src="https://static.touzhijia.com/images/shop/items/2cb9830b0fdcc2e5825b57c7ca81861d-20160901.png" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/2cb9830b0fdcc2e5825b57c7ca81861d-20160901.png" width="100">
                                                 <span>30元投资券</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-6" class-id="6" data-id="Xo1M3VgT1UVvvsuKP9CJ">
-                                                <img src="https://static.touzhijia.com/images/shop/items/efcfe6e8ba806012aa2f3b3251118086-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/efcfe6e8ba806012aa2f3b3251118086-20160118.jpg" width="100">
                                                 <span>Apple Watch</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="lottery-unit lottery-unit-11" class-id="11" data-id="adfzojlC3lQ46Fcw25zo">
-                                                <img src="https://static.touzhijia.com/images/shop/items/dda7818f14ce168df1572dcfca9330c7-20160621.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/dda7818f14ce168df1572dcfca9330c7-20160621.jpg" width="100">
                                                 <span>凯仕乐按摩器</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-10" class-id="10" data-id="lSDkhL3S044aZzQlXxn4">
-                                                <img src="https://static.touzhijia.com/images/shop/items/4f0a65d1c2c32c47e1f352486851e483-20160624.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/4f0a65d1c2c32c47e1f352486851e483-20160624.jpg" width="100">
                                                 <span>小羊玫瑰金锁骨链</span>
                                             </td>
                                             <td class="lottery-unit lottery-unit-9" class-id="9" data-id="VRsrP5c5bxNWEXIg18f8">
-                                                <img src="https://static.touzhijia.com/images/shop/items/db4e62da88e73540e71424883fc43d61-20160621.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/db4e62da88e73540e71424883fc43d61-20160621.jpg" width="100">
                                                 <span>荣事达养生壶</span>
                                             </td>
-                                            <td class="lottery-unit lottery-unit-8"><img src="//static.touzhijia.com/images/mall/lottery-thx.jpg" class="thx">
+                                            <td class="lottery-unit lottery-unit-8"><img src="http://static.tianyantou.com/images/mall/lottery-thx.jpg" class="thx">
                                                 <h5>谢谢参与</h5></td>
                                             <td class="lottery-unit lottery-unit-7" class-id="7" data-id="ErG8wwPXh8iJBDZMtAwJ">
-                                                <img src="https://static.touzhijia.com/images/shop/items/c8b8ee1c2444f7c4bebbe8216a4fe161-20160118.jpg" width="100">
+                                                <img src="https:http://static.tianyantou.com/images/shop/items/c8b8ee1c2444f7c4bebbe8216a4fe161-20160118.jpg" width="100">
                                                 <span>2元提现券</span>
                                             </td>
                                         </tr>
@@ -243,7 +243,7 @@
                                     <div class="layer-content">
                                         <p>获得<span class="title" style="font-family: '微软雅黑'; font-size: 2.2rem;">IPHONE6S</span></p>
                                         <div class="prize">
-                                            <img class="stuff" src="https://static.touzhijia.com/images/shop/items/94b942c05d73cefe4c17e56493bfd99c-20151124.jpg" />
+                                            <img class="stuff" src="https:http://static.tianyantou.com/images/shop/items/94b942c05d73cefe4c17e56493bfd99c-20151124.jpg" />
                                         </div>
                                     </div>
                                 </div>
@@ -257,8 +257,8 @@
                             <div class="mall-item-list">
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/47f04a17b94c4060e463cf7a2bc5ba43-20151214.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/47f04a17b94c4060e463cf7a2bc5ba43-20151214.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>钻石T码                                    <span
                                                         class="rate">800                                        积分</span>
@@ -271,8 +271,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/7eca58fa55d885dd01259884ccdb926a-20151214.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/7eca58fa55d885dd01259884ccdb926a-20151214.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>黄金T码                                    <span
                                                         class="rate">400                                        积分</span>
@@ -285,8 +285,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/e7c908f5ca5f82ac2f1c3e3bfcf53328-20151214.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/e7c908f5ca5f82ac2f1c3e3bfcf53328-20151214.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>白银T码                                    <span
                                                         class="rate">200                                        积分</span>
@@ -299,8 +299,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/2ea8b3bb90aa3ba77c72c5eb983a54cc-20151214.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/2ea8b3bb90aa3ba77c72c5eb983a54cc-20151214.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>青铜T码                                    <span
                                                         class="rate">40                                        积分</span>
@@ -314,8 +314,8 @@
                                 <div class="item-box">
                                     <i
                                             class="soldout"></i>                        <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/6581c3aa8cc5ee9500a015682455eb19-20151222.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/6581c3aa8cc5ee9500a015682455eb19-20151222.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>2元提现券                                    <span
                                                         class="rate">300                                        积分</span>
@@ -328,8 +328,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/dff6f6b9fe1766bf12b212574a910df7-20151124.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/dff6f6b9fe1766bf12b212574a910df7-20151124.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>2014中国网络借贷行业蓝皮书                                    <span
                                                         class="rate">360                                        积分</span>
@@ -342,8 +342,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/ca557160610ab4bd2343fcb11b2d0cce-20160707.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/ca557160610ab4bd2343fcb11b2d0cce-20160707.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>新金融英雄                                    <span
                                                         class="rate">8000                                        积分</span>
@@ -356,8 +356,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/043a5a8aaab7df9b84c4dc55e4bf0537-20160629.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/043a5a8aaab7df9b84c4dc55e4bf0537-20160629.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>2015中国网络借贷行业蓝皮书                                    <span
                                                         class="rate">8000                                        积分</span>
@@ -370,8 +370,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/5d7d50c54262c330518c650282641c71-20160216.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/5d7d50c54262c330518c650282641c71-20160216.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>之家玩偶-之家妹                                    <span
                                                         class="rate">1000                                        积分</span>
@@ -384,8 +384,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/069028d928aaf1ca8b036406ba6f678e-20160621.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/069028d928aaf1ca8b036406ba6f678e-20160621.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>富士拍立得相机                                    <span
                                                         class="rate">34900                                        积分</span>
@@ -398,8 +398,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/19650812c7d82df635f9bf092418e81d-20160621.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/19650812c7d82df635f9bf092418e81d-20160621.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>汝窑 正品仿宋开片汝瓷功夫茶具                                    <span
                                                         class="rate">40000                                        积分</span>
@@ -412,8 +412,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/05c62e0c5704c73b9d7cb2636774eba6-20160325.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/05c62e0c5704c73b9d7cb2636774eba6-20160325.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>众筹之家现金券                                    <span
                                                         class="rate">300                                        积分</span>
@@ -426,8 +426,8 @@
 
                                 <div class="item-box">
                                     <div class="item-main">
-                                        <img src="https://static.touzhijia.com/images/shop/items/d6d7e87f9bc9665f9245f3ad4f207a4a-20160509.jpg"
-                                             onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                        <img src="https:http://static.tianyantou.com/images/shop/items/d6d7e87f9bc9665f9245f3ad4f207a4a-20160509.jpg"
+                                             onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                         <div class="item-info">
                                             <h4>齐家网装修优惠券                                    <span
                                                         class="rate">50                                        积分</span>
@@ -453,8 +453,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/52ad23a31f2cb3eba817833336208dae-20160317.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/52ad23a31f2cb3eba817833336208dae-20160317.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>石投金融</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -479,8 +479,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/9f64479bab1422b39d22ba7823aee4d5-20151208.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/9f64479bab1422b39d22ba7823aee4d5-20151208.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>天天财富</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -505,8 +505,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/a241265d996be5020030853b83dd1e81-20151223.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/a241265d996be5020030853b83dd1e81-20151223.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>联豪创投</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -531,8 +531,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/6d6a0e29bfdde2435d8b53ccf02792d7-20151208.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/6d6a0e29bfdde2435d8b53ccf02792d7-20151208.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>楚金所</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -557,8 +557,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/9291aea62f776e39ed90577ce4c06578-20151208.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/9291aea62f776e39ed90577ce4c06578-20151208.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>生菜金融</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -584,8 +584,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/f819fd01195f60fb4a64cf093b72073c-20151228.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/f819fd01195f60fb4a64cf093b72073c-20151228.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>汇盈金服</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -611,8 +611,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/71ea43fdc7f7bf5cfc0febee8348d1dd-20160428.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/71ea43fdc7f7bf5cfc0febee8348d1dd-20160428.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>信用宝</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -638,8 +638,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/dc827d4742d8999a184a3619a0582c18-20151229.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/dc827d4742d8999a184a3619a0582c18-20151229.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>易贷网</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -665,8 +665,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/071aaa06bc9e40116199a6321db034c7-20160223.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/071aaa06bc9e40116199a6321db034c7-20160223.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>万盈金融</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -692,8 +692,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/17c9863b4484cd05005af462600fafbc-20151228.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/17c9863b4484cd05005af462600fafbc-20151228.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>e路同心</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -719,8 +719,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/8a37924a6277c0c71b740dd91dbbc65f-20151225.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/8a37924a6277c0c71b740dd91dbbc65f-20151225.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>91旺财</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -746,8 +746,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/f3028a5bef6ebf5ecfd30120b0a74cdc-20160111.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/f3028a5bef6ebf5ecfd30120b0a74cdc-20160111.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>博金贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -772,8 +772,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/1b4b81ac30516d9f6174a898b600d76c-20151208.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/1b4b81ac30516d9f6174a898b600d76c-20151208.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>合盘贷</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -798,8 +798,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/c073eb689605a55a7b7f1e7c20294b63-20160509.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/c073eb689605a55a7b7f1e7c20294b63-20160509.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>开鑫贷</p>
                                             <span><em>0.3</em>%</span>
                                         </div>
@@ -825,8 +825,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/9316d07eb652bd1a6e47f63758cfbe64-20160511.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/9316d07eb652bd1a6e47f63758cfbe64-20160511.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>车能贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -851,8 +851,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/86b352e7370f7eed005d2783d638be05-20160718.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/86b352e7370f7eed005d2783d638be05-20160718.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>汇投网</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -878,8 +878,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/7dbf0c0e9dde97715e0768c5b08a725a-20151223.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/7dbf0c0e9dde97715e0768c5b08a725a-20151223.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>聚金资本</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -905,8 +905,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/982b6b4610bb43174ebb9dd930a04c26-20151225.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/982b6b4610bb43174ebb9dd930a04c26-20151225.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>珠宝贷</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -931,8 +931,8 @@
                                     <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/772723e551778d5d783507c42729c875-20160629.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/772723e551778d5d783507c42729c875-20160629.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>杉易贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -958,8 +958,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/14e4f026e749e954f23e8757a6012f9e-20151223.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/14e4f026e749e954f23e8757a6012f9e-20151223.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>融资易</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -985,8 +985,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/14e4f026e749e954f23e8757a6012f9e-20151223.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/14e4f026e749e954f23e8757a6012f9e-20151223.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>立业贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -1012,8 +1012,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/a241265d996be5020030853b83dd1e81-20151223.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/a241265d996be5020030853b83dd1e81-20151223.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>达人贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -1039,8 +1039,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/17c9863b4484cd05005af462600fafbc-20151228.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/17c9863b4484cd05005af462600fafbc-20151228.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>投哪网</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -1066,8 +1066,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/6386a45f04784d91d5f7de495a01911f-20151221.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/6386a45f04784d91d5f7de495a01911f-20151221.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>粤商贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -1093,8 +1093,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/3c2e8a88f8753bc279a5e6db457b70c9-20151225.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/3c2e8a88f8753bc279a5e6db457b70c9-20151225.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>广州e贷</p>
                                             <span><em>1.0</em>%</span>
                                         </div>
@@ -1120,8 +1120,8 @@
                                             class="soldout"></i>                        <div class="item-main item-quan">
                                         <div class="quan-img">
                                             <img
-                                                    src="https://static.touzhijia.com/images/shop/items/a5e09bfb3de51a2242f0129514828f94-20151224.png"
-                                                    onerror="this.src='https://static.touzhijia.com/images/user/headerimg1.png?ver=20151008001'">
+                                                    src="https:http://static.tianyantou.com/images/shop/items/a5e09bfb3de51a2242f0129514828f94-20151224.png"
+                                                    onerror="this.src='https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20151008001'">
                                             <p>信融财富</p>
                                             <span><em>0.5</em>%</span>
                                         </div>
@@ -1244,15 +1244,15 @@
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="//static.touzhijia.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
+                        <img src="http://static.tianyantou.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
                         <span>天眼投APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="//static.touzhijia.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
+                        <img src="http://static.tianyantou.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
-            <img src="//static.touzhijia.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
+            <img src="http://static.tianyantou.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
             <span>理财顾问微信号</span>
           </p>-->
                 </div>
@@ -1319,7 +1319,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="//static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
+                    <img src="http://static.tianyantou.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
@@ -1382,21 +1382,21 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/layer/layer.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/layer/layer.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/pagination.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/pagination.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/actions.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/actions.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/tab.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/tab.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/ucenter.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/ucenter.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/normalplugins.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/normalplugins.js?ver=20160431006"></script>
 
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/shop.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/shop.js?ver=20160431006"></script>
 
 </body>
 </html>

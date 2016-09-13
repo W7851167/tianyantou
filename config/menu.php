@@ -33,6 +33,7 @@ return [
         ]],
         ['name' => '数据统计', 'url' => 'census', 'tag' => 'census', 'child' => [
             ['name' => '数据统计', 'url' => 'census', 'tag' => 'census.census.index'],
+            ['name' => '首页轮播', 'url' => 'ad', 'tag' => 'census.ad.index'],
         ]],
         ['name' => '系统管理', 'url' => 'system', 'tag' => 'system', 'child' => [
             ['name' => '系统管理', 'url' => 'system', 'tag' => 'system.system.index'],

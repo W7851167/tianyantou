@@ -128,7 +128,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png6" alt="天眼投公众号" width="130">
+                    <img src="{!! config('app.static_url') !!}/images/index/webxin.png" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
@@ -193,6 +193,7 @@
 </div>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
+<!--
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/ucenter.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/pagination.js"></script>
@@ -207,6 +208,7 @@
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/platform-charts.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.cookie.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/account.upgrade.js"></script>
+-->
 @yield('script')
 </body>
 </html>

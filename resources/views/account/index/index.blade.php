@@ -12,7 +12,7 @@
             <ul class="first-menu">
                 <li>
                     <div class="user-avatar">
-                        <img src="https://static.touzhijia.com/images/user/headerimg1.png?ver=20160431006" alt="" width="100" height="100">
+                        <img src="https:http://static.tianyantou.com/images/user/headerimg1.png?ver=20160431006" alt="" width="100" height="100">
         <span class="user-nickname" title="zhuxishun">
           zhuxishun                  </span>
                         <p class="accoount-validation mt10">
@@ -88,7 +88,7 @@
 
                 <!-- <div class="module-devider"></div>
                 <a href="javascript:;" class="broadcast-placeholder">
-                  <img src="https://static.touzhijia.com/images/user/report.png?ver=20160431006" alt="" width="926" height="60">
+                  <img src="https:http://static.tianyantou.com/images/user/report.png?ver=20160431006" alt="" width="926" height="60">
                 </a> -->
                 <div class="module-devider"></div>
                 <div>
@@ -204,7 +204,7 @@
                         <li>
                             <a href="../www.touzhijia.com/platform/detail_erongsuo.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="e融所">
                                 <p class="logoimgp">
-                                    <img src="https://static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" alt="e融所" title="e融所" height="55">
+                                    <img src="https:http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" alt="e融所" title="e融所" height="55">
                                 </p>
                             </a>
                         </li>
@@ -253,7 +253,7 @@
                         <li>
                             <a href="../www.touzhijia.com/platform/detail_kaixindai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-7']);" target="_blank" title="开鑫贷">
                                 <p class="logoimgp">
-                                    <img src="https://static.touzhijia.com/upload/image/bidimg/logo_recommend_img/201605031509119460.png?ver=20160431006" alt="开鑫贷" title="开鑫贷" height="55">
+                                    <img src="https:http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/201605031509119460.png?ver=20160431006" alt="开鑫贷" title="开鑫贷" height="55">
                                 </p>
                             </a>
                         </li>

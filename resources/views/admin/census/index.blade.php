@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title')数据统计@stop
 @section('content')
     <div class="content-all">
         <div class="content clearfix">

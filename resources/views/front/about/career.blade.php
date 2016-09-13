@@ -12,7 +12,7 @@
             <h2>招贤纳士</h2>
             <div class="content join">
                 <p class="join-para">
-                    <img src="//static.touzhijia.com/images/about/joinus.jpg?ver=20160431006">
+                    <img src="http://static.tianyantou.com/images/about/joinus.jpg?ver=20160431006">
 
                     我们需要勇往直前的开拓者，需要精益求精的坚守者。如果你肯创新，有冲劲，肯拼搏，有自信，那请搭上“天眼投”的快船，成就你的梦想，欢迎加入我们的团队！<br/>
                     我们将为你提供优厚福利 ：<br/>

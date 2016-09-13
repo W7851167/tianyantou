@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="dns-prefetch" href="//static.touzhijia.com">
+    <link rel="dns-prefetch" href="http://static.tianyantou.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>网贷选标中心_网贷选标安全评级_网贷选标特色数据_天眼投</title>
     <meta name="keywords" content="天眼投专家顾问，天眼投顾问团队，天眼投理财投资平台">
     <meta name="description" content="天眼投是国内领先的P2P网贷评级、选标和服务平台，为您提供精选多项P2P组合，分散投资债券理财，为投资者推荐优良的P2P选标和P2P投资服务。">
-    <link rel="stylesheet" href="//static.touzhijia.com/css/css.css?ver=20160431006" />
+    <link rel="stylesheet" href="http://static.tianyantou.com/css/css.css?ver=20160431006" />
 </head>
 <body>
 <!--头部开始 -->
@@ -46,7 +46,7 @@
                 <div class="contact">
                     <a href="http://weibo.com/touzhijia" target="_blank" class="h_weibo"></a>
                     <a id="h_weixin" href="#" class="h_weixin"></a>
-                    <img class="show-img" src="//static.touzhijia.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
+                    <img class="show-img" src="http://static.tianyantou.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
                 </div>
             </div>
         </div>
@@ -58,10 +58,10 @@
                          title="天眼投-中国领先的P2P网贷投资平台，您的个人理财专家"/>
                 </a>-->
                 <a href="https://www.touzhijia.com/" style="padding-left:26px;">
-                    <img src="//static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
+                    <img src="http://static.tianyantou.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
                 </a>
                 <a href="http://topics.touzhijia.com/activities/anniversaryParty" target="_blank">
-                    <img src="//static.touzhijia.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
+                    <img src="http://static.tianyantou.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
                 </a>
             </h1>
 
@@ -188,7 +188,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016042514215357154.jpg?ver=20160431006" style="width:147px;" alt="立业贷" title="立业贷">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016042514215357154.jpg?ver=20160431006" style="width:147px;" alt="立业贷" title="立业贷">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="盈车贷NO.DGCD6434">盈车贷NO.DGCD6434</span>项目金额：<em>￥67,600</em></td>
@@ -218,7 +218,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" style="width:147px;" alt="e融所" title="e融所">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" style="width:147px;" alt="e融所" title="e融所">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="新手福利标160909X">新手福利标160909X</span>项目金额：<em>￥200,000</em></td>
@@ -248,7 +248,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015092810324639258.jpg?ver=20160431006" style="width:147px;" alt="聚金资本" title="聚金资本">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015092810324639258.jpg?ver=20160431006" style="width:147px;" alt="聚金资本" title="聚金资本">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="【三板贷】160909DL02">【三板贷】160909DL02</span>项目金额：<em>￥250,000</em></td>
@@ -278,7 +278,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015122416104392090.jpg?ver=20160431006" style="width:147px;" alt="万盈金融" title="万盈金融">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015122416104392090.jpg?ver=20160431006" style="width:147px;" alt="万盈金融" title="万盈金融">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="Z20160910011326342">Z20160910011326342</span>项目金额：<em>￥61,744</em></td>
@@ -308,7 +308,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver=20160431006" style="width:147px;" alt="达人贷" title="达人贷">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver=20160431006" style="width:147px;" alt="达人贷" title="达人贷">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="装修">装修</span>项目金额：<em>￥687</em></td>
@@ -338,7 +338,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080213010228018.jpg?ver=20160431006" style="width:147px;" alt="短融网" title="短融网">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016080213010228018.jpg?ver=20160431006" style="width:147px;" alt="短融网" title="短融网">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="车押宝C201605103">车押宝C201605103</span>项目金额：<em>￥160,000</em></td>
@@ -368,7 +368,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015040216291964108.jpg?ver=20160431006" style="width:147px;" alt="合盘贷" title="合盘贷">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015040216291964108.jpg?ver=20160431006" style="width:147px;" alt="合盘贷" title="合盘贷">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="定期通X_1609091">定期通X_1609091</span>项目金额：<em>￥300,000</em></td>
@@ -398,7 +398,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016051016490399818.jpg?ver=20160431006" style="width:147px;" alt="车能贷" title="车能贷">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016051016490399818.jpg?ver=20160431006" style="width:147px;" alt="车能贷" title="车能贷">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="ZT201609080003">ZT201609080003</span>项目金额：<em>￥10,000</em></td>
@@ -428,7 +428,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015041617455545546.jpg?ver=20160431006" style="width:147px;" alt="珠宝贷" title="珠宝贷">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015041617455545546.jpg?ver=20160431006" style="width:147px;" alt="珠宝贷" title="珠宝贷">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="珠宝贷201609090035">珠宝贷201609090035</span>项目金额：<em>￥5,000,000</em></td>
@@ -458,7 +458,7 @@
                                 <td class="plat-img">
                                     <!--
                                       <i class="event-icon"></i>
-                                    -->            <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015080414060923178.jpg?ver=20160431006" style="width:147px;" alt="汇盈金服" title="汇盈金服">
+                                    -->            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015080414060923178.jpg?ver=20160431006" style="width:147px;" alt="汇盈金服" title="汇盈金服">
                                 </td>
                                 <td class="bond-number">
                                     <span class="text-ellipsis" title="潍坊市徐先生个人房产抵押借款第一期【共四期】">潍坊市徐先生个人房产抵押借款第一期【共四期】</span>项目金额：<em>￥500,000</em></td>
@@ -550,15 +550,15 @@
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="//static.touzhijia.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
+                        <img src="http://static.tianyantou.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
                         <span>天眼投APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="//static.touzhijia.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
+                        <img src="http://static.tianyantou.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
-            <img src="//static.touzhijia.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
+            <img src="http://static.tianyantou.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
             <span>理财顾问微信号</span>
           </p>-->
                 </div>
@@ -625,7 +625,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="//static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
+                    <img src="http://static.tianyantou.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
@@ -688,18 +688,18 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery.dotdotdot.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/layer/layer.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/imgopacity.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/imgmove.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/tab.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/form.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/login.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/filterEllipsis.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/main.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/laypage/laypage.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/platform.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery.dotdotdot.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/layer/layer.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/imgopacity.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/imgmove.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/tab.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/form.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/login.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/filterEllipsis.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/main.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/laypage/laypage.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/platform.js?ver=20160431006"></script>
 
 <script>
     var _hmt = _hmt || [];
@@ -734,7 +734,7 @@
         s.parentNode.insertBefore(g, s);
     })();
     $(function() {
-        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=//static.touzhijia.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
+        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=http://static.tianyantou.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
                 </iframe>\
                 <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
         $('#topbar-wx-qrcode').append(weixinBox);
