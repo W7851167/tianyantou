@@ -34,3 +34,7 @@
 </div>
 <!--BODY END-->
 @stop
+
+@section('script')
+    @include('front.about.script')
+@stop

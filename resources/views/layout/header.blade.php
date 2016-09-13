@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="always" name="referrer">
     <title>@yield('title')</title>
     <meta name="keywords" content="@yield('description')">
     <meta name="description" content="@yield('description')">
