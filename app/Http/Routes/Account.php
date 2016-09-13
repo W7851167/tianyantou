@@ -23,6 +23,10 @@ Route::group(['middleware' => 'middle.account'], function () {
     //账户管理
     Route::get('safe.html',['as'=>'safe','uses'=>'AccountController@safe']);
     Route::get('bankcard.html',['as'=>'safe','uses'=>'AccountController@bankcard']);
+    //活动专区
+    Route::get('activity/recommend.html',['as'=>'activity.recommend','uses'=>'ActivityController@recommend']);
+    Route::get('shop.html',['as'=>'shop','uses'=>'ActivityController@shop']);
+    Route::get('message.html',['as'=>'message','uses'=>'MessageController@index']);
 });
 Route::get('signin.html', 'PassportController@signin');
 Route::get('signin/captcha', 'PassportController@captcha');
