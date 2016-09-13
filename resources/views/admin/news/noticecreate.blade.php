@@ -25,6 +25,14 @@
                                 <td width="200"><span>*</span>公告标题：</td>
                                 <td width="728"><input name="data[title]" class="case_input" type="text" value="{!! $new->title or '' !!}"></td>
                             </tr>
+                            <tr>
+                                <td><span>*</span>所属分类：</td>
+                                <td width="728">
+                                    <select class="case_select" name="data[category_id]">
+                                        @foreach($categorys as $cat)<option value="{!! $cat->id !!}" @if(isset($new->category_id) && $new->category_id==$cat->id)selected @endif>{!! $cat->title !!}</option>@endforeach
+                                    </select>
+                                </td>
+                            </tr>
                             <tr class="case_compile">
                                 <td><span>*</span>公告内容：</td>
                                 <td>
