@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title') 控制面板 @stop
 @section('style')
     {!!HTML::style('admin/css/index.css')!!}
 @endsection
