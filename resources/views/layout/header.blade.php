@@ -32,7 +32,7 @@
     </script>
     <div id="head-top">
         <div id="head-top-main">
-            <p>服务热线：400-883-1803（工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00）</p>
+            <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
             @if(empty($user['username']))
             <div class="top-menu">
                 <div class="log">欢迎来到天眼投！请<a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
@@ -72,7 +72,6 @@
                 <a href="{!! config('app.url') !!}/about/company.html">关于我们</a>
                 <span class="line"></span>
                 <div class="contact">
-                    <a href="http://weibo.com/tianyantou" target="_blank" class="h_weibo"></a>
                     <a id="h_weixin" href="#" class="h_weixin"></a>
                     <img class="show-img" src="{!! config('app.static_url')!!}/images/common/h_weixin.jpg" width="163">
                 </div>
@@ -90,11 +89,9 @@
                 <div class="curr-line"></div>
                 <ul>
                     <li class=""><a href="{!! config('app.url') !!}/">首页</a></li>
-                    <li class=""><a href="{!! config('app.url') !!}/platform/">选平台</a></li>
-                    <li class=""><a href="{!! config('app.url') !!}/platform/project.html">选标中心</a></li>
-                    <li class=""><a href="{!! config('app.url') !!}/current/">活期</a></li>
-                    <li class=""><a href="{!! config('app.url') !!}/debt/">定期</a></li>
-                    <li class=""><a href="{!! config('app.url') !!}/shop/">积分商城</a></li>
+                    <li class=""><a href="{!! config('app.url') !!}/platform">精选平台</a></li>
+                    <li class=""><a href="{!! config('app.url') !!}/plan">天眼盾</a></li>
+                    <li class=""><a href="{!! config('app.url') !!}/shop">积分商城</a></li>
                 </ul>
             </div>
         </div>

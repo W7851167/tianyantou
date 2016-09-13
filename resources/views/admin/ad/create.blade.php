@@ -28,6 +28,10 @@
                             <div class="infospaceAddLeft"><span>*</span>URL：</div>
                             <div><input type="text" name="data[url]" placeholder="跳转地址" value="{!! $adv->url or '' !!}"></div>
                         </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>排序：</div>
+                            <div><input type="text" name="data[sorts]" placeholder="数值大靠前" value="{!! $adv->sorts or '' !!}"></div>
+                        </div>
                         <div class="infospaceAddImg">
                             <div class="infospaceAddLeft h80"><span>*</span>广告图片：</div>
                             <div id="storeimg">

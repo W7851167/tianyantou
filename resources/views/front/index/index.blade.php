@@ -11,12 +11,13 @@
         <div class="banner-con">
             <div class="banner-play" id="banner-play-mod">
                 <div class="banner-play-con imgplaycon">
-                    <a href="{!! config('app.topics_url') !!}/activities/anniversaryParty" title="梦想有礼，之家两周年庆" target="_blank"><img src="{!! config('app.static_url') !!}/upload/image/banner/20160902/20160902114415_14070.jpg?ver={!! time() !!}" alt="梦想有礼，之家两周年庆"/></a>
-                    <a href="{!! config('app.topics_url') !!}/activities/anniversary" title="天眼投两周年庆暨A轮融资发布会" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160902/20160902145203_56236.png?ver={!! time() !!}" alt="天眼投两周年庆暨A轮融资发布会"/></a>
-                    <a href="{!! config('app.topics_url') !!}/monthly/201608" title="天眼投8月运营报告" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160902/20160902190437_65949.jpg?ver={!! time() !!}" alt="天眼投8月运营报告"/></a>
-                    <a href="{!! config('app.ask_url') !!}/question/77" title="天眼投两周年送好礼" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160831/20160831211411_85242.png?ver={!! time() !!}" alt="天眼投两周年送好礼"/></a>
-                    <a href="{!! config('app.topics_url') !!}/newregister" title="新手注册享三重好礼" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160831/20160831152615_97248.png?ver={!! time() !!}" alt="新手注册享三重好礼"/></a>
-                    <a href="{!! config('app.url') !!}/about/consultant.html" title="天眼投专家顾问团队" target="_blank"><img src="http://static.tianyantou.com/upload/image/banner/20160418/20160418095418_13566.jpg?ver={!! time() !!}" alt="天眼投专家顾问团队"/></a>
+                    @if(!empty($advs))
+                        @foreach($advs as $av)
+                            @if(!empty($av->image->name))
+                            <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->image->name !!}" alt="{!! $av->title !!}"/></a>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
                 <a href="javascript:void(0);" class="perbtn"><i class="iconfont">&#xe65f;</i></a>
                 <a href="javascript:void(0);" class="nextbtn"><i class="iconfont">&#xe660;</i></a>
@@ -29,7 +30,8 @@
                         <p class="fund-num">专项赎回基金：<span class="data-num" datanum="13,109,942"></span>元</p>
                     </div>
                     <div class="main-data-mask"></div>
-                </div>            </div>
+                </div>
+            </div>
         </div>
 
         <!-- 大轮播区 e-->
@@ -94,9 +96,9 @@
             <div class="notice">
                 <h3 class="notice-title"><span><i class="iconfont">&#xe627;</i>&nbsp;&nbsp;公告</span> <a href="{!! config('app.url') !!}/about/notice.html" target="_blank">更多>></a></h3>
                 <ul class="notice-list">
-                    <li><a href="{!! config('app.url') !!}/about/notice/3188.html" target="_blank">骏业日新，天眼投迁新家啦</a><span>09-05</span></li>
-                    <li><a href="{!! config('app.url') !!}/about/notice/3187.html" target="_blank">感恩回馈！天眼投“红包”全新上线</a><span>09-02</span></li>
-                    <li><a href="{!! config('app.url') !!}/about/notice/3185.html" target="_blank">关于暂停与国诚金融合作的公告</a><span>08-31</span></li>
+                    @foreach($notices as $nv)
+                    <li><a href="{!! config('app.url') !!}/about/notice/{{$nv->id}}.html" target="_blank">{!! $nv->title !!}</a><span>{!! date('m-d',strtotime($nv->created_at)) !!}</span></li>
+                    @endforeach
                 </ul>
             </div>        </div>
         <!-- 数据展示区 e-->
@@ -106,310 +108,36 @@
         <!-- 推荐 s-->
         <div class="index-main-modcon">
             <ul class="platform-list-con">
+                @foreach($tasks as $tv)
                 <li>
                     <p class="platform-ad">
-                        <a en-name="erongsuo" href="{!! config('app.url') !!}/platform/detail_erongsuo.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/erongsuo.jpg?ver={!! time() !!}" height="129" width="294" alt="e融所"></a>
+                        <a  href="{!! config('app.url') !!}/platform/detail_{!! $tv->id or 0!!}.html"  target="_blank" title="点击了解详情"><img src="{!! config('app.static_url') !!}{!! $tv->corp->ad_logo or '' !!}" height="129" width="294" alt="{!! $tv->corp->platform or ''!!}"></a>
                     </p>
                     <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_erongsuo.html" target="_blank" class="plat-logo" title="e融所">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/201608081012379276.png?ver={!! time() !!}" width="70" alt="">
+                        <a href="{!! config('app.url') !!}/platform/detail_{!! $tv->id or 0!!}.html" target="_blank" class="plat-logo" title="{!! $tv->corp->platform or '' !!}">
+                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo !!}" width="70" alt="">
                         </a>
-                        <h4 class="debt-title" title="新手福利标160909X">新手福利标160909X        </h4>
+                        <h4 class="debt-title" title="{!! $tv->title or '' !!}">{!! $tv->title or '' !!}</h4>
                         <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>15.00</b><i>%</i></p>
+                            <p class="earnings-num">年化收益率<br/><b>{!! $tv->ratio !!}</b><i>%</i></p>
                             <p class="time-limit-num">
-                                期限<br/><b>10</b><i>天</i>
+                                期限<br/><b>{!! $tv->term !!}</b><i>天</i>
                             </p>
-                            <p class="safe-leavel">安全级别<br><b>BBB</b></p>
+                            <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>
                         <p class="goin-btn">
-                            <span>可购金额：10,000 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='https://www.myerong.com/financing/sbtz/bdxq/1216.html'
-                                data-bid="1216"
-                                href="javascript:void(0);"
-                                data-en-name="erongsuo"
-                                data-invest-id="1216"
-                                title="新手福利标160909X"
+                            <span>可购金额：{!! money_format('%.2n', $tv->limit) !!} 元</span>
+                            <a
+                                data-inversurl='{!! $tv->url or '' !!}'
+                                title="{!! $tv->title !!}"
                                 class="btn btn-blue" title="投资">投资</a>
                         </p>
                     </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="huitouwang" href="{!! config('app.url') !!}/platform/detail_huitouwang.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/huitouwang.jpg?ver={!! time() !!}" height="129" width="294" alt="汇投网"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_huitouwang.html" target="_blank" class="plat-logo" title="汇投网">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016071813583224369.jpg?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="新手专属-JQ201609075">新手专属-JQ20160907...        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>8.80</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>3</b><i>天</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>A</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：100,000 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-1']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='http://www.huitoubj.com/projects/project.html?code=TZ14734086302'
-                                data-bid="7876"
-                                href="javascript:void(0);"
-                                data-en-name="huitouwang"
-                                data-invest-id="7876"
-                                title="新手专属-JQ201609075"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="xinyongbao" href="{!! config('app.url') !!}/platform/detail_xinyongbao.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/xinyongbao.jpg?ver={!! time() !!}" height="129" width="294" alt="信用宝"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_xinyongbao.html" target="_blank" class="plat-logo" title="信用宝">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016042614212639089.jpg?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="信投宝_27848">信投宝_27848        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>12.60</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>18</b><i>月</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>BB</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：12,238 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-2']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='https://www.xyb100.com/invest/xtb/27848?channel=61000'
-                                data-bid="xtb_27848"
-                                href="javascript:void(0);"
-                                data-en-name="xinyongbao"
-                                data-invest-id="xtb_27848"
-                                title="信投宝_27848"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="rxdai" href="{!! config('app.url') !!}/platform/detail_rxdai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/rxdai.jpg?ver={!! time() !!}" height="129" width="294" alt="投哪网"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_rxdai.html" target="_blank" class="plat-logo" title="投哪网">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2014112621334890473.jpg?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="年省心Ⅱ">年省心Ⅱ        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>10.50</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>18</b><i>月</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>A</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：230,000 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-3']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='http://www.touna.cn/monthLot-detail.html?id=16722'
-                                data-bid="smart_16722"
-                                href="javascript:void(0);"
-                                data-en-name="rxdai"
-                                data-invest-id="smart_16722"
-                                title="年省心Ⅱ"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="duanrongwang" href="{!! config('app.url') !!}/platform/detail_duanrongwang.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/duanrongwang.jpg?ver={!! time() !!}" height="129" width="294" alt="短融网"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_duanrongwang.html" target="_blank" class="plat-logo" title="短融网">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016080213010267196.jpg?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="车押宝C201605103">车押宝C201605103        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>14.00</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>5</b><i>天</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>BBB</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：75,200 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-4']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='http://www.duanrong.com/loanDetail/160907140735969074'
-                                data-bid="160907140735969074"
-                                href="javascript:void(0);"
-                                data-en-name="duanrongwang"
-                                data-invest-id="160907140735969074"
-                                title="车押宝C201605103"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="zhubaodai" href="{!! config('app.url') !!}/platform/detail_zhubaodai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/zhubaodai.jpg?ver={!! time() !!}" height="129" width="294" alt="珠宝贷"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_zhubaodai.html" target="_blank" class="plat-logo" title="珠宝贷">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2015041617455587746.jpg?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="珠宝贷201609090035">珠宝贷201609090035        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>13.00</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>6</b><i>月</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>AA</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：3,900,000 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-5']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='https://secure.zhubaodai.com/investmentDetail/investmentDetails/'
-                                data-bid="JK16090919377881"
-                                href="javascript:void(0);"
-                                data-en-name="zhubaodai"
-                                data-invest-id="JK16090919377881"
-                                title="珠宝贷201609090035"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="huiyingdai" href="{!! config('app.url') !!}/platform/detail_huiyingdai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/huiyingdai.jpg?ver={!! time() !!}" height="129" width="294" alt="汇盈金服"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_huiyingdai.html" target="_blank" class="plat-logo" title="汇盈金服">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/20150804140609844.jpg?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="潍坊市徐先生个人房产抵押借款第一期【共四期】">潍坊市徐先生个人房产抵押借款第...        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>13.00</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>6</b><i>月</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>BBB</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：400,000 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-6']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='http://www.hyjf.comproject/getProjectDetail.do?borrowNid=ZXH160904801.html'
-                                data-bid="ZXH160904801"
-                                href="javascript:void(0);"
-                                data-en-name="huiyingdai"
-                                data-invest-id="ZXH160904801"
-                                title="潍坊市徐先生个人房产抵押借款第一期【共四期】"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                                            <li>
-                    <p class="platform-ad">
-                        <a en-name="kaixindai" href="{!! config('app.url') !!}/platform/detail_kaixindai.html"  target="_blank" title="点击了解详情"><img src="http://static.tianyantou.com/images/index/new/kaixindai.jpg?ver={!! time() !!}" height="129" width="294" alt="开鑫贷"></a>
-                    </p>
-                    <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/detail_kaixindai.html" target="_blank" class="plat-logo" title="开鑫贷">
-                            <img src="http://static.tianyantou.com/upload/image/bidimg/logo_img/2016050315091179206.png?ver={!! time() !!}" width="70" alt="">
-                        </a>
-                        <h4 class="debt-title" title="变现贷BX160910041367">变现贷BX1609100413...        </h4>
-                        <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>8.77</b><i>%</i></p>
-                            <p class="time-limit-num">
-                                期限<br/><b>42</b><i>天</i>
-                            </p>
-                            <p class="safe-leavel">安全级别<br><b>AAA</b></p>
-                        </div>
-                        <p class="goin-btn">
-                            <span>可购金额：107,405 元</span>
-                            <a  rel="invest_layer"
-                                onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-7']);"
-                                flag = "0"                data-isskip="0"
-                                data-inversurl='http://www.gkkxd.com/trade/invest/viewInvestableRealizeDetail/1b'
-                                data-bid="1b1558f54c8642e8a5df99bdaff13a20"
-                                href="javascript:void(0);"
-                                data-en-name="kaixindai"
-                                data-invest-id="1b1558f54c8642e8a5df99bdaff13a20"
-                                title="变现贷BX160910041367"
-                                class="btn btn-blue" title="投资">投资</a>
-                        </p>
-                    </div>
-                </li>                                                                    </ul>
+                </li>
+                 @endforeach
+              </ul>
         </div>
         <!-- 推荐 e-->
-
-        <!-- 品牌专区 -->
-
-        <div class="index-main-modcon index-main-brand">
-            <div class="modcon-title">
-                <h3 class="titlein">品牌</h3>
-                <div class="line-separate"></div>
-                <ul class="good-list">
-                    <li>一键购买</li>
-                    <li>超高收益</li>
-                    <li>特色打造</li>
-                </ul>
-                <p class="more-btn"><a href="{!! config('app.url') !!}/debt/borrows/brands.html" target="_blank" class="btn btn-white btn-xs">更多»</a></p>
-            </div>
-            <div class="main-modeconin">
-                <div class="top-line"></div>
-                <div class="main-modeconin-detail">
-                    <div class="brand-debt">
-
-
-                        <div class="brand-debt-box">
-                            <div class="soldout-tip"><a href="{!! config('app.url') !!}/shop/item/lMZHjC3ACJ0q3f8utFsZ.html" style="color:#5E7AD4" target="_blank">去信用宝官网投资，享1.0%额外加息！</a><a href="{!! config('app.url') !!}/shop/item/lMZHjC3ACJ0q3f8utFsZ.html" class="btn" target="_blank" data-baidu-track="平台加息券" data-baidu-track-action="click" data-baidu-track-label="信用宝1.0%">兑换加息券</a></div>
-                            <a href="{!! config('app.url') !!}/debt/borrow/P20160901001.html" target="_blank">
-                                <h4><img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg?ver={!! time() !!}" alt="" /></h4>
-                                <div class="debt-info">
-                                    <p class="debt-rate">年化收益率<br><b>8.80<em>%</em></b></p>
-                                    <p class="debt-money">期限<br><b>1月<em></em></b></p>
-                                    <p class="debt-time">安全级别<br><b>BB</b></p>
-                                </div>
-                                <div class="action-con">
-                                    <div class="debt-progress">
-                                        <span class="progress-bar" style="width:0%"></span>
-                                        <p>可购份额：<em>250,000</em>份</p>
-                                    </div>
-                                    <a class="btn changeBtn" target="_blank" href="{!! config('app.url') !!}/debt/borrow/P20160901001.html"><span class="count countDown" did="" exp_sec="30810"><em>8</em>时<em>33</em>分<em>30</em>秒</span></a>        </div>
-                            </a>
-                        </div>
-                        <div class="brand-debt-box">
-                            <div class="soldout-tip"><a href="{!! config('app.url') !!}/shop/item/HC1BUfoZ5k062gNSwfuE.html" style="color:#5E7AD4" target="_blank">去达人贷官网投资，享1.0%额外加息！</a><a href="{!! config('app.url') !!}/shop/item/HC1BUfoZ5k062gNSwfuE.html" class="btn" target="_blank" data-baidu-track="平台加息券" data-baidu-track-action="click" data-baidu-track-label="达人贷1.0%">兑换加息券</a></div>
-                            <a href="{!! config('app.url') !!}/debt/borrow/P20160901012.html" target="_blank">
-                                <h4><img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver={!! time() !!}" alt="" /></h4>
-                                <div class="debt-info">
-                                    <p class="debt-rate">年化收益率<br><b>8.50<em>%</em></b></p>
-                                    <p class="debt-money">期限<br><b>1月<em></em></b></p>
-                                    <p class="debt-time">安全级别<br><b>BBB</b></p>
-                                </div>
-                                <div class="action-con">
-                                    <div class="debt-progress">
-                                        <span class="progress-bar" style="width:100%"></span>
-                                        <p>可购份额：<em>0</em>份</p>
-                                    </div>
-                                    <a class="btn btn-invalid" target="_blank" href="{!! config('app.url') !!}/debt/borrow/P20160901012.html">售罄</a>        </div>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 转让 s-->
-        <!-- 转让 e-->
 
         <!-- 新闻&公告 s-->
         <div class="news-notice">
@@ -417,60 +145,28 @@
                 <div class="hot-con recent-news">
                     <h2><span>最新动态</span><a href="{!! config('app.url') !!}/about/latest.html" target="_blank">更多&gt;</a></h2>
                     <ul>
+                        @foreach($latests as $lv)
                         <li>
-                            <a href="{!! config('app.url') !!}/about/latest/3184.html" target="_blank" class="img-link">
-                                <img src="http://static.tianyantou.com/upload/image/20160831/1472634275.jpg?ver={!! time() !!}" alt="天眼投CEO黄诗樵受邀主讲《吴晓波频道》金融社群" height="95">
+                            <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank" class="img-link">
+                                <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
                             </a>
                             <p class="link-con">
-                                <a href="{!! config('app.url') !!}/about/latest/3184.html" target="_blank">天眼投CEO黄诗樵受邀主讲《吴晓波频道》金融社群</a>
-                                <span>发布时间：2016-08-31</span>
+                                <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank">{!! $lv->title or '' !!}</a>
+                                <span>发布时间：{!! date('Y-m-d',strtotime($lv->created_at)) !!}</span>
                             </p>
                         </li>
-                        <li>
-                            <a href="{!! config('app.url') !!}/about/latest/3183.html" target="_blank" class="img-link">
-                                <img src="http://static.tianyantou.com/upload/image/20160829/1472450458.jpg?ver={!! time() !!}" alt="徐红伟：监管将打破舆论鸿沟 实力玩家入局P2P" height="95">
-                            </a>
-                            <p class="link-con">
-                                <a href="{!! config('app.url') !!}/about/latest/3183.html" target="_blank">徐红伟：监管将打破舆论鸿沟 实力玩家入局P2P</a>
-                                <span>发布时间：2016-08-29</span>
-                            </p>
-                        </li>
+                        @endforeach
                     </ul>
-                    <ul class="media-report">
-                        <li>
-                            <a href="{!! config('app.url') !!}/about/latest/2274.html?source=touzhijia&subsource=index.top.banner5&pk_campaign=touzhijia&pk_kwd=index.top.banner5&hmsr=touzhijia&hmpl=default&hmcu=default&hmkw=index.top.banner5" class="img-link" target="_blank">
-                                <img src="http://static.tianyantou.com/upload/image/20151112/1447301221.jpg?ver={!! time() !!}" alt="黄诗樵接受CCTV采访实录" height="95">
-                                <span class="playicon"></span>
-                            </a>
-
-                            <p class="link-con">
-                                <a href="{!! config('app.url') !!}/about/latest/2274.html?source=touzhijia&subsource=index.top.banner5&pk_campaign=touzhijia&pk_kwd=index.top.banner5&hmsr=touzhijia&hmpl=default&hmcu=default&hmkw=index.top.banner5" target="_blank">黄诗樵接受CCTV采访实录</a>
-                                <span>发布时间：2015-11-11</span>
-                            </p>
-                        </li>
-                        <li>
-                            <a href="{!! config('app.url') !!}/about/latest/2255.html" class="img-link" target="_blank">
-                                <img src="http://static.tianyantou.com/upload/image/20151202/1449024206.jpg?ver={!! time() !!}" alt="《创客深圳》节目：天眼投一年成交20亿的背后" height="95">
-                                <span class="playicon"></span>
-                            </a>
-
-                            <p class="link-con">
-                                <a href="{!! config('app.url') !!}/about/latest/2255.html" target="_blank">《创客深圳》节目：天眼投一年成交20亿的背后</a>
-                                <span>发布时间：2015-11-06</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>            </div>
+                </div>
+            </div>
             <div class="hot-notice">
                 <h2><span>投资攻略</span><a href="{!! config('app.url') !!}/about/strategy.html" target="_blank">更多&gt;</a></h2>
                 <dl class="rank-list">
-                    <dd><a href="{!! config('app.url') !!}/about/strategy/3127.html" target="_blank" title="别随便查征信，会影响申卡下卡率？"><p>别随便查征信，会影响申卡下卡率？</p><em>1478</em></a></dd>
-                    <dd><a href="{!! config('app.url') !!}/about/strategy/3124.html" target="_blank" title="《全国住房公积金2015年年度报告》发布，住房公积金隐藏多少玄机？"><p>《全国住房公积金2015年年度报告》发布，住房公积金隐藏多少玄机？</p><em>921</em></a></dd>
-                    <dd><a href="{!! config('app.url') !!}/about/strategy/3122.html" target="_blank" title="止损还是分散投资？快跟这些动物学理财"><p>止损还是分散投资？快跟这些动物学理财</p><em>1078</em></a></dd>
-                    <dd><a href="{!! config('app.url') !!}/about/strategy/3117.html" target="_blank" title="没有存在感？赶紧提高你的核心竞争力吧！"><p>没有存在感？赶紧提高你的核心竞争力吧！</p><em>1049</em></a></dd>
-                    <dd><a href="{!! config('app.url') !!}/about/strategy/3116.html" target="_blank" title="8招助你成为千万富翁（已经过亿的勿看~）"><p>8招助你成为千万富翁（已经过亿的勿看~）</p><em>1315</em></a></dd>
-                    <dd><a href="{!! config('app.url') !!}/about/strategy/3115.html" target="_blank" title="那么多隐性富豪城市 其实你不非得扎在北上广！"><p>那么多隐性富豪城市 其实你不非得扎在北上广！</p><em>1169</em></a></dd>
-                </dl>            </div>
+                    @foreach($strategys as $sv)
+                    <dd><a href="{!! config('app.url') !!}/about/strategy/{!! $sv->id or 0 !!}.html" target="_blank" title="{!! $sv->title or '' !!}"><p>{!! $sv->title or '' !!}</p><em>{!! $sv->views or 0 !!}</em></a></dd>
+                    @endforeach
+                </dl>
+            </div>
         </div>
         <!-- 新闻&公告 e-->
     </div>
