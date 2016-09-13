@@ -13,12 +13,14 @@
             <div class="content help">
                 <div class="tab click-tab">
                     <ul class="tab-nav">
-                        <li id="faq1" class="active"><a style="text-align:left;">流程类说明</a></li>
-                        <li id="faq2" "><a style="text-align:left;">投之家说明</a></li>
-                        <li id="faq3" "><a style="text-align:left;">充值提现说明</a></li>
-                        <li id="faq4" "><a style="text-align:left;">账户类说明</a></li>
-                        <li id="faq5" "><a style="text-align:left;">定期说明</a></li>
-                        <li id="faq6" "><a style="text-align:left;">全网通</a></li>
+                        @foreach($helpCategorys as $key => $hc)
+                        <li id="faq{!! (1+$key) !!}" @if($key==0)class="active"@endif><a style="text-align:left;">{!! $hc->title !!}</a></li>
+                        @endforeach
+                        {{--<li id="faq2" "><a style="text-align:left;">投之家说明</a></li>--}}
+                        {{--<li id="faq3" "><a style="text-align:left;">充值提现说明</a></li>--}}
+                        {{--<li id="faq4" "><a style="text-align:left;">账户类说明</a></li>--}}
+                        {{--<li id="faq5" "><a style="text-align:left;">定期说明</a></li>--}}
+                        {{--<li id="faq6" "><a style="text-align:left;">全网通</a></li>--}}
                     </ul>
                     <div class="tab-main">
                         <div class="help-box active">
@@ -473,4 +475,8 @@
     </div>
 </div>
 <!--BODY END-->
+@stop
+
+@section('script')
+    @include('front.about.script')
 @stop

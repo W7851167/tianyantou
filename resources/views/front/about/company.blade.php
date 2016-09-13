@@ -9,7 +9,7 @@
     <div class="container">
         @include('front.about.sidebar')
         <div class="main tworow">
-            <h2>公司介绍</h2>
+            <h2>{!! $category->title or '' !!}</h2>
             <div class="content">
                 <p><a href="https://www.touzhijia.com" class="hight-light">深圳投之家金融信息服务有限公司（www.touzhijia.com）</a>2014年9月16日正式上线运营，是国内专业领先的P2P网贷垂直搜索引擎。</p>
                 <p>深圳投之家金融信息服务有限公司秉承“精选、分散”的安全投资理念，旨在通过严格的风控管理、创新的互联网技术，为用户提供优质靠谱的搜索、比较、一站式投资服务，让用户的投资理财变得安全、简单、高效。</p>
@@ -85,4 +85,8 @@
     </div>
 </div>
 <!--BODY END-->
+@stop
+
+@section('script')
+    @include('front.about.script')
 @stop

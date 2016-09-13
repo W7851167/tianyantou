@@ -12,3 +12,7 @@
         @endforeach
     </ul>
 </div>
+
+@section('script')
+    @include('front.about.script')
+@stop

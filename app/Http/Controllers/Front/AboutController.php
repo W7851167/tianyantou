@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\FrontController;
 use App\Repositories\NewRepository;
+use Illuminate\Http\Request;
 
 class AboutController extends FrontController
 {
@@ -46,7 +47,7 @@ class AboutController extends FrontController
     {
         $category = $this->new->categoryModel->wherePage($page)->first();
         if (empty($category)) return redirect('adbout/company.html');
-        view()->share('category',$category);
+        view()->share('category', $category);
 
         $where = ['is_system' => 1, 'parent_id' => 0];
         $categorys = $this->new->getSystemCategorys($where);
@@ -77,9 +78,14 @@ class AboutController extends FrontController
     /**
      * 多图文章列表
      */
-    private function multi($category)
+    private function multi($category, Request $request)
     {
-        return view('front.about.' . $category->page);
+        $page = $request->get('page') ? (int)$request->page : '';
+        $where = ['category_id' => $category->id];
+        list($count, $lists) = $this->new->getNewList($where, $page);
+        return view('front.about.' . $category->page, compact(
+            'lists'
+        ));
     }
 
     /**
@@ -87,7 +93,11 @@ class AboutController extends FrontController
      */
     private function help($category)
     {
-        return view('front.about.' . $category->page);
+        $where = ['is_system' => 1, 'parent_id' => 7, 'theme' => 0];
+        $helpCategorys = $this->new->getSystemCategorys($where);
+        return view('front.about.' . $category->page, compact(
+            'helpCategorys'
+        ));
     }
 
     /**
