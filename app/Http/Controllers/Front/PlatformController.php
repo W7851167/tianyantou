@@ -1,11 +1,11 @@
 <?php
 /*********************************************************************************
- *  后台登陆控制器
+ *  平台控制器
  *-------------------------------------------------------------------------------
- * 版权所有: CopyRight By
- * 文件内容简单说明
+ * 版权所有: CopyRight By phpad
+ * 首页控制器内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:BaseModel.php
+ * $FILE:PlatformController.php
  * $Author:pzz
  * $Dtime:2016/9/7
  ***********************************************************************************/
@@ -14,30 +14,21 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
-use Illuminate\Http\Request;
 
-class LoginController extends FrontController
+class PlatformController extends FrontController
 {
     public function __construct()
     {
+        parent::__initalize();
     }
 
-    public function login(Request $request)
+    public function index()
     {
-        if ($request->isMethod('post')) {
-
-        }
-
-        return view('front.passport');
+        return view('front.platform.index');
     }
 
-    public function register(Request $request)
+    public function project()
     {
-        if ($request->isMethod('post')) {
-
-        }
-
-        return view('front.register');
+        return view('front.platform.project');
     }
-
 }

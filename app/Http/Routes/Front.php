@@ -5,14 +5,17 @@
  * 版权所有: CopyRight By
  * 文件内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:BaseModel.php
+ * $FILE:Front.php
  * $Author:pzz
  * $Dtime:2016/9/7
  ***********************************************************************************/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//首页
+Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+//选平台
+Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
+Route::get('platform/project.html', ['as' => 'platform.project', 'uses' => 'PlatformController@project']);
 
-Route::match(['get', 'post'], 'user/passport.html', ['as' => 'front.passport', 'uses' => 'LoginController@passport']);
-Route::match(['get', 'post'], 'user/register.html', ['as' => 'front.register', 'uses' => 'LoginController@register']);
+//文章管理
+Route::get('about', 'AboutController@about');
+Route::get('about/{page}.html', ['as' => 'about', 'uses' => 'AboutController@index']);

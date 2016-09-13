@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://www.phpad.net',
+    'url' => 'http://phpad.net',
     'admin_url' => 'http://admin.phpad.net',
     'static_url'=>'http://static.phpad.net',
     'account_url' =>'http://account.phpad.net',

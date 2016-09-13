@@ -12,6 +12,7 @@
 
 namespace App\Repositories;
 
+use App\Eloquent\Model;
 use App\Models\BankModel;
 use App\Models\MoneyModel;
 use App\Models\ScoreModel;
@@ -47,9 +48,9 @@ class UserRepository extends BaseRepository
      *
      * 验证登录信息
      */
-    public function checkLogin($username, $password, $isAdmin = false, $remember = 0)
+    public function checkLogin($userName, $password, $isAdmin = false, $remember = 0)
     {
-        $userModel = $this->userModel->where('username', $username)->first();
+        $userModel = $this->userModel->where('username', $userName)->first();
 
         if (!$userModel) return $this->getError('该用户不存在!');
 
@@ -161,5 +162,59 @@ class UserRepository extends BaseRepository
             return static::getError($result->getMessage());
         }
         return static::getSuccess('审核提现记录数据完成');
+    }
+
+    /**
+     * @param $data
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     *
+     * 批量体现审核
+     */
+    public function saveWithdraws($data)
+    {
+        $result = $this->withdrawModel->getConnection()->transaction(function () use ($data) {
+            $errors = 0;
+            foreach ($data['ids'] as $id) {
+                $withdraw = $this->withdrawModel->find($id);
+                if (!($withdraw->user instanceof Model)) {
+                    $errors++;
+                    continue;
+                }
+                if (!($withdraw->user->money instanceof Model)) {
+                    $errors++;
+                    continue;
+                }
+                if (!$withdraw->user->money instanceof Model) {
+                    $errors++;
+                    continue;
+                }
+                if ($withdraw->user->money->withdraw < $withdraw->price) {
+                    $errors++;
+                    continue;
+                }
+                $item = [
+                    'id' => $id,
+                    'user_id' => $withdraw->user_id,
+                    'price' => $withdraw->price,
+                    'commission' => $withdraw->commission,
+                    'status' => $data['status'],
+                    'reason' => '批量操作',
+                ];
+                $this->withdrawModel->saveBy($item);
+                $userModel = $this->userModel->find($item['user_id']);
+                $userModel->money->decrement('withdraw', $item['price']);
+                if ($data['status'] == 2) {
+                    $userModel->money->increment('money', $item['price']);
+                }
+            }
+            return $errors;
+        });
+
+        if ($result instanceof \Exception) {
+            return static::getError($result->getMessage(), $result);
+        }
+        return static::getSuccess('审核提现记录数据完成', $result);
     }
 }

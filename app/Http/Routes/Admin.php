@@ -29,6 +29,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::any('user/score/{user_id}', ['as' => 'user.user.score', 'uses' => 'UserController@score']);
     Route::get('withdraw', ['as' => 'user.withdraw.index', 'uses' => 'WithdrawController@index']);
     Route::any('withdraw/create/{id}', ['as' => 'user.withdraw.create', 'uses' => 'WithdrawController@create']);
+    Route::post('withdraw/batch', ['as' => 'user.withdraw.batch', 'uses' => 'WithdrawController@batch']);
     //项目管理
     Route::get('task/{status?}', ['as' => 'task.task.index', 'uses' => 'TaskController@index'])->where('status', '[0-9]+');
     Route::any('task/create/{id?}', ['as' => 'task.task.create', 'uses' => 'TaskController@create']);
@@ -67,4 +68,4 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
 });
 
-
+Route::get('test/me','TestController@me');

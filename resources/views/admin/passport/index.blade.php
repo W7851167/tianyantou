@@ -7,14 +7,10 @@
     {!! HTML::style('admin/css/login.css') !!}
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
-    {{--<link media="all" type="text/css" rel="stylesheet" href="http://admin.phpad.net/admin/css/dialog.css">--}}
-
-    {{--<link media="all" type="text/css" rel="stylesheet" href="http://admin.phpad.net/admin/css/form.css">--}}
-
-    <script src="http://admin.phpad.net/vendor/jquery/jquery.min.js"></script>
-    <script src="http://admin.phpad.net/admin/js/base.js"></script>
-    <script src="http://admin.phpad.net/vendor/layer/layer.js"></script>
-    <script src="http://admin.phpad.net/vendor/layer/minelayer.js"></script>
+    {!! HTML::script('vendor/jquery/jquery.min.js') !!}
+    {!! HTML::script('admin/js/base.js') !!}
+    {!! HTML::script('vendor/layer/layer.js') !!}
+    {!! HTML::script('vendor/layer/minelayer.js') !!}
     <style>
         .hide {display:none}
     </style>

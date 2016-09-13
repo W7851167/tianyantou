@@ -56,7 +56,7 @@ class NewRepository extends BaseRepository
      */
     public function getSystemCategorys($where)
     {
-        return $this->categoryModel->alls(['id', 'title', 'created_at', 'parent_id', 'page'], $where);
+        return $this->categoryModel->alls(['id', 'title', 'created_at', 'parent_id', 'page', 'iconfont'], $where);
     }
 
     /**
@@ -104,9 +104,8 @@ class NewRepository extends BaseRepository
         });
         if ($result instanceof Exception) {
             return $this->getError($result->getMessage());
-        } else {
-            return $this->getSuccess('success', $result);
         }
+        return $this->getSuccess('success', $result);
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 /*********************************************************************************
- *  后台登陆控制器
+ *  前台首页控制器
  *-------------------------------------------------------------------------------
- * 版权所有: CopyRight By
- * 文件内容简单说明
+ * 版权所有: CopyRight By phpad
+ * 首页控制器内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:BaseModel.php
+ * $FILE:IndexController.php
  * $Author:pzz
  * $Dtime:2016/9/7
  ***********************************************************************************/
@@ -14,30 +14,21 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
-use Illuminate\Http\Request;
 
-class LoginController extends FrontController
+class IndexController extends FrontController
 {
     public function __construct()
     {
+        parent::__initalize();
     }
 
-    public function login(Request $request)
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 首页控制器
+     */
+    public function index()
     {
-        if ($request->isMethod('post')) {
-
-        }
-
-        return view('front.passport');
+        return view('front.index.index');
     }
-
-    public function register(Request $request)
-    {
-        if ($request->isMethod('post')) {
-
-        }
-
-        return view('front.register');
-    }
-
 }

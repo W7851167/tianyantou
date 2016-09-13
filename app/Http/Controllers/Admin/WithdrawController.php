@@ -64,4 +64,23 @@ class WithdrawController extends AdminController
         }
         return view('admin.withdraw.create', compact('withdraw'));
     }
+
+    /**
+     * @param Request $request
+     *
+     * 提现批量审核
+     */
+    public function batch(Request $request)
+    {
+        $data['ids'] = explode(',', $request->get('ids'));
+        $data['status'] = $request->get('status');
+        if (!$data['ids']) return $this->error('未选中任何提现记录!');
+
+        $result = $this->userRepository->saveWithdraws($data);
+        if ($result['status']) {
+            $message = '批量提现审核完成' . (count($data['ids']) - $result['data']) . '条记录,审核失败' . $result['data'] . '条记录 !';
+            return $this->success($message, url('withdraw'), true);
+        }
+        return $this->error('批量提现审核失败!', null, true);
+    }
 }
