@@ -187,6 +187,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery-1.11.3.min.js?ver={!! date("YmdHis",time()) !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/layer/layer.js?ver={!! date("YmdHis",time()) !!}"></script>
 @yield('script')
 </body>
 </html>

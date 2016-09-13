@@ -1,8 +1,7 @@
 @extends('layout.main')
 @section('title') P2P网贷平台搜索引擎，一站式投资理财，给理财多一份安全保障 @stop
 @section('style')
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/css.css"/>
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/mainindex.css"/>
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/mainindex.css?ver={!! date("YmdHis",time()) !!}"/>
     @stop
 @section('content')
     <div id="index-con" class="wrap">
@@ -759,14 +758,14 @@
         <!-- 友情链接 e-->
 
     </div>
-    @stop
-    @section('script')
-        <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery-1.11.3.min.js"></script>
-        <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/layer/layer.js"></script>
-        <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/normalplugins.js"></script>
-        <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.dotdotdot.min.js"></script>
-        <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/main.js"></script>
-        <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/mainindex.js"></script>
+@stop
+@section('script')
+<link rel="stylesheet" href="https://res.wx.qq.com/connect/zh_CN/htmledition/style/impowerApp29579a.css"/>
+<link rel="stylesheet" href="{!! config('app.static_url') !!}/css/pagestyle/wx_qr.css"/>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/normalplugins.js?ver={!! date("YmdHis",time()) !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.dotdotdot.min.js?ver={!! date("YmdHis",time()) !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/main.js?ver={!! date("YmdHis",time()) !!}"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/mainindex.js?ver={!! date("YmdHis",time()) !!}"></script>
 @stop
 
 
