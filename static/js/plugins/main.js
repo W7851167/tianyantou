@@ -935,7 +935,7 @@ $(function(){
     var eventPlat = $('img[alt="投哪网"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -948,7 +948,7 @@ $(function(){
     var eventPlat = $('img[alt="车能贷"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -961,7 +961,7 @@ $(function(){
     var eventPlat = $('img[alt="短融网"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -975,7 +975,7 @@ $(function(){
     var eventPlat = $('img[alt="信用宝"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -989,7 +989,7 @@ $(function(){
     var eventPlat = $('img[alt="汇盈金服"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -1003,7 +1003,7 @@ $(function(){
     var eventPlat = $('img[alt="融资易"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -1016,7 +1016,7 @@ $(function(){
     var eventPlat = $('img[alt="汇投网"]');
     eventPlat.parents('.plat-box').append('<i class="event-plat"></i>')
       .end()
-      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.touzhijia.com/images/platform/event.gif" alt="" />');
+      .parents('.plat-info').append('<img class="detail-icon-event" src="http://static.tianyantou.com/images/platform/event.gif" alt="" />');
     eventPlat.parents('.plat-box').each(function(){
       var $this = $(this);
       if($this.find('.hot-plat').length === 0) {
@@ -1258,8 +1258,8 @@ $(function(){
     $('.pass-tip').hide();
   });
 
-  var appTip = $('<div class="app-tip"><img src="//static.touzhijia.com/images/platform/app2wm(200-200).png"></div>'),
-      wechatTip = $('<div class="wechat-tip"><img src="//static.touzhijia.com/images/secondmarket/detail-erma.jpg"></div>'),
+  var appTip = $('<div class="app-tip"><img src="http://static.tianyantou.com/images/platform/app2wm(200-200).png"></div>'),
+      wechatTip = $('<div class="wechat-tip"><img src="http://static.tianyantou.com/images/secondmarket/detail-erma.jpg"></div>'),
       autoTip = $('<div class="app-tip auto-tip"><p>设置预约续购，回款的本息将自动投出。可在我的天眼投-<a href="http://account.phpad.net/debt/autoreserve.html" target="_blank">理财管理</a>进行设置</p></div>'),
       autoBuyTip = $('<div class="app-tip autoBuy-tip"><p>设置自动购买，账户中的余额将自动投出。可在我的天眼投-<a href="http://account.phpad.net/debt/autobuy.html" target="_blank">理财管理</a>进行设置</p></div>');
   $('#borrow-buy-records').on('mouseover','.appTip',function(e){
@@ -2376,7 +2376,7 @@ $(function(){
 //加息券
 
 (function(){
-  var quan = $('<img src="//static.touzhijia.com/images/platform/jiaxiquan.png" />');
+  var quan = $('<img src="http://static.tianyantou.com/images/platform/jiaxiquan.png" />');
   $('#index-con .rate-con').css('position','relative').append(quan);
   $('#index-con .rate-con img').css({
     'position': 'absolute',

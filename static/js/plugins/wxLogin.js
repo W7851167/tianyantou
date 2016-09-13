@@ -25,7 +25,7 @@ $(function() {
         redirect_uri: "http://account.touzhijia.com/thirdparty/callback/weixin",
         state: "tzj",
         style: "",
-        href: "//static.touzhijia.com/css/pagestyle/wx_qr.css"                  
+        href: "http://static.tianyantou.com/css/pagestyle/wx_qr.css"
     });
     $('.switch-login').on('click',function(e){
           $(this).toggleClass('code-on');

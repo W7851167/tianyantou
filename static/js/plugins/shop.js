@@ -113,7 +113,7 @@
       }
       
       itemId = $(this).attr("data-id");
-      var html = '<div class="lucky-box"><h3></h3><img class="icon-pointer" src="//static.touzhijia.com/images/mall/icon-pointer.png" /><div class="boxs"><i class="unopened"></i><i class="unopened"></i><i class="unopened"></i></div></div>',
+      var html = '<div class="lucky-box"><h3></h3><img class="icon-pointer" src="http://static.tianyantou.com/images/mall/icon-pointer.png" /><div class="boxs"><i class="unopened"></i><i class="unopened"></i><i class="unopened"></i></div></div>',
           //积分值
           $payScore = parseInt($(this).parent().find('.rate').text()),
           $myScore = parseInt($('#my-score').text());

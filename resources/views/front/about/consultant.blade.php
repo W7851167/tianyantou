@@ -15,7 +15,7 @@
                     <div class="axis-line"></div>
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="//static.touzhijia.com/images/consultant/yanyan2.jpg?ver=20160431006" width="168" height="168">
+                            <img src="http://static.tianyantou.com/images/consultant/yanyan2.jpg?ver=20160431006" width="168" height="168">
                             <span class="mask">阎焱</span>
                         </div>
                         <div class="axis-info">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="//static.touzhijia.com/images/consultant/xiaoshuolong2.jpg?ver=20160431006" width="168" height="168">
+                            <img src="http://static.tianyantou.com/images/consultant/xiaoshuolong2.jpg?ver=20160431006" width="168" height="168">
                             <span class="mask">肖水龙</span>
                         </div>
                         <div class="axis-info">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="//static.touzhijia.com/images/consultant/feifangyu2.jpg?ver=20160431006" width="168" height="168">
+                            <img src="http://static.tianyantou.com/images/consultant/feifangyu2.jpg?ver=20160431006" width="168" height="168">
                             <span class="mask">费方域</span>
                         </div>
                         <div class="axis-info">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="//static.touzhijia.com/images/consultant/liaijun2.jpg?ver=20160431006" width="168" height="168">
+                            <img src="http://static.tianyantou.com/images/consultant/liaijun2.jpg?ver=20160431006" width="168" height="168">
                             <span class="mask">李爱君</span>
                         </div>
                         <div class="axis-info">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="//static.touzhijia.com/images/consultant/liugang2.jpg?ver=20160431006" width="168" height="168">
+                            <img src="http://static.tianyantou.com/images/consultant/liugang2.jpg?ver=20160431006" width="168" height="168">
                             <span class="mask">刘钢</span>
                         </div>
                         <div class="axis-info">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="//static.touzhijia.com/images/consultant/xuduoqi2.jpg?ver=20160431006" width="168" height="168">
+                            <img src="http://static.tianyantou.com/images/consultant/xuduoqi2.jpg?ver=20160431006" width="168" height="168">
                             <span class="mask">许多奇</span>
                         </div>
                         <div class="axis-info">

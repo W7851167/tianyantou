@@ -13,7 +13,7 @@ Thank you very much!</p>
 </td>
 <tr>
 <td>URL:</td>
-<td>http://static.touzhijia.com/js/lib/layer/base64encode.js?ver=20160431006</td>
+<td>http://static.tianyantou.com/js/lib/layer/base64encode.js?ver=20160431006</td>
 </tr>
 <tr>
 <td>Date:</td>

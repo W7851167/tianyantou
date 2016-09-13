@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="dns-prefetch" href="//static.touzhijia.com">
+    <link rel="dns-prefetch" href="http://static.tianyantou.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">  <title>用户登录_天眼投</title>
     <meta property="qc:admins" content="24105710553756464752012116375747716" />
-    <link rel="stylesheet" href="//static.touzhijia.com/css/account.css?ver=20160431006" />
+    <link rel="stylesheet" href="http://static.tianyantou.com/css/account.css?ver=20160431006" />
 </head>
 <body>
 <div id="head">
@@ -43,7 +43,7 @@
                 <div class="contact">
                     <a href="http://weibo.com/touzhijia" target="_blank" class="h_weibo"></a>
                     <a id="h_weixin" href="#" class="h_weixin"></a>
-                    <img class="show-img" src="//static.touzhijia.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
+                    <img class="show-img" src="http://static.tianyantou.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
                 </div>
             </div>
         </div>
@@ -51,10 +51,10 @@
         <div id="head-btm-main">
             <h1 id="logo">
                 <a href="https://www.touzhijia.com/" style="padding-left:26px;">
-                    <img src="//static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
+                    <img src="http://static.tianyantou.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
                 </a>
                 <a href="http://topics.touzhijia.com/activities/anniversaryParty" target="_blank">
-                    <img src="//static.touzhijia.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
+                    <img src="http://static.tianyantou.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
                 </a>
             </h1>
 
@@ -139,7 +139,7 @@
                                     <div class="login-other-box">
                                         <span>用第三方账号直接登陆</span>
                                         <div class="partner-box">
-                                            <a class="partner" href="https://account.touzhijia.com/thirdparty/login/qq.html"><img src="//static.touzhijia.com/images/user/reg-qq.png?ver=20160431006" alt="腾讯QQ"></a>
+                                            <a class="partner" href="https://account.touzhijia.com/thirdparty/login/qq.html"><img src="http://static.tianyantou.com/images/user/reg-qq.png?ver=20160431006" alt="腾讯QQ"></a>
                                         </div>
                                     </div>
                                 </form>
@@ -153,7 +153,7 @@
                             </div>
                             <div class="code-btn">
                                 <a href="javascript:;" class="switch-login">扫码登录</a>
-                                <span class="msg"><img src="//static.touzhijia.com/images/user/1.png?ver=20160431006" height="28px" />使用<b>微信</b>快捷登录→</span>
+                                <span class="msg"><img src="http://static.tianyantou.com/images/user/1.png?ver=20160431006" height="28px" />使用<b>微信</b>快捷登录→</span>
                             </div>
 
                         </div>
@@ -224,15 +224,15 @@
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="//static.touzhijia.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
+                        <img src="http://static.tianyantou.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
                         <span>天眼投APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="//static.touzhijia.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
+                        <img src="http://static.tianyantou.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
-            <img src="//static.touzhijia.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
+            <img src="http://static.tianyantou.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
             <span>理财顾问微信号</span>
           </p>-->
                 </div>
@@ -299,7 +299,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="//static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
+                    <img src="http://static.tianyantou.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
@@ -362,16 +362,16 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/layer/layer.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery.form.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/ucenter.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/pagination.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/actions.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/form.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/base64encode.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/login.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/wxLogin.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/layer/layer.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery.form.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/ucenter.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/pagination.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/actions.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/form.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/base64encode.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/login.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/wxLogin.js?ver=20160431006"></script>
 
 <script>
     var _hmt = _hmt || [];
@@ -406,7 +406,7 @@
         s.parentNode.insertBefore(g, s);
     })();
     $(function() {
-        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=//static.touzhijia.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
+        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=http://static.tianyantou.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
                 </iframe>\
                 <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
         $('#topbar-wx-qrcode').append(weixinBox);

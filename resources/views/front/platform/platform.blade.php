@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="dns-prefetch" href="//static.touzhijia.com">
+    <link rel="dns-prefetch" href="http://static.tianyantou.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>网贷选平台行情_网贷选平台特色数据_天眼投精选平台搜索_天眼投</title>
     <meta name="keywords" content="天眼投专家顾问，天眼投顾问团队，天眼投理财投资平台">
     <meta name="description" content="天眼投是国内领先的P2P网贷评级、选标和服务平台，为您提供精选多项P2P组合，分散投资债券理财，为投资者推荐优良的P2P选标和P2P投资服务。">
-    <link rel="stylesheet" href="//static.touzhijia.com/css/css.css?ver=20160431006" />
+    <link rel="stylesheet" href="http://static.tianyantou.com/css/css.css?ver=20160431006" />
 </head>
 <body>
 <!--头部开始 -->
@@ -46,7 +46,7 @@
                 <div class="contact">
                     <a href="http://weibo.com/touzhijia" target="_blank" class="h_weibo"></a>
                     <a id="h_weixin" href="#" class="h_weixin"></a>
-                    <img class="show-img" src="//static.touzhijia.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
+                    <img class="show-img" src="http://static.tianyantou.com/images/common/h_weixin.jpg?ver=20160431006" width="163">
                 </div>
             </div>
         </div>
@@ -58,10 +58,10 @@
                          title="天眼投-中国领先的P2P网贷投资平台，您的个人理财专家"/>
                 </a>-->
                 <a href="https://www.touzhijia.com/" style="padding-left:26px;">
-                    <img src="//static.touzhijia.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
+                    <img src="http://static.tianyantou.com/images/common/logo.png?ver=20160431006" alt="天眼投,p2p理财,投资理财,p2p网贷"/>
                 </a>
                 <a href="http://topics.touzhijia.com/activities/anniversaryParty" target="_blank">
-                    <img src="//static.touzhijia.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
+                    <img src="http://static.tianyantou.com/images/common/logo_anniversary_2nd.gif?ver=20160431006" alt="梦想有礼，之家2周年">
                 </a>
             </h1>
 
@@ -152,7 +152,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_erongsuo.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" alt="e融所">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" alt="e融所">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>7</em>%<em>-</em><em>15</em>%</span>
@@ -167,7 +167,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_huitouwang.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016071813583280943.jpg?ver=20160431006" alt="汇投网">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016071813583280943.jpg?ver=20160431006" alt="汇投网">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>5.2</em>%<em>-</em><em>13.5</em>%</span>
@@ -182,7 +182,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_xinyongbao.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg?ver=20160431006" alt="信用宝">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg?ver=20160431006" alt="信用宝">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>6</em>%<em>-</em><em>12</em>%</span>
@@ -197,7 +197,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_rxdai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/201411262133482121.jpg?ver=20160431006" alt="投哪网">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/201411262133482121.jpg?ver=20160431006" alt="投哪网">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>7</em>%<em>-</em><em>12</em>%</span>
@@ -212,7 +212,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_duanrongwang.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080213010228018.jpg?ver=20160431006" alt="短融网">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016080213010228018.jpg?ver=20160431006" alt="短融网">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8</em>%<em>-</em><em>14</em>%</span>
@@ -227,7 +227,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_zhubaodai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015041617455545546.jpg?ver=20160431006" alt="珠宝贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015041617455545546.jpg?ver=20160431006" alt="珠宝贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>10</em>%<em>-</em><em>14</em>%</span>
@@ -242,7 +242,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_huiyingdai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015080414060923178.jpg?ver=20160431006" alt="汇盈金服">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015080414060923178.jpg?ver=20160431006" alt="汇盈金服">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8</em>%<em>-</em><em>14</em>%</span>
@@ -257,7 +257,7 @@
             <div class="plat-box">
                 <i class="hot-plat"></i>      <div class="plat-mask" style="display:none;"><a href="/platform/detail_kaixindai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/201605031509119460.png?ver=20160431006" alt="开鑫贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/201605031509119460.png?ver=20160431006" alt="开鑫贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>5.5</em>%<em>-</em><em>12</em>%</span>
@@ -272,7 +272,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_jintoushou.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016072612013917699.jpg?ver=20160431006" alt="金投手">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016072612013917699.jpg?ver=20160431006" alt="金投手">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>4</em>%<em>-</em><em>11</em>%</span>
@@ -287,7 +287,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_liyedai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016042514215357154.jpg?ver=20160431006" alt="立业贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016042514215357154.jpg?ver=20160431006" alt="立业贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>12</em>%<em>-</em><em>17.5</em>%</span>
@@ -302,7 +302,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_darendai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver=20160431006" alt="达人贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016041416230228610.png?ver=20160431006" alt="达人贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8.5</em>%<em>-</em><em>15</em>%</span>
@@ -317,7 +317,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_hepandai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015040216291964108.jpg?ver=20160431006" alt="合盘贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015040216291964108.jpg?ver=20160431006" alt="合盘贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>12</em>%<em>-</em><em>18</em>%</span>
@@ -332,7 +332,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_elutongxin.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016041917010713055.jpg?ver=20160431006" alt="e路同心">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016041917010713055.jpg?ver=20160431006" alt="e路同心">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>6.88</em>%<em>-</em><em>14</em>%</span>
@@ -347,7 +347,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_jujinziben.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015092810324639258.jpg?ver=20160431006" alt="聚金资本">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015092810324639258.jpg?ver=20160431006" alt="聚金资本">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>11</em>%<em>-</em><em>16.8</em>%</span>
@@ -362,7 +362,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_stjr.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016031116120750268.jpg?ver=20160431006" alt="石投金融">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016031116120750268.jpg?ver=20160431006" alt="石投金融">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>6</em>%<em>-</em><em>13</em>%</span>
@@ -377,7 +377,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_91wangcai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2014112411074456854.jpg?ver=20160431006" alt="91旺财">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2014112411074456854.jpg?ver=20160431006" alt="91旺财">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>7</em>%<em>-</em><em>12</em>%</span>
@@ -392,7 +392,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_edai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015043019440172101.jpg?ver=20160431006" alt="易贷网">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015043019440172101.jpg?ver=20160431006" alt="易贷网">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>10</em>%<em>-</em><em>18</em>%</span>
@@ -407,7 +407,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_chenengdai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016051016490399818.jpg?ver=20160431006" alt="车能贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016051016490399818.jpg?ver=20160431006" alt="车能贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>10</em>%<em>-</em><em>15</em>%</span>
@@ -422,7 +422,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_51rzy.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2014122314312929936.jpg?ver=20160431006" alt="融资易">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2014122314312929936.jpg?ver=20160431006" alt="融资易">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>12</em>%<em>-</em><em>16.5</em>%</span>
@@ -437,7 +437,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_wyjr.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015122416104392090.jpg?ver=20160431006" alt="万盈金融">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015122416104392090.jpg?ver=20160431006" alt="万盈金融">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>9</em>%<em>-</em><em>14</em>%</span>
@@ -452,7 +452,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_365ibank.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015060815330841940.jpg?ver=20160431006" alt="天天财富">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015060815330841940.jpg?ver=20160431006" alt="天天财富">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8</em>%<em>-</em><em>12</em>%</span>
@@ -467,7 +467,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_xinrong.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2014112411514815981.jpg?ver=20160431006" alt="信融财富">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2014112411514815981.jpg?ver=20160431006" alt="信融财富">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>11.1</em>%<em>-</em><em>13.8</em>%</span>
@@ -482,7 +482,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_baobidai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015081409594557565.jpg?ver=20160431006" alt="生菜金融">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015081409594557565.jpg?ver=20160431006" alt="生菜金融">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8</em>%<em>-</em><em>15.8</em>%</span>
@@ -497,7 +497,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_chujinsuo.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2014112414002812896.jpg?ver=20160431006" alt="楚金所">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2014112414002812896.jpg?ver=20160431006" alt="楚金所">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8</em>%<em>-</em><em>10</em>%</span>
@@ -512,7 +512,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_yesvion.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2014121116172774628.png?ver=20160431006" alt="粤商贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2014121116172774628.png?ver=20160431006" alt="粤商贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>10</em>%<em>-</em><em>15</em>%</span>
@@ -527,7 +527,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_gzed.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2015091609402229872.jpg?ver=20160431006" alt="广州e贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2015091609402229872.jpg?ver=20160431006" alt="广州e贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>7</em>%<em>-</em><em>13</em>%</span>
@@ -542,7 +542,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_shanyidai.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016062219585229453.jpg?ver=20160431006" alt="杉易贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016062219585229453.jpg?ver=20160431006" alt="杉易贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8</em>%<em>-</em><em>13.5</em>%</span>
@@ -557,7 +557,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_lianhao.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/201507291625105260.png?ver=20160431006" alt="联豪创投">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/201507291625105260.png?ver=20160431006" alt="联豪创投">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>12</em>%<em>-</em><em>15</em>%</span>
@@ -572,7 +572,7 @@
             <div class="plat-box">
                 <div class="plat-mask" style="display:none;"><a href="/platform/detail_bojd.html" target="_blank"></a></div>
                 <div class="plat-main">
-                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016011114100069847.jpg?ver=20160431006" alt="博金贷">
+                    <img src="http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016011114100069847.jpg?ver=20160431006" alt="博金贷">
                     <div class="plat-info">
                         <h4>年化收益率
                             <span class="rate"><em>8.5</em>%<em>-</em><em>13.8</em>%</span>
@@ -653,15 +653,15 @@
                 </div>
                 <div class="f-code">
                     <p id="f-dingyuhao">
-                        <img src="//static.touzhijia.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
+                        <img src="http://static.tianyantou.com/images/common/f_app.png?ver=20160431006" alt="天眼投APP下载" title="天眼投APP下载" />
                         <span>天眼投APP下载</span>
                     </p>
                     <p id="f-fuwuhao">
-                        <img src="//static.touzhijia.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
+                        <img src="http://static.tianyantou.com/images/common/f_service.png?ver=20160431006" alt="天眼投服务号" title="天眼投服务号" />
                         <span>官方服务号</span>
                     </p>
                     <!--<p id="f-wechat">
-            <img src="//static.touzhijia.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
+            <img src="http://static.tianyantou.com/images/common/f_wechat.png?ver=20160431006" alt="理财顾问微信号" title="理财顾问微信号" />
             <span>理财顾问微信号</span>
           </p>-->
                 </div>
@@ -728,7 +728,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe60c;</i><br/>微信</a>
             <div class="hovercon wenxin-hovercon">
                 <p class="tap-show wenxinp">
-                    <img src="//static.touzhijia.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
+                    <img src="http://static.tianyantou.com/images/index/webxin.png?ver=20160431006" alt="天眼投公众号" width="130">
                     <span>天眼投服务号</span>
                 </p>
             </div>
@@ -791,13 +791,13 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/jquery.dotdotdot.min.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/form.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/login.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/laypage/laypage.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/lib/layer/layer.js?ver=20160431006"></script>
-<script type="text/javascript" src="//static.touzhijia.com/js/plugins/main.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery-1.11.3.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/jquery.dotdotdot.min.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/form.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/login.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/laypage/laypage.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/lib/layer/layer.js?ver=20160431006"></script>
+<script type="text/javascript" src="http://static.tianyantou.com/js/plugins/main.js?ver=20160431006"></script>
 
 <script>
     var _hmt = _hmt || [];
@@ -832,7 +832,7 @@
         s.parentNode.insertBefore(g, s);
     })();
     $(function() {
-        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=//static.touzhijia.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
+        var weixinBox = '<iframe src="//open.weixin.qq.com/connect/qrconnect?appid=wx796a0210a2d55243&amp;scope=snsapi_login&amp;redirect_uri=http://account.touzhijia.com/thirdparty/callback/weixin&amp;state=tzj&amp;login_type=jssdk&amp;href=http://static.tianyantou.com/css/pagestyle/wx_qr.css" frameborder="0" scrolling="no" width="170px" height="170px">\
                 </iframe>\
                 <p class="code-text">请使用微信扫码登录<br />首次登录送<b>30</b>积分</p>';
         $('#topbar-wx-qrcode').append(weixinBox);

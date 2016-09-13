@@ -12,7 +12,7 @@
             <h2>行业动态</h2>
             <div class="content dynamic">
                 <div class="axis-box">                <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3126.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160624/1466763523.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3126.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160624/1466763523.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3126.html" target="_blank">牵手国诚金融 浙商银行首家P2P资金存管上线</a></h3>
                             <span>2016-06-24 18:18:43</span><span>来源：天眼投</span>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3123.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160623/1466676088.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3123.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160623/1466676088.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3123.html" target="_blank">e速贷冲击波 网贷投机者的镇魂曲</a></h3>
                             <span>2016-06-23 18:01:28</span><span>来源：天眼投</span>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3121.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160622/1466564332.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3121.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160622/1466564332.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3121.html" target="_blank">P2P门店大收缩 如何破题资产荒？</a></h3>
                             <span>2016-06-22 10:58:52</span><span>来源：天眼投</span>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3081.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160513/1463131843.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3081.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160513/1463131843.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3081.html" target="_blank">万达将目光聚焦场景  或将引发新一轮风潮</a></h3>
                             <span>2016-05-13 17:30:43</span><span>来源：天眼投</span>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3076.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160511/1462963491.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3076.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160511/1462963491.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3076.html" target="_blank">又一记重磅：界不能随便跨！</a></h3>
                             <span>2016-05-11 18:44:51</span><span>来源：天眼投</span>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3058.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160509/1462783573.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3058.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160509/1462783573.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3058.html" target="_blank">国家级互金服务平台启动  信息资源或将实现共享</a></h3>
                             <span>2016-05-09 16:46:13</span><span>来源：天眼投</span>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3056.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160506/1462529435.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3056.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160506/1462529435.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3056.html" target="_blank">P2P触底反弹 生命力更加顽强</a></h3>
                             <span>2016-05-06 18:10:35</span><span>来源：天眼投</span>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3052.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160505/1462440976.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3052.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160505/1462440976.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3052.html" target="_blank">最严广告法来了 P2P还能怎么活？</a></h3>
                             <span>2016-05-05 17:36:16</span><span>来源：天眼投</span>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3048.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160504/1462352898.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3048.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160504/1462352898.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3048.html" target="_blank">网贷数据看涨 终于不用再背黑锅了！</a></h3>
                             <span>2016-05-04 17:08:18</span><span>来源：天眼投</span>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="media-box media-left">
-                        <a href="https://www.touzhijia.com/about/dynamic/3041.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160503/1462271751.jpg?ver=20160431006"></a>
+                        <a href="https://www.touzhijia.com/about/dynamic/3041.html" target="_blank"><img src="http://static.tianyantou.com/upload/image/20160503/1462271751.jpg?ver=20160431006"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="https://www.touzhijia.com/about/dynamic/3041.html" target="_blank">互金潮起潮落  仍是吸金重地</a></h3>
                             <span>2016-05-03 18:35:51</span><span>来源：天眼投</span>
