@@ -214,7 +214,7 @@ class CorpController extends AdminController
             $data = $request->get('data');
             if(!empty($data['logo']))
                 $data['logo'] = str_replace(config('app.static_url'), '', $data['logo']);
-            $result = $this->newRepository->saveMultiNews($data);
+            $result = $this->newRepository->saveMultiNew($data);
             if($result['status'])
                 return $this->success('创建/编辑动态完成', url('corp/news',['id'=>$corpId]),true);
             return $this->error('创建/编辑动态异常，请联系开发人员');

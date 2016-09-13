@@ -33,11 +33,12 @@ class XdataRepository extends  BaseRepository {
      */
     public function getAdvList($where = [], $limit, $page, $trashed=0)
     {
-        $order['id'] = 'desc';
+        $order['sorts'] = 'desc';
         $lists = $this->advModel->lists(['*'], $where, $order, [], $limit, $page,$trashed);
         $counts = $this->advModel->countBy($where);
         return [$counts, $lists];
     }
+
 
     /**
      * @param $data

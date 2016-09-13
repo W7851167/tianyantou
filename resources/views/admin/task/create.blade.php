@@ -68,7 +68,7 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>期限：</div>
-                            <div><input type="text" name = "data[term]" placeholder="比如7天/3个月" value="{!! $task->term or 0 !!}"></div>
+                            <div><input type="text" name = "data[term]" placeholder="天数" value="{!! $task->term or 0 !!}">天</div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>库存：</div>
