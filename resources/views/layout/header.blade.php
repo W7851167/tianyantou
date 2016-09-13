@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">
-    <title>@yield('title')</title>
+    <title>天眼投-@yield('title')</title>
     <meta name="keywords" content="@yield('description')">
     <meta name="description" content="@yield('description')">
     <meta name="author" content="p2p网贷,p2p理财,天眼投投资理财平台" />
