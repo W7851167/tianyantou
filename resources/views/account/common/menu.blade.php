@@ -5,19 +5,19 @@
                 <img src="./投之家 - 个人中心_files/headerimg2.png" alt="" width="100" height="100">
                 <span class="user-nickname" title="15072309522">
                      15072309522
-                    <a class="iconfont" style="color: #666;" href="{!! config('app.url') !!}/safe.html">&#xe69f;</a>
+                    <a class="iconfont" style="color: #666;" href="{!! config('app.account_url') !!}/safe.html">&#xe69f;</a>
                 </span>
                 <p class="accoount-validation mt10">
-                    <a href="{!! config('app.url') !!}/safe.html" title="身份验证">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="身份验证">
                         <i class="icon-identity"></i>
                     </a>
-                    <a href="{!! config('app.url') !!}/safe.html" title="手机验证" class="activated">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="手机验证" class="activated">
                         <i class="icon-phoneno"></i>
                     </a>
-                    <a href="{!! config('app.url') !!}/safe.html" title="邮箱验证">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="邮箱验证">
                         <i class="icon-email"></i>
                     </a>
-                    <a href="{!! config('app.url') !!}/safe.html" title="银行卡验证">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="银行卡验证">
                         <i class="icon-bankcard"></i>
                     </a>
                 </p>
@@ -32,52 +32,52 @@
                 </div>
             </div>
         </li>
-        <li><a href="{!!config('app.url')!!}/"><i class="iconfont">&#xe61c;</i>我的投之家</a></li>
+        <li><a href="{!!config('app.account_url')!!}/"><i class="iconfont">&#xe61c;</i>我的投之家</a></li>
         <li>
             <h3><i class="iconfont">&#xe634;</i>理财管理</h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.url')!!}/huoqi.html">活期</a></li>
-                <li><a href="{!!config('app.url')!!}/debt.html">定期</a></li>
-                <li><a href="{!!config('app.url')!!}/debt/transfer.html">债权转让</a></li>
-                <li><a href="{!!config('app.url')!!}/debt/autobuy.html">自动购买</a></li>
+                <li><a href="{!!config('app.account_url')!!}/huoqi.html">活期</a></li>
+                <li><a href="{!!config('app.account_url')!!}/debt.html">定期</a></li>
+                <li><a href="{!!config('app.account_url')!!}/debt/transfer.html">债权转让</a></li>
+                <li><a href="{!!config('app.account_url')!!}/debt/autobuy.html">自动购买</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe685;</i>全网通</h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.url')!!}/networth/index.html">投资记录</a></li>
+                <li><a href="{!!config('app.account_url')!!}/networth/index.html">投资记录</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe612;</i>平台管理<span class="iconfont newicon">&#xe64d;</span></h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.url')!!}/platforms/statistic.html">平台统计</a></li>
-                <li><a href="{!!config('app.url')!!}/platforms/analysis.html">投资明细</a></li>
-                <li><a href="{!!config('app.url')!!}/platform/bind.html">平台绑定</a></li>
+                <li><a href="{!!config('app.account_url')!!}/platforms/statistic.html">平台统计</a></li>
+                <li><a href="{!!config('app.account_url')!!}/platforms/analysis.html">投资明细</a></li>
+                <li><a href="{!!config('app.account_url')!!}/platform/bind.html">平台绑定</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.url')!!}/wallet/recharge.html">充值</a></li>
-                <li><a href="{!!config('app.url')!!}/wallet/withdraw.html">提现</a></li>
-                <li><a href="{!!config('app.url')!!}/wallet/book.html">资金流水</a></li>
+                <li><a href="{!!config('app.account_url')!!}/wallet/recharge.html">充值</a></li>
+                <li><a href="{!!config('app.account_url')!!}/wallet/withdraw.html">提现</a></li>
+                <li><a href="{!!config('app.account_url')!!}/wallet/book.html">资金流水</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe632;</i>账号管理</h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.url')!!}/safe.html">安全中心</a></li>
-                <li><a href="{!!config('app.url')!!}/bankcard.html">银行卡</a></li>
+                <li><a href="{!!config('app.account_url')!!}/safe.html">安全中心</a></li>
+                <li><a href="{!!config('app.account_url')!!}/bankcard.html">银行卡</a></li>
             </ul>
         </li>
         <li>
             <h3><i class="iconfont">&#xe62f;</i>活动专区</h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.url')!!}/activity/recommend.html">邀请奖励</a></li>
-                <li><a href="{!!config('app.url')!!}/activity/tcode.html">专享T码</a></li>
-                <li><a href="{!!config('app.url')!!}/shop.html">兑换记录</a></li>
+                <li><a href="{!!config('app.account_url')!!}/activity/recommend.html">邀请奖励</a></li>
+                <li><a href="{!!config('app.account_url')!!}/activity/tcode.html">专享T码</a></li>
+                <li><a href="{!!config('app.account_url')!!}/shop.html">兑换记录</a></li>
             </ul>
         </li>
-        <li><a href="{!!config('app.url')!!}/coupon/index.html"><i class="iconfont"></i>理财券</a></li>
+        <li><a href="{!!config('app.account_url')!!}/coupon/index.html"><i class="iconfont"></i>理财券</a></li>
         <li class="current">
-            <a href="{!!config('app.url')!!}/message.html">
+            <a href="{!!config('app.account_url')!!}/message.html">
                 <i class="iconfont">&#xe62d;</i>消息中心</a>
         </li>
     </ul>
