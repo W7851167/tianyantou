@@ -16,6 +16,7 @@ namespace App\Http\Controllers;
 class FrontController extends Controller
 {
     protected $user;
+    protected  $perpage = 20;
 
 
     public function __initalize()

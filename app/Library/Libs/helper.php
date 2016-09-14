@@ -94,7 +94,9 @@ function unicodeToDecode($name)
     return $name;
 }
 
-
+/**
+ * 金钱格式
+ */
 if(!function_exists('money_format')) {
 
     function money_format($number, $fractional=false) {
@@ -110,5 +112,34 @@ if(!function_exists('money_format')) {
             }
         }
         return $number;
+    }
+}
+
+/**
+ * @param $startTime
+ * @param $endTime
+ * @return float
+ * 计算时间差
+ */
+function getDiffTime($startTime,$endTime)
+{
+    return round(abs($endTime-$startTime)/60/60/24);
+}
+
+/**
+ * @param $day
+ * 格式化日期信息
+ */
+function dateFormat($day)
+{
+    if($day <= 30) {
+        return [$day,'天'];
+    }
+    if($day >30 && $day < 365) {
+        return [round(abs($day / 30)), '个月'];
+    }
+
+    if($day > 365) {
+        return [round(abs($day / 365)), '年'];
     }
 }
