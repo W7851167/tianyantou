@@ -195,11 +195,16 @@ class TaskRepository extends  BaseRepository
      */
     public function saveTask($data)
     {
-        try {
+        $result = $this->corpTermModel->getConnection()->transaction(function() use($data){
+            //保存项目
             $this->taskModel->saveBy($data);
-            return static::getSuccess('创建/编辑项目完成');
-        }catch (QueryException $e) {
-            return static::getError($e->getMessage());
+            //保存平台信息
+            //$days = $
+        });
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('创建/编辑项目完成', $result);
         }
     }
     /**
