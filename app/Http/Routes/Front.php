@@ -23,5 +23,3 @@ Route::get('about', 'AboutController@about');
 Route::get('about/{page}.html', ['as' => 'about', 'uses' => 'AboutController@index']);
 Route::get('about/{page}/{id}.html', ['as' => 'about', 'uses' => 'AboutController@detail']);
 
-//事件广播
-Route::get('event',['as'=>'event','uses'=>'EventController@index']);
