@@ -14,7 +14,7 @@
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 //选平台
 Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
-Route::get('platform/project.html', ['as' => 'platform.project', 'uses' => 'PlatformController@project']);
+Route::get('platform/{ename}.html', ['as' => 'platform.corp', 'uses' => 'PlatformController@corp']);
 //积分商城
 Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@index']);
 
