@@ -23,12 +23,14 @@
                         <tr>
                             <th width="220">标题</th>
                             <th width="400">地址</th>
+                            <th width="100">排序</th>
                             <th>操作</th>
                         </tr>
                         @foreach($lists  as $lv)
                             <tr>
                                 <td>{!! $lv->name !!}</td>
                                 <td>{!! $lv->url !!}</td>
+                                <td>{!! $lv->sorts  or 0!!}</td>
                                 <td>
                                     <a href="{!! url('link/create',['id'=>$lv->id]) !!}">编辑</a>
                                     <a href="{!! url('link/delete',['id'=>$lv->id]) !!}">删除</a>
