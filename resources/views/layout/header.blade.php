@@ -10,7 +10,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="author" content="p2p网贷,p2p理财,天眼投投资理财平台" />
     <meta name="searchtitle" content="p2p网贷,p2p理财,天眼投投资理财平台" />
-    <link rel="stylesheet" href="//static.phpad.net/css/css.css?ver={!! date("YmdHis",time()) !!}" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/css.css?ver={!! date("YmdHis",time()) !!}" />
     @yield('style')
 </head>
 <body>
