@@ -51,6 +51,15 @@ class PlatformController extends FrontController
     public function corp($ename)
     {
         $corp = $this->tasks->getCorpByEname($ename);
-        return view('front.platform.corp',compact('corp'));
+        $metas['icp_domain'] = '';
+        $metas['icp_corp_type'] = '';
+        $metas['icp_time'] = '';
+        $metas['icp_corp_name'] = '';
+        $metas['icp_no'] = '';
+        if(!empty($corp->metas[0])) {
+            $metas = getMetas($corp->metas, $metas);
+        }
+
+        return view('front.platform.corp',compact('corp','metas'));
     }
 }
