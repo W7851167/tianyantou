@@ -73,7 +73,7 @@
                             <h4>年化收益率
                                 <span class="rate"><em>{!! $cv->min_yield or 0.00 !!}</em>%<em>-</em><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
                             </h4>
-                            <span>项目期限：<em>3天-180天</em></span>
+                            <span>项目期限：<em>{!! dateFormat($cv->min_days) !!}-{!! dateFormat($cv->max_days) !!}</em></span>
                             <span>可投标数：<em>{!! $cv->tasks->count()  !!}个</em></span>
                             <span>安全评级：<em>{!! $cv->level !!}</em></span>
                             <a href="/platform/detail_{!! $cv->id !!}.html" target="_blank" class="btn btn-blue-o btn-allwidth">查看详情</a>
