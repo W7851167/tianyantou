@@ -50,6 +50,7 @@ class PlatformController extends FrontController
 
     public function corp($ename)
     {
-        return view('front.platform.corp');
+        $corp = $this->tasks->getCorpByEname($ename);
+        return view('front.platform.corp',compact('corp'));
     }
 }

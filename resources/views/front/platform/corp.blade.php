@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title') {!! $corp->name !!}大数据@stop
 @section('style')
 <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/prettyPhoto/css/prettyPhoto.css?ver={!! date('YmdHis') !!}" />
 @stop
