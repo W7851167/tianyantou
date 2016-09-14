@@ -58,6 +58,15 @@ class TaskRepository extends  BaseRepository
     }
 
     /**
+     * @param $ename
+     * 通过英文名获取公司信息
+     */
+    public function getCorpByEname($ename)
+    {
+        return $this->corpModel->where('ename',$ename)->first();
+    }
+
+    /**
      * @param array $where
      * 获取所有项目
      */
