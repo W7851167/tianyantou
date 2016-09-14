@@ -13,18 +13,21 @@ namespace App\Repositories;
 
 use App\Models\AdvModel;
 use App\Models\ImageModel;
+use App\Models\LinkModel;
 use Illuminate\Database\QueryException;
 
 class XdataRepository extends  BaseRepository {
     public function __construct(
         AdvModel $advModel,
-        ImageModel $imageModel
+        ImageModel $imageModel,
+        LinkModel $linkModel
     ) {
         $this->advModel = $advModel;
         $this->imageModel = $imageModel;
+        $this->linkModel = $linkModel;
     }
 
-    /**
+       /**
      * @param array $where
      * @param $limit
      * @param $page
@@ -38,6 +41,23 @@ class XdataRepository extends  BaseRepository {
         $counts = $this->advModel->countBy($where);
         return [$counts, $lists];
     }
+
+
+    /**
+     * @param array $where 查询条件
+     * @param $limit       每页展示多少
+     * @param $page        页码
+     * @return array
+     * 获取友情链接信息
+     */
+    public function getLinkList($where = [], $limit, $page)
+    {
+        $order['sorts'] = 'desc';
+        $lists = $this->linkModel->lists(['*'], $where, $order, [], $limit, $page);
+        $counts = $this->linkModel->countBy($where);
+        return [$counts, $lists];
+    }
+
 
 
     /**

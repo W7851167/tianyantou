@@ -14,16 +14,24 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\XdataRepository;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class LinkController extends  AdminController
 {
-    public function __construct()
+    public function __construct(XdataRepository $xdata)
     {
         parent::__initalize();
+        $this->xdata = $xdata;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.link.index');
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        list($counts, $lists) = $this->xdata->getLinkList([], $this->perpage,$page);
+        $pageHtml = $this->pager($counts,$page,$this->perpage);
+        return view('admin.link.index',compact('lists','pageHtml'));
     }
 }
+
