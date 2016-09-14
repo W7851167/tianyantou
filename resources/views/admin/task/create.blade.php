@@ -3,6 +3,8 @@
 @section('style')
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
+    {!!HTML::style('vendor/datepicker/skin/WdatePicker.css')!!}
+    {!!HTML::script('vendor/datepicker/WdatePicker.js')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -68,11 +70,45 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>期限：</div>
-                            <div><input type="text" name = "data[term]" placeholder="天数" value="{!! $task->term or 0 !!}">天</div>
+                            <div><input type="text" name = "data[term]" placeholder="如7天，1个月等" value="{!! $task->term or 0 !!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>开始时间：</div>
+                            <div>
+                                <input type="text" name = "data[start_time]" placeholder="2016-09-14 12:22:01"  class="Wdate"
+                                       onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{!! date('Y-m-d H:i:s',$task->start_time ? $task->start_time : time())!!}">
+                            </div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>结束时间：</div>
+                            <div>
+                                <input type="text" name = "data[end_time]" placeholder="2016-09-14 12:22:01"  class="Wdate"
+                                       onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{!! date('Y-m-d H:i:s',$task->end_time ? $task->end_time : strtotime('+30days'))!!}">
+                            </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>库存：</div>
                             <div><input type="text" name = "data[nums]" placeholder="数值" value="{!! $task->nums or 0 !!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>展示位置：</div>
+                            <div>
+                                <input type="radio" name = "data[position]" value="0" @if(empty($task->position)) checked @endif> 精选平台
+                                <input type="radio" name = "data[position]" value="1" @if(!empty($task->position) && $task->position == 1) checked @endif> 首页展示
+                            </div>
+                        </div>
+                        <div class="infospaceAddImg clearfix" id="home-show-position" @if(!empty($task->home_img)) style="display: block;" @else style="display: none;" @endif>
+                            <div class="infospaceAddLeft h80"><span>*</span>首页展示宣传图：</div>
+                            <div>
+                                <a class="clickUpload" id="uploadimg" href="javascript:void(0)">点击上传</a>
+                            </div>
+                            <p class="hint">必须上传294*129px生成的图片！</p>
+                            <ul class="imgbox"  style="width: 294px;height: 129px;">
+                                @if(!empty($task->home_img))
+                                    <img style="width:294px;" src="{!! config('app.static_url').$task->home_img !!}">
+                                    <input type="hidden" name="data[home_img]" value="{!! $task->home_img or '' !!}" />
+                                @endif
+                            </ul>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>URL：</div>
@@ -105,4 +141,41 @@
     <!--添加相关推荐--->
     <!--选点-->
 @stop
+@section('script')
+    <span id="queueID"></span>
+    {!! HTML::script('/vendor/uploadify/jquery.uploadify.js') !!}
+    {!!HTML::script('vendor/validate/jquery.validate.js')!!}
+    <script language="javascript">
+        $('#uploadimg').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':294,'height0':129, 'type0':1},
+            'buttonText':'上传',
+            'width':'82',
+            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': false,
+            'button_height':32,
+            'button_width':86,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if (data.status == 1) {
+                    var html = '<img style="width:294px;height:129px;" src="' + data.info[294129] + '">';
+                    html += '<input type="hidden" name="data[home_img]" value="' + data.info[294129] + '" />'
+                    $('.imgbox').html(html);
+                }
+            }
+        });
 
+        $(':radio').click(function(){
+            $('#home-show-position').css('display','none');
+            if($(this).val() == 1) {
+                $('#home-show-position').css('display','block');
+            }
+        });
+    </script>
+@stop
