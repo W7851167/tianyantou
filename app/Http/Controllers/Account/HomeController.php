@@ -22,6 +22,7 @@ class HomeController extends  FrontController
 //        if(!empty(\Session::get('user.passport'))) {
 //            return redirect(url('signin.html'));
 //        }
+
         return view('account.index.index');
 
     }
