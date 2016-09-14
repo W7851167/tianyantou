@@ -51,6 +51,7 @@ class IndexController extends FrontController
         //已上线项目
         unset($where);
         $where['status'] = 1;
+        $where['position'] = 1;
         list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
         return view('front.index.index',compact('advs','notices','tasks','latests','strategys'));
     }
