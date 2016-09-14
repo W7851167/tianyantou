@@ -65,7 +65,7 @@
                     <i class="hot-plat"></i>
                     -->
                     <div class="plat-mask" style="display: none; opacity: 1;">
-                        <a href="{!! config('app.url') !!}/platform/detail_{!! $cv->id !!}.html" target="_blank"></a>
+                        <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" target="_blank"></a>
                     </div>
                     <div class="plat-main">
                         <img src="{!! $cv->platform_logo  or ''!!}" alt="{!! $cv->platform !!}">
@@ -76,7 +76,7 @@
                             <span>项目期限：<em>{!! dateFormat($cv->min_days) !!}-{!! dateFormat($cv->max_days) !!}</em></span>
                             <span>可投标数：<em>{!! $cv->tasks->count()  !!}个</em></span>
                             <span>安全评级：<em>{!! $cv->level !!}</em></span>
-                            <a href="/platform/detail_{!! $cv->id !!}.html" target="_blank" class="btn btn-blue-o btn-allwidth">查看详情</a>
+                            <a href="/platform/{!! $cv->ename !!}.html" target="_blank" class="btn btn-blue-o btn-allwidth">查看详情</a>
                             </div>
                     </div>
                     <!--
