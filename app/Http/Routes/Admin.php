@@ -57,7 +57,8 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::any('ad/create/{id?}', ['as' => 'census.ad.create', 'uses' => 'AdController@create']);
     Route::get('ad/delete/{id}', ['as' => 'census.ad.delete', 'uses' => 'AdController@delete']);
     Route::get('link', ['as' => 'census.link.index', 'uses' => 'LinkController@index']);
-    Route::get('link/create/{id}', ['as' => 'census.link.create', 'uses' => 'LinkController@create']);
+    Route::any('link/create/{id}', ['as' => 'census.link.create', 'uses' => 'LinkController@create']);
+    Route::get('link/delete/{id}', ['as' => 'census.link.delete', 'uses' => 'LinkController@delete']);
 
     //系统管理
     Route::get('system', ['as' => 'system.system.index', 'uses' => 'SystemController@index']);
