@@ -10,10 +10,30 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-12 14:29:47
+Date: 2016-09-14 21:40:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `ad_advs`
+-- ----------------------------
+DROP TABLE IF EXISTS `ad_advs`;
+CREATE TABLE `ad_advs` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '广告介绍',
+  `url` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'url地址',
+  `sorts` int(11) DEFAULT '0' COMMENT '排序方式',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of ad_advs
+-- ----------------------------
+INSERT INTO `ad_advs` VALUES ('1', '', 'http://www.baidu.com', '0', '2016-09-13 22:26:15', '2016-09-13 22:26:15', null);
 
 -- ----------------------------
 -- Table structure for `ad_articles`
@@ -28,7 +48,7 @@ CREATE TABLE `ad_articles` (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_articles
@@ -39,6 +59,9 @@ INSERT INTO `ad_articles` VALUES ('5', '2', 'App\\Models\\NewModel', '<p>3123123
 INSERT INTO `ad_articles` VALUES ('6', '3', 'App\\Models\\NewModel', '<p>13212312321</p>', '2016-09-10 22:18:53', null, null);
 INSERT INTO `ad_articles` VALUES ('7', '4', 'App\\Models\\NewModel', '<p>13212312321</p>', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
 INSERT INTO `ad_articles` VALUES ('11', '1', 'App\\Models\\NewModel', '<p>31231232131</p>', '2016-09-10 22:51:34', '2016-09-10 22:51:34', null);
+INSERT INTO `ad_articles` VALUES ('12', '9', 'App\\Models\\NewModel', '<p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">亲爱的天眼哥：</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">根据《国务院办公厅关于2016年部分节假日安排的通知》，投之家2016年中秋节放假值班安排如下：</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">1. 2016年9月15日至9月17日期间3天连休，2016年9月18日（星期日）恢复正常上班；假期客服服务时间不变，为10:00-18:00；</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">2. 节日期间不处理提现，9月14日13:30之后的提现，将于9月18日（工作日）处理；</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">3. 假期中，用户的充值、回款等投资服务均可正常进行；每日专享债权的供应时间为：10:18和14:18。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">请提前做好安排，预祝大家中秋快乐。如有疑问，请致电服务热线或咨询在线客服。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">特此公告，请知悉！</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-align: right; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">天眼投运营团队</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-align: right; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">2016/09/13</span></p><p><br/></p>', '2016-09-13 22:45:10', null, null);
+INSERT INTO `ad_articles` VALUES ('13', '10', 'App\\Models\\NewModel', '<p>选择公司信息</p>', '2016-09-13 23:26:24', null, null);
+INSERT INTO `ad_articles` VALUES ('14', '11', 'App\\Models\\NewModel', '<p>1231231</p>', '2016-09-13 23:31:40', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_banks`
@@ -75,6 +98,7 @@ CREATE TABLE `ad_categorys` (
   `is_system` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、非系统 1、系统',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级',
   `page` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '访问url页面',
+  `iconfont` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
@@ -84,27 +108,27 @@ CREATE TABLE `ad_categorys` (
 -- ----------------------------
 -- Records of ad_categorys
 -- ----------------------------
-INSERT INTO `ad_categorys` VALUES ('1', '公司简介', '1', '1', '0', 'company', '2016-09-09 10:32:53', null, null);
-INSERT INTO `ad_categorys` VALUES ('2', '月度报告', '4', '1', '0', 'monthly', '2016-09-09 11:54:28', null, null);
-INSERT INTO `ad_categorys` VALUES ('3', '专家顾问', '0', '1', '0', 'consultant', '2016-09-09 10:33:10', null, null);
-INSERT INTO `ad_categorys` VALUES ('4', '媒体报道', '0', '1', '0', 'media', '2016-09-09 10:33:18', null, null);
-INSERT INTO `ad_categorys` VALUES ('5', '团队介绍', '1', '1', '0', 'team', '2016-09-09 10:33:27', null, null);
-INSERT INTO `ad_categorys` VALUES ('6', 'T盾计划', '1', '1', '0', 'plan', '2016-09-09 10:33:34', null, null);
-INSERT INTO `ad_categorys` VALUES ('7', '帮助中心', '2', '1', '0', 'help', '2016-09-09 11:52:43', null, null);
-INSERT INTO `ad_categorys` VALUES ('8', '安全评级', '1', '1', '0', 'safety', '2016-09-09 10:33:58', null, null);
-INSERT INTO `ad_categorys` VALUES ('9', '招贤纳士', '1', '1', '0', 'career', '2016-09-09 10:33:59', null, null);
-INSERT INTO `ad_categorys` VALUES ('10', '网站公告', '3', '1', '0', 'notice', '2016-09-09 11:53:46', null, null);
-INSERT INTO `ad_categorys` VALUES ('11', '最新动态', '0', '1', '0', 'latest', '2016-09-09 10:34:21', null, null);
-INSERT INTO `ad_categorys` VALUES ('12', '投资攻略', '0', '1', '0', 'strategy', '2016-09-09 10:34:32', null, null);
-INSERT INTO `ad_categorys` VALUES ('13', '行业动态', '0', '1', '0', 'dynamic', '2016-09-09 10:34:52', null, null);
-INSERT INTO `ad_categorys` VALUES ('14', '大事记', '3', '1', '0', 'events', '2016-09-09 11:54:10', null, null);
-INSERT INTO `ad_categorys` VALUES ('15', '活动展示', '0', '1', '0', 'activity', '2016-09-09 10:35:52', null, null);
-INSERT INTO `ad_categorys` VALUES ('16', '联系我们', '1', '1', '0', 'contact', '2016-09-09 10:36:37', null, null);
-INSERT INTO `ad_categorys` VALUES ('17', '流程类说明', '0', '1', '7', null, '2016-09-09 11:13:11', null, null);
-INSERT INTO `ad_categorys` VALUES ('18', '平台说明', '0', '1', '7', null, '2016-09-09 11:13:28', null, null);
-INSERT INTO `ad_categorys` VALUES ('19', '充值提现说明', '0', '1', '7', null, '2016-09-09 11:13:44', null, null);
-INSERT INTO `ad_categorys` VALUES ('20', '账户类说明', '0', '1', '7', null, '2016-09-09 11:14:07', null, null);
-INSERT INTO `ad_categorys` VALUES ('21', '其它说明', '0', '1', '7', null, '2016-09-09 11:14:25', null, null);
+INSERT INTO `ad_categorys` VALUES ('1', '公司简介', '1', '1', '0', 'company', '&#xe61f;', '2016-09-12 21:13:11', null, null);
+INSERT INTO `ad_categorys` VALUES ('2', '月度报告', '4', '1', '0', 'monthly', '&#xe62c;', '2016-09-12 21:13:23', null, null);
+INSERT INTO `ad_categorys` VALUES ('3', '专家顾问', '0', '1', '0', 'consultant', '&#xe623;', '2016-09-12 21:14:18', null, null);
+INSERT INTO `ad_categorys` VALUES ('4', '媒体报道', '0', '1', '0', 'media', '&#xe612;', '2016-09-12 21:14:28', null, null);
+INSERT INTO `ad_categorys` VALUES ('5', '团队介绍', '1', '1', '0', 'team', '&#xe609;', '2016-09-12 21:14:39', null, null);
+INSERT INTO `ad_categorys` VALUES ('6', 'T盾计划', '1', '1', '0', 'plan', '&#xe62a;', '2016-09-12 21:14:49', null, null);
+INSERT INTO `ad_categorys` VALUES ('7', '帮助中心', '2', '1', '0', 'help', '&#xe629;', '2016-09-12 21:14:57', null, null);
+INSERT INTO `ad_categorys` VALUES ('8', '安全评级', '1', '1', '0', 'safety', '&#xe626;', '2016-09-12 21:15:06', null, null);
+INSERT INTO `ad_categorys` VALUES ('9', '招贤纳士', '1', '1', '0', 'career', '&#xe620;', '2016-09-12 21:15:14', null, null);
+INSERT INTO `ad_categorys` VALUES ('10', '网站公告', '3', '1', '0', 'notice', '&#xe624;', '2016-09-12 21:15:29', null, null);
+INSERT INTO `ad_categorys` VALUES ('11', '最新动态', '0', '1', '0', 'latest', '&#xe622;', '2016-09-12 21:15:42', null, null);
+INSERT INTO `ad_categorys` VALUES ('12', '投资攻略', '0', '1', '0', 'strategy', '&#xe63d;', '2016-09-12 21:15:43', null, null);
+INSERT INTO `ad_categorys` VALUES ('13', '行业动态', '0', '1', '0', 'dynamic', '&#xe653;', '2016-09-12 21:15:50', null, null);
+INSERT INTO `ad_categorys` VALUES ('14', '大事记', '3', '1', '0', 'events', '&#xe696;', '2016-09-12 21:15:56', null, null);
+INSERT INTO `ad_categorys` VALUES ('15', '活动展示', '0', '1', '0', 'activity', '&#xe697;', '2016-09-12 21:16:03', null, null);
+INSERT INTO `ad_categorys` VALUES ('16', '联系我们', '1', '1', '0', 'contact', '&#xe60a;', '2016-09-12 21:16:09', null, null);
+INSERT INTO `ad_categorys` VALUES ('17', '流程类说明', '0', '1', '7', null, null, '2016-09-09 11:13:11', null, null);
+INSERT INTO `ad_categorys` VALUES ('18', '平台说明', '0', '1', '7', null, null, '2016-09-09 11:13:28', null, null);
+INSERT INTO `ad_categorys` VALUES ('19', '充值提现说明', '0', '1', '7', null, null, '2016-09-09 11:13:44', null, null);
+INSERT INTO `ad_categorys` VALUES ('20', '账户类说明', '0', '1', '7', null, null, '2016-09-09 11:14:07', null, null);
+INSERT INTO `ad_categorys` VALUES ('21', '其它说明', '0', '1', '7', null, null, '2016-09-09 11:14:25', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_corp_terms`
@@ -139,10 +163,9 @@ CREATE TABLE `ad_corps` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '公司名称',
   `platform_logo` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '平台logo',
   `logo` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '图标地址',
+  `ad_logo` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '广告图片',
   `min_yield` decimal(10,2) DEFAULT '0.00' COMMENT '年收益最小值',
   `max_yield` decimal(10,2) DEFAULT '0.00' COMMENT '年收益最大值',
-  `min_time` smallint(5) DEFAULT '0' COMMENT '项目最小期限',
-  `max_time` smallint(5) DEFAULT '0' COMMENT '最大期限',
   `capital` char(15) COLLATE utf8_unicode_ci NOT NULL COMMENT '注册金额',
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '法人代表',
   `province` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '所在省',
@@ -155,6 +178,7 @@ CREATE TABLE `ad_corps` (
   `assure` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '担保机构',
   `level` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0' COMMENT '等级',
   `limit` tinyint(1) DEFAULT '0' COMMENT '交任务的数量数',
+  `sorts` int(11) DEFAULT '0' COMMENT '排序',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除操作',
@@ -164,9 +188,9 @@ CREATE TABLE `ad_corps` (
 -- ----------------------------
 -- Records of ad_corps
 -- ----------------------------
-INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/uploads/imgs/2016-09-11/19560/57d5618793b90.jpg', '/uploads/imgs/2016-09-11/180180/57d5618e78cb7.jpg', null, '0.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', '1', '2016-09-11 21:52:16', '2016-09-11 21:52:16', null);
-INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/uploads/imgs/2016-09-11/19560/57d561770cb89.jpg', '/uploads/imgs/2016-09-11/180180/57d5617d212b5.jpg', '0.00', '0.00', '0', '0', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', '0', '2016-09-11 21:51:59', '2016-09-11 21:51:59', null);
-INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/uploads/imgs/2016-09-11/19560/57d52d6e7b39a.jpg', '/uploads/imgs/2016-09-11/180180/57d52d72377b4.jpg', '0.00', '0.00', '0', '0', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', '0', '2016-09-11 18:09:55', '2016-09-11 18:09:55', null);
+INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', '/uploads/imgs/2016-09-11/19560/57d5618793b90.jpg', '/uploads/imgs/2016-09-11/180180/57d5618e78cb7.jpg', '/uploads/imgs/2016-09-13/294129/57d8182ff0cfc.jpg', null, '0.00', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'T+1', '平安保险', 'AAA', '1', '0', '2016-09-14 14:01:36', '2016-09-14 14:01:36', null);
+INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '/uploads/imgs/2016-09-11/19560/57d561770cb89.jpg', '/uploads/imgs/2016-09-11/180180/57d5617d212b5.jpg', '/uploads/imgs/2016-09-13/294129/57d81821277c4.jpg', '0.00', '0.00', '2000万元', '1111', '河北省', '唐山市', '丰润区', '1', '2016-09-09', '111111', 'T+1', '平安保险', 'A', '0', '0', '2016-09-13 23:15:47', '2016-09-13 23:15:47', null);
+INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', '/uploads/imgs/2016-09-11/19560/57d52d6e7b39a.jpg', '/uploads/imgs/2016-09-11/180180/57d52d72377b4.jpg', '/uploads/imgs/2016-09-13/294129/57d817e2a0874.jpg', '0.00', '0.00', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'T+1', '平安保险', 'AA', '0', '0', '2016-09-13 23:14:44', '2016-09-13 23:14:44', null);
 
 -- ----------------------------
 -- Table structure for `ad_images`
@@ -181,7 +205,7 @@ CREATE TABLE `ad_images` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_images
@@ -200,6 +224,34 @@ INSERT INTO `ad_images` VALUES ('13', '/uploads/logo/2016-09-11/24282/57d561cb0d
 INSERT INTO `ad_images` VALUES ('23', '/imgs/2016-09-10/188223/57d421af0f1e6.jpg', '0', '', '2016-09-10 23:08:23', '2016-09-10 23:08:23', null);
 INSERT INTO `ad_images` VALUES ('24', '/imgs/2016-09-10/188223/57d42266d431b.jpg', '0', '', '2016-09-10 23:10:33', '2016-09-10 23:10:33', null);
 INSERT INTO `ad_images` VALUES ('25', '/imgs/2016-09-10/188223/57d422853db40.jpg', '4', 'App\\Models\\CorpTermModel', '2016-09-10 23:14:24', null, null);
+INSERT INTO `ad_images` VALUES ('26', '/uploads/imgs/2016-09-13/1349246/57d80a85bb150.jpg', '1', 'App\\Models\\AdvModel', '2016-09-13 22:17:43', null, null);
+INSERT INTO `ad_images` VALUES ('27', '/uploads/logo/2016-09-13/24282/57d81b0ff0e38.jpg', '10', 'App\\Models\\NewModel', '2016-09-13 23:28:19', '2016-09-13 23:28:19', null);
+INSERT INTO `ad_images` VALUES ('28', '/uploads/imgs/2016-09-13/184125/57d81b6dadf51.jpg', '11', 'App\\Models\\NewModel', '2016-09-13 23:31:40', null, null);
+INSERT INTO `ad_images` VALUES ('29', '/uploads/imgs/2016-09-14/294129/57d8e4186467e.jpg', '8', 'App\\Models\\TaskModel', '2016-09-14 13:46:02', null, null);
+
+-- ----------------------------
+-- Table structure for `ad_links`
+-- ----------------------------
+DROP TABLE IF EXISTS `ad_links`;
+CREATE TABLE `ad_links` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '友情链接名称',
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '跳转地址',
+  `sorts` int(11) DEFAULT '0' COMMENT '排序',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of ad_links
+-- ----------------------------
+INSERT INTO `ad_links` VALUES ('1', '百度', 'http://www.baidu.com', '1', '2016-09-14 21:27:26', null, null);
+INSERT INTO `ad_links` VALUES ('2', '新浪', 'http://www.baidu.com', '0', '2016-09-14 21:27:41', null, null);
+INSERT INTO `ad_links` VALUES ('3', '234324', '234243', '0', '2016-09-14 21:27:45', null, null);
+INSERT INTO `ad_links` VALUES ('4', '2342', '2342342', '0', '2016-09-14 21:27:49', null, null);
+INSERT INTO `ad_links` VALUES ('5', '234324234', '23424324', '0', '2016-09-14 21:27:53', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_metas`
@@ -266,15 +318,18 @@ CREATE TABLE `ad_news` (
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_news
 -- ----------------------------
 INSERT INTO `ad_news` VALUES ('1', '1', '13', '321312', '2', '12313', '11', '2016-09-11 21:53:17', '2016-09-11 21:53:17', null);
 INSERT INTO `ad_news` VALUES ('2', '0', '13', '客户案例0627', '2', ' 123123123 ', '0', '2016-09-10 22:51:34', '2016-09-10 22:51:34', null);
-INSERT INTO `ad_news` VALUES ('3', '0', '13', '测试内容详情', '2', '7大支持内容啊   ', '0', '2016-09-10 22:52:45', '2016-09-10 22:52:45', null);
+INSERT INTO `ad_news` VALUES ('3', '0', '12', '测试内容详情', '2', '7大支持内容啊   ', '0', '2016-09-13 23:34:48', '2016-09-10 22:52:45', null);
 INSERT INTO `ad_news` VALUES ('4', '0', '13', '12312221321', '2', ' 13213123 23442342', '0', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
+INSERT INTO `ad_news` VALUES ('9', '0', '10', '佳节将至，请留意中秋值班安排', '0', null, '0', '2016-09-13 22:46:16', null, null);
+INSERT INTO `ad_news` VALUES ('10', '1', '11', '最新动态内容', '3', '文章描述水电费等所发生的分手大师', '0', '2016-09-13 23:29:28', '2016-09-13 23:29:28', null);
+INSERT INTO `ad_news` VALUES ('11', '0', '13', '111111123', '3', ' 132123123', '0', '2016-09-13 23:31:40', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_scores`
@@ -355,13 +410,18 @@ CREATE TABLE `ad_tasks` (
   `ratio` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '年转化率',
   `status` tinyint(1) DEFAULT '0' COMMENT '0、待上线 1、正常 2、停止',
   `mratio` decimal(10,2) DEFAULT '0.00' COMMENT '本网站转化率',
-  `term` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '期限',
+  `term` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '期限',
   `sued` decimal(10,2) DEFAULT '0.00' COMMENT '起诉金额',
   `ensure` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '保障方式',
   `repay` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '还款方式',
+  `sorts` int(11) DEFAULT '0' COMMENT '排序',
   `accrual` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '计息方式(T+0到账\\T+1到账)',
   `limit` decimal(10,2) DEFAULT '0.00' COMMENT '投标限额(元)',
   `nums` int(11) DEFAULT '0' COMMENT '库存数量',
+  `position` tinyint(1) DEFAULT '0' COMMENT '展示位置 0、普通展示 1、首页展示',
+  `home_img` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '首页展示图片',
+  `start_time` int(11) DEFAULT '0' COMMENT '开始时间',
+  `end_time` int(11) DEFAULT NULL COMMENT '结束时间',
   `url` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT '跳转地址 ',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -372,13 +432,13 @@ CREATE TABLE `ad_tasks` (
 -- ----------------------------
 -- Records of ad_tasks
 -- ----------------------------
-INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0.00', '0', '', '2016-09-10 16:49:51', '2016-09-10 16:49:51', '2016-09-10 16:49:51');
-INSERT INTO `ad_tasks` VALUES ('3', '3', 'aaasdf', '111111.00', '1111.00', '1', '111.00', '111', '11.00', '111', '111', '111', '1000.00', '0', '', '2016-09-10 16:54:11', '2016-09-10 16:54:11', null);
-INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '0', '3.40', '20天', '200.00', '112313', '123123', '1231232', '1000.00', '0', '', '2016-09-10 16:10:26', '2016-09-10 16:10:26', null);
-INSERT INTO `ad_tasks` VALUES ('5', '1', '测试页面', '1111111.00', '22.00', '1', '111.00', '11', '1111.00', '112313', '11', '111', '111.00', '0', '', '2016-09-09 23:21:20', null, null);
-INSERT INTO `ad_tasks` VALUES ('6', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '0', '', '2016-09-10 16:53:20', null, null);
-INSERT INTO `ad_tasks` VALUES ('7', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '123123', '123213.00', '0', '', '2016-09-10 16:53:51', null, null);
-INSERT INTO `ad_tasks` VALUES ('8', '3', '客户案例0627', '10000.00', '12.00', '0', '3.00', '130天', '0.00', '0', '0', '0', '100.00', '20', 'http://www.baidu.com', '2016-09-11 17:32:43', null, null);
+INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0', '0.00', '0', '0', null, '0', null, '', '2016-09-10 16:49:51', '2016-09-10 16:49:51', '2016-09-10 16:49:51');
+INSERT INTO `ad_tasks` VALUES ('3', '3', 'aaasdf', '111111.00', '1111.00', '1', '111.00', '111', '11.00', '111', '111', '0', '111', '1000.00', '0', '0', null, '0', null, '', '2016-09-10 16:54:11', '2016-09-10 16:54:11', null);
+INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '0', '3.40', '20', '200.00', '112313', '123123', '0', '1231232', '1000.00', '0', '0', null, '0', null, '', '2016-09-10 16:10:26', '2016-09-10 16:10:26', null);
+INSERT INTO `ad_tasks` VALUES ('5', '1', '测试页面', '1111111.00', '22.00', '1', '111.00', '11', '1111.00', '112313', '11', '0', '111', '111.00', '0', '0', null, '0', null, '', '2016-09-09 23:21:20', null, null);
+INSERT INTO `ad_tasks` VALUES ('6', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '0', '123123', '123213.00', '0', '0', null, '0', null, '', '2016-09-10 16:53:20', null, null);
+INSERT INTO `ad_tasks` VALUES ('7', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '0', '123123', '123213.00', '0', '0', null, '0', null, '', '2016-09-10 16:53:51', null, null);
+INSERT INTO `ad_tasks` VALUES ('8', '1', '客户案例0627', '10000.00', '12.00', '1', '3.00', '130', '0.00', '0', '0', '0', '0', '100.00', '20', '1', '/uploads/imgs/2016-09-14/294129/57d8e4f82016b.jpg', '1473831940', '1476423940', 'http://www.baidu.com', '2016-09-14 14:01:36', '2016-09-14 14:01:36', null);
 
 -- ----------------------------
 -- Table structure for `ad_users`
