@@ -18,6 +18,7 @@
 
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">友情链接</a></p>
+                    <a href="{!!url('link/create')!!}" class="buttonA">创建链接</a>
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
