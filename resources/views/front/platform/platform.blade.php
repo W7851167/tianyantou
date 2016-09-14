@@ -76,8 +76,8 @@
                             <span>项目期限：<em>3天-180天</em></span>
                             <span>可投标数：<em>{!! $cv->tasks->count()  !!}个</em></span>
                             <span>安全评级：<em>{!! $cv->level !!}</em></span>
-                            <a href="/platform/detail_huitouwang.html" target="_blank" class="btn btn-blue-o btn-allwidth">查看详情</a>
-                            <img src="//static.touzhijia.com/images/platform/jiaxiquan.png" style="position: absolute; top: 21px; right: -22px; width: 54px;"></div>
+                            <a href="/platform/detail_{!! $cv->id !!}.html" target="_blank" class="btn btn-blue-o btn-allwidth">查看详情</a>
+                            </div>
                     </div>
                     <!--
                     <i class="event-plat"></i>
