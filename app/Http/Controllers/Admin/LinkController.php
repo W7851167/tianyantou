@@ -29,15 +29,21 @@ class LinkController extends  AdminController
     public function index(Request $request)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
-        list($counts, $lists) = $this->xdata->getLinkList([], $this->perpage,$page);
-        $pageHtml = $this->pager($counts,$page,$this->perpage);
-        return view('admin.link.index',compact('lists','pageHtml'));
+        list($counts, $lists) = $this->xdata->getLinkList([], $this->perpage, $page);
+        $pageHtml = $this->pager($counts, $page, $this->perpage);
+        return view('admin.link.index', compact('lists', 'pageHtml'));
     }
 
-    public function create()
+    public function create(Request $request, $id = null)
     {
+        if (!empty($id)) {
+            $link = $this->xdata->linkModel->find($id);
+            return view('admin.link.create', compact('link'));
+        }
         return view('admin.link.create');
     }
 }
+
+
 
 

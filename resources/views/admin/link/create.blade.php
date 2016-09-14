@@ -16,21 +16,21 @@
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
-                    @if(!empty($adv))
-                        <input type="hidden" name="data[id]" value="{!! $adv->id !!}">
+                    @if(!empty($link))
+                        <input type="hidden" name="data[id]" value="{!! $link->id !!}">
                     @endif
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>名称：</div>
-                            <div><input type="text" name="data[name]" placeholder="链接名称" value="{!! $adv->platform or '' !!}"></div>
+                            <div><input type="text" name="data[name]" placeholder="链接名称" value="{!! $link->name or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>URL：</div>
-                            <div><input type="text" name="data[url]" placeholder="跳转地址" value="{!! $adv->url or '' !!}"></div>
+                            <div><input type="text" name="data[url]" placeholder="友情链接地址" value="{!! $link->url or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>排序：</div>
-                            <div><input type="text" name="data[sorts]" placeholder="数值大靠前" value="{!! $adv->sorts or '' !!}"></div>
+                            <div><input type="text" name="data[sorts]" placeholder="数值大靠前" value="{!! $link->sorts or '' !!}"></div>
                         </div>
 
                     </div>
