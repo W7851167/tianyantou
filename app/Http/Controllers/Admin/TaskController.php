@@ -50,6 +50,13 @@ class TaskController extends  AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
+            if(!empty($data['start_time']))
+                $data['start_time'] = strtotime($data['start_time']);
+            if(!empty($data['end_time']))
+                $data['end_time'] = strtotime($data['end_time']);
+            if(!empty($data['home_img']))
+                $data['home_img'] = str_replace(config('app.static_url'), '', $data['home_img']);
+
             $result = $this->taskRepository->saveTask($data);
             if($result['status']) {
                 return $this->success($result['message'],url('task'),true);

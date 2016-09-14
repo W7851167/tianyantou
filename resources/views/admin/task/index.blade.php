@@ -28,13 +28,13 @@
                         <tr>
                             <th width='100'>公司信息</th>
                             <th width="180">标题</th>
+                            <th width="60">位置</th>
                             <th width="60">库存</th>
                             <th width="60">领取</th>
                             <th width="60">完成</th>
                             <th width="60">年收益</th>
                             <th width="65">赠收益</th>
                             <th width="65">期限</th>
-                            <th width="65">起诉金额</th>
                             @if(!isset($status))
                             <th width="65">状态</th>
                             @endif
@@ -46,13 +46,13 @@
                             <tr>
                                 <td>{!! $tv->corp->platform or '' !!}</td>
                                 <td>{!! str_limit($tv->title,20) !!}</td>
+                                <td>{!! $tv->position == 1 ? '首页':'其它' !!}</td>
                                 <td>{!! $tv->nums or 0!!}</td>
                                 <td>{!! $tv->receives->where('status',0)->count() !!}</td>
                                 <td>{!! $tv->receives->where('status',1)->count() !!}</td>
                                 <td>{!! $tv->ratio or 0!!}</td>
                                 <td>{!! $tv->mratio or 0!!}</td>
                                 <td>{!! $tv->term or 0!!}</td>
-                                <td>{!! $tv->sued or 0!!}</td>
                                 @if(!isset($status))
                                 <td>{!! $tv->status == 0 ? '待发布':($tv->status == 1 ? '已发布' : '已结束')!!}</td>
                                 @endif
