@@ -58,6 +58,15 @@ class TaskRepository extends  BaseRepository
     }
 
     /**
+     * @param $ename
+     * 通过英文名获取公司信息
+     */
+    public function getCorpByEname($ename)
+    {
+        return $this->corpModel->where('ename',$ename)->first();
+    }
+
+    /**
      * @param array $where
      * 获取所有项目
      */
@@ -198,8 +207,47 @@ class TaskRepository extends  BaseRepository
         $result = $this->corpTermModel->getConnection()->transaction(function() use($data){
             //保存项目
             $this->taskModel->saveBy($data);
-            //保存平台信息
-            //$days = $
+            if(!empty($data['corp_id'])) {
+                $days = getDiffTime($data['start_time'],$data['end_time']);
+                $days = (int)$days;
+                $ratio = (float)$data['ratio'];
+                $corpModel = $this->corpModel->find($data['corp_id']);
+                if($corpModel->min_yield == 0) {
+                    $corpData['min_yield'] = $ratio;
+                } else {
+                    if($corpModel->min_yield > $ratio) {
+                        $corpData['min_yield'] = $ratio;
+                    }
+                }
+                if($corpModel->max_yield == 0) {
+                    $corpData['max_yield'] = $ratio;
+                } else {
+                    if($corpModel->max_yield < $ratio) {
+                        $corpData['max_yield'] = $ratio;
+                    }
+                }
+
+                if(empty($corpModel->min_days)) {
+                    $corpData['min_days'] = $days;
+                } else {
+                    if($corpModel->min_days > $days) {
+                        $corpData['min_days'] = $days;
+                    }
+                }
+                if(empty($corpModel->max_days)) {
+                    $corpData['max_days'] = $days;
+                } else {
+                    if($corpModel->max_days < $days) {
+                        $corpData['max_days']  = $days;
+                    }
+                }
+                //保存公司信息
+                if(!empty($corpData)) {
+                    $corpData['id'] = $data['corp_id'];
+                    $corpModel->saveBy($corpData);
+                }
+
+            }
         });
         if ($result instanceof \Exception) {
             return $this->getError($result->getMessage());

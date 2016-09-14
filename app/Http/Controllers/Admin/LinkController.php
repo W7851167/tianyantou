@@ -33,5 +33,11 @@ class LinkController extends  AdminController
         $pageHtml = $this->pager($counts,$page,$this->perpage);
         return view('admin.link.index',compact('lists','pageHtml'));
     }
+
+    public function create()
+    {
+        return view('admin.link.create');
+    }
 }
+
 
