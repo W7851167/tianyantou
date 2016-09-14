@@ -62,7 +62,7 @@ class Gd{
 
         //打开图像
         if('gif' == $this->info['type']){
-            $class  =    'Think\\Image\\Driver\\GIF';
+            $class  =    'App\\Library\\Utils\\Image\\Driver\\GIF';
             $this->gif = new $class($imgname);
             $this->img = imagecreatefromstring($this->gif->image());
         } else {
