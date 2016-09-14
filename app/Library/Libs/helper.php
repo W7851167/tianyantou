@@ -133,13 +133,13 @@ function getDiffTime($startTime,$endTime)
 function dateFormat($day)
 {
     if($day <= 30) {
-        return [$day,'天'];
+        return $day . '天';
     }
     if($day >30 && $day < 365) {
-        return [round(abs($day / 30)), '个月'];
+        return ceil(abs($day / 30)) . '个月';
     }
 
     if($day > 365) {
-        return [round(abs($day / 365)), '年'];
+        return round(abs($day / 365)). '年';
     }
 }
