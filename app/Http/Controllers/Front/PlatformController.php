@@ -48,8 +48,8 @@ class PlatformController extends FrontController
 
     }
 
-    public function project()
+    public function corp($ename)
     {
-        return view('front.platform.project');
+        return view('front.platform.corp');
     }
 }
