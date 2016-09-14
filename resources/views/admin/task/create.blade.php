@@ -115,6 +115,10 @@
                             <div><input type="text" name = "data[url]" placeholder="第三方跳转URL" value="{!! $task->url or ''!!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>排序：</div>
+                            <div><input type="text" name = "data[sorts]" placeholder="值越大越靠前"  value="{!! $task->sorts or 0 !!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>保障方式：</div>
                             <div><input type="text" name = "data[ensure]" placeholder="比如 第三方担保"  value="{!! $task->ensure or 0 !!}"></div>
                         </div>

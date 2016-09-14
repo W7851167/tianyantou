@@ -87,6 +87,10 @@
                             </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>排序：</div>
+                            <div><input type="text" name = "data[sorts]" placeholder="值越大越靠前"  value="{!! $corp->sorts or 0 !!}"></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>法人代表：</div>
                             <div><input type="text" name="data[username]" placeholder="真实姓名" value="{!! $corp->username or '' !!}"></div>
                         </div>
