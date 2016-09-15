@@ -52,12 +52,15 @@ class PlatformController extends FrontController
         $from = $request->get('from');
         $page = $request->get('page');
         $sortType = $request->get('sorttype');
-        $sortOrder = $request->get('sortoer');
+        $sortOrder = $request->get('sortorder');
 
         $corp = $this->tasks->getCorpByEname($from);
         $order = [];
         if($sortType == 1) {
             $order['ratio'] = $sortOrder;
+        }
+        if($sortType == 3 ) {
+            $order['proccess'] = $sortOrder;
         }
         $where['status'] = 1;
         $where['corp_id'] = $corp->id;
