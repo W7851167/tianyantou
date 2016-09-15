@@ -31,6 +31,7 @@
                                 <div class="pc-login">
                                     <h2>会员登录 <a href="{!! config('app.account_url') !!}/register.html">没账号？立即注册</a></h2>
                                     <form id="login" method="post"  action="{!! config('app.account_url') !!}/signin.html">
+                                        {!! csrf_field() !!}
                                         <div class="error hidden">
                                             <i class="iconfont">&#xe664;</i>
                                             <span></span>

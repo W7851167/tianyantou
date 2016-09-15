@@ -78,9 +78,9 @@ class AboutController extends FrontController
     /**
      * 多图文章列表
      */
-    private function multi($category, Request $request)
+    private function multi($category)
     {
-        $page = $request->get('page') ? (int)$request->page : '';
+        $page = \Request::get('page') ? (int)\Request::get('page') : '';
         $where = ['category_id' => $category->id];
         list($count, $lists) = $this->new->getNewList($where, $page);
         return view('front.about.' . $category->page, compact(

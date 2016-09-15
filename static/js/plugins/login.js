@@ -76,7 +76,11 @@
       }
       password = str_encode(password);
       $password.val(password);
-      return true;
+      alert(1111);
+      console.log(options);
+      //基础ajax提交
+      $('#login').ajaxForm(options);
+      $.post();
     }
 
     return false;
