@@ -16,10 +16,11 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('signout.html', 'PassportController@signout');
 
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
+    //投资记录
+    Route::get('networth/index.html', ['as' => 'networth', 'uses' => 'NetworthController@index']);
     //平台
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
     Route::get('platforms/analysis.html', ['as' => 'platform', 'uses' => 'PlatformController@analysis']);
-    Route::get('platforms/bind.html', ['as' => 'platform', 'uses' => 'PlatformController@bind']);
     //账号充值
     Route::get('wallet/recharge.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@recharge']);
     Route::get('wallet/rechargelist.html', ['as' => 'wallet.rechargelist', 'uses' => 'WalletController@rechargelist']);
@@ -31,5 +32,8 @@ Route::group(['middleware' => 'middle.account'], function () {
     //活动专区
     Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
     Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
+    //理财劵
+    Route::get('coupon/index.html', ['as' => 'coupon', 'uses' => 'CouponController@index']);
+    //消息中心
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
 });
