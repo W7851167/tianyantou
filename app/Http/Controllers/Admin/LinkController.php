@@ -35,7 +35,13 @@ class LinkController extends  AdminController
     }
 
     public function create(Request $request, $id = null)
-    {
+    {if($request->isMethod('post')) {
+        $data = $request->get('data');
+        $result = $this->xdata->saveLink($data);
+        if($result['status'])
+            return $this->success($result['message'],url('link'),true);
+        return $this->error($result['message'],null,true);
+    }
         if (!empty($id)) {
             $link = $this->xdata->linkModel->find($id);
             return view('admin.link.create', compact('link'));
