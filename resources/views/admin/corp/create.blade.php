@@ -27,25 +27,9 @@
                             <div class="infospaceAddLeft"><span>*</span>平台名称：</div>
                             <div><input type="text" name="data[platform]" placeholder="公司简称" value="{!! $corp->platform or '' !!}"></div>
                         </div>
-                        <div class="infospaceAddImg">
-                            <div class="infospaceAddLeft h80"><span>*</span>平台LOGO：</div>
-                            <div id="storeimg">
-                                <a class="clickUpload" id="uploadLogo" href="javascript:void(0)">点击上传</a>
-                            </div>
-                            <p class="hint">必须上传195*60的图片！</p>
-                            <ul class="imgbox" id="platformLogoShow" style="width: 195px;height: 60px;">
-                                @if(!empty($corp->platform_logo))
-                                    <img style="width: 195px;height: 60px;" src="{!! config('app.static_url').$corp->platform_logo !!}">
-                                    <input type="hidden" name="data[logo]" value="{!! $corp->platform_logo or '' !!}" />
-                               @endif
-                            </ul>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
-                            <div><input type="text" name="data[name]" placeholder="公司全名" value="{!! $corp->name or '' !!}"></div>
-                        </div>
+
                         <div class="infospaceAddImg clearfix">
-                            <div class="infospaceAddLeft h80"><span>*</span>公司LOGO：</div>
+                            <div class="infospaceAddLeft h80"><span>*</span>平台LOGO：</div>
                             <div>
                                 <a class="clickUpload" id="uploadimg" href="javascript:void(0)">点击上传</a>
                             </div>
@@ -60,6 +44,25 @@
                         <div class="infospaceAddContent clearfix">
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
+                            <div><input type="text" name="data[name]" placeholder="公司全名" value="{!! $corp->name or '' !!}"></div>
+                        </div>
+                        <div class="infospaceAddImg">
+                            <div class="infospaceAddLeft h80"><span>*</span>营业执照：</div>
+                            <div id="storeimg">
+                                <a class="clickUpload" id="chartered" href="javascript:void(0)">点击上传</a>
+                            </div>
+                            <p class="hint">生成280*220的缩略图图片！</p>
+                            <ul class="imgbox" id="charteredShow" style="width: 280px;height: 220px;">
+                                @if(!empty($corp->chartered))
+                                    <img style="width: 195px;height: 60px;" src="{!! config('app.static_url').$corp->chartered  !!}">
+                                    <input type="hidden" name="data[chartered]" value="{!! $corp->chartered  or '' !!}" />
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>注册金额：</div>
                             <div><input type="text" name="data[capital]" placeholder="2000万元" value="{!! $corp->capital or '' !!}"></div>
                         </div>
@@ -67,6 +70,7 @@
                             <div class="infospaceAddLeft"><span>*</span>注册金额：</div>
                             <div><input type="text" name="data[capital]" placeholder="2000万元" value="{!! $corp->capital or '' !!}"></div>
                         </div>
+
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft h80"><span>*</span>公司地址：</div>
                             <div>
@@ -166,11 +170,11 @@
 
         });
 
-        $('#uploadLogo').uploadify({
+        $('#chartered').uploadify({
             'onInit': function () {$("#queueID").hide();},
             'swf'      : '/vendor/uploadify/uploadify.swf',
             'uploader' : '/uploadImg',
-            'formData' :{'width0':195,'height0':60, 'type0':1},
+            'formData' :{'width0':280,'height0':220, 'type0':1},
             'buttonText':'',
             'width':'82',
             //'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
@@ -184,9 +188,9 @@
             'onUploadSuccess' : function(file,data) {
                 data = eval('('+data+')');
                 if (data.status == 1) {
-                    var html = '<img style="width:195px;height:60px;" src="' + data.info[19560] + '">';
-                    html += '<input type="hidden" name="data[platform_logo]" value="' + data.info[19560] + '" />'
-                    $('#platformLogoShow').html(html);
+                    var html = '<img style="width:280px;height:220px;" src="' + data.info[280220] + '">';
+                    html += '<input type="hidden" name="data[chartered]" value="' + data.info[280220] + '" />'
+                    $('#charteredShow').html(html);
                 }
             }
         });
