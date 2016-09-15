@@ -52,7 +52,7 @@
                                 <div class="menu-list">
                                     <ul>
                                         <li><a href="{!! config('app.acount_url') !!}/wallet/recharge.html"><i class="iconfont">&#xe63f;</i>账户充值</a></li>
-                                        <li><a href="{!! config('app.acount_url') !!}m/debt.html"><i class="iconfont">&#xe641;</i>理财管理</a></li>
+                                        <li><a href="{!! config('app.acount_url') !!}/debt.html"><i class="iconfont">&#xe641;</i>理财管理</a></li>
                                         <li><a href="{!! config('app.acount_url') !!}/wallet/book.html"><i class="iconfont">&#xe640;</i>资金流水</a></li>
                                         <li><a href="{!! config('app.acount_url') !!}/safe.html"><i class="iconfont">&#xe63e;</i>安全中心</a></li>
                                     </ul>
