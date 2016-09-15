@@ -34,14 +34,22 @@
                     <table style="margin-bottom: 10px;-ms-table-layout:auto;width: 568px;">
                         <thead>
                         <tr class="text-ellipsis">
-                            <td width="160" class="no-pleft">年化收益率<span
-                                        class="rate"><em>{!! $corp->min_yield or 0.00 !!}</em>%-<em>{!! $corp->max_yield or 0.00 !!}</em>%</span>
+                            <td width="160" class="no-pleft">年化收益率
+                                @if($corp->min_yield == $corp->max_yield)
+                                    <span class="rate"><em>{!! $corp->min_yield or 0.00 !!}</em>%</span>
+                                    @else
+                                <span class="rate"><em>{!! $corp->min_yield or 0.00 !!}</em>%-<em>{!! $corp->max_yield or 0.00 !!}</em>%</span>
+                                    @endif
                             </td>
                             <td width="120" style="text-indent: 20px;">注册资本<span>{!! $corp->capital or 0 !!}</span></td>
                             <td class="safe" width="120">安全评级<span>{!! $corp->level or '' !!}</span></td>
-                            <td class="expire noborder" width="160">项目期限<span
-                                        title="{!! dateFormat($corp->min_days) !!}-{!! dateFormat($corp->max_days) !!}">{!! dateFormat($corp->min_days) !!}
-                                    -{!! dateFormat($corp->max_days) !!}</span></td>
+                            <td class="expire noborder" width="160">项目期限
+                                @if($corp->min_days == $corp->max_days)
+                                    <span  title="{!! dateFormat($corp->min_days) !!}">{!! dateFormat($corp->min_days) !!}</span>
+                                    @else
+                                <span  title="{!! dateFormat($corp->min_days) !!}-{!! dateFormat($corp->max_days) !!}">{!! dateFormat($corp->min_days) !!}-{!! dateFormat($corp->max_days) !!}</span>
+                                    @endif
+                            </td>
                         </tr>
                         </thead>
                     </table>
