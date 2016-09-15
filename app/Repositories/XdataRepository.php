@@ -72,7 +72,24 @@ class XdataRepository extends  BaseRepository {
             return static::getError($e->getMessage());
         }
     }
+    public function deleteLink($id)
+    {
+        try {
+            $term = $this->LinkModel->find($id);
+            $term->delete();
+            $this->linkModel->deleteLink($id, 'App\Models\LinkModel');
+            return static::getSuccess('删除链接信息完成');
+        } catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
 
+
+        if ($result instanceof Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('success', $result);
+        }
+    }
 
 
     /**
