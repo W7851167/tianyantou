@@ -11,6 +11,7 @@
     <meta name="author" content="p2p网贷,p2p理财,天眼投投资理财平台" />
     <meta name="searchtitle" content="p2p网贷,p2p理财,天眼投投资理财平台" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/css.css" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/layer/skin/layer.css" id="layui_layer_skinlayercss">
     @yield('style')
 </head>
 <body>

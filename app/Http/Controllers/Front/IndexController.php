@@ -38,7 +38,6 @@ class IndexController extends FrontController
      */
     public function index()
     {
-        var_dump(\Session::get('user.passport'));
         list($counts, $advs) = $this->xdata->getAdvList([],5,1);
         //系统公告
         $where['category_id'] = 10;
