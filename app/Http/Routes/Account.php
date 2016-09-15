@@ -10,6 +10,11 @@
  * $Dtime:2016/9/11
  ***********************************************************************************/
 Route::group(['middleware' => 'middle.account'], function () {
+    Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
+    Route::get('signin/captcha', 'PassportController@captcha');
+    Route::match(['get', 'post'], 'register.html', 'PassportController@register');
+    Route::get('signout.html', 'PassportController@signout');
+
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     //平台
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
@@ -28,6 +33,3 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
 });
-Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
-Route::get('signin/captcha', 'PassportController@captcha');
-Route::get('register.html', 'PassportController@register');

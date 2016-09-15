@@ -37,47 +37,47 @@
             <div class="top-menu">
                 @if($user)
                 <div class="my-menu">
-                    <a id="my-menu" href="https://account.touzhijia.com/">我的投之家<i></i></a>
+                    <a id="my-menu" href="{!! config('app.account_url') !!}">我的天眼投<i></i></a>
                     <div class="menu-box">
                         <div class="user-img">
-                            <a href="https://account.touzhijia.com/">
+                            <a href="{!! config('app.account_url') !!}">
                                 <i class="shape-circle"></i>
-                                <img src="//static.touzhijia.com/images/user/headerimg2.png" width="80" height="80">
-                                <h3>您好，<span id="user-name" title="15072309522">15072309522</span></h3>
+                                <img src="{!! config('app.static_url') !!}/images/user/headerimg2.png" width="80" height="80">
+                                <h3>您好，<span id="user-name" title="{!! $user['username'] or '' !!}">{!! $user['username'] or '' !!}</span></h3>
                             </a>
                         </div>
                         <div class="menu-list">
                             <ul>
                                 <li>
-                                    <a href="https://account.touzhijia.com/wallet/recharge.html">
+                                    <a href="{!! config('app.account_url') !!}/wallet/recharge.html">
                                         <i class="iconfont">&#xe63f;</i>账户充值
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://account.touzhijia.com/debt.html">
+                                    <a href="{!! config('app.account_url') !!}/debt.html">
                                         <i class="iconfont">&#xe641;</i>理财管理
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://account.touzhijia.com/wallet/book.html">
+                                    <a href="{!! config('app.account_url') !!}/wallet/book.html">
                                         <i class="iconfont">&#xe640;</i>资金流水
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://account.touzhijia.com/safe.html">
+                                    <a href="{!! config('app.account_url') !!}/safe.html">
                                         <i class="iconfont">&#xe63e;</i>安全中心
                                     </a>
                                 </li>
                             </ul>
-                            <a href="https://account.touzhijia.com/signout.html" class="logout">安全退出<i class="iconfont">&#xe642;</i></a>
+                            <a href="{!! config('app.account_url') !!}/signout.html" class="logout">安全退出<i class="iconfont">&#xe642;</i></a>
                         </div>
                     </div>
                 </div>
                 @else
                 <div class="log">
                         欢迎来到投之家！请
-                        <a id="loginStart" href="https://account.touzhijia.com/signin.html" alt="登录">登录</a>&frasl;
-                        <a href="https://account.touzhijia.com/register.html" alt="注册">注册</a>
+                        <a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
+                        <a href="{!! config('app.account_url') !!}/register.html" alt="注册">注册</a>
                         <div class="code-login">
                             <h3>微信扫码  安全登录</h3>
                             <div class="code-img" id="topbar-wx-qrcode">
