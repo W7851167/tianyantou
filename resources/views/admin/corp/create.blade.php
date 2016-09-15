@@ -67,11 +67,6 @@
                             <div><input type="text" name="data[capital]" placeholder="2000万元" value="{!! $corp->capital or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>注册金额：</div>
-                            <div><input type="text" name="data[capital]" placeholder="2000万元" value="{!! $corp->capital or '' !!}"></div>
-                        </div>
-
-                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft h80"><span>*</span>公司地址：</div>
                             <div>
                                 <p>

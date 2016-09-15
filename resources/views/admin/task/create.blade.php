@@ -76,14 +76,14 @@
                             <div class="infospaceAddLeft"><span>*</span>开始时间：</div>
                             <div>
                                 <input type="text" name = "data[start_time]" placeholder="2016-09-14 12:22:01"  class="Wdate"
-                                       onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{!! date('Y-m-d H:i:s',$task->start_time ? $task->start_time : time())!!}">
+                                       onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{!! date('Y-m-d H:i:s',!empty($task->start_time) ? $task->start_time : time())!!}">
                             </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>结束时间：</div>
                             <div>
                                 <input type="text" name = "data[end_time]" placeholder="2016-09-14 12:22:01"  class="Wdate"
-                                       onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{!! date('Y-m-d H:i:s',$task->end_time ? $task->end_time : strtotime('+30days'))!!}">
+                                       onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{!! date('Y-m-d H:i:s',!empty($task->end_time) ? $task->end_time : strtotime('+30days'))!!}">
                             </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
