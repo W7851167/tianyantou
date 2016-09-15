@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('style')
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css?ver=20160431006" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
 @stop
 
 @section('content')
