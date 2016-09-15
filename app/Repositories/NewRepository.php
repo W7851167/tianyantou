@@ -50,6 +50,7 @@ class NewRepository extends BaseRepository
         return [$count, $lists];
     }
 
+
     /**
      * @return mixed
      * 获取系统消息

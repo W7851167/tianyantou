@@ -68,7 +68,7 @@
                         <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" target="_blank"></a>
                     </div>
                     <div class="plat-main">
-                        <img src="{!! $cv->platform_logo  or ''!!}" alt="{!! $cv->platform !!}">
+                        <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}">
                         <div class="plat-info" style="position: relative;">
                             <h4>年化收益率
                                 <span class="rate"><em>{!! $cv->min_yield or 0.00 !!}</em>%<em>-</em><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
