@@ -24,10 +24,11 @@ class IndexController extends FrontController
         XdataRepository $xdata,
         NewRepository $news,
         TaskRepository $tasks
-    ) {
+    )
+    {
         parent::__initalize();
         $this->xdata = $xdata;
-        $this->news  = $news;
+        $this->news = $news;
         $this->tasks = $tasks;
     }
 
@@ -38,16 +39,16 @@ class IndexController extends FrontController
      */
     public function index()
     {
-        list($counts, $advs) = $this->xdata->getAdvList([],5,1);
+        list($counts, $advs) = $this->xdata->getAdvList([], 5, 1);
         //系统公告
         $where['category_id'] = 10;
-        list($counts, $notices) = $this->news->getNewList($where,1,5);
+        list($counts, $notices) = $this->news->getNewList($where, 1, 5);
         //最新动态
         $where['category_id'] = 11;
-        list($counts, $latests) = $this->news->getNewList($where,1,4);
+        list($counts, $latests) = $this->news->getNewList($where, 1, 4);
         //投资攻略
         $where['category_id'] = 12;
-        list($counts, $strategys) = $this->news->getNewList($where,1,6);
+        list($counts, $strategys) = $this->news->getNewList($where, 1, 6);
         //已上线项目
         unset($where);
         $where['status'] = 1;
@@ -55,8 +56,8 @@ class IndexController extends FrontController
         list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
 
         //links
-        list($counts, $links) = $this->xdata->getLinkList([],15,1);
+        list($counts, $links) = $this->xdata->getLinkList([], 15, 1);
 
-        return view('front.index.index',compact('advs','notices','tasks','latests','strategys','links'));
+        return view('front.index.index', compact('advs', 'notices', 'tasks', 'latests', 'strategys', 'links'));
     }
 }
