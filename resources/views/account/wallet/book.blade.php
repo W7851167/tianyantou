@@ -61,3 +61,12 @@
     </div>
 </div>
 @stop
+
+@section('script')
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.form.min.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
+@stop

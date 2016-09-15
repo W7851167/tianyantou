@@ -71,7 +71,8 @@
         </div>
     </div>
 </div>
-    @stop
+@stop
+
 @section('script')
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
@@ -79,4 +80,4 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login-frontend.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
-    @stop
+@stop

@@ -22,23 +22,13 @@ class WalletController extends FrontController
         parent::__initalize();
     }
 
-    public function recharge()
-    {
-        return view('account.walltet.recharge');
-    }
-
-    public function rechargelist()
-    {
-        return view('account.walltet.rechargelist');
-    }
-
     public function withdraw()
     {
-        return view('account.walltet.withdraw');
+        return view('account.wallet.withdraw');
     }
 
     public function book()
     {
-        return view('account.walltet.book');
+        return view('account.wallet.book');
     }
 }
