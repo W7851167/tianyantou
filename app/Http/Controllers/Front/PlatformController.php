@@ -34,7 +34,7 @@ class PlatformController extends FrontController
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where['status'] = 1;
         list($counts, $lists) = $this->tasks->getCorpList($where, $this->perpage,$page);
-        return view('front.platform.platform', compact('lists'));
+        return view('front.platform.index', compact('lists'));
     }
 
 
@@ -49,13 +49,15 @@ class PlatformController extends FrontController
     }
 
     public function corp($ename)
-    {
+    {;
         $corp = $this->tasks->getCorpByEname($ename);
         $metas['icp_domain'] = '';
         $metas['icp_corp_type'] = '';
         $metas['icp_time'] = '';
         $metas['icp_corp_name'] = '';
         $metas['icp_no'] = '';
+        $metas['credentials'] = '';
+        $metas['office_address'] = '';
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }

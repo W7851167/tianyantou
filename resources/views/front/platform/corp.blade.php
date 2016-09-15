@@ -127,7 +127,7 @@
                                         <div class="member-box">
                                             <div class="member-img">
                                                 <div class="circle-mask" style="display:none;"></div>
-                                                <img src="{!! config('app.static_url') !!}{!! $tv->image->name or '' !!}"
+                                                <img src="{!! config('app.static_url') !!}{!! $tv->avatar->name or '' !!}"
                                                      target="{!! $tv->name or '' !!}"/>
                                             </div>
                                             <h4>{!! $tv->name or '' !!}</h4>
@@ -224,56 +224,73 @@
                             <div class="tab-main">
                                 <div class="active">
                                     <div class="imgplay" id="carousel-photo01">
+                                        @if(!empty($metas['credentials']))
+                                            <?php $count = count($metas['credentials']); $len = $count / 5 + 1; ?>
                                         <ul class="imgplaycon">
-                                            <li><a rel="prettyPhoto[pp_gal]"
-                                                   href="{!! config('app.static_url') !!}/upload/image/platform/20160726/20160726112014_21443.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160726/20160726112014_21443-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160726/20160726112800_37986.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160726/20160726112800_37986-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a>
-                                            </li>
+                                                @for($i=0; $i<$len; $i++)
+                                                    <li>
+                                                        @for($l=0;$l<5;$l++)
+                                                            <?php $key = 5 * $i + $l;?>
+                                                            @if(!empty($metas['credentials'][$key]))
+                                                                <a rel="prettyPhoto[pp_gal]" href="{!! getRealThumb($metas['credentials'][$key]) !!}">
+                                                                    <img src="{!! $metas['credentials'][$key] !!}"/>
+                                                                </a>
+                                                            @endif
+                                                        @endfor
+                                                    </li>
+                                                @endfor
                                         </ul>
+                                            @if($count > 5)
+                                                <a href="javascript:void(0);" class="actbtn perbtn"><span class="iconfont"></span></a>
+                                                <a href="javascript:void(0);" class="actbtn nextbtn"><span class="iconfont"></span></a>
+                                           @endif
+                                        @endif
                                     </div>
                                 </div>
                                 <div>
                                     <div class="imgplay" id="carousel-photo03">
-                                        <ul class="imgplaycon">
-                                            <li><a rel="prettyPhoto[pp_gal]"
-                                                   href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104511_20731.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104511_20731-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104511_49862.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104511_49862-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104512_93443.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104512_93443-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104513_22471.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104513_22471-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104514_48570.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104514_48570-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a>
-                                            </li>
-                                            <li><a rel="prettyPhoto[pp_gal]"
-                                                   href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104514_94663.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104514_94663-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104515_95040.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104515_95040-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a><a
-                                                        rel="prettyPhoto[pp_gal]"
-                                                        href="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104515_78700.jpg?ver={!! date('YmdHIs') !!}"><img
-                                                            src="{!! config('app.static_url') !!}/upload/image/platform/20160727/20160727104515_78700-thumbnail.jpg?ver={!! date('YmdHIs') !!}"/></a>
-                                            </li>
-                                        </ul>
+                                        @if(!empty($metas['office_address']))
+                                            <?php $count = count($metas['office_address']); $len = $count / 5 + 1; ?>
+                                            <ul class="imgplaycon">
+                                                @for($i=0; $i<$len; $i++)
+                                                    <li>
+                                                        @for($l=0;$l<5;$l++)
+                                                            <?php $key = 5 * $i + $l;?>
+                                                            @if(!empty($metas['office_address'][$key]))
+                                                                <a rel="prettyPhoto[pp_gal]" href="{!! getRealThumb($metas['office_address'][$key]) !!}">
+                                                                    <img src="{!! $metas['office_address'][$key] !!}"/>
+                                                                </a>
+                                                            @endif
+                                                        @endfor
+                                                    </li>
+                                                @endfor
+                                            </ul>
+                                            @if($count > 5)
                                         <a href="javascript:void(0);" class="actbtn perbtn"><span class="iconfont">&#xe65f;</span></a>
                                         <a href="javascript:void(0);" class="actbtn nextbtn"><span class="iconfont">&#xe660;</span></a>
+                                                @endif
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div style="padding-bottom: 0;">
-                        <div style="text-align:center;margin-bottom:26px;">暂无平台动态信息</div>
+                        @if(empty($corp->news))
+                            <div style="text-align:center;margin-bottom:26px;">暂无平台动态信息</div>
+                        @endif
+                        @if(!empty($corp->news))
+                            @foreach($corp->news as $nv)
+                        <div class="news-box"><!-- -->
+                            <a href="https://www.touzhijia.com/about/news/3167.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160802/1470112554.jpg?ver=20160431006" title="第五届中国财经峰会汇投网获“2016互联网金融典范企业”奖"></a>
+                            <div class="news">
+                                <h3><a href="https://www.touzhijia.com/about/news/3167.html" target="_blank">第五届中国财经峰会汇投网获“2016互联网金融典范企业”奖</a></h3>
+                                <span>发布时间： 2016-08-02 12:35:54<em>241</em>人</span>
+                                <p style="word-wrap: break-word;">​2016年7月21日-22日第五届中国财经峰会在北京举行，国资系互联网金融信息服务平台汇投网荣膺“2016互联网金融典范企业”。汇投网联合创始人贾童杰先生作为嘉宾应邀参加了此次峰会，并接受了此次峰会主办方的专题采访。</p>
+                            </div>
+                        </div>
+                         @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

@@ -53,6 +53,10 @@ class IndexController extends FrontController
         $where['status'] = 1;
         $where['position'] = 1;
         list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
-        return view('front.index.index',compact('advs','notices','tasks','latests','strategys'));
+
+        //links
+        list($counts, $links) = $this->xdata->getLinkList([],15,1);
+
+        return view('front.index.index',compact('advs','notices','tasks','latests','strategys','links'));
     }
 }

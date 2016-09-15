@@ -35,7 +35,7 @@
                         <div id="storeimg">
                             <a class="clickUpload" id="uploadCredentials" href="javascript:void(0)">点击上传</a>
                         </div>
-                        <p class="hint">上传后生成206*154的缩略图，最多上传6张！</p>
+                        <p class="hint">上传后生成206*154的缩略图！</p>
                         <ul class="imgbox" id="uploadCredentialsShow" style="width: 650px;height: 350px;">
                             @if(!empty($metas['credentials']))
                                 @foreach($metas['credentials'] as $credential)
@@ -54,7 +54,7 @@
                         <div id="storeimg">
                             <a class="clickUpload" id="uploadOfficeAddress" href="javascript:void(0)">点击上传</a>
                         </div>
-                        <p class="hint">上传后生成206*154的缩略图，最多上传6张！</p>
+                        <p class="hint">上传后生成206*154的缩略图！</p>
                         <ul class="imgbox" id="officeAddress" style="width: 650px;height: 350px;">
                             @if(!empty($metas['office_address']))
                                 @foreach($metas['office_address'] as $officeAddress)
@@ -96,14 +96,10 @@
             'queueID': 'queueID',
             'onUploadSuccess' : function(file,data) {
                 data = eval('('+data+')');
-                if($('#uploadCredentialsShow').find('img').length >= 6) {
-                    error('证件最多不能超过6张');
-                    return;
-                }
                 if (data.status == 1) {
                     var html = '<img style="width:206px;" src="' + data.info[206154] + '">';
                     html += '<input type="hidden" name="data[credentials][]" value="' + data.info[206154] + '" />'
-                    $('#uploadCredentialsShow').append(html);
+                    $('#uploadCredentialsShow').html(html);
                 }
             },
 
@@ -126,14 +122,10 @@
             'queueID': 'queueID',
             'onUploadSuccess' : function(file,data) {
                 data = eval('('+data+')');
-                if($('#officeAddress').find('img').length >= 6) {
-                    error('办公照片最多不能超过6张');
-                    return;
-                }
                 if (data.status == 1) {
                     var html = '<img style="width:206px;" src="' + data.info[206154] + '">';
                     html += '<input type="hidden" name="data[office_address][]" value="' + data.info[206154] + '" />'
-                    $('#officeAddress').append(html);
+                    $('#officeAddress').html(html);
                 }
             },
 
