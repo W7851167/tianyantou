@@ -69,9 +69,18 @@ class UserRepository extends BaseRepository
         if (!password_verify($password, $userModel->password)) {
             return static::getError('密码不正确，请重新输入!');
         }
+        $emailFlag = !empty($userModel->email) ? 1: 0;
+        $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
+        $bankFlag = !empty($userModel->bank) ? 1:0;
+        //$investFlag = $emailFlag && $mobileFlag && $bankFlag;
+        $investFlag = 1;
         $sessionData = [
             'id' => $userModel->id,
             'username' => $userModel->username,
+            'email' => $emailFlag,
+            'mobile' => $mobileFlag,
+            'bank' => $bankFlag,
+            "invest" => $investFlag,
             'role' => $userModel->roles,
         ];
         if (!empty($userModel->avatar->name))
