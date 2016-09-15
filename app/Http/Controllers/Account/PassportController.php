@@ -17,6 +17,7 @@ use App\Http\Controllers\FrontController;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class PassportController extends FrontController
@@ -85,11 +86,22 @@ class PassportController extends FrontController
             }
             try {
                 $result = $this->userRepository->userModel->create(array_except($data, ['password_confirmation']));
-                if ($result) return $this->success('注册成功!', url('/'), true);
+                if ($result) {
+                    $sessionData = [
+                        'id' => $result->id,
+                        'username' => $result->username,
+                        'role' => $result->roles,
+                    ];
+                    if (!empty($result->avatar->name))
+                        $sessionData['avatar'] = $result->avatar->name;
+                    Session::put('user.passport', $sessionData);
+
+                    return $this->success('注册成功!', url('/'), true);
+                }
             } catch (QueryException $e) {
                 $e->getMessage();
             }
-            return $this->error('注册失败', null, true);
+            return $this->error('注册失败!', null, true);
         }
         return view('account.passport.register');
     }
