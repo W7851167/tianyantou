@@ -18,5 +18,5 @@ class BookModel extends BaseModel
         return $query->whereNotNull('template');
     }
 
-    
+
 }
