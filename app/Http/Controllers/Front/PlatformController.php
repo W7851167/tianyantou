@@ -60,6 +60,7 @@ class PlatformController extends FrontController
             $order['ratio'] = $sortOrder;
         }
         $where['status'] = 1;
+        $where['corp_id'] = $corp->id;
         list($counts, $lists) = $this->tasks->getTaskList($where,5, $page,0,$order);
         $result['total'] = $counts;
         $result['page']  = $page;
