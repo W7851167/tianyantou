@@ -57,7 +57,7 @@
                             <span id="is-check">点击注册即同意天眼投&nbsp;<a id="user-agreement" href="{!! config('app.account_url') !!}/register/protocol.html" target="blank">《用户协议》</a></span>
                         </p>
                         <div class="btn-box">
-                            <input type="submit" class="btn-blue button-size" value="立即注册">
+                            <input type="button" class="btn-blue button-size" value="立即注册">
                         </div>
                     </form>
                 </div>
@@ -71,7 +71,7 @@
     {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>--}}
     {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>--}}
     {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>--}}
-    {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>--}}
+{{--    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>--}}
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login-frontend.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
 @stop
