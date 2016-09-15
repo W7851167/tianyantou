@@ -1,15 +1,14 @@
 @extends('layout.main')
 @section('style')
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
     <style type="text/css">
         .user-center {
             margin-top: 0;
         }
-
         .container {
             width: 100%;
         }
-
         .content {
             position: relative;
             width: 1200px;
