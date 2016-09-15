@@ -41,7 +41,7 @@ class PassportController extends AdminController
             $password = $request->password;
             $remember = $request->remember;
 
-            if (!$username || !$password) return $this->error('用户名或密码错误1!', '', true);
+            if (!$username || !$password) return $this->error('用户名或密码错误!', '', true);
 
             $result = $this->userRepository->checkLogin($username, $password, true, $remember);
 

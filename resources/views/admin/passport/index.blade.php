@@ -65,14 +65,6 @@
             $(".alert-danger").html('');
         }
         if(error > 0)return false;
-        var data = $("#myform").serialize();
-        {{--$.post("{!! url('passport/login') !!}",data,function(r){--}}
-            {{--if(r.status){--}}
-                {{--window.location.href = r.url;--}}
-            {{--}else{--}}
-                {{--$(".alert-danger").text(r.message);--}}
-            {{--}--}}
-        {{--});--}}
     });
 </script>
 <script type="text/javascript">
