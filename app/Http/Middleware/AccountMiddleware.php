@@ -22,6 +22,6 @@ class AccountMiddleware
             return $next($request);
         }
 
-        return redirect('passport/login');
+        return redirect('signin.html');
     }
 }
