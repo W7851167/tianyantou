@@ -90,6 +90,18 @@ class PlatformController extends FrontController
         $metas['icp_no'] = '';
         $metas['credentials'] = '';
         $metas['office_address'] = '';
+        //资本充足率
+        $metas['capital_adequacy'] = '';
+        //运营能力比率
+        $metas['operating_capacity'] = '';
+        //流动性
+        $metas['flowability'] = '';
+        //分散率
+        $metas['dissemination'] = '';
+        //透明去
+        $metas['transparency'] = '';
+        //违约比率
+        $metas['contract_rate'] = '';
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
