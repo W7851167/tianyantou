@@ -24,6 +24,7 @@
                     <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}">安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}"   class="at">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
+                    <p><a href="{!! url('corp/charts',['id'=>$corp->id]) !!}" >雷达图</a></p>
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}

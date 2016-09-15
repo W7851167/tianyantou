@@ -44,6 +44,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('corp/termdelete/{corp_id}/{id}', ['as' => 'task.corp.termdelete', 'uses' => 'CorpController@termdelete']);
     Route::get('corp/term/{id?}', ['as' => 'task.corp.term', 'uses' => 'CorpController@term']);
     Route::any('corp/safety/{id?}', ['as' => 'task.corp.safety', 'uses' => 'CorpController@safety']);
+    Route::any('corp/charts/{id?}', ['as' => 'task.corp.charts', 'uses' => 'CorpController@charts']);
     Route::any('corp/photos/{id?}', ['as' => 'task.corp.photos', 'uses' => 'CorpController@photos']);
     Route::any('corp/news/{id?}', ['as' => 'task.corp.news', 'uses' => 'CorpController@news']);
     Route::any('corp/dynamic/{corp_id}/{id?}', ['as' => 'task.corp.dynamic', 'uses' => 'CorpController@dynamic']);

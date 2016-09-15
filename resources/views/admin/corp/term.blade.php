@@ -23,6 +23,7 @@
                     <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}">安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
+                    <p><a href="{!! url('corp/charts',['id'=>$corp->id]) !!}" >雷达图</a></p>
                     <a href="{!!url('corp/termcreate',['corp_id'=>$corp->id])!!}" class="buttonA">创建成员</a>
                 </div>
                 <table class="all_shopping" cellspacing="0">
