@@ -37,6 +37,7 @@
         $('#popup_box .popup_tag_box').css({'width':$width,'top':$p_top,'left':$p_left}).show(300);
     }
     $(function(){
+
         var options = {
             beforeSerialize : function(){
                 $(':submit').attr('disabled',true);
