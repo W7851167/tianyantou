@@ -168,7 +168,6 @@ function formRegisterCheck(){
   }
 
   $('#register .btn-box').click(function() {
-    alert(11);
     var ok = true;
     ok = checkRegUserName() && ok;
     ok = checkRegPassword() && ok;
@@ -180,10 +179,15 @@ function formRegisterCheck(){
           else
             window.location.reload();
         }else{
-          console.log(data);
+          if(data.data.username !== 'undefined')
+            $("#username-error").html('<i class="icon-error"></i>'+data.data.username);
+          if(data.data.password !== 'undefined')
+            $("#pwd-error").html('<i class="icon-error"></i>'+data.data.password);
+          if(data.data.password_confirmation !== 'undefined')
+            $("#rpwd-error").html('<i class="icon-error"></i>'+data.data.password_confirmation);
         }
     },'json');
-    return ok;
+    //return ok;
   });
 
   $('#account [type=submit]').click(function() {
