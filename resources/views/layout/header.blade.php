@@ -34,43 +34,42 @@
         <div id="head-top-main">
             <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
             @if(empty($user['username']))
-            <div class="top-menu">
-                <div class="log">欢迎来到天眼投！请<a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
-                    <a href="{!! config('app.account_url') !!}/register.html" alt="注册">注册</a>
-                </div>
-                @else
-                <div class="my-menu">
-                    <a id="my-menu" href="{!! config('app.account_url') !!}">我的天眼投<i></i></a>
-                    <div class="menu-box">
-                        <div class="user-img">
-                            <a href="{!! config('app.account_url') !!}">
-                                <i class="shape-circle"></i>
-                                <img src="{!! config('app.static_url') !!}/images/user/headerimg1.png" width="80" height="80"><h3>您好，<span id="user-name" title="{!! $user->username  or ''!!}">{!! $user->username or '' !!}</span></h3>
-                            </a>
+                <div class="top-menu">
+                    <div class="log">欢迎来到天眼投！请<a id="loginStart" href="{!! config('app.account_url') !!}/signin.html" alt="登录">登录</a>&frasl;
+                        <a href="{!! config('app.account_url') !!}/register.html" alt="注册">注册</a>
+                    </div>
+                    @else
+                        <div class="my-menu">
+                            <a id="my-menu" href="{!! config('app.account_url') !!}">我的天眼投<i></i></a>
+                            <div class="menu-box">
+                                <div class="user-img">
+                                    <a href="{!! config('app.account_url') !!}">
+                                        <i class="shape-circle"></i>
+                                        <img src="{!! config('app.static_url') !!}/images/user/headerimg1.png" width="80" height="80"><h3>您好，<span id="user-name" title="{!! $user->username  or ''!!}">{!! $user->username or '' !!}</span></h3>
+                                    </a>
+                                </div>
+                                <div class="menu-list">
+                                    <ul>
+                                        <li><a href="{!! config('app.acount_url') !!}/wallet/recharge.html"><i class="iconfont">&#xe63f;</i>账户充值</a></li>
+                                        <li><a href="{!! config('app.acount_url') !!}m/debt.html"><i class="iconfont">&#xe641;</i>理财管理</a></li>
+                                        <li><a href="{!! config('app.acount_url') !!}/wallet/book.html"><i class="iconfont">&#xe640;</i>资金流水</a></li>
+                                        <li><a href="{!! config('app.acount_url') !!}/safe.html"><i class="iconfont">&#xe63e;</i>安全中心</a></li>
+                                    </ul>
+                                    <a href="{!! config('app.acount_url') !!}/signout.html" class="logout">安全退出<i class="iconfont">&#xe642;</i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="menu-list">
-                            <ul>
-                            <ul>
-                                <li><a href="{!! config('app.acount_url') !!}/wallet/recharge.html"><i class="iconfont">&#xe63f;</i>账户充值</a></li>
-                                <li><a href="{!! config('app.acount_url') !!}m/debt.html"><i class="iconfont">&#xe641;</i>理财管理</a></li>
-                                <li><a href="{!! config('app.acount_url') !!}/wallet/book.html"><i class="iconfont">&#xe640;</i>资金流水</a></li>
-                                <li><a href="{!! config('app.acount_url') !!}/safe.html"><i class="iconfont">&#xe63e;</i>安全中心</a></li>
-                            </ul>
-                            <a href="{!! config('app.acount_url') !!}/signout.html" class="logout">安全退出<i class="iconfont">&#xe642;</i></a>
-                        </div>
+                    @endif
+                    <span class="line"></span>
+                    <a href="{!! config('app.url') !!}/about/help.html">帮助中心</a>
+                    <span class="line"></span>
+                    <a href="{!! config('app.url') !!}/about/company.html">关于我们</a>
+                    <span class="line"></span>
+                    <div class="contact">
+                        <a id="h_weixin" href="#" class="h_weixin"></a>
+                        <img class="show-img" src="{!! config('app.static_url')!!}/images/common/h_weixin.jpg" width="163">
                     </div>
                 </div>
-                @endif
-                <span class="line"></span>
-                <a href="{!! config('app.url') !!}/about/help.html">帮助中心</a>
-                <span class="line"></span>
-                <a href="{!! config('app.url') !!}/about/company.html">关于我们</a>
-                <span class="line"></span>
-                <div class="contact">
-                    <a id="h_weixin" href="#" class="h_weixin"></a>
-                    <img class="show-img" src="{!! config('app.static_url')!!}/images/common/h_weixin.jpg" width="163">
-                </div>
-            </div>
         </div>
     </div>
     <div id="head-btm">
