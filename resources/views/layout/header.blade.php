@@ -23,7 +23,7 @@
             "email_flag":{!! $user['email'] or 0 !!},
             "telephone_flag":{!! $user['mobile'] or 0 !!},
             "bank_flag":{!! $user['bank'] or 0 !!},
-            "invest_flag" : {!! $user['invest'] or 0!!},
+            "invest_flag":{!! $user['invest'] or 0!!},
         };
         var DOMAIN = {
             "www": "{!! config('app.url') !!}",
