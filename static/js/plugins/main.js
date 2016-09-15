@@ -475,22 +475,20 @@ $(function(){
     $('a[rel="platform_join"]').click(function(e){
       e.stopPropagation();
       var third_url = $(this).attr("data-plat-url");
-      // if (third_url == 'http://www.wyjr168.com') {
-      //   return showPlatDown();
-      // }
+
       if(!USER.islogin) {
         layer.open({
           title:'登录天眼投账号',
           type: 1,
           area: ['600px', '320px'],
-          content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过天眼投绑定平台！一站式管理多个平台投资，还能享受天眼投的<span>T盾计划</span>保障服务！</p>\<\/div>',
+          content: '\<\div class="plat-layer"><i class="icon-layer"></i><h4>额外加息送收益，积分豪礼送不停！</h4><p>您只需通过天眼投绑定平台！一站式管理多个平台投资，还能享受天眼投的<span>天眼盾计划</span>保障服务！</p>\<\/div>',
           btn: ['注册绑定平台','登录'],
           success:function(layero, index) {
             layero.find('.layui-layer-btn0').on('click', function(){
-              location.href= 'http://account.phpad.net/register.html';
+              location.href= DOMAIN.account + '/register.html';
             })
             layero.find('.layui-layer-btn1').on('click', function() {
-              location.href= 'http://account.phpad.net/signin.html';
+              location.href= DOMAIN.account + '/signin.html';
             })
           }
         });
@@ -509,7 +507,7 @@ $(function(){
               btn: ['去认证'],
               success:function(layero, index) {
                 layero.find('.layui-layer-btn0').on('click', function() {
-                    location.href= 'http://account.phpad.net/safe.html#valid-nickname';
+                    location.href= DOMAIN.account + '/safe.html#valid-nickname';
                 })
               }
             });
