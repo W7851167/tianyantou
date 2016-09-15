@@ -14,15 +14,19 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
 class PlatformController extends FrontController
 {
-    public function __construct(TaskRepository $tasks)
-    {
+    public function __construct(
+        TaskRepository $tasks,
+        NewRepository $news
+    ) {
         parent::__initalize();
         $this->tasks = $tasks;
+        $this->news = $news;
     }
 
     /**
@@ -61,7 +65,7 @@ class PlatformController extends FrontController
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
-
+        
         return view('front.platform.corp',compact('corp','metas'));
     }
 }

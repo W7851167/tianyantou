@@ -50,4 +50,12 @@ class CorpModel extends BaseModel
     {
         return $this->hasMany('App\Models\CorpTermModel','corp_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * 新闻动态
+     */
+    public function news() {
+        return $this->hasMany('App\Models\NewModel','corp_id');
+    }
 }
