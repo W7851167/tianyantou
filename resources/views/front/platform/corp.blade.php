@@ -295,7 +295,7 @@
                 </div>
             </div>
             <div class="main">
-                <h2 class="filter-title" data-en-name="erongsuo">
+                <h2 class="filter-title" data-en-name="{!! $corp->ename or '' !!}">
                     <a href="javascript:void(0);" class="btn btn-m btn-white" sorttype="0" sortorder="asc">默认排序</a>
                     <a href="javascript:void(0);" class="btn btn-m btn-white" sorttype="1" sortorder="desc">收益率<i
                                 class="iconfont">&#xe674;</i></a>
@@ -320,7 +320,9 @@
 
                     </tbody>
                 </table>
-                <div id="palt_bidding_page"></div>
+                <div id="palt_bidding_page">
+
+                </div>
             </div>
             <div class="main">
                 <h2>平台数据</h2>
