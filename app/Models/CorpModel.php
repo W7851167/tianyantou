@@ -58,4 +58,13 @@ class CorpModel extends BaseModel
     public function news() {
         return $this->hasMany('App\Models\NewModel','corp_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * 领取任务用户信息
+     */
+    public function receives()
+    {
+        return $this->hasMany('App\Models\TaskReceiveModel','corp_id');
+    }
 }

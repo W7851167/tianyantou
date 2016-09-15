@@ -324,83 +324,6 @@
 
                 </div>
             </div>
-            <div class="main">
-                <h2>平台数据</h2>
-
-                <div class="plat-graph">
-
-                    <div class="para-img">
-                        <div class="section-5-img clearfix" style="margin:0 50px;">
-                            <div class="section-5-img-list" style="float:left;">
-                                <h3>平台标的期限分布</h3>
-
-                                <div class="section-5-img-box" id="time-distribution" style="width:300px;height:160px;">
-                                </div>
-                            </div>
-                            <div class="section-5-img-list" style="float:right;">
-                                <h3>平台标的金额分布</h3>
-
-                                <div class="section-5-img-box" id="amount-distribution"
-                                     style="width:300px;height:160px;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="select-box">
-                            <dl>
-                                <!--<dt>基础指标：</dt>-->
-                                <dd class="select">
-                                    <span><i></i>请选择指标</span>
-                                    <ul style="display: block;">
-                                        <li><a href="javascript:void(0);" onclick="js:bar();">成交量</a></li>
-                                        <li><a href="javascript:void(0);"
-                                               onclick="js:bar('netInflowOfFunds');">资金净流入</a></li>
-                                        <li><a href="javascript:void(0);" onclick="js:line();">未来60日资金流出走势</a></li>
-                                        <li><a href="javascript:void(0);" onclick="js:bar('futureDailyRepayment');">未来每日还款</a>
-                                        </li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="section-5-pic">
-                            <div class="section-5-pic-box" id="volume" style="width:760px;height:340px;margin:0 auto;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="plat-data">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td class="total" colspan="2">近一个月成交量<br/><span><em>6897.56</em>万元</span></td>
-                        </tr>
-                        <tr>
-                            <td class="small-data"><span><em>10.7</em>%</span><br/>近一个月利率</td>
-                            <td class="small-data"><span><em>4.04</em>个月</span><br/>近一个月期限</td>
-                        </tr>
-                        <tr>
-                            <td class="small-data"><span><em>242</em>人</span><br/>近一个月借款人数</td>
-                            <td class="small-data"><span><em>1146</em>人</span><br/>近一个月投资人数</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="plat-data" style="border-top: 1px solid #EEE;">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td class="total" colspan="2">未来30日待还<br/><span><span
-                                            style="font-size:20px;line-height:42px;">—</span></span></td>
-                        </tr>
-                        <tr>
-                            <td class="small-data"><span><span
-                                            style="font-size:20px;line-height:42px;">—</span></span><br/>未来60日待还
-                            </td>
-                            <td class="small-data"><span><em>17785.76</em>万元</span><br/>近一个月贷款余额</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
     <!--内容结束-->
@@ -461,6 +384,7 @@
             src="{!! config('app.static_url') !!}/js/lib/prettyPhoto/jquery.prettyPhoto.js?ver={!! date('YmdHIs') !!}"></script>
     <script type="text/javascript"
             src="{!! config('app.static_url') !!}/js/plugins/imgopacity.js?ver={!! date('YmdHIs') !!}"></script>
+    <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
     <script type="text/javascript"
             src="{!! config('app.static_url') !!}/js/plugins/imgmove.js?ver={!! date('YmdHIs') !!}"></script>
     <script type="text/javascript"

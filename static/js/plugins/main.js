@@ -616,6 +616,7 @@ $(function(){
                 data: requestData,
                 dataType: 'json',
                 success:function(data){
+                  alert(data);
                   $('#platfrom_bid_list').html(data.bidstr);
                   countDown();
                 },

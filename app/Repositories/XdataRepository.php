@@ -59,6 +59,21 @@ class XdataRepository extends  BaseRepository {
     }
 
 
+    /**
+     * @param $data
+     * 保存信息
+     */
+    public function saveLink($data)
+    {
+        try {
+            $this->linkModel->saveBy($data);
+            return static::getSuccess('创建或编辑友情链接成功');
+        } catch (QueryException $e) {
+            return static::getError($e->getMessage());
+        }
+    }
+
+
 
     /**
      * @param $data

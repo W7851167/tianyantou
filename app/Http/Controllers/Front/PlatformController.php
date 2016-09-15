@@ -52,21 +52,34 @@ class PlatformController extends FrontController
         $from = $request->get('from');
         $page = $request->get('page');
         $sortType = $request->get('sorttype');
-        $sortOrder = $request->get('sortoer');
+        $sortOrder = $request->get('sortorder');
 
         $corp = $this->tasks->getCorpByEname($from);
         $order = [];
         if($sortType == 1) {
             $order['ratio'] = $sortOrder;
         }
+        if($sortType == 3 ) {
+            $order['proccess'] = $sortOrder;
+        }
         $where['status'] = 1;
+        $where['corp_id'] = $corp->id;
         list($counts, $lists) = $this->tasks->getTaskList($where,5, $page,0,$order);
         $result['total'] = $counts;
         $result['page']  = $page;
-        $result['bidstr'] = view('front.platform.plists', compact('lists'));
+        $html = view('front.platform.plists', compact('lists'))->render();
+        $html = str_replace('\r','', $html);
+        $html = str_replace("\n","", $html);
+        $result['bidstr'] = $html;
+        return $this->ajaxReturn($result);
 
     }
 
+    /**
+     * @param $ename
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 单平台数据
+     */
     public function corp($ename)
     {;
         $corp = $this->tasks->getCorpByEname($ename);
