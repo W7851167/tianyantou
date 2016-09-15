@@ -113,7 +113,7 @@
                 </ul>
                 <div class="tab-main">
                     <div class="active">
-                        <div class="license"><img src="{!! config('app.static_url') !!}{!! $corp->platform_logo !!}"
+                        <div class="license"><img src="{!! config('app.static_url') !!}{!! $corp->chartered !!}"
                                                   width="280" height="220" alt="{!! $corp->platform !!}营业执照"/></div>
                         {!! $corp->article->content or '' !!}
                     </div>
@@ -279,14 +279,14 @@
                         @if(empty($corp->news))
                             <div style="text-align:center;margin-bottom:26px;">暂无平台动态信息</div>
                         @endif
-                        @if(!empty($corp->news))
+                        @if(!empty($corp->news[0]))
                             @foreach($corp->news as $nv)
                         <div class="news-box"><!-- -->
-                            <a href="https://www.touzhijia.com/about/news/3167.html" target="_blank"><img src="//static.touzhijia.com/upload/image/20160802/1470112554.jpg?ver=20160431006" title="第五届中国财经峰会汇投网获“2016互联网金融典范企业”奖"></a>
+                            <a href="{!! url('about/news/' . $nv->id .'.html') !!}" target="_blank"><img src="{!! $nv->image->name or '' !!}" title="{!! $nv->title !!}"></a>
                             <div class="news">
-                                <h3><a href="https://www.touzhijia.com/about/news/3167.html" target="_blank">第五届中国财经峰会汇投网获“2016互联网金融典范企业”奖</a></h3>
-                                <span>发布时间： 2016-08-02 12:35:54<em>241</em>人</span>
-                                <p style="word-wrap: break-word;">​2016年7月21日-22日第五届中国财经峰会在北京举行，国资系互联网金融信息服务平台汇投网荣膺“2016互联网金融典范企业”。汇投网联合创始人贾童杰先生作为嘉宾应邀参加了此次峰会，并接受了此次峰会主办方的专题采访。</p>
+                                <h3><a href="{!! url('about/news/' . $nv->id .'.html') !!}" target="_blank">{!! $nv->title !!}</a></h3>
+                                <span>发布时间： {!! $nv->created_at !!}<em>241</em>人</span>
+                                <p style="word-wrap: break-word;">{!! $nv->description or '' !!}</p>
                             </div>
                         </div>
                          @endforeach
@@ -295,7 +295,7 @@
                 </div>
             </div>
             <div class="main">
-                <h2 class="filter-title" data-en-name="erongsuo">
+                <h2 class="filter-title" data-en-name="{!! $corp->ename or '' !!}">
                     <a href="javascript:void(0);" class="btn btn-m btn-white" sorttype="0" sortorder="asc">默认排序</a>
                     <a href="javascript:void(0);" class="btn btn-m btn-white" sorttype="1" sortorder="desc">收益率<i
                                 class="iconfont">&#xe674;</i></a>
@@ -320,7 +320,9 @@
 
                     </tbody>
                 </table>
-                <div id="palt_bidding_page"></div>
+                <div id="palt_bidding_page">
+
+                </div>
             </div>
             <div class="main">
                 <h2>平台数据</h2>

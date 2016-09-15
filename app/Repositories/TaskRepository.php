@@ -78,6 +78,7 @@ class TaskRepository extends  BaseRepository
     }
 
 
+
     /**
      * @param array $where
      * @param $limit
@@ -85,9 +86,11 @@ class TaskRepository extends  BaseRepository
      * @return array
      * 获取投标列表
      */
-    public function getTaskList($where = [], $limit, $page, $trashed=0)
+    public function getTaskList($where = [], $limit, $page, $trashed=0,$order=[])
     {
-        $order['sorts'] = 'desc';
+        if(empty($order)) {
+            $order['sorts'] = 'desc';
+        }
         $lists = $this->taskModel->lists(['*'], $where, $order, [], $limit, $page,$trashed);
         $counts = $this->taskModel->countBy($where);
         return [$counts, $lists];
