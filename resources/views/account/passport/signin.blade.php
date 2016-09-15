@@ -55,17 +55,17 @@
                                         </div>
                                         <p></p>
                                         <input type="hidden" name="url" value="{!! config('app.url') !!}"/>
-                                        <div class="login-other-box">
+                                        {{--<div class="login-other-box">
                                             <span>用第三方账号直接登陆</span>
                                             <div class="partner-box">
                                                 <a class="partner" href="{!! config('app.account_url') !!}/thirdparty/login/qq.html">
                                                     <img src="{!! config('app.static_url') !!}/images/user/reg-qq.png"  alt="腾讯QQ">
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div>--}}
                                     </form>
                                 </div>
-                                <div class="code-login">
+                                {{--<div class="code-login">
                                     <h3>微信扫码 安全登录</h3>
                                     <div class="code-img" id="wx-qrcode">
                                         <p>二维码加载中...</p>
@@ -74,8 +74,9 @@
                                 <div class="code-btn">
                                     <a href="javascript:;" class="switch-login">扫码登录</a>
                                     <span class="msg">
-                                        <img src="{!! config('app.static_url') !!}/images/user/1.png" height="28px"/>使用<b>微信</b>快捷登录→</span>
-                                </div>
+                                        <img src="{!! config('app.static_url') !!}/images/user/1.png" height="28px"/>使用<b>微信</b>快捷登录→
+                                    </span>
+                                </div>--}}
                             </div>
                         </div>
                     </div>

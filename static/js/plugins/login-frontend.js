@@ -168,11 +168,10 @@ function formRegisterCheck(){
   }
 
   $('#register [type=submit]').click(function() {
-    var ok = true;
-    ok = checkRegUserName() && ok;
-    ok = checkRegPassword() && ok;
-    // ok = checkRePassword() && ok; 
-    ok = checkPhone() && ok;
+    //var ok = true;
+    //ok = checkRegUserName() && ok;
+    //ok = checkRegPassword() && ok;
+    //ok = checkPhone() && ok;
     return ok;
   });
 
