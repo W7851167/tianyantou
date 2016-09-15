@@ -47,8 +47,23 @@ class PlatformController extends FrontController
      * @param Request $request
      * ajax获取查询列表
      */
-    public function lists(Request $request)
+    public function plists(Request $request)
     {
+        $from = $request->get('from');
+        $page = $request->get('page');
+        $sortType = $request->get('sorttype');
+        $sortOrder = $request->get('sortoer');
+
+        $corp = $this->tasks->getCorpByEname($from);
+        $order = [];
+        if($sortType == 1) {
+            $order['ratio'] = $sortOrder;
+        }
+        $where['status'] = 1;
+        list($counts, $lists) = $this->tasks->getTaskList($where,5, $page,0,$order);
+        $result['total'] = $counts;
+        $result['page']  = $page;
+        $result['bidstr'] = view('front.platform.plists', compact('lists'));
 
     }
 
@@ -65,7 +80,7 @@ class PlatformController extends FrontController
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
-        
+
         return view('front.platform.corp',compact('corp','metas'));
     }
 }
