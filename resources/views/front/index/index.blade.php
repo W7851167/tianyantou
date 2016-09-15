@@ -174,22 +174,10 @@
     <div class="friend-link">
         <p class="friend-link-con">
             <span class="link-title">友情链接：</span>
-                            <span class="link-detail">
-                    <a href="http://www.wdzj.com" target="_blank">网贷之家</a>
-                    <a href="http://bbs.wdzj.com" target="_blank">网贷论坛</a>
-                    <a href="http://www.touzhijia.com/debt/" target="_blank">二级市场</a>
-                    <a href="http://wenda.touzhijia.com/" target="_blank">投资问答</a>
-                    <a href="http://finance.china.com.cn/money/efinance/index.shtml" target="_blank">中国网</a>
-                    <a href="http://huaxia.kameng.com" target="_blank">华夏银行</a>
-                    <a href="http://ipo.qianzhan.com" target="_blank">资本前瞻</a>
-                    <a href="http://www.678678.com" target="_blank">淘金网</a>
-                    <a href="http://www.rongzhijia.com" target="_blank">融之家</a>
-                    <a href="http://www.yiyebang.com/" target="_blank">异业邦</a>
-                    <a href="http://www.12308.com" target="_blank">12308汽车票</a>
-                    <a href="http://www.liveapp.cn/" target="_blank">场景应用</a>
-                    <a href="http://www.yingcanzixun.com/" target="_blank">盈灿咨询</a>
-                    <a href="http://www.jinlibaba.com" target="_blank">黄金价格</a>
-                    <a href="http://www.gifa.com.cn/" target="_blank">广东互联网金融协会</a>
+               <span class="link-detail">
+                   @foreach($links as $lv)
+                    <a href="{!! $lv->url !!}" target="_blank">{!! $lv->name !!}</a>
+                       @endforeach
                  </span>
         </p>
     </div>
