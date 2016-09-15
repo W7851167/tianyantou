@@ -268,7 +268,7 @@ class CorpController extends AdminController
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
-        
+
         return view('admin.corp.charts',compact('corp','metas'));
     }
 
