@@ -63,7 +63,11 @@ class PlatformController extends FrontController
         list($counts, $lists) = $this->tasks->getTaskList($where,5, $page,0,$order);
         $result['total'] = $counts;
         $result['page']  = $page;
-        $result['bidstr'] = view('front.platform.plists', compact('lists'));
+        $html = view('front.platform.plists', compact('lists'))->render();
+        $html = str_replace('\r','', $html);
+        $html = str_replace("\n","", $html);
+        $result['bidstr'] = $html;
+        return $this->ajaxReturn($result);
 
     }
 
