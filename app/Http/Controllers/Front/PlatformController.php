@@ -75,6 +75,11 @@ class PlatformController extends FrontController
 
     }
 
+    /**
+     * @param $ename
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 单平台数据
+     */
     public function corp($ename)
     {;
         $corp = $this->tasks->getCorpByEname($ename);
