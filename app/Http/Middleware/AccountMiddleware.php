@@ -15,6 +15,13 @@ class AccountMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        $user = \Session::get('user.passport');
+
+        if ($user or $request->is('signin.html') or $request->is('register.html') or $request->is('')) {
+
+            return $next($request);
+        }
+
+        return redirect('signin.html');
     }
 }

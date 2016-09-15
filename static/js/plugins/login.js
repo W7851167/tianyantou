@@ -1,5 +1,10 @@
 //登录页面验证
 (function() {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
   var $username = $('input[name=username]');
   var $password = $('input[name=password]');
   var $captcha = $('input[name=captcha]');
@@ -74,9 +79,20 @@
         $password.attr("type","password");
       }catch(e){
       }
-      password = str_encode(password);
-      $password.val(password);
-      return true;
+      //password = str_encode(password);
+      //$password.val(password);
+      $.post('/signin.html',{username:username,password:password},function(data){
+        if(data.status){
+          if(data.url)
+            window.location.href = data.url;
+          else
+            window.location.reload();
+        }else{
+          $(".error").show();
+          $(".error").find("span").text(data.info);
+        }
+
+      },'json');
     }
 
     return false;

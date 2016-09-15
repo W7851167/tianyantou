@@ -17,11 +17,13 @@ use App\Http\Controllers\FrontController;
 
 class HomeController extends  FrontController
 {
+    public function __construct()
+    {
+        parent::__initalize();
+    }
+
     public function index()
     {
-//        if(!empty(\Session::get('user.passport'))) {
-//            return redirect(url('signin.html'));
-//        }
 
         return view('account.index.index');
 

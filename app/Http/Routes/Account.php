@@ -10,6 +10,11 @@
  * $Dtime:2016/9/11
  ***********************************************************************************/
 Route::group(['middleware' => 'middle.account'], function () {
+    Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
+    Route::get('signin/captcha', 'PassportController@captcha');
+    Route::match(['get', 'post'], 'register.html', 'PassportController@register');
+    Route::get('signout.html', 'PassportController@signout');
+
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     //平台
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
@@ -21,13 +26,10 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('wallet/withdraw.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@withdraw']);
     Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
     //账户管理
-    Route::get('safe.html',['as'=>'safe','uses'=>'AccountController@safe']);
-    Route::get('bankcard.html',['as'=>'safe','uses'=>'AccountController@bankcard']);
+    Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
+    Route::get('bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
     //活动专区
-    Route::get('activity/recommend.html',['as'=>'activity.recommend','uses'=>'ActivityController@recommend']);
-    Route::get('shop.html',['as'=>'shop','uses'=>'ActivityController@shop']);
-    Route::get('message.html',['as'=>'message','uses'=>'MessageController@index']);
+    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
+    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
+    Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
 });
-Route::get('signin.html', 'PassportController@signin');
-Route::get('signin/captcha', 'PassportController@captcha');
-Route::get('register.html', 'PassportController@register');
