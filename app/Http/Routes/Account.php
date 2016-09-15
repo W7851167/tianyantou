@@ -22,8 +22,6 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
     Route::get('platforms/analysis.html', ['as' => 'platform', 'uses' => 'PlatformController@analysis']);
     //账号充值
-    Route::get('wallet/recharge.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@recharge']);
-    Route::get('wallet/rechargelist.html', ['as' => 'wallet.rechargelist', 'uses' => 'WalletController@rechargelist']);
     Route::get('wallet/withdraw.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@withdraw']);
     Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
     //账户管理
