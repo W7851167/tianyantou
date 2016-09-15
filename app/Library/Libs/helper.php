@@ -143,3 +143,15 @@ function dateFormat($day)
         return round(abs($day / 365)). '年';
     }
 }
+
+/**
+ * @param $thumb
+ * 获取实际图片
+ */
+function getRealThumb($thumb)
+{
+    $lists = parse_url($thumb);
+    $patshs = explode('/', $lists['path']);
+    unset($patshs[count($patshs)-2]);
+    return $lists['scheme'] .'://'. $lists['host'] . implode('/', $patshs);
+}
