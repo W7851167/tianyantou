@@ -1,5 +1,5 @@
 @extends('admin.common.layout')
-@section('title') 安全保障 @stop
+@section('title') 雷达图数据 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
     {!!HTML::style('admin/css/dialog.css')!!}
@@ -23,32 +23,36 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}">公司介绍</a></p>
                     <p><a href="{!! url('corp/term',['id'=>$corp->id]) !!}">团队管理</a></p>
-                    <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}"  class="at">安全保障</a></p>
+                    <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}" >安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
-                    <p><a href="{!! url('corp/charts',['id'=>$corp->id]) !!}" >雷达图</a></p>
+                    <p><a href="{!! url('corp/charts',['id'=>$corp->id]) !!}"  class="at">雷达图</a></p>
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>备案域名：</div>
-                        <div><input type="text" name="data[icp_domain]" placeholder="备案域名" value="{!! $metas['icp_domain'] or '' !!}"></div>
+                        <div class="infospaceAddLeft"><span>*</span>资本充足率：</div>
+                        <div><input type="text" name="data[capital_adequacy]" placeholder="资本充足率" value="{!! $metas['capital_adequacy'] or '' !!}">%</div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>单位性质：</div>
-                        <div><input type="text" name="data[icp_corp_type]" placeholder="企业" value="{!! $metas['icp_corp_type'] or '' !!}"></div>
+                        <div class="infospaceAddLeft"><span>*</span>运营能力比率：</div>
+                        <div><input type="text" name="data[operating_capacity]" placeholder="运营能力比率" value="{!! $metas['operating_capacity'] or '' !!}">%</div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>备案时间：</div>
-                        <div><input type="text" class="Wdate" name="data[icp_time]" placeholder="备案时间" value="{!! $metas['icp_time'] or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})"></div>
+                        <div class="infospaceAddLeft"><span>*</span>流动性：</div>
+                        <div><input type="text" name="data[flowability]" placeholder="流动性" value="{!! $metas['flowability'] or '' !!}">%</div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
-                        <div><input type="text" name="data[icp_corp_name]" placeholder="公司名称" value="{!! $metas['icp_corp_name'] or '' !!}"></div>
+                        <div class="infospaceAddLeft"><span>*</span>分散率：</div>
+                        <div><input type="text" name="data[dissemination]" placeholder="分散率" value="{!! $metas['dissemination'] or '' !!}">%</div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>ICP备案号：</div>
-                        <div><input type="text" name="data[icp_no]" placeholder="京ICP备14019436号" value="{!! $metas['icp_no'] or '' !!}"></div>
+                        <div class="infospaceAddLeft"><span>*</span>透明率：</div>
+                        <div><input type="text" name="data[transparency]" placeholder="透明率" value="{!! $metas['transparency'] or '' !!}">%</div>
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>违约率：</div>
+                        <div><input type="text" name="data[contract_rate]" placeholder="违约率" value="{!! $metas['contract_rate'] or '' !!}">%</div>
                     </div>
                     <div class="w928">
                         <div class="button">

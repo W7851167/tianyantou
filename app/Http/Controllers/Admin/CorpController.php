@@ -239,4 +239,37 @@ class CorpController extends AdminController
         return $this->error('创建/编辑动态异常，请联系开发人员', url('corp/news',['id'=>$corpId]));
     }
 
+
+    /**
+     * @param $id
+     * 雷达图
+     */
+    public function charts(Request $request,$id) {
+        $corp = $this->taskRepository->corpModel->find($id);
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->taskRepository->saveMeta($id,$data);
+            if($result['status'])
+                return $this->success('保存雷达图信息完成',url('corp/charts',['id'=>$id]),true);
+            return $this->error($result['message'],null,true);
+        }
+        //资本充足率
+        $metas['capital_adequacy'] = '';
+        //运营能力比率
+        $metas['operating_capacity'] = '';
+        //流动性
+        $metas['flowability'] = '';
+        //分散率
+        $metas['dissemination'] = '';
+        //透明去
+        $metas['transparency'] = '';
+        //违约比率
+        $metas['contract_rate'] = '';
+        if(!empty($corp->metas[0])) {
+            $metas = getMetas($corp->metas, $metas);
+        }
+
+        return view('admin.corp.charts',compact('corp','metas'));
+    }
+
 }
