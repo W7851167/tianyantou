@@ -17,7 +17,7 @@ class AccountMiddleware
     {
         $user = \Session::get('user.passport');
 
-        if ($user or $request->is('signin.html') or $request->is('register.html')) {
+        if ($user or $request->is('signin.html') or $request->is('register.html') or $request->is('')) {
 
             return $next($request);
         }

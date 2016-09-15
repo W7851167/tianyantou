@@ -49,7 +49,7 @@ class PassportController extends FrontController
             return $this->error($result['message'], '', true);
         }
 
-//        if ($this->user) return redirect('/');
+        if ($this->user) return redirect('/');
 
         return view('account.passport.signin');
     }
@@ -60,6 +60,18 @@ class PassportController extends FrontController
     public function register()
     {
         return view('account.passport.register');
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     * 退出登录
+     */
+    public function signout()
+    {
+        if ($this->userRepository->logout()) {
+            return redirect(url('signin.html'));
+        }
     }
 
     public function captcha()
