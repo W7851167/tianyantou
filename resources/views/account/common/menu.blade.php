@@ -33,16 +33,7 @@
             </div>
         </li>
         <li><a href="{!!config('app.account_url')!!}/"><i class="iconfont">&#xe61c;</i>我的投之家</a></li>
-        <li>
-            <h3><i class="iconfont">&#xe634;</i>理财管理</h3>
-            <ul class="second-menu">
-                <li><a href="{!!config('app.account_url')!!}/huoqi.html">活期</a></li>
-                <li><a href="{!!config('app.account_url')!!}/debt.html">定期</a></li>
-                <li><a href="{!!config('app.account_url')!!}/debt/transfer.html">债权转让</a></li>
-                <li><a href="{!!config('app.account_url')!!}/debt/autobuy.html">自动购买</a></li>
-            </ul>
-        </li>
-        <li><h3><i class="iconfont">&#xe685;</i>全网通</h3>
+        <li><h3><i class="iconfont">&#xe685;</i>投资记录</h3>
             <ul class="second-menu">
                 <li><a href="{!!config('app.account_url')!!}/networth/index.html">投资记录</a></li>
             </ul>
@@ -51,12 +42,10 @@
             <ul class="second-menu">
                 <li><a href="{!!config('app.account_url')!!}/platforms/statistic.html">平台统计</a></li>
                 <li><a href="{!!config('app.account_url')!!}/platforms/analysis.html">投资明细</a></li>
-                <li><a href="{!!config('app.account_url')!!}/platform/bind.html">平台绑定</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
             <ul class="second-menu">
-                <li><a href="{!!config('app.account_url')!!}/wallet/recharge.html">充值</a></li>
                 <li><a href="{!!config('app.account_url')!!}/wallet/withdraw.html">提现</a></li>
                 <li><a href="{!!config('app.account_url')!!}/wallet/book.html">资金流水</a></li>
             </ul>
@@ -71,7 +60,6 @@
             <h3><i class="iconfont">&#xe62f;</i>活动专区</h3>
             <ul class="second-menu">
                 <li><a href="{!!config('app.account_url')!!}/activity/recommend.html">邀请奖励</a></li>
-                <li><a href="{!!config('app.account_url')!!}/activity/tcode.html">专享T码</a></li>
                 <li><a href="{!!config('app.account_url')!!}/shop.html">兑换记录</a></li>
             </ul>
         </li>

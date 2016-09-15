@@ -15,8 +15,8 @@
                             <span>用第三方账号直接登陆</span>
                         </p>
                         <div class="partner-box">
-                            <a href="{!! config('app.account_url') !!}m/thirdparty/login/weixin.html" class="partner" target="_blank"><img alt="微信" src="{!! config('app.static_url') !!}/images/user/reg-weixin.png?ver=20160431006"></a>
-                            <a href="{!! config('app.account_url') !!}m/thirdparty/login/qq.html" class="partner" target="_blank"><img alt="腾讯QQ" src="{!! config('app.static_url') !!}/images/user/reg-qq.png?ver=20160431006"></a>
+                            <a href="{!! config('app.account_url') !!}m/thirdparty/login/weixin.html" class="partner" target="_blank"><img alt="微信" src="{!! config('app.static_url') !!}/images/user/reg-weixin.png"></a>
+                            <a href="{!! config('app.account_url') !!}m/thirdparty/login/qq.html" class="partner" target="_blank"><img alt="腾讯QQ" src="{!! config('app.static_url') !!}/images/user/reg-qq.png"></a>
                         </div>
                         <div class="event-img">
                             <a href="#"><img src="{!! config('app.static_url') !!}/images/ads/register_award.jpg" style="margin-top:62px;"></a>
