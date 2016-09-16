@@ -70,10 +70,10 @@
 @stop
 
 @section('script')
-    {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>--}}
-    {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>--}}
-    {{--<script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>--}}
-{{--    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>--}}
+    <script type="text/javascript" src="http://static.phpad.net/js/lib/jquery.form.min.js"></script>
+    <script type="text/javascript" src="http://static.phpad.net/js/plugins/ucenter.js"></script>
+    <script type="text/javascript" src="http://static.phpad.net/js/plugins/pagination.js"></script>
+    <script type="text/javascript" src="http://static.phpad.net/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login-frontend.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
 @stop
