@@ -16,8 +16,8 @@
             <div class="main plat-detaile">
                 <div class="plat-evaluate">
                     <div id="safety-rating" style="width:330px;height:260px;margin-top: 10px;"></div>
-                    <a href="javascript:;" data-sso-url="/platform/login/erongsuo/1257" rel="platform_join"
-                       data-plat-url="{!! $corp->url or '' !!}" class="btn btn-blue btn-allwidth">进入平台</a>
+                    <a href="javascript:;" data-sso-url="/platform/login/{!! $corp->ename !!}/{!! $corp->tasks[0]->id !!}" rel="platform_join"
+                       data-plat-url="{!! $corp->tasks[0]->url or '' !!}" class="btn btn-blue btn-allwidth">进入平台</a>
                 </div>
                 <div class="plat-info">
                     <div class="plat-logo">

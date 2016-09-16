@@ -187,6 +187,26 @@ class PlatformController extends FrontController
         return view('front.platform.corp',compact('corp','metas'));
     }
 
+    /**
+     * @param Request $request
+     * @param $page
+     * @param $id
+     * 记录任务领取
+     */
+    public function login(Request $request,$page, $id)
+    {
+        $corp = $this->tasks->getCorpByEname($page);
+        $task = $this->tasks->taskModel->find($id);
+        $data['corp_id'] = $corp->id;
+        $data['task_id']  = id;
+        $data['user_id'] = $this->user['id'];
+        $data['total'] = $task->limit;
+        if($this->tasks->saveReceive($data)) {
+
+        }
+
+    }
+
 
 
 }
