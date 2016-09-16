@@ -121,7 +121,8 @@ class AboutController extends FrontController
      */
     private function notice($category)
     {
-        return view('front.about.' . $category->page);
+        list($counts, $lists) = $this->new->getNewList(['category_id'=>$category->id]);
+        return view('front.about.' . $category->page,compact('lists'));
     }
 
     /**
