@@ -53,10 +53,68 @@ class PlatformController extends FrontController
         $search['overall'] = $request->get('overall');
         $search['time'] = $request->get('time');
         $search['city'] = $request->get('city');
+        $where = [];
+        //城市查询
+        $citys = ['北京市','上海市','广州市','深圳市'];
+        if($search['city'] == -1) {
+            $where['not_in']['city'] = $citys;
+        } else if($search['city'] > 0){
+            $where['city'] = $citys[$search['city'] - 1];
+        }
+        //等级查询
+        if($search['grade'] > 0) {
+            $grades = [
+                1=>['AAA'],
+                2=>['AAA','AA'],
+                3=>['AAA','AA','A'],
+                4=>['AAA','AA','A','BBB'],
+                5=>['AAA','AA','A','BBB','BB'],
+                6=>['AAA','AA','A','BBB','BB','B']
+            ];
+            $where['in']['level'] = $grades[$search['grade']];
+        }
+        //年收益查询
+        if($search['overall'] > 0) {
+            if($search['overall'] == 4) {
+                $where['max_yield <='] = 8;
+                $where['max_yield !='] = 0;
+            } else {
+                $overalls = [
+                    1 => [16,20],
+                    2 => [12,16],
+                    3 => [8,12],
+                ];
+                $where['between']['max_yield'] = $overalls[$search['overall']];
+            }
+        }
 
-        $result = $this->tasks->getSearchCorps($search);
-
-        return $result;
+        if($search['time'] > 0) {
+            if($search['time'] == 1) {
+                $where['max_days <='] = 30;
+                $where['max_days !='] = 0;
+            }
+            if($search['time'] == 2) {
+                $where['between']['max_days'] = [30,90];
+            }
+            if($search['time'] == 3) {
+                $where['between']['max_days'] = [90,180];
+            }
+            if($search['time'] == 4) {
+                $where['between']['max_days'] = [180,365];
+            }
+            if($search['time'] == 5) {
+                $where['max_days >='] = 365;
+            }
+        }
+        $where['status'] = 1;
+        list($counts,$lists) = $this->tasks->getCorpList($where,$this->perpage,$page);
+        $result['total'] = $counts;
+        $result['page']  = $page;
+        $html = view('front.platform.lists', compact('lists'))->render();
+        $html = str_replace('\r','', $html);
+        $html = str_replace('\n',"", $html);
+        $result['platformStr'] = $html;
+        return $this->ajaxReturn($result);
 
     }
 
