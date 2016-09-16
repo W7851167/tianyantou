@@ -18,6 +18,7 @@ Route::get('platform/{ename}.html', ['as' => 'platform.corp', 'uses' => 'Platfor
 Route::get('platform/platform/lists', ['as' => 'platform.lists', 'uses' => 'PlatformController@lists']);
 Route::get('platform/project/plists', ['as' => 'platform.plists', 'uses' => 'PlatformController@plists']);
 Route::get('platform/login/{corp}/{task_id}', ['as' => 'platform.login', 'uses' => 'PlatformController@login']);
+Route::post('platform/redirect', ['as' => 'platform.redirect', 'uses' => 'PlatformController@redirect']);
 //积分商城
 Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@index']);
 
