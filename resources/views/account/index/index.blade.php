@@ -16,26 +16,26 @@
                         <dt>资产总额(元)
                             <a href="javascript:void(0)">
                                 <i>?</i>
-                                <p>资产总额【<span>0.00</span>元】= 待回款本金【<span>0.00</span>元】+ 活期金额【<span>0.00</span>元】+ 冻结金额【<span>0.00</span>元】+ 账户余额【<span>0.00</span>元】</p>
+                                <p>资产总额【<span>{!! $user->money->total or '0.00' !!}</span>元】= 待回款本金【<span>0.00</span>元】+ 冻结金额【<span>{!! $user->money->withdraw or '0.00' !!}</span>元】+ 账户余额【<span>0.00</span>元】</p>
                             </a>
                         </dt>
-                        <dd>0.00</dd>
+                        <dd>{!! $user->money->total or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
-                        <dt>借款本息(元)</dt>
-                        <dd>0.00</dd>
+                        <dt>可用金额(元)</dt>
+                        <dd>{!! $user->money->money or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>冻结金额(元)</dt>
-                        <dd>0.00</dd>
+                        <dd>{!! $user->money->withdraw or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
-                        <dt>账户余额(元)</dt>
-                        <dd>0.00</dd>
+                        <dt>冻结返利(元)</dt>
+                        <dd>{!! $user->money->rebate or '0.00' !!}</dd>
                     </dl>
                     <div class="shortcuts">
-                        <a href="wallet/recharge.html" class="btn-recharge btn-s">充值</a>
-                        <a href="wallet/withdraw.html" class="btn-widthdraw btn-s">提现</a>
+                        {{--<a href="wallet/recharge.html" class="btn-recharge btn-s">充值</a>--}}
+                        <a href="/wallet/withdraw.html" class="btn-widthdraw btn-s">提现</a>
                     </div>
                 </div>
 
@@ -105,62 +105,15 @@
                     <h4 class="sec-tit">去这里赚钱</h4>
                     <!-- 与原有的一样 -->
                     <ul class="logolink">
+                        @foreach($crops as $cv)
                         <li>
-                            <a href="../www.touzhijia.com/platform/detail_erongsuo.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="e融所">
+                            <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="{!! $cv->platform !!}">
                                 <p class="logoimgp">
-                                    <img src="https:http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" alt="e融所" title="e融所" height="55">
+                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}" title="{!! $cv->platform !!}" height="55">
                                 </p>
                             </a>
                         </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_huitouwang.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-1']);" target="_blank" title="汇投网">
-                                <p class="logoimgp">
-                                    <img src="{!!config('app.static_url')!!}/upload/image/bidimg/logo_recommend_img/2016071813583280943.jpg.jpg" alt="汇投网" title="汇投网" height="55">
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_xinyongbao.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-2']);" target="_blank" title="信用宝">
-                                <p class="logoimgp">
-                                    <img src="{!!config('app.static_url')!!}/upload/image/bidimg/logo_recommend_img/2016042614212699586.jpg.jpg" alt="信用宝" title="信用宝" height="55">
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_rxdai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-3']);" target="_blank" title="投哪网">
-                                <p class="logoimgp">
-                                    <img src="{!!config('app.static_url')!!}/upload/image/bidimg/logo_recommend_img/201411262133482121.jpg.jpg" alt="投哪网" title="投哪网" height="55">
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_duanrongwang.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-4']);" target="_blank" title="短融网">
-                                <p class="logoimgp">
-                                    <img src="{!!config('app.static_url')!!}/upload/image/bidimg/logo_recommend_img/2016080213010228018.jpg.jpg" alt="短融网" title="短融网" height="55">
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_zhubaodai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-5']);" target="_blank" title="珠宝贷">
-                                <p class="logoimgp">
-                                    <img src="{!!config('app.static_url')!!}/upload/image/bidimg/logo_recommend_img/2015041617455545546.jpg.jpg" alt="珠宝贷" title="珠宝贷" height="55">
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_huiyingdai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-6']);" target="_blank" title="汇盈金服">
-                                <p class="logoimgp">
-                                    <img src="{!!config('app.static_url')!!}/upload/image/bidimg/logo_recommend_img/2015080414060923178.jpg.jpg" alt="汇盈金服" title="汇盈金服" height="55">
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../www.touzhijia.com/platform/detail_kaixindai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-7']);" target="_blank" title="开鑫贷">
-                                <p class="logoimgp">
-                                    <img src="https:http://static.tianyantou.com/upload/image/bidimg/logo_recommend_img/201605031509119460.png?ver=20160431006" alt="开鑫贷" title="开鑫贷" height="55">
-                                </p>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

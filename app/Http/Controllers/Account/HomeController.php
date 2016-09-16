@@ -14,18 +14,31 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\TaskRepository;
+use App\Repositories\UserRepository;
 
-class HomeController extends  FrontController
+class HomeController extends FrontController
 {
-    public function __construct()
+    public function __construct(
+        UserRepository $userRepository,
+        TaskRepository $tasks
+    )
     {
         parent::__initalize();
+        $this->userRepository = $userRepository;
+        $this->tasks = $tasks;
     }
 
     public function index()
     {
+        $user = $this->userRepository->userModel->find($this->user['id']);
 
-        return view('account.index.index');
+        $where['status'] = 1;
+        list($counts, $crops) = $this->tasks->getCorpList($where, 8, 1);
+
+        return view('account.index.index', compact(
+            'user', 'crops'
+        ));
 
     }
 
