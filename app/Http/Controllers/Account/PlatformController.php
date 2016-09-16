@@ -15,17 +15,26 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\TaskRepository;
+use Illuminate\Http\Request;
 
 class PlatformController extends FrontController
 {
-    public function __construct()
+    public function __construct(
+        TaskRepository $tasks
+    )
     {
         parent::__initalize();
+        $this->tasks = $tasks;
     }
 
-    public function statistic()
+    public function statistic(Request $request)
     {
-        return view('account.platform.statistic');
+        $page = $request->get('page') ? (int)$request->get('page') : 1;
+        $where = ['status' => 1];
+        list($count, $lists) = $this->tasks->getCorpList($where, $this->perpage, $page);
+
+        return view('account.platform.statistic', compact('count','lists'));
     }
 
     public function analysis()
