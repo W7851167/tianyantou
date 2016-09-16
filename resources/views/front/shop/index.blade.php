@@ -1,5 +1,5 @@
 @extends('layout.main')
-
+@section('title')积分商城@stop
 @section('content')
 <!--内容开始-->
 <div id="mall" class="wrap">

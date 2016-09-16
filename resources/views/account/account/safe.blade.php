@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title')安全中心@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />

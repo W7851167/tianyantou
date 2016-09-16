@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title')积分明细@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/geren.css" />

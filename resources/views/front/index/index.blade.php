@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title')首页@stop
 @section('title') p2p网贷,p2p理财,天眼投投资理财平台 @stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/mainindex.css?ver={!! time() !!}" />
