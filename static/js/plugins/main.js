@@ -2372,26 +2372,6 @@ $(function(){
   }
 });
 
-//加息券
-
-(function(){
-  var quan = $('<img src="http://static.tianyantou.com/images/platform/jiaxiquan.png" />');
-  $('#index-con .rate-con').css('position','relative').append(quan);
-  $('#index-con .rate-con img').css({
-    'position': 'absolute',
-    'top': '20px',
-    'right': '10px',
-    'width': '54px'
-  });
-  $('#platform .plat-info').css('position','relative').append(quan);
-  $('#platform .plat-info img').css({
-    'position': 'absolute',
-    'top': '21px',
-    'right': '-22px',
-    'width': '54px'
-  });
-  
-})();
  
 $('.brands-sec tr').click(function(){
 	var link=$(this).data("link");

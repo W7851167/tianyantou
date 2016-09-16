@@ -38,8 +38,28 @@ class PlatformController extends FrontController
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where['status'] = 1;
         list($counts, $lists) = $this->tasks->getCorpList($where, $this->perpage,$page);
-        return view('front.platform.index', compact('lists'));
+        return view('front.platform.index', compact('lists','citys'));
     }
+
+
+    /**
+     * @param Request $request
+     * 获取平台列表
+     */
+    public function lists(Request $request)
+    {
+        $page = $request->get('page');
+        $search['grade'] = $request->get('grade');
+        $search['overall'] = $request->get('overall');
+        $search['time'] = $request->get('time');
+        $search['city'] = $request->get('city');
+
+        $result = $this->tasks->getSearchCorps($search);
+
+        return $result;
+
+    }
+
 
 
 
@@ -108,4 +128,7 @@ class PlatformController extends FrontController
 
         return view('front.platform.corp',compact('corp','metas'));
     }
+
+
+
 }

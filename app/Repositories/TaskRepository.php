@@ -303,5 +303,22 @@ class TaskRepository extends  BaseRepository
         }
     }
 
+    /**
+     * @param $search
+     * @param null $order
+     * 获取查询公司信息
+     */
+    public function getSearchCorps($search,$order=null)
+    {
+        $where = [];
+        $citys = ['北京市','上海市','广州市','深圳市'];
+        if($search['city'] == -1) {
+            $where['not_in']['city'] = $citys;
+        } else if($search['city'] > 0){
+            $where['city'] = $citys[$search['city'] - 1];
+        }
+        return $this->corpModel->alls(['*'],$where,['sorts'=>'desc']);
+
+    }
 
 }
