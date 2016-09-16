@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title')发布文章@stop
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
     {!!HTML::style('admin/css/dialog.css')!!}
