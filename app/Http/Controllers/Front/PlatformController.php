@@ -203,16 +203,55 @@ class PlatformController extends FrontController
         if(empty($task->url)) {
             return abort(500, '没有跳转的URL信息,请联系运营人员');
         }
+        if($task->end_time < time()) {
+            return abort(500, '项目已结束，不能投资');
+        }
+        if($task->begin_time > time()) {
+            return abort(500, '项目未开始，不能投资');
+        }
+
+        if($task->nums <= 0) {
+            return abort(500, '该项目已超出投资数，请联系运营人员');
+        }
         $data['corp_id'] = $corp->id;
         $data['task_id']  = $id;
         $data['user_id'] = $this->user['id'];
         $data['total'] = $task->limit;
         $data['status'] = 0;
         $sign = $this->signature($id,$task->url,$ename, time());
-        if($this->tasks->saveReceive($data)) {
-            return view('front.platform.login',compact('data','corp','task','sign'));
+        return view('front.platform.login',compact('data','corp','task','sign'));
+    }
+
+    /**
+     * @param Request $request
+     * 跳转地址
+     */
+    public function redirect(Request $request)
+    {
+        if (!$request->isMethod('post')) {
+            return abort(500, '非法访问');
         }
-        return abort(500, '记录领取任务信息异常，请联系开发人员');
+        if (empty($this->user['id'])) {
+            return abort(500, '请先登录');
+        }
+        $data = \Crypt::decrypt($request->get('data'));
+        if (empty($data)) {
+            return abort(500, '数据传送异常，请联系开发人员');
+        }
+        $data['total'] = $request->get('price');
+        $timestamp = $request->get('timestamp');
+        $nonce = $request->get('nonce');
+        $signature = $request->get('signature');
+        $task = $this->tasks->taskModel->find($data['task_id']);
+        $corp = $this->tasks->getCorpByEname($nonce);
+        $newSignature = $this->getSignature($data['task_id'],$nonce,$timestamp, $task->url);
+        if($newSignature != $signature) {
+            return abort(500, '签名错误');
+        }
+        if ($this->tasks->saveReceive($data)) {
+            return view('front.platform.redirect',compact('task','corp','signature'));
+        }
+        return abort(500, '访问异常，请联系开发人员');
     }
 
     private function signature($appId,$url = null, $nonce = null, $timestamp = null)
