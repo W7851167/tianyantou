@@ -15,7 +15,9 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\FrontController;
 use App\Repositories\UserRepository;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class PassportController extends FrontController
@@ -69,13 +71,37 @@ class PassportController extends FrontController
             $messages = [
                 'username.required' => '请输入用户名!',
                 'username.unique' => '此用户名已被注册!',
-                'password.required' => '请输入密码!',
+                'password.required' => '密码不能为空!',
                 'password.confirmed' => '两次密码不一致!',
                 'password_confirmation.required' => '请输入确认密码!',
             ];
-            $data = $request->only(['username','password','password_confirmation']);
+            $data = $request->only(['username', 'password', 'password_confirmation']);
             $validator = Validator::make($data, $rules, $messages);
-            var_dump($validator);exit;
+            if ($validator->fails()) {
+                return response()->json([
+                    'statu' => 0,
+                    'info' => '注册失败!',
+                    'data' => $validator->errors(),
+                ]);
+            }
+            try {
+                $result = $this->userRepository->userModel->create(array_except($data, ['password_confirmation']));
+                if ($result) {
+                    $sessionData = [
+                        'id' => $result->id,
+                        'username' => $result->username,
+                        'role' => $result->roles,
+                    ];
+                    if (!empty($result->avatar->name))
+                        $sessionData['avatar'] = $result->avatar->name;
+                    Session::put('user.passport', $sessionData);
+
+                    return $this->success('注册成功!', url('/'), true);
+                }
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
+            return $this->error('注册失败!', null, true);
         }
         return view('account.passport.register');
     }

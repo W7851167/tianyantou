@@ -8,6 +8,8 @@ class UserModel extends BaseModel
     public $table = 'users';
     protected $primaryKey = 'id';
 
+    protected $guarded = ['id'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      * 获取用户头像数据
@@ -43,6 +45,11 @@ class UserModel extends BaseModel
     public function bank()
     {
         return $this->hasOne('App\Models\BankModel', 'user_id');
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = \Hash::make($value);
     }
 
 }

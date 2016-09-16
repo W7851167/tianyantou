@@ -167,12 +167,27 @@ function formRegisterCheck(){
     }
   }
 
-  $('#register [type=submit]').click(function() {
-    //var ok = true;
-    //ok = checkRegUserName() && ok;
-    //ok = checkRegPassword() && ok;
+  $('#register .btn-box').click(function() {
+    var ok = true;
+    ok = checkRegUserName() && ok;
+    ok = checkRegPassword() && ok;
     //ok = checkPhone() && ok;
-    return ok;
+    $.post('/register.html',$("#register").serialize(),function(data){
+        if(data.status){
+          if(data.url)
+            window.location.href = data.url;
+          else
+            window.location.reload();
+        }else{
+          if(data.data.username !== 'undefined')
+            $("#username-error").html('<i class="icon-error"></i>'+data.data.username);
+          if(data.data.password !== 'undefined')
+            $("#pwd-error").html('<i class="icon-error"></i>'+data.data.password);
+          if(data.data.password_confirmation !== 'undefined')
+            $("#rpwd-error").html('<i class="icon-error"></i>'+data.data.password_confirmation);
+        }
+    },'json');
+    //return ok;
   });
 
   $('#account [type=submit]').click(function() {
