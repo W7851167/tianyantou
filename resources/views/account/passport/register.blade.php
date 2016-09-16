@@ -1,7 +1,8 @@
 @extends('layout.main')
 @section('style')
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
-    @stop
+@stop
 @section('content')
 <div class="wrap user-center">
     <div class="container clearfix">
@@ -29,7 +30,7 @@
                             <input id="log-captcha" name="captcha" class="input-style input-size" type="text" placeholder="验证码" style="width: 134px;margin-right: 13px;"/>
                             {{--<input type="hidden" name="captcha_token" value="6e716278656f74786565326c68796668" />--}}
                             {{--<img id="captcha" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAAtCAMAAAB70mJmAAAAP1BMVEUAAADtz+MgAhYuECQnCR0rDSEgAhYpCx8jBRkhAxcvESUfARUhAxcsDiIkBhouECQsDiIkBhoeABQfARUgAhZ/l4pNAAAAAXRSTlMAQObYZgAAAdlJREFUeJzUWP9ygjAMToXNZje3Q9//EdWb26244Vxb/APoD5paoXx3ckcJydckTSIlgxyxmpuAHWVyjYXzyfNP//7iVsKmCyICiFDZCYMowlnZvFU2KcmQsQPYW7xVPiDfCNjpn0mrAb+3sMIHMerA4pm0MYzbAz1ggtPEqep1bs2aR1bs1SXTKp8pLRVEFAi8NpNAZ6tA6wNTXkkLUin30kJeS8uiqI6DRyttoLKYkSuiHMqL6vwNaUjdbCtVRt/EF22hdrzYGPE/rhO5StNyGeYtUaed+t1Y4Ziq0o4UCDmlnHqTimcYkTvgH5RD9BdNS7Iwcs4NAcxrLByevV3JylBE9hoDbm/VyLz5ezFyUrK6cJWMlNHSvvmCwbXQzRlZv0c3jKsVLIfm2xVcGYVLLTDuOrokMNaWwVs17NuBK5PlaJhbqvqawm0htWiJpDUmQUj5dMi0Jy6VFqY68yQ87n/i69cdLztobbo3n+Nq1sbKE8DvYOkczGph3pob/la9CYhfMLYAh1DZ6by1VZdQXp0C4f4CND06tHwTXkpUATLTVfnD7VeF8JrhJIb0/mha/i8R9w5dVlo8oYE4ZFpOlzrYzINMad372e1tTOAUpTbTlP8PAAD//6pPaFyPXV4CAAAAAElFTkSuQmCC" alt="验证码" class="captcha-img" style="vertical-align: middle;">--}}
-                            <img src="{!!url('signin/captcha')!!}" class="img" onclick="this.src='{!!url("signin/captcha?")!!}'+Math.random();" style="vertical-align: middle;" />
+                            <img id="captcha" src="{!!url('signin/captcha')!!}" class="img" onclick="this.src='{!!url("signin/captcha?")!!}'+Math.random();" style="vertical-align: middle;" />
                             <div class="error" id=""></div>
                         </div>
                         {{--<div class="input-box">

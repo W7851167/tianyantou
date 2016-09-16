@@ -129,10 +129,19 @@ class PassportController extends FrontController
         return view('account.passport.protocol');
     }
 
-    public function captcha(Captcha $captcha)
+    public function captcha(Request $request, Captcha $captcha)
     {
+        if ($request->isMethod('post')) {
+            $code       = $request->get('captcha');;
+            $checkCode    = Session::get('captcha');
+
+            if(strtolower($code) == strtolower($checkCode)) {
+                return response()->json('success');
+            }
+            return response()->json('fail');
+        }
         $captcha->doimg();
-        Session::put('verify', $captcha->getCode());
+        Session::put('captcha', $captcha->getCode());
     }
 
 }
