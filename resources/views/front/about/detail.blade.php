@@ -31,10 +31,24 @@
                     </div>
                 </div>
                 {!! $news->article->content or '' !!}
+                @if(!empty($first) or !empty($next))
                 <div class="prev-next">
-                    <span class="prev">上一篇：<a href="https://www.touzhijia.com/about/notice/3188.html" title="骏业日新，投之家迁新家啦">骏业日新，投之家迁新家啦</a></span>
-                    <span class="next">下一篇：无</span>
+                    <span class="prev">上一篇：
+                        @if(!empty($first))
+                        <a href="{!! url('about/'.$category->page . '/' . $first->id . '.html') !!}" title="{!! $first->title or ''!!}">{!! $first->title or '' !!}</a>
+                            @else
+                            无
+                        @endif
+                    </span>
+                    <span class="next">下一篇：
+                        @if(!empty($next))
+                            <a href="{!! url('about/'.$category->page . '/' . $next->id . '.html') !!}" title="{!! $next->title or ''!!}">{!! $next->title or '' !!}</a>
+                        @else
+                            无
+                        @endif
+                    </span>
                 </div>
+                @endif
             </div>
         </div>
 </div>
