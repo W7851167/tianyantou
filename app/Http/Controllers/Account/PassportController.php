@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Library\Utils\Captcha;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -128,9 +129,10 @@ class PassportController extends FrontController
         return view('account.passport.protocol');
     }
 
-    public function captcha()
+    public function captcha(Captcha $captcha)
     {
-
+        $captcha->doimg();
+        Session::put('verify', $captcha->getCode());
     }
 
 }
