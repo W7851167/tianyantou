@@ -1,0 +1,38 @@
+<?php
+/*********************************************************************************
+ *  积分控制器 - phpad
+ *-------------------------------------------------------------------------------
+ * 版权所有: CopyRight By tianyantou.com
+ * 文件内容简单说明
+ *-------------------------------------------------------------------------------
+ * $FILE:ScoresController.php
+ * $Author:pzz
+ * $Dtime:2016/9/11
+ ***********************************************************************************/
+
+namespace App\Http\Controllers\Account;
+
+
+use App\Http\Controllers\FrontController;
+use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
+
+class ScoresController extends FrontController
+{
+    public function __construct(
+        UserRepository $userRepository
+    )
+    {
+        parent::__initalize();
+        $this->userRepository = $userRepository;
+    }
+
+    public function index(Request $request)
+    {
+        $page = $request->get('page') ? (int)$request->get('page') : 1;
+        $where = ['user_id' => $this->user['id']];
+        list($count, $lists) = $this->userRepository->getScoreList($where, $this->perpage, $page);
+        $total = $this->userRepository->scoreModel->where('user_id', $this->user['id'])->sum('score');
+        return view('account.scores.index', compact('lists', 'count', 'total'));
+    }
+}
