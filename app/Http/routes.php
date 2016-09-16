@@ -28,7 +28,6 @@ if (strtolower($prefix) == 'www') {
 } else { //解决composer时自动查找localhost的问题
     $namespace = 'Front';
 }
-
 //域名分组
 Route::group(array('domain' => $host, 'namespace'=>$namespace), function() use($namespace){
     require_once  __DIR__.'/Routes/' . $namespace .'.php';

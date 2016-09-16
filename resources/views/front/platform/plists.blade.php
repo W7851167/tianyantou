@@ -16,7 +16,7 @@
             <i class="progressbar" style="background-position: {!! $tv->proccess * -54  !!}px 0px;"></i>
         </div>
     </td>
-    <td width="110"><a rel="invest_layer" class="btn btn-blue" flag="0" data-isskip="0" data-inversurl="http://www.wyjr168.com/Creditor/CreditorDetail?id=16977" data-bid="16977" href="javascript:void(0);" data-en-name="wyjr" data-invest-id="16977">去投资</a></td>
+    <td width="110"><a rel="invest_layer" class="btn btn-blue" flag="0" data-isskip="0" data-inversurl="{!! $tv->url or '' !!}" data-bid="{!! $tv->id or 0 !!}" href="javascript:void(0);" data-en-name="{!! $tv->corp->ename or '' !!}" data-invest-id="{!! $tv->id or 0 !!}">去投资</a></td>
 </tr>
 @endforeach
 @endif

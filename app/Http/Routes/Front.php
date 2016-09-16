@@ -15,7 +15,9 @@ Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 //选平台
 Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
 Route::get('platform/{ename}.html', ['as' => 'platform.corp', 'uses' => 'PlatformController@corp']);
+Route::get('platform/platform/lists', ['as' => 'platform.lists', 'uses' => 'PlatformController@lists']);
 Route::get('platform/project/plists', ['as' => 'platform.plists', 'uses' => 'PlatformController@plists']);
+Route::get('platform/logo/{corp}/{corp_id}', ['as' => 'platform.plists', 'uses' => 'PlatformController@plists']);
 //积分商城
 Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@index']);
 
@@ -23,4 +25,5 @@ Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@index']);
 Route::get('about', 'AboutController@about');
 Route::get('about/{page}.html', ['as' => 'about', 'uses' => 'AboutController@index']);
 Route::get('about/{page}/{id}.html', ['as' => 'about', 'uses' => 'AboutController@detail']);
+
 

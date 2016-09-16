@@ -14,6 +14,7 @@ return [
     */
 
     'failed' => 'These credentials do not match our records.',
+    "username"=> "Username",
     'throttle' => 'Too many passport attempts. Please try again in :seconds seconds.',
 
 ];
