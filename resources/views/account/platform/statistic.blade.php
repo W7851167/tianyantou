@@ -46,7 +46,7 @@
                         <div class="tab click-tab btn-tab">
                             <ul class="tab-nav page-switch clearfix">
                                 <li class="active"><a href="javascript:;">已开通平台（2个）</a></li>
-                                <li class=""><a href="{!! config('app.static_url') !!}/platforms/statistic.html">未开通平台（27个）</a>
+                                <li class=""><a href="{!! config('app.account_url') !!}/platforms/statistic.html">未开通平台（{!! $count !!}个）</a>
                                 </li>
                             </ul>
                             <div class="tab-main">
@@ -78,84 +78,25 @@
                                 <div class="">
                                     <div class="platlist-wrap inactivated-plat" id="unopened_platforms">
                                         <div class="plat-list" id="unopened_platforms">
+                                            @foreach($lists as $cv)
                                             <div class="plat-box">
                                                 <div class="plat-main">
-                                                    <img src="./投之家 - 个人中心_files/2014112411514815981.jpg" alt="信融财富">
+                                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo or '' !!}" alt="{!! $cv->platform or '' !!}">
                                                     <div class="plat-info" style="position: relative;">
-                                                        <h4>年化收益率<span class="rate"><em>11.10-13.80</em>%</span></h4>
-                                                        <span>项目期限：<em>1月-12月</em></span>
-                                                        <span>可投标数：<em>50个</em></span>
-                                                        <span>安全评级：<em>A</em></span>
+                                                        @if($cv->min_yield == $cv->max_yield)
+                                                            <span class="rate"><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
+                                                        @else
+                                                            <span class="rate"><em>{!! $cv->min_yield or 0.00 !!}</em>%<em>-</em><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
+                                                        @endif
+                                                        <span>项目期限：<em>@if($cv->min_days == $cv->max_days){!! dateFormat($cv->max_days) !!}@else{!! dateFormat($cv->min_days) !!}-{!! dateFormat($cv->max_days) !!}@endif</em></span>
+                                                        <span>可投标数：<em>{!! $cv->tasks->count() !!}个</em></span>
+                                                        <span>安全评级：<em>{!! $cv->level or 'B' !!}</em></span>
                                                         <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                           data-sso-url="https://www.touzhijia.com/platform/login/xinrong/0.html">开通账户</a>
+                                                           data-sso-url="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html">查看详情</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="plat-box">
-                                                <div class="plat-main">
-                                                    <img src="./投之家 - 个人中心_files/2014112411074456854.jpg" alt="91旺财">
-                                                    <div class="plat-info" style="position: relative;">
-                                                        <h4>年化收益率<span class="rate"><em>7.00-12.00</em>%</span></h4>
-                                                        <span>项目期限：<em>1月-6月</em></span>
-                                                        <span>可投标数：<em>待发布</em></span>
-                                                        <span>安全评级：<em>A</em></span>
-                                                        <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                           data-sso-url="https://www.touzhijia.com/platform/login/91wangcai/0.html">开通账户</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="plat-box">
-                                                <div class="plat-main">
-                                                    <img src="./投之家 - 个人中心_files/2014112414002812896.jpg" alt="楚金所">
-                                                    <div class="plat-info" style="position: relative;">
-                                                        <h4>年化收益率<span class="rate"><em>8.00-10.00</em>%</span></h4>
-                                                        <span>项目期限：<em>1月-12月</em></span>
-                                                        <span>可投标数：<em>1个</em></span>
-                                                        <span>安全评级：<em>AA</em></span>
-                                                        <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                           data-sso-url="https://www.touzhijia.com/platform/login/chujinsuo/0.html">开通账户</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="plat-box">
-                                                <div class="plat-main">
-                                                    <img src="./投之家 - 个人中心_files/201411262133482121.jpg" alt="投哪网">
-                                                    <div class="plat-info" style="position: relative;">
-                                                        <h4>年化收益率<span class="rate"><em>7.00-12.00</em>%</span></h4>
-                                                        <span>项目期限：<em>7日-36月</em></span>
-                                                        <span>可投标数：<em>5个</em></span>
-                                                        <span>安全评级：<em>A</em></span>
-                                                        <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                           data-sso-url="https://www.touzhijia.com/platform/login/rxdai/0.html">开通账户</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="plat-box">
-                                                <div class="plat-main">
-                                                    <img src="./投之家 - 个人中心_files/2014121116172774628.png" alt="粤商贷">
-                                                    <div class="plat-info" style="position: relative;">
-                                                        <h4>年化收益率<span class="rate"><em>10.00-15.00</em>%</span></h4>
-                                                        <span>项目期限：<em>15日-12月</em></span>
-                                                        <span>可投标数：<em>1个</em></span>
-                                                        <span>安全评级：<em>BB</em></span>
-                                                        <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                           data-sso-url="https://www.touzhijia.com/platform/login/yesvion/0.html">开通账户</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="plat-box">
-                                                <div class="plat-main">
-                                                    <img src="./投之家 - 个人中心_files/2014122314312929936.jpg" alt="融资易">
-                                                    <div class="plat-info" style="position: relative;">
-                                                        <h4>年化收益率<span class="rate"><em>12.00-16.50</em>%</span></h4>
-                                                        <span>项目期限：<em>30日-6月</em></span>
-                                                        <span>可投标数：<em>1个</em></span>
-                                                        <span>安全评级：<em>BB</em></span>
-                                                        <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                           data-sso-url="https://www.touzhijia.com/platform/login/51rzy/0.html">开通账户</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <div class="pagination" data-pagination-ref="unopened_platforms">
                                             <a href="https://account.touzhijia.com/platforms/unopenedPlatforms?page=2" data-ci-pagination-page="2">
@@ -182,5 +123,5 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/tab.js"></script>
 @stop

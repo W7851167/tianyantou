@@ -136,11 +136,4 @@ class AboutController extends FrontController
     {
         return view('front.about.' . $category->page);
     }
-
-
-    public function detail($page, $id)
-    {
-
-    }
-
 }
