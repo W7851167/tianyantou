@@ -33,6 +33,6 @@ class ScoresController extends FrontController
         $where = ['user_id' => $this->user['id']];
         list($count, $lists) = $this->userRepository->getScoreList($where, $this->perpage, $page);
         $total = $this->userRepository->scoreModel->where('user_id', $this->user['id'])->sum('score');
-        return view('account.scores.index', compact('lists', 'total'));
+        return view('account.scores.index', compact('lists', 'count', 'total'));
     }
 }

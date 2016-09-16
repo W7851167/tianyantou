@@ -28,84 +28,23 @@
                                     <th width="100">时间</th>
                                     <th width="102">类型</th>
                                     <th width="108">积分</th>
-                                    <th width="99">剩余积分</th>
+                                    {{--<th width="99">剩余积分</th>--}}
                                     <th width="107">备注</th>
                                 </tr>
+                                @foreach($lists as $sv)
                                 <tr>
-                                    <td width="113" align="center"> 2016-09-16 15:26:01</td>
+                                    <td width="113" align="center">{!! $sv->created_at or '' !!}</td>
                                     <td width="102" align="center"> 收入</td>
                                     <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
+                                        <i style="color: red">+ {!! $sv->score or 0 !!}</i>
                                     </td>
-                                    <td width="91" align="center"> 8</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
+                                    {{--<td width="91" align="center">{!! $cv->score or 0 !!}</td>--}}
+                                    <td width="99" align="center">{!! $sv->intro or '' !!}</td>
                                 </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-09-15 18:56:32</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 7</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-09-04 08:53:49</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 6</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-09-03 07:37:31</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 5</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-08-31 19:12:53</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 4</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-08-26 10:36:26</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 3</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-08-19 21:55:08</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 2</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
-                                <tr>
-                                    <td width="113" align="center"> 2016-08-05 16:22:25</td>
-                                    <td width="102" align="center"> 收入</td>
-                                    <td width="108" align="center">
-                                        <i style="color: red">+ 1</i>
-                                    </td>
-                                    <td width="91" align="center"> 1</td>
-                                    <td width="99" align="center"> 签到获得1积分</td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
-                            <div class="meneame" style="margin-top: 30px"> 8 条记录 1/1 页</div>
+                            <div class="meneame" style="margin-top: 30px"> {!! $count !!} 条记录 1/1 页</div>
                         </span>
                     </div>
                 </div>
