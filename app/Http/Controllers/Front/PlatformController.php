@@ -195,6 +195,9 @@ class PlatformController extends FrontController
      */
     public function login(Request $request,$page, $id)
     {
+        if(empty($this->user['id'])) {
+            return abort(500,'请先登录');
+        }
         $corp = $this->tasks->getCorpByEname($page);
         $task = $this->tasks->taskModel->find($id);
         $data['corp_id'] = $corp->id;

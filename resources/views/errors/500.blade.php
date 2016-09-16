@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>天眼投_404页面</title>
+    <title>天眼投_500页面</title>
     <meta name="keywords" content="天眼投、P2P网贷、P2P投资、P2P网贷平台、网贷平台、个人投资理财、投资理财、P2P理财">
     <meta name="description" content="天眼投是国内领先的P2P理财网贷平台，为投资者提供专业的P2P理财产品搜索、咨询和对比服务，通过严格的风控，创新的技术，海量的数据，让用户的投资理财变得安全、简单、高效，为您的个人投资理财保驾护航。！">
     <meta name="author" content="p2p网贷,p2p理财,投之家投资理财平台" />
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="content">
             <img src="http://static.tianyantou.com/images/404/404.jpg">
-            <p><span>糟糕，您要访问的页面不见了！</span><br />请核对您输入的页面地址是否正确哦~</p>
+            <p><span>{!! $exception->getMessage()  !!}</span><br />{!! $exception->getLine() !!}</p>
             <div class="btns">
                 <a href="javascript:history.back();" class="btn btn-blue btn-l">返回上一级页面</a>
                 <a href="{!! config('app.url') !!}" class="btn btn-blue btn-l">返回网站首页</a>
