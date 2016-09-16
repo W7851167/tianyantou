@@ -10,7 +10,7 @@
             @include('account.common.menu')
             <div class="main tworow" style="height: 786px;">
                 <div class="main-inner">
-                    <h1 class="section-title">全网通</h1>
+                    <h1 class="section-title">投资记录</h1>
                     <div class="cont-box-wrap">
                         <div class="content-unit ">
                             <div class="unit-bd unit-3 ">
@@ -32,8 +32,8 @@
                     <div class="cont-box-wrap">
                         <div class="tab click-tab">
                             <ul class="tab-nav">
-                                <li class="active"><a href="javascript:void(0);">进行中的债权</a></li>
-                                <li class=""><a href="javascript:void(0);">已完成的债权 </a></li>
+                                <li class="active"><a href="javascript:void(0);">进行中的任务</a></li>
+                                <li class=""><a href="javascript:void(0);">已完成的任务</a></li>
                             </ul>
                             <div class="tab-main">
                                 <div class="active">
@@ -42,23 +42,36 @@
                                             <table class="table table-bordered ucenter-table" style="font-size: 13px;">
                                                 <thead>
                                                 <tr>
-                                                    <th width="140">购买时间</th>
-                                                    <th width="160">债权名称</th>
-                                                    <th width="60">年化利率</th>
-                                                    <th width="90">投资金额(元)</th>
-                                                    <th width="80">待收本息(元)</th>
+                                                    <th width="140">领取任务时间</th>
+                                                    <th width="120">平台名称</th>
+                                                    <th width="120">任务名称</th>
+                                                    <th width="90">完成金额(元)</th>
+                                                    {{--<th width="80">待收本息(元)</th>--}}
                                                     <!--      <th>已收本息(元)</th>-->
-                                                    <th width="90">到期日</th>
-                                                    <th width="50">协议</th>
+                                                    <th width="140">提交任务时间</th>
+                                                    {{--<th width="50">协议</th>--}}
                                                     <th width="45">状态</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="norecord">
-                                                    <td colspan="8">
-                                                        没有查询到相关记录
-                                                    </td>
-                                                </tr>
+                                                @if(count($iLists)  > 0)
+                                                    @foreach($iLists as $av)
+                                                        <tr>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
+                                                            <td>{!! $av->corp->platform or '' !!}</td>
+                                                            <td>{!! $av->task->title or '' !!}</td>
+                                                            <td>{!! $av->total or '0.00' !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
+                                                            <td>@if($av->status==0)未审核 @elseif($av->status==1)已审核 @elseif($av->status==2)已完成 @else 审核驳回 @endif</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr class="norecord">
+                                                        <td colspan="6">
+                                                            没有查询到相关记录
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                                 </tbody>
                                             </table>
                                             <div class="pagination" data-pagination-ref="networth_records_1"></div>
@@ -71,22 +84,34 @@
                                             <table class="table table-bordered ucenter-table" style="font-size: 13px;">
                                                 <thead>
                                                 <tr>
-                                                    <th width="140">购买时间</th>
-                                                    <th width="160">债权名称</th>
-                                                    <th width="60">年化利率</th>
-                                                    <th width="90">投资金额(元)</th>
-                                                    <th width="80">已收本息(元)</th>
-                                                    <th width="90">到期日</th>
-                                                    <th width="50">协议</th>
+                                                <tr>
+                                                    <th width="140">领取任务时间</th>
+                                                    <th width="120">平台名称</th>
+                                                    <th width="120">任务名称</th>
+                                                    <th width="90">完成金额(元)</th>
+                                                    <th width="140">提交任务时间</th>
                                                     <th width="45">状态</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="norecord">
-                                                    <td colspan="8">
-                                                        没有查询到相关记录
-                                                    </td>
-                                                </tr>
+                                                @if(count($cLists) > 0)
+                                                    @foreach($cLists as $av)
+                                                        <tr>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
+                                                            <td>{!! $av->corp->platform or '' !!}</td>
+                                                            <td>{!! $av->task->title or '' !!}</td>
+                                                            <td>{!! $av->total or '0.00' !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
+                                                            <td>@if($av->status==0)未审核 @elseif($av->status==1)已审核 @elseif($av->status==2)已完成 @else 审核驳回 @endif</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr class="norecord">
+                                                        <td colspan="6">
+                                                            没有查询到相关记录
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                                 </tbody>
                                             </table>
                                             <div class="pagination" data-pagination-ref="networth_records_2"></div>
@@ -118,5 +143,5 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/tab.js"></script>
 @stop
