@@ -226,4 +226,20 @@ class UserRepository extends BaseRepository
         }
         return static::getSuccess('审核提现记录数据完成', $result);
     }
+
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     *
+     * 积分列表
+     */
+    public function getScoreList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->scoreModel->lists("*", $where, $orderBy, [], $limit, $page);
+        $count = $this->scoreModel->countBy($where);
+        return [$count, $lists];
+    }
 }
