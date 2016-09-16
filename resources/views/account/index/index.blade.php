@@ -129,5 +129,10 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/tab.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/highcharts.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/fullcalendar/moment.min.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/fullcalendar/lang-all.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/incomechart.js"></script>
 @stop
