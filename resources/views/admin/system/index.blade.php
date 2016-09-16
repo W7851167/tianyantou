@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title')系统管理@stop
 @section('style')
     {!!HTML::style('admin/css/form.css')!!}
 @stop

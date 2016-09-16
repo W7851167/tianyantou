@@ -1,4 +1,5 @@
 @extends('admin.common.layout')
+@section('title')公告/事件@stop
 @section('style')
     {!!HTML::style('admin/css/news.css')!!}
 @stop
