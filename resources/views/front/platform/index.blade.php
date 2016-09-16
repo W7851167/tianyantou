@@ -71,7 +71,6 @@
                         <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}">
                         <div class="plat-info" style="position: relative;">
                             <h4>年化收益率
-
                                 @if($cv->min_yield == $cv->max_yield)
                                     <span class="rate"><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
                                 @else

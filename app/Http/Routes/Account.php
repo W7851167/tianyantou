@@ -36,4 +36,6 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('coupon/index.html', ['as' => 'coupon', 'uses' => 'CouponController@index']);
     //消息中心
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
+    //我的积分
+    Route::get('user/scores.html', ['as' => 'scores', 'uses' => 'ScoresController@index']);
 });

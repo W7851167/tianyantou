@@ -1,0 +1,119 @@
+
+.infobox {
+    margin: 1px;
+
+    border: 1px solid #f2f2f2;
+    color: #7A7A7A;
+    background-color: #fff;
+    position: relative;
+	margin-bottom:10px;
+	font-size:13px;
+	
+}
+.infobox .integral {
+    width: 242px;
+    height: 20px;
+    text-align: center;
+    padding: 6px 0px 0px;
+    border-right: 1px solid #D2D2D2;
+    margin: 13px 0px 13px 5px;
+}
+.float_left {
+    float: left;
+}
+.infobox .integral.none_border {
+    border-right: medium none;
+}
+.money {
+    font-size: 24px;
+    color: #4D98C3;
+    padding-bottom: 8px;
+}
+
+
+
+ .infobox h1.h_short {
+    margin-bottom: 5px;
+    position: relative;
+}
+ .infobox h1 {
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 43px;
+    line-height: 43px;
+    overflow: hidden;
+    color: #7A7A7A;
+    font-size: 13px;
+    text-indent: 15px;
+    font-weight: normal;
+}
+.infobox .white_strip {
+    width: 718px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #D2D2D2;
+    margin: 10px auto 13px;
+    background-color: #FFF;
+}
+ .infobox table {
+    margin: 10px auto 0px;
+}
+ .infobox table th {
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #F0F0F0;
+    border: medium none;
+}
+table caption, table th, table td {
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+.infobox table td {
+    height: 25px;
+    line-height: 18px;
+    padding: 8px 0px;
+}
+.gray_bg {
+    background-color: #F4F4F4;
+}
+.infobox .white_strip label {
+    float: left;
+    margin-left: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+.infobox .white_strip .input_text {
+    float: left;
+    width: 86px;
+    height: 22px;
+    text-align: center;
+    margin-top: 6px;
+    border: 1px solid #DDD;
+}
+.infobox .white_strip label {
+    float: left;
+    margin-left: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+
+ .infobox .white_strip .state {
+    width: 78px;
+    height: 23px;
+    border: 1px solid #D2D2D2;
+    margin-top: -3px;
+    padding: 0px;
+}
+.infobox .white_strip a {
+    font-size: 12px;
+    background-color: #5FAAD5;
+    color: #FFF;
+    border-radius: 3px;
+    padding: 5px 20px;
+    margin-left: 15px;
+}
+
+
+

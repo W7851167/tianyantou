@@ -69,8 +69,13 @@
         </li>
         <li><a href="{!!config('app.account_url')!!}/coupon/index.html"><i class="iconfont"></i>理财券</a></li>
         <li class="current">
-            <a href="{!!config('app.account_url')!!}/message.html">
-                <i class="iconfont">&#xe62d;</i>消息中心</a>
+            <a href="{!!config('app.account_url')!!}/message.html"><i class="iconfont">&#xe62d;</i>消息中心</a>
+        </li>
+        <li class="active">
+            <h3><i class="iconfont" style="background-image:url(/images/menuicon/jifen.png);vertical-align: middle;">&#xe631;</i>我的积分</h3>
+            <ul class="second-menu" style="display: block;">
+                <li><a href="{!! config('app.account_url') !!}/user/scores.html">积分明细</a></li>
+            </ul>
         </li>
     </ul>
 </div>
