@@ -44,7 +44,7 @@ class NewRepository extends BaseRepository
      */
     public function getNewList($where, $page = 1, $limit = 10)
     {
-        $orderBy = ['id' => 'desc'];
+        $orderBy = ['created_at' => 'desc'];
         $lists = $this->newModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->newModel->countBy($where);
         return [$count, $lists];

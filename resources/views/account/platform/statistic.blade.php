@@ -37,8 +37,7 @@
                                         <dt>综合年化收益率</dt>
                                         <dd>0.00%</dd>
                                     </dl>
-                                    <a href="https://account.touzhijia.com/platforms/analysis.html"
-                                       class="link footnote-link">查看详情&gt;&gt;</a>
+                                    <a href="https://account.touzhijia.com/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +46,7 @@
                         <div class="tab click-tab btn-tab">
                             <ul class="tab-nav page-switch clearfix">
                                 <li class="active"><a href="javascript:;">已开通平台（2个）</a></li>
-                                <li class=""><a href="https://account.touzhijia.com/platforms/statistic.html">未开通平台（27个）</a>
+                                <li class=""><a href="{!! config('app.static_url') !!}/platforms/statistic.html">未开通平台（27个）</a>
                                 </li>
                             </ul>
                             <div class="tab-main">
@@ -158,10 +157,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="pagination" data-pagination-ref="unopened_platforms"><a
-                                                    href="https://account.touzhijia.com/platforms/unopenedPlatforms?page=2"
-                                                    data-ci-pagination-page="2"><i class="iconfont next"
-                                                                                   style="font-size:12px;"></i></a></div>
+                                        <div class="pagination" data-pagination-ref="unopened_platforms">
+                                            <a href="https://account.touzhijia.com/platforms/unopenedPlatforms?page=2" data-ci-pagination-page="2">
+                                                <i class="iconfont next"  style="font-size:12px;"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- 未开通平台选项卡 end -->

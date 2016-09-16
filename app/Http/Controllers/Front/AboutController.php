@@ -121,7 +121,11 @@ class AboutController extends FrontController
      */
     private function notice($category)
     {
-        list($counts, $lists) = $this->new->getNewList(['category_id'=>$category->id]);
+
+        $page = \Request::get('page');
+        $where = ['category_id' => $category->id];
+        list($count, $lists) = $this->new->getNewList($where, $page);
+
         return view('front.about.' . $category->page,compact('lists'));
     }
 
@@ -131,6 +135,12 @@ class AboutController extends FrontController
     private function monthly($category)
     {
         return view('front.about.' . $category->page);
+    }
+
+
+    public function detail($page, $id)
+    {
+
     }
 
 }
