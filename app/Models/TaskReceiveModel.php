@@ -10,6 +10,30 @@ class TaskReceiveModel extends BaseModel
     public  $timestamps = false;
 
     /**
+     * @param $data
+     * 编辑信息
+     */
+    public function saveBy($data)
+    {
+        $model = $this;
+        $data = $data ? $data : Request::all();
+        $data = array_except($data, ['_token', '_url', 's']);
+
+        if (!empty($data['user_id']) && !empty($data['task_id']) && !empty($data['corp_id'])) {
+            $model = $this->where('user_id',$data['user_id'])
+                ->where('task_id',$data['task_id'])
+                ->where('corp_id',$data['corp_id'])
+                ->first();
+
+            if (!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
+        }
+        return $this->query()->insertGetId($data);
+    }
+
+    /**
      * 获取任务名称
      */
     public function task(){

@@ -289,6 +289,10 @@ class TaskRepository extends  BaseRepository
         $result = $this->taskReceiveModel->getConnection()->transaction(function() use($data){
             $receiveId = $this->taskReceiveModel->saveBy($data);
             $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
+            //领取任务减库存
+            if($data['status'] == 0) {
+                $this->taskModel->find($data['task_id'])->decrement('nums',1);
+            }
             //审核完成、可用金额增加
             if($data['status'] == 1) {
                 $receiveModel = $this->taskReceiveModel->find($receiveId);

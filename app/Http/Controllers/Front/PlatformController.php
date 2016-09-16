@@ -187,6 +187,56 @@ class PlatformController extends FrontController
         return view('front.platform.corp',compact('corp','metas'));
     }
 
+    /**
+     * @param Request $request
+     * @param $page
+     * @param $id
+     * 记录任务领取
+     */
+    public function login(Request $request,$ename, $id)
+    {
+        if(empty($this->user['id'])) {
+            return abort(500,'请先登录');
+        }
+        $corp = $this->tasks->getCorpByEname($ename);
+        $task = $this->tasks->taskModel->find($id);
+        if(empty($task->url)) {
+            return abort(500, '没有跳转的URL信息,请联系运营人员');
+        }
+        $data['corp_id'] = $corp->id;
+        $data['task_id']  = $id;
+        $data['user_id'] = $this->user['id'];
+        $data['total'] = $task->limit;
+        $data['status'] = 0;
+        $sign = $this->signature($id,$task->url,$ename, time());
+        if($this->tasks->saveReceive($data)) {
+            return view('front.platform.login',compact('data','corp','task','sign'));
+        }
+        return abort(500, '记录领取任务信息异常，请联系开发人员');
+    }
+
+    private function signature($appId,$url = null, $nonce = null, $timestamp = null)
+    {
+        $timestamp = $timestamp ? $timestamp : time();
+        $sign = [
+            'appId' => $appId,
+            'nonceStr' => $nonce,
+            'timestamp' => $timestamp,
+            'url' => $url,
+            'signature' => $this->getSignature($appId, $nonce, $timestamp, $url),
+        ];
+
+        return $sign;
+    }
+
+    private function getSignature($appId, $nonce, $timestamp, $url)
+    {
+        return sha1("appId={$appId}&noncestr={$nonce}&timestamp={$timestamp}&url={$url}");
+    }
+
+
+
+
 
 
 }

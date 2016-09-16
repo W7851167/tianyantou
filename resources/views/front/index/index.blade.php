@@ -127,10 +127,8 @@
                         </div>
                         <p class="goin-btn">
                             <span>可购金额：{!! money_format('%.2n', $tv->limit) !!} 元</span>
-                            <a
-                                data-inversurl='{!! $tv->url or '' !!}'
-                                title="{!! $tv->title !!}"
-                                class="btn btn-blue" title="投资">投资</a>
+                            <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename !!}/{!! $tv->id !!}" rel="platform_join"
+                               data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title !!}" class="btn btn-blue" title="投资">投资</a>
                         </p>
                     </div>
                 </li>
