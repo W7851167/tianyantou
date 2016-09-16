@@ -10,9 +10,9 @@
  * $Dtime:2016/9/11
  ***********************************************************************************/
 Route::get('register/protocol.html', 'PassportController@protocol');
+Route::get('signin/captcha', 'PassportController@captcha');
 Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
-    Route::get('signin/captcha', 'PassportController@captcha');
     Route::match(['get', 'post'], 'register.html', 'PassportController@register');
     Route::get('signout.html', 'PassportController@signout');
 
