@@ -50,14 +50,34 @@ class NewRepository extends BaseRepository
         return [$count, $lists];
     }
 
+    /**
+     * @param $page
+     * 获取分类信息
+     */
+    public function getCategoryByPage($page)
+    {
+        return $this->categoryModel->where('page',$page)->first();
+    }
+
 
     /**
      * @return mixed
      * 获取系统消息
      */
-    public function getSystemCategorys($where)
+    public function getSystemCategorys($where=[])
     {
         return $this->categoryModel->alls(['id', 'title', 'created_at', 'parent_id', 'page', 'iconfont'], $where);
+    }
+
+    /**
+     * @param $where
+     * 获取查询信息
+     */
+    public function getNewInfo($where)
+    {
+        $query = $this->newModel->select(['*']);
+        $query = $this->newModel->createWhere($query, $where);
+        return $query->first();
     }
 
     /**
