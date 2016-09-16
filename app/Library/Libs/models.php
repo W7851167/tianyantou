@@ -28,3 +28,17 @@ function getMetas($models,$keys,$isModel=false) {
     }
     return $keys;
 }
+
+/**
+ * @param $title
+ * @param $body
+ * @param int $ownerId
+ * @param int $senderId
+ * 发送消息
+ */
+function sendMessage($title,$body,$ownerId=0,$senderId=0) {
+    if($ownerId != 0 ) {
+        return \App\Models\MessageModel::sendGlobalMessage($title,$body);
+    }
+    return \App\Models\MessageModel::sendPrivateMessage($ownerId,$title,$body,$senderId);
+}
