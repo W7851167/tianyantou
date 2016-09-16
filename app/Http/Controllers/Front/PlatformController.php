@@ -198,11 +198,12 @@ class PlatformController extends FrontController
         $corp = $this->tasks->getCorpByEname($page);
         $task = $this->tasks->taskModel->find($id);
         $data['corp_id'] = $corp->id;
-        $data['task_id']  = id;
+        $data['task_id']  = $id;
         $data['user_id'] = $this->user['id'];
         $data['total'] = $task->limit;
+        $data['status'] = 0;
         if($this->tasks->saveReceive($data)) {
-
+            return '记录陈宫';
         }
 
     }
