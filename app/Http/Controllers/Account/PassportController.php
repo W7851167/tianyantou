@@ -71,7 +71,7 @@ class PassportController extends FrontController
             $messages = [
                 'username.required' => '请输入用户名!',
                 'username.unique' => '此用户名已被注册!',
-                'password.required' => '请输入密码!',
+                'password.required' => '密码不能为空!',
                 'password.confirmed' => '两次密码不一致!',
                 'password_confirmation.required' => '请输入确认密码!',
             ];

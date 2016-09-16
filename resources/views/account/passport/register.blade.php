@@ -22,7 +22,7 @@
                             <label for="reg-username">用户名：</label>
                             <input id="reg-username" name="username" class="input-style input-size" type="text" placeholder="请输入用于注册的用户名"/>
                             <i class="iconfont">&#xe61e;</i>
-                            <div class="error" id="phone-error"></div>
+                            <div class="error" id="username-error"></div>
                         </div>
                         <div class="input-box">
                             <label for="log-captcha">图形验证码：</label>
