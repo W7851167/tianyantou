@@ -2,9 +2,13 @@
     <ul class="first-menu">
         <li>
             <div class="user-avatar">
-                <img src="./投之家 - 个人中心_files/headerimg2.png" alt="" width="100" height="100">
-                <span class="user-nickname" title="15072309522">
-                     15072309522
+                @if(isset($user['avatar']) && $user['avatar'])
+                <img src="{!! config('app.static_url'.'/'.$user['avatar']) !!}" alt="" width="100" height="100">
+                @else
+                <img src="{!! config('app.static_url') !!}/images/user/headerimg2.png" alt="" width="100" height="100">
+                @endif
+                <span class="user-nickname" title="{!! $user['username'] or '' !!}">
+                     {!! $user['username'] or '' !!}
                     <a class="iconfont" style="color: #666;" href="{!! config('app.account_url') !!}/safe.html">&#xe69f;</a>
                 </span>
                 <p class="accoount-validation mt10">

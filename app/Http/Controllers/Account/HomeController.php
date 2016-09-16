@@ -31,13 +31,13 @@ class HomeController extends FrontController
 
     public function index()
     {
-        $user = $this->userRepository->userModel->find($this->user['id']);
+//        $user = $this->userRepository->userModel->find($this->user['id']);
 
         $where['status'] = 1;
-        list($counts, $crops) = $this->tasks->getCorpList($where, 8, 1);
+        list($counts, $corps) = $this->tasks->getCorpList($where, 8, 1);
 
         return view('account.index.index', compact(
-            'user', 'crops'
+            'corps'
         ));
 
     }

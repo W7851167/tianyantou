@@ -103,7 +103,7 @@ class TaskRepository extends  BaseRepository
      * @return array
      * 获取投标列表
      */
-    public function getReceiveList($where = [], $limit, $page)
+    public function getReceiveList($where = [], $limit, $page = 1)
     {
         $order['id'] = 'desc';
         $lists = $this->taskReceiveModel->lists(['*'], $where, $order, [], $limit, $page);

@@ -14,16 +14,33 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\TaskRepository;
 
 class NetworthController extends FrontController
 {
-    public function __construct()
+    public function __construct(
+        TaskRepository $taskRepository
+    )
     {
         parent::__initalize();
+        $this->taskRepository = $taskRepository;
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 返回投资记录明细
+     */
     public function index()
     {
-        return view('account.networth.index');
+        $where = ['user_id' => $this->user['id'], 'in' => ['status' => [0, 1]]];
+        list($count, $iLists) = $this->taskRepository->getReceiveList($where, $this->perpage);
+
+        $where = ['user_id' => $this->user['id'], 'status' => 2];
+        list($count, $cLists) = $this->taskRepository->getReceiveList($where, $this->perpage);
+
+        return view('account.networth.index', compact(
+            'iLists', 'cLists'
+        ));
     }
 }

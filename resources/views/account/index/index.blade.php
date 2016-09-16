@@ -105,7 +105,7 @@
                     <h4 class="sec-tit">去这里赚钱</h4>
                     <!-- 与原有的一样 -->
                     <ul class="logolink">
-                        @foreach($crops as $cv)
+                        @foreach($corps as $cv)
                         <li>
                             <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="{!! $cv->platform !!}">
                                 <p class="logoimgp">
