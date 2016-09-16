@@ -284,7 +284,7 @@
                         </div>
                     </div>
                     <div style="padding-bottom: 0;">
-                        @if(empty($corp->news))
+                        @if(empty($corp->news[0]))
                             <div style="text-align:center;margin-bottom:26px;">暂无平台动态信息</div>
                         @endif
                         @if(!empty($corp->news[0]))
