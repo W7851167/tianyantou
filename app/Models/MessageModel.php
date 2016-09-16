@@ -5,7 +5,7 @@ namespace App\Models;
 
 class MessageModel extends BaseModel
 {
-    protected $table = 'message';
+    protected $table = 'messages';
     protected $primaryKey = 'id';
     protected $fillable = ['sender_id','owner_id','title','body','type','priority'];
     /**
