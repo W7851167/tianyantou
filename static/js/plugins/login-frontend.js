@@ -120,6 +120,29 @@ function formRegisterCheck(){
       return false;
     }
   }
+  function checkRegCaptcha(input){
+    input = input || $("#log-captcha");
+    var cError = input.siblings('.error'),
+        captcha = input.val();
+    if(captcha == ''){
+      cError.html('<i class="icon-error"></i>验证码不能为空').css('visibility','visible');
+      return false;
+    }
+    $.ajax({
+      type:"POST",
+        async: false,
+        url:"/signin/captcha",
+        data:{captcha:captcha},
+        success:function(msg) {
+            check = msg;
+        }
+    });
+    if(check == 'fail'){
+      cError.html('<i class="icon-error"></i>验证码错误').css('visibility','visible');
+      return false;
+    }
+    cError.html('<i class="icon-ok"></i>验证码正确').css('visibility','visible');
+  }
   /*验证重复密码*/
   // $('#reg-confirm-password').focus(function () {
   //   $(this).siblings('.error').html('请再次输入密码').css('visibility','visible');
@@ -171,6 +194,7 @@ function formRegisterCheck(){
     var ok = true;
     ok = checkRegUserName() && ok;
     ok = checkRegPassword() && ok;
+    ok = checkRegCaptcha() && ok;
     //ok = checkPhone() && ok;
     $.post('/register.html',$("#register").serialize(),function(data){
         if(data.status){

@@ -56,12 +56,12 @@
 
 
   //$("#captcha").click(function() {
-  //  $.getJSON('/signin/captcha', function(data) {
-  //    $("#captcha").attr('src', 'data:image/png;base64,' + data['image']);
-  //    $("input[name=captcha_token]").val(data['token']);
-  //  }).fail(function(xhr) {
-  //    alert(xhr.responseText);
-  //  });
+    //$.getJSON('/signin/captcha', function(data) {
+    //  $("#captcha").attr('src', 'data:image/png;base64,' + data['image']);
+    //  $("input[name=captcha_token]").val(data['token']);
+    //}).fail(function(xhr) {
+    //  alert(xhr.responseText);
+    //});
   //}).trigger('click');
 
   /*提交前验证*/
