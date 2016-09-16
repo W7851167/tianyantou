@@ -68,6 +68,22 @@ class AboutController extends FrontController
     }
 
     /**
+     * @param Request $request
+     * @param $page
+     * @param $id
+     * 详情页面
+     */
+    public function detail(Request $request, $page, $id)
+    {
+        $category = $this->new->getCategoryByPage($page);
+        $categorys = $this->new->getSystemCategorys();
+        $news = $this->new->getNewInfo(['id'=>$id]);
+        $first = $this->new->getNewInfo(['id <'=>$id,'category_id'=>$category->id]);
+        $next  = $this->new->getNewInfo(['id >'=>$id, 'category_id'=>$category->id]);
+        return view('front.about.detail',compact('category','news','categorys','first','next'));
+    }
+
+    /**
      * 但分类文章
      */
     private function single($category)
@@ -105,11 +121,12 @@ class AboutController extends FrontController
      */
     private function notice($category)
     {
+
         $page = \Request::get('page');
         $where = ['category_id' => $category->id];
         list($count, $lists) = $this->new->getNewList($where, $page);
 
-        return view('front.about.' . $category->page, compact('lists'));
+        return view('front.about.' . $category->page,compact('lists'));
     }
 
     /**
@@ -120,8 +137,10 @@ class AboutController extends FrontController
         return view('front.about.' . $category->page);
     }
 
+
     public function detail($page, $id)
     {
 
     }
+
 }
