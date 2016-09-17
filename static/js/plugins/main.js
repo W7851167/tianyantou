@@ -31,18 +31,18 @@
 })();
 
 /*头部微信扫码*/
-(function(){
-  $('#h_weixin,#phone-code').hover(function(){
-    $(this).next().fadeIn(100);
-  },function(){
-    $(this).next().fadeOut(100);
-  });
-  $('#loginStart').hover(function(){
-    $(this).siblings('.code-login').fadeIn(100);
-  },function(){
-    $(this).siblings('.code-login').fadeOut(100);
-  });
-})();
+//(function(){
+//  $('#h_weixin,#phone-code').hover(function(){
+//    $(this).next().fadeIn(100);
+//  },function(){
+//    $(this).next().fadeOut(100);
+//  });
+//  $('#loginStart').hover(function(){
+//    $(this).siblings('.code-login').fadeIn(100);
+//  },function(){
+//    $(this).siblings('.code-login').fadeOut(100);
+//  });
+//})();
 
 /*顶部广告关闭*/
 (function(){
