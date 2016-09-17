@@ -13,5 +13,5 @@ class RecordModel extends BaseModel
         return $this->belongsTo('App\Models\UserModel');
     }
 
-    
+
 }
