@@ -287,12 +287,20 @@ class TaskRepository extends  BaseRepository
     public function saveReceive($data)
     {
         $result = $this->taskReceiveModel->getConnection()->transaction(function() use($data){
-            $receiveId = $this->taskReceiveModel->saveBy($data);
-            $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
             //领取任务减库存
             if($data['status'] == 0) {
-                $this->taskModel->find($data['task_id'])->decrement('nums',1);
+                $taskModel = $this->taskModel->find($data['task_id']);
+                if($taskModel->nums <=0)
+                    throw new \Exception('该投资任务数已超过限定，请联系运营人员');
+                $nums = $taskModel->nums - 1;
+                $counts = $taskModel->receives->count() + 1;
+                $proccess = sprintf('%.2f',($counts/($nums + $counts))) * 100;
+                $taskModel->nums = $nums;
+                $taskModel->proccess = $proccess;
+                $taskModel->save();
             }
+            $receiveId = $this->taskReceiveModel->saveBy($data);
+            $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
             //审核完成、可用金额增加
             if($data['status'] == 1) {
                 $receiveModel = $this->taskReceiveModel->find($receiveId);

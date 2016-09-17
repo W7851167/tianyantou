@@ -242,7 +242,8 @@ class PlatformController extends FrontController
         if (empty($data)) {
             return abort(500, '数据传送异常，请联系开发人员');
         }
-        $data['total'] = $request->get('price');
+        $data['total'] = !empty($request->get('price')) ? $request->get('price') : $data['total'];
+        $data['intro'] = !empty($request->get('intro')) ? $request->get('intro') : '';
         $timestamp = $request->get('timestamp');
         $nonce = $request->get('nonce');
         $signature = $request->get('signature');
