@@ -12,7 +12,7 @@
                 <div class="axis-box">
                     @foreach($lists as $nv)
                     <div class="media-box media-left">
-                        <a href="{!! $nv->url($category->page) !!}" target="_blank"><img src="{!! config('app.static_url').'/'.$nv->image->name !!}"></a>
+                        <a href="{!! $nv->url($category->page) !!}" target="_blank"><img src="{!! config('app.static_url') !!}/{!! $nv->image->name or '' !!}"></a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="{!! $nv->url($category->page) !!}" target="_blank">{!! $nv->title or '' !!}</a></h3>
                             <span>{!! $nv->created_at or '' !!}</span><span>来源：天眼投</span>
