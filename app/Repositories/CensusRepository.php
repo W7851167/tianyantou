@@ -15,6 +15,7 @@ namespace App\Repositories;
 use App\Models\ArticleModel;
 use App\Models\CategoryModel;
 use App\Models\ImageModel;
+use App\Models\MoneyModel;
 use App\Models\NewModel;
 use App\Models\TaskAchieveModel;
 use App\Models\TaskReceiveModel;
@@ -24,10 +25,12 @@ class CensusRepository extends BaseRepository
 {
     public function __construct(
         TaskReceiveModel $taskReceiveModel,
-        TaskAchieveModel $taskAchieveModel
+        TaskAchieveModel $taskAchieveModel,
+        MoneyModel $moneyModel
     ) {
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
+        $this->moneyModel = $moneyModel;
     }
 
     /**
@@ -41,13 +44,20 @@ class CensusRepository extends BaseRepository
         $d = 24 * 60 * 60;
         list($startTime,$endTime) = $this->getMonthTime($endTime,$startTime);
         $stats = [];
+        $receiveIn = 0.00;
+        $repayIn = 0.00;
+        $account = 0.00;
         $colors=[
             0=>'#2aa3ce',
             1=>'#FB9142',
             2=>'#fb4242',
             3=>'#79B32B',
         ];
-
+        //账号金额
+        $moneyModel = $this->moneyModel->where('user_id',$userId)->first();
+        if(!empty($moneyModel->money)) {
+            $account = $moneyModel->money;
+        }
         $query = $this->taskReceiveModel->select(['*']);
         $where['user_id'] = $userId;
         $query = $this->taskReceiveModel->createWhere($query, $where);
@@ -60,6 +70,7 @@ class CensusRepository extends BaseRepository
                 ($receiveModel->create_time >= $startTime && $receiveModel->create_time < $endTime))
             {
                 $title = '领取' . sprintf('%.2f',$receiveModel->total) . '元任务';
+                $receiveIn += sprintf('%.2f',$receiveModel->total);
                 $stats[] = ['title'=>$title, 'color'=>$colors[0],'start'=>date('Y-m-d',$receiveModel->create_time)];
             }
             //已交任务
@@ -71,6 +82,7 @@ class CensusRepository extends BaseRepository
                 $stats[] = ['title'=>$title, 'color'=>$colors[2],'start'=>date('Y-m-d',$receiveModel->commit_time)];
                 $price = $price * $receiveModel->task->mratio / 100;
                 $title = '待收' . sprintf('%.2f',$price) . '元任务';
+                $repayIn+=  sprintf('%.2f',$price);
                 $stats[] = ['title'=>$title, 'color'=>$colors[1],'start'=>date('Y-m-d',$receiveModel->commit_time)];
             }
 
@@ -82,7 +94,7 @@ class CensusRepository extends BaseRepository
                 $title = '已收' . sprintf('%.2f',$price) . '元任务';
                 $stats[] = ['title'=>$title, 'color'=>$colors[3],'start'=>date('Y-m-d',$receiveModel->commit_time)];
             }
-            return $stats;
+            return [$account, $receiveIn,$repayIn,$stats];
         }
     }
 

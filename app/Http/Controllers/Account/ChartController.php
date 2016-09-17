@@ -25,10 +25,11 @@ class ChartController extends FrontController
     {
         $start = $request->get('start');
         $end = $request->get('end');
-        $data['amount'] = "￥10000.00";   //账号金额
-        $data['receiveIn'] = "￥500.00"; //已领任务
-        $data['details'] = $this->census->getIncomesStats($this->user['id'], $start,$end);
-        $data['payIn'] = "￥200.00";   //待收益金额
+        list($account,$receiveIn,$payIn,$stats) = $this->census->getIncomesStats($this->user['id'], $start,$end);
+        $data['amount'] = "￥" . $account;   //账号金额
+        $data['receiveIn'] = "￥" . $receiveIn; //已领任务
+        $data['payIn'] = "￥" . $payIn;   //待收益金额
+        $data['details'] = $stats;
         return $this->ajaxReturn($data);
     }
 
