@@ -53,7 +53,7 @@
             <p><label>项目：</label>{!! $task->title !!}</p>
             <p><label>期限：</label>{!! $task->term !!}</p>
             <p><label>可投时间：</label>{!! dateFormat(getDiffTime($task->end_time,time())) !!}</p>
-            <p><label>招标总额：</label>{!! money_format($task->total)!!}元</p>
+            <p><label>招标总额：</label>{!! tmoney_format($task->total)!!}元</p>
             <p><label>年转化率：</label>{!! $task->ratio or 0.00 !!}%</p>
             <p><label>增值转化率：</label>{!! $task->mratio or 0.00 !!}%</p>
             <p><label>投资人：</label>{!! $user['username'] !!}</p>
