@@ -119,16 +119,8 @@
                             <div><input type="text" name = "data[sorts]" placeholder="值越大越靠前"  value="{!! $task->sorts or 0 !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>保障方式：</div>
-                            <div><input type="text" name = "data[ensure]" placeholder="比如 第三方担保"  value="{!! $task->ensure or 0 !!}"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>还款方式：</div>
                             <div><input type="text" name = "data[repay]" placeholder="比如 付本还息"  value="{!! $task->repay or 0 !!}"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>计息方式：</div>
-                            <div><input type="text" name = "data[accrual]" placeholder="比如 (T+0到账\T+1到账)"  value="{!! $task->accrual or 0 !!}"></div>
                         </div>
                     </div>
                     <div class="w928">
