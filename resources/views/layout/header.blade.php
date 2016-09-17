@@ -49,16 +49,16 @@
                         </div>
                         <div class="menu-list">
                             <ul>
-                                <li>
+                                {{--<li>
                                     <a href="{!! config('app.account_url') !!}/wallet/recharge.html">
                                         <i class="iconfont">&#xe63f;</i>账户充值
                                     </a>
-                                </li>
-                                <li>
+                                </li>--}}
+                                {{--<li>
                                     <a href="{!! config('app.account_url') !!}/debt.html">
                                         <i class="iconfont">&#xe641;</i>理财管理
                                     </a>
-                                </li>
+                                </li>--}}
                                 <li>
                                     <a href="{!! config('app.account_url') !!}/wallet/book.html">
                                         <i class="iconfont">&#xe640;</i>资金流水

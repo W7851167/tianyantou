@@ -30,10 +30,10 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::get('bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
     //活动专区
-    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
-    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
+//    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
+//    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
     //理财劵
-    Route::get('coupon/index.html', ['as' => 'coupon', 'uses' => 'CouponController@index']);
+//    Route::get('coupon/index.html', ['as' => 'coupon', 'uses' => 'CouponController@index']);
     //消息中心
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
     //我的积分
