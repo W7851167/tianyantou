@@ -23,7 +23,7 @@ class ChartController extends FrontController
     {
         $data['amount'] = "￥10000.00";
         $data['billAmt'] = "￥500.00";
-        $data['details'] = [];
+        $data['details'] = ['sdfsf'];
         $data['dueIn'] = "￥200.00";
         return $this->ajaxReturn($data);
     }
