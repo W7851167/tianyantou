@@ -21,7 +21,7 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">提现列表</a></p>
                 </div>
-                @if(count($lists) > 0)
+
                     <form action="">
                         <table class="all_shopping" cellspacing="0">
                             <tr>
@@ -38,6 +38,7 @@
                                 <th width="80">状态</th>
                                 <th>操作</th>
                             </tr>
+                            @if(count($lists) > 0)
                             @foreach($lists as $wv)
                                 <tr>
                                     <td>
@@ -66,13 +67,13 @@
                                     <button type="button" class="all-del">审核</button>
                                 </td>
                             </tr>
+                            @else
+                                <td colspan="11">
+                                    暂无提现信息
+                                </td>
+                            @endif
                         </table>
                     </form>
-                @else
-                    <div class="system-page-none clearfix">
-                        <p>{!!HTML::image('cw100_b2b/images/u464.png')!!}您的店铺暂时没有设置导航</p>
-                    </div>
-                @endif
             </div>
         </div>
     </div>
