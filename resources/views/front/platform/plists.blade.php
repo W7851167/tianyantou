@@ -2,7 +2,7 @@
     @foreach($lists as $tv)
 <tr>
     <td width="180" class="bond-number" title="{!! $tv->title or '' !!}">{!! $tv->title or '' !!}</td>
-    <td width="160"><span>  ￥{!! money_format($tv->total) !!}   </span></td>
+    <td width="160"><span>  ￥{!! tmoney_format($tv->total) !!}   </span></td>
     <td width="180">
         <span class="rate"><em>{!! $tv->ratio or 0.00 !!}</em>%</span>
     </td>

@@ -97,7 +97,8 @@ function unicodeToDecode($name)
 /**
  * 金钱格式
  */
-function money_format($number, $fractional=false) {
+
+function tmoney_format($number, $fractional=false) {
     if ($fractional) {
         $number = sprintf('%.2f', $number);
     }
@@ -111,6 +112,7 @@ function money_format($number, $fractional=false) {
     }
     return $number;
 }
+
 
 /**
  * @param $startTime
