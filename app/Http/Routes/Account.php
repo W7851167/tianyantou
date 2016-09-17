@@ -28,6 +28,14 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
+    Route::get('safe/changeNickname.html',['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
+    Route::get('safe/changeTelephone.html',['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
+    Route::get('safe/validateEmail.html',['as' => 'safe.validateEmail', 'uses' => 'AccountController@validateemail']);
+    Route::get('safe/validIdCard.html',['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
+    Route::get('safe/changePassword.html',['as' => 'safe.changePassword', 'uses' => 'AccountController@changepassword']);
+    Route::get('safe/changeDealPassword.html',['as' => 'safe.changeDealPassword', 'uses' => 'AccountController@dealpassword']);
+    Route::get('safe/finddealpassword.html',['as' => 'safe.finddealpassword', 'uses' => 'AccountController@findpassword']);
+    Route::get('safe/setSecurityQuestion.html',['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
     Route::get('bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
     //活动专区
 //    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);

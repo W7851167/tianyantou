@@ -31,4 +31,44 @@ class AccountController extends FrontController
     {
         return view('account.account.bankcard');
     }
+
+    public function changenickname()
+    {
+        return view('account.account.changenickname');
+    }
+
+    public function changetelephone()
+    {
+        return view('account.account.changetelephone');
+    }
+
+    public function validateemail()
+    {
+        return view('account.account.validateemail');
+    }
+
+    public function validcard()
+    {
+        return view('account.account.validcard');
+    }
+
+    public function changepassword()
+    {
+        return view('account.account.changepassword');
+    }
+
+    public function dealpassword()
+    {
+        return view('account.account.dealpassword');
+    }
+
+    public function findpassword()
+    {
+        return view('account.account.findpassword');
+    }
+
+    public function question()
+    {
+        return view('account.account.question');
+    }
 }
