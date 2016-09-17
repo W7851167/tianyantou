@@ -37,7 +37,7 @@
 ['fullscreen',
  'bold', 'italic', 'underline',  'removeformat', 
  'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
- 'insertimage', 'emotion',  'insertvideo',  'map', 'gmap'
+ 'insertimage', 'emotion',  'insertvideo',  'map', 'gmap','|','source'
   ]
                      ]
     
