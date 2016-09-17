@@ -73,7 +73,6 @@
                     </div>
                 </div>
                 <div class="module-devider"></div>
-                <input name="utoken" type="hidden" value="f33727ce94e40d191cd7b45e80cc86d6">
                 <div class="chart-calendar">
                     <div class="tab click-tab">
                         <ul class="tab-nav">
@@ -84,8 +83,8 @@
                             <div class="active">
                                 <p class="summary-info">&nbsp;&nbsp;<em></em></p>
                                 <ul class="color-tags clearfx">
-                                    <li style="color:#2aa3ce;"><i style="background-color:#2aa3ce;"></i>已还</li>
-                                    <li style="color:#fb4242"><i style="background-color:#fb4242"></i>待还</li>
+                                    <li style="color:#2aa3ce;"><i style="background-color:#2aa3ce;"></i>已领</li>
+                                    <li style="color:#fb4242"><i style="background-color:#fb4242"></i>已交</li>
                                     <li style="color:#FB9142;"><i style="background-color:#FB9142;"></i>已收</li>
                                     <li style="color:#79B32B;"><i style="background-color:#79B32B;"></i>待收</li>
                                 </ul>
