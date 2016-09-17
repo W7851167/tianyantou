@@ -62,4 +62,15 @@ class NewModel extends BaseModel
     {
         return config('app.url') . '/' . $page . '/' . $this->id . '.html';
     }
+
+    /**
+     * @param $path
+     * @return string
+     *
+     * 返回图片地址
+     */
+    public function imageUrl($path)
+    {
+        return config('app.static_url') . '/' . $path;
+    }
 }

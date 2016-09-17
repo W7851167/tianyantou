@@ -16,7 +16,7 @@
                     @foreach($lists as $nv)
                     <div class="expert-box">
                         <div class="expert-img">
-                            <img src="{!! config('app.static_url').$nv->image->name !!}" width="168" height="168">
+                            <img src="{!! config('app.static_url') !!}/{!! $nv->image->name or '' !!}" width="168" height="168">
                             <span class="mask">{!! $nv->description !!}</span>
                         </div>
                         <div class="axis-info">

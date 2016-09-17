@@ -13,7 +13,7 @@
                     @foreach($lists as $nv)
                     <div class="media-box media-left">
                         <a href="{!! $nv->url($category->page) !!}" target="_blank">
-                            <img src="{!! config('app.static_url').'/'.$nv->image->name !!}">
+                            <img src="{!! config('app.static_url') !!}/{!! $nv->image->name !!}">
                         </a>
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="{!! $nv->url($category->page) !!}" target="_blank">{!! $nv->title !!}</a></h3>
