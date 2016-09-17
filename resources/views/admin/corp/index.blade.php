@@ -24,8 +24,7 @@
                     <table class="all_shopping" cellspacing="0">
                         <tr>
                             <th width='120'>LOGO</th>
-                            <th width="150">平台名称</th>
-                            <th width="150">公司名称</th>
+                            <th width="200">平台名称</th>
                             <th width="150">地址</th>
                             <th width="60">限定</th>
                             <th width="60">项目数</th>
@@ -38,7 +37,6 @@
                                 <td>
                                     <img src="{!! !empty($cv->logo) ? config('app.static_url') . $cv->logo : '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
                                 </td>
-                                <td>{!! $cv->platform !!}</td>
                                 <td>{!! $cv->name !!}</td>
                                 <td>{!! $cv->province !!}  {!! $cv->city !!}</td>
                                 <td>{!! $cv->limit!!}</td>
