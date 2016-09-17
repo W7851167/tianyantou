@@ -126,35 +126,47 @@
                                                   width="280" height="220" alt="{!! $corp->name !!}营业执照"/></div>
                         {!! $corp->article->content or '' !!}
                     </div>
+
                     <div class="plat-team">
+                        @if(!empty($corp->terms))
                         <div class="imgplay" id="plat-team">
+                            <?php $len = floor(count($corp->terms)/ 4) + 1; ?>
                             <div class="imgplaycon">
                                 <ul class="imglistcon">
+                                    @for($i=0; $i< $len;$i++)
                                     <li>
-                                        @if(!empty($corp->terms))
-                                            @foreach($corp->terms as $tv)
-                                        <div class="member-box">
-                                            <div class="member-img">
-                                                <div class="circle-mask" style="display:none;"></div>
-                                                <img src="{!! config('app.static_url') !!}{!! $tv->avatar->name or '' !!}"
-                                                     target="{!! $tv->name or '' !!}"/>
-                                            </div>
-                                            <h4>{!! $tv->name or '' !!}</h4>
-                                            <span title="{!! $tv->position or '' !!}">{!! $tv->position or '' !!}</span>
+                                        @for($j=0; $j<4;$j++)
+                                            <?php $tv = !empty($corp->terms[$i * 4 + $j]) ? $corp->terms[$i * 4 + $j] : null; ?>
+                                            @if(!empty($tv))
+                                                <div class="member-box">
+                                                    <div class="member-img">
+                                                        <div class="circle-mask" style="display:none;"></div>
+                                                        <img src="{!! config('app.static_url') !!}{!! $tv->avatar->name or '' !!}"
+                                                             target="{!! $tv->name or '' !!}"/>
+                                                    </div>
+                                                    <h4>{!! $tv->name or '' !!}</h4>
+                                                    <span title="{!! $tv->position or '' !!}">{!! $tv->position or '' !!}</span>
 
-                                            <p title="{!! $tv->intro or '' !!}">
-                                                {!! $tv->intro or '' !!}
-                                            </p>
-                                        </div>
-                                        @endforeach
-                                       @endif
+                                                    <p title="{!! $tv->intro or '' !!}">
+                                                        {!! $tv->intro or '' !!}
+                                                    </p>
+                                                </div>
+                                            @endif
+                                        @endfor
                                     </li>
+                                     @endfor
                                 </ul>
                             </div>
-                            <a href="javascript:void(0);" class="actbtn perbtn"><span
-                                        class="iconfont">&#xe65f;</span></a><a href="javascript:void(0);"
-                                                                               class="actbtn nextbtn"><span
-                                        class="iconfont">&#xe660;</span></a></div>
+                                @if($len > 1)
+                            <a href="javascript:void(0);" class="actbtn perbtn">
+                                <span class="iconfont">&#xe65f;</span>
+                            </a>
+                            <a href="javascript:void(0);" class="actbtn nextbtn">
+                                <span class="iconfont">&#xe660;</span>
+                            </a>
+                             @endif
+                        </div>
+                        @endif
                     </div>
                     <div class="plat-safe">
                         <div class="safe-box" style="margin-left: 0;">
