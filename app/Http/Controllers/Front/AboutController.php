@@ -76,9 +76,13 @@ class AboutController extends FrontController
      */
     public function detail(Request $request, $page, $id)
     {
+        $page = $page == 'news' ? 'dynamic': $page;
         $category = $this->new->getCategoryByPage($page);
         $news = $this->new->newModel->find($id);
-        $news->increment('views',1);
+        if(!empty($news)) {
+            $news->increment('views',1);
+        }
+
         $first = $this->new->getNewInfo(['id <' => $id, 'category_id' => $category->id]);
         $next = $this->new->getNewInfo(['id >' => $id, 'category_id' => $category->id]);
         return view('front.about.detail', compact('category', 'news', 'first', 'next'));
