@@ -248,6 +248,7 @@ class PlatformController extends FrontController
         if($newSignature != $signature) {
             return abort(500, '签名错误');
         }
+        $data['create_time'] = time();
         if ($this->tasks->saveReceive($data)) {
             return view('front.platform.redirect',compact('task','corp','signature'));
         }
