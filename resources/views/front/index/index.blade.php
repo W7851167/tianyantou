@@ -71,7 +71,7 @@
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon1"></span>
                                 <p class="honour-title">
-                                    <span>天眼投T盾计划</span>
+                                    <span>天眼盾计划</span>
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
