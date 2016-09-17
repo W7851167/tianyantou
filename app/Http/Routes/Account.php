@@ -38,4 +38,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
     //我的积分
     Route::get('user/scores.html', ['as' => 'scores', 'uses' => 'ScoresController@index']);
+    //统计
+    Route::get('chart/waitIncomeStats', ['as'=>'charts.income','uses'=>'ChartController@waitIncomeStats']);
+    Route::get('chart/incomeStats', ['as'=>'charts.halfyear','uses'=>'ChartController@incomeStats']);
 });
