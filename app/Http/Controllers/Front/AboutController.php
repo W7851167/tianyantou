@@ -129,7 +129,9 @@ class AboutController extends FrontController
         $where = ['category_id' => $category->id];
         list($count, $lists) = $this->new->getNewList($where, $page);
 
-        return view('front.about.' . $category->page, compact('lists'));
+        $pageHtml = $this->pager($count, $page, $this->perpage);
+
+        return view('front.about.' . $category->page, compact('lists','pageHtml'));
     }
 
     /**
