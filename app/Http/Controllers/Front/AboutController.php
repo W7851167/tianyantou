@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
+use App\Models\NewModel;
 use App\Repositories\NewRepository;
 use Illuminate\Http\Request;
 
@@ -98,8 +99,11 @@ class AboutController extends FrontController
         $page = \Request::get('page') ? (int)\Request::get('page') : 1;
         $where = ['category_id' => $category->id];
         list($count, $lists) = $this->new->getNewList($where, $page);
+
+        $pageHtml = $this->pager($count, $page, $this->perpage);
+
         return view('front.about.' . $category->page, compact(
-            'lists'
+            'lists', 'pageHtml'
         ));
     }
 
