@@ -31,8 +31,6 @@ class HomeController extends FrontController
 
     public function index()
     {
-//        $user = $this->userRepository->userModel->find($this->user['id']);
-
         $where['status'] = 1;
         list($counts, $corps) = $this->tasks->getCorpList($where, 8, 1);
 
