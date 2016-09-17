@@ -16,8 +16,11 @@
             <div class="main plat-detaile">
                 <div class="plat-evaluate">
                     <div id="safety-rating" style="width:330px;height:260px;margin-top: 10px;"></div>
-                    <a href="javascript:;" data-sso-url="/platform/login/{!! $corp->ename !!}/{!! $corp->tasks[0]->id !!}" rel="platform_join"
-                       data-plat-url="{!! $corp->tasks[0]->url or '' !!}" class="btn btn-blue btn-allwidth">进入平台</a>
+                    @if(!empty($corp->tasks[0]))
+                        <a href="javascript:;" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $corp->tasks[0]->id !!}" rel="platform_join"
+                           data-plat-url="{!! $corp->tasks[0]->url or '' !!}" class="btn btn-blue btn-allwidth">进入平台
+                        </a>
+                     @endif
                 </div>
                 <div class="plat-info">
                     <div class="plat-logo">
@@ -84,7 +87,6 @@
                     </table>
                 </div>
             </div>
-
             <!--荣誉-->
             <div class="content">
                 <div class="main">
@@ -109,7 +111,6 @@
                     </div>
                 </div>
             </div>
-
             <!--详情-->
             <div class="tab click-tab">
                 <ul class="tab-nav">
