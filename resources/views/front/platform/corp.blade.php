@@ -61,12 +61,12 @@
                         <tr class="table-margin">
                             <td width="200" class="no-pleft">上线时间：<span
                                         title="{!! $corp->online or '' !!}">{!! $corp->online or '' !!}</span></td>
-                            <td class="no-pleft">所在城市：<span>{!! $corp->city or '' !!}</span></td>
+                            <td class="no-pleft">保障方式：<span class="text-ellipsis" style="width: 285px;"
+                                        title="{!! $corp->pattern or '' !!}">{!! $corp->pattern or '' !!}</span></td>
 
                         </tr>
                         <tr>
-                            <td class="no-pleft">保障方式：<span
-                                        title="{!! $corp->pattern or '' !!}">{!! $corp->pattern or '' !!}</span></td>
+                            <td class="no-pleft">所在城市：<span>{!! $corp->city or '' !!}</span></td>
                             <td>担保机构：<span class="text-ellipsis" style="width: 285px;"
                                            title="{!! $corp->assure or '' !!}">{!! $corp->assure or '' !!}</span></td>
                         </tr>

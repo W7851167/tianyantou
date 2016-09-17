@@ -249,6 +249,7 @@ class PlatformController extends FrontController
             return abort(500, '签名错误');
         }
         $data['create_time'] = time();
+        $data['total'] = str_replace(',','',$data['total']);
         if ($this->tasks->saveReceive($data)) {
             return view('front.platform.redirect',compact('task','corp','signature'));
         }
