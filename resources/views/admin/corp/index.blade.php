@@ -24,8 +24,7 @@
                     <table class="all_shopping" cellspacing="0">
                         <tr>
                             <th width='120'>LOGO</th>
-                            <th width="150">平台名称</th>
-                            <th width="150">公司名称</th>
+                            <th width="200">平台名称</th>
                             <th width="150">地址</th>
                             <th width="60">限定</th>
                             <th width="60">项目数</th>
@@ -38,7 +37,6 @@
                                 <td>
                                     <img src="{!! !empty($cv->logo) ? config('app.static_url') . $cv->logo : '/admin/images/user-small.png' !!}" style="width: 80px; margin-left: -20px; margin-top: 20px;">
                                 </td>
-                                <td>{!! $cv->platform !!}</td>
                                 <td>{!! $cv->name !!}</td>
                                 <td>{!! $cv->province !!}  {!! $cv->city !!}</td>
                                 <td>{!! $cv->limit!!}</td>
@@ -47,8 +45,8 @@
                                 <td>
                                     <a href="{!! url('corp/create',['id'=>$cv->id]) !!}">编辑</a>
                                     <a href="{!! url('corp/manage',['id'=>$cv->id]) !!}">管理</a>
-                                    <a href="{!! config('app.url').'/platform/detail_'.$cv->id . '.html' !!}" target="_blank">查看</a>
-                                </td>
+                                    <a href="{!! config('app.url').'/platform/'.$cv->ename . '.html' !!}" target="_blank">查看</a>
+                                </td>、
                             </tr>
                             @endforeach
                            @endif

@@ -12,16 +12,16 @@
                     <a class="iconfont" style="color: #666;" href="{!! config('app.account_url') !!}/safe.html">&#xe69f;</a>
                 </span>
                 <p class="accoount-validation mt10">
-                    <a href="{!! config('app.account_url') !!}/safe.html" title="身份验证">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="身份验证" @if($user['invest'] == 1) class="activated" @endif>
                         <i class="icon-identity"></i>
                     </a>
-                    <a href="{!! config('app.account_url') !!}/safe.html" title="手机验证" class="activated">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="手机验证" @if($user['mobile'] == 1) class="activated" @endif>
                         <i class="icon-phoneno"></i>
                     </a>
-                    <a href="{!! config('app.account_url') !!}/safe.html" title="邮箱验证">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="邮箱验证" @if($user['email'] == 1) class="activated" @endif>
                         <i class="icon-email"></i>
                     </a>
-                    <a href="{!! config('app.account_url') !!}/safe.html" title="银行卡验证">
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="银行卡验证" @if($user['bank'] == 1) class="activated" @endif>
                         <i class="icon-bankcard"></i>
                     </a>
                 </p>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </li>
-        <li><a href="{!!config('app.account_url')!!}/"><i class="iconfont">&#xe61c;</i>我的投之家</a></li>
+        <li><a href="{!!config('app.account_url')!!}/"><i class="iconfont">&#xe61c;</i>我的天眼投</a></li>
         <li><h3><i class="iconfont">&#xe685;</i>投资记录</h3>
             <ul class="second-menu">
                 <li><a href="{!!config('app.account_url')!!}/networth/index.html">投资记录</a></li>

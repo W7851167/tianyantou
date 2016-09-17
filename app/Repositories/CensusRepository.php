@@ -20,5 +20,14 @@ use Illuminate\Database\QueryException;
 
 class CensusRepository extends BaseRepository
 {
+    /**
+     * @param $userId
+     * @param $startTime
+     * @param $endTime
+     * 查询投资统计
+     */
+    public function getIncomesStats($userId,$startTime, $endTime)
+    {
 
+    }
 }

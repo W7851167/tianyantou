@@ -100,7 +100,7 @@
                 if (data.status == 1) {
                     var html = '<img style="width:206px;" src="' + data.info[206154] + '">';
                     html += '<input type="hidden" name="data[credentials][]" value="' + data.info[206154] + '" />'
-                    $('#uploadCredentialsShow').html(html);
+                    $('#uploadCredentialsShow').append(html);
                 }
             },
 
@@ -126,7 +126,7 @@
                 if (data.status == 1) {
                     var html = '<img style="width:206px;" src="' + data.info[206154] + '">';
                     html += '<input type="hidden" name="data[office_address][]" value="' + data.info[206154] + '" />'
-                    $('#officeAddress').html(html);
+                    $('#officeAddress').append(html);
                 }
             },
 

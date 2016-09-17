@@ -16,7 +16,7 @@
     <div class="container">
         <div class="content">
             <img src="http://static.tianyantou.com/images/404/404.jpg">
-            <p><span>{!! $exception->getMessage()  !!}</span><br />{!! $exception->getLine() !!}</p>
+            <p><span>{!! $exception->getMessage()  !!}</span></p>
             <div class="btns">
                 <a href="javascript:history.back();" class="btn btn-blue btn-l">返回上一级页面</a>
                 <a href="{!! config('app.url') !!}" class="btn btn-blue btn-l">返回网站首页</a>

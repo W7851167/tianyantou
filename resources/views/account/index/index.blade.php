@@ -69,11 +69,10 @@
                 <div class="plat-invest">
                     <h2>平台投资<a rel="btn-fresh" href="javascript:void(0)" class="fresh"><i class="iconfont"></i></a></h2>
                     <div style="text-align: center; font-size: 16px; padding: 30px;" id="no-plat-distribution-data">
-                        <p>21道风控精选平台，高达18%年化收益，还有1%加息券等着您----<a style="color: #2AA3CE;" href="../www.touzhijia.com/platform/project.html">去看看>></a></p>
+                        <p>21道风控精选平台，高达18%年化收益，还有1%加息等着您----<a style="color: #2AA3CE;" href="{!! config('app.url') .'/platform' !!}" target="_blank">去看看>></a></p>
                     </div>
                 </div>
                 <div class="module-devider"></div>
-                <input name="utoken" type="hidden" value="f33727ce94e40d191cd7b45e80cc86d6">
                 <div class="chart-calendar">
                     <div class="tab click-tab">
                         <ul class="tab-nav">
@@ -84,8 +83,8 @@
                             <div class="active">
                                 <p class="summary-info">&nbsp;&nbsp;<em></em></p>
                                 <ul class="color-tags clearfx">
-                                    <li style="color:#2aa3ce;"><i style="background-color:#2aa3ce;"></i>已还</li>
-                                    <li style="color:#fb4242"><i style="background-color:#fb4242"></i>待还</li>
+                                    <li style="color:#2aa3ce;"><i style="background-color:#2aa3ce;"></i>已领</li>
+                                    <li style="color:#fb4242"><i style="background-color:#fb4242"></i>已交</li>
                                     <li style="color:#FB9142;"><i style="background-color:#FB9142;"></i>已收</li>
                                     <li style="color:#79B32B;"><i style="background-color:#79B32B;"></i>待收</li>
                                 </ul>
@@ -109,7 +108,7 @@
                         <li>
                             <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="{!! $cv->platform !!}">
                                 <p class="logoimgp">
-                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}" title="{!! $cv->platform !!}" height="55">
+                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->name !!}" title="{!! $cv->name !!}" height="55">
                                 </p>
                             </a>
                         </li>

@@ -25,7 +25,7 @@
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>平台名称：</div>
-                            <div><input type="text" name="data[platform]" placeholder="公司简称" value="{!! $corp->platform or '' !!}"></div>
+                            <div><input type="text" name="data[name]" placeholder="公司简称" value="{!! $corp->name or '' !!}"></div>
                         </div>
 
                         <div class="infospaceAddImg clearfix">
@@ -42,10 +42,6 @@
                             </ul>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
-                            <div><input type="text" name="data[name]" placeholder="公司全名" value="{!! $corp->name or '' !!}"></div>
                         </div>
                         <div class="infospaceAddImg">
                             <div class="infospaceAddLeft h80"><span>*</span>营业执照：</div>
@@ -102,16 +98,18 @@
                             <div><input type="text" name="data[limit]" placeholder="任务完成数限定" value="{!! $corp->limit or 1 !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">担保方式：</div>
-                            <div><input type="text" name="data[pattern]" placeholder="风险准备金，双乾支付托管" value="{!! $corp->pattern or '' !!}"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">担保机构：</div>
-                            <div><input type="text" name="data[assure]" placeholder="平安担保公司" value="{!! $corp->assure or '' !!}"></div>
-                        </div>
-                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">评测等级：</div>
-                            <div><input type="text" name="data[level]" placeholder="AAA" value="{!! $corp->level or '' !!}"></div>
+                            <div>
+                                <select name="data[level]" style="width: 240px;">
+                                    <?php $level = empty($corp->level) ? 'AAA' : $corp->level;?>
+                                    <option value="AAA" @if($level == 'AAA') checked @endif>AAA</option>
+                                    <option value="AA" @if($level == 'AA') checked @endif>AA</option>
+                                    <option value="A" @if($level == 'A') checked @endif>A</option>
+                                    <option value="BBB" @if($level == 'BBB') checked @endif>BBB</option>
+                                    <option value="BB" @if($level == 'BB') checked @endif>BB</option>
+                                    <option value="B" @if($level == 'B') checked @endif>B</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="w928">

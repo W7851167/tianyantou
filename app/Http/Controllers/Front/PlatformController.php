@@ -180,6 +180,10 @@ class PlatformController extends FrontController
         $metas['transparency'] = '';
         //违约比率
         $metas['contract_rate'] = '';
+        //担保机构
+        $metas['assure'] = '';
+        //担保方式
+        $metas['pattern'] = '';
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
@@ -238,7 +242,8 @@ class PlatformController extends FrontController
         if (empty($data)) {
             return abort(500, '数据传送异常，请联系开发人员');
         }
-        $data['total'] = $request->get('price');
+        $data['total'] = !empty($request->get('price')) ? $request->get('price') : $data['total'];
+        $data['intro'] = !empty($request->get('intro')) ? $request->get('intro') : '';
         $timestamp = $request->get('timestamp');
         $nonce = $request->get('nonce');
         $signature = $request->get('signature');
@@ -248,6 +253,8 @@ class PlatformController extends FrontController
         if($newSignature != $signature) {
             return abort(500, '签名错误');
         }
+        $data['create_time'] = time();
+        $data['total'] = str_replace(',','',$data['total']);
         if ($this->tasks->saveReceive($data)) {
             return view('front.platform.redirect',compact('task','corp','signature'));
         }

@@ -30,7 +30,7 @@
                     <ul>
                         @foreach($lists as $rv)
                             <li class="js_reply_all">
-                                <div class="list_01">【{!! $rv->corp->platform!!}】{!! $rv->task->title or '' !!}</div>
+                                <div class="list_01">【{!! $rv->corp->name!!}】{!! $rv->task->title or '' !!}</div>
                                 <div class="list_02">
                                     <span class="number_gray">
                                       {!! $rv->user->username or '' !!}/{!! $rv->total or 0 !!}元

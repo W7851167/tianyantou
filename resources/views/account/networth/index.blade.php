@@ -59,7 +59,7 @@
                                                     @foreach($iLists as $av)
                                                         <tr>
                                                             <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
-                                                            <td>{!! $av->corp->platform or '' !!}</td>
+                                                            <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
                                                             <td>{!! $av->total or '0.00' !!}</td>
                                                             <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
@@ -99,7 +99,7 @@
                                                     @foreach($cLists as $av)
                                                         <tr>
                                                             <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
-                                                            <td>{!! $av->corp->platform or '' !!}</td>
+                                                            <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
                                                             <td>{!! $av->total or '0.00' !!}</td>
                                                             <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
