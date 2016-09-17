@@ -28,3 +28,4 @@ Route::get('about/{page}.html', ['as' => 'about', 'uses' => 'AboutController@ind
 Route::get('about/{page}/{id}.html', ['as' => 'about', 'uses' => 'AboutController@detail']);
 
 
+
