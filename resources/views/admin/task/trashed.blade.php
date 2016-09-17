@@ -38,7 +38,7 @@
                         @if(!empty($lists))
                         @foreach($lists as $tv)
                             <tr>
-                                <td>{!! $tv->corp->platform or '' !!}</td>
+                                <td>{!! $tv->corp->name or '' !!}</td>
                                 <td>{!! $tv->title or '' !!}</td>
                                 <td>{!! $tv->total or 0 !!}</td>
                                 <td>{!! $tv->ratio or 0!!}</td>

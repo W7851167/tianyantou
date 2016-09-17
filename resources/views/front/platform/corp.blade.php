@@ -25,9 +25,9 @@
                 <div class="plat-info">
                     <div class="plat-logo">
                         <img src="{!! config('app.static_url') !!}{!! $corp->logo or '' !!}"
-                             alt="{!! $corp->platform or '' !!}" title="{!! $corp->platoform or '' !!}logo"/>
+                             alt="{!! $corp->name or '' !!}" title="{!! $corp->platoform or '' !!}logo"/>
                     </div>
-                    <h2>{!! $corp->platform or '' !!}<i class="iconfont">&#xe68e;</i>
+                    <h2>{!! $corp->name or '' !!}<i class="iconfont">&#xe68e;</i>
 
                         <div class="tag">
                             <span>上市公司及券商联袂打造</span>
@@ -123,7 +123,7 @@
                 <div class="tab-main">
                     <div class="active">
                         <div class="license"><img src="{!! config('app.static_url') !!}{!! $corp->chartered !!}"
-                                                  width="280" height="220" alt="{!! $corp->platform !!}营业执照"/></div>
+                                                  width="280" height="220" alt="{!! $corp->name !!}营业执照"/></div>
                         {!! $corp->article->content or '' !!}
                     </div>
                     <div class="plat-team">

@@ -44,7 +44,7 @@
                         @if(!empty($lists))
                         @foreach($lists as $tv)
                             <tr>
-                                <td>{!! $tv->corp->platform or '' !!}</td>
+                                <td>{!! $tv->corp->name or '' !!}</td>
                                 <td>{!! str_limit($tv->title,20) !!}</td>
                                 <td>{!! $tv->position == 1 ? '首页':'其它' !!}</td>
                                 <td>{!! $tv->nums or 0!!}</td>

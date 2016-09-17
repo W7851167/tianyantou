@@ -49,7 +49,7 @@
             <input type="hidden" name="timestamp" value="{!! $sign['timestamp'] !!}"/>
             <input type="hidden" name="nonce" value="{!! $corp->ename !!}"/>
             <input type="hidden" name="signature" value="{!! $sign['signature'] !!}"/>
-            <p><label>平台：</label>{!! $corp->platform !!}</p>
+            <p><label>平台：</label>{!! $corp->name !!}</p>
             <p><label>项目：</label>{!! $task->title !!}</p>
             <p><label>期限：</label>{!! $task->term !!}</p>
             <p><label>可投时间：</label>{!! dateFormat(getDiffTime($task->end_time,time())) !!}</p>
