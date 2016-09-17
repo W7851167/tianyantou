@@ -14,6 +14,7 @@ namespace App\Repositories;
 
 use App\Eloquent\Model;
 use App\Models\BankModel;
+use App\Models\MessageModel;
 use App\Models\MoneyModel;
 use App\Models\ScoreModel;
 use App\Models\UserModel;
@@ -29,7 +30,8 @@ class UserRepository extends BaseRepository
         ScoreModel $scoreModel,
         MoneyModel $moneyModel,
         WithdrawModel $withdrawModel,
-        BankModel $bankModel
+        BankModel $bankModel,
+        MessageModel $messageModel
     )
     {
         $this->userModel = $userModel;
@@ -37,6 +39,7 @@ class UserRepository extends BaseRepository
         $this->moneyModel = $moneyModel;
         $this->bankModel = $bankModel;
         $this->withdrawModel = $withdrawModel;
+        $this->messageModel = $messageModel;
     }
 
     /**
@@ -69,9 +72,9 @@ class UserRepository extends BaseRepository
         if (!password_verify($password, $userModel->password)) {
             return static::getError('密码不正确，请重新输入!');
         }
-        $emailFlag = !empty($userModel->email) ? 1: 0;
+        $emailFlag = !empty($userModel->email) ? 1 : 0;
         $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
-        $bankFlag = !empty($userModel->bank) ? 1:0;
+        $bankFlag = !empty($userModel->bank) ? 1 : 0;
         //$investFlag = $emailFlag && $mobileFlag && $bankFlag;
         $emailFlag = 1;
         $mobileFlag = 1;
@@ -243,6 +246,22 @@ class UserRepository extends BaseRepository
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->scoreModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->scoreModel->countBy($where);
+        return [$count, $lists];
+    }
+
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     *
+     * 消息列表
+     */
+    public function getMessageList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->messageModel->lists("*", $where, $orderBy, [], $limit, $page);
+        $count = $this->messageModel->countBy($where);
         return [$count, $lists];
     }
 }
