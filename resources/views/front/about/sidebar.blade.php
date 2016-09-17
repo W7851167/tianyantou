@@ -2,7 +2,7 @@
     <span>当前位置：</span>
     <li><a href="{!! config('app.url') !!}">首页</a></li>
     <li><a href="{!! config('app.url') !!}/about/">关于我们</a></li>
-    <li class="nav-location">{!! $category->title !!}</li>
+    <li class="nav-location">{!! $category->title or '平台动态' !!}</li>
 </ul>
 <div class="r-side-menu nav-follow">
     <h2>关于我们</h2>

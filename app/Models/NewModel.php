@@ -60,7 +60,7 @@ class NewModel extends BaseModel
      */
     public function url($page)
     {
-        return config('app.url') . '/' . $page . '/' . $this->id . '.html';
+        return config('app.url') . '/about/' . $page . '/' . $this->id . '.html';
     }
 
     /**
