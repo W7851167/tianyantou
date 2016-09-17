@@ -69,7 +69,7 @@
                 <div class="plat-invest">
                     <h2>平台投资<a rel="btn-fresh" href="javascript:void(0)" class="fresh"><i class="iconfont"></i></a></h2>
                     <div style="text-align: center; font-size: 16px; padding: 30px;" id="no-plat-distribution-data">
-                        <p>21道风控精选平台，高达18%年化收益，还有1%加息券等着您----<a style="color: #2AA3CE;" href="../www.touzhijia.com/platform/project.html">去看看>></a></p>
+                        <p>21道风控精选平台，高达18%年化收益，还有1%加息等着您----<a style="color: #2AA3CE;" href="{!! config('app.url') .'/platform' !!}">去看看>></a></p>
                     </div>
                 </div>
                 <div class="module-devider"></div>
@@ -109,7 +109,7 @@
                         <li>
                             <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_blank" title="{!! $cv->platform !!}">
                                 <p class="logoimgp">
-                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}" title="{!! $cv->platform !!}" height="55">
+                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->name !!}" title="{!! $cv->name !!}" height="55">
                                 </p>
                             </a>
                         </li>
