@@ -169,7 +169,7 @@
 //  halfYeayIncomesChart();
 // });
 waitIncomeCalendar()
-$('.chart-calendar').on('click','.tab li',function(){ 
+$('.chart-calendar').on('click','.tab li',function(){
   halfYeayIncomesChart(); 
 });
 
