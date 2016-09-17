@@ -21,9 +21,11 @@ class ChartController extends FrontController
      */
     public function waitIncomeStats(Request $request)
     {
+        //已领颜色 #2aa3ce
+        //已交颜色 #fb4242
         $data['amount'] = "￥10000.00";
         $data['billAmt'] = "￥500.00";
-        $data['details'] = ['sdfsf'];
+        $data['details'] = [['title'=>'已领任务111','start'=>'2016-09-10', 'end'=>'2016-09-12','color'=>'#2aa3ce'],['title'=>'已交任务','start'=>'2016-09-10','color'=>'#fb4242']];
         $data['dueIn'] = "￥200.00";
         return $this->ajaxReturn($data);
     }
