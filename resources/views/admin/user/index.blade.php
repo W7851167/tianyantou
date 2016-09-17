@@ -20,9 +20,7 @@
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='70'>用户名</th>
-                            <th width='120'>手机号</th>
-                            <th width='120'>邮箱</th>
+                            <th width='200'>用户名</th>
                             <th width="100">总资产</th>
                             <th width="100">钱包</th>
                             <th width="100">冻结返利</th>
@@ -33,8 +31,6 @@
                         @foreach($lists as $uv)
                             <tr>
                                 <td>{!! $uv->username !!}</td>
-                                <td>{!! $uv->mobile ? :'---' !!}</td>
-                                <td>{!! $uv->email ? :'---' !!}</td>
                                 <td>{!! $uv->money->total or 0.00!!}</td>
                                 <td>{!! $uv->money->money or 0.00 !!}</td>
                                 <td>{!! $uv->money->rebate or 0.00!!}</td>
