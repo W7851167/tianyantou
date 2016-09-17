@@ -69,7 +69,7 @@
                 <div class="plat-invest">
                     <h2>平台投资<a rel="btn-fresh" href="javascript:void(0)" class="fresh"><i class="iconfont"></i></a></h2>
                     <div style="text-align: center; font-size: 16px; padding: 30px;" id="no-plat-distribution-data">
-                        <p>21道风控精选平台，高达18%年化收益，还有1%加息等着您----<a style="color: #2AA3CE;" href="{!! config('app.url') .'/platform' !!}">去看看>></a></p>
+                        <p>21道风控精选平台，高达18%年化收益，还有1%加息等着您----<a style="color: #2AA3CE;" href="{!! config('app.url') .'/platform' !!}" target="_blank">去看看>></a></p>
                     </div>
                 </div>
                 <div class="module-devider"></div>
