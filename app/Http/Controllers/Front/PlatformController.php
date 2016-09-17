@@ -180,6 +180,10 @@ class PlatformController extends FrontController
         $metas['transparency'] = '';
         //违约比率
         $metas['contract_rate'] = '';
+        //担保机构
+        $metas['assure'] = '';
+        //担保方式
+        $metas['pattern'] = '';
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }

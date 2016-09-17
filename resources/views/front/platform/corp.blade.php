@@ -62,13 +62,13 @@
                             <td width="200" class="no-pleft">上线时间：<span
                                         title="{!! $corp->online or '' !!}">{!! $corp->online or '' !!}</span></td>
                             <td class="no-pleft">保障方式：<span class="text-ellipsis" style="width: 285px;"
-                                        title="{!! $corp->pattern or '' !!}">{!! $corp->pattern or '' !!}</span></td>
+                                        title="{!! $metas['pattern'] or '' !!}">{!! $metas['pattern'] or '' !!}</span></td>
 
                         </tr>
                         <tr>
                             <td class="no-pleft">所在城市：<span>{!! $corp->city or '' !!}</span></td>
                             <td>担保机构：<span class="text-ellipsis" style="width: 285px;"
-                                           title="{!! $corp->assure or '' !!}">{!! $corp->assure or '' !!}</span></td>
+                                           title="{!! $metas['assure'] or '' !!}">{!! $metas['assure'] or '' !!}</span></td>
                         </tr>
                         <tr>
                             <td class="no-pleft">充值费用：<span title="免费">免费</span></td>

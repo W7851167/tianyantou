@@ -50,6 +50,14 @@
                         <div class="infospaceAddLeft"><span>*</span>ICP备案号：</div>
                         <div><input type="text" name="data[icp_no]" placeholder="京ICP备14019436号" value="{!! $metas['icp_no'] or '' !!}"></div>
                     </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>担保方式：</div>
+                        <div><input type="text" name="data[pattern]" placeholder="风险准备金，双乾支付托管" value="{!! $metas['pattern'] or '' !!}"></div>
+                    </div>
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>担保机构：</div>
+                        <div><input type="text" name="data[assure]" placeholder="网贷之家" value="{!! $metas['assure'] or '' !!}"></div>
+                    </div>
                     <div class="w928">
                         <div class="button">
                             <input class="submit" type="submit"  value="保存">

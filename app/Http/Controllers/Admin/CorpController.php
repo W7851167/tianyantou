@@ -162,6 +162,8 @@ class CorpController extends AdminController
         $metas['icp_time'] = '';
         $metas['icp_corp_name'] = '';
         $metas['icp_no'] = '';
+        $metas['assure'] = '';
+        $metas['pattern'] = '';
         if(!empty($corp->metas[0])) {
            $metas = getMetas($corp->metas, $metas);
         }
