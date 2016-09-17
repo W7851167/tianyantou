@@ -18,8 +18,8 @@
                         <span>{!! date('Y-m-d',strtotime($nv->created_at)) !!}</span>
                         <div class="axis-info">
                             <i class="shape-circle"></i>
-                            <h3 class="title-gray-bold"><a href="{!! config('app.url') !!}/about/notice/{!! $nv->id !!}.html" title="{!! $nv->title !!}" target="_blank">{!! $nv->title !!}</a></h3>
-                            <p>{!! mb_substr(strip_tags($nv->article->content),0,80,'utf-8') !!}...<a class="toggle" href="{!! config('app.url') !!}/about/notice/{!! $nv->id !!}.html" target="_blank"><span class="open">[全文]</span></a></p>
+                            <h3 class="title-gray-bold"><a href="{!! $nv->url($category->page) !!}" title="{!! $nv->title !!}" target="_blank">{!! $nv->title !!}</a></h3>
+                            <p>{!! strip_tags($nv->article->content) !!}<a class="toggle" href="{!! $nv->url($category->page) !!}" target="_blank"><span class="open">[全文]</span></a></p>
                         </div>
                     </div>
                     @endforeach

@@ -10,9 +10,11 @@
         @include('front.about.sidebar')
         <div class="main tworow team">
             <h2>{!! $category->title or '' !!}</h2>
-            {!! $category->article->content or '' !!}
+            <div class="content">
+                {!! $category->article->content or '' !!}
+            </div>
         </div>
-</div>
+    </div>
 </div>
 <!--BODY END-->
 @stop
