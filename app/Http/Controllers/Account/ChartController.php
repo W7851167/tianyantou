@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -10,9 +11,10 @@ use App\Http\Requests;
 
 class ChartController extends FrontController
 {
-    public function __construct()
+    public function __construct(CensusRepository $census)
     {
         parent::__initalize();
+        $this->census = $census;
     }
 
     /**
@@ -21,11 +23,11 @@ class ChartController extends FrontController
      */
     public function waitIncomeStats(Request $request)
     {
-        //已领颜色 #2aa3ce
-        //已交颜色 #fb4242
+        $start = $request->get('start');
+        $end = $request->get('end');
         $data['amount'] = "￥10000.00";   //账号金额
         $data['receiveIn'] = "￥500.00"; //已领任务
-        $data['details'] = [['title'=>'已领任务111','start'=>'2016-09-10', 'end'=>'2016-09-12','color'=>'#2aa3ce'],['title'=>'已交任务','start'=>'2016-09-10','color'=>'#fb4242']];
+        $data['details'] = $this->census->getIncomesStats($this->user['id'], $start,$end);
         $data['payIn'] = "￥200.00";   //待收益金额
         return $this->ajaxReturn($data);
     }
