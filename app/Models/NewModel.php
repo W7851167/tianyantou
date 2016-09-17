@@ -50,4 +50,16 @@ class NewModel extends BaseModel
         $category = \App\Models\CategoryModel::find($categoryId);
         return !empty($category) ? $category->title : '无';
     }
+
+
+    /**
+     * @param $page
+     * @return string
+     *
+     * 获取文章详情url
+     */
+    public function url($page)
+    {
+        return config('app.url') . '/' . $page . '/' . $this->id . '.html';
+    }
 }

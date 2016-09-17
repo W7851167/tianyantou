@@ -77,10 +77,10 @@ class AboutController extends FrontController
     {
         $category = $this->new->getCategoryByPage($page);
         $categorys = $this->new->getSystemCategorys();
-        $news = $this->new->getNewInfo(['id'=>$id]);
-        $first = $this->new->getNewInfo(['id <'=>$id,'category_id'=>$category->id]);
-        $next  = $this->new->getNewInfo(['id >'=>$id, 'category_id'=>$category->id]);
-        return view('front.about.detail',compact('category','news','categorys','first','next'));
+        $news = $this->new->getNewInfo(['id' => $id]);
+        $first = $this->new->getNewInfo(['id <' => $id, 'category_id' => $category->id]);
+        $next = $this->new->getNewInfo(['id >' => $id, 'category_id' => $category->id]);
+        return view('front.about.detail', compact('category', 'news', 'categorys', 'first', 'next'));
     }
 
     /**
@@ -96,7 +96,7 @@ class AboutController extends FrontController
      */
     private function multi($category)
     {
-        $page = \Request::get('page') ? (int)\Request::get('page') : '';
+        $page = \Request::get('page') ? (int)\Request::get('page') : 1;
         $where = ['category_id' => $category->id];
         list($count, $lists) = $this->new->getNewList($where, $page);
         return view('front.about.' . $category->page, compact(
@@ -110,9 +110,9 @@ class AboutController extends FrontController
     private function help($category)
     {
         $where = ['is_system' => 1, 'parent_id' => 7, 'theme' => 0];
-        $helpCategorys = $this->new->getSystemCategorys($where);
+        $hCategorys = $this->new->getSystemCategorys($where);
         return view('front.about.' . $category->page, compact(
-            'helpCategorys'
+            'hCategorys'
         ));
     }
 
@@ -122,11 +122,11 @@ class AboutController extends FrontController
     private function notice($category)
     {
 
-        $page = \Request::get('page');
+        $page = \Request::get('page') ? (int)\Request::get('page') : 1;
         $where = ['category_id' => $category->id];
         list($count, $lists) = $this->new->getNewList($where, $page);
 
-        return view('front.about.' . $category->page,compact('lists'));
+        return view('front.about.' . $category->page, compact('lists'));
     }
 
     /**

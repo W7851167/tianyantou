@@ -38,6 +38,7 @@
                                 <td><span>*</span>选择公司：</td>
                                 <td width="728">
                                     <select class="case_select" name="corp_id">
+                                        <option value="0">请选择</option>
                                         @foreach($corps as $cv)<option value="{!! $cv->id !!}" @if(isset($new->category_id) && $new->corp_id==$cv->id)selected @endif>{!! $cv->name !!}</option>@endforeach
                                     </select>
                                 </td>
