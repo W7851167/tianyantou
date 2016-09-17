@@ -56,7 +56,7 @@ class CorpController extends AdminController
             if(!empty($data['chartered']))
                 $data['chartered'] = str_replace(config('app.static_url'), '', $data['chartered']);
             $pinyin = app()->make('LibraryManager')->create('pinyin');
-            $data['ename'] = $pinyin->convert($data['platform']);
+            $data['ename'] = $pinyin->convert($data['name']);
             $result = $this->taskRepository->saveCorp($data);
             if($result['status'])
                 return $this->success($result['message'],url('corp'),true);

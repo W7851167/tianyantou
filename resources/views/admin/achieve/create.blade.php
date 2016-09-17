@@ -40,7 +40,7 @@
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>平台名称：</div>
-                            <div><input type="text" name="data[platform]"  value="{!! $receive->corp->platform or '' !!}" disabled></div>
+                            <div><input type="text" name="data[platform]"  value="{!! $receive->corp->name or '' !!}" disabled></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>任务名称：</div>

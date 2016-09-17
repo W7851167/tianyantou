@@ -112,10 +112,10 @@
                 @foreach($tasks as $tv)
                 <li>
                     <p class="platform-ad">
-                        <a  href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html"  target="_blank" title="点击了解详情"><img src="{!! config('app.static_url') !!}{!! $tv->home_img or '' !!}" height="129" width="294" alt="{!! $tv->corp->platform or ''!!}"></a>
+                        <a  href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html"  target="_blank" title="点击了解详情"><img src="{!! config('app.static_url') !!}{!! $tv->home_img or '' !!}" height="129" width="294" alt="{!! $tv->corp->name or ''!!}"></a>
                     </p>
                     <div class="plaform-about">
-                        <a href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html" target="_blank" class="plat-logo" title="{!! $tv->corp->platform or '' !!}">
+                        <a href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html" target="_blank" class="plat-logo" title="{!! $tv->corp->name or '' !!}">
                             <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo !!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="{!! $tv->title or '' !!}">{!! $tv->title or '' !!}</h4>
@@ -127,7 +127,7 @@
                             <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>
                         <p class="goin-btn">
-                            <span>可购金额：{!! money_format('%.2n', $tv->limit) !!} 元</span>
+                            <span>可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元</span>
                             <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename !!}/{!! $tv->id !!}" rel="platform_join"
                                data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title !!}" class="btn btn-blue" title="投资">投资</a>
                         </p>
