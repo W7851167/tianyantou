@@ -150,8 +150,8 @@
               },
             success: function(data) {
               var date = ($('#paieback-calendar .fc-center').text()).split(' ');
-              var summary = '<li>'+date[1]+'已领：<em>' +data.dueIn+ '</em></li>';
-              summary += '<li>'+date[1]+'待收：<em>' +data.billAmt+ '</em></li>'
+              var summary = '<li>'+date[1]+'已领：<em>' +data.receiveIn+ '</em></li>';
+              summary += '<li>'+date[1]+'待收：<em>' +data.payIn+ '</em></li>'
               $('.summary-info').html(summary);
               callback(data.details);
               dtd.resolve();

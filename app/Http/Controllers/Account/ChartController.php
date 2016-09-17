@@ -23,10 +23,10 @@ class ChartController extends FrontController
     {
         //已领颜色 #2aa3ce
         //已交颜色 #fb4242
-        $data['amount'] = "￥10000.00";
-        $data['billAmt'] = "￥500.00";
+        $data['amount'] = "￥10000.00";   //账号金额
+        $data['receiveIn'] = "￥500.00"; //已领任务
         $data['details'] = [['title'=>'已领任务111','start'=>'2016-09-10', 'end'=>'2016-09-12','color'=>'#2aa3ce'],['title'=>'已交任务','start'=>'2016-09-10','color'=>'#fb4242']];
-        $data['dueIn'] = "￥200.00";
+        $data['payIn'] = "￥200.00";   //待收益金额
         return $this->ajaxReturn($data);
     }
 
