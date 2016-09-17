@@ -20,5 +20,4 @@ use Illuminate\Database\QueryException;
 
 class CensusRepository extends BaseRepository
 {
-
 }
