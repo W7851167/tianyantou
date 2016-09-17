@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50712
+Source Server         : 天眼投正式服务器
+Source Server Version : 50633
 Source Host           : localhost:3306
-Source Database       : phpad
+Source Database       : tianyantou
 
 Target Server Type    : MYSQL
-Target Server Version : 50712
+Target Server Version : 50633
 File Encoding         : 65001
 
-Date: 2016-09-17 19:18:47
+Date: 2016-09-17 23:25:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,16 +24,16 @@ CREATE TABLE `ad_advs` (
   `title` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '广告介绍',
   `url` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'url地址',
   `sorts` int(11) DEFAULT '0' COMMENT '排序方式',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_advs
 -- ----------------------------
-INSERT INTO `ad_advs` VALUES ('1', '', 'http://www.baidu.com', '0', '2016-09-13 22:26:15', '2016-09-13 22:26:15', null);
+INSERT INTO `ad_advs` VALUES ('2', '新手福利，注册即送188元现金红包！新手更享活期15.8%，定期10%', '', '300', '2016-09-17 14:51:09', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_articles`
@@ -44,26 +44,19 @@ CREATE TABLE `ad_articles` (
   `item_id` int(11) NOT NULL,
   `item_type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '当前时间',
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_articles
 -- ----------------------------
-INSERT INTO `ad_articles` VALUES ('1', '1', 'App\\Models\\CorpModel', 'e融所(深圳汇海易融互联网金融服务有限公司) 是一家具有上市公司和券商背景的互联网金融服务平台，总部位于深圳，注册资本金1亿元。由深圳市多家上市公司、知名企业以及银行高管共同出资成立，股东包括深圳方大集团、华林证券创投、国人通信、中海信等知名企业。e融所管理团队由具有15年以上从业经验银行高管和5年以上的互联网金融从业经验的专业人士组成，在金融和互联网领域均具有丰富的管理、风险识别以及市场开拓经验。\r\n\r\n联系地址：深圳市龙华新区创业路汇海广场B座2505\r\n公司电话：400-602-6622', '2016-09-15 10:52:38', '2016-09-15 10:52:38', null);
-INSERT INTO `ad_articles` VALUES ('4', '2', 'App\\Models\\CorpModel', '<p>jhjkhjk jjhjjk</p>', '2016-09-10 16:36:04', null, null);
-INSERT INTO `ad_articles` VALUES ('5', '2', 'App\\Models\\NewModel', '<p>31231232131</p>', '2016-09-10 22:16:52', null, null);
-INSERT INTO `ad_articles` VALUES ('6', '3', 'App\\Models\\NewModel', '<p>13212312321</p>', '2016-09-10 22:18:53', null, null);
-INSERT INTO `ad_articles` VALUES ('7', '4', 'App\\Models\\NewModel', '<p>13212312321</p>', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
-INSERT INTO `ad_articles` VALUES ('11', '1', 'App\\Models\\NewModel', '<p>31231232131</p>', '2016-09-15 17:28:16', '2016-09-15 17:28:16', '2016-09-15 17:28:16');
-INSERT INTO `ad_articles` VALUES ('12', '9', 'App\\Models\\NewModel', '<p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">亲爱的天眼哥：</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">根据《国务院办公厅关于2016年部分节假日安排的通知》，投之家2016年中秋节放假值班安排如下：</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">1. 2016年9月15日至9月17日期间3天连休，2016年9月18日（星期日）恢复正常上班；假期客服服务时间不变，为10:00-18:00；</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">2. 节日期间不处理提现，9月14日13:30之后的提现，将于9月18日（工作日）处理；</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">3. 假期中，用户的充值、回款等投资服务均可正常进行；每日专享债权的供应时间为：10:18和14:18。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">请提前做好安排，预祝大家中秋快乐。如有疑问，请致电服务热线或咨询在线客服。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 2em; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">特此公告，请知悉！</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-align: right; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">天眼投运营团队</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-align: right; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">2016/09/13</span></p><p><br/></p>', '2016-09-13 22:45:10', null, null);
-INSERT INTO `ad_articles` VALUES ('13', '10', 'App\\Models\\NewModel', '<p>选择公司信息</p>', '2016-09-13 23:26:24', null, null);
-INSERT INTO `ad_articles` VALUES ('14', '11', 'App\\Models\\NewModel', '<p>1231231</p>', '2016-09-15 17:28:09', '2016-09-15 17:28:09', '2016-09-15 17:28:09');
-INSERT INTO `ad_articles` VALUES ('15', '3', 'App\\Models\\CorpModel', '<p>eerwrwrwrewr</p>', '2016-09-14 23:51:52', null, null);
-INSERT INTO `ad_articles` VALUES ('16', '1', 'App\\Models\\CategoryModel', '<h2>公司介绍</h2><div class=\"content\"><p><a href=\"https://www.touzhijia.com\" class=\"hight-light\">深圳投之家金融信息服务有限公司（www.touzhijia.com）</a>2014年9月16日正式上线运营，是国内专业领先的P2P网贷垂直搜索引擎。</p><p>深圳投之家金融信息服务有限公司秉承“精选、分散”的安全投资理念，旨在通过严格的风控管理、创新的互联网技术，为用户提供优质靠谱的搜索、比较、一站式投资服务，让用户的投资理财变得安全、简单、高效。</p><p>深圳投之家金融信息服务有限公司拥有行业内规模较大，专业性强的网贷平台风控考察团队，累计走访了500多家P2P平台，并对180多家平台从风控、法务、财务、运营、IT等多方面进行严格的实地认证。只有通过风控团队实地认证的平台，才会被投之家收录，确保平台的真实可靠性。</p><p>深圳投之家金融信息服务有限公司网贷研究院经过近三年的数据研究和积累，推出了网贷安全评级，通过60多个指标，从六个维度全方位展示平台的真实运营情况，让投资风险、收益一目了然，辅助投资人更好地做出投资决策。</p><p>基于平台认证与安全评级，深圳投之家金融信息服务有限公司推出投资保障计划——T盾计划，保障用户的投资安全，真正做到为投资人保驾护航！</p><img src=\"//static.touzhijia.com/images/about/company-system.png?ver=20160431006\"/>\n &nbsp;</div><div class=\"company gradient-box\"><h3>创始团队</h3><ul class=\" list-paddingleft-2\"><li><p><img src=\"//static.touzhijia.com/images/about/team-xu.jpg?ver=20160431006\"/></p><div class=\"mask\" style=\"opacity: 0;\"><h4>徐红伟（董事长）</h4><p>网贷之家创始人，盈灿集团现任董事长兼总裁，中国政法大学互联网金融创新与法制研究中心副主任。曾就职于世界500强企业宝钢集团中央研究院，价值需求论倡导者。早前曾从事信用卡投资理财研究及实践，精通价格投资。主编国内第一本网贷投资手册《P2P网贷投资手册》,主编《2013网络借贷行业蓝皮书》。担任新浪财经专栏作家，在《中国征信》、第一财经日报《财商》等权威期刊、媒体发表多篇网贷行业研究文章。</p></div></li><li><p><img src=\"//static.touzhijia.com/images/about/team-zhu.jpg?ver=20160431006\"/></p><div class=\"mask\" style=\"opacity: 0;\"><h4>朱明春（副董事长）</h4><p>2011年联合创办网贷之家网站，现任盈灿集团执行副总裁，清华大学经济管理学院金融硕士行业导师，广东互联网金融协会副会长兼秘书长，民间金融互联网化、阳光化倡导者。多次接受中央二套、凤凰卫视等电视节目关于互联网金融报道的采访。</p></div></li><li><p><img src=\"//static.touzhijia.com/images/about/team-shiqiao.jpg?ver=20160431006\"/></p><div class=\"mask\" style=\"opacity: 0;\"><h4>黄诗樵（联合创始人 · CEO）</h4><p>毕业于哈尔滨工业大学，在大数据及互联网领域创业投资多年，拥有12年互联网技术和运营经验，在互联网金融领域拥有丰富的全流程实操经验。先后就职于平安集团、平安银行、创东方投资等企业，负责互联网金融系统搭建和大数据技术及应用。熟悉银行、保险、VC、私募基金、资产证券化等金融业务，曾创办过多家企业，有丰富的企业管理经验及广泛的市场资源。2014年，参与创办投之家。</p></div></li><li><p><img src=\"//static.touzhijia.com/images/about/team-dengwei.jpg?ver=20160431006\"/></p><div class=\"mask\" style=\"opacity: 0;\"><h4>邓伟（联合创始人 · COO）</h4><p>毕业于复旦大学经济学系，曾远赴西藏墨脱进行支教，背包旅游游历大半个中国。先后就职于去哪儿、百度等知名互联网企业，百度LBS事业部创始团队成员。2013年，在O2O领域创业。在OTA、O2O等相关行业，对垂直搜索类互联网产品有着丰富的产品设计、运营实战经验。2014年，参与创办投之家。</p></div></li><li><p><img src=\"//static.touzhijia.com/images/about/team-wuqian.jpg?ver=20160431006\"/></p><div class=\"mask\" style=\"opacity: 0;\"><h4>覃武权（联合创始人 · CIO）</h4><p>本科学历，曾就职于华为、腾讯等著名企业，拥有丰富的互联网产品研发经验，先后参与腾讯搜索业务线技术运维、运营开发、搜索后台开发的工作，撰写过10余项专利技术发明，主导过业界知名产品「QQ音乐搜索」的技术研发。对技术运营驱动产品研发的理念有深刻理解，在运营支撑体系建设、大数据运营、团队管理人才培养等方面有着丰富的实战经验和管理心得。2014年，参与创办投之家。</p></div></li><li><p><img src=\"//static.touzhijia.com/images/about/team-majun.jpg?ver=20160431006\"/></p><div class=\"mask\" style=\"opacity: 0;\"><h4>马骏（首席风控官）</h4><p>上海盈灿商务咨询有限公司常务副总经理，网贷研究院首席研究员。毕业于上海交通大学，硕士学历，特许金融分析师CFA二级。曾就职于某券商总部及国内领先的量化对冲基金，在证券、期货、网贷等多个金融子领域均有涉足。推出国内首份网贷平台综合指数评级办法，在《中国征信》等权威期刊上发表过网贷行业研究文章。2014年出版《2013中国网络借贷行业蓝皮书》，担任副主编。</p></div></li></ul></div><div class=\"gradient-box\"><h3>我们的使命</h3><img src=\"//static.touzhijia.com/images/about/company-mission.png?ver=20160431006\"/> &nbsp;</div><div class=\"gradient-box\"><h3>我们的理念</h3><img src=\"//static.touzhijia.com/images/about/company-concept.png?ver=20160431006\"/> &nbsp;</div><div class=\"gradient-box\"><h3>我们的价值</h3><img src=\"//static.touzhijia.com/images/about/company-value.png?ver=20160431006\"/> &nbsp;</div><div class=\"gradient-box\"><h3>我们的远景</h3><img src=\"//static.touzhijia.com/images/about/company-prospect.png?ver=20160431006\"/> &nbsp;</div>', '2016-09-15 10:48:53', '2016-09-15 10:48:53', null);
+INSERT INTO `ad_articles` VALUES ('17', '12', 'App\\Models\\NewModel', '<p><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">亲爱的天眼哥：</span></p><p style=\"text-indent: 2em;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">根据《国务院办公厅关于2016年部分节假日安排的通知》，投之家2016年中秋节放假值班安排如下：</span></p><p style=\"text-indent: 2em;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">1. 2016年9月15日至9月17日期间3天连休，2016年9月18日（星期日）恢复正常上班；假期客服服务时间不变，为10:00-18:00；</span></p><p style=\"text-indent: 2em;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">2. 节日期间不处理提现，9月14日13:30之后的提现，将于9月18日（工作日）处理；</span></p><p style=\"text-indent: 2em;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">3. 假期中，用户的充值、回款等投资服务均可正常进行；每日专享债权的供应时间为：10:18和14:18。</span></p><p style=\"text-indent: 2em;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">请提前做好安排，预祝大家中秋快乐。如有疑问，请致电服务热线或咨询在线客服。</span></p><p style=\"text-indent: 2em;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">特此公告，请知悉！</span></p><p style=\"text-align: right;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">天眼投运营团队</span></p><p style=\"text-align: right;\"><span style=\"font-size: 14px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;\">2016/09/13</span></p><p><br/></p>', '2016-09-17 14:54:54', '2016-09-17 14:54:54', null);
+INSERT INTO `ad_articles` VALUES ('18', '13', 'App\\Models\\NewModel', '<p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">有公积金卡，但却不知道该怎么使用公积金，或者并不了解公积金该怎么用?</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">6</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">月初，住建部联合财政部、央行发布了《全国住房公积金</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年年度报告》（以下简称报告）。《报告》指出</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年全国住房公积金缴存额</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">14549.46</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元，比上年增长</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">12.29%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">。在中国，几乎每个有工作的人都要缴纳住房公积金，绝大部分买房人都会用到住房公积金。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">但是，</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">99%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">的人可能都不清楚：住房公积金怎么转移？怎么用来买房和租房？大家对住房公积金普遍存在疑问。而这份报告里又藏着什么秘密呢？</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">什么是住房公积金？</span></strong></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">住房公积金是指国家机关、国有企业、城镇集体企业、外商投资企业、城镇私营企业及其他城镇企业、事业单位及其在职职工缴存的长期住房储金。职工个人缴存的住房公积金和职工所在单位为职工缴存的住房公积金，属于职工个人所有。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">公积金制度是劫富济贫吗？谁受益最大？</span></strong></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">贷款职工中，低收入占</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">36.61%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">，中等占</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">57.43%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">，高收入占</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">5.96%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">。</span>&nbsp;<span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">这说明，中等收入人群受益于公积金制度最大。低收入者缴存了公积金，但买房首付和还贷能力不足，贷款率低；高收入人群缴存多，但因为资金富裕，对公积金贷款的需求小。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">大部分使用公积金的人购买的房型面积适中，购房人群属于中等收入群体。虽然低收入者使用公积金买房的比例不高，但现在越来越多的城市允许提取公积金支付房租，这给了低收入者更多利用公积金的机会。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">全国公积金缴存单位分布如何？</span></strong></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">由数据得出，民企缴纳住房公积金的人数远低于国企和机关事业单位。这说明，可能存在一部分民企不给员工缴纳住房公积金的情况，侵犯了职工权益。民企职工应督促公司缴纳住房公积金，对自己有好处：买房可以享受低息公积金贷款，如果不买房，也可以提取公积金用于租房。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">购房、还贷提取比较多，租房少</span></strong></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年住房公积金提取额</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">10987.47</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元，比上年增长</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">44.92%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">公积金提取实行的是“先花钱后报销”的原则，即个人先出钱买房，再以购房消费凭证提取公积金。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年住房公积金提取金额同比有大幅增长，而住房消费类占绝大多数，表明大部分家庭购房后资金都不太富裕，购房后需要依赖公积金偿还贷款或补充家庭积蓄。</span>&nbsp;<span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">租房提取的总额非常少。原因可能是一些城市对租房提取的要求比较严格，也可能是很多人没有注意到可以租房提取，忽视了自己的权益。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">贷款发放多，收回少</span></strong></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年，全国公积金共发放个人住房贷款</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">312.5</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">万笔、共</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">11082.63</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元；全年收回个人住房贷款</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">3810.02</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年，全国住房公积金贷款比例大幅提高，一方面，这说明购房者对公积金有了前所未有的认识和重视，更多的人选择使用公积金贷款买房；另一方面，也说明房地产市场火热，购房人口增多，房价攀升，逼迫购房人使用最便宜的贷款方式。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">如果楼市像去年一般火爆，也就是说购房人提取公积金和申请公积金贷款的热情持续高涨，那么全国住房公积金余额始终保持</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">4</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">万亿左右的水平。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">随着国家降低对各地公积金缴存比例的要求，如果今后每年的缴存额减少，而贷款人数和金额不减，那么公积金池子里的水就会越流越少了。不应要求职工再多缴纳公积金，而是要提高住房公积金的利润率。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">公积金能赚钱吗，每年有多大利润？</span></strong></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">我们每个人缴纳的公积金汇聚在公积金管理中心，相当于组成了一大笔资金池，若能投资得当，每年也能产出巨额利润。</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">全年住房公积金业务收入</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">1598.36</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元，截至</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年末全国公积金缴存余额</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">40674.72</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元，投资收益率</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">=1598.36</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">÷</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">40674.72=3.93%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">。全国住房公积金管理中心的投资收益率还不到</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">4%</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">！</span></p><p style=\"margin-top: 0px; margin-bottom: 25px; padding: 0px; word-wrap: break-word; font-size: 14px; overflow: hidden; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; line-height: 24.5px; white-space: normal; text-indent: 28px; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">此外，公积金的发放贷款业务每年还要花钱。</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">2015</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">年全国住房公积金业务支出</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">523.34</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元，其中支付缴存职工利息</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">434.29</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元、归集手续费</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">21.24</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元、委托贷款手续费</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\">50.64</span><span style=\"margin: 0px; padding: 0px; font-size: 16px; font-family: 宋体;\">亿元</span><span style=\"margin: 0px; padding: 0px; font-size: 16px;\"><span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">，其他支出（包括贴息贷款的贴息支出、担保费支出等）</span>17.17<span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">亿元。</span>&nbsp;<span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">扣除这些支出，净利润率</span>=<span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">（</span>1598.36<span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">－</span>523.34<span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">）÷</span>40674.72=2.64%<span style=\"margin: 0px; padding: 0px; font-family: 宋体;\">。能看出，除去放贷，公积金主要的投资渠道是存款和投资国债，而存款和国债的收益率都比较低。若能找到风险可控、收益率更高的投资机会，对公积金保值增值就更有利了。</span></span></p><p><br/></p>', '2016-09-17 15:03:44', null, null);
+INSERT INTO `ad_articles` VALUES ('19', '14', 'App\\Models\\NewModel', '<p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">网络借贷信息中介机构业务活动管理暂行办法》(以下简称《办法》)出来后，全国各大平台大喊要“拥抱监管”、“合规发展”口号。一些平台更是参照“禁13条”，力证自己合规程度之高。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　而《办法》当中，“网络借贷信息中介机构完成地方金融监管部门备案登记后，应当按照通信主管部门的相关规定申请相应的电信业务经营许可;未按规定申请电信业务经营许可的，不得开展网络借贷信息中介业务。”这条规定，让ICP许可证成为平台合规“标配”，更是成为平台新的营销宣传要点。平台们争相将其作为自有优势输出，企图为自己的品牌背书添砖加瓦。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　当然这并不出奇，正所谓物以稀为贵。据不完全统计，截至2016年8月底，全国正常运营平台数量为2235家，其中约有242家平台拥有有效的ICP经营性许可证，约占网贷行业正常运营平台总数量的10.83%。而大部分平台目前处于“无证经营”状态。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　有ICP证，意味着平台合规。一些平台借势加以渲染，于是有了这样的逻辑推理——为什么我这家平台能够成为这极少数中被认可的一家？因为我家各方面合规呀!为什么获得ICP证的平台这么少？因为通信部门对平台的资质审核要求高!为什么一些很大平台没有获得这个证？因为他们还没有达到要求呀!形成了“一证在手，畅通无阻”的观念，这导致一些第三方办证机构将ICP证出价到30万。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　然而真相是，<strong style=\"margin: 0px; padding: 0px;\">大多数“持证平台”是在《办法》出台前办理ICP的。在监管办法出来之前，监管层也未设有对应的申请路径。目前地区通信管理局对<span id=\"Info.34844\" style=\"margin: 0px; padding: 0px;\">P2P网贷</span>平台办理ICP许可证的要求趋严，且部分地区还要求必须先出示地方金融管理部门出具的前置审批，在操作程序不明确的情况下使得办证申请更是难上加难。</strong>对于ICP许可证作为平台被硬性要求的“隐形牌照”，不知历经12个月整改期后，到时是否还有平台会拿出来炫耀？</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　<strong style=\"margin: 0px; padding: 0px;\">前一段时间，议论的热点还有资金银行存管。</strong>据不完全统计，截至2016年7月10日，共有149家正常运营平台宣布与银行签订资金存管协议，约占网贷行业正常运营平台总数量的6.34%，而真正与银行完成资金存管系统对接的只有48家，仅占网贷行业正常运营平台数量的2.04%。银行存管对行业的整体作用在于——由银行管理资金，平台管理交易，做到资金与交易的分离，使得平台无法直接接触资金，避免客户资金被挪用。在反面教材e租宝事件中，手持百万年薪的平台高管，还任意挥霍投资者的资金。在这样的情形下，银行存管成为投资人衡量<span id=\"Info.31100\" style=\"margin: 0px; padding: 0px;\">P2P</span>网贷平台安全的一个重要调教，银行资金存管也成为平台合法合规的必要。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　于是乎，不管是不是签订了银行存管协议，平台或向其靠拢或将自己与银行挂钩，这个逻辑跟ICP经营许可证很相似，这里不再赘述。包括此前兴起的互联网金融+保险，从最开始平台牵手阳光保险推出的资金交易安全险，到后来相继推出人身意外险、履约保证保险等各种险种，也可以看到网贷平台曾兴起过引入保险以增信营销热潮。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　近半年以来，一向被认为以“安全”为标签的国资系的负面消息不断，投资人的“视觉疲劳”后，这个话题才渐冷下来。国资系的概念，是于整个行业在逾期、跑路、倒闭负面事件频出之时，国资平台因其股东雄厚的实力彰显安全性而兴起的，其在获客上极具优势。</p><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 25px 8px 0px; line-height: 25px; color: rgb(51, 51, 51); font-family: Arial, 宋体, sans-serif; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\">　　而滥用国资系概念也使得问题突出，打着国资幌子的“伪国资平台”运营风险不断暴露。今年3月国资委召集部分国资系网贷平台负责人开座谈会，排查过度营销的国资平台。加上明星代言平台出事、第三方担保公司拒绝兑付甚至倒闭等事件，也让投资者开始理性看待这些信用背书价值。</p><p><br/></p>', '2016-09-17 15:08:00', '2016-09-17 15:08:00', null);
+INSERT INTO `ad_articles` VALUES ('20', '5', 'App\\Models\\CorpModel', '<p style=\"margin-top: 0px; margin-bottom: 30px; padding: 0px; word-wrap: break-word; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\">e融所(深圳汇海易融互联网金融服务有限公司) 是一家具有上市公司和券商背景的互联网金融服务平台，总部位于深圳，注册资本金1亿元。由深圳市多家上市公司、知名企业以及银行高管共同出资成立，股东包括深圳方大集团、华林证券创投、国人通信、中海信等知名企业。e融所管理团队由具有15年以上从业经验银行高管和5年以上的互联网金融从业经验的专业人士组成，在金融和互联网领域均具有丰富的管理、风险识别以及市场开拓经验。</p><p style=\"margin-top: 0px; margin-bottom: 30px; padding: 0px; word-wrap: break-word; color: rgb(100, 101, 103); font-family: &#39;Microsoft Yahei&#39;; font-size: 14px; line-height: 24.5px; white-space: normal; background-color: rgb(255, 255, 255);\"><span style=\"margin: 0px; padding: 0px; font-weight: bold;\">联系地址：深圳市龙华新区创业路汇海广场B座2505</span><br/><span style=\"margin: 0px; padding: 0px; font-weight: bold;\">公司电话：400-602-6622</span></p>', '2016-09-17 15:13:02', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_banks`
@@ -79,15 +72,14 @@ CREATE TABLE `ad_banks` (
   `city` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '市',
   `branch_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '支行名称',
   `cardno` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '卡号',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '修改时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_banks
 -- ----------------------------
-INSERT INTO `ad_banks` VALUES ('1', '2', '老朱', '招商银行', '0', '北京市', '北京市', '通州区分账', '1123123131231', '2016-09-11 00:26:04', null);
 
 -- ----------------------------
 -- Table structure for `ad_books`
@@ -110,8 +102,8 @@ CREATE TABLE `ad_books` (
   `back_reward` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '返现奖励',
   `discount_reward` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '折扣奖励',
   `manage_fee` decimal(10,2) DEFAULT '0.00' COMMENT '管理费用比率',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -132,8 +124,8 @@ CREATE TABLE `ad_categorys` (
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级',
   `page` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '访问url页面',
   `iconfont` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -142,11 +134,11 @@ CREATE TABLE `ad_categorys` (
 -- Records of ad_categorys
 -- ----------------------------
 INSERT INTO `ad_categorys` VALUES ('1', '公司简介', '1', '1', '0', 'company', '&#xe61f;', '2016-09-12 21:13:11', null, null);
-INSERT INTO `ad_categorys` VALUES ('2', '月度报告', '4', '1', '0', 'monthly', '&#xe62c;', '2016-09-12 21:13:23', null, null);
+INSERT INTO `ad_categorys` VALUES ('2', '月度报告', '4', '1', '0', 'monthly', '&#xe62c;', '2016-09-17 18:24:08', '2016-09-17 18:24:04', '2016-09-17 18:23:34');
 INSERT INTO `ad_categorys` VALUES ('3', '专家顾问', '0', '1', '0', 'consultant', '&#xe623;', '2016-09-12 21:14:18', null, null);
 INSERT INTO `ad_categorys` VALUES ('4', '媒体报道', '0', '1', '0', 'media', '&#xe612;', '2016-09-12 21:14:28', null, null);
 INSERT INTO `ad_categorys` VALUES ('5', '团队介绍', '1', '1', '0', 'team', '&#xe609;', '2016-09-12 21:14:39', null, null);
-INSERT INTO `ad_categorys` VALUES ('6', 'T盾计划', '1', '1', '0', 'plan', '&#xe62a;', '2016-09-12 21:14:49', null, null);
+INSERT INTO `ad_categorys` VALUES ('6', '天眼盾计划', '1', '1', '0', 'plan', '&#xe62a;', '2016-09-17 20:36:33', null, null);
 INSERT INTO `ad_categorys` VALUES ('7', '帮助中心', '2', '1', '0', 'help', '&#xe629;', '2016-09-12 21:14:57', null, null);
 INSERT INTO `ad_categorys` VALUES ('8', '安全评级', '1', '1', '0', 'safety', '&#xe626;', '2016-09-12 21:15:06', null, null);
 INSERT INTO `ad_categorys` VALUES ('9', '招贤纳士', '1', '1', '0', 'career', '&#xe620;', '2016-09-12 21:15:14', null, null);
@@ -173,19 +165,19 @@ CREATE TABLE `ad_corp_terms` (
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '姓名',
   `position` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '职称',
   `intro` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '描述信息',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_corp_terms
 -- ----------------------------
-INSERT INTO `ad_corp_terms` VALUES ('2', '1', '力量', 'CTO', '师傅师傅说分手的水电费师傅的说法', '2016-09-10 18:14:12', '2016-09-10 18:14:12', '2016-09-10 18:14:12');
-INSERT INTO `ad_corp_terms` VALUES ('3', '1', '李亮', 'CEO', '非常牛逼的人啊', '2016-09-10 18:14:50', '2016-09-10 18:14:50', null);
-INSERT INTO `ad_corp_terms` VALUES ('4', '2', 'qqq', 'qqq', 'qqq', '2016-09-10 22:56:46', null, null);
-INSERT INTO `ad_corp_terms` VALUES ('5', '3', 'werwr', 'CEO', 'sfsdfdss', '2016-09-14 23:52:08', null, null);
+INSERT INTO `ad_corp_terms` VALUES ('6', '5', '林建武', '董事长', '中央党校经济学研究生毕业，长江商学院EMBACK25。由银行基层到支行行长再到分行高管，曾就职于广东发展银行、深圳发展银行、渤海银行等多家银行，从事金融证券行业长达20年之久。', '2016-09-17 20:04:04', '2016-09-17 15:19:50', null);
+INSERT INTO `ad_corp_terms` VALUES ('7', '5', '胡肖明', '总裁', '天津南开大学金融系毕业，获金融学学士学位，20年银行系统从业经验，担任广东发展银行、深圳发展银行、平安银行支行行长多年', '2016-09-17 15:17:54', null, null);
+INSERT INTO `ad_corp_terms` VALUES ('8', '5', '施跃进', '副总裁', '南昌大学毕业，获工学学士学位，会计师、经济师。拥有23年中央银行和商业银行工作经验，曾任银行总分支行计财、运营、风控、产品部门', '2016-09-17 15:18:38', null, null);
+INSERT INTO `ad_corp_terms` VALUES ('9', '5', '张 琪', '副总裁', '消费金融事业部负责人，毕业于北京大学法学院，获法律硕士(JM)学位。10年银行从业经验，先后任职于平安银行支行副行长，汽车金融..', '2016-09-17 15:19:06', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_corps`
@@ -193,7 +185,6 @@ INSERT INTO `ad_corp_terms` VALUES ('5', '3', 'werwr', 'CEO', 'sfsdfdss', '2016-
 DROP TABLE IF EXISTS `ad_corps`;
 CREATE TABLE `ad_corps` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `platform` char(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '平台名称',
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '公司名称',
   `ename` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '平台英文名',
   `chartered` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '营业执照',
@@ -213,19 +204,16 @@ CREATE TABLE `ad_corps` (
   `level` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0' COMMENT '等级',
   `limit` tinyint(1) DEFAULT '0' COMMENT '交任务的数量数',
   `sorts` int(11) DEFAULT '0' COMMENT '排序',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除操作',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_corps
 -- ----------------------------
-INSERT INTO `ad_corps` VALUES ('1', '陆金所', '陆金所', 'lujinsuo', 'http://static.phpad.net/uploads/imgs/2016-09-15/280220/57da0ef856c5a.jpg', '/uploads/imgs/2016-09-11/180180/57d5618e78cb7.jpg', null, '18.00', '0', '0', '5000', '老朱', '福建省', '三明市', '古镛镇', '1', '2015-06-20', '俩来吧', 'AAA', '1', '0', '2016-09-16 15:24:01', '2016-09-15 11:01:14', null);
-INSERT INTO `ad_corps` VALUES ('2', '111', '2222', '111', '/uploads/imgs/2016-09-11/19560/57d561770cb89.jpg', '/uploads/imgs/2016-09-11/180180/57d5617d212b5.jpg', '0.00', '13.00', '0', '28', '2000万元', '1111', '河北省', '上海市', '丰润区', '1', '2016-09-09', '111111', 'A', '0', '0', '2016-09-16 15:35:41', '2016-09-14 22:51:25', null);
-INSERT INTO `ad_corps` VALUES ('3', 'e融所', 'e融所p2p管理公司', 'erongsuo', '/uploads/imgs/2016-09-11/19560/57d52d6e7b39a.jpg', '/uploads/imgs/2016-09-11/180180/57d52d72377b4.jpg', '3.00', '22.00', '30', '258', '5000', '老朱', '天津市', '天津市', '南开区', '1', '2016-09-09', '河西区八里台', 'AA', '0', '0', '2016-09-16 20:25:41', '2016-09-16 20:25:41', null);
-INSERT INTO `ad_corps` VALUES ('4', '微贷网', '微贷网', 'weidaiwang', '/uploads/imgs/2016-09-15/280220/57da3c826c397.jpg', '/uploads/imgs/2016-09-15/180180/57da3c748e3de.jpg', '3.00', '3.00', '258', '258', '5000', '老朱', '天津市', '天津市', '大港区', '1', '2016-09-30', '河西区八里台', 'AAA', '1', '111', '2016-09-17 19:13:00', '2016-09-17 19:13:00', null);
+INSERT INTO `ad_corps` VALUES ('5', 'e融所', 'erongsuo', '/uploads/imgs/2016-09-17/280220/57dcec44648d5.jpg', '/uploads/imgs/2016-09-17/180180/57dcec22312e6.jpg', '15.00', '15.00', '11', '11', '2000万元', '林建武', '广东省', '深圳市', '区', '1', '2015-09-17', '龙华新区创业路汇海广场B座2505', 'AAA', '1', '200', '2016-09-17 19:44:07', '2016-09-17 19:44:07', null);
 
 -- ----------------------------
 -- Table structure for `ad_images`
@@ -236,32 +224,22 @@ CREATE TABLE `ad_images` (
   `name` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片地址名称',
   `item_id` int(11) NOT NULL,
   `item_type` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片类型',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '当前时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_images
 -- ----------------------------
-INSERT INTO `ad_images` VALUES ('1', '1111', '1', 'App\\Models\\UserModel', '2016-09-07 18:24:45', null, null);
-INSERT INTO `ad_images` VALUES ('2', '/logo/2016-09-10/188223/57d3d9c74d148.jpg', '1', 'App\\Models\\CorpTermModel', '2016-09-10 18:13:32', '2016-09-10 18:13:32', '2016-09-10 18:13:32');
-INSERT INTO `ad_images` VALUES ('3', '/logo/2016-09-10/188223/57d3d93516a9a.jpg', '2', 'App\\Models\\CorpTermModel', '2016-09-10 18:14:12', '2016-09-10 18:14:12', '2016-09-10 18:14:12');
-INSERT INTO `ad_images` VALUES ('4', '/uploads/imgs/2016-09-15/188223/57da06baafba3.jpg', '3', 'App\\Models\\CorpTermModel', '2016-09-15 10:26:04', '2016-09-15 10:26:04', null);
-INSERT INTO `ad_images` VALUES ('5', '/imgs/2016-09-10/184125/57d415d05e79e.jpg', '2', 'App\\Models\\NewModel', '2016-09-10 22:17:38', null, null);
-INSERT INTO `ad_images` VALUES ('6', '/imgs/2016-09-10/184125/57d41e3ca29bf.jpg', '3', 'App\\Models\\NewModel', '2016-09-10 22:52:45', '2016-09-10 22:52:45', null);
-INSERT INTO `ad_images` VALUES ('7', '/imgs/2016-09-10/184125/57d416920ba3d.jpg', '4', 'App\\Models\\NewModel', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
-INSERT INTO `ad_images` VALUES ('8', '/imgs/2016-09-10/184125/57d4169d4ca1f.jpg', '5', 'App\\Models\\NewModel', '2016-09-10 22:44:30', '2016-09-10 22:44:30', '2016-09-10 22:44:30');
-INSERT INTO `ad_images` VALUES ('11', '/imgs/2016-09-10/184125/57d419982577d.jpg', '8', 'App\\Models\\NewModel', '2016-09-10 22:42:43', '2016-09-10 22:42:43', '2016-09-10 22:42:43');
-INSERT INTO `ad_images` VALUES ('12', '/imgs/2016-09-10/184125/57d41b11b1a44.jpg', '1', 'App\\Models\\NewModel', '2016-09-10 22:43:11', '2016-09-10 22:43:11', '2016-09-10 22:43:11');
-INSERT INTO `ad_images` VALUES ('13', '/uploads/logo/2016-09-11/24282/57d561cb0dd49.jpg', '1', 'App\\Models\\NewModel', '2016-09-15 17:28:16', '2016-09-15 17:28:16', '2016-09-15 17:28:16');
-INSERT INTO `ad_images` VALUES ('25', '/imgs/2016-09-10/188223/57d422853db40.jpg', '4', 'App\\Models\\CorpTermModel', '2016-09-10 23:14:24', null, null);
-INSERT INTO `ad_images` VALUES ('26', '/uploads/imgs/2016-09-13/1349246/57d80a85bb150.jpg', '1', 'App\\Models\\AdvModel', '2016-09-13 22:17:43', null, null);
-INSERT INTO `ad_images` VALUES ('27', '/uploads/logo/2016-09-13/24282/57d81b0ff0e38.jpg', '10', 'App\\Models\\NewModel', '2016-09-13 23:28:19', '2016-09-13 23:28:19', null);
-INSERT INTO `ad_images` VALUES ('28', '/uploads/imgs/2016-09-13/184125/57d81b6dadf51.jpg', '11', 'App\\Models\\NewModel', '2016-09-15 17:28:09', '2016-09-15 17:28:09', '2016-09-15 17:28:09');
-INSERT INTO `ad_images` VALUES ('29', '/uploads/imgs/2016-09-14/294129/57d8e4186467e.jpg', '8', 'App\\Models\\TaskModel', '2016-09-14 13:46:02', null, null);
-INSERT INTO `ad_images` VALUES ('30', '/uploads/imgs/2016-09-14/188223/57d972200b53e.jpg', '5', 'App\\Models\\CorpTermModel', '2016-09-14 23:52:08', null, null);
+INSERT INTO `ad_images` VALUES ('31', '/uploads/imgs/2016-09-17/1349246/57dce7795f063.jpg', '2', 'App\\Models\\AdvModel', '2016-09-17 14:51:09', null, null);
+INSERT INTO `ad_images` VALUES ('32', '/uploads/logo/2016-09-17/24282/57dceba722a83.jpg', '14', 'App\\Models\\NewModel', '2016-09-17 15:07:20', null, null);
+INSERT INTO `ad_images` VALUES ('33', '/uploads/imgs/2016-09-17/188223/57dced6fd02c8.jpg', '6', 'App\\Models\\CorpTermModel', '2016-09-17 15:15:50', null, null);
+INSERT INTO `ad_images` VALUES ('34', '/uploads/imgs/2016-09-17/188223/57dcee0e6bd83.jpg', '7', 'App\\Models\\CorpTermModel', '2016-09-17 15:17:54', null, null);
+INSERT INTO `ad_images` VALUES ('35', '/uploads/imgs/2016-09-17/188223/57dcee40bb36b.jpg', '8', 'App\\Models\\CorpTermModel', '2016-09-17 15:18:38', null, null);
+INSERT INTO `ad_images` VALUES ('36', '/uploads/imgs/2016-09-17/188223/57dcee614d714.jpg', '9', 'App\\Models\\CorpTermModel', '2016-09-17 15:19:06', null, null);
+INSERT INTO `ad_images` VALUES ('37', '/uploads/logo/2016-09-17/24282/57dd5f6c3dca3.jpg', '16', 'App\\Models\\NewModel', '2016-09-17 23:21:32', '2016-09-17 23:21:32', '2016-09-17 23:21:32');
 
 -- ----------------------------
 -- Table structure for `ad_links`
@@ -272,20 +250,17 @@ CREATE TABLE `ad_links` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '友情链接名称',
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '跳转地址',
   `sorts` int(11) DEFAULT '0' COMMENT '排序',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_links
 -- ----------------------------
-INSERT INTO `ad_links` VALUES ('1', '百度', 'http://www.baidu.com', '1', '2016-09-14 21:27:26', null, null);
-INSERT INTO `ad_links` VALUES ('2', '新浪', 'http://www.baidu.com', '0', '2016-09-14 21:27:41', null, null);
-INSERT INTO `ad_links` VALUES ('3', '234324', '234243', '0', '2016-09-14 21:27:45', null, null);
-INSERT INTO `ad_links` VALUES ('4', '2342', '2342342', '0', '2016-09-14 21:27:49', null, null);
-INSERT INTO `ad_links` VALUES ('5', '234324234', '23424324', '0', '2016-09-14 21:27:53', null, null);
+INSERT INTO `ad_links` VALUES ('6', '网贷之家', 'http://www.wdzj.com/', '300', '2016-09-17 14:42:58', null, null);
+INSERT INTO `ad_links` VALUES ('7', '中国网', 'http://finance.china.com.cn/money/efinance/index.shtml', '200', '2016-09-17 14:44:31', null, null);
 
 -- ----------------------------
 -- Table structure for `ad_messages`
@@ -299,15 +274,14 @@ CREATE TABLE `ad_messages` (
   `priority` tinyint(1) DEFAULT '0' COMMENT '消息等级，等级越高越靠前',
   `title` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '消息标题',
   `body` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '消息体',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '0',
-  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00' COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '0',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_messages
 -- ----------------------------
-INSERT INTO `ad_messages` VALUES ('1', '0', '0', '1', '0', 'test', 'sdfsf', '2016-09-16 22:26:45', '2016-09-16 22:26:45');
 
 -- ----------------------------
 -- Table structure for `ad_metas`
@@ -320,42 +294,27 @@ CREATE TABLE `ad_metas` (
   `meta_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '数据表字段名称',
   `meta_value` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_metas
 -- ----------------------------
-INSERT INTO `ad_metas` VALUES ('18', '1', 'App\\Models\\CorpModel', 'icp_domain', 's:9:\"baidu.com\";');
-INSERT INTO `ad_metas` VALUES ('19', '1', 'App\\Models\\CorpModel', 'icp_corp_type', 's:6:\"企业\";');
-INSERT INTO `ad_metas` VALUES ('20', '1', 'App\\Models\\CorpModel', 'icp_time', 's:9:\"2016-9-16\";');
-INSERT INTO `ad_metas` VALUES ('21', '1', 'App\\Models\\CorpModel', 'icp_corp_name', 's:17:\"我要的公司11\";');
-INSERT INTO `ad_metas` VALUES ('22', '1', 'App\\Models\\CorpModel', 'icp_no', 's:12:\"内容迭代\";');
-INSERT INTO `ad_metas` VALUES ('25', '1', 'App\\Models\\CorpModel', 'id', 's:1:\"1\";');
-INSERT INTO `ad_metas` VALUES ('30', '1', 'App\\Models\\CorpModel', 'credentials', 'a:1:{i:0;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-15/206154/57da069a8af1e.jpg\";}');
-INSERT INTO `ad_metas` VALUES ('31', '1', 'App\\Models\\CorpModel', 'office_address', 'a:1:{i:0;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-15/206154/57da07d7436ed.jpg\";}');
-INSERT INTO `ad_metas` VALUES ('32', '2', 'App\\Models\\CorpModel', 'id', 's:1:\"2\";');
-INSERT INTO `ad_metas` VALUES ('33', '2', 'App\\Models\\CorpModel', 'credentials', 'a:1:{i:0;s:61:\"http://img.phpad.net/imgs/2016-09-10/206154/57d411161f6ab.jpg\";}');
-INSERT INTO `ad_metas` VALUES ('34', '3', 'App\\Models\\CorpModel', 'icp_domain', 's:7:\"s234234\";');
-INSERT INTO `ad_metas` VALUES ('35', '3', 'App\\Models\\CorpModel', 'icp_corp_type', 's:6:\"234234\";');
-INSERT INTO `ad_metas` VALUES ('36', '3', 'App\\Models\\CorpModel', 'icp_time', 's:9:\"2016-9-14\";');
-INSERT INTO `ad_metas` VALUES ('37', '3', 'App\\Models\\CorpModel', 'icp_corp_name', 's:15:\"我要的公司\";');
-INSERT INTO `ad_metas` VALUES ('38', '3', 'App\\Models\\CorpModel', 'icp_no', 's:7:\"2423432\";');
-INSERT INTO `ad_metas` VALUES ('39', '4', 'App\\Models\\CorpModel', 'capital_adequacy', 's:5:\"90.13\";');
-INSERT INTO `ad_metas` VALUES ('40', '4', 'App\\Models\\CorpModel', 'operating_capacity', 's:5:\"45.45\";');
-INSERT INTO `ad_metas` VALUES ('41', '4', 'App\\Models\\CorpModel', 'flowability', 's:5:\"22.22\";');
-INSERT INTO `ad_metas` VALUES ('42', '4', 'App\\Models\\CorpModel', 'dissemination', 's:5:\"34.45\";');
-INSERT INTO `ad_metas` VALUES ('43', '4', 'App\\Models\\CorpModel', 'transparency', 's:5:\"34.11\";');
-INSERT INTO `ad_metas` VALUES ('44', '4', 'App\\Models\\CorpModel', 'contract_rate', 's:5:\"72.11\";');
-INSERT INTO `ad_metas` VALUES ('45', '4', 'App\\Models\\CorpModel', 'icp_domain', 's:6:\"123132\";');
-INSERT INTO `ad_metas` VALUES ('46', '4', 'App\\Models\\CorpModel', 'icp_corp_type', 's:9:\"123131321\";');
-INSERT INTO `ad_metas` VALUES ('47', '4', 'App\\Models\\CorpModel', 'icp_time', 's:9:\"2016-9-17\";');
-INSERT INTO `ad_metas` VALUES ('48', '4', 'App\\Models\\CorpModel', 'icp_corp_name', 's:5:\"13213\";');
-INSERT INTO `ad_metas` VALUES ('49', '4', 'App\\Models\\CorpModel', 'icp_no', 's:22:\"粤ICP备15096910号-1\";');
-INSERT INTO `ad_metas` VALUES ('50', '4', 'App\\Models\\CorpModel', 'pattern', 's:6:\"123123\";');
-INSERT INTO `ad_metas` VALUES ('51', '4', 'App\\Models\\CorpModel', 'assure', 's:5:\"23123\";');
-INSERT INTO `ad_metas` VALUES ('52', '4', 'App\\Models\\CorpModel', 'id', 's:1:\"4\";');
-INSERT INTO `ad_metas` VALUES ('53', '4', 'App\\Models\\CorpModel', 'credentials', 'a:3:{i:0;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-17/206154/57dd261033a74.jpg\";i:1;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-17/206154/57dd2610a149a.jpg\";i:2;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-17/206154/57dd261113402.jpg\";}');
-INSERT INTO `ad_metas` VALUES ('54', '4', 'App\\Models\\CorpModel', 'office_address', 'a:3:{i:0;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-17/206154/57dd261586d0c.jpg\";i:1;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-17/206154/57dd2615e8ad2.jpg\";i:2;s:72:\"http://static.phpad.net/uploads/imgs/2016-09-17/206154/57dd26165e206.jpg\";}');
+INSERT INTO `ad_metas` VALUES ('45', '5', 'App\\Models\\CorpModel', 'icp_domain', 's:11:\"myerong.com\";');
+INSERT INTO `ad_metas` VALUES ('46', '5', 'App\\Models\\CorpModel', 'icp_corp_type', 's:6:\"企业\";');
+INSERT INTO `ad_metas` VALUES ('47', '5', 'App\\Models\\CorpModel', 'icp_time', 's:9:\"2015-11-2\";');
+INSERT INTO `ad_metas` VALUES ('48', '5', 'App\\Models\\CorpModel', 'icp_corp_name', 's:48:\"深圳汇海易融互联网融服务有限公司\";');
+INSERT INTO `ad_metas` VALUES ('49', '5', 'App\\Models\\CorpModel', 'icp_no', 's:22:\"粤ICP备15096910号-1\";');
+INSERT INTO `ad_metas` VALUES ('50', '5', 'App\\Models\\CorpModel', 'id', 's:1:\"5\";');
+INSERT INTO `ad_metas` VALUES ('51', '5', 'App\\Models\\CorpModel', 'credentials', 'a:2:{i:0;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcef4f3ef07.jpg\";i:1;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcf1c97997f.jpg\";}');
+INSERT INTO `ad_metas` VALUES ('52', '5', 'App\\Models\\CorpModel', 'office_address', 'a:5:{i:0;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcef5c90462.jpg\";i:1;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcf1d1b07c8.jpg\";i:2;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcf1d1ce3e3.jpg\";i:3;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcf1d1e22c4.jpg\";i:4;s:77:\"http://static.tianyantou.com/uploads/imgs/2016-09-17/206154/57dcf1d2031ac.jpg\";}');
+INSERT INTO `ad_metas` VALUES ('53', '5', 'App\\Models\\CorpModel', 'capital_adequacy', 's:5:\"78.76\";');
+INSERT INTO `ad_metas` VALUES ('54', '5', 'App\\Models\\CorpModel', 'operating_capacity', 's:5:\"58.32\";');
+INSERT INTO `ad_metas` VALUES ('55', '5', 'App\\Models\\CorpModel', 'flowability', 's:5:\"56.23\";');
+INSERT INTO `ad_metas` VALUES ('56', '5', 'App\\Models\\CorpModel', 'dissemination', 's:5:\"80.31\";');
+INSERT INTO `ad_metas` VALUES ('57', '5', 'App\\Models\\CorpModel', 'transparency', 's:5:\"58.58\";');
+INSERT INTO `ad_metas` VALUES ('58', '5', 'App\\Models\\CorpModel', 'contract_rate', 's:5:\"57.84\";');
+INSERT INTO `ad_metas` VALUES ('59', '5', 'App\\Models\\CorpModel', 'pattern', 's:36:\"风险准备金，双乾支付托管\";');
+INSERT INTO `ad_metas` VALUES ('60', '5', 'App\\Models\\CorpModel', 'assure', 's:12:\"网贷之家\";');
 
 -- ----------------------------
 -- Table structure for `ad_moneys`
@@ -369,8 +328,8 @@ CREATE TABLE `ad_moneys` (
   `withdraw` decimal(10,2) DEFAULT '0.00' COMMENT '提现冻结',
   `money` decimal(10,2) DEFAULT '0.00' COMMENT '可用金额',
   `score` int(11) DEFAULT '0' COMMENT '积分',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -391,22 +350,18 @@ CREATE TABLE `ad_news` (
   `corp_id` int(11) DEFAULT '0' COMMENT '公司信息',
   `description` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '描述信息',
   `views` int(11) DEFAULT '0' COMMENT '浏览数',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_news
 -- ----------------------------
-INSERT INTO `ad_news` VALUES ('1', '1', '13', '321312', '2', '12313', '11', '2016-09-15 17:28:16', '2016-09-15 17:28:16', '2016-09-15 17:28:16');
-INSERT INTO `ad_news` VALUES ('2', '0', '13', '客户案例0627', '2', ' 123123123 ', '15', '2016-09-17 14:30:44', '2016-09-17 14:30:44', null);
-INSERT INTO `ad_news` VALUES ('3', '0', '12', '测试内容详情', '2', '7大支持内容啊   ', '4', '2016-09-17 14:30:47', '2016-09-17 14:30:47', null);
-INSERT INTO `ad_news` VALUES ('4', '0', '13', '12312221321', '2', ' 13213123 23442342', '0', '2016-09-10 22:45:17', '2016-09-10 22:45:17', '2016-09-10 22:45:17');
-INSERT INTO `ad_news` VALUES ('9', '0', '10', '佳节将至，请留意中秋值班安排', '0', null, '0', '2016-09-13 22:46:16', null, null);
-INSERT INTO `ad_news` VALUES ('10', '0', '10', '最新动态内容', '3', '文章描述水电费等所发生的分手大师', '0', '2016-09-16 22:36:31', '2016-09-13 23:29:28', null);
-INSERT INTO `ad_news` VALUES ('11', '0', '10', '111111123', '3', ' 132123123', '0', '2016-09-16 22:36:16', '2016-09-15 17:28:09', '0000-00-00 00:00:00');
+INSERT INTO `ad_news` VALUES ('12', '0', '10', '佳节将至，请留意中秋值班安排', '0', null, '10', '2016-09-17 20:35:22', '2016-09-17 23:17:04', null);
+INSERT INTO `ad_news` VALUES ('13', '1', '12', '《全国住房公积金2015年年度报告》发布，住房公积金隐藏多少玄机？', '0', '', '12', '2016-09-17 23:16:17', '2016-09-17 23:16:53', null);
+INSERT INTO `ad_news` VALUES ('14', '1', '11', '网贷行业进入拼爹时代 增信背书或将大缩水', '0', '在后监管时代，当行业趋于理性，这种过分倚重外在的背书将还是会被平台的风控能力、投资者的风险判断所代替，这只是时间问题罢了。', '4', '2016-09-17 23:11:26', '2016-09-17 23:11:26', null);
 
 -- ----------------------------
 -- Table structure for `ad_records`
@@ -420,8 +375,8 @@ CREATE TABLE `ad_records` (
   `cost` decimal(10,2) DEFAULT '0.00' COMMENT '支出',
   `account` decimal(10,2) DEFAULT '0.00' COMMENT '账号金额',
   `remark` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注 ',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -438,17 +393,14 @@ CREATE TABLE `ad_scores` (
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '获取积分数目',
   `intro` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '获取积分说明',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_scores
 -- ----------------------------
-INSERT INTO `ad_scores` VALUES ('1', '2', '2', '赠送积分', '2016-09-11 00:03:04', '2016-09-11 00:03:04');
-INSERT INTO `ad_scores` VALUES ('2', '2', '4', '增加积分', '2016-09-11 13:51:31', '2016-09-11 13:51:31');
-INSERT INTO `ad_scores` VALUES ('3', '2', '4444', '1', '2016-09-11 14:12:09', '2016-09-11 14:12:09');
 
 -- ----------------------------
 -- Table structure for `ad_task_achieves`
@@ -462,16 +414,14 @@ CREATE TABLE `ad_task_achieves` (
   `realname` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '真实用户名',
   `mobile` char(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '手机号码',
   `price` decimal(10,2) DEFAULT '0.00' COMMENT '投资金额',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_task_achieves
 -- ----------------------------
-INSERT INTO `ad_task_achieves` VALUES ('1', '3', '2', '123123', '朱希顺', '1352208010', '11000.00', '2016-09-11 20:23:54', null);
-INSERT INTO `ad_task_achieves` VALUES ('2', '3', '2', '123123', '老朱', '18611570121', '2000.00', '2016-09-11 20:41:47', null);
 
 -- ----------------------------
 -- Table structure for `ad_task_receives`
@@ -489,16 +439,12 @@ CREATE TABLE `ad_task_receives` (
   `commit_time` int(11) DEFAULT '0' COMMENT '提交任务时间',
   `complete_time` int(11) DEFAULT '0' COMMENT '审核时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_task_receives
 -- ----------------------------
-INSERT INTO `ad_task_receives` VALUES ('2', '3', '3', '2', '1', '100.00', null, '0', '0', '0');
-INSERT INTO `ad_task_receives` VALUES ('4', '1', '6', '1', '0', '123213.00', null, '0', '0', '0');
-INSERT INTO `ad_task_receives` VALUES ('6', '3', '9', '1', '0', '2000.00', null, '0', '0', '0');
-INSERT INTO `ad_task_receives` VALUES ('7', '3', '5', '1', '0', '111.00', null, '1474088124', '0', '0');
-INSERT INTO `ad_task_receives` VALUES ('8', '1', '8', '1', '0', '100.00', null, '1474111082', '0', '0');
+INSERT INTO `ad_task_receives` VALUES ('9', '5', '10', '1', '0', '1000.00', '32123213', '1474112647', '0', '0');
 
 -- ----------------------------
 -- Table structure for `ad_tasks`
@@ -514,10 +460,8 @@ CREATE TABLE `ad_tasks` (
   `mratio` decimal(10,2) DEFAULT '0.00' COMMENT '本网站转化率',
   `term` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '期限',
   `sued` decimal(10,2) DEFAULT '0.00' COMMENT '起诉金额',
-  `ensure` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '保障方式',
   `repay` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '还款方式',
   `sorts` int(11) DEFAULT '0' COMMENT '排序',
-  `accrual` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '计息方式(T+0到账\\T+1到账)',
   `limit` decimal(10,2) DEFAULT '0.00' COMMENT '投标限额(元)',
   `nums` int(11) DEFAULT '0' COMMENT '库存数量',
   `position` tinyint(1) DEFAULT '0' COMMENT '展示位置 0、普通展示 1、首页展示',
@@ -526,23 +470,16 @@ CREATE TABLE `ad_tasks` (
   `start_time` int(11) DEFAULT '0' COMMENT '开始时间',
   `end_time` int(11) DEFAULT NULL COMMENT '结束时间',
   `url` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT '跳转地址 ',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '当前时间',
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '当前时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_tasks
 -- ----------------------------
-INSERT INTO `ad_tasks` VALUES ('2', '3', '12313213', '0.00', '0.00', '0', '0.00', '0', '0.00', '0', '0', '0', '0', '0.00', '0', '0', '11', null, '0', null, '', '2016-09-15 12:58:58', '2016-09-10 16:49:51', '2016-09-10 16:49:51');
-INSERT INTO `ad_tasks` VALUES ('3', '3', 'aaasdf', '111111.00', '11.00', '1', '3.00', '111', '11.00', '111', '111', '0', '111', '1000.00', '100', '1', '21', null, '1473861969', '1476453969', '', '2016-09-15 12:59:11', '2016-09-14 22:10:05', null);
-INSERT INTO `ad_tasks` VALUES ('4', '3', '测试页面', '10000000.00', '12.22', '0', '3.40', '20', '200.00', '112313', '123123', '0', '1231232', '1000.00', '0', '0', '45', null, '1473862952', '1476454952', '', '2016-09-15 12:59:13', '2016-09-14 22:22:36', null);
-INSERT INTO `ad_tasks` VALUES ('5', '3', '测试页面', '1111111.00', '22.00', '1', '3.00', '11', '1111.00', '112313', '11', '0', '111', '111.00', '56', '1', '56', null, '1473862980', '1477664580', 'www.baidu.com', '2016-09-17 12:55:24', '2016-09-17 12:55:24', null);
-INSERT INTO `ad_tasks` VALUES ('6', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '0', '123123', '123213.00', '-13', '0', '34', null, '0', null, 'http://www.erongsuo.com', '2016-09-17 00:14:37', '2016-09-17 00:14:37', null);
-INSERT INTO `ad_tasks` VALUES ('7', '1', '12312313', '112313.00', '123123.00', '1', '1231.00', '123123', '1321321.00', '123213', '1321', '0', '123123', '123213.00', '0', '1', '12', null, '0', null, '', '2016-09-15 12:59:19', null, null);
-INSERT INTO `ad_tasks` VALUES ('8', '1', '客户案例0627', '10000.00', '12.00', '1', '3.00', '130', '0.00', '0', '0', '0', '0', '100.00', '19', '0', '8', '/uploads/imgs/2016-09-14/294129/57d8e4f82016b.jpg', '1473831940', '1476423940', 'http://www.baidu.com', '2016-09-17 19:18:02', '2016-09-17 19:18:02', null);
-INSERT INTO `ad_tasks` VALUES ('9', '3', '新手福利标160915X', '30000000.00', '3.00', '1', '2.00', '10个月', '100.00', 'sdfsfdsf', 'sdfsfsdf', '300', 'sdfsfsdfds', '200.00', '297', '1', '0', '/uploads/imgs/2016-09-16/294129/57dbe4c2b07d2.jpg', '1473920339', '1496211539', 'http://www.baidu.com', '2016-09-17 01:25:39', '2016-09-17 01:25:39', null);
+INSERT INTO `ad_tasks` VALUES ('10', '5', '新手福利标160917X', '2000000.00', '15.00', '1', '0.00', '10天', '0.00', '本息到期一次付清', '500', '1000.00', '99', '1', '1', '/uploads/imgs/2016-09-17/294129/57dcf0c37777a.jpg', '1474097096', '1475047496', 'https://www.myerong.com/financing/sbtz/bdxq/1277.html', '2016-09-17 19:44:07', '2016-09-17 19:44:07', null);
 
 -- ----------------------------
 -- Table structure for `ad_users`
@@ -569,8 +506,8 @@ CREATE TABLE `ad_users` (
   `marriage` enum('已婚','未婚') CHARACTER SET utf8 DEFAULT NULL COMMENT '婚姻',
   `income` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '月薪',
   `signature` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '签名',
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -593,7 +530,7 @@ CREATE TABLE `ad_withdraws` (
   `commission` decimal(10,2) DEFAULT '0.00' COMMENT '0.00',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态 0、申请提现 1、已派发 2、拒绝提现',
   `reason` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '拒绝原因',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -601,4 +538,3 @@ CREATE TABLE `ad_withdraws` (
 -- ----------------------------
 -- Records of ad_withdraws
 -- ----------------------------
-INSERT INTO `ad_withdraws` VALUES ('1', '2', '1', '100.00', '0.00', '1', '审核通过', '2016-09-11 09:18:39', '2016-09-11 09:18:39');
