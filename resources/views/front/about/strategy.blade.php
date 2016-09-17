@@ -14,10 +14,7 @@
                     <li><i class="iconfont">&#xe672;</i><a href="{!! $nv->url($category->page) !!}" target="_blank">{!! $nv->title !!}</a></li>
                     @endforeach
                     <div class="pagination" data-pagination-ref="strategy">
-                        <a class="curr">1</a>
-                        <a href="strategy?page=2" data-ci-pagination-page="2">2</a>
-                        <a href="strategy?page=3" data-ci-pagination-page="3">3</a>
-                        <a href="strategy?page=2" data-ci-pagination-page="2"><span class="next">&#xe660;</span></a>
+                        {!! $pageHtml !!}
                     </div>
                 </ul>
             </div>

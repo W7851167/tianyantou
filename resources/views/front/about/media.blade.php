@@ -23,10 +23,7 @@
                     </div>
                     @endforeach
                     <div class="pagination" data-pagination-ref="media">
-                        <a class="curr">1</a>
-                        <a href="media?page=2" data-ci-pagination-page="2">2</a>
-                        <a href="media?page=3" data-ci-pagination-page="3">3</a>
-                        <a href="media?page=2" data-ci-pagination-page="2"><span class="next">&#xe660;</span></a>
+                        {!! $pageHtml !!}
                     </div>
                 </div>
             </div>
