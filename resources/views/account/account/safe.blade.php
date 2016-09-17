@@ -20,7 +20,7 @@
                             </dt>
                             <dd>
                                 <span class="valid-value"></span>
-                                <a href="https://account.touzhijia.com/safe/changeNickname.html"
+                                <a href="{!! config('app.account_url') !!}/safe/changeNickname.html"
                                    class="inline-modify modify-btn" data-target="#nickname-panel">修改用户名</a>
                             </dd>
                         </dl>
@@ -35,9 +35,9 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">150****9522</span>
-                                <a href="https://account.touzhijia.com/safe/changeTelephone.html"
+                                <a href="{!! config('app.account_url') !!}/safe/changeTelephone.html"
                                    class="inline-modify modify-btn" data-target="#telephone-panel">通过原手机修改</a>
-                                <a href="https://account.touzhijia.com/safe.html" class="modify-btn"></a>
+                                <a href="{!! config('app.account_url') !!}/safe.html" class="modify-btn"></a>
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="telephone-panel"></div>
@@ -50,9 +50,9 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">未验证</span>
-                                <a href="https://account.touzhijia.com/safe/validateEmail.html"
+                                <a href="{!! config('app.account_url') !!}/safe/validateEmail.html"
                                    class="inline-modify modify-btn" data-target="#email-panel">验证</a>
-                                <a href="https://account.touzhijia.com/safe.html" class="modify-btn"></a>
+                                <a href="{!! config('app.account_url') !!}/safe.html" class="modify-btn"></a>
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="email-panel"></div>
@@ -65,7 +65,7 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">未认证</span>
-                                <a href="https://account.touzhijia.com/safe/validIdCard.html"
+                                <a href="{!! config('app.account_url') !!}/safe/validIdCard.html"
                                    class="inline-modify modify-btn" data-target="#id_card-panel">认证</a>
                             </dd>
                         </dl>
@@ -79,7 +79,7 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">未绑定</span>
-                                <a href="https://account.touzhijia.com/bankcard.html" class="modify-btn">绑定</a>
+                                <a href="{!! config('app.account_url') !!}/bankcard.html" class="modify-btn">绑定</a>
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="bank_id-panel"></div>
@@ -93,7 +93,7 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">已设置</span>
-                                <a href="https://account.touzhijia.com/safe/changePassword.html"
+                                <a href="{!! config('app.account_url') !!}/safe/changePassword.html"
                                    class="inline-modify modify-btn" data-target="#password-panel">修改</a>
                             </dd>
                         </dl>
@@ -108,9 +108,9 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">已设置</span>
-                                <a href="https://account.touzhijia.com/safe/finddealpassword.html"
+                                <a href="{!! config('app.account_url') !!}/safe/finddealpassword.html"
                                    class="inline-modify modify-btn" data-target="#dealpassword-panel">找回交易密码</a>
-                                <a href="https://account.touzhijia.com/safe/changeDealPassword.html"
+                                <a href="{!! config('app.account_url') !!}/safe/changeDealPassword.html"
                                    class="inline-modify modify-btn" data-target="#dealpassword-panel">修改</a>
                             </dd>
                         </dl>
@@ -124,7 +124,7 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">未设置</span>
-                                <a href="https://account.touzhijia.com/safe/setSecurityQuestion.html"
+                                <a href="{!! config('app.account_url') !!}/safe/setSecurityQuestion.html"
                                    class="inline-modify modify-btn" data-target="#security_question-panel">设置</a>
                             </dd>
                         </dl>
