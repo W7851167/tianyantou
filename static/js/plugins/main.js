@@ -875,7 +875,7 @@ $(function(){
     //   return showPlatDown();
     // }
     var invest_id = $(this).attr('data-invest-id');
-    var url       = DOMAIN.www'/platform/login/'+platname+'/'+invest_id;
+    var url       = DOMAIN.www + '/platform/login/'+platname+'/'+invest_id;
     var third_url = $(this).attr("data-inversurl");
     var data      = {url:third_url};
     if(!USER.islogin) {
