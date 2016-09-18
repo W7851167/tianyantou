@@ -49,7 +49,7 @@
                                                     <th width="90">完成金额(元)</th>
                                                     <th width="140">提交任务时间</th>
                                                     <th width="45">状态</th>
-                                                    <th width="65">操作/th>
+                                                    <th width="65">操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -62,7 +62,7 @@
                                                             <td>{!! $av->total or '0.00' !!}</td>
                                                             <td>@if(!empty($av->commit_time)){!! date('Y-m-d H:i:s',$av->commit_time) !!} @else ---- @endif</td>
                                                             <td>@if($av->status==0)未审核 @elseif($av->status==1)已审核 @elseif($av->status==2)已完成 @else 审核驳回 @endif</td>
-                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue">完善</a></td>
+                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
                                                 @else
