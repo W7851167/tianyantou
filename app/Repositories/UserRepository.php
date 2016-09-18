@@ -72,6 +72,19 @@ class UserRepository extends BaseRepository
         if (!password_verify($password, $userModel->password)) {
             return static::getError('密码不正确，请重新输入!');
         }
+        Session::put('user.passport', $this->setSessionData($userModel));
+
+        return static::getSuccess('登录成功!');
+    }
+
+    /**
+     * @param $userModel
+     * @return array
+     *
+     * 设置登录保存session信息
+     */
+    public function setSessionData($userModel)
+    {
         $emailFlag = !empty($userModel->email) ? 1 : 0;
         $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
         $bankFlag = !empty($userModel->bank) ? 1 : 0;
@@ -80,22 +93,18 @@ class UserRepository extends BaseRepository
         $mobileFlag = 1;
         $bankFlag = 1;
         $investFlag = 1;
-        $sessionData = [
+        $avatar = isset($userModel->avatar->name) ? $userModel->avatar->name : '';
+
+        return [
             'id' => $userModel->id,
             'username' => $userModel->username,
+            'avatar' => $avatar,
             'email' => $emailFlag,
             'mobile' => $mobileFlag,
             'bank' => $bankFlag,
             "invest" => $investFlag,
             'role' => $userModel->roles,
         ];
-        if (!empty($userModel->avatar->name))
-            $sessionData['avatar'] = $userModel->avatar->name;
-        Session::put('user.passport', $sessionData);
-
-        Session::put('peng', 'zhuang');
-
-        return static::getSuccess('登录成功!');
     }
 
     public function logout()

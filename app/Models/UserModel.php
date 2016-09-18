@@ -47,6 +47,11 @@ class UserModel extends BaseModel
         return $this->hasOne('App\Models\BankModel', 'user_id');
     }
 
+    /**
+     * @param $value
+     *
+     * 设置密码字段属性,hash密码字段
+     */
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = \Hash::make($value);
