@@ -62,7 +62,7 @@
                                                             <td>{!! $av->total or '0.00' !!}</td>
                                                             <td>@if(!empty($av->commit_time)){!! date('Y-m-d H:i:s',$av->commit_time) !!} @else ---- @endif</td>
                                                             <td>@if($av->status==0)未审核 @elseif($av->status==1)已审核 @elseif($av->status==2)已完成 @else 审核驳回 @endif</td>
-                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue">完成任务</a></td>
+                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
                                                 @else
