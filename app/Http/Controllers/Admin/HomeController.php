@@ -27,11 +27,18 @@ class HomeController extends AdminController
         parent::__initalize();
         $this->new = $new;
         $this->census = $census;
+
     }
 
     public function index()
     {
-        $notices = $this->new->newModel->where('category_id', 0)->take(8)->get();
+        $where['category_id'] = 10;
+        list($counts, $notices) = $this->new->getNewList($where, 1, 8);
+
+        $where['category_id'] = 11;
+        list($counts, $latests) = $this->new->getNewList($where, 1, 10);
+
+
         $yesterday = date('Y-m-d',strtotime('- 1day'));
         $startTime = strtotime($yesterday . ' 00:00:01');
         $endTime = strtotime($yesterday . ' 23:59:59');
@@ -42,7 +49,7 @@ class HomeController extends AdminController
         $monthUserStats = $this->census->getRegisterUserStats($startTime, $endTime);
 
         return view('admin.home.index', compact(
-            'notices','dayUserStats','monthUserStats'
+            'notices','latests','dayUserStats','monthUserStats'
         ));
     }
 }

@@ -105,6 +105,21 @@
                                     </div>
                                     <a href="###">更多>></a>
                                 </div>
+                                @if(count($latests))
+                                    <ul class="td-inner-bulletin clearfix">
+                                @foreach($latests as $lv)
+                                    <li>
+                                        <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank" class="img-link">
+                                            <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
+                                        </a>
+                                        <p class="link-con">
+                                            <span>[{!! $nv->created_at !!}]</span>
+                                        </p>
+                                    </li>
+                                 @endforeach
+                                    </ul>
+                                @endif
+
                                 <!--
                                 <div class="cancel-none">
                                     <p>
