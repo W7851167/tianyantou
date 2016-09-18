@@ -52,9 +52,9 @@ class MessageController extends FrontController
     {
         try {
             $this->userRepository->messageModel->where('owner_id', $this->user['id'])->update(['is_read'=>1]);
-//            return response()->json(['status' => 1, 'message' => '标记全部已读成功!']);
+            return '标记全部已读成功!';
         } catch (\QueryException $e) {
-//            return response()->json(['status' => 0, 'message' => '标记全部已读失败!']);
+            return '标记全部已读失败!';
         }
 
     }
@@ -68,9 +68,9 @@ class MessageController extends FrontController
     {
         try {
             $this->userRepository->messageModel->where('owner_id', $this->user['id'])->delete();
-//            return response()->json(['status' => 1, 'message' => '全部删除成功!']);
+            return '全部删除成功!';
         } catch (\QueryException $e) {
-//            return response()->json(['status' => 0, 'message' => '全部删除失败!']);
+            return '全部删除失败!';
         }
     }
 }

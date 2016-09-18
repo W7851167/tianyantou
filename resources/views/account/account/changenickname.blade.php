@@ -1,4 +1,5 @@
-<form data-toggle="ajaxForm" method="post" action="{!! config('app.static_url') !!}/safe/changeNickname.html" >
+<form data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/changeNickname.html" >
+    {!! csrf_field() !!}
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">

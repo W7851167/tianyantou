@@ -14,12 +14,19 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\UserRepository;
+use Illuminate\Database\QueryException;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AccountController extends FrontController
 {
-    public function __construct()
+    public function __construct(
+        UserRepository $userRepository
+    )
     {
         parent::__initalize();
+        $this->userRepository = $userRepository;
     }
 
     public function safe()
@@ -32,8 +39,38 @@ class AccountController extends FrontController
         return view('account.account.bankcard');
     }
 
-    public function changenickname()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View|void
+     *
+     *
+     * 修改用户名
+     */
+    public function changenickname(Request $request)
     {
+        if ($request->isMethod('post')) {
+            $username = $request->nickname;
+            $vUsername = $request->nickname_verify;
+            if (!$username || !$vUsername || $username != $vUsername)
+                return response()->json(['status' => 0, 'message' => '修改失败!']);
+            $data = [
+                'id' => $this->user['id'],
+                'username' => $username,
+            ];
+            try {
+                $result = $this->userRepository->userModel->saveBy($data);
+                if($result){
+                    $data = Session::get('user.passport');
+                    $data['username'] = $username;
+                    Session::put('user.passport', $data);
+                    return '修改成功!';
+                }
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
+            return '修改失败!';
+        }
+
         return view('account.account.changenickname');
     }
 

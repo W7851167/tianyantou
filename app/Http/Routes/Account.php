@@ -28,15 +28,15 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
-    Route::get('safe/changeNickname.html',['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
-    Route::get('safe/changeTelephone.html',['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
-    Route::get('safe/validateEmail.html',['as' => 'safe.validateEmail', 'uses' => 'AccountController@validateemail']);
-    Route::get('safe/validIdCard.html',['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
-    Route::get('safe/changePassword.html',['as' => 'safe.changePassword', 'uses' => 'AccountController@changepassword']);
-    Route::get('safe/changeDealPassword.html',['as' => 'safe.changeDealPassword', 'uses' => 'AccountController@dealpassword']);
-    Route::get('safe/finddealpassword.html',['as' => 'safe.finddealpassword', 'uses' => 'AccountController@findpassword']);
-    Route::get('safe/setSecurityQuestion.html',['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
-    Route::get('bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
+    Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
+    Route::match(['get', 'post'], 'safe/changeTelephone.html', ['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
+    Route::match(['get', 'post'], 'safe/validateEmail.html', ['as' => 'safe.validateEmail', 'uses' => 'AccountController@validateemail']);
+    Route::match(['get', 'post'], 'safe/validIdCard.html', ['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
+    Route::match(['get', 'post'], 'safe/changePassword.html', ['as' => 'safe.changePassword', 'uses' => 'AccountController@changepassword']);
+    Route::match(['get', 'post'], 'safe/changeDealPassword.html', ['as' => 'safe.changeDealPassword', 'uses' => 'AccountController@dealpassword']);
+    Route::match(['get', 'post'], 'safe/finddealpassword.html', ['as' => 'safe.finddealpassword', 'uses' => 'AccountController@findpassword']);
+    Route::match(['get', 'post'], 'safe/setSecurityQuestion.html', ['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
+    Route::match(['get', 'post'], 'bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
     //活动专区
 //    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
 //    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
@@ -44,11 +44,11 @@ Route::group(['middleware' => 'middle.account'], function () {
 //    Route::get('coupon/index.html', ['as' => 'coupon', 'uses' => 'CouponController@index']);
     //消息中心
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
-    Route::post('message/readAll.html',['as'=>'message.readAll','uses'=>'MessageController@readAll']);
-    Route::post('message/deleteAll.html',['as'=>'message.deleteAll','uses'=>'MessageController@deleteAll']);
+    Route::post('message/readAll.html', ['as' => 'message.readAll', 'uses' => 'MessageController@readAll']);
+    Route::post('message/deleteAll.html', ['as' => 'message.deleteAll', 'uses' => 'MessageController@deleteAll']);
     //我的积分
     Route::get('user/scores.html', ['as' => 'scores', 'uses' => 'ScoresController@index']);
     //统计
-    Route::get('chart/waitIncomeStats', ['as'=>'charts.income','uses'=>'ChartController@waitIncomeStats']);
-    Route::get('chart/incomeStats', ['as'=>'charts.halfyear','uses'=>'ChartController@incomeStats']);
+    Route::get('chart/waitIncomeStats', ['as' => 'charts.income', 'uses' => 'ChartController@waitIncomeStats']);
+    Route::get('chart/incomeStats', ['as' => 'charts.halfyear', 'uses' => 'ChartController@incomeStats']);
 });
