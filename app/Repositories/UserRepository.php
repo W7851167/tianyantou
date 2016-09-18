@@ -273,4 +273,26 @@ class UserRepository extends BaseRepository
         $count = $this->messageModel->countBy($where);
         return [$count, $lists];
     }
+
+    /**
+     * @param $data
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     *
+     * 保存用户信息
+     */
+    public function saveUser($data)
+    {
+        $result = $this->userModel->getConnection()->transaction(function () use ($data) {
+            $userModel = $this->userModel->create($data);
+            $this->moneyModel->saveMoney($userModel->id, ['user_id' => $userModel->id]);
+            Session::put('user.passport', $this->setSessionData($userModel));
+        });
+
+        if ($result instanceof \Exception) {
+            return static::getError($result->getMessage());
+        }
+        return static::getSuccess('注册成功!');
+    }
 }
