@@ -14,24 +14,35 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\CensusRepository;
 use App\Repositories\NewRepository;
 
 class HomeController extends AdminController
 {
     public function __construct(
-        NewRepository $new
+        NewRepository $new,
+        CensusRepository $census
     )
     {
         parent::__initalize();
         $this->new = $new;
+        $this->census = $census;
     }
 
     public function index()
     {
         $notices = $this->new->newModel->where('category_id', 0)->take(8)->get();
-//        var_dump($notices);
+        $yesterday = date('Y-m-d',strtotime('- 1day'));
+        $startTime = strtotime($yesterday . ' 00:00:01');
+        $endTime = strtotime($yesterday . ' 23:59:59');
+        $dayUserStats = $this->census->getRegisterUserStats($startTime, $endTime);
+        $month = date('Y-m');
+        $startTime = strtotime($month . '-01 00:00:01');
+        $endTime = strtotime($month . '-' . date('t') . ' 23:59:59');
+        $monthUserStats = $this->census->getRegisterUserStats($startTime, $endTime);
+
         return view('admin.home.index', compact(
-            'notices'
+            'notices','dayUserStats','monthUserStats'
         ));
     }
 }
