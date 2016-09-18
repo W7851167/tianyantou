@@ -1,4 +1,4 @@
-<form data-toggle="ajaxForm" method="post" action="https://account.touzhijia.com/safe/changeNickname.html" >
+<form data-toggle="ajaxForm" method="post" action="{!! config('app.static_url') !!}/safe/changeNickname.html" >
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">
