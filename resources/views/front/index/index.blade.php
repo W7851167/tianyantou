@@ -150,7 +150,6 @@
                                 <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
                             </a>
                             <p class="link-con">
-                                <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank">{!! $lv->title or '' !!}</a>
                                 <span>发布时间：{!! date('Y-m-d',strtotime($lv->created_at)) !!}</span>
                             </p>
                         </li>

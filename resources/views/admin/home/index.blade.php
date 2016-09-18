@@ -31,13 +31,13 @@
                                         <p>邀请人数</p>
                                     </li>
                                     <li>
-                                        <p>当日注册</p>
-                                        <p>{!! $count['yCount'] or 0 !!}</p>
+                                        <p>昨日注册</p>
+                                        <p>{!! $dayUserStats or 0 !!}</p>
                                         <p>{!! $count['yCount'] or 0 !!}</p>
                                     </li>
                                     <li>
-                                        <p>当月注册</p>
-                                        <p>{!! $count['yCount'] or 0 !!}</p>
+                                        <p>{!! date('m') !!}月注册</p>
+                                        <p>{!! $monthUserStats or 0 !!}</p>
                                         <p>{!! $count['yCount'] or 0 !!}</p>
                                     </li>
                                 </ul>
@@ -80,17 +80,17 @@
                                     <li>
                                         <p>排名</p>
                                         <p>项目名称</p>
-                                        <p>完成人数</p>
+                                        <p>完成进度</p>
                                     </li>
-
+                                    @foreach($tasks as $i=>$tv)
                                     <li>
-                                        <span class="green">1</span>
-                                        <a href="" class="blue" target="_blank">
-                                            aaaaa
+                                        <span class="green">{!! $i+1 !!}</span>
+                                        <a href="javascript:void(0)" class="blue" target="_blank">
+                                        {!! $tv->title or '' !!}
                                         </a>
-                                        <span>20</span>
+                                        <span>{!! $tv->proccess or '' !!}%</span>
                                     </li>
-
+                                    @endforeach
                                 </ul>
                             </div>
 
@@ -103,23 +103,17 @@
                                         <p>最新资讯</p>
                                         <span>资讯、动态内容</span>
                                     </div>
-                                    <a href="###">更多>></a>
+                                    <a href="{!! config('app.url') . '/about/latest.html' !!}" target="_blank">更多>></a>
                                 </div>
-                                <!--
-                                <div class="cancel-none">
-                                    <p>
-                                        <img src="{!!url('admin/images/u464.png')!!}"/>
-                                        暂无最新活动!
-                                    </p>
-                                </div>
-                                -->
                                 <ul class="td-inner-active clearfix">
+                                    @foreach($latests as $lv)
                                     <li>
                                         <div class="td-inner-active-news">
-                                            <p><a href="###">家装厨卫节，满减大抢购-(10月01日-10月31日)</a></p>
+                                            <p><a href="{!! config('app.url') . '/about/latest/' . $lv->id . '.html' !!}" target="_blank">{!! $lv->title or '' !!}</a></p>
                                         </div>
-                                        <a class="active-btn" href="###">参加活动</a>
+                                        <a class="active-btn" href="{!! config('app.url') . '/about/latest/' . $lv->id . '.html' !!}" target="_blank">查看</a>
                                     </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </td>
