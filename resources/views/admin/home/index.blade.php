@@ -88,7 +88,7 @@
                                         <a href="javascript:void(0)" class="blue" target="_blank">
                                         {!! $tv->title or '' !!}
                                         </a>
-                                        <span>{!! $tv->proccess or '' !!}</span>
+                                        <span>{!! $tv->proccess or '' !!}%</span>
                                     </li>
                                     @endforeach
                                 </ul>
