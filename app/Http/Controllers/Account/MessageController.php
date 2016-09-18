@@ -42,4 +42,14 @@ class MessageController extends FrontController
 
         return view('account.message.index', compact('lists', 'pageHtml'));
     }
+
+    public function readAll()
+    {
+
+    }
+
+    public function deleteAll()
+    {
+
+    }
 }
