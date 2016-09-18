@@ -31,13 +31,13 @@
                                         <p>邀请人数</p>
                                     </li>
                                     <li>
-                                        <p>当日注册</p>
-                                        <p>{!! $count['yCount'] or 0 !!}</p>
+                                        <p>昨日注册</p>
+                                        <p>{!! $dayUserStats or 0 !!}</p>
                                         <p>{!! $count['yCount'] or 0 !!}</p>
                                     </li>
                                     <li>
-                                        <p>当月注册</p>
-                                        <p>{!! $count['yCount'] or 0 !!}</p>
+                                        <p>{!! date('m') !!}月注册</p>
+                                        <p>{!! $monthUserStats or 0 !!}</p>
                                         <p>{!! $count['yCount'] or 0 !!}</p>
                                     </li>
                                 </ul>

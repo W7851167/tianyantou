@@ -19,6 +19,7 @@ use App\Models\MoneyModel;
 use App\Models\NewModel;
 use App\Models\TaskAchieveModel;
 use App\Models\TaskReceiveModel;
+use App\Models\UserModel;
 use Illuminate\Database\QueryException;
 
 class CensusRepository extends BaseRepository
@@ -26,11 +27,25 @@ class CensusRepository extends BaseRepository
     public function __construct(
         TaskReceiveModel $taskReceiveModel,
         TaskAchieveModel $taskAchieveModel,
-        MoneyModel $moneyModel
+        MoneyModel $moneyModel,
+        UserModel $userModel
     ) {
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
         $this->moneyModel = $moneyModel;
+        $this->userModel = $userModel;
+    }
+
+
+    /**
+     * @param $startTime
+     * @param $endTime
+     * 获取注册人数u
+     *
+     */
+    public function getRegisterUserStats($startTime, $endTime)
+    {
+        return $this->userModel->whereBetween('created_at', [$startTime,$endTime])->count();
     }
 
     /**
