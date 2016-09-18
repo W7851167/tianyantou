@@ -16,17 +16,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\AdminController;
 use App\Repositories\CensusRepository;
 use App\Repositories\NewRepository;
+use App\Repositories\TaskRepository;
 
 class HomeController extends AdminController
 {
     public function __construct(
         NewRepository $new,
-        CensusRepository $census
+        CensusRepository $census,
+        TaskRepository $tasks
     )
     {
         parent::__initalize();
         $this->new = $new;
         $this->census = $census;
+        $this->tasks = $tasks;
 
     }
 
@@ -47,9 +50,12 @@ class HomeController extends AdminController
         $startTime = strtotime($month . '-01 00:00:01');
         $endTime = strtotime($month . '-' . date('t') . ' 23:59:59');
         $monthUserStats = $this->census->getRegisterUserStats($startTime, $endTime);
-
+        unset($where);
+        $where['status'] = 1;
+        $order['proccess'] = 'desc';
+        list($counts, $tasks) = $this->tasks->getTaskList($where,10, 1,0,$order);
         return view('admin.home.index', compact(
-            'notices','latests','dayUserStats','monthUserStats'
+            'notices','latests','dayUserStats','monthUserStats','tasks'
         ));
     }
 }

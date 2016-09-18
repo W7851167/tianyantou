@@ -80,17 +80,17 @@
                                     <li>
                                         <p>排名</p>
                                         <p>项目名称</p>
-                                        <p>完成人数</p>
+                                        <p>完成进度</p>
                                     </li>
-
+                                    @foreach($tasks as $i=>$tv)
                                     <li>
-                                        <span class="green">1</span>
-                                        <a href="" class="blue" target="_blank">
+                                        <span class="green">{!! $i+1 !!}</span>
+                                        <a href="javascript:void(0)" class="blue" target="_blank">
                                             aaaaa
                                         </a>
-                                        <span>20</span>
+                                        <span>20%</span>
                                     </li>
-
+                                    @endforeach
                                 </ul>
                             </div>
 
@@ -103,38 +103,17 @@
                                         <p>最新资讯</p>
                                         <span>资讯、动态内容</span>
                                     </div>
-                                    <a href="###">更多>></a>
+                                    <a href="{!! config('app.url') . '/about/latest.html' !!}" target="_blank">更多>></a>
                                 </div>
-                                @if(count($latests))
-                                    <ul class="td-inner-bulletin clearfix">
-                                @foreach($latests as $lv)
-                                    <li>
-                                        <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank" class="img-link">
-                                            <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
-                                        </a>
-                                        <p class="link-con">
-                                            <span>[{!! $nv->created_at !!}]</span>
-                                        </p>
-                                    </li>
-                                 @endforeach
-                                    </ul>
-                                @endif
-
-                                <!--
-                                <div class="cancel-none">
-                                    <p>
-                                        <img src="{!!url('admin/images/u464.png')!!}"/>
-                                        暂无最新活动!
-                                    </p>
-                                </div>
-                                -->
                                 <ul class="td-inner-active clearfix">
+                                    @foreach($latests as $lv)
                                     <li>
                                         <div class="td-inner-active-news">
-                                            <p><a href="###">家装厨卫节，满减大抢购-(10月01日-10月31日)</a></p>
+                                            <p><a href="{!! config('app.url') . '/about/latest/' . $lv->id . '.html' !!}" target="_blank">{!! $lv->title or '' !!}</a></p>
                                         </div>
-                                        <a class="active-btn" href="###">参加活动</a>
+                                        <a class="active-btn" href="{!! config('app.url') . '/about/latest/' . $lv->id . '.html' !!}" target="_blank">查看</a>
                                     </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </td>
