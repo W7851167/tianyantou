@@ -86,9 +86,9 @@
                                     <li>
                                         <span class="green">{!! $i+1 !!}</span>
                                         <a href="javascript:void(0)" class="blue" target="_blank">
-                                            aaaaa
+                                        {!! $tv->title or '' !!}
                                         </a>
-                                        <span>20%</span>
+                                        <span>{!! $tv->proccess or '' !!}</span>
                                     </li>
                                     @endforeach
                                 </ul>
