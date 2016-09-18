@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('title')消息中心@stop
 @section('style')
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css"/>
 @stop
@@ -24,7 +25,7 @@
                         <dl class="message-group">
                             <dt><strong>{!! $mv->title or '' !!}</strong></dt>
                             <dd>{!! $mv->created_at or '' !!}</dd>
-                            <dd>{!! $nv->body !!}</dd>
+                            <dd>{!! $mv->body !!}</dd>
                         </dl>
                         @endforeach
                         @endif

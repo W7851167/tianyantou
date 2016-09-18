@@ -44,6 +44,8 @@ Route::group(['middleware' => 'middle.account'], function () {
 //    Route::get('coupon/index.html', ['as' => 'coupon', 'uses' => 'CouponController@index']);
     //消息中心
     Route::get('message.html', ['as' => 'message', 'uses' => 'MessageController@index']);
+    Route::post('message/readAll.html',['as'=>'message.readAll','uses'=>'MessageController@readAll']);
+    Route::post('message/deleteAll.html',['as'=>'message.deleteAll','uses'=>'MessageController@deleteAll']);
     //我的积分
     Route::get('user/scores.html', ['as' => 'scores', 'uses' => 'ScoresController@index']);
     //统计
