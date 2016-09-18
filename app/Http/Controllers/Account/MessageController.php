@@ -43,13 +43,34 @@ class MessageController extends FrontController
         return view('account.message.index', compact('lists', 'pageHtml'));
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * 标记全部为已读
+     */
     public function readAll()
     {
+        try {
+            $this->userRepository->messageModel->where('owner_id', $this->user['id'])->update(['is_read'=>1]);
+//            return response()->json(['status' => 1, 'message' => '标记全部已读成功!']);
+        } catch (\QueryException $e) {
+//            return response()->json(['status' => 0, 'message' => '标记全部已读失败!']);
+        }
 
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * 删除所有
+     */
     public function deleteAll()
     {
-
+        try {
+            $this->userRepository->messageModel->where('owner_id', $this->user['id'])->delete();
+//            return response()->json(['status' => 1, 'message' => '全部删除成功!']);
+        } catch (\QueryException $e) {
+//            return response()->json(['status' => 0, 'message' => '全部删除失败!']);
+        }
     }
 }
