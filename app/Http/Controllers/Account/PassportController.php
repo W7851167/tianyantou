@@ -85,18 +85,10 @@ class PassportController extends FrontController
                     'data' => $validator->errors(),
                 ]);
             }
-//            try {
-                $result = $this->userRepository->userModel->create(array_except($data, ['password_confirmation']));
-                if ($result) {
-                    Session::put('user.passport', $this->userRepository->setSessionData($result));
-                    //插入一条钱包信息
-                    $this->userRepository->moneyModel->saveMoney($result->id, ['user_id' => $result->id]);
+            $data = array_except($data, ['password_confirmation']);
+            $result = $this->userRepository->saveUser($data);
+            if($result['status']) return $this->success('注册成功!', url('/'), true);
 
-                    return $this->success('注册成功!', url('/'), true);
-                }
-//            } catch (QueryException $e) {
-//                $e->getMessage();
-//            }
             return $this->error('注册失败!', null, true);
         }
         return view('account.passport.register');
