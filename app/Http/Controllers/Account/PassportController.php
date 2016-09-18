@@ -85,23 +85,18 @@ class PassportController extends FrontController
                     'data' => $validator->errors(),
                 ]);
             }
-            try {
+//            try {
                 $result = $this->userRepository->userModel->create(array_except($data, ['password_confirmation']));
                 if ($result) {
-                    $sessionData = [
-                        'id' => $result->id,
-                        'username' => $result->username,
-                        'role' => $result->roles,
-                    ];
-                    if (!empty($result->avatar->name))
-                        $sessionData['avatar'] = $result->avatar->name;
-                    Session::put('user.passport', $sessionData);
+                    Session::put('user.passport', $this->userRepository->setSessionData($result));
+                    //插入一条钱包信息
+                    $this->userRepository->moneyModel->saveMoney($result->id, ['user_id' => $result->id]);
 
                     return $this->success('注册成功!', url('/'), true);
                 }
-            } catch (QueryException $e) {
-                $e->getMessage();
-            }
+//            } catch (QueryException $e) {
+//                $e->getMessage();
+//            }
             return $this->error('注册失败!', null, true);
         }
         return view('account.passport.register');
@@ -132,10 +127,10 @@ class PassportController extends FrontController
     public function captcha(Request $request, Captcha $captcha)
     {
         if ($request->isMethod('post')) {
-            $code       = $request->get('captcha');;
-            $checkCode    = Session::get('captcha');
+            $code = $request->get('captcha');;
+            $checkCode = Session::get('captcha');
 
-            if(strtolower($code) == strtolower($checkCode)) {
+            if (strtolower($code) == strtolower($checkCode)) {
                 return response()->json('success');
             }
             return response()->json('fail');
