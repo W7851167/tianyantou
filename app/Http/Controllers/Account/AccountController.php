@@ -35,8 +35,23 @@ class AccountController extends FrontController
         return view('account.account.safe');
     }
 
-    public function bankcard()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 绑定银行卡
+     */
+    public function bankcard(Request $request)
     {
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+//            try {
+                $result = $this->userRepository->bankModel->insert($data);
+                if ($result) return '添加银行卡成功!';
+//            } catch (QueryException $e) {
+                return '添加银行卡失败!';
+//            }
+        }
         return view('account.account.bankcard');
     }
 
