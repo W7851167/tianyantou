@@ -83,12 +83,12 @@
 </div>
 <div class="main-float-nav" id="main-float-navo" closebz="0">
     <p class="close-nav"><a href="javascript:void(0);"><i class="iconfont">&#xe68b;</i></a></p>
-    <div class="figure">
-        <div class="eye1" id="eye1"></div>
-        <div class="eye2" id="eye2"></div>
-        <a href="javascript:void(0);" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>
-    </div>
-    <p class="onoroff"><a href="javascript:void(0);"></a></p>
+    {{--<div class="figure">--}}
+        {{--<div class="eye1" id="eye1"></div>--}}
+        {{--<div class="eye2" id="eye2"></div>--}}
+        {{--<a href="javascript:void(0);" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>--}}
+    {{--</div>--}}
+    {{--<p class="onoroff"><a href="javascript:void(0);"></a></p>--}}
     <ul>
         <li>
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe627;</i><br/>公告</a>

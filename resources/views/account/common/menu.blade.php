@@ -60,14 +60,6 @@
                 <li><a href="{!!config('app.account_url')!!}/bankcard.html">银行卡</a></li>
             </ul>
         </li>
-        {{--<li>
-            <h3><i class="iconfont">&#xe62f;</i>活动专区</h3>
-            <ul class="second-menu">
-                <li><a href="{!!config('app.account_url')!!}/activity/recommend.html">邀请奖励</a></li>
-                <li><a href="{!!config('app.account_url')!!}/shop.html">兑换记录</a></li>
-            </ul>
-        </li>--}}
-        {{--<li><a href="{!!config('app.account_url')!!}/coupon/index.html"><i class="iconfont">&#xe699;</i>理财券</a></li>--}}
         <li class="current">
             <a href="{!!config('app.account_url')!!}/message.html"><i class="iconfont">&#xe62d;</i>消息中心</a>
         </li>
