@@ -2,6 +2,8 @@
 @section('title')交任务@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
+    <link media="all" type="text/css" rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/datepicker/skin/WdatePicker.css">
+    <script src="{!! config('app.static_url') !!}/js/lib/datepicker/WdatePicker.js"></script>
 @stop
 
 @section('content')
@@ -44,8 +46,9 @@
                                 <em>请添加投资人用户姓名</em>
                             </div>
                             <div class="control-group">
-                                <label>投资人手机号码</label>
+                                <label>手机号码</label>
                                 <input type="text" name="data[mobile]" class="input-style" value="">
+                                <em>请添加投资人用户投资手机号码</em>
                             </div>
                             <div class="control-group">
                                 <label>投资金额</label>
@@ -53,7 +56,8 @@
                             </div>
                             <div class="control-group">
                                 <label for="">投资时间</label>
-                                <input type="text" name="data[invest_time]" class="input-style">
+                                <input type="text" name="data[invest_time]" class="input-style Wdate"  
+                                 onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="">
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
@@ -62,10 +66,10 @@
                         <h3 class="title-indent">温馨提示</h3>
                         <div class="tip-main">
                             <ul class="tab-content">
-                                <li>1. 为保障您的账户资金安全，绑定银行卡时，您选择的银行卡开户名必须与您实名认证姓名一致；</li>
-                                <li><em>2. 请您提供正确的银行卡信息，如果您提供的银行卡信息有误，2元/笔的可提现手续费银行将不予退还；</em></li>
-                                <li>3. 禁止套现、洗钱行为，绑定银行卡仅限储蓄卡，不支持信用卡绑定提现；</li>
-                                <li>4. 填写银行卡信息时，请确认您的“支行名称”(如上海分行虹口支行)，如您无法确定，请致电您的开户银行客服进行咨询。</li>
+                                <li>1. 提交平台投资信息、投资人、投资手机号码、投资金额、投标时间等；</li>
+                                <li><em>2. 提交后等待平台审核，审核通过后，根据天眼投年化率计算您的收入；</em></li>
+                                <li>3. 审核通过，投资营收直接打入您的个人钱包账号中；</li>
+                                <li>4. 进入提现操作，进行相应的提现操作。</li>
                             </ul>
                         </div>
                     </div>
