@@ -35,9 +35,54 @@ class AccountController extends FrontController
         return view('account.account.safe');
     }
 
-    public function bankcard()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 绑定银行卡
+     */
+    public function bankcard(Request $request)
     {
-        return view('account.account.bankcard');
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+            try {
+                $result = $this->userRepository->bankModel->saveBy($data);
+                if ($result) return '添加银行卡成功!';
+            } catch (QueryException $e) {
+                return '添加银行卡失败!';
+            }
+        }
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+        if (empty($bank)) return redirect('/bankcard.html');
+        return view('account.account.bankcard', compact('bank'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 更新银行卡信息
+     */
+    public function updatebcard(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            if ($request->isMethod('post')) {
+                $data = $request->get('data');
+                try {
+                    $result = $this->userRepository->bankModel->saveBy($data);
+                    if ($result) return '修改银行卡成功!';
+                } catch (QueryException $e) {
+                    return '修改银行卡失败!';
+                }
+            }
+        }
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+        if (empty($bank)) return redirect('/bankcard.html');
+        $area[] = !empty($bank->province) ? $bank->province : '省';
+        $area[] = !empty($bank->city) ? $bank->city : '市';
+        $area[] = '区';
+        $area = json_encode($area);
+        return view('account.account.updatecard', compact('bank', 'area'));
     }
 
     /**

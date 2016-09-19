@@ -38,6 +38,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'safe/finddealpassword.html', ['as' => 'safe.finddealpassword', 'uses' => 'AccountController@findpassword']);
     Route::match(['get', 'post'], 'safe/setSecurityQuestion.html', ['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
     Route::match(['get', 'post'], 'bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
+    Route::match(['get', 'post'], 'bankcard/update.html', ['as' => 'safe.bankcard', 'uses' => 'AccountController@updatebcard']);
     //活动专区
 //    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
 //    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
