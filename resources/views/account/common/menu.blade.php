@@ -72,7 +72,7 @@
             <a href="{!!config('app.account_url')!!}/message.html"><i class="iconfont">&#xe62d;</i>消息中心</a>
         </li>
         <li class="active">
-            <h3><i class="iconfont" style="background-image:url(/images/menuicon/jifen.png);vertical-align: middle;">&#xe631;</i>我的积分</h3>
+            <h3><i class="iconfont" style="vertical-align: middle;">&#xe631;</i>我的积分</h3>
             <ul class="second-menu" style="display: block;">
                 <li><a href="{!! config('app.account_url') !!}/user/scores.html">积分明细</a></li>
             </ul>

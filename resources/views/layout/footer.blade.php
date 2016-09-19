@@ -58,18 +58,6 @@
                     </ul>
                 </div>
                 <div class="f-code">
-                    {{--<p id="f-dingyuhao">--}}
-                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />--}}
-                        {{--<span>天眼投APP下载</span>--}}
-                    {{--</p>--}}
-                    {{--<p id="f-fuwuhao">--}}
-                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />--}}
-                        {{--<span>官方服务号</span>--}}
-                    {{--</p>--}}
-                    {{--<!--<p id="f-wechat">--}}
-            {{--<img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />--}}
-            {{--<span>理财顾问微信号</span>--}}
-          {{--</p>-->--}}
                 </div>
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
@@ -98,8 +86,7 @@
     <div class="figure">
         <div class="eye1" id="eye1"></div>
         <div class="eye2" id="eye2"></div>
-        <a href="{!! config('app.url') !!}/mascot.html" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>
-        <!-- {!! config('app.url') !!}/mascot.html  -->
+        <a href="javascript:void(0);" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>
     </div>
     <p class="onoroff"><a href="javascript:void(0);"></a></p>
     <ul>
