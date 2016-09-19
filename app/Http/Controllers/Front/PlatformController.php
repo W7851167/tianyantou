@@ -225,44 +225,16 @@ class PlatformController extends FrontController
         $data['user_id'] = $this->user['id'];
         $data['total'] = $task->limit;
         $data['status'] = 0;
-        $sign = $this->signature($id,$task->url,$ename, time());
-        return view('front.platform.login',compact('data','corp','task','sign'));
+        $data['create_time'] = time();
+        $sign = $this->signature($id,$task->url,$ename, $data['create_time']);
+
+        $result = $this->tasks->saveReceive($data);
+        if($result['status']) {
+            return view('front.platform.login',compact('task','corp','sign'));
+        }
+        return abort(500, '异常、请联系开发人员');
     }
 
-    /**
-     * @param Request $request
-     * 跳转地址
-     */
-    public function redirect(Request $request)
-    {
-        if (!$request->isMethod('post')) {
-            return abort(500, '非法访问');
-        }
-        if (empty($this->user['id'])) {
-            return abort(500, '请先登录');
-        }
-        $data = \Crypt::decrypt($request->get('data'));
-        if (empty($data)) {
-            return abort(500, '数据传送异常，请联系开发人员');
-        }
-        $data['total'] = !empty($request->get('price')) ? $request->get('price') : $data['total'];
-        $data['intro'] = !empty($request->get('intro')) ? $request->get('intro') : '';
-        $timestamp = $request->get('timestamp');
-        $nonce = $request->get('nonce');
-        $signature = $request->get('signature');
-        $task = $this->tasks->taskModel->find($data['task_id']);
-        $corp = $this->tasks->getCorpByEname($nonce);
-        $newSignature = $this->getSignature($data['task_id'],$nonce,$timestamp, $task->url);
-        if($newSignature != $signature) {
-            return abort(500, '签名错误');
-        }
-        $data['create_time'] = time();
-        $data['total'] = str_replace(',','',$data['total']);
-        if ($this->tasks->saveReceive($data)) {
-            return view('front.platform.redirect',compact('task','corp','signature'));
-        }
-        return abort(500, '访问异常，请联系开发人员');
-    }
 
     private function signature($appId,$url = null, $nonce = null, $timestamp = null)
     {
@@ -272,16 +244,12 @@ class PlatformController extends FrontController
             'nonceStr' => $nonce,
             'timestamp' => $timestamp,
             'url' => $url,
-            'signature' => $this->getSignature($appId, $nonce, $timestamp, $url),
+            'signature' => sha1("appId={$appId}&noncestr={$nonce}&timestamp={$timestamp}&url={$url}"),
         ];
 
         return $sign;
     }
 
-    private function getSignature($appId, $nonce, $timestamp, $url)
-    {
-        return sha1("appId={$appId}&noncestr={$nonce}&timestamp={$timestamp}&url={$url}");
-    }
 
 
 
