@@ -1,4 +1,9 @@
 (function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $('a.inline-modify').click(function(e) {
         e.preventDefault();
         var targetSelector = $(this).data('target');
