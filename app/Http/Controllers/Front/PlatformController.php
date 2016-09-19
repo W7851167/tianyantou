@@ -223,7 +223,9 @@ class PlatformController extends FrontController
         $data['corp_id'] = $corp->id;
         $data['task_id']  = $id;
         $data['user_id'] = $this->user['id'];
-        $data['total'] = $task->limit;
+        $data['ratio'] = $task->ratio;
+        $data['mratio'] = $task->mratio;
+        $data['total'] = 0;
         $data['status'] = 0;
         $data['create_time'] = time();
         $sign = $this->signature($id,$task->url,$ename, $data['create_time']);
