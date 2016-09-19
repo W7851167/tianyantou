@@ -83,12 +83,15 @@ class AccountController extends FrontController
     public function validateemail(Request $request)
     {
         if ($request->isMethod('post')) {
+            var_dump(111);exit;
             $user = $this->userRepository->userModel->find($this->user['id']);
             $user->email = $request->email;
+            var_dump($user);exit;
             event(new ValidateEmail($user));
 
             return '发送成功!';
         }
+
         return view('account.account.validateemail');
     }
 

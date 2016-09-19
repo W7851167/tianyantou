@@ -26,6 +26,7 @@ class SendEmail
      */
     public function handle(ValidateMailer $event)
     {
+        var_dump($event->user);exit;
         $this->mailer->welcome($event->user);
     }
 }
