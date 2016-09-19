@@ -126,8 +126,18 @@
                             </p>
                             <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>
+                        <style>
+
+                        </style>
+                        <div class="fenge">
+                            天眼投再加年化
+                            <i>{!! $tv->mratio or 0.00 !!}</i>
+                            %
+                        </div>
                         <p class="goin-btn">
-                            <span>可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元</span>
+                            <span>
+                                可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元
+                            </span>
                             <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename !!}/{!! $tv->id !!}" rel="platform_join"
                                data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title !!}" class="btn btn-blue" title="投资">投资</a>
                         </p>
