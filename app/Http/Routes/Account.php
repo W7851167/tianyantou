@@ -20,6 +20,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     //投资记录
     Route::get('networth/index.html', ['as' => 'networth', 'uses' => 'NetworthController@index']);
+    Route::any('networth/create/{id}', ['as'=>'networth.create','uses'=>'NetworthController@create']);
     //平台
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
     Route::get('platforms/analysis.html', ['as' => 'platform', 'uses' => 'PlatformController@analysis']);
