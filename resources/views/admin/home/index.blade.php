@@ -120,15 +120,14 @@
                     </tr>
                 </table>
             </div>
-            <div class="consult">
-
-                <div class="consult-message pr">
-                    <div class="consult-pic"><img src="{!!url('admin/images/u384.png')!!}"></div>
-                    <a href="{!!url('/message')  !!}" >您有<span>@if(!empty($counted)){!! $counted !!}@else 0 @endif</span>条消息</a>
-                    <div class="consult-messageList pa">
-                    </div>
-                </div>
-            </div>
+            {{--<div class="consult">--}}
+                {{--<div class="consult-message pr">--}}
+                    {{--<div class="consult-pic"><img src="{!!url('admin/images/u384.png')!!}"></div>--}}
+                    {{--<a href="{!!url('/message')  !!}" >您有<span>@if(!empty($counted)){!! $counted !!}@else 0 @endif</span>条消息</a>--}}
+                    {{--<div class="consult-messageList pa">--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
     <script>

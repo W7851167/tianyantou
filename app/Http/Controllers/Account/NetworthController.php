@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\FrontController;
 use App\Repositories\TaskRepository;
+use Illuminate\Http\Request;
 
 class NetworthController extends FrontController
 {
@@ -42,5 +43,16 @@ class NetworthController extends FrontController
         return view('account.networth.index', compact(
             'iLists', 'cLists'
         ));
+    }
+
+    /**
+     * @param Request $request
+     * 交任务
+     */
+    public function create(Request $request,$id)
+    {
+        $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
+
+        return view('account.networth.create');
     }
 }
