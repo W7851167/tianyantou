@@ -45,14 +45,16 @@ class AccountController extends FrontController
     {
         if ($request->isMethod('post')) {
             $data = $request->get('data');
-//            try {
+            try {
                 $result = $this->userRepository->bankModel->insert($data);
                 if ($result) return '添加银行卡成功!';
-//            } catch (QueryException $e) {
+            } catch (QueryException $e) {
                 return '添加银行卡失败!';
-//            }
+            }
         }
-        return view('account.account.bankcard');
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+        if (empty($bank)) return redirect('/bankcard.html');
+        return view('account.account.bankcard', compact('bank'));
     }
 
     /**

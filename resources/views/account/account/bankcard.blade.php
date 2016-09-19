@@ -11,6 +11,7 @@
 <div class="wrap user-center">
         <div class="container clearfix">
             @include('account.common.menu')
+            @if(empty($bank))
             <div class="main tworow" style="height: 863px;">
                 <div class="main-inner">
                     <h1 class="section-title">绑定银行卡</h1>
@@ -97,6 +98,21 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="main tworow" style="height: 827px;">
+                <div class="main-inner">
+                    <h1 class="section-title">银行卡</h1>
+                    <div class="card-sketch">
+                        <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/601288.png"></div>
+                        <div class="card-id">银行卡号:{!! substr_replace($bank->cardno,'***************',0,14) !!}</div>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <a href="{!! config('app.account_url') !!}/bankcard/update.html" class="btn-blue btn-l"
+                           style="width:250px;">修改银行卡</a>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 @stop

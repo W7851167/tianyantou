@@ -26,10 +26,10 @@ return [
     |
     */
 
-    'url' => 'http://www.phpad.net:8080',
-    'admin_url' => 'http://admin.phpad.net:8080',
-    'static_url'=>'http://static.phpad.net:8080',
-    'account_url' =>'http://account.phpad.net:8080',
+    'url' => 'http://www.phpad.net',
+    'admin_url' => 'http://admin.phpad.net',
+    'static_url'=>'http://static.phpad.net',
+    'account_url' =>'http://account.phpad.net',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
