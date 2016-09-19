@@ -13,13 +13,13 @@
                 <script src="./投之家 - 个人中心_files/jquery-1.11.3.min.js" type="text/javascript"></script>
                 <div class="main-inner">
                     <ul class="page-switch page-three clearfix">
-                        <li class="active"><a href="https://account.touzhijia.com/coupon/index.html">可使用</a></li>
-                        <li><a href="https://account.touzhijia.com/coupon/used.html">已使用</a></li>
-                        <li><a href="https://account.touzhijia.com/coupon/overdue.html">已失效</a></li>
+                        <li class="active"><a href="https://account.tianyantou.com/coupon/index.html">可使用</a></li>
+                        <li><a href="https://account.tianyantou.com/coupon/used.html">已使用</a></li>
+                        <li><a href="https://account.tianyantou.com/coupon/overdue.html">已失效</a></li>
                     </ul>
 
                     <div class="activate-code">
-                        <form data-toggle="ajaxForm" method="post" action="https://account.touzhijia.com/coupon/active">
+                        <form data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/coupon/active">
                             <label for="coupon-id">请输入优惠码：</label>
                             <input type="text" class="input-style" id="coupon-id" name="code">
                             <input type="submit" class="btn btn-blue btn-s" value="激活">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="coupon-list clearfix">
 
-                        <dl class="coupon-show coupon-cash" data-href="https://www.touzhijia.com/debt/"
+                        <dl class="coupon-show coupon-cash" data-href="https://www.tianyantou.com/debt/"
                             style="cursor:pointer">
                             <dt>8<span style="font-size: 18px;">元</span></dt>
                             <dd>
@@ -36,7 +36,7 @@
                             </dd>
                         </dl>
 
-                        <dl class="coupon-show coupon-cash" data-href="https://www.touzhijia.com/debt/"
+                        <dl class="coupon-show coupon-cash" data-href="https://www.tianyantou.com/debt/"
                             style="cursor:pointer">
                             <dt>30<span style="font-size: 18px;">元</span></dt>
                             <dd>
@@ -45,7 +45,7 @@
                             </dd>
                         </dl>
 
-                        <dl class="coupon-show coupon-cash" data-href="https://www.touzhijia.com/debt/"
+                        <dl class="coupon-show coupon-cash" data-href="https://www.tianyantou.com/debt/"
                             style="cursor:pointer">
                             <dt>50<span style="font-size: 18px;">元</span></dt>
                             <dd>
@@ -54,7 +54,7 @@
                             </dd>
                         </dl>
 
-                        <dl class="coupon-show coupon-cash" data-href="https://www.touzhijia.com/debt/"
+                        <dl class="coupon-show coupon-cash" data-href="https://www.tianyantou.com/debt/"
                             style="cursor:pointer">
                             <dt>100<span style="font-size: 18px;">元</span></dt>
                             <dd>

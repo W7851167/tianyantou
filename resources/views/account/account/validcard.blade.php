@@ -1,4 +1,4 @@
-<form data-toggle="ajaxForm" method="post" action="https://account.touzhijia.com/safe/validIdCard.html" >
+<form data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/safe/validIdCard.html" >
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">

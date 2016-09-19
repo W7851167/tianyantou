@@ -67,9 +67,9 @@
                 </div>
             </div>
             <div class="area-mid">
-                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.touzhijia.com" target="_blank"></a></span>
-                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.touzhijia.com" target="_blank"></a></span>
-                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&at=business" target="_blank"></a></span>
+                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.tianyantou.com" target="_blank"></a></span>
+                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.tianyantou.com" target="_blank"></a></span>
+                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.tianyantou.com&at=business" target="_blank"></a></span>
                 <span class="f-authen-4"><a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank"></a></span>
             </div>
             <div class="area-btm">
@@ -170,22 +170,6 @@
 </div>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
-<!--
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/ucenter.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/pagination.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/actions.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/form.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/highcharts.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/moment.min.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/fullcalendar.min.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/lang-all.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/tab.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/incomechart.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/platform-charts.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.cookie.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/account.upgrade.js"></script>
--->
 @yield('script')
 </body>
 </html>

@@ -13,7 +13,7 @@
             <span>验证成功</span>
         </li>
     </ul>
-    <form class="form-group" data-toggle="ajaxForm" action="https://account.touzhijia.com/safe/changeTelephone.html?step=0" method="post" data-refresh-url="#telephone-panel">
+    <form class="form-group" data-toggle="ajaxForm" action="https://account.tianyantou.com/safe/changeTelephone.html?step=0" method="post" data-refresh-url="#telephone-panel">
         <div class="control-group">
             <label>原手机号码：</label>
             <input type="text" class="input-style" value="150****9522" readonly="readonly">

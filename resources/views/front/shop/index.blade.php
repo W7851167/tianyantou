@@ -13,9 +13,9 @@
                         <span class="axis-line"></span>
 
                         <ul class="listmodcon">
-                            <li><a href="http://topics.touzhijia.com/topic20151212.html" target="_blank"><i class="shape-circle active"></i>1.双12岁末狂欢第一波 积分兑换加息券</a></li>
-                            <li><a href="https://www.touzhijia.com/about/dynamic/2408.html" target="_blank"><i class="shape-circle active"></i>2.T积分商城抽出大奖 中奖者喜得iPhone6s</a></li>
-                            <li><a href="https://www.touzhijia.com/about/notice/2301.html" target="_blank"><i class="shape-circle active"></i>3.T积分系统隆重上线公告</a></li>
+                            <li><a href="http://topics.tianyantou.com/topic20151212.html" target="_blank"><i class="shape-circle active"></i>1.双12岁末狂欢第一波 积分兑换加息券</a></li>
+                            <li><a href="https://www.tianyantou.com/about/dynamic/2408.html" target="_blank"><i class="shape-circle active"></i>2.T积分商城抽出大奖 中奖者喜得iPhone6s</a></li>
+                            <li><a href="https://www.tianyantou.com/about/notice/2301.html" target="_blank"><i class="shape-circle active"></i>3.T积分系统隆重上线公告</a></li>
                         </ul>
 
                     </div>
@@ -50,7 +50,7 @@
                     <div class="imgplaycon">
                         <ul class="imglistcon">
                             <li><a href="/shop/mission"><img src="http://static.tianyantou.com/images/mall/carousel/3.jpg" /></a></li>
-                            <!--<li><a href="https://account.touzhijia.com/shop.html"><img src="http://static.tianyantou.com/images/mall/carousel/1.jpg" /></a></li>
+                            <!--<li><a href="https://account.tianyantou.com/shop.html"><img src="http://static.tianyantou.com/images/mall/carousel/1.jpg" /></a></li>
                             <li><a href="/"><img src="http://static.tianyantou.com/images/mall/carousel/2.jpg" /></a></li>-->
                         </ul>
                     </div>
@@ -65,7 +65,7 @@
                         <li class=""><a href="#">精品推荐</a></li>
                         <li id="coupon" class=""><a href="#"><i class="icon-hot"></i>加息券</a></li>
                         <div class="mall-list-title">
-                            <a id="my-item" href="https://account.touzhijia.com/shop.html" class="btn btn-blue-o">我的宝贝</a>
+                            <a id="my-item" href="https://account.tianyantou.com/shop.html" class="btn btn-blue-o">我的宝贝</a>
                             <span><em id="my-score" class="unlogin">请登录</em></span>
                         </div>
                     </ul>
@@ -175,7 +175,7 @@
                                             <h4>钻石T码                                    <span
                                                         class="rate">800                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/ztd5M1ZTSA3h9UKx3AM6.html"
+                                            <a href="https://www.tianyantou.com/shop/item/ztd5M1ZTSA3h9UKx3AM6.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                             <h4>黄金T码                                    <span
                                                         class="rate">400                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/PgveAdVa3PErZKJDE6dg.html"
+                                            <a href="https://www.tianyantou.com/shop/item/PgveAdVa3PErZKJDE6dg.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
                                             <h4>白银T码                                    <span
                                                         class="rate">200                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/b4A0bSHn9WAhQhX0bkYg.html"
+                                            <a href="https://www.tianyantou.com/shop/item/b4A0bSHn9WAhQhX0bkYg.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -217,7 +217,7 @@
                                             <h4>青铜T码                                    <span
                                                         class="rate">40                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/iLh8iNlxubbL1faV3hP6.html"
+                                            <a href="https://www.tianyantou.com/shop/item/iLh8iNlxubbL1faV3hP6.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@
                                             <h4>2元提现券                                    <span
                                                         class="rate">300                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/tYloCGe8rZ0FyHWwzmLV.html"
+                                            <a href="https://www.tianyantou.com/shop/item/tYloCGe8rZ0FyHWwzmLV.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -246,7 +246,7 @@
                                             <h4>2014中国网络借贷行业蓝皮书                                    <span
                                                         class="rate">360                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/GWteTT2T4s3TrJ5r8IGC.html"
+                                            <a href="https://www.tianyantou.com/shop/item/GWteTT2T4s3TrJ5r8IGC.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -260,7 +260,7 @@
                                             <h4>新金融英雄                                    <span
                                                         class="rate">8000                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/4ivqZzQUl72HEeZdQLMW.html"
+                                            <a href="https://www.tianyantou.com/shop/item/4ivqZzQUl72HEeZdQLMW.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -274,7 +274,7 @@
                                             <h4>2015中国网络借贷行业蓝皮书                                    <span
                                                         class="rate">8000                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/hGO0qSvmsO66xzTlP79j.html"
+                                            <a href="https://www.tianyantou.com/shop/item/hGO0qSvmsO66xzTlP79j.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@
                                             <h4>之家玩偶-之家妹                                    <span
                                                         class="rate">1000                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/7jyklMxJo3q4vYMgmtKx.html"
+                                            <a href="https://www.tianyantou.com/shop/item/7jyklMxJo3q4vYMgmtKx.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -302,7 +302,7 @@
                                             <h4>富士拍立得相机                                    <span
                                                         class="rate">34900                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/aq9hUTBeYcxLQmK4MnMr.html"
+                                            <a href="https://www.tianyantou.com/shop/item/aq9hUTBeYcxLQmK4MnMr.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -316,7 +316,7 @@
                                             <h4>汝窑 正品仿宋开片汝瓷功夫茶具                                    <span
                                                         class="rate">40000                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/r9a9tQShUXWPZPKyNIS3.html"
+                                            <a href="https://www.tianyantou.com/shop/item/r9a9tQShUXWPZPKyNIS3.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -330,7 +330,7 @@
                                             <h4>众筹之家现金券                                    <span
                                                         class="rate">300                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/mChvLKeUkcrJL1fOLbLY.html"
+                                            <a href="https://www.tianyantou.com/shop/item/mChvLKeUkcrJL1fOLbLY.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -344,7 +344,7 @@
                                             <h4>齐家网装修优惠券                                    <span
                                                         class="rate">50                                        积分</span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/6gjr9Xds8dTMCqXN9kQP.html"
+                                            <a href="https://www.tianyantou.com/shop/item/6gjr9Xds8dTMCqXN9kQP.html"
                                                class="btn btn-gray btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -378,7 +378,7 @@
                                         -->                                        100积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/VmtEmPE0yJjaqcjfauvq.html"
+                                            <a href="https://www.tianyantou.com/shop/item/VmtEmPE0yJjaqcjfauvq.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -404,7 +404,7 @@
                                         -->                                        100积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/fZBLCgbujyRCly5by9Es.html"
+                                            <a href="https://www.tianyantou.com/shop/item/fZBLCgbujyRCly5by9Es.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -430,7 +430,7 @@
                                         -->                                        100积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/k20gDzHbMHSfUtYz3FEL.html"
+                                            <a href="https://www.tianyantou.com/shop/item/k20gDzHbMHSfUtYz3FEL.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -456,7 +456,7 @@
                                         -->                                        150积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/ysFVwmLzNpuJI5c1Rhb7.html"
+                                            <a href="https://www.tianyantou.com/shop/item/ysFVwmLzNpuJI5c1Rhb7.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -482,7 +482,7 @@
                                         -->                                        150积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/e9WSWM07SovO751eV4YQ.html"
+                                            <a href="https://www.tianyantou.com/shop/item/e9WSWM07SovO751eV4YQ.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -509,7 +509,7 @@
                                         -->                                        150积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/Au7EhQGWSWgyLAeN6nsH.html"
+                                            <a href="https://www.tianyantou.com/shop/item/Au7EhQGWSWgyLAeN6nsH.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -536,7 +536,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/lMZHjC3ACJ0q3f8utFsZ.html"
+                                            <a href="https://www.tianyantou.com/shop/item/lMZHjC3ACJ0q3f8utFsZ.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -563,7 +563,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/toKwv5WFPlsgel145B6b.html"
+                                            <a href="https://www.tianyantou.com/shop/item/toKwv5WFPlsgel145B6b.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -590,7 +590,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/EaZeGUUL76uODEZYYd5r.html"
+                                            <a href="https://www.tianyantou.com/shop/item/EaZeGUUL76uODEZYYd5r.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -617,7 +617,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/0RlxDxbPi7ntU61Lbkp9.html"
+                                            <a href="https://www.tianyantou.com/shop/item/0RlxDxbPi7ntU61Lbkp9.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -644,7 +644,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/VS9aTNEhKzV9rdwHUhab.html"
+                                            <a href="https://www.tianyantou.com/shop/item/VS9aTNEhKzV9rdwHUhab.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -671,7 +671,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/VTbbAVXQWrQcRib25PVY.html"
+                                            <a href="https://www.tianyantou.com/shop/item/VTbbAVXQWrQcRib25PVY.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -697,7 +697,7 @@
                                         -->                                        200积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/nK8SqY4R1SA0V7XT2Fou.html"
+                                            <a href="https://www.tianyantou.com/shop/item/nK8SqY4R1SA0V7XT2Fou.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -723,7 +723,7 @@
                                         -->                                        250积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/1g7k8eIvqZ5lHC8pUuPF.html"
+                                            <a href="https://www.tianyantou.com/shop/item/1g7k8eIvqZ5lHC8pUuPF.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -750,7 +750,7 @@
                                         -->                                        250积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/H3OYWMvCNsctIWz6awjK.html"
+                                            <a href="https://www.tianyantou.com/shop/item/H3OYWMvCNsctIWz6awjK.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -776,7 +776,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/KOFYhwwla2q994GGFPBc.html"
+                                            <a href="https://www.tianyantou.com/shop/item/KOFYhwwla2q994GGFPBc.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -803,7 +803,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/ug1F0btis1Ifmd2Qqbvk.html"
+                                            <a href="https://www.tianyantou.com/shop/item/ug1F0btis1Ifmd2Qqbvk.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -830,7 +830,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/zMm7ri1yIa35nZUldKXj.html"
+                                            <a href="https://www.tianyantou.com/shop/item/zMm7ri1yIa35nZUldKXj.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -856,7 +856,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/9ADVo4dXo1dn948sKW0a.html"
+                                            <a href="https://www.tianyantou.com/shop/item/9ADVo4dXo1dn948sKW0a.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -883,7 +883,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/T7rsREGcw0kKqRwjT68c.html"
+                                            <a href="https://www.tianyantou.com/shop/item/T7rsREGcw0kKqRwjT68c.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -910,7 +910,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/zTyJyk406yM2wYLu5iaY.html"
+                                            <a href="https://www.tianyantou.com/shop/item/zTyJyk406yM2wYLu5iaY.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -937,7 +937,7 @@
                                         -->                                        300积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/HC1BUfoZ5k062gNSwfuE.html"
+                                            <a href="https://www.tianyantou.com/shop/item/HC1BUfoZ5k062gNSwfuE.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -964,7 +964,7 @@
                                         -->                                        400积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/1w1Z7GanYOAxI0YKmgyt.html"
+                                            <a href="https://www.tianyantou.com/shop/item/1w1Z7GanYOAxI0YKmgyt.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -991,7 +991,7 @@
                                         -->                                        400积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/HY8OWq59URT8beI1z47r.html"
+                                            <a href="https://www.tianyantou.com/shop/item/HY8OWq59URT8beI1z47r.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -1018,7 +1018,7 @@
                                         -->                                        400积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/fPkC3JaqypTmoIvc0WZ2.html"
+                                            <a href="https://www.tianyantou.com/shop/item/fPkC3JaqypTmoIvc0WZ2.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
@@ -1045,7 +1045,7 @@
                                         -->                                        400积分
                                                                               </span>
                                             </h4>
-                                            <a href="https://www.touzhijia.com/shop/item/4H0STlGV8IrhU7eOLT0u.html"
+                                            <a href="https://www.tianyantou.com/shop/item/4H0STlGV8IrhU7eOLT0u.html"
                                                target="_blank" class="btn btn-l btn-gray">查看详情</a>
                                         </div>
                                     </div>
