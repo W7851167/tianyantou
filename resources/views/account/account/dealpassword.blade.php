@@ -1,4 +1,4 @@
-<form data-toggle="ajaxForm" method="post" action="https://account.touzhijia.com/safe/changeDealPassword.html" data-refresh-url="#dealpassword-panel">
+<form data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/safe/changeDealPassword.html" data-refresh-url="#dealpassword-panel">
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">

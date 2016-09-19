@@ -67,9 +67,9 @@
                 </div>
             </div>
             <div class="area-mid">
-                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.touzhijia.com" target="_blank"></a></span>
-                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.touzhijia.com" target="_blank"></a></span>
-                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&at=business" target="_blank"></a></span>
+                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.tianyantou.com" target="_blank"></a></span>
+                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.tianyantou.com" target="_blank"></a></span>
+                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.tianyantou.com&at=business" target="_blank"></a></span>
                 <span class="f-authen-4"><a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank"></a></span>
             </div>
             <div class="area-btm">

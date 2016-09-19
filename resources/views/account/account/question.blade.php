@@ -1,4 +1,4 @@
-<form data-toggle="ajaxForm" method="post" action="https://account.touzhijia.com/safe/setSecurityQuestion.html" data-refresh-url="#security_question-panel">
+<form data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/safe/setSecurityQuestion.html" data-refresh-url="#security_question-panel">
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">

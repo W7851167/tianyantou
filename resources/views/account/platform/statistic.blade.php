@@ -38,7 +38,7 @@
                                         <dt>综合年化收益率</dt>
                                         <dd>0.00%</dd>
                                     </dl>
-                                    <a href="https://account.touzhijia.com/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
+                                    <a href="https://account.tianyantou.com/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                                             @endforeach
                                         </div>
                                         <div class="pagination" data-pagination-ref="unopened_platforms">
-                                            <a href="https://account.touzhijia.com/platforms/unopenedPlatforms?page=2" data-ci-pagination-page="2">
+                                            <a href="https://account.tianyantou.com/platforms/unopenedPlatforms?page=2" data-ci-pagination-page="2">
                                                 <i class="iconfont next"  style="font-size:12px;"></i>
                                             </a>
                                         </div>
