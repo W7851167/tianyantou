@@ -13,6 +13,7 @@
 namespace App\Http\Controllers\Account;
 
 
+use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
@@ -59,7 +60,7 @@ class AccountController extends FrontController
             ];
             try {
                 $result = $this->userRepository->userModel->saveBy($data);
-                if($result){
+                if ($result) {
                     $data = Session::get('user.passport');
                     $data['username'] = $username;
                     Session::put('user.passport', $data);
@@ -79,8 +80,15 @@ class AccountController extends FrontController
         return view('account.account.changetelephone');
     }
 
-    public function validateemail()
+    public function validateemail(Request $request)
     {
+        if ($request->isMethod('post')) {
+            $user = $this->userRepository->userModel->find($this->user['id']);
+            $user->email = $request->email;
+            event(new ValidateEmail($user));
+
+            return '发送成功!';
+        }
         return view('account.account.validateemail');
     }
 
