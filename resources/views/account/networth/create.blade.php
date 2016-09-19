@@ -40,72 +40,20 @@
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
                             <div class="control-group">
                                 <label for="real-name">真实姓名</label>
-                                <input type="text" class="input-style" readonly="readonly" value="* 希顺">
-                                <em>请添加相同开户名的银行卡</em>
+                                <input type="text" class="input-style" name="data[realname]" value="">
+                                <em>请添加投资人用户姓名</em>
                             </div>
                             <div class="control-group">
-                                <label>开户银行</label>
-                                <select name="bank_name" class="input-style required">
-                                    <option value="">请选择开户银行</option>
-                                    <option value="中国工商银行">中国工商银行</option>
-                                    <option value="中国光大银行">中国光大银行</option>
-                                    <option value="中国建设银行">中国建设银行</option>
-                                    <option value="中国农业银行">中国农业银行</option>
-                                    <option value="招商银行">招商银行</option>
-                                    <option value="中国银行">中国银行</option>
-                                    <option value="交通银行">交通银行</option>
-                                    <option value="广发银行">广发银行</option>
-                                    <option value="兰州银行">兰州银行</option>
-                                    <option value="中国民生银行">中国民生银行</option>
-                                    <option value="中信银行">中信银行</option>
-                                    <option value="平安银行">平安银行</option>
-                                    <option value="北京银行">北京银行</option>
-                                    <option value="成都银行">成都银行</option>
-                                    <option value="浦东发展银行">浦东发展银行</option>
-                                    <option value="华夏银行">华夏银行</option>
-                                    <option value="上海银行">上海银行</option>
-                                    <option value="渤海银行">渤海银行</option>
-                                    <option value="宁波银行">宁波银行</option>
-                                    <option value="南京银行">南京银行</option>
-                                    <option value="BEA东亚银行">BEA东亚银行</option>
-                                    <option value="兴业银行">兴业银行</option>
-                                    <option value="天津银行">天津银行</option>
-                                    <option value="北京农商行">北京农商行</option>
-                                    <option value="杭州银行">杭州银行</option>
-                                    <option value="恒丰银行">恒丰银行</option>
-                                    <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
-                                    <option value="青岛银行">青岛银行</option>
-                                    <option value="上海农商行">上海农商行</option>
-                                    <option value="重庆农商银行">重庆农商银行</option>
-                                </select>
+                                <label>投资人手机号码</label>
+                                <input type="text" name="data[mobile]" class="input-style" value="">
                             </div>
                             <div class="control-group">
-                                <label>开户行所在地</label>
-                                <select name="sheng" class="input-style" selectedindex="0"><option value="0">省份</option><option value="1">北京市</option><option value="22">天津市</option><option value="44">上海市</option><option value="66">重庆市</option><option value="108">河北省</option><option value="406">山西省</option><option value="622">内蒙古</option><option value="804">辽宁省</option><option value="945">吉林省</option><option value="1036">黑龙江省</option><option value="1226">江苏省</option><option value="1371">浙江省</option><option value="1500">安徽省</option><option value="1679">福建省</option><option value="1812">江西省</option><option value="1992">山东省</option><option value="2197">河南省</option><option value="2456">湖北省</option><option value="2613">湖南省</option><option value="2822">广东省</option><option value="3015">广西</option><option value="3201">海南省</option><option value="3235">四川省</option><option value="3561">贵州省</option><option value="3728">云南省</option><option value="3983">西藏</option><option value="4136">陕西省</option><option value="4334">甘肃省</option><option value="4499">青海省</option><option value="4588">宁夏</option><option value="4624">新疆</option><option value="4802">香港</option><option value="4822">澳门</option></select>
-                                <input name="sheng_str" type="hidden" value="">
-                                <select name="city" class="input-style"><option value="1">地级市</option></select>
-                                <input name="city_str" type="hidden" value="">
+                                <label>投资金额</label>
+                                <input type="text" name="data[price]" class="input-style">
                             </div>
                             <div class="control-group">
-                                <label>开户支行名称</label>
-                                <input type="text" name="zhihang" class="input-style" value="">
-                            </div>
-                            <div class="control-group">
-                                <label>银行卡号</label>
-                                <input type="text" name="bank_id" class="input-style">
-                            </div>
-                            <div class="control-group">
-                                <label for="">确认卡号</label>
-                                <input type="text" name="confirm_bank_id" class="input-style">
-                            </div>
-                            <div class="control-group">
-                                <label for="">手机号码</label>
-                                <input type="text" class="input-style" readonly="readonly" value="186****0121">
-                                <a href="javascript:;" class="btn-captcha btn-l" data-toggle="verifyCode" data-action="bindbankcard">发送验证码</a>
-                            </div>
-                            <div class="control-group">
-                                <label>手机验证码</label>
-                                <input type="text" class="input-style" name="verify_code">
+                                <label for="">投资时间</label>
+                                <input type="text" name="data[invest_time]" class="input-style">
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
