@@ -13,7 +13,7 @@
             <span>找回交易密码成功</span>
         </li>
     </ul>
-    <form class="form-group" data-toggle="ajaxForm" action="https://account.touzhijia.com/safe/finddealpassword.html?step=0" method="post" data-refresh-url="#dealpassword-panel">
+    <form class="form-group" data-toggle="ajaxForm" action="https://account.tianyantou.com/safe/finddealpassword.html?step=0" method="post" data-refresh-url="#dealpassword-panel">
         <div class="control-group">
             <label>原手机号码：</label>
             <input type="text" class="input-style" value="150****9522" readonly="readonly">

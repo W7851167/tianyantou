@@ -50,12 +50,12 @@
                                     <div class="td-inner-tit-news ">
                                         <p>系统公告</p>
                                     </div>
-                                    <a href="{!! url('news/notice') !!}">更多>></a>
+                                    <a target="_blank" href="{!! config('app.url') !!}/about/notice.html">更多>></a>
                                 </div>
                                 @if(count($notices))
                                 <ul class="td-inner-bulletin clearfix">
                                     @foreach($notices as $nv)
-                                        <li><i></i><a href="###">{!! $nv->title !!}</a><span>[{!! $nv->created_at !!}]</span></li>
+                                        <li><i></i><a target="_blank" href="{!! config('app.url') . '/about/notice/' . $nv->id . '.html' !!}">{!! $nv->title !!}</a><span>[{!! $nv->created_at !!}]</span></li>
                                     @endforeach
                                 </ul>
                                 @else
@@ -120,15 +120,14 @@
                     </tr>
                 </table>
             </div>
-            <div class="consult">
-
-                <div class="consult-message pr">
-                    <div class="consult-pic"><img src="{!!url('admin/images/u384.png')!!}"></div>
-                    <a href="{!!url('/message')  !!}" >您有<span>@if(!empty($counted)){!! $counted !!}@else 0 @endif</span>条消息</a>
-                    <div class="consult-messageList pa">
-                    </div>
-                </div>
-            </div>
+            {{--<div class="consult">--}}
+                {{--<div class="consult-message pr">--}}
+                    {{--<div class="consult-pic"><img src="{!!url('admin/images/u384.png')!!}"></div>--}}
+                    {{--<a href="{!!url('/message')  !!}" >您有<span>@if(!empty($counted)){!! $counted !!}@else 0 @endif</span>条消息</a>--}}
+                    {{--<div class="consult-messageList pa">--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
     <script>

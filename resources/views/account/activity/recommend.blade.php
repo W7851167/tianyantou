@@ -33,14 +33,14 @@
                             <div class="tab click-tab">
                                 <ul class="tab-nav">
                                     <li class="active"><a
-                                                href="https://account.touzhijia.com/activity/recommend.html">邀请奖励</a></li>
-                                    <li><a href="https://account.touzhijia.com/activity/recommendlist.html">邀请记录</a></li>
+                                                href="https://account.tianyantou.com/activity/recommend.html">邀请奖励</a></li>
+                                    <li><a href="https://account.tianyantou.com/activity/recommendlist.html">邀请记录</a></li>
                                 </ul>
                                 <div class="tab-main">
                                     <div class="active">
                                         <div class="invite-reward">
                                             <img src="./投之家 - 个人中心_files/invite-reward.jpg" alt="">
-                                            <a href="http://topics.touzhijia.com/newregister.html" target="_blank"
+                                            <a href="http://topics.tianyantou.com/newregister.html" target="_blank"
                                                class="btn btn-blue btn-l">查看详情</a>
                                         </div>
                                     </div>
@@ -59,14 +59,14 @@
                                             <li style="width:210px;height:210px;">
                                                 <span class="invite-link">复制注册链接<br>发给好友即可哦~</span>
                                                 <a href="javascript:;" class="btn btn-blue btn-m"
-                                                   data-url="https://account.touzhijia.com/register.html?uid=2616033"
+                                                   data-url="https://account.tianyantou.com/register.html?uid=2616033"
                                                    id="copy-link">复制链接</a>
                                             </li>
                                             <li style="width:210px;height:210px;">
                                                 <span class="invite-wechat">微信邀请</span>
                                                 <p>扫描二维码后将链接发给好友</p>
                                                 <div id="invite-qrcode"
-                                                     data-url="http://m.touzhijia.com/account/register?uid=2616033&amp;tel=150****9522">
+                                                     data-url="http://m.tianyantou.com/account/register?uid=2616033&amp;tel=150****9522">
                                                     <canvas width="90" height="90"></canvas>
                                                 </div>
                                             </li>

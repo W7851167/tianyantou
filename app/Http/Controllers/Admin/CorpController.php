@@ -274,4 +274,31 @@ class CorpController extends AdminController
         return view('admin.corp.charts',compact('corp','metas'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * 企业荣誉管理
+     */
+    public function honour(Request $request, $id)
+    {
+        $corp = $this->taskRepository->corpModel->find($id);
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->taskRepository->saveMeta($id,$data);
+            if($result['status'])
+                return $this->success('保存荣誉信息完成',url('corp/honour',['id'=>$id]),true);
+            return $this->error($result['message'],null,true);
+        }
+        $metas['honour_corp_1'] = '';
+        $metas['honour_corp_2'] = '';
+        $metas['honour_corp_3'] = '';
+        $metas['honour_1'] = '';
+        $metas['honour_2'] = '';
+        $metas['honour_3'] = '';
+        if(!empty($corp->metas[0])) {
+            $metas = getMetas($corp->metas, $metas);
+        }
+        return view('admin.corp.honour',compact('corp','metas'));
+    }
+
 }

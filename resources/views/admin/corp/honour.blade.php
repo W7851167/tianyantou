@@ -23,41 +23,38 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="{!! url('corp/manage',['id'=>$corp->id]) !!}">公司介绍</a></p>
                     <p><a href="{!! url('corp/term',['id'=>$corp->id]) !!}">团队管理</a></p>
-                    <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}"  class="at">安全保障</a></p>
+                    <p><a href="{!! url('corp/safety',['id'=>$corp->id]) !!}" >安全保障</a></p>
                     <p><a href="{!! url('corp/photos',['id'=>$corp->id]) !!}">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}">最新动态</a></p>
                     <p><a href="{!! url('corp/charts',['id'=>$corp->id]) !!}" >雷达图</a></p>
-                    <p><a href="{!! url('corp/honour',['id'=>$corp->id]) !!}">企业荣誉</a></p>
+                    <p><a href="{!! url('corp/honour',['id'=>$corp->id]) !!}"  class="at">企业荣誉</a></p>
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>备案域名：</div>
-                        <div><input type="text" name="data[icp_domain]" placeholder="备案域名" value="{!! $metas['icp_domain'] or '' !!}"></div>
+                        <div class="infospaceAddLeft"><span>*</span>荣誉一：</div>
+                        <div><input type="text" name="data[honour_1]" placeholder="荣誉一" value="{!! $metas['honour_1'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>单位性质：</div>
-                        <div><input type="text" name="data[icp_corp_type]" placeholder="企业" value="{!! $metas['icp_corp_type'] or '' !!}"></div>
+                        <div class="infospaceAddLeft">荣誉二：</div>
+                        <div><input type="text" name="data[honour_2]" placeholder="荣誉二" value="{!! $metas['honour_2'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>备案时间：</div>
-                        <div><input type="text" class="Wdate" name="data[icp_time]" placeholder="备案时间" value="{!! $metas['icp_time'] or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})"></div>
+                        <div class="infospaceAddLeft">荣誉三：</div>
+                        <div><input type="text" name="data[honour_3]" placeholder="荣誉三" value="{!! $metas['honour_3'] or '' !!}"></div>
+                    </div>
+
+                    <div class="infospaceAddContent clearfix">
+                        <div class="infospaceAddLeft"><span>*</span>合作一：</div>
+                        <div><input type="text" name="data[honour_corp_1]" placeholder="合作一" value="{!! $metas['honour_corp_1'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>公司名称：</div>
-                        <div><input type="text" name="data[icp_corp_name]" placeholder="公司名称" value="{!! $metas['icp_corp_name'] or '' !!}"></div>
+                        <div class="infospaceAddLeft">合作二：</div>
+                        <div><input type="text" name="data[honour_corp_2]" placeholder="合作二" value="{!! $metas['honour_corp_2'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>ICP备案号：</div>
-                        <div><input type="text" name="data[icp_no]" placeholder="京ICP备14019436号" value="{!! $metas['icp_no'] or '' !!}"></div>
-                    </div>
-                    <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>担保方式：</div>
-                        <div><input type="text" name="data[pattern]" placeholder="风险准备金，双乾支付托管" value="{!! $metas['pattern'] or '' !!}"></div>
-                    </div>
-                    <div class="infospaceAddContent clearfix">
-                        <div class="infospaceAddLeft"><span>*</span>担保机构：</div>
-                        <div><input type="text" name="data[assure]" placeholder="网贷之家" value="{!! $metas['assure'] or '' !!}"></div>
+                        <div class="infospaceAddLeft">合作三：</div>
+                        <div><input type="text" name="data[honour_corp_3]" placeholder="荣誉三" value="{!! $metas['honour_corp_3'] or '' !!}"></div>
                     </div>
                     <div class="w928">
                         <div class="button">

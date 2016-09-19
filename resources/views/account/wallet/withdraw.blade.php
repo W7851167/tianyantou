@@ -12,7 +12,7 @@
             <div class="main tworow" style="height: 876px;">
 
                 <div class="main-inner">
-                    <div class="tips">您还未绑定银行卡，请先<a href="https://account.touzhijia.com/bankcard.html"
+                    <div class="tips">您还未绑定银行卡，请先<a href="https://account.tianyantou.com/bankcard.html"
                                                     class="link">绑定银行卡</a>再进行提现操作
                     </div>
                 </div>

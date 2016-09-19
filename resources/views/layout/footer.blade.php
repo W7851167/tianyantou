@@ -58,18 +58,6 @@
                     </ul>
                 </div>
                 <div class="f-code">
-                    {{--<p id="f-dingyuhao">--}}
-                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_app.png" alt="微博账号" title="微博账号" />--}}
-                        {{--<span>天眼投APP下载</span>--}}
-                    {{--</p>--}}
-                    {{--<p id="f-fuwuhao">--}}
-                        {{--<img src="{!! config('app.static_url') !!}/images/common/f_service.png" alt="天眼投服务号" title="天眼投服务号" />--}}
-                        {{--<span>官方服务号</span>--}}
-                    {{--</p>--}}
-                    {{--<!--<p id="f-wechat">--}}
-            {{--<img src="{!! config('app.static_url') !!}/images/common/f_wechat.png" alt="理财顾问微信号" title="理财顾问微信号" />--}}
-            {{--<span>理财顾问微信号</span>--}}
-          {{--</p>-->--}}
                 </div>
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
@@ -79,9 +67,9 @@
                 </div>
             </div>
             <div class="area-mid">
-                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.touzhijia.com" target="_blank"></a></span>
-                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.touzhijia.com" target="_blank"></a></span>
-                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&at=business" target="_blank"></a></span>
+                <span class="f-authen-1"><a href="http://www.jiasule.com/analytics/login/?site=www.tianyantou.com" target="_blank"></a></span>
+                <span class="f-authen-2"><a href="http://webscan.360.cn/index/checkwebsite/url/www.tianyantou.com" target="_blank"></a></span>
+                <span class="f-authen-3"><a href="http://www.anquan.org/authenticate/cert/?site=www.tianyantou.com&at=business" target="_blank"></a></span>
                 <span class="f-authen-4"><a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank"></a></span>
             </div>
             <div class="area-btm">
@@ -95,13 +83,12 @@
 </div>
 <div class="main-float-nav" id="main-float-navo" closebz="0">
     <p class="close-nav"><a href="javascript:void(0);"><i class="iconfont">&#xe68b;</i></a></p>
-    <div class="figure">
-        <div class="eye1" id="eye1"></div>
-        <div class="eye2" id="eye2"></div>
-        <a href="{!! config('app.url') !!}/mascot.html" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>
-        <!-- {!! config('app.url') !!}/mascot.html  -->
-    </div>
-    <p class="onoroff"><a href="javascript:void(0);"></a></p>
+    {{--<div class="figure">--}}
+        {{--<div class="eye1" id="eye1"></div>--}}
+        {{--<div class="eye2" id="eye2"></div>--}}
+        {{--<a href="javascript:void(0);" class="peoplelink" target="_blank" title="天眼投吉祥物"></a>--}}
+    {{--</div>--}}
+    {{--<p class="onoroff"><a href="javascript:void(0);"></a></p>--}}
     <ul>
         <li>
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe627;</i><br/>公告</a>
@@ -183,22 +170,6 @@
 </div>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
-<!--
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/ucenter.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/pagination.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/actions.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/form.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/highcharts.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/moment.min.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/fullcalendar.min.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/fullcalendar/lang-all.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/tab.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/incomechart.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/platform-charts.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.cookie.js"></script>
-<script type="text/javascript" src="{!!config('app.static_url')!!}/js/plugins/account.upgrade.js"></script>
--->
 @yield('script')
 </body>
 </html>
