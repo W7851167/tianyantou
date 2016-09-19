@@ -40,6 +40,7 @@
                     </div>
                     <div class="form-group bindbankcard">
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
+                            {!! csrf_field() !!}
                             <div class="control-group">
                                 <label for="real-name">真实姓名</label>
                                 <input type="text" class="input-style" name="data[realname]" value="">

@@ -51,6 +51,9 @@ class NetworthController extends FrontController
      */
     public function create(Request $request,$id)
     {
+        if($request->isMethod('post')) {
+		return $this->ajaxReturn('测试提交内容');
+        }
         $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
 
         return view('account.networth.create');
