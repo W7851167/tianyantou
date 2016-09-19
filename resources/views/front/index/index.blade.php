@@ -126,8 +126,28 @@
                             </p>
                             <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>
+                        <style>
+                            .fenge {
+                                width: 207px;
+                                height: 25px;
+                                background: url({!! config('app.static_url') !!}/images/common/nhl-bg.jpg) no-repeat;
+                                line-height: 25px;
+                                text-align: center;
+                                color: #ff6c00;
+                                margin: auto;
+                                margin-bottom: 20px;
+                                margin-top: 10px;
+                            }
+                        </style>
+                        <div class="fenge">
+                            天眼投再加年化
+                            <i>{!! $tv->mratio or 0.00 !!}</i>
+                            %
+                        </div>
                         <p class="goin-btn">
-                            <span>可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元</span>
+                            <span>
+                                可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元
+                            </span>
                             <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename !!}/{!! $tv->id !!}" rel="platform_join"
                                data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title !!}" class="btn btn-blue" title="投资">投资</a>
                         </p>
