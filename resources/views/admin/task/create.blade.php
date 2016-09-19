@@ -61,11 +61,11 @@
                             </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>年转化率：</div>
+                            <div class="infospaceAddLeft"><span>*</span>平台年化率：</div>
                             <div><input type="text" name = "data[ratio]" placeholder="浮点数比如12.91" value="{!! $task->ratio or 0 !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>平台年化率：</div>
+                            <div class="infospaceAddLeft"><span>*</span>天眼投年化率：</div>
                             <div><input type="text" name = "data[mratio]" placeholder="平台增加的化率"  value="{!! $task->mratio or 0 !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
