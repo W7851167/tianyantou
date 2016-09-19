@@ -47,6 +47,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::any('corp/charts/{id?}', ['as' => 'task.corp.charts', 'uses' => 'CorpController@charts']);
     Route::any('corp/photos/{id?}', ['as' => 'task.corp.photos', 'uses' => 'CorpController@photos']);
     Route::any('corp/news/{id?}', ['as' => 'task.corp.news', 'uses' => 'CorpController@news']);
+    Route::any('corp/honour/{id?}', ['as' => 'task.corp.honour', 'uses' => 'CorpController@honour']);
     Route::any('corp/dynamic/{corp_id}/{id?}', ['as' => 'task.corp.dynamic', 'uses' => 'CorpController@dynamic']);
     Route::any('corp/newdelete/{corp_id}/{id}', ['as' => 'task.corp.newdelete', 'uses' => 'CorpController@newdelete']);
     //领取任务管理

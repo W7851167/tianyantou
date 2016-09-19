@@ -30,7 +30,15 @@
                     <h2>{!! $corp->name or '' !!}<i class="iconfont">&#xe68e;</i>
 
                         <div class="tag">
-                            <span>上市公司及券商联袂打造</span>
+                            @if(!empty($metas['honour_corp_1']))
+                                <span>{!! $metas['honour_corp_1'] !!}</span>
+                            @endif
+                            @if(!empty($metas['honour_corp_2']))
+                                <span>{!! $metas['honour_corp_2'] !!}</span>
+                            @endif
+                            @if(!empty($metas['honour_corp_3']))
+                                <span>{!! $metas['honour_corp_3'] !!}</span>
+                            @endif
                             <span>天眼投合作平台</span>
                         </div>
                     </h2>
@@ -90,25 +98,41 @@
             <!--荣誉-->
             <div class="content">
                 <div class="main">
+                    @if(!empty($metas['honour_1']))
                     <div class="honor">
                         <i></i>
-
-                        <p title="上市公司及券商联袂打造">上市公司及券商联袂打造</p>
+                        <p title="{!! $metas['honour_1'] !!}">{!! $metas['honour_1'] !!}</p>
                     </div>
+                        @else
+                        <div class="nohonor">
+                            暂无更多荣誉
+                        </div>
+                    @endif
                 </div>
                 <div class="main">
+                    @if(!empty($metas['honour_2']))
                     <div class="honor">
                         <i></i>
-
-                        <p title="广州市汽车服务业协会副会长">广州市汽车服务业协会副会长</p>
+                        <p title="{!! $metas['honour_2'] !!}">{!! $metas['honour_2'] !!}</p>
                     </div>
+                        @else
+                        <div class="nohonor">
+                            暂无更多荣誉
+                        </div>
+                    @endif
                 </div>
+
                 <div class="main">
+                    @if(!empty($metas['honour_3']))
                     <div class="honor">
                         <i></i>
-
-                        <p title="广东互联网金融协会会员单位">广东互联网金融协会会员单位</p>
+                        <p title="{!! $metas['honour_3'] !!}">{!! $metas['honour_3'] !!}</p>
                     </div>
+                    @else
+                        <div class="nohonor">
+                            暂无更多荣誉
+                        </div>
+                    @endif
                 </div>
             </div>
             <!--详情-->

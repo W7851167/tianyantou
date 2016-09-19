@@ -184,6 +184,9 @@ class PlatformController extends FrontController
         $metas['assure'] = '';
         //担保方式
         $metas['pattern'] = '';
+        //荣誉
+        $metas['honour_1'] = $metas['honour_2'] = $metas['honour_3'] = '';
+        $metas['honour_corp_1'] = $metas['honour_corp_2'] = $metas['honour_corp_3'] = '';
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
