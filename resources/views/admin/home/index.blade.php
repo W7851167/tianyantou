@@ -50,12 +50,12 @@
                                     <div class="td-inner-tit-news ">
                                         <p>系统公告</p>
                                     </div>
-                                    <a href="{!! url('news/notice') !!}">更多>></a>
+                                    <a target="_blank" href="{!! config('app.url') !!}/about/notice.html">更多>></a>
                                 </div>
                                 @if(count($notices))
                                 <ul class="td-inner-bulletin clearfix">
                                     @foreach($notices as $nv)
-                                        <li><i></i><a href="###">{!! $nv->title !!}</a><span>[{!! $nv->created_at !!}]</span></li>
+                                        <li><i></i><a target="_blank" href="{!! config('app.url') . '/about/notice/' . $nv->id . '.html' !!}">{!! $nv->title !!}</a><span>[{!! $nv->created_at !!}]</span></li>
                                     @endforeach
                                 </ul>
                                 @else
