@@ -9,6 +9,8 @@
 namespace App\Mailer;
 
 
+use Illuminate\Support\Facades\Session;
+
 class ValidateMailer extends Mailer
 {
     public function welcome($user)
@@ -17,7 +19,7 @@ class ValidateMailer extends Mailer
         $subject = 'tianyantou';
         $view = 'tianyantou';
         $data = ['%name%' => [$user->username], '%code%' => [$code]];
+        Session::put('user_' . $user->id, $code);
         $this->sendTo($user, $subject, $view, $data);
-        Session::put('user_' . $user->id . 'code', $code);
     }
 }

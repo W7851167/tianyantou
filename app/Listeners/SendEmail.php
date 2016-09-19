@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\UserRegistered;
+use App\Events\ValidateEmail;
 use App\Mailer\ValidateMailer;
 
 class SendEmail
@@ -24,9 +24,8 @@ class SendEmail
      * @param  UserRegistered  $event
      * @return void
      */
-    public function handle(ValidateMailer $event)
+    public function handle(ValidateEmail $event)
     {
-        var_dump($event->user);exit;
         $this->mailer->welcome($event->user);
     }
 }

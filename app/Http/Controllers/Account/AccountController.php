@@ -80,16 +80,35 @@ class AccountController extends FrontController
         return view('account.account.changetelephone');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 验证邮箱
+     */
     public function validateemail(Request $request)
     {
         if ($request->isMethod('post')) {
-            var_dump(111);exit;
-            $user = $this->userRepository->userModel->find($this->user['id']);
-            $user->email = $request->email;
-            var_dump($user);exit;
-            event(new ValidateEmail($user));
-
-            return '发送成功!';
+            if ($request->get('action') == 'authEmail') {
+                $user = $this->userRepository->userModel->find($this->user['id']);
+                $user->email = $request->email;
+                event(new ValidateEmail($user));
+                return '发送成功!';
+            }
+            $code = $request->get('verifyCode');
+            $email = $request->get('email');
+            $checkcode = Session::get('user_' . $this->user['id']);
+            if (!$code || !$email || ($code != $checkcode)) {
+                return '验证失败!';
+            }
+            $data = ['id' => $this->user['id'], 'email' => $email];
+            try {
+                $result = $this->userRepository->userModel->saveBy($data);
+                if ($result) return '修改成功!';
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
+            return '修改失败!';
         }
 
         return view('account.account.validateemail');
