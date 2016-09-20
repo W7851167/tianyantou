@@ -41,7 +41,45 @@ class WalletController extends FrontController
     public function book(Request $request)
     {
         $page = $request->get('page') ?: 1;
+        $type = $request->get('opType');
+        $time = $request->get('timespan');
         $where = ['user_id' => $this->user['id']];
+        if ($time) {
+            switch ($time) {
+                case '1w':
+                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 1 WEEK)'];
+                    break;
+                case '1m':
+                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 1 MONTH)'];
+                    break;
+                case '3m':
+                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 3 MONTH)'];
+                    break;
+                case '6m':
+                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 6 MONTH)'];
+                    break;
+            }
+        }
+        if($type){
+            switch($type){
+                case 'invest':
+                    $where['type'] = 1;
+                    break;
+                case 'income':
+                    $where['type'] = 2;
+                    break;
+                case 'recharge':
+                    $where['type'] = 3;
+                    break;
+                case 'withdraw':
+                    $where['type'] = 4;
+                    break;
+                case 'other':
+                    $where['type'] = 0;
+                    break;
+            }
+        }
+
         list($count, $lists) = $this->userRepository->getRecordList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
         return view('account.wallet.book', compact('lists', 'pageHtml'));
