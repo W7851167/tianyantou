@@ -16,6 +16,7 @@ use App\Eloquent\Model;
 use App\Models\BankModel;
 use App\Models\MessageModel;
 use App\Models\MoneyModel;
+use App\Models\RecordModel;
 use App\Models\ScoreModel;
 use App\Models\UserModel;
 use App\Models\WithdrawModel;
@@ -31,7 +32,8 @@ class UserRepository extends BaseRepository
         MoneyModel $moneyModel,
         WithdrawModel $withdrawModel,
         BankModel $bankModel,
-        MessageModel $messageModel
+        MessageModel $messageModel,
+        RecordModel $recordModel
     )
     {
         $this->userModel = $userModel;
@@ -40,6 +42,7 @@ class UserRepository extends BaseRepository
         $this->bankModel = $bankModel;
         $this->withdrawModel = $withdrawModel;
         $this->messageModel = $messageModel;
+        $this->recordModel = $recordModel;
     }
 
     /**
@@ -271,6 +274,14 @@ class UserRepository extends BaseRepository
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->messageModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->messageModel->countBy($where);
+        return [$count, $lists];
+    }
+
+    public function getRecordList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->recordModel->lists("*", $where, $orderBy, [], $limit, $page);
+        $count = $this->recordModel->countBy($where);
         return [$count, $lists];
     }
 
