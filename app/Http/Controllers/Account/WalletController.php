@@ -14,12 +14,17 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 
 class WalletController extends FrontController
 {
-    public function __construct()
+    public function __construct(
+        UserRepository $userRepository
+    )
     {
         parent::__initalize();
+        $this->userRepository = $userRepository;
     }
 
     public function withdraw()
@@ -27,8 +32,18 @@ class WalletController extends FrontController
         return view('account.wallet.withdraw');
     }
 
-    public function book()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 资金流水列表
+     */
+    public function book(Request $request)
     {
-        return view('account.wallet.book');
+        $page = $request->get('page') ?: 1;
+        $where = ['user_id' => $this->user['id']];
+        list($count, $lists) = $this->userRepository->getRecordList($where, $this->perpage, $page);
+        $pageHtml = $this->pager($count, $page, $this->perpage);
+        return view('account.wallet.book', compact('lists', 'pageHtml'));
     }
 }

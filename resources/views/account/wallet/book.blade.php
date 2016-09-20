@@ -31,13 +31,22 @@
                 <div class="filter-group">
                     <dl class="filter plat-filter">
                         <dt>操作类型：</dt>
-                        <dd class="active"><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=all">全部</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=invest&timespan=all">投资</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=income&timespan=all">回款</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=recharge&timespan=all">充值</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=withdraw&timespan=all">提现</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=other&timespan=all">其他</a></dd>
+                        <dd class="active"><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=all">全部</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=invest&timespan=all">投资</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=income&timespan=all">回款</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=recharge&timespan=all">充值</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=withdraw&timespan=all">提现</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=other&timespan=all">其他</a></dd>
                     </dl>
                     <dl class="filter plat-filter">
                         <dt>查询时间：</dt>
-                        <dd class="active"><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=all">全部</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=1w">一周内</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=1m">一月内</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=3m">三月内</a></dd><dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=6m">半年内</a></dd>  </dl>
+                        <dd class="active"><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=all">全部</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=1w">一周内</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=1m">一月内</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=3m">三月内</a></dd>
+                        <dd><a href="{!! config('app.account_url') !!}/wallet/book.html?appType=all&opType=all&timespan=6m">半年内</a></dd>
+                    </dl>
                 </div>
-
                 <table class="table table-blue table-bordered ucenter-table">
                     <thead>
                     <tr>
@@ -50,12 +59,27 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @if(count($lists) > 0)
+                        @foreach($lists as $rv)
+                    <tr>
+                        <td>{!! $rv->created_at or '---' !!}</td>
+                        <td>@if($rv->type==1)投资回报@elseif($rv->type==2)投资回款@elseif($rv->type==3)充值@elseif($rv->type==4)体现@else - @endif</td>
+                        <td>{!! $rv->income or 0.00 !!}</td>
+                        <td>{!! $rv->cost or 0.00 !!}</td>
+                        <td>{!! $rv->account or 0.00 !!}</td>
+                        <td>{!! $rv->remark or '-' !!}</td>
+                    </tr>
+                        @endforeach
+                    @else
                     <tr class="norecord">
-                        <td colspan="6">
-                            未查询到相关流水  </td>
-                    </tr>    </tbody>
+                        <td colspan="6">未查询到相关流水</td>
+                    </tr>
+                    @endif
+                    </tbody>
                 </table>
-                <div class="pagination"></div></div>    </div>
+                <div class="pagination"></div>
+            </div>
+        </div>
     </div>
 </div>
 @stop
