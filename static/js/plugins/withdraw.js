@@ -10,7 +10,7 @@
     (function() {
         var $detail = $('.deposit-detail'),
             $submit = $('input[type=submit]'),
-            withdrawAmounto = $('input[name="withdrawAmount"]'),
+            withdrawAmounto = $('input[name="data[price]"]'),
             withdraw = $('#withdraw'),
             code_count = $('#code_count').text(),
             $charge = $detail.find('.label:eq(0)').siblings('b'),
@@ -55,7 +55,7 @@
         });
 
         withdrawAmounto.blur(function() {
-            var amount = $('input[name="withdrawAmount"]').val(),
+            var amount = $('input[name="data[price]"]').val(),
                 charge = 2,
                 receive = 0,
                 balance = $('#account-balance').data('amount'),
@@ -122,14 +122,14 @@
                 self.addClass('btn-invalid');
                 var $controlGroup = $tradePassword.parents('.control-group'),
                     postData = {
-                        withdrawAmount: parseFloat(amount).toFixed(2),
-                        tradePassword: tradePassword,
-                        use_code: $('#use_code').val() || ''
+                        price: parseFloat(amount).toFixed(2),
+                        password: tradePassword,
+                        //use_code: $('#use_code').val() || ''
                     };
                 $controlGroup.find('.error, .msg-wrap').html('').hide();
                 //提交表单
                 $.ajax({
-                    url: '/wallet/withdraw',
+                    url: '/wallet/withdraw.html',
                     type: 'POST',
                     dataType: 'json',
                     data: postData,
