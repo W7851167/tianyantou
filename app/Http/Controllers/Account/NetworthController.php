@@ -51,8 +51,11 @@ class NetworthController extends FrontController
      */
     public function create(Request $request,$id)
     {
+        $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
         if($request->isMethod('post')) {
             $data = $request->get('data');
+            if(empty($data['order_sn']))
+                return $this->error(' 请输入投资编号',null,true);
             if(empty($data['realname']))
                 return $this->error(' 请添加投资人用户姓名',null,true);
             if(empty($data['mobile']))
@@ -66,10 +69,19 @@ class NetworthController extends FrontController
             if(!is_money($data['price'])) {
                 return $this->error('投资金额必须为数字或.',null,true);
             }
+            if($receiveModel->corp->limit <= $receiveModel->achieves->count()) {
+                return $this->error('该平台每标限定投资' . $receiveModel->corp->limit . '次', null,true);
+            }
+            $data['receive_id'] = $receiveModel->id;
+            $data['task_id'] = $receiveModel->task_id;
+            $data['invest_time'] = strtotime($data['invest_time']);
+            $result  = $this->taskRepository->saveAchieves($data);
+            if($result['status']) {
+                return $this->success($result['message'],url('networth/create/10'),true);
+            }
+            return $this->error($result['message'],null,true);
 
-		    return $this->success('message',url('networth/create/10'),true);
         }
-        $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
 
         return view('account.networth.create',compact('receiveModel'));
     }

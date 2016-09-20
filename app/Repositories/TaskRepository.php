@@ -18,6 +18,7 @@ use App\Models\CorpTermModel;
 use App\Models\ImageModel;
 use App\Models\MetaModel;
 use App\Models\MoneyModel;
+use App\Models\TaskAchieveModel;
 use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
 use Illuminate\Database\QueryException;
@@ -31,6 +32,7 @@ class TaskRepository extends  BaseRepository
         ImageModel $imageModel,
         MetaModel $metaModel,
         TaskReceiveModel $taskReceiveModel,
+        TaskAchieveModel $taskAchieveModel,
         MoneyModel $moneyModel
     )
     {
@@ -40,6 +42,7 @@ class TaskRepository extends  BaseRepository
         $this->imageModel = $imageModel;
         $this->metaModel = $metaModel;
         $this->taskReceiveModel = $taskReceiveModel;
+        $this->taskAchieveModel = $taskAchieveModel;
         $this->moneyModel = $moneyModel;
     }
 
@@ -313,6 +316,30 @@ class TaskRepository extends  BaseRepository
         } else {
             return $this->getSuccess('创建/保存任务完成', $result);
         }
+    }
+
+
+    /**
+     * @param $data
+     * 保存投资记录信息
+     */
+    public function saveAchieves($data)
+    {
+        $result = $this->taskAchieveModel->getConnection()->transaction(function() use($data){
+            $this->taskAchieveModel->saveBy($data);
+            $receiveModel = $this->taskReceiveModel->find($data['receive_id']);
+            $receiveModel->status = 2;
+            $receiveModel->commit_time = time();
+            $receiveModel->total = $receiveModel->total + $data['price'];
+            $receiveModel->save();
+        });
+
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('提交投标信息完成', $result);
+        }
+
     }
 
 

@@ -27,11 +27,23 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @if(!empty($receiveModel->achieves))
+                                        @foreach($receiveModel->achieves as $av)
+                                        <tr class="record">
+                                            <td>{!! $receiveModel->task->title or '' !!}</td>
+                                            <td>{!! $av->realname or '' !!}</td>
+                                            <td>{!! $av->mobile or ''!!}</td>
+                                            <td>{!! tmoney_format($av->price) !!}</td>
+                                            <td>{!! date('Y-m-d H:i:s',$av->invest_time)!!}</td>
+                                        </tr>
+                                        @endforeach
+                                    @else
                                     <tr class="norecord">
                                         <td colspan="6">
                                             没有查询到相关记录
                                         </td>
                                     </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                                 <div class="pagination" data-pagination-ref="networth_records_1"></div>
@@ -41,6 +53,11 @@
                     <div class="form-group bindbankcard">
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
                             {!! csrf_field() !!}
+                            <div class="control-group">
+                                <label>投资编号</label>
+                                <input type="text" class="input-style" name="data[order_sn]" value="">
+                                <em>请添加投资人在平台投资的编号</em>
+                            </div>
                             <div class="control-group">
                                 <label for="real-name">真实姓名</label>
                                 <input type="text" class="input-style" name="data[realname]" value="">
@@ -54,11 +71,13 @@
                             <div class="control-group">
                                 <label>投资金额</label>
                                 <input type="text" name="data[price]" class="input-style">
+                                <em>请填写真实的投资金额</em>
                             </div>
                             <div class="control-group">
                                 <label for="">投资时间</label>
-                                <input type="text" name="data[invest_time]" class="input-style Wdate"  
+                                <input type="text" name="data[invest_time]" class="input-style Wdate"
                                  onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="">
+                                <em>请填写真实的投资时间</em>
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
