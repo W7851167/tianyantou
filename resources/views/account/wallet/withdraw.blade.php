@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('title')提现@stop
 @section('style')
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
 @stop
@@ -20,9 +21,6 @@
                 <div class="cont-box-wrap">
                     <div class="form-group withdraw-deposit">
                         <form method="post" autocomplete="off" class="">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="user_id" value="{!! $this->user['id'] or '' !!}">
-                            <input type="hidden" name="bank_id" value="{!! $bank->id or '' !!}">
                             <div class="control-group">
                                 <label for="bankcard">提现银行</label>
                                 <div class="card-sketch">
@@ -37,13 +35,12 @@
                             </div>
                             <div class="control-group">
                                 <label for="bankcard">提现金额:</label>
-                                <input type="text" class="input-style" name="price" autocomplete="off" id="withdrawAmount" placeholder="请先输入提现金额" value="">
+                                <input type="text" class="input-style" name="data[price]" autocomplete="off" id="withdrawAmount" placeholder="请先输入提现金额" value="">
                                 <i class="input-icon">元</i>
                                 <!-- <a href="{!! config('app.static_url') !!}/shop.html" target="_blank">获取提现券</a> -->
                                 <a href="{!! config('app.account_url') !!}/shop/" target="_blank">积分兑换提现券，免费提现！</a>
 
-                                <input type="hidden" name="use_code" value="" id="use_code">
-
+                                {{--<input type="hidden" name="use_code" value="" id="use_code">--}}
                                 <div class="msg-wrap" style="display:block">
                                     <div style="color:#646567;"><span>单笔提现金额：100元~20万元</span></div>
                                 </div>

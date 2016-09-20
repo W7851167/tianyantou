@@ -35,12 +35,25 @@ class WalletController extends FrontController
      */
     public function withdraw(Request $request)
     {
-        if ($request->isMethod('post')) {
-
-        }
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
         if (empty($bank)) return redirect('bankcard.html');
         $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
+
+        if ($request->isMethod('post')) {
+            $commission = 2.00;
+            $price = $request->get('price');
+            $password = $request->get('password');
+            if ($price > $money->money) return '提现金额不能超过账户余额';
+            if (!password_verify($password, $bank->user->password)) return '交易密码不正确';
+            $data = [
+                'user_id' => $this->user['id'],
+                'bank_id' => $bank->id,
+                'price' => $price,
+                'commission' => $commission,
+                'status' => 0,
+            ];
+        }
+
         return view('account.wallet.withdraw', compact('bank', 'money'));
     }
 
