@@ -8,7 +8,8 @@
             <i class="step-2"></i>
             <span>验证成功</span>
         </li>
-    </ul>        <form class="form-group" data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/safe/validateEmail.html"
+    </ul>
+    <form class="form-group" data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/safe/validateEmail.html"
                        data-refresh-url="#email-panel" data-callback ="autoResize">
         <div class="control-group">
             <label>邮箱：</label>
