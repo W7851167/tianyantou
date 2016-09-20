@@ -32,7 +32,8 @@ class AccountController extends FrontController
 
     public function safe()
     {
-        return view('account.account.safe');
+        $userinfo = $this->userRepository->userModel->find($this->user['id']);
+        return view('account.account.safe', compact('userinfo'));
     }
 
     /**

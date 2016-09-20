@@ -40,7 +40,7 @@ class WalletController extends FrontController
         $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
 
         if ($request->isMethod('post')) {
-            $commission = 2.00;
+            $commission = 0.00;
             $price = $request->get('price');
             $password = $request->get('password');
             if ($price > $money->money) return '提现金额不能超过账户余额';
@@ -52,6 +52,9 @@ class WalletController extends FrontController
                 'commission' => $commission,
                 'status' => 0,
             ];
+            $result = $this->userRepository->saveWithdraw($data);
+            if($result['status']) return json_encode($data);
+            return '提现失败!';
         }
 
         return view('account.wallet.withdraw', compact('bank', 'money'));
