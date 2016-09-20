@@ -18,6 +18,7 @@ use App\Models\CorpTermModel;
 use App\Models\ImageModel;
 use App\Models\MetaModel;
 use App\Models\MoneyModel;
+use App\Models\TaskAchieveModel;
 use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
 use Illuminate\Database\QueryException;
@@ -31,6 +32,7 @@ class TaskRepository extends  BaseRepository
         ImageModel $imageModel,
         MetaModel $metaModel,
         TaskReceiveModel $taskReceiveModel,
+        TaskAchieveModel $taskAchieveModel,
         MoneyModel $moneyModel
     )
     {
@@ -40,6 +42,7 @@ class TaskRepository extends  BaseRepository
         $this->imageModel = $imageModel;
         $this->metaModel = $metaModel;
         $this->taskReceiveModel = $taskReceiveModel;
+        $this->taskAchieveModel = $taskAchieveModel;
         $this->moneyModel = $moneyModel;
     }
 
@@ -299,13 +302,15 @@ class TaskRepository extends  BaseRepository
                 $taskModel->proccess = $proccess;
                 $taskModel->save();
             }
+
             $receiveId = $this->taskReceiveModel->saveBy($data);
             $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
             //审核完成、可用金额增加
-            if($data['status'] == 1) {
-                $receiveModel = $this->taskReceiveModel->find($receiveId);
-                $receiveModel->user->money->increment('money',$receiveModel->total);
-            }
+//            if($data['status'] == 1) {
+//                $receiveModel = $this->taskReceiveModel->find($receiveId);
+//                $receiveModel->user->money->increment('money',$receiveModel->total);
+//            }
+
             //驳回审核,不做任何操作
         });
         if ($result instanceof \Exception) {
@@ -313,6 +318,65 @@ class TaskRepository extends  BaseRepository
         } else {
             return $this->getSuccess('创建/保存任务完成', $result);
         }
+    }
+
+
+    /**
+     * @param $data
+     * 保存投资记录信息
+     */
+    public function saveAchieves($data)
+    {
+        $result = $this->taskAchieveModel->getConnection()->transaction(function() use($data){
+            $this->taskAchieveModel->saveBy($data);
+            $receiveModel = $this->taskReceiveModel->find($data['receive_id']);
+            $receiveModel->status = 2;
+            $receiveModel->commit_time = time();
+            //总金额++
+            $receiveModel->total = $receiveModel->total + $data['price'];
+            //收入金额--
+            $receiveModel->income += sprintf('%.2f',$data['price'] * $receiveModel->mratio / 100);
+            $receiveModel->save();
+        });
+
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('提交投标信息完成', $result);
+        }
+    }
+
+    /**
+     * @param $data
+     * 删除投资记录
+     */
+    public function deleteAchieves($id)
+    {
+        $result = $this->taskAchieveModel->getConnection()->transaction(function() use($id){
+            $achieveModel = $this->taskAchieveModel->find($id);
+            $receiveModel = $this->taskReceiveModel->find($achieveModel->receive_id);
+            //总金额--
+            $receiveModel->total -= $achieveModel->price;
+            //收入金额--
+            $receiveModel->income -= sprintf('%.2f',$achieveModel->price * $receiveModel->mratio / 100);
+            //删除提交的任务
+            $achieveModel->delete();
+            //已经无提交的任务、任务为待提交状态
+            if($receiveModel->achieves->count() == 0) {
+                $receiveModel->status = 0;
+                $receiveModel->commit_time = 0;
+            }
+            //保存领取任务情况
+            $receiveModel->save();
+
+        });
+
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('删除投标信息完成', $result);
+        }
+
     }
 
 

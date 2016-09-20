@@ -48,6 +48,7 @@ class AchieveController extends  AdminController
         $receive = $this->taskRepository->taskReceiveModel->find($id);
         if($request->isMethod('post')) {
             $data  = $request->get('data');
+            $data['check_time'] = time();
             $result = $this->taskRepository->saveReceive($data);
             if($result['status'])
                 return $this->success($result['message'],url('achieve'),true);
