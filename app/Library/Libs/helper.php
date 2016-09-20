@@ -154,3 +154,30 @@ function getRealThumb($thumb)
     unset($patshs[count($patshs)-2]);
     return $lists['scheme'] .'://'. $lists['host'] . implode('/', $patshs);
 }
+
+/**
+ * @param $phone
+ * @return bool
+ * 验证手机号码
+ */
+function is_phone($phone) {
+    $isMobile="/^1[3-5,8]{1}[0-9]{9}$/";
+    $isPhone="/^([0-9]{3,4}-)?[0-9]{7,8}$/";
+    if(!preg_match($isMobile,$phone) && !preg_match($isPhone,$phone)) {
+      return false;
+    }
+    return true;
+}
+
+/**
+ * @param $money
+ * @return bool
+ * 验证金额
+ */
+function is_money($money) {
+    $isMoney = "#^[0-9]+\.?[0-9]{2}?#";
+    if(!preg_match($isMoney, $money)) {
+        return false;
+    }
+    return true;
+}

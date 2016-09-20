@@ -123,15 +123,12 @@ function enableButton($elem, enable) {
         } else {
          if(data.status == 1) {
            messageBox(data.message, 1);
+           setTimeout(function() {
+             window.location.href = data.url;
+           }, 3000);
          } else {
            messageBox(data.message,2)
          }
-          setTimeout(function() {
-            location.reload();
-          }, 3000);
-          if(data.status == 1) {
-            window.location.href = data.url;
-          }
         }
       }
     },

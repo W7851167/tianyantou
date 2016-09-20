@@ -52,6 +52,21 @@ class NetworthController extends FrontController
     public function create(Request $request,$id)
     {
         if($request->isMethod('post')) {
+            $data = $request->get('data');
+            if(empty($data['realname']))
+                return $this->error(' 请添加投资人用户姓名',null,true);
+            if(empty($data['mobile']))
+                return $this->error('请添加投资人用户投资手机号码',null,true);
+            if(empty($data['price'])) {
+                return $this->error('请添加投资人投资金额',null,true);
+            }
+             if(!is_phone($data['mobile'])) {
+                 return $this->error('请填写真实的手机号码或固定电话',null,true);
+             }
+            if(!is_money($data['price'])) {
+                return $this->error('投资金额必须为数字或.',null,true);
+            }
+
 		    return $this->success('message',url('networth/create/10'),true);
         }
         $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
