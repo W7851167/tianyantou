@@ -52,6 +52,9 @@ class WalletController extends FrontController
                 'commission' => $commission,
                 'status' => 0,
             ];
+            $result = $this->userRepository->saveWithdraw($data);
+            if($result['status']) return json_encode($data);
+            return '提现失败!';
         }
 
         return view('account.wallet.withdraw', compact('bank', 'money'));

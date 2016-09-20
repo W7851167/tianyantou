@@ -139,7 +139,7 @@
                             title:'提现成功',
                             type: 1,
                             area: ['400px', '270px'],
-                            content: '\<\div class="withdraw-dialog"><i class="icon-layer"></i><p>您已成功申请提现：' + $data.amount + '<\/br />需扣除手续费：' + $data.fee + '<\/br />实际可到账：'+ $data.actualAmount + '</p>\<\/div>',
+                            content: '\<\div class="withdraw-dialog"><i class="icon-layer"></i><p>您已成功申请提现：' + $data.price + '<\/br />需扣除手续费：' + $data.commission + '<\/br />实际可到账：'+ ($data.price - $data.commission)+ '</p>\<\/div>',
                             btn: ['确定'],
                             yes: function(index, layero){
                                 layer.close(index);

@@ -55,7 +55,7 @@
                                     <td>无</td>
                                     <td>{!! $wv->price or 0.00 !!}元</td>
                                     <td>{!! $wv->commission or 0.00 !!}元</td>
-                                    <td>{!! ($wv->price or 0.00) - ($wv->price or 0.00) !!}元</td>
+                                    <td>{!! $wv->price - $wv->commission !!}元</td>
                                     <td>{!! $wv->bank->bank_name or '---' !!}</td>
                                     <td>@if($wv->status==0)已申请@elseif($wv->status==1)已派发@elseif($wv->status=='2')拒绝提现@endif</td>
                                 </tr>

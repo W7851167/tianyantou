@@ -180,8 +180,15 @@ class UserRepository extends BaseRepository
         $result = $this->withdrawModel->getConnection()->transaction(function () use ($data) {
             $this->withdrawModel->saveBy($data);
             $userModel = $this->userModel->find($data['user_id']);
-            $userModel->money->decrement('withdraw', $data['price']);
+            if ($data['status'] == 0) {
+                $userModel->money->increment('withdraw', $data['price']);
+                $userModel->money->decrement('money', $data['price']);
+            }
+            if ($data['status'] == 1) {
+                $userModel->money->decrement('withdraw', $data['price']);
+            }
             if ($data['status'] == 2) {
+                $userModel->money->decrement('withdraw', $data['price']);
                 $userModel->money->increment('money', $data['price']);
             }
         });
