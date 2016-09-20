@@ -99,6 +99,8 @@ function unicodeToDecode($name)
  */
 
 function tmoney_format($number, $fractional=false) {
+    if($number == 0)
+        return '0.00';
     if ($fractional) {
         $number = sprintf('%.2f', $number);
     }

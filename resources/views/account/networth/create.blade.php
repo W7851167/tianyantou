@@ -24,6 +24,7 @@
                                         <th width="120">注册投资手机号</th>
                                         <th width="90">投资金额(元)</th>
                                         <th width="140">投标时间</th>
+                                        <th width="64">操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -35,6 +36,7 @@
                                             <td>{!! $av->mobile or ''!!}</td>
                                             <td>{!! tmoney_format($av->price) !!}</td>
                                             <td>{!! date('Y-m-d H:i:s',$av->invest_time)!!}</td>
+                                            <td><a href="{!! url('networth/delete',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">删除</a></td>
                                         </tr>
                                         @endforeach
                                     @else

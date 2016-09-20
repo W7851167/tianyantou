@@ -17,15 +17,15 @@
                             <div class="unit-bd unit-3 ">
                                 <dl>
                                     <dt>待收总额（元）</dt>
-                                    <dd>0.00</dd>
+                                    <dd>{!! tmoney_format($unIncome)!!}</dd>
                                 </dl>
                                 <dl>
                                     <dt>赚取收益（元）</dt>
-                                    <dd>0.00</dd>
+                                    <dd>{!! tmoney_format($hasIncome)!!}</dd>
                                 </dl>
                                 <dl class="last-item">
                                     <dt>待收笔数（笔）</dt>
-                                    <dd>0</dd>
+                                    <dd>{!! $unCount or 0!!}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -33,7 +33,10 @@
                     <div class="cont-box-wrap">
                         <div class="tab click-tab">
                             <ul class="tab-nav">
-                                <li class="active"><a href="javascript:void(0);">进行中的任务</a></li>
+                                <li class="active"><a href="javascript:void(0);">待提交的任务</a></li>
+                                <li class=""><a href="javascript:void(0);">待审核的任务</a></li>
+                                <li class=""><a href="javascript:void(0);">已审核的任务</a></li>
+                                <li class=""><a href="javascript:void(0);">已驳回的任务</a></li>
                                 <li class=""><a href="javascript:void(0);">已完成的任务</a></li>
                             </ul>
                             <div class="tab-main">
@@ -46,22 +49,20 @@
                                                     <th width="140">领取任务时间</th>
                                                     <th width="120">平台名称</th>
                                                     <th width="120">任务名称</th>
-                                                    <th width="90">完成金额(元)</th>
-                                                    <th width="140">提交任务时间</th>
-                                                    <th width="45">状态</th>
+                                                    <th width="90">平台年化率</th>
+                                                    <th width="140">天眼投年化率</th>
                                                     <th width="65">操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @if(count($iLists)  > 0)
-                                                    @foreach($iLists as $av)
+                                                @if(count($lists0)  > 0)
+                                                    @foreach($lists0 as $av)
                                                         <tr>
                                                             <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
                                                             <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
-                                                            <td>{!! $av->total or '0.00' !!}</td>
-                                                            <td>@if(!empty($av->commit_time)){!! date('Y-m-d H:i:s',$av->commit_time) !!} @else ---- @endif</td>
-                                                            <td>@if($av->status==0)未审核 @elseif($av->status==1)已审核 @elseif($av->status==2)已完成 @else 审核驳回 @endif</td>
+                                                            <td>{!! $av->ratio !!}%</td>
+                                                            <td>{!! $av->mratio !!}%</td>
                                                             <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
@@ -85,24 +86,24 @@
                                                 <thead>
                                                 <tr>
                                                 <tr>
-                                                    <th width="140">领取任务时间</th>
                                                     <th width="120">平台名称</th>
                                                     <th width="120">任务名称</th>
                                                     <th width="90">完成金额(元)</th>
+                                                    <th width="90">收益(元)</th>
                                                     <th width="140">提交任务时间</th>
-                                                    <th width="45">状态</th>
+                                                    <th width="65">操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @if(count($cLists) > 0)
-                                                    @foreach($cLists as $av)
+                                                @if(count($lists2) > 0)
+                                                    @foreach($lists2 as $av)
                                                         <tr>
-                                                            <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
                                                             <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
-                                                            <td>{!! $av->total or '0.00' !!}</td>
+                                                            <td>{!! tmoney_format($av->total) !!}</td>
+                                                            <td>{!! tmoney_format($av->income)   !!}</td>
                                                             <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
-                                                            <td>@if($av->status==0)未审核 @elseif($av->status==1)已审核 @elseif($av->status==2)已完成 @else 审核驳回 @endif</td>
+                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">查看</a></td>
                                                         </tr>
                                                     @endforeach
                                                 @else
@@ -115,6 +116,126 @@
                                                 </tbody>
                                             </table>
                                             <div class="pagination" data-pagination-ref="networth_records_2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="tab-content tab-content-table">
+                                        <div id="networth_records_2">
+                                            <table class="table table-bordered ucenter-table" style="font-size: 13px;">
+                                                <thead>
+                                                <tr>
+                                                <tr>
+                                                    <th width="120">平台名称</th>
+                                                    <th width="120">任务名称</th>
+                                                    <th width="90">完成金额(元)</th>
+                                                    <th width="90">收益(元)</th>
+                                                    <th width="140">提交任务时间</th>
+                                                    <th width="140">审核时间</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @if(count($lists1) > 0)
+                                                    @foreach($lists1 as $av)
+                                                        <tr>
+                                                            <td>{!! $av->corp->name or '' !!}</td>
+                                                            <td>{!! $av->task->title or '' !!}</td>
+                                                            <td>{!! tmoney_format($av->total) !!}</td>
+                                                            <td>{!! tmoney_format($av->income)  !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->check_time) !!}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr class="norecord">
+                                                        <td colspan="6">
+                                                            没有查询到相关记录
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                </tbody>
+                                            </table>
+                                            <div class="pagination" data-pagination-ref="networth_records_2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="tab-content tab-content-table">
+                                        <div id="networth_records_2">
+                                            <table class="table table-bordered ucenter-table" style="font-size: 13px;">
+                                                <thead>
+                                                <tr>
+                                                <tr>
+                                                    <th width="120">平台名称</th>
+                                                    <th width="140">任务名称</th>
+                                                    <th width="65">收益(元)</th>
+                                                    <th width="140">驳回时间</th>
+                                                    <th width="140">驳回原因</th>
+                                                    <th width="65">操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @if(count($lists3) > 0)
+                                                    @foreach($lists3 as $av)
+                                                        <tr>
+                                                            <td>{!! $av->corp->name or '' !!}</td>
+                                                            <td>{!! $av->task->title or '' !!}</td>
+                                                            <td>{!! tmoney_format($av->income)  !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
+                                                            <td>{!! $av->intro or '' !!}</td>
+                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">查看</a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr class="norecord">
+                                                        <td colspan="6">
+                                                            没有查询到相关记录
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                </tbody>
+                                            </table>
+                                            <div class="pagination" data-pagination-ref="networth_records_2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="tab-content tab-content-table">
+                                        <div id="networth_records_4">
+                                            <table class="table table-bordered ucenter-table" style="font-size: 13px;">
+                                                <thead>
+                                                <tr>
+                                                <tr>
+                                                    <th width="120">平台名称</th>
+                                                    <th width="120">任务名称</th>
+                                                    <th width="90">完成金额(元)</th>
+                                                    <th width="90">收益(元)</th>
+                                                    <th width="140">提交任务时间</th>
+                                                    <th width="140">结束时间</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @if(count($lists4) > 0)
+                                                    @foreach($lists4 as $av)
+                                                        <tr>
+                                                            <td>{!! $av->corp->name or '' !!}</td>
+                                                            <td>{!! $av->task->title or '' !!}</td>
+                                                            <td>{!! tmoney_format($av->total) !!}</td>
+                                                            <td>{!! tmoney_format($av->income)  !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->commit_time) !!}</td>
+                                                            <td>{!! date('Y-m-d H:i:s',$av->complete_time) !!}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr class="norecord">
+                                                        <td colspan="7">
+                                                            没有查询到相关记录
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                </tbody>
+                                            </table>
+                                            <div class="pagination" data-pagination-ref="networth_records_4"></div>
                                         </div>
                                     </div>
                                 </div>

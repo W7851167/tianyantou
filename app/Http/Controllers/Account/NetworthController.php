@@ -14,17 +14,20 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
 class NetworthController extends FrontController
 {
     public function __construct(
-        TaskRepository $taskRepository
+        TaskRepository $taskRepository,
+        CensusRepository $censusRepository
     )
     {
         parent::__initalize();
         $this->taskRepository = $taskRepository;
+        $this->censusRepository = $censusRepository;
     }
 
     /**
@@ -34,14 +37,25 @@ class NetworthController extends FrontController
      */
     public function index()
     {
-        $where = ['user_id' => $this->user['id'], 'in' => ['status' => [0, 1]]];
-        list($count, $iLists) = $this->taskRepository->getReceiveList($where, $this->perpage);
-
+        //待提交的任务
+        $where = ['user_id' => $this->user['id'], 'status'=>0];
+        list($count, $lists0) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        //待审核的任务
         $where = ['user_id' => $this->user['id'], 'status' => 2];
-        list($count, $cLists) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        list($count, $lists2) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        //已审核的任务
+        $where = ['user_id' => $this->user['id'], 'status' => 1];
+        list($count, $lists1) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        //已驳回的任务
+        $where = ['user_id' => $this->user['id'], 'status' => 3];
+        list($count, $lists3) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        //已完成的任务
+        $where = ['user_id' => $this->user['id'], 'status' => 4];
+        list($count, $lists4) = $this->taskRepository->getReceiveList($where, $this->perpage);
 
+        list($unIncome, $hasIncome,$unCount) = $this->censusRepository->getUserInvestIncome($this->user['id']);
         return view('account.networth.index', compact(
-            'iLists', 'cLists'
+            'lists0', 'lists1','lists2','lists3','lists4','unIncome','hasIncome','unCount'
         ));
     }
 
@@ -84,5 +98,20 @@ class NetworthController extends FrontController
         }
 
         return view('account.networth.create',compact('receiveModel'));
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * 删除提交的任务
+     */
+    public function delete(Request $request, $id)
+    {
+        $achieveModel = $this->taskRepository->taskAchieveModel->find($id);
+        $result = $this->taskRepository->deleteAchieves($id);
+        if($result['status']) {
+            return $this->success($result['message'], url('networth/create',['id'=>$achieveModel->receive_id]));
+        }
+        return $this->error('删除投标信息异常');
     }
 }
