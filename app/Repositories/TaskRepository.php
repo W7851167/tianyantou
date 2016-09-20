@@ -302,13 +302,15 @@ class TaskRepository extends  BaseRepository
                 $taskModel->proccess = $proccess;
                 $taskModel->save();
             }
+
             $receiveId = $this->taskReceiveModel->saveBy($data);
             $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
             //审核完成、可用金额增加
-            if($data['status'] == 1) {
-                $receiveModel = $this->taskReceiveModel->find($receiveId);
-                $receiveModel->user->money->increment('money',$receiveModel->total);
-            }
+//            if($data['status'] == 1) {
+//                $receiveModel = $this->taskReceiveModel->find($receiveId);
+//                $receiveModel->user->money->increment('money',$receiveModel->total);
+//            }
+
             //驳回审核,不做任何操作
         });
         if ($result instanceof \Exception) {
