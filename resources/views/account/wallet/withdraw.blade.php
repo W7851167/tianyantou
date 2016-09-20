@@ -20,21 +20,24 @@
                 <div class="cont-box-wrap">
                     <div class="form-group withdraw-deposit">
                         <form method="post" autocomplete="off" class="">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="user_id" value="{!! $this->user['id'] or '' !!}">
+                            <input type="hidden" name="bank_id" value="{!! $bank->id or '' !!}">
                             <div class="control-group">
                                 <label for="bankcard">提现银行</label>
                                 <div class="card-sketch">
-                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/images/bnak/601288.png"></div>
+                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/601288.png"></div>
                                     <div class="card-id">银行卡号:{!! substr_replace($bank->cardno,'***************',0,14) !!}</div>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="bankcard">账户余额:</label>
-                                <span><em id="account-balance" data-amount="0.00">¥{!!  !!}</em></span>
-                                <span style="display:none;" id="account-valid-cash" data-amount="0.00"></span>
+                                <span><em id="account-balance" data-amount="{!! $money->money or '0.00' !!}">¥{!! $money->money or '0.00' !!}</em></span>
+                                <span style="display:none;" id="account-valid-cash" data-amount="{!! $money->money or '0.00' !!}"></span>
                             </div>
                             <div class="control-group">
                                 <label for="bankcard">提现金额:</label>
-                                <input type="text" class="input-style" name="withdrawAmount" autocomplete="off" id="withdrawAmount" placeholder="请先输入提现金额" value="">
+                                <input type="text" class="input-style" name="price" autocomplete="off" id="withdrawAmount" placeholder="请先输入提现金额" value="">
                                 <i class="input-icon">元</i>
                                 <!-- <a href="{!! config('app.static_url') !!}/shop.html" target="_blank">获取提现券</a> -->
                                 <a href="{!! config('app.account_url') !!}/shop/" target="_blank">积分兑换提现券，免费提现！</a>
@@ -141,5 +144,6 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/tab.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/withdraw.js"></script>
 @stop

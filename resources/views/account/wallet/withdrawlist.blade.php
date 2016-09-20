@@ -48,14 +48,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @if(count($lists) > 0)
+                                @foreach($lists as $wv)
+                                <tr>
+                                    <td>{!! $wv->created_at or '---' !!}</td>
+                                    <td>无</td>
+                                    <td>{!! $wv->price or 0.00 !!}元</td>
+                                    <td>{!! $wv->commission or 0.00 !!}元</td>
+                                    <td>{!! ($wv->price or 0.00) - ($wv->price or 0.00) !!}元</td>
+                                    <td>{!! $wv->bank->bank_name or '---' !!}</td>
+                                    <td>@if($wv->status==0)已申请@elseif($wv->status==1)已派发@elseif($wv->status=='2')拒绝提现@endif</td>
+                                </tr>
+                                @endforeach
+                                @else
                                 <tr class="norecord">
                                     <td colspan="7">
                                         暂无提现记录
                                     </td>
                                 </tr>
+                                @endif
                                 </tbody>
                             </table>
-                            <div class="pagination" data-pagination-ref="withdraw-records-table"></div>
+                            <div class="pagination" data-pagination-ref="withdraw-records-table">{!! $pageHtml !!}</div>
                         </div>
                     </div>
                     <div class="tip tab-rules">

@@ -27,20 +27,35 @@ class WalletController extends FrontController
         $this->userRepository = $userRepository;
     }
 
-    public function withdraw()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     *
+     * 申请提现
+     */
+    public function withdraw(Request $request)
     {
+        if ($request->isMethod('post')) {
+
+        }
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
         if (empty($bank)) return redirect('bankcard.html');
         $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
         return view('account.wallet.withdraw', compact('bank', 'money'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 提现列表
+     */
     public function withdrawlist(Request $request)
     {
-        if ($request->isMethod('post')) {
-
-        }
-        return view('account.wallet.withdrawlist');
+        $page = $request->get('page') ?: 1;
+        $where = ['user_id' => $this->user['id']];
+        list($count, $lists) = $this->userRepository->getWithdrawList($where, $this->perpage, $page);
+        $pageHtml = $this->pager($count, $page, $this->perpage);
+        return view('account.wallet.withdrawlist', compact('lists', 'pageHtml'));
     }
 
     /**
