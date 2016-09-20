@@ -52,10 +52,10 @@ class NetworthController extends FrontController
     public function create(Request $request,$id)
     {
         if($request->isMethod('post')) {
-		return $this->ajaxReturn('测试提交内容');
+		    return $this->success('message',url('networth/create/10'),true);
         }
         $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
 
-        return view('account.networth.create');
+        return view('account.networth.create',compact('receiveModel'));
     }
 }
