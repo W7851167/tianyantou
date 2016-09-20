@@ -116,13 +116,13 @@
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html" target="_blank" class="plat-logo" title="{!! $tv->corp->name or '' !!}">
-                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo !!}" width="70" alt="">
+                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo or ''!!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="{!! $tv->title or '' !!}">{!! $tv->title or '' !!}</h4>
                         <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>{!! $tv->ratio !!}</b><i>%</i></p>
+                            <p class="earnings-num">年化收益率<br/><b>{!! $tv->ratio or 0.00 !!}</b><i>%</i></p>
                             <p class="time-limit-num">
-                                期限<br/><b>{!! $tv->term !!}{!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}</b><i></i>
+                                期限<br/><b>{!! $tv->term or '' !!}@if(!empty($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</b><i></i>
                             </p>
                             <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>
@@ -138,8 +138,8 @@
                             <span>
                                 可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元
                             </span>
-                            <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename !!}/{!! $tv->id !!}" rel="platform_join"
-                               data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title !!}" class="btn btn-blue" title="投资">投资</a>
+                            <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename or '' !!}/{!! $tv->id !!}" rel="platform_join"
+                               data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title or ''!!}" class="btn btn-blue" title="投资">投资</a>
                         </p>
                     </div>
                 </li>

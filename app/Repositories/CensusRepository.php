@@ -56,7 +56,6 @@ class CensusRepository extends BaseRepository
      */
     public function getIncomesStats($userId,$startTime, $endTime)
     {
-        $d = 24 * 60 * 60;
         list($startTime,$endTime) = $this->getMonthTime($endTime,$startTime);
         $stats = [];
         $receiveIn = 0.00;
@@ -80,37 +79,37 @@ class CensusRepository extends BaseRepository
         if(empty($result)) return $stats;
         foreach($result as $receiveModel)
         {
+            $unit = $receiveModel->task->term_unit == 0 ? '天' : ($receiveModel->task->term_unit == 1 ? '月' : '年');
             //领取任务
             if(!empty($receiveModel->create_time) &&
-                ($receiveModel->create_time >= $startTime && $receiveModel->create_time < $endTime))
+                ($receiveModel->create_time >= $startTime && $receiveModel->create_time < $endTime) && $receiveModel->status == 0)
             {
-                $title = '领取' . sprintf('%.2f',$receiveModel->total) . '元任务';
-                $receiveIn += sprintf('%.2f',$receiveModel->total);
+                $title = '领' . $receiveModel->task->term . $unit . '任务';
                 $stats[] = ['title'=>$title, 'color'=>$colors[0],'start'=>date('Y-m-d',$receiveModel->create_time)];
             }
             //已交任务
             if(!empty($receiveModel->commit_time) &&
-                ($receiveModel->commit_time >= $startTime && $receiveModel->commit_time < $endTime))
+                ($receiveModel->commit_time >= $startTime && $receiveModel->commit_time < $endTime) && $receiveModel->status == 2)
             {
                 $price = $receiveModel->achieves->sum('price');
-                $title = '已交' . sprintf('%.2f',$price) . '元任务';
-                $stats[] = ['title'=>$title, 'color'=>$colors[2],'start'=>date('Y-m-d',$receiveModel->commit_time)];
-                $price = $price * $receiveModel->task->mratio / 100;
-                $title = '待收' . sprintf('%.2f',$price) . '元任务';
-                $repayIn+=  sprintf('%.2f',$price);
+                $income = getIncome($receiveModel->task->term,$receiveModel->task->term_unit,$receiveModel->mratio,$price);
+                $title = '待收' . $income . '元';
+                $repayIn+=  sprintf('%.2f',$income);
                 $stats[] = ['title'=>$title, 'color'=>$colors[1],'start'=>date('Y-m-d',$receiveModel->commit_time)];
             }
 
             if(!empty($receiveModel->complete_time) &&
-                ($receiveModel->complete_time >= $startTime && $receiveModel->complete_time < $endTime))
+                ($receiveModel->complete_time >= $startTime && $receiveModel->complete_time < $endTime) && $receiveModel->status == 1)
             {
                 $price = $receiveModel->achieves->sum('price');
-                $price = $price * $receiveModel->task->mratio / 100;
-                $title = '已收' . sprintf('%.2f',$price) . '元任务';
-                $stats[] = ['title'=>$title, 'color'=>$colors[3],'start'=>date('Y-m-d',$receiveModel->commit_time)];
+                $income = getIncome($receiveModel->task->term,$receiveModel->task->term_unit,$receiveModel->mratio,$price);
+                $title = '已收' . $income . '元任务';
+                $receiveIn+=  sprintf('%.2f',$income);
+                $stats[] = ['title'=>$title, 'color'=>$colors[3],'start'=>date('Y-m-d',$receiveModel->complete_time)];
             }
-            return [$account, $receiveIn,$repayIn,$stats];
+
         }
+        return [$account, $receiveIn,$repayIn,$stats];
     }
 
     /**
