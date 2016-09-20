@@ -114,6 +114,23 @@ class CensusRepository extends BaseRepository
     }
 
     /**
+     * @param $userId
+     * 查询用户投资收益金额
+     */
+    public function getUserInvestIncome($userId)
+    {
+        //待收总额
+        $unIncome = $this->taskReceiveModel->where('user_id',$userId)->where('status',1)->sum('income');
+        $unIncome = !empty($unIncome) ? $unIncome : 0.00;
+        //已投资收益
+        $hasIncome = $this->taskReceiveModel->where('user_id',$userId)->where('status',4)->sum('income');
+        $hasIncome = !empty($hasIncome) ? $hasIncome : 0.00;
+        //待收笔数
+        $unCount = $this->taskReceiveModel->where('user_id',$userId)->where('status',1)->count();
+        return [$unIncome,$hasIncome,$unCount];
+    }
+
+    /**
      * @param $endTime
      * @param $startTime
      * 判断当开始和结束时间
@@ -128,4 +145,7 @@ class CensusRepository extends BaseRepository
         $end = strtotime(date('Y-m',$time) . '-' . $days);
         return [$start,$end];
     }
+
+
+
 }
