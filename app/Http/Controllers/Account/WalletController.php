@@ -40,7 +40,7 @@ class WalletController extends FrontController
         $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
 
         if ($request->isMethod('post')) {
-            $commission = 2.00;
+            $commission = 0.00;
             $price = $request->get('price');
             $password = $request->get('password');
             if ($price > $money->money) return '提现金额不能超过账户余额';
