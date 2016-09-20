@@ -29,7 +29,18 @@ class WalletController extends FrontController
 
     public function withdraw()
     {
-        return view('account.wallet.withdraw');
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+        if (empty($bank)) return redirect('bankcard.html');
+        $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
+        return view('account.wallet.withdraw', compact('bank', 'money'));
+    }
+
+    public function withdrawlist(Request $request)
+    {
+        if ($request->isMethod('post')) {
+
+        }
+        return view('account.wallet.withdrawlist');
     }
 
     /**
@@ -60,8 +71,8 @@ class WalletController extends FrontController
                     break;
             }
         }
-        if($type){
-            switch($type){
+        if ($type) {
+            switch ($type) {
                 case 'invest':
                     $where['type'] = 1;
                     break;
