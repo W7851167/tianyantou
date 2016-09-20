@@ -183,3 +183,22 @@ function is_money($money) {
     }
     return true;
 }
+
+/**
+ * @param $term 期限
+ * @param $unit 单位0是天 1月 2年
+ * @param $ratio 年化率
+ * @param $money 投资金额
+ *
+ * 计算收益 100是因为年化率为整型
+ */
+function getIncome($term, $unit, $ratio, $money)
+{
+    if($unit == 0)
+        return sprintf('%.2f',$money * $ratio * $term / 365 / 100);
+    if($unit == 1)
+        return sprintf('%.2f',$money * $ratio * $term / 12 / 100);
+    if($unit == 2)
+        return sprintf('%.2f', $money * $ratio * $term / 100);
+
+}

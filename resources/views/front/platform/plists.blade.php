@@ -7,7 +7,7 @@
         <span class="rate"><em>{!! $tv->ratio + $tv->mratio !!}</em>%</span>
     </td>
     <td width="160">
-        {!! $tv->term or 0 !!}
+        {!! $tv->term or 0 !!} {!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}
     </td>
     <td width="180" class="text-ellipsis" title="{!! $tv->repay or '' !!}">{!! $tv->repay or '' !!}</td>
     <td width="160">

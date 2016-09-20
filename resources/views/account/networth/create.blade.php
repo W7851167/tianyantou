@@ -2,8 +2,6 @@
 @section('title')交任务@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
-    <link media="all" type="text/css" rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/datepicker/skin/WdatePicker.css">
-    <script src="{!! config('app.static_url') !!}/js/lib/datepicker/WdatePicker.js"></script>
 @stop
 
 @section('content')
@@ -23,7 +21,7 @@
                                         <th width="120">投资人用户姓名</th>
                                         <th width="120">注册投资手机号</th>
                                         <th width="90">投资金额(元)</th>
-                                        <th width="140">投标时间</th>
+                                        <th width="140">投标期限</th>
                                         <th width="64">操作</th>
                                     </tr>
                                     </thead>
@@ -35,7 +33,7 @@
                                             <td>{!! $av->realname or '' !!}</td>
                                             <td>{!! $av->mobile or ''!!}</td>
                                             <td>{!! tmoney_format($av->price) !!}</td>
-                                            <td>{!! date('Y-m-d H:i:s',$av->invest_time)!!}</td>
+                                            <td>{!! $av->term or 0!!} {!! $av->task->term_unit == 0 ? '天' : ($av->task->term_unit == 1 ? '个月' : '年')!!}</td>
                                             <td><a href="{!! url('networth/delete',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">删除</a></td>
                                         </tr>
                                         @endforeach
@@ -77,8 +75,8 @@
                             </div>
                             <div class="control-group">
                                 <label for="">投资时间</label>
-                                <input type="text" name="data[invest_time]" class="input-style Wdate"
-                                 onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="">
+                                <input type="text" name="data[term]" class="input-style" value=""onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+                                {!! $receiveModel->task->term_unit == 0 ? '天' : ($receiveModel->task->term_unit == 1 ? '个月' : '年')!!}
                                 <em>请填写真实的投资时间</em>
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">

@@ -122,7 +122,7 @@
                         <div class="platform-data">
                             <p class="earnings-num">年化收益率<br/><b>{!! $tv->ratio !!}</b><i>%</i></p>
                             <p class="time-limit-num">
-                                期限<br/><b>{!! $tv->term !!}</b><i></i>
+                                期限<br/><b>{!! $tv->term !!}{!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}</b><i></i>
                             </p>
                             <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>

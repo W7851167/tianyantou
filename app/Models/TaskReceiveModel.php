@@ -19,6 +19,14 @@ class TaskReceiveModel extends BaseModel
         $data = $data ? $data : Request::all();
         $data = array_except($data, ['_token', '_url', 's']);
 
+        if (!empty($data[$this->primaryKey])) {
+            $model = $this->findOrNew($data[$this->primaryKey]);
+            if (!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
+        }
+
         if (!empty($data['user_id']) && !empty($data['task_id']) && !empty($data['corp_id'])) {
             $model = $this->where('user_id',$data['user_id'])
                 ->where('task_id',$data['task_id'])
@@ -30,6 +38,8 @@ class TaskReceiveModel extends BaseModel
                 return $model->save();
             }
         }
+
+
         return $this->query()->insertGetId($data);
     }
 

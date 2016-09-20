@@ -16,22 +16,22 @@
                         <dt>资产总额(元)
                             <a href="javascript:void(0)">
                                 <i>?</i>
-                                <p>资产总额【<span>{!! $user->money->total or '0.00' !!}</span>元】= 待回款本金【<span>0.00</span>元】+ 冻结金额【<span>{!! $user->money->withdraw or '0.00' !!}</span>元】+ 账户余额【<span>0.00</span>元】</p>
+                                <p>资产总额【<span>{!! $userModel->money->total or '0.00' !!}</span>元】= 待回款本金【<span>0.00</span>元】+ 冻结金额【<span>{!! $userModel->money->withdraw or '0.00' !!}</span>元】+ 账户余额【<span>{!! $userModel->money->money or '0.00' !!}</span>元】</p>
                             </a>
                         </dt>
-                        <dd>{!! $user->money->total or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->total or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>可用金额(元)</dt>
-                        <dd>{!! $user->money->money or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->money or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>冻结金额(元)</dt>
-                        <dd>{!! $user->money->withdraw or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->withdraw or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>冻结返利(元)</dt>
-                        <dd>{!! $user->money->rebate or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->rebate or '0.00' !!}</dd>
                     </dl>
                     <div class="shortcuts">
                         {{--<a href="wallet/recharge.html" class="btn-recharge btn-s">充值</a>--}}
