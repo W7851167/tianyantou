@@ -32,8 +32,7 @@ class TaskRepository extends  BaseRepository
         ImageModel $imageModel,
         MetaModel $metaModel,
         TaskReceiveModel $taskReceiveModel,
-        TaskAchieveModel $taskAchieveModel,
-        MoneyModel $moneyModel
+        TaskAchieveModel $taskAchieveModel
     )
     {
         $this->taskModel = $taskModel;
@@ -43,7 +42,6 @@ class TaskRepository extends  BaseRepository
         $this->metaModel = $metaModel;
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
-        $this->moneyModel = $moneyModel;
     }
 
     /**
@@ -306,10 +304,11 @@ class TaskRepository extends  BaseRepository
             $receiveId = $this->taskReceiveModel->saveBy($data);
             $receiveId  = !empty($data['id']) ? $data['id'] : $receiveId;
             //审核完成、可用金额增加
-//            if($data['status'] == 1) {
-//                $receiveModel = $this->taskReceiveModel->find($receiveId);
-//                $receiveModel->user->money->increment('money',$receiveModel->total);
-//            }
+            if($data['status'] == 1) {
+                $receiveModel = $this->taskReceiveModel->find($receiveId);
+                $receiveModel->user->money->increment('money',$receiveModel->income);
+                $receiveModel->user->money->increment('total',$receiveModel->income);
+            }
 
             //驳回审核,不做任何操作
         });
@@ -335,7 +334,11 @@ class TaskRepository extends  BaseRepository
             //总金额++
             $receiveModel->total = $receiveModel->total + $data['price'];
             //收入金额--
-            $receiveModel->income += sprintf('%.2f',$data['price'] * $receiveModel->mratio / 100);
+            $income = getIncome(
+                $receiveModel->task->term,
+                $receiveModel->task->term_unit,
+                $receiveModel->mratio,$data['price']);
+            $receiveModel->income += $income;
             $receiveModel->save();
         });
 
@@ -358,7 +361,10 @@ class TaskRepository extends  BaseRepository
             //总金额--
             $receiveModel->total -= $achieveModel->price;
             //收入金额--
-            $receiveModel->income -= sprintf('%.2f',$achieveModel->price * $receiveModel->mratio / 100);
+            $receiveModel->income -= getIncome(
+                $receiveModel->task->term,
+                $receiveModel->task->term_unit,
+                $receiveModel->mratio,$achieveModel->price);
             //删除提交的任务
             $achieveModel->delete();
             //已经无提交的任务、任务为待提交状态

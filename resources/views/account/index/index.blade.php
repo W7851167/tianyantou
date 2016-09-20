@@ -16,22 +16,22 @@
                         <dt>资产总额(元)
                             <a href="javascript:void(0)">
                                 <i>?</i>
-                                <p>资产总额【<span>{!! $user->money->total or '0.00' !!}</span>元】= 待回款本金【<span>0.00</span>元】+ 冻结金额【<span>{!! $user->money->withdraw or '0.00' !!}</span>元】+ 账户余额【<span>0.00</span>元】</p>
+                                <p>资产总额【<span>{!! $userModel->money->total or '0.00' !!}</span>元】= 待回款本金【<span>0.00</span>元】+ 冻结金额【<span>{!! $userModel->money->withdraw or '0.00' !!}</span>元】+ 账户余额【<span>{!! $userModel->money->money or '0.00' !!}</span>元】</p>
                             </a>
                         </dt>
-                        <dd>{!! $user->money->total or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->total or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>可用金额(元)</dt>
-                        <dd>{!! $user->money->money or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->money or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>冻结金额(元)</dt>
-                        <dd>{!! $user->money->withdraw or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->withdraw or '0.00' !!}</dd>
                     </dl>
                     <dl class="info-description-mod">
                         <dt>冻结返利(元)</dt>
-                        <dd>{!! $user->money->rebate or '0.00' !!}</dd>
+                        <dd>{!! $userModel->money->rebate or '0.00' !!}</dd>
                     </dl>
                     <div class="shortcuts">
                         {{--<a href="wallet/recharge.html" class="btn-recharge btn-s">充值</a>--}}
@@ -84,9 +84,8 @@
                                 <p class="summary-info">&nbsp;&nbsp;<em></em></p>
                                 <ul class="color-tags clearfx">
                                     <li style="color:#2aa3ce;"><i style="background-color:#2aa3ce;"></i>已领</li>
-                                    <li style="color:#fb4242"><i style="background-color:#fb4242"></i>已交</li>
-                                    <li style="color:#FB9142;"><i style="background-color:#FB9142;"></i>已收</li>
-                                    <li style="color:#79B32B;"><i style="background-color:#79B32B;"></i>待收</li>
+                                    <li style="color:#FB9142;"><i style="background-color:#FB9142;"></i>待收</li>
+                                    <li style="color:#79B32B;"><i style="background-color:#79B32B;"></i>已收</li>
                                 </ul>
                                 <div id="paieback-calendar" class="paieback-calendar">
                                 </div>

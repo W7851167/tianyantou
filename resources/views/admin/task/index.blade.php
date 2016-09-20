@@ -52,7 +52,7 @@
                                 <td>{!! $tv->receives->where('status',1)->count() !!}</td>
                                 <td>{!! $tv->ratio or 0!!}</td>
                                 <td>{!! $tv->mratio or 0!!}</td>
-                                <td>{!! $tv->term or 0!!}</td>
+                                <td>{!! $tv->term or 0!!}{!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}</td>
                                 @if(!isset($status))
                                 <td>{!! $tv->status == 0 ? '待发布':($tv->status == 1 ? '已发布' : '已结束')!!}</td>
                                 @endif
