@@ -17,7 +17,7 @@ use App\Models\CorpModel;
 use App\Models\CorpTermModel;
 use App\Models\ImageModel;
 use App\Models\MetaModel;
-use App\Models\MoneyModel;
+use App\Models\RecordModel;
 use App\Models\TaskAchieveModel;
 use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
@@ -32,7 +32,8 @@ class TaskRepository extends  BaseRepository
         ImageModel $imageModel,
         MetaModel $metaModel,
         TaskReceiveModel $taskReceiveModel,
-        TaskAchieveModel $taskAchieveModel
+        TaskAchieveModel $taskAchieveModel,
+        RecordModel $recordModel
     )
     {
         $this->taskModel = $taskModel;
@@ -40,6 +41,7 @@ class TaskRepository extends  BaseRepository
         $this->corpTermModel = $corpTermModel;
         $this->imageModel = $imageModel;
         $this->metaModel = $metaModel;
+        $this->recordModel = $recordModel;
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
     }
@@ -308,6 +310,13 @@ class TaskRepository extends  BaseRepository
                 $receiveModel = $this->taskReceiveModel->find($receiveId);
                 $receiveModel->user->money->increment('money',$receiveModel->income);
                 $receiveModel->user->money->increment('total',$receiveModel->income);
+                //记录资金流水
+                $recordData['type'] = 1;
+                $recordData['user_id'] = $receiveModel->user_id;
+                $recordData['income'] = $receiveModel->income;
+                $recordData['account'] = $receiveModel->user->money->money;
+                $recordData['remark'] = $receiveModel->task->title . '，' . $receiveModel->income . '元';
+                $this->recordModel->saveBy($recordData);
             }
 
             //驳回审核,不做任何操作
