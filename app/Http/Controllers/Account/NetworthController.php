@@ -91,7 +91,7 @@ class NetworthController extends FrontController
             $data['invest_time'] = strtotime($data['invest_time']);
             $result  = $this->taskRepository->saveAchieves($data);
             if($result['status']) {
-                return $this->success($result['message'],url('networth/create/10'),true);
+                return $this->success($result['message'],url('networth/create',['id'=>$receiveModel->id]),true);
             }
             return $this->error($result['message'],null,true);
 

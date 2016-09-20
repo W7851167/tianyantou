@@ -356,7 +356,7 @@ class TaskRepository extends  BaseRepository
             //总金额--
             $receiveModel->total -= $achieveModel->price;
             //收入金额--
-            $receiveModel->income -= sprinf('%.2f',$achieveModel->price * $receiveModel->mratio / 100);
+            $receiveModel->income -= sprintf('%.2f',$achieveModel->price * $receiveModel->mratio / 100);
             //删除提交的任务
             $achieveModel->delete();
             //已经无提交的任务、任务为待提交状态
