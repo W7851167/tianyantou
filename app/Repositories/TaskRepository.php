@@ -197,7 +197,7 @@ class TaskRepository extends  BaseRepository
     {
         try {
             $this->taskModel->find($id)->delete();
-            return static::getError('删除项目数据完成');
+            return static::getSuccess('删除项目数据完成');
         }catch (QueryException $e) {
             return static::getError($e->getMessage());
         }
