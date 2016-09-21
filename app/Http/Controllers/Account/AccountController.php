@@ -55,7 +55,6 @@ class AccountController extends FrontController
                 return response()->json(['message' => '添加银行卡失败']);
             }
         }
-
 //        if (empty($bank)) return redirect('/bankcard.html');
         return view('account.account.bankcard', compact('bank'));
     }

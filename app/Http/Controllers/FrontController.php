@@ -22,6 +22,13 @@ class FrontController extends Controller
     public function __initalize()
     {
         $this->user = \Session::get('user.passport');
+        if(!empty($this->user)) {
+            $action = \Route::current()->getActionName();
+            list($class, $method) = explode('@', $action);
+            $class = str_replace('controller','', strtolower(substr(strrchr($class,'\\'),1)));
+            view()->share('controller',$class);
+            view()->share('method', $method);
+        }
         view()->share('user', $this->user);
     }
 
