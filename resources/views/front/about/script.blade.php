@@ -4,6 +4,7 @@
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/imgopacity.js?ver={!! date('YmdHis') !!}"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/imgmove.js?ver={!! date('YmdHis') !!}"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/tab.js?ver={!! date('YmdHis') !!}"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js?ver={!! date('YmdHis') !!}"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js?ver={!! date('YmdHis') !!}"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/navFollow.js?ver={!! date('YmdHis') !!}"></script>
