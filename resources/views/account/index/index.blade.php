@@ -56,7 +56,7 @@
                     </dl>
                     <dl>
                         <dt><i class="info-icon ic-awards"></i></dt>
-                        <dd>之家奖励<br><em>0.00</em>元</dd>
+                        <dd>天眼收入<br><em>0.00</em>元</dd>
                     </dl>
                 </div>
 
