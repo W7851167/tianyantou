@@ -50,7 +50,7 @@
       content: '\<\div style="padding:30px 20px;text-align:center;">请登录后再进行操作\<\/div>',
       btn: ['立即登录'],
       success:function(layero,index) {
-        layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/signin.html');
+        layero.find('.layui-layer-btn0').attr('href',DOMAIN.account + '/signin.html');
       }
     });
   }
