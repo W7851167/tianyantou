@@ -130,6 +130,26 @@ class CensusRepository extends BaseRepository
     }
 
     /**
+     * 首页统计情况
+     */
+    public function getHomeStats()
+    {
+        //撮合成交总量
+        $total = $this->taskReceiveModel->where('status',1)->sum('total');
+        $census['total'] = !empty($total) ? $total : '0.00';
+        //累计注册人数
+        $census['registers'] = $this->userModel->where('roles','用户')->count();
+        //累计产生收益
+        $income = $this->taskReceiveModel->where('status',1)->sum('income');
+        $census['income'] = !empty($income) ? $income : '0.00';
+        //待完成成交
+        $invested = $this->taskReceiveModel->where('status',2)->sum("total");
+        $census['untotal'] = !empty($invested) ? $invested : '0.00';
+
+        return $census;
+    }
+
+    /**
      * @param $endTime
      * @param $startTime
      * 判断当开始和结束时间

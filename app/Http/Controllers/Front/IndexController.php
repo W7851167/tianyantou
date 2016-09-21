@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
 use App\Repositories\XdataRepository;
@@ -23,13 +24,15 @@ class IndexController extends FrontController
     public function __construct(
         XdataRepository $xdata,
         NewRepository $news,
-        TaskRepository $tasks
+        TaskRepository $tasks,
+        CensusRepository $census
     )
     {
         parent::__initalize();
         $this->xdata = $xdata;
         $this->news = $news;
         $this->tasks = $tasks;
+        $this->census = $census;
     }
 
     /**
@@ -56,10 +59,9 @@ class IndexController extends FrontController
         $where['status'] = 1;
         $where['position'] = 1;
         list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
-
         //links
         list($counts, $links) = $this->xdata->getLinkList([], 15, 1);
-
-        return view('front.index.index', compact('advs', 'notices', 'tasks', 'latests', 'strategys', 'links'));
+        $stats = $this->census->getHomeStats();
+        return view('front.index.index', compact('advs', 'notices', 'tasks', 'latests', 'strategys', 'links','stats'));
     }
 }
