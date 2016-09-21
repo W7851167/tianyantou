@@ -54,7 +54,7 @@
         </li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
             <ul class="second-menu" @if($controller == 'wallet') style="display: block;" @endif>
-                <li @if($controller == 'wallet' && substr($method,0,7) == 'withdraw') class="current" @endif>
+                <li @if($controller == 'wallet' && substr($method,0,8) == 'withdraw') class="current" @endif>
                     <a href="{!!config('app.account_url')!!}/wallet/withdraw.html">提现</a>
                 </li>
                 <li @if($controller == 'wallet' && $method == 'book') class="current" @endif>
