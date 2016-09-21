@@ -109,7 +109,7 @@
                             <div>
                                 <a class="clickUpload" id="uploadimg" href="javascript:void(0)">点击上传</a>
                             </div>
-                            <p class="hint">必须上传294*129px生成的图片！</p>
+                            <p class="hint">必须上传455*201px生成的图片！</p>
                             <ul class="imgbox"  style="width: 294px;height: 129px;">
                                 @if(!empty($task->home_img))
                                     <img style="width:294px;" src="{!! config('app.static_url').$task->home_img !!}">
@@ -153,7 +153,7 @@
             'onInit': function () {$("#queueID").hide();},
             'swf'      : '/vendor/uploadify/uploadify.swf',
             'uploader' : '/uploadImg',
-            'formData' :{'width0':294,'height0':129, 'type0':1},
+            'formData' :{'width0':455,'height0':201, 'type0':1},
             'buttonText':'上传',
             'width':'82',
             'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
@@ -167,8 +167,8 @@
             'onUploadSuccess' : function(file,data) {
                 data = eval('('+data+')');
                 if (data.status == 1) {
-                    var html = '<img style="width:294px;height:129px;" src="' + data.info[294129] + '">';
-                    html += '<input type="hidden" name="data[home_img]" value="' + data.info[294129] + '" />'
+                    var html = '<img style="width:294px;height:129px;" src="' + data.info[455201] + '">';
+                    html += '<input type="hidden" name="data[home_img]" value="' + data.info[455201] + '" />'
                     $('.imgbox').html(html);
                 }
             }
