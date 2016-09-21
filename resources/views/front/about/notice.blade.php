@@ -19,7 +19,7 @@
                         <div class="axis-info">
                             <i class="shape-circle"></i>
                             <h3 class="title-gray-bold"><a href="{!! $nv->url($category->page) !!}" title="{!! $nv->title !!}" target="_blank">{!! $nv->title !!}</a></h3>
-                            <p>{!! str_limit(strip_tags($nv->article->content),80) !!}<a class="toggle" href="{!! $nv->url($category->page) !!}" target="_blank"><span class="open">[全文]</span></a></p>
+                            <p>{!! str_limit(strip_tags($nv->article->content),200) !!}<a class="toggle" href="{!! $nv->url($category->page) !!}" target="_blank"><span class="open">[全文]</span></a></p>
                         </div>
                     </div>
                     @endforeach
