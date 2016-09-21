@@ -153,8 +153,8 @@
             <div class="hot-news">
                 <div class="hot-con recent-news">
                     <h2><span>最新动态</span><a href="{!! config('app.url') !!}/about/latest.html" target="_blank">更多&gt;</a></h2>
-                    <ul>
-                        @foreach($latests as $lv)
+                    @foreach($latests as $i=>$lv)
+                    <ul @if($i / 2 != 0) class="media-report" @endif>
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank" class="img-link">
                                 <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
@@ -164,8 +164,8 @@
                                 <span>发布时间：{!! date('Y-m-d',strtotime($lv->created_at)) !!}</span>
                             </p>
                         </li>
-                        @endforeach
                     </ul>
+                    @endforeach
                 </div>
             </div>
             <div class="hot-notice">
