@@ -76,3 +76,5 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('news/del/{id}', ['as' => 'news.news.del', 'uses' => 'NewController@del']);
 });
 
+Route::get('test','TestController@index');
+
