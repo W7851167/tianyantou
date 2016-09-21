@@ -20,15 +20,15 @@
                             <div class="unit-bd unit-3 ">
                                 <dl>
                                     <dt>累计提现金额（元）</dt>
-                                    <dd>0.00</dd>
+                                    <dd>{!! $withdraws or 0.00 !!}</dd>
                                 </dl>
                                 <dl>
                                     <dt>账户可用余额（元）</dt>
-                                    <dd>0.00</dd>
+                                    <dd>{!! $money->money or 0.00 !!}</dd>
                                 </dl>
                                 <dl class="last-item">
                                     <dt>提现成功次数</dt>
-                                    <dd>0</dd>
+                                    <dd>{!! $success or 0 !!}</dd>
                                 </dl>
                             </div>
                         </div>

@@ -92,9 +92,9 @@ class UserRepository extends BaseRepository
         $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
         $bankFlag = !empty($userModel->bank) ? 1 : 0;
         //$investFlag = $emailFlag && $mobileFlag && $bankFlag;
-        $emailFlag = 1;
-        $mobileFlag = 1;
-        $bankFlag = 1;
+//        $emailFlag = 1;
+//        $mobileFlag = 1;
+//        $bankFlag = 1;
         $investFlag = 1;
         $avatar = isset($userModel->avatar->name) ? $userModel->avatar->name : '';
 

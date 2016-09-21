@@ -53,7 +53,7 @@ class WalletController extends FrontController
                 'status' => 0,
             ];
             $result = $this->userRepository->saveWithdraw($data);
-            if($result['status']) return json_encode($data);
+            if ($result['status']) return json_encode($data);
             return '提现失败!';
         }
 
@@ -71,7 +71,12 @@ class WalletController extends FrontController
         $where = ['user_id' => $this->user['id']];
         list($count, $lists) = $this->userRepository->getWithdrawList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
-        return view('account.wallet.withdrawlist', compact('lists', 'pageHtml'));
+        $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
+        //成功提现次数
+        $where = array_merge($where, ['status' => 1]);
+        $success = $this->userRepository->withdrawModel->countBy($where);
+        $withdraws = $this->userRepository->withdrawModel->createWhere($this->userRepository->withdrawModel, $where)->sum('price');
+        return view('account.wallet.withdrawlist', compact('lists', 'pageHtml', 'money', 'success', 'withdraws'));
     }
 
     /**
