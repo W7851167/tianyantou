@@ -170,9 +170,25 @@ class AccountController extends FrontController
 
     public function changepassword(Request $request)
     {
-
         if ($request->isMethod('post')) {
+            $oldPassword = $request->get('oldPassword');
+            $newPassword = $request->get('newPassword');
+            $confirmPassword = $request->get('confirmPassword');
 
+            if ($newPassword != $confirmPassword)
+                return $this->error('两次密码不一致!', null, true);
+            $user = $this->userRepository->userModel->find($this->user['id']);
+            if (empty($user))
+                return $this->error('该用户不存在', null, true);
+            if (!password_verify($oldPassword, $user->password))
+                return $this->error('原密码不正确!', null, true);
+            try {
+                $user->password = $newPassword;
+                $user->save();
+                return $this->success('修改密码成功!', url('safe.html'), true);
+            } catch (QueryException $e) {
+                return $this->error('修改密码失败!', null, true);
+            }
         }
         return view('account.account.changepassword');
     }
@@ -207,8 +223,28 @@ class AccountController extends FrontController
         return view('account.account.setdealpassword');
     }
 
-    public function dealpassword()
+    public function dealpassword(Request $request)
     {
+        if ($request->isMethod('post')) {
+            $oldPassword = $request->get('oldPassword');
+            $newPassword = $request->get('newPassword');
+            $confirmPassword = $request->get('confirmPassword');
+
+            if ($newPassword != $confirmPassword)
+                return $this->error('两次密码不一致!', null, true);
+            $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
+            if (empty($money))
+                return $this->error('该用户没有钱包,请联系天眼投客服!', null, true);
+            if (!password_verify($oldPassword, $money->password))
+                return $this->error('原密码不正确!', null, true);
+            try {
+                $money->password = \Hash::make($newPassword);
+                $money->save();
+                return $this->success('修改密码成功!', url('safe.html'), true);
+            } catch (QueryException $e) {
+                return $this->error('修改密码失败!', null, true);
+            }
+        }
         return view('account.account.dealpassword');
     }
 
