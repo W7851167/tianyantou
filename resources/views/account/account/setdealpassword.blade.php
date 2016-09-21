@@ -1,4 +1,4 @@
-<form data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/changePassword.html" data-refresh-url="#password-panel">
+<form data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/setDealPassword.html" data-refresh-url="#dealpassword-panel">
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">
@@ -6,15 +6,11 @@
             <span>{!! $user['username'] or '' !!}</span>
         </div>
         <div class="control-group">
-            <label>原登录密码：</label>
-            <input type="password" name="oldPassword" value="" class="input-style" />
+            <label>交易密码：</label>
+            <input type="password" name="password" value="" class="input-style" placeholder="密码为6位数字"/>
         </div>
         <div class="control-group">
-            <label>新登录密码：</label>
-            <input type="password" name="newPassword" value="" class="input-style" placeholder="包含字母和数字的8-20位字符" />
-        </div>
-        <div class="control-group">
-            <label>确认新密码：</label>
+            <label>确认交易密码：</label>
             <input type="password" name="confirmPassword" value="" class="input-style" />
         </div>
         <input type="submit" value="修改" class="btn-blue btn-s submit-btn" />

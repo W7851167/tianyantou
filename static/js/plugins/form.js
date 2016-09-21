@@ -104,7 +104,6 @@ function enableButton($elem, enable) {
     success: function(data, status, xhr, $form) {
       $submitBtn = $form.find('input[type=submit]');
       enableButton($submitBtn, true);
-
       layer && layer.closeAll('page');
       if (data.code) {
         if (data.code == 303) {
