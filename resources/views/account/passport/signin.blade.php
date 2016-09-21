@@ -19,6 +19,7 @@
         }
     </style>
 @stop
+@section('title') 用户登录 @stop
 @section('content')
     <div class="wrap user-center">
         <div class="container clearfix">

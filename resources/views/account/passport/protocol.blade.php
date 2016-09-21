@@ -1,9 +1,9 @@
 @extends('layout.main')
+@section('title') 个人中心 @stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
 @stop
-
 @section('content')
     <div class="wrap user-center">
         <div class="container clearfix">
