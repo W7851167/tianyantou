@@ -29,6 +29,10 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'wallet/withdraw.html', ['as' => 'wallet.withdraw', 'uses' => 'WalletController@withdraw']);
     Route::get('wallet/withdrawlist.html', ['as' => 'wallet.withdrawlist', 'uses' => 'WalletController@withdrawlist']);
     Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
+    //记帐本
+    Route::get('record.html', ['as' => 'record.index', 'uses' => 'RecordController@index']);
+    Route::any('record/create/{id?}', ['as' => 'record.create', 'uses' => 'RecordController@create']);
+    Route::get('record/delete/{id}', ['as' => 'record.delete', 'uses' => 'RecordController@delete']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);

@@ -52,6 +52,7 @@
                 </li>
             </ul>
         </li>
+        <li><a href="{!!config('app.account_url')!!}/record.html"><i class="iconfont">&#xe617;</i>网贷记账</a></li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
             <ul class="second-menu" @if($controller == 'wallet') style="display: block;" @endif>
                 <li @if($controller == 'wallet' && substr($method,0,8) == 'withdraw') class="current" @endif>
