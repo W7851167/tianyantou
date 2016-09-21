@@ -46,13 +46,13 @@ class AccountController extends FrontController
     {
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
         if ($request->isMethod('post')) {
-            if (!empty($bank)) return response()->json(['message' => '该用户已绑定银行卡!']);
+            if (!empty($bank)) return $this->error('该用户已绑定银行卡', null, true);
             $data = $request->get('data');
             try {
                 $result = $this->userRepository->bankModel->saveBy($data);
-                if ($result) return response()->json(['code' => 303, 'url' => url('bankcard.html')]);
+                if ($result) return $this->success('添加银行卡成功', url('bankcard.html'), true);
             } catch (QueryException $e) {
-                return response()->json(['message' => '添加银行卡失败']);
+                return $this->error('添加银行卡失败', null, true);
             }
         }
 //        if (empty($bank)) return redirect('/bankcard.html');
@@ -71,12 +71,12 @@ class AccountController extends FrontController
         if ($request->isMethod('post')) {
             $data = $request->get('data');
             $bank = $this->userRepository->bankModel->find($data['id']);
-            if (empty($bank)) response()->json(['message' => '该银行卡不存在']);
+            if (empty($bank)) return $this->error('该银行卡不存在', null, true);
             try {
                 $result = $this->userRepository->bankModel->saveBy($data);
-                if ($result) return response()->json(['code' => 303, 'url' => url('bankcard.html')]);
+                if ($result) return $this->success('修改银行卡信息成功', url('bankcard.html'), true);
             } catch (QueryException $e) {
-                return response()->json(['message' => '修改银行卡失败信息']);
+                return $this->error('修改银行卡失败信息失败', null, true);
             }
         }
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
@@ -101,7 +101,7 @@ class AccountController extends FrontController
             $username = $request->nickname;
             $vUsername = $request->nickname_verify;
             if (!$username || !$vUsername || $username != $vUsername)
-                return response()->json(['status' => 0, 'message' => '修改失败!']);
+                return $this->error('修改失败!', null, true);
             $data = [
                 'id' => $this->user['id'],
                 'username' => $username,
@@ -112,12 +112,12 @@ class AccountController extends FrontController
                     $data = Session::get('user.passport');
                     $data['username'] = $username;
                     Session::put('user.passport', $data);
-                    return '修改成功!';
+                    return $this->success('修改成功!', null, true);
                 }
             } catch (QueryException $e) {
                 $e->getMessage();
             }
-            return '修改失败!';
+            return $this->error('修改失败!', null, true);
         }
 
         return view('account.account.changenickname');
@@ -141,18 +141,18 @@ class AccountController extends FrontController
                 $user = $this->userRepository->userModel->find($this->user['id']);
                 $user->email = $request->email;
                 event(new ValidateEmail($user));
-                return '发送成功!';
+                return $this->success('发送成功!', null, true);
             }
             $code = $request->get('verifyCode');
             $email = $request->get('email');
             $checkcode = Session::get('user_' . $this->user['id']);
             if (!$code || !$email || ($code != $checkcode)) {
-                return '验证失败!';
+                return $this->error('验证失败!', null, true);
             }
             $data = ['id' => $this->user['id'], 'email' => $email];
             try {
                 $result = $this->userRepository->userModel->saveBy($data);
-                if ($result) return '修改成功!';
+                if ($result) $this->success('修改成功!', null, true);
             } catch (QueryException $e) {
                 $e->getMessage();
             }
@@ -167,9 +167,44 @@ class AccountController extends FrontController
         return view('account.account.validcard');
     }
 
-    public function changepassword()
+
+    public function changepassword(Request $request)
     {
+
+        if ($request->isMethod('post')) {
+
+        }
         return view('account.account.changepassword');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 设置交易密码
+     */
+    public function setDealPassword(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $password = $request->get('password');
+            $confirmPassword = $request->get('confirmPassword');
+
+            if (!$password || !$confirmPassword) return $this->error('', null, true);
+            $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
+            if (empty($money))
+                return $this->error('该用户没有钱包,请联系天眼投客服!', null, true);
+            if ($password != $confirmPassword)
+                return $this->error('两次密码不一致!', null, true);
+            try {
+                $money->password = \Hash::make($password);
+                $money->save();
+                return $this->success('设置交易密码成功!', url('safe.html'), true);
+            } catch (QueryException $e) {
+                return $this->error('设置交易密码失败!', null, true);
+            }
+
+        }
+        return view('account.account.setdealpassword');
     }
 
     public function dealpassword()
@@ -182,8 +217,8 @@ class AccountController extends FrontController
         return view('account.account.findpassword');
     }
 
-    public function question()
-    {
-        return view('account.account.question');
-    }
+//    public function question()
+//    {
+//        return view('account.account.question');
+//    }
 }

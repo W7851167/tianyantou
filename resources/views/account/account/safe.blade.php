@@ -111,10 +111,15 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">@if($userinfo->money->password)已设置@else未设置@endif</span>
+                                @if($userinfo->money->password)
                                 <a href="{!! config('app.account_url') !!}/safe/finddealpassword.html"
                                    class="inline-modify modify-btn" data-target="#dealpassword-panel">找回交易密码</a>
                                 <a href="{!! config('app.account_url') !!}/safe/changeDealPassword.html"
                                    class="inline-modify modify-btn" data-target="#dealpassword-panel">修改</a>
+                                @else
+                                <a href="{!! config('app.account_url') !!}/safe/setDealPassword.html"
+                                   class="inline-modify modify-btn" data-target="#dealpassword-panel">设置</a>
+                                @endif
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="dealpassword-panel"></div>
@@ -147,4 +152,37 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/safe.js"></script>
+    <script>
+        $('.valid-security_question').on('change','select',function(){
+            var thisQ = this.selectedOptions[0].innerHTML;
+            var otherQ = $(this).parent().siblings().find('select option:selected');
+            for(var i = 0;i < otherQ.length;i++){
+                if(thisQ === otherQ[i].innerHTML){
+                    console.log(1);
+                    layer.msg('密保问题不能重复',{icon:5,time:3000});
+                    this.selectedIndex = 0;
+                }
+            }
+        });
+
+        $(function(){
+            var anchor,
+                    targetPanelMap = [
+                        'valid-nickname',
+                        'valid-telephone',
+                        'valid-email',
+                        'valid-id_card',
+                        'valid-bank_id',
+                        'valid-password',
+                        'valid-dealpassword',
+                        'valid-security_question'
+                    ];
+            if (location.hash) {
+                anchor = location.hash.substring(1);
+                if ($.inArray(anchor, targetPanelMap) != -1) {
+                    $('.validation-group.' + anchor).find('dd a')[0].click();
+                }
+            }
+        });
+    </script>
 @stop
