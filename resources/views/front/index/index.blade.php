@@ -1,5 +1,4 @@
 @extends('layout.main')
-@section('title')首页@stop
 @section('title') p2p网贷,p2p理财,天眼投投资理财平台 @stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/mainindex.css?ver={!! time() !!}" />
@@ -153,19 +152,19 @@
             <div class="hot-news">
                 <div class="hot-con recent-news">
                     <h2><span>最新动态</span><a href="{!! config('app.url') !!}/about/latest.html" target="_blank">更多&gt;</a></h2>
-                    <ul>
-                        @foreach($latests as $lv)
+                    @foreach($latests as $i=>$lv)
+                    <ul @if($i / 2 != 0) class="media-report" @endif>
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank" class="img-link">
-                                <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
+                                <img style="width: 141px;height: 95px;" src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
                             </a>
                             <p class="link-con">
                                 <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank">{!! $lv->title or '' !!}</a>
                                 <span>发布时间：{!! date('Y-m-d',strtotime($lv->created_at)) !!}</span>
                             </p>
                         </li>
-                        @endforeach
                     </ul>
+                    @endforeach
                 </div>
             </div>
             <div class="hot-notice">
