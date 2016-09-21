@@ -20,7 +20,7 @@
                         <th width="150">真实姓名</th>
                         <th width="150">手机</th>
                         <th width="150">投资额</th>
-                        <th width="150">投标时间</th>
+                        <th width="150">投标期限</th>
                     </tr>
                         @foreach($receive->achieves as $av)
                             <tr>
@@ -28,7 +28,7 @@
                                 <td>{!! $av->realname or '---'!!}</td>
                                 <td>{!! $av->mobile or '---' !!}</td>
                                 <td>{!! $av->price or 0.00 !!}</td>
-                                <td>{!! date('Y-m-d H:i:s',$av->invest_time)!!}</td>
+                                <td>{!! $av->term!!} {!! $receive->task->term_unit == 0 ? '天' : ($receive->task->term_unit == 1 ? '个月' : '年')!!}</td>
                             </tr>
                         @endforeach
                 </table>
@@ -40,7 +40,7 @@
                         <th width="100">投资人</th>
                         <th width="90">总额</th>
                         <th width="90">收入</th>
-                        <th width="90">平台年化率</th>
+                        <th width="90">期限</th>
                         <th width="90">天眼投年化率</th>
                         <th width="150">提交时间</th>
                     </tr>
@@ -50,12 +50,16 @@
                             <td>{!! $receive->user->username or '' !!}</td>
                             <td>{!! $receive->total or 0.00 !!}</td>
                             <td>{!! $receive->income or 0.00 !!}</td>
-                            <td>{!! $receive->ratio or 0.00 !!}</td>
+                            <td>{!! $receive->task->term or 0!!} {!! $receive->task->term_unit == 0 ? '天' : ($receive->task->term_unit == 1 ? '个月' : '年')!!}</td>
                             <td>{!! $receive->mratio or 0.00 !!}</td>
                             <td>{!! date('Y-m-d H:i:s',$receive->commit_time)!!}</td>
                         </tr>
                 </table>
-                <div style="margin-top: 30px;margin-left: 30px;"><h2>审核信息</h2></div>
+                <div style="margin-top: 30px;margin-left: 30px;"><h2> 审核信息 </h2>
+                    <h3>
+                        收益= 平台期限 X 投资额度 X 天眼投年化率 / 100 {!! $receive->task->term_unit == 0 ? '/ 365天' : ($receive->task->term_unit == 1 ? '/ 12月' : '') !!}
+                    </h3>
+                </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
                     @if(!empty($receive))

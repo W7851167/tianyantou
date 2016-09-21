@@ -7,6 +7,7 @@ class RecordModel extends BaseModel
 {
     protected $table = 'records';
     protected  $primaryKey = 'id';
+    protected $fillable = ['user_id','type','income','cost','account','remark'];
 
     public function user()
     {
