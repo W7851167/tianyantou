@@ -27,7 +27,7 @@
                         </dl>
                         <div class="validation-process hidden" id="nickname-panel"></div>
                     </div>
-                    <div class="validation-group valid-telephone">
+                    {{--<div class="validation-group valid-telephone">
                         <dl class="validation-status clearfix">
                             <dt>
                                 <i class="s-icon"></i>
@@ -42,7 +42,7 @@
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="telephone-panel"></div>
-                    </div>
+                    </div>--}}
                     <div class="validation-group valid-email">
                         <dl class="validation-status clearfix">
                             <dt>
@@ -112,8 +112,8 @@
                             <dd>
                                 <span class="valid-value">@if($userinfo->money->password)已设置@else未设置@endif</span>
                                 @if($userinfo->money->password)
-                                <a href="{!! config('app.account_url') !!}/safe/finddealpassword.html"
-                                   class="inline-modify modify-btn" data-target="#dealpassword-panel">找回交易密码</a>
+                                {{--<a href="{!! config('app.account_url') !!}/safe/finddealpassword.html"--}}
+                                   {{--class="inline-modify modify-btn" data-target="#dealpassword-panel">找回交易密码</a>--}}
                                 <a href="{!! config('app.account_url') !!}/safe/changeDealPassword.html"
                                    class="inline-modify modify-btn" data-target="#dealpassword-panel">修改</a>
                                 @else
