@@ -36,7 +36,10 @@ class WalletController extends FrontController
     public function withdraw(Request $request)
     {
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
-        if (empty($bank)) return redirect('bankcard.html');
+        //没有银行需要先绑定银行卡
+        if (empty($bank)) {
+            return view('account.wallet.bandcard');
+        }
         $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
 
         if ($request->isMethod('post')) {
