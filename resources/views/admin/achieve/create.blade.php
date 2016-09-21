@@ -75,7 +75,7 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">说明：</div>
-                            <div><textarea class="addText" name="data[intro]">{!! $receive->intro or '' !!}</textarea></div>
+                            <div><textarea class="addText" name="data[intro]">{!! $receive->intro or '恭喜您获取' . $receive->income . '元收入' !!}</textarea></div>
                         </div>
                     </div>
 
