@@ -18,19 +18,21 @@
                         <table class="table table-blue table-bordered ucenter-table" style="font-size:13px;">
                             <thead>
                             <tr>
-                                <th>到期日</th>
-                                <th>债权名称</th>
-                                <th>待回款本息</th>
-                                <th>债权期限</th>
-                                <th>当前预约</th>
-                                <th>已续次数</th>
-                                <th>奖励加息</th>
-                                <th>预约</th>
+                                <th>投资平台</th>
+                                <th>项目名称</th>
+                                <th>投资金额</th>
+                                <th>起息日期</th>
+                                <th>利率</th>
+                                <th>期限</th>
+                                <th>还款方式</th>
+                                <th>返现奖励</th>
+                                <th>折扣奖励</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr class="norecord">
-                                <td colspan="8">
+                                <td colspan="10">
                                     您还没有可续购的债权
                                 </td>
                             </tr>
