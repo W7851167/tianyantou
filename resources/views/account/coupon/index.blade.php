@@ -10,7 +10,7 @@
         <div class="container clearfix">
             @include('account.common.menu')
             <div class="main tworow" style="height: 1425px;">
-                <script src="./投之家 - 个人中心_files/jquery-1.11.3.min.js" type="text/javascript"></script>
+                <script src="./天眼投 - 个人中心_files/jquery-1.11.3.min.js" type="text/javascript"></script>
                 <div class="main-inner">
                     <ul class="page-switch page-three clearfix">
                         <li class="active"><a href="https://account.tianyantou.com/coupon/index.html">可使用</a></li>
@@ -88,10 +88,10 @@
                                     投资平台100000元，购买了1个月的债权，使用1%该平台加息券，获取的收益为：1%*100000*30/365=82.19元；
                                     <br>&nbsp;&nbsp;4）平台新手体验标及2015年12月4日前的投资标的，不可使用平台加息券。
                                 </li>
-                                <li>5. <em style="color:#000;">投之家加息券</em>：
+                                <li>5. <em style="color:#000;">天眼投加息券</em>：
                                     <br>&nbsp;&nbsp;1）自激活日起，有效期为30天，本加息券最高加息限额为5万元；
-                                    <br>&nbsp;&nbsp;2）加息奖励按照用户实际持有使用了投之家加息券的债权天数计算，如中途没有转让，则在债权到期还款日时发放；如中途有转让，则在转让成功当天结算并发放；
-                                    <br>&nbsp;&nbsp;3）投之家加息券仅限于债权期限为30天以上的债权（新手债权、专享债权除外）。
+                                    <br>&nbsp;&nbsp;2）加息奖励按照用户实际持有使用了天眼投加息券的债权天数计算，如中途没有转让，则在债权到期还款日时发放；如中途有转让，则在转让成功当天结算并发放；
+                                    <br>&nbsp;&nbsp;3）天眼投加息券仅限于债权期限为30天以上的债权（新手债权、专享债权除外）。
                                 </li>
                                 <li>6. <em style="color:#000;">提现券</em>：提现券可用于减免提现手续费，系统会在提现过程中提示您选择提现券。</li>
                                 <li>7. 除提现券及红包外，每笔操作只能选择一张券。</li>
