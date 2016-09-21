@@ -135,7 +135,7 @@
                         </div>
                         <p class="goin-btn">
                             <span>
-                                可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元
+                                可购金额：{!! tmoney_format($tv->limit) !!} 元
                             </span>
                             <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename or '' !!}/{!! $tv->id !!}" rel="platform_join"
                                data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title or ''!!}" class="btn btn-blue" title="投资">投资</a>
