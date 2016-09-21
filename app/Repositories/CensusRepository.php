@@ -17,6 +17,7 @@ use App\Models\CategoryModel;
 use App\Models\ImageModel;
 use App\Models\MoneyModel;
 use App\Models\NewModel;
+use App\Models\PastModel;
 use App\Models\TaskAchieveModel;
 use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
@@ -28,12 +29,42 @@ class CensusRepository extends BaseRepository
         TaskReceiveModel $taskReceiveModel,
         TaskAchieveModel $taskAchieveModel,
         MoneyModel $moneyModel,
-        UserModel $userModel
+        UserModel $userModel,
+        PastModel $pastModel
     ) {
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
         $this->moneyModel = $moneyModel;
         $this->userModel = $userModel;
+        $this->pastModel = $pastModel;
+    }
+
+
+    /**
+     * @param $userId
+     * 用户签到信息
+     */
+    public function savePast($userId)
+    {
+        $result = $this->pastModel->getConnection()->transaction(function() use($userId){
+            $pastModel = $this->pastModel->where('user_id',$userId)->first();
+            //从未签过到
+            if(empty($pastModel)) {
+                $this->saveBy(['user_id'=>$userId]);
+                $pastModel = $this->pastModel->where('user_id',$userId)->first();
+            }
+            if($pastModel->updated_at > date('Y-m-d') . ' 00:00:00') {
+                throw new \Exception('您今天已经签过到了！');
+            }
+            //签到
+            $pastModel->record($userId);
+        });
+
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('签到完成', $result);
+        }
     }
 
 
