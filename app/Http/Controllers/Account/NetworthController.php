@@ -65,7 +65,7 @@ class NetworthController extends FrontController
         $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
 
         if(empty($receiveModel) || $receiveModel->status == 1) {
-            return url('networth/index.html');
+            return redirect(url('networth/index.html'));
         }
         if($request->isMethod('post')) {
             $data = $request->get('data');
