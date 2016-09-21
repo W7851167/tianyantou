@@ -24,7 +24,7 @@ class AdminController extends Controller
     public function __initalize()
     {
         $this->user = Session::get('user.passport');
-        if($this->user['role'] != '2') {
+        if(!empty($this->user) && $this->user['role'] != '管理员') {
             return abort(500,'非管理员不能登录超级后台');
         }
         view()->share('user', $this->user);
