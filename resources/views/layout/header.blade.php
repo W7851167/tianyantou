@@ -110,8 +110,8 @@
                 <ul>
                     <li class="@if(\Request::url() == config('app.url'))curr @endif"><a href="{!! config('app.url') !!}/">首页</a></li>
                     <li class="@if(\Request::url() == config('app.url').'/platform')curr @endif"><a href="{!! config('app.url') !!}/platform">精选平台</a></li>
-                    <li class="@if(\Request::url() == config('app.url').'/plan')curr @endif"><a href="{!! config('app.url') !!}/plan">天眼盾</a></li>
-                    <li class="@if(\Request::url() == config('app.url').'/shop')curr @endif"><a href="{!! config('app.url') !!}/shop">积分商城</a></li>
+                    <li class="@if(\Request::url() == config('app.url').'/plan')curr @endif"><a href="javascript:void(0)">天眼盾</a></li>
+                    <li class="@if(\Request::url() == config('app.url').'/shop')curr @endif"><a href="javascript:void(0)">积分商城</a></li>
                 </ul>
             </div>
         </div>
