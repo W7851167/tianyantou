@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title')交任务@stop
+@section('title')提交任务@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
 @stop
