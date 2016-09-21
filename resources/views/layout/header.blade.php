@@ -29,7 +29,8 @@
             "www": "{!! config('app.url') !!}",
             "account":"{!! config('app.account_url') !!}",
             "static":"{!! config('app.static_url') !!}",
-            "admin":"{!! config('app.admin_url') !!}"
+            "admin":"{!! config('app.admin_url') !!}",
+            "topic": "{!! config('app.static_url') !!}",
         };
     </script>
     <div id="head-top">
