@@ -42,7 +42,7 @@
                 <div class="info-detail-wrap clearfix">
                     <dl>
                         <dt><i class="info-icon ic-calendar"></i></dt>
-                        <dd>您在天眼投理财<br><em>2</em>天</dd>
+                        <dd>您在天眼投理财<br><em>{!! getDiffTime(strtotime($userModel->created_at),time()) !!}</em>天</dd>
                     </dl>
                     <dl>
                         <dt><i class="info-icon ic-dollar"></i></dt>
@@ -56,7 +56,7 @@
                     </dl>
                     <dl>
                         <dt><i class="info-icon ic-awards"></i></dt>
-                        <dd>之家奖励<br><em>0.00</em>元</dd>
+                        <dd>天眼收入<br><em>0.00</em>元</dd>
                     </dl>
                 </div>
 

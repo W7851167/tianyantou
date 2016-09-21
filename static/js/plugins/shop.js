@@ -12,11 +12,11 @@
         
     if($('#my-score').text() === '请登录'){
       $('#my-score').on('click',function(){
-        window.location = 'http://account.phpad.net/signin.html';
+        window.location = DOMAIN.account + '/signin.html';
       });
     }
     $('#my-item').on('click',function(){
-      location.href = 'http://account.phpad.net/shop.html';
+      location.href = DOMAIN.account + '/shop.html';
     });
     
     var mask = $('<div class="item-mask"></div>');
@@ -99,7 +99,7 @@
             content: '\<\div style="padding:30px 20px;text-align:center;">请登录后再进行操作\<\/div>',
             btn: ['立即登录'],
             success:function(layero,index) {
-            layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/signin.html');
+            layero.find('.layui-layer-btn0').attr('href',DOMAIN.account + '/signin.html');
           }
         });
 
@@ -170,7 +170,7 @@
                       .find('.layui-layer-title').text('提示').end()
                       .find('.layui-layer-content').css('height','112px').append(newHtml).end()
                       .find('.layui-layer-btn').css('display','block').end()
-                      .find('.layui-layer-btn0').attr('href','http://account.phpad.net/shop.html').end()
+                      .find('.layui-layer-btn0').attr('href',DOMAIN.account + '/shop.html').end()
                       .find('.layui-layer-btn1').on('click',function(){
                         $('.layui-laye').fadeOut(200);
                       });
@@ -323,7 +323,7 @@
                   content: '\<\div style="padding:30px 20px;text-align:center;">请登录后再进行操作\<\/div>',
                   btn: ['立即登录'],
                   success:function(layero,index) {
-                  layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/signin.html');
+                  layero.find('.layui-layer-btn0').attr('href',DOMAIN.account + '/signin.html');
                   }
                 });
                 return;   
