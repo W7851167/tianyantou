@@ -54,7 +54,6 @@ class AccountController extends FrontController
             }
         }
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
-//        if (empty($bank)) return redirect('/bankcard.html');
         return view('account.account.bankcard', compact('bank'));
     }
 
