@@ -16,6 +16,7 @@ use App\Eloquent\Model;
 use App\Models\BankModel;
 use App\Models\MessageModel;
 use App\Models\MoneyModel;
+use App\Models\RecordModel;
 use App\Models\ScoreModel;
 use App\Models\UserModel;
 use App\Models\WithdrawModel;
@@ -31,7 +32,8 @@ class UserRepository extends BaseRepository
         MoneyModel $moneyModel,
         WithdrawModel $withdrawModel,
         BankModel $bankModel,
-        MessageModel $messageModel
+        MessageModel $messageModel,
+        RecordModel $recordModel
     )
     {
         $this->userModel = $userModel;
@@ -40,6 +42,7 @@ class UserRepository extends BaseRepository
         $this->bankModel = $bankModel;
         $this->withdrawModel = $withdrawModel;
         $this->messageModel = $messageModel;
+        $this->recordModel = $recordModel;
     }
 
     /**
@@ -89,9 +92,9 @@ class UserRepository extends BaseRepository
         $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
         $bankFlag = !empty($userModel->bank) ? 1 : 0;
         //$investFlag = $emailFlag && $mobileFlag && $bankFlag;
-        $emailFlag = 1;
-        $mobileFlag = 1;
-        $bankFlag = 1;
+//        $emailFlag = 1;
+//        $mobileFlag = 1;
+//        $bankFlag = 1;
         $investFlag = 1;
         $avatar = isset($userModel->avatar->name) ? $userModel->avatar->name : '';
 
@@ -177,8 +180,15 @@ class UserRepository extends BaseRepository
         $result = $this->withdrawModel->getConnection()->transaction(function () use ($data) {
             $this->withdrawModel->saveBy($data);
             $userModel = $this->userModel->find($data['user_id']);
-            $userModel->money->decrement('withdraw', $data['price']);
+            if ($data['status'] == 0) {
+                $userModel->money->increment('withdraw', $data['price']);
+                $userModel->money->decrement('money', $data['price']);
+            }
+            if ($data['status'] == 1) {
+                $userModel->money->decrement('withdraw', $data['price']);
+            }
             if ($data['status'] == 2) {
+                $userModel->money->decrement('withdraw', $data['price']);
                 $userModel->money->increment('money', $data['price']);
             }
         });
@@ -271,6 +281,14 @@ class UserRepository extends BaseRepository
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->messageModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->messageModel->countBy($where);
+        return [$count, $lists];
+    }
+
+    public function getRecordList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->recordModel->lists("*", $where, $orderBy, [], $limit, $page);
+        $count = $this->recordModel->countBy($where);
         return [$count, $lists];
     }
 

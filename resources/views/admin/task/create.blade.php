@@ -42,15 +42,15 @@
 
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>标总额：</div>
-                            <div><input type="text" name= "data[total]" placeholder="单位元" value="{!! $task->total or 0 !!}">元</div>
+                            <div><input type="text" name= "data[total]" placeholder="单位元" value="{!! $task->total or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">元</div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>单标限制：</div>
-                            <div><input type="text" name = "data[limit]" placeholder="比如 1000元" value="{!! $task->limit or 0 !!}">元</div>
+                            <div><input type="text" name = "data[limit]" placeholder="比如 1000元" value="{!! $task->limit or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">元</div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>起诉金额：</div>
-                            <div><input type="text" name = "data[sued]" placeholder="比如 200元" value="{!! $task->sued or 0 !!}">元</div>
+                            <div><input type="text" name = "data[sued]" placeholder="比如 200元" value="{!! $task->sued or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">元</div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>状态：</div>
@@ -62,15 +62,22 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>平台年化率：</div>
-                            <div><input type="text" name = "data[ratio]" placeholder="浮点数比如12.91" value="{!! $task->ratio or 0 !!}"></div>
+                            <div><input type="text" name = "data[ratio]" placeholder="浮点数比如12.91" value="{!! $task->ratio or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>天眼投年化率：</div>
-                            <div><input type="text" name = "data[mratio]" placeholder="平台增加的化率"  value="{!! $task->mratio or 0 !!}"></div>
+                            <div><input type="text" name = "data[mratio]" placeholder="平台增加的化率"  value="{!! $task->mratio or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>期限：</div>
-                            <div><input type="text" name = "data[term]" placeholder="如7天，1个月等" value="{!! $task->term or 0 !!}"></div>
+                            <div>
+                                <input type="text" style="width:160px;" name = "data[term]" placeholder="" value="{!! $task->term or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" >
+                                <select type="select" name="term_unit">
+                                    <option value="0">天</option>
+                                    <option value="1">月</option>
+                                    <option value="2">年</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>开始时间：</div>

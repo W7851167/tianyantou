@@ -121,10 +121,14 @@ function enableButton($elem, enable) {
           }
           Ucenter.readaptSidemenuAndMainpanel();
         } else {
-          data && messageBox(data, 1);
-          setTimeout(function() {
-            location.reload();
-          }, 3000);  
+         if(data.status == 1) {
+           messageBox(data.message, 1);
+           setTimeout(function() {
+             window.location.href = data.url;
+           }, 3000);
+         } else {
+           messageBox(data.message,2)
+         }
         }
       }
     },
@@ -134,7 +138,7 @@ function enableButton($elem, enable) {
       
       var ct = xhr.getResponseHeader('content-type');
       var $message = $form.find('.msg-wrap');
-      var messageText = '系统繁忙请稍后重试，天眼投客服电话 400-883-1803';
+      var messageText = '系统繁忙请稍后重试，天眼投客服电话 010-57283503';
       if (ct.indexOf('plain') > -1) {
         messageText = xhr.responseText;
       }

@@ -13,6 +13,7 @@
 namespace App\Http\Controllers\Account;
 
 
+use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
@@ -31,12 +32,58 @@ class AccountController extends FrontController
 
     public function safe()
     {
-        return view('account.account.safe');
+        $userinfo = $this->userRepository->userModel->find($this->user['id']);
+        return view('account.account.safe', compact('userinfo'));
     }
 
-    public function bankcard()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 绑定银行卡
+     */
+    public function bankcard(Request $request)
     {
-        return view('account.account.bankcard');
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+            try {
+                $result = $this->userRepository->bankModel->saveBy($data);
+                if ($result) return '添加银行卡成功!';
+            } catch (QueryException $e) {
+                return '添加银行卡失败!';
+            }
+        }
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+//        if (empty($bank)) return redirect('/bankcard.html');
+        return view('account.account.bankcard', compact('bank'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 更新银行卡信息
+     */
+    public function updatebcard(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            if ($request->isMethod('post')) {
+                $data = $request->get('data');
+                try {
+                    $result = $this->userRepository->bankModel->saveBy($data);
+                    if ($result) return '修改银行卡成功!';
+                } catch (QueryException $e) {
+                    return '修改银行卡失败!';
+                }
+            }
+        }
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+        if (empty($bank)) return redirect('/bankcard.html');
+        $area[] = !empty($bank->province) ? $bank->province : '省';
+        $area[] = !empty($bank->city) ? $bank->city : '市';
+        $area[] = '区';
+        $area = json_encode($area);
+        return view('account.account.updatecard', compact('bank', 'area'));
     }
 
     /**
@@ -59,7 +106,7 @@ class AccountController extends FrontController
             ];
             try {
                 $result = $this->userRepository->userModel->saveBy($data);
-                if($result){
+                if ($result) {
                     $data = Session::get('user.passport');
                     $data['username'] = $username;
                     Session::put('user.passport', $data);
@@ -79,8 +126,37 @@ class AccountController extends FrontController
         return view('account.account.changetelephone');
     }
 
-    public function validateemail()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 验证邮箱
+     */
+    public function validateemail(Request $request)
     {
+        if ($request->isMethod('post')) {
+            if ($request->get('action') == 'authEmail') {
+                $user = $this->userRepository->userModel->find($this->user['id']);
+                $user->email = $request->email;
+                event(new ValidateEmail($user));
+                return '发送成功!';
+            }
+            $code = $request->get('verifyCode');
+            $email = $request->get('email');
+            $checkcode = Session::get('user_' . $this->user['id']);
+            if (!$code || !$email || ($code != $checkcode)) {
+                return '验证失败!';
+            }
+            $data = ['id' => $this->user['id'], 'email' => $email];
+            try {
+                $result = $this->userRepository->userModel->saveBy($data);
+                if ($result) return '修改成功!';
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
+            return '修改失败!';
+        }
+
         return view('account.account.validateemail');
     }
 

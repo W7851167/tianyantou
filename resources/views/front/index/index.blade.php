@@ -1,5 +1,4 @@
 @extends('layout.main')
-@section('title')首页@stop
 @section('title') p2p网贷,p2p理财,天眼投投资理财平台 @stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/mainindex.css?ver={!! time() !!}" />
@@ -116,13 +115,13 @@
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html" target="_blank" class="plat-logo" title="{!! $tv->corp->name or '' !!}">
-                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo !!}" width="70" alt="">
+                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo or ''!!}" width="70" alt="">
                         </a>
                         <h4 class="debt-title" title="{!! $tv->title or '' !!}">{!! $tv->title or '' !!}</h4>
                         <div class="platform-data">
-                            <p class="earnings-num">年化收益率<br/><b>{!! $tv->ratio !!}</b><i>%</i></p>
+                            <p class="earnings-num">年化收益率<br/><b>{!! $tv->ratio or 0.00 !!}</b><i>%</i></p>
                             <p class="time-limit-num">
-                                期限<br/><b>{!! $tv->term !!}</b><i></i>
+                                期限<br/><b>{!! $tv->term or '' !!}@if(!empty($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</b><i></i>
                             </p>
                             <p class="safe-leavel">安全级别<br><b>{!! $tv->corp->level or 'A' !!}</b></p>
                         </div>
@@ -138,8 +137,8 @@
                             <span>
                                 可购金额：{!! tmoney_format('%.2n', $tv->limit) !!} 元
                             </span>
-                            <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename !!}/{!! $tv->id !!}" rel="platform_join"
-                               data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title !!}" class="btn btn-blue" title="投资">投资</a>
+                            <a href="javascript:;" data-sso-url="/platform/login/{!! $tv->corp->ename or '' !!}/{!! $tv->id !!}" rel="platform_join"
+                               data-plat-url="{!! $tv->url or '' !!}"  title="{!! $tv->title or ''!!}" class="btn btn-blue" title="投资">投资</a>
                         </p>
                     </div>
                 </li>
@@ -153,18 +152,19 @@
             <div class="hot-news">
                 <div class="hot-con recent-news">
                     <h2><span>最新动态</span><a href="{!! config('app.url') !!}/about/latest.html" target="_blank">更多&gt;</a></h2>
-                    <ul>
-                        @foreach($latests as $lv)
+                    @foreach($latests as $i=>$lv)
+                    <ul @if($i / 2 != 0) class="media-report" @endif>
                         <li>
                             <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank" class="img-link">
-                                <img src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
+                                <img style="width: 141px;height: 95px;" src="{!! config('app.static_url') !!}{!! $lv->image->name or '' !!}" alt="{!! $lv->title or '' !!}" height="95">
                             </a>
                             <p class="link-con">
+                                <a href="{!! config('app.url') !!}/about/latest/{!! $lv->id !!}.html" target="_blank">{!! $lv->title or '' !!}</a>
                                 <span>发布时间：{!! date('Y-m-d',strtotime($lv->created_at)) !!}</span>
                             </p>
                         </li>
-                        @endforeach
                     </ul>
+                    @endforeach
                 </div>
             </div>
             <div class="hot-notice">

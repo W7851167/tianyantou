@@ -99,6 +99,8 @@ function unicodeToDecode($name)
  */
 
 function tmoney_format($number, $fractional=false) {
+    if($number == 0)
+        return '0.00';
     if ($fractional) {
         $number = sprintf('%.2f', $number);
     }
@@ -153,4 +155,50 @@ function getRealThumb($thumb)
     $patshs = explode('/', $lists['path']);
     unset($patshs[count($patshs)-2]);
     return $lists['scheme'] .'://'. $lists['host'] . implode('/', $patshs);
+}
+
+/**
+ * @param $phone
+ * @return bool
+ * 验证手机号码
+ */
+function is_phone($phone) {
+    $isMobile="/^1[3-5,8]{1}[0-9]{9}$/";
+    $isPhone="/^([0-9]{3,4}-)?[0-9]{7,8}$/";
+    if(!preg_match($isMobile,$phone) && !preg_match($isPhone,$phone)) {
+      return false;
+    }
+    return true;
+}
+
+/**
+ * @param $money
+ * @return bool
+ * 验证金额
+ */
+function is_money($money) {
+    $isMoney = "#^[0-9]+\.?[0-9]{2}?#";
+    if(!preg_match($isMoney, $money)) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * @param $term 期限
+ * @param $unit 单位0是天 1月 2年
+ * @param $ratio 年化率
+ * @param $money 投资金额
+ *
+ * 计算收益 100是因为年化率为整型
+ */
+function getIncome($term, $unit, $ratio, $money)
+{
+    if($unit == 0)
+        return sprintf('%.2f',$money * $ratio * $term / 365 / 100);
+    if($unit == 1)
+        return sprintf('%.2f',$money * $ratio * $term / 12 / 100);
+    if($unit == 2)
+        return sprintf('%.2f', $money * $ratio * $term / 100);
+
 }

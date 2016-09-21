@@ -33,9 +33,9 @@ class HomeController extends FrontController
     {
         $where['status'] = 1;
         list($counts, $corps) = $this->tasks->getCorpList($where, 8, 1);
-
+        $userModel = $this->userRepository->userModel->find($this->user['id']);
         return view('account.index.index', compact(
-            'corps'
+            'corps','userModel'
         ));
 
     }

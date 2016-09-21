@@ -43,12 +43,12 @@ class HomeController extends AdminController
 
 
         $yesterday = date('Y-m-d',strtotime('- 1day'));
-        $startTime = strtotime($yesterday . ' 00:00:01');
-        $endTime = strtotime($yesterday . ' 23:59:59');
+        $startTime = $yesterday . ' 00:00:01';
+        $endTime = $yesterday . ' 23:59:59';
         $dayUserStats = $this->census->getRegisterUserStats($startTime, $endTime);
         $month = date('Y-m');
-        $startTime = strtotime($month . '-01 00:00:01');
-        $endTime = strtotime($month . '-' . date('t') . ' 23:59:59');
+        $startTime = $month . '-01 00:00:01';
+        $endTime = $month . '-' . date('t') . ' 23:59:59';
         $monthUserStats = $this->census->getRegisterUserStats($startTime, $endTime);
         unset($where);
         $where['status'] = 1;

@@ -3,6 +3,7 @@
     <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
 @stop
+@section('title') 用户注册 @stop
 @section('content')
 <div class="wrap user-center">
     <div class="container clearfix">

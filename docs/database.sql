@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 天眼投正式服务器
-Source Server Version : 50633
+Source Server         : localhost
+Source Server Version : 50712
 Source Host           : localhost:3306
-Source Database       : tianyantou
+Source Database       : phpad
 
 Target Server Type    : MYSQL
-Target Server Version : 50633
+Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-17 23:25:44
+Date: 2016-09-21 00:35:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -208,12 +208,13 @@ CREATE TABLE `ad_corps` (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除操作',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_corps
 -- ----------------------------
-INSERT INTO `ad_corps` VALUES ('5', 'e融所', 'erongsuo', '/uploads/imgs/2016-09-17/280220/57dcec44648d5.jpg', '/uploads/imgs/2016-09-17/180180/57dcec22312e6.jpg', '15.00', '15.00', '11', '11', '2000万元', '林建武', '广东省', '深圳市', '区', '1', '2015-09-17', '龙华新区创业路汇海广场B座2505', 'AAA', '1', '200', '2016-09-17 19:44:07', '2016-09-17 19:44:07', null);
+INSERT INTO `ad_corps` VALUES ('5', 'e融所', 'erongsuo', '/uploads/imgs/2016-09-17/280220/57dcec44648d5.jpg', '/uploads/imgs/2016-09-17/180180/57dcec22312e6.jpg', '15.00', '15.00', '11', '11', '2000万元', '林建武', '广东省', '深圳市', '区', '1', '2015-09-17', '龙华新区创业路汇海广场B座2505', 'AAA', '1', '200', '2016-09-17 19:44:07', '2016-09-19 15:40:15', null);
+INSERT INTO `ad_corps` VALUES ('6', '爱钱进', 'aiqianjin', '/uploads/imgs/2016-09-18/280220/57de4ff68bbca.jpg', '/uploads/imgs/2016-09-18/180180/57de4fecdb532.jpg', '9.00', '15.00', '11', '30', '2000万元', '马琳', '北京市', '北京市', '西城区', '1', '2016-09-19', '', 'AAA', '25', '1', '2016-09-18 16:28:13', '2016-09-21 00:22:40', null);
 
 -- ----------------------------
 -- Table structure for `ad_images`
@@ -294,7 +295,7 @@ CREATE TABLE `ad_metas` (
   `meta_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '数据表字段名称',
   `meta_value` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_metas
@@ -315,6 +316,12 @@ INSERT INTO `ad_metas` VALUES ('57', '5', 'App\\Models\\CorpModel', 'transparenc
 INSERT INTO `ad_metas` VALUES ('58', '5', 'App\\Models\\CorpModel', 'contract_rate', 's:5:\"57.84\";');
 INSERT INTO `ad_metas` VALUES ('59', '5', 'App\\Models\\CorpModel', 'pattern', 's:36:\"风险准备金，双乾支付托管\";');
 INSERT INTO `ad_metas` VALUES ('60', '5', 'App\\Models\\CorpModel', 'assure', 's:12:\"网贷之家\";');
+INSERT INTO `ad_metas` VALUES ('61', '5', 'App\\Models\\CorpModel', 'honour_1', 's:33:\"上市公司及券商联袂打造\";');
+INSERT INTO `ad_metas` VALUES ('62', '5', 'App\\Models\\CorpModel', 'honour_2', 's:39:\"广州市汽车服务业协会副会长\";');
+INSERT INTO `ad_metas` VALUES ('63', '5', 'App\\Models\\CorpModel', 'honour_3', 's:0:\"\";');
+INSERT INTO `ad_metas` VALUES ('64', '5', 'App\\Models\\CorpModel', 'honour_corp_1', 's:33:\"上市公司及券商联袂打造\";');
+INSERT INTO `ad_metas` VALUES ('65', '5', 'App\\Models\\CorpModel', 'honour_corp_2', 's:0:\"\";');
+INSERT INTO `ad_metas` VALUES ('66', '5', 'App\\Models\\CorpModel', 'honour_corp_3', 's:0:\"\";');
 
 -- ----------------------------
 -- Table structure for `ad_moneys`
@@ -323,6 +330,7 @@ DROP TABLE IF EXISTS `ad_moneys`;
 CREATE TABLE `ad_moneys` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户信息',
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '交易密码',
   `total` decimal(10,2) DEFAULT '0.00' COMMENT '总资产',
   `rebate` decimal(10,2) DEFAULT '0.00' COMMENT '冻结返利',
   `withdraw` decimal(10,2) DEFAULT '0.00' COMMENT '提现冻结',
@@ -331,12 +339,13 @@ CREATE TABLE `ad_moneys` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_moneys
 -- ----------------------------
-INSERT INTO `ad_moneys` VALUES ('1', '2', '0.00', '0.00', '0.00', '100.00', '4450', '2016-09-11 21:23:44', '2016-09-11 21:23:44');
+INSERT INTO `ad_moneys` VALUES ('1', '2', null, '0.00', '0.00', '0.00', '100.00', '4450', '2016-09-11 21:23:44', '2016-09-11 21:23:44');
+INSERT INTO `ad_moneys` VALUES ('2', '1', null, '36.99', '0.00', '0.00', '36.99', '0', '2016-09-21 00:00:46', '2016-09-21 00:02:01');
 
 -- ----------------------------
 -- Table structure for `ad_news`
@@ -361,7 +370,7 @@ CREATE TABLE `ad_news` (
 -- ----------------------------
 INSERT INTO `ad_news` VALUES ('12', '0', '10', '佳节将至，请留意中秋值班安排', '0', null, '10', '2016-09-17 20:35:22', '2016-09-17 23:17:04', null);
 INSERT INTO `ad_news` VALUES ('13', '1', '12', '《全国住房公积金2015年年度报告》发布，住房公积金隐藏多少玄机？', '0', '', '12', '2016-09-17 23:16:17', '2016-09-17 23:16:53', null);
-INSERT INTO `ad_news` VALUES ('14', '1', '11', '网贷行业进入拼爹时代 增信背书或将大缩水', '0', '在后监管时代，当行业趋于理性，这种过分倚重外在的背书将还是会被平台的风控能力、投资者的风险判断所代替，这只是时间问题罢了。', '4', '2016-09-17 23:11:26', '2016-09-17 23:11:26', null);
+INSERT INTO `ad_news` VALUES ('14', '1', '11', '网贷行业进入拼爹时代 增信背书或将大缩水', '0', '在后监管时代，当行业趋于理性，这种过分倚重外在的背书将还是会被平台的风控能力、投资者的风险判断所代替，这只是时间问题罢了。', '7', '2016-09-17 23:11:26', '2016-09-18 16:58:39', null);
 
 -- ----------------------------
 -- Table structure for `ad_records`
@@ -414,14 +423,18 @@ CREATE TABLE `ad_task_achieves` (
   `realname` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '真实用户名',
   `mobile` char(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '手机号码',
   `price` decimal(10,2) DEFAULT '0.00' COMMENT '投资金额',
+  `term` smallint(8) DEFAULT '0' COMMENT '期限',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_task_achieves
 -- ----------------------------
+INSERT INTO `ad_task_achieves` VALUES ('11', '10', '13', '123213', '老朱', '18611570121', '30000.00', '50', '2016-09-20 23:36:45', null);
+INSERT INTO `ad_task_achieves` VALUES ('12', '10', '13', '234234', '老朱', '18611570121', '15000.00', '100', '2016-09-20 23:48:43', null);
+INSERT INTO `ad_task_achieves` VALUES ('13', '10', '14', '123213', '老朱', '18611570121', '1000.00', '50', '2016-09-21 00:32:22', null);
 
 -- ----------------------------
 -- Table structure for `ad_task_receives`
@@ -432,19 +445,23 @@ CREATE TABLE `ad_task_receives` (
   `corp_id` int(11) NOT NULL DEFAULT '0' COMMENT '平台ID',
   `task_id` int(11) NOT NULL DEFAULT '0' COMMENT '任务ID',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '领取人ID',
-  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、领取 2、已交任务 1、已审核 3、驳回',
+  `ratio` decimal(10,2) DEFAULT '0.00' COMMENT '年化率',
+  `mratio` decimal(10,2) DEFAULT '0.00' COMMENT '天眼投年化率',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、领取 2、已交任务 1、已审核 3、驳回提交 4、已完成',
   `total` decimal(10,2) DEFAULT '0.00' COMMENT '完成总额',
-  `intro` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '说明',
+  `income` decimal(10,2) DEFAULT '0.00' COMMENT '收益金额',
+  `intro` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '审核通过说明或驳回说明',
   `create_time` int(11) DEFAULT '0' COMMENT '领取任务时间',
   `commit_time` int(11) DEFAULT '0' COMMENT '提交任务时间',
   `complete_time` int(11) DEFAULT '0' COMMENT '审核时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_task_receives
 -- ----------------------------
-INSERT INTO `ad_task_receives` VALUES ('9', '5', '10', '1', '0', '1000.00', '32123213', '1474112647', '0', '0');
+INSERT INTO `ad_task_receives` VALUES ('13', '5', '10', '1', '15.00', '3.00', '1', '45000.00', '36.99', '', '1474385788', '1474386523', '1474387255');
+INSERT INTO `ad_task_receives` VALUES ('14', '6', '10', '1', '15.00', '3.00', '2', '1000.00', '0.82', null, '1474388560', '1474389142', '0');
 
 -- ----------------------------
 -- Table structure for `ad_tasks`
@@ -458,7 +475,8 @@ CREATE TABLE `ad_tasks` (
   `ratio` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '年转化率',
   `status` tinyint(1) DEFAULT '0' COMMENT '0、待上线 1、正常 2、停止',
   `mratio` decimal(10,2) DEFAULT '0.00' COMMENT '本网站转化率',
-  `term` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '期限',
+  `term` smallint(8) DEFAULT '0' COMMENT '期限',
+  `term_unit` tinyint(1) DEFAULT '0' COMMENT '期限单位 0 天 1月 2年',
   `sued` decimal(10,2) DEFAULT '0.00' COMMENT '起诉金额',
   `repay` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '还款方式',
   `sorts` int(11) DEFAULT '0' COMMENT '排序',
@@ -474,12 +492,13 @@ CREATE TABLE `ad_tasks` (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_tasks
 -- ----------------------------
-INSERT INTO `ad_tasks` VALUES ('10', '5', '新手福利标160917X', '2000000.00', '15.00', '1', '0.00', '10天', '0.00', '本息到期一次付清', '500', '1000.00', '99', '1', '1', '/uploads/imgs/2016-09-17/294129/57dcf0c37777a.jpg', '1474097096', '1475047496', 'https://www.myerong.com/financing/sbtz/bdxq/1277.html', '2016-09-17 19:44:07', '2016-09-17 19:44:07', null);
+INSERT INTO `ad_tasks` VALUES ('10', '6', '新手福利标160917X', '2000000.00', '15.00', '1', '3.00', '10', '0', '0.00', '本息到期一次付清', '500', '1000.00', '91', '1', '2', '/uploads/imgs/2016-09-17/294129/57dcf0c37777a.jpg', '1474097096', '1475047496', 'https://www.myerong.com/financing/sbtz/bdxq/1277.html', '2016-09-17 19:44:07', '2016-09-21 00:22:40', null);
+INSERT INTO `ad_tasks` VALUES ('11', '6', '爱钱进3月定期', '200000.00', '9.00', '1', '9.00', '3', '0', '1000.00', '付本还息', '2', '10000.00', '50', '1', '6', '/uploads/imgs/2016-09-18/294129/57de50767139d.jpg', '1474187297', '1476779297', 'http://www.iqianjin.com/', '2016-09-18 16:30:23', '2016-09-20 23:16:38', null);
 
 -- ----------------------------
 -- Table structure for `ad_users`

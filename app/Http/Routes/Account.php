@@ -20,12 +20,14 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     //投资记录
     Route::get('networth/index.html', ['as' => 'networth', 'uses' => 'NetworthController@index']);
-    Route::any('networth/create/{id}', ['as'=>'networth.create','uses'=>'NetworthController@create']);
+    Route::any('networth/create/{id}', ['as' => 'networth.create', 'uses' => 'NetworthController@create']);
+    Route::any('networth/delete/{id}', ['as' => 'networth.delete', 'uses' => 'NetworthController@delete']);
     //平台
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
     Route::get('platforms/analysis.html', ['as' => 'platform', 'uses' => 'PlatformController@analysis']);
     //账号充值
-    Route::get('wallet/withdraw.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@withdraw']);
+    Route::match(['get', 'post'], 'wallet/withdraw.html', ['as' => 'wallet.withdraw', 'uses' => 'WalletController@withdraw']);
+    Route::get('wallet/withdrawlist.html', ['as' => 'wallet.withdrawlist', 'uses' => 'WalletController@withdrawlist']);
     Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
@@ -38,6 +40,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'safe/finddealpassword.html', ['as' => 'safe.finddealpassword', 'uses' => 'AccountController@findpassword']);
     Route::match(['get', 'post'], 'safe/setSecurityQuestion.html', ['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
     Route::match(['get', 'post'], 'bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
+    Route::match(['get', 'post'], 'bankcard/update.html', ['as' => 'safe.bankcard', 'uses' => 'AccountController@updatebcard']);
     //活动专区
 //    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
 //    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
