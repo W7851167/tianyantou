@@ -47,7 +47,7 @@ class WalletController extends FrontController
             $price = $request->get('price');
             $password = $request->get('password');
             if ($price > $money->money) return '提现金额不能超过账户余额';
-            if (!password_verify($password, $bank->user->password)) return '交易密码不正确';
+            if (!password_verify($password, $money->password)) return '交易密码不正确';
             $data = [
                 'user_id' => $this->user['id'],
                 'bank_id' => $bank->id,
