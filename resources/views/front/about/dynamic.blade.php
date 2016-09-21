@@ -16,7 +16,7 @@
                         <div class="axis-info">
                             <h3 class="title-gray-bold"><a href="{!! $nv->url($category->page) !!}" target="_blank">{!! $nv->title !!}</a></h3>
                             <span>{!! $nv->created_at !!}</span><span>来源：天眼投</span>
-                            <p>{!! strip_tags($nv->article->content) !!}<a class="toggle" href="{!! $nv->url($category->page) !!}" target="_blank"><span class="open">[全文]</span></a></p>
+                            <p>{!! $nv->description !!}<a class="toggle" href="{!! $nv->url($category->page) !!}" target="_blank"><span class="open">[全文]</span></a></p>
                         </div>
                     </div>
                     @endforeach
