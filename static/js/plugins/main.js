@@ -333,37 +333,37 @@ function addBidlistEventTag() {
   $('img[alt="投哪网"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="投哪网"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
   $('img[alt="车能贷"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="车能贷"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
   $('img[alt="汇盈金服"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="汇盈金服"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
   $('img[alt="短融网"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="短融网"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
   $('img[alt="融资易"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="融资易"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
   $('img[alt="汇投网"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="汇投网"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
   $('img[alt="信用宝"]').parent().append('<i class="event-icon"></i>');
   $('img[alt="信用宝"]').parent().on('click','i.event-icon',function(e){
    e.stopPropagation();
-   window.open('http://topics.touzhijia.com/activities/anniversaryParty');
+   window.open(DOMAIN.topic + '/activities/anniversaryParty');
   });
 }
 
