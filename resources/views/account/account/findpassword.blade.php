@@ -25,5 +25,5 @@
         </div>
         <input type="submit" class="btn-blue btn-s submit-btn" value="下一步" />
     </form>
-    <p class="warm-tip">手机号是保障账户与资金安全，是您在投之家重要的身份凭证</p>
+    <p class="warm-tip">手机号是保障账户与资金安全，是您在天眼投重要的身份凭证</p>
 </div>
