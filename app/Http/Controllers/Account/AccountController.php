@@ -44,16 +44,18 @@ class AccountController extends FrontController
      */
     public function bankcard(Request $request)
     {
+        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
         if ($request->isMethod('post')) {
+            if (!empty($bank)) return response()->json(['message' => '该用户已绑定银行卡!']);
             $data = $request->get('data');
             try {
                 $result = $this->userRepository->bankModel->saveBy($data);
-                if ($result) return '添加银行卡成功!';
+                if ($result) return response()->json(['code' => 303, 'url' => url('bankcard.html')]);
             } catch (QueryException $e) {
-                return '添加银行卡失败!';
+                return response()->json(['message' => '添加银行卡失败']);
             }
         }
-        $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
+
 //        if (empty($bank)) return redirect('/bankcard.html');
         return view('account.account.bankcard', compact('bank'));
     }
@@ -66,15 +68,16 @@ class AccountController extends FrontController
      */
     public function updatebcard(Request $request)
     {
+
         if ($request->isMethod('post')) {
-            if ($request->isMethod('post')) {
-                $data = $request->get('data');
-                try {
-                    $result = $this->userRepository->bankModel->saveBy($data);
-                    if ($result) return '修改银行卡成功!';
-                } catch (QueryException $e) {
-                    return '修改银行卡失败!';
-                }
+            $data = $request->get('data');
+            $bank = $this->userRepository->bankModel->find($data['id']);
+            if (empty($bank)) response()->json(['message' => '该银行卡不存在']);
+            try {
+                $result = $this->userRepository->bankModel->saveBy($data);
+                if ($result) return response()->json(['code' => 303, 'url' => url('bankcard.html')]);
+            } catch (QueryException $e) {
+                return response()->json(['message' => '修改银行卡失败信息']);
             }
         }
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();

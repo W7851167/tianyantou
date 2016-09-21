@@ -104,7 +104,7 @@
                     <h1 class="section-title">银行卡</h1>
                     <div class="card-sketch">
                         <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/601288.png"></div>
-                        <div class="card-id">银行卡号:{!! substr_replace($bank->cardno,'***************',0,14) !!}</div>
+                        <div class="card-id">银行卡号:{!! substr_replace($bank->cardno,'***************',0,(strlen($bank->cardno) - 4)) !!}</div>
                     </div>
                     <div style="margin-top: 12px;">
                         <a href="{!! config('app.account_url') !!}/bankcard/update.html" class="btn-blue btn-l"
@@ -123,7 +123,7 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/bindbankcard.js"></script>
     <script>
         _init_area(["\u7701","\u5e02","\u533a"]);
     </script>
