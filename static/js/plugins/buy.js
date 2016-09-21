@@ -126,9 +126,9 @@
               btn: data.goodsType == 'zczj' ? ['立即去领取'] : [buttonText,'继续兑换'],
               success:function(layero,index) {
                 if(itemType === '1'){
-                  layero.find('.layui-layer-btn0').attr('href','http://account.touzhijia.com/shop.html');
+                  layero.find('.layui-layer-btn0').attr('href',DOMAIN.account + '/shop.html');
                 }else if(itemType === '2'){
-                  layero.find('.layui-layer-btn0').attr('href','http://account.touzhijia.com/shop.html#presents');
+                  layero.find('.layui-layer-btn0').attr('href',DOMAIN.account +'/shop.html#presents');
                 }
                 if (data.goodsType == 'zczj') {
                   layero.find('.layui-layer-btn0').attr('href','http://www.zczj.com/passport/reg?source=tzj');
@@ -146,7 +146,7 @@
                 content: '\<\div style="padding:30px 20px;text-align:center;">请登录后再进行操作\<\/div>',
                 btn: ['立即登录'],
                 success:function(layero,index) {
-                  layero.find('.layui-layer-btn0').attr('href','http://account.phpad.net/signin.html');
+                  layero.find('.layui-layer-btn0').attr('href',DOMAIN.account +'/signin.html');
                 }
               });
             } else {
@@ -172,7 +172,7 @@ function showRaiseRateCouponTipBox(data) {
     btn: ['立即投资', '查看详情'],
     success:function(layero,index) {
       layero.find('.layui-layer-btn0').attr('href', data.TicketInfo.PlatformUrl);
-      layero.find('.layui-layer-btn1').attr('href', 'http://account.phpad.net/coupon/index.html');
+      layero.find('.layui-layer-btn1').attr('href', DOMAIN.account +'/coupon/index.html');
     }
   });
 }
@@ -187,7 +187,7 @@ function showJiaCouponTipBox(data) {
     btn: ['查看详情','立即使用'],
     success:function(layero,index) {
       layero.find('.layui-layer-btn1').attr({'href':'http://www.jia.com/page/bd/zztzj/94787.html?code=' + data.VirtualItem.Code, 'target':'_blank'});
-      layero.find('.layui-layer-btn0').attr('href', 'http://account.phpad.net/shop.html');
+      layero.find('.layui-layer-btn0').attr('href', DOMAIN.account + '/shop.html');
     }
   });
 }

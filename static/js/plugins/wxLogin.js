@@ -22,7 +22,7 @@ $(function() {
         id:"wx-qrcode",
         appid: "wx796a0210a2d55243",
         scope: "snsapi_login", 
-        redirect_uri: "http://account.touzhijia.com/thirdparty/callback/weixin",
+        redirect_uri: "https://account.tianyantou.com/thirdparty/callback/weixin",
         state: "tzj",
         style: "",
         href: "http://static.tianyantou.com/css/pagestyle/wx_qr.css"

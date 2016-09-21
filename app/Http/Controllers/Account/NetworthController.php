@@ -63,6 +63,10 @@ class NetworthController extends FrontController
     public function create(Request $request,$id)
     {
         $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
+
+        if(empty($receiveModel) || $receiveModel->status == 1) {
+            return redirect(url('networth/index.html'));
+        }
         if($request->isMethod('post')) {
             $data = $request->get('data');
             if(empty($data['order_sn']))
