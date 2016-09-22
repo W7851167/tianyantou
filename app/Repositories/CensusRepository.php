@@ -88,7 +88,7 @@ class CensusRepository extends BaseRepository
         }
     }
 
-
+    
 
 
     /**
