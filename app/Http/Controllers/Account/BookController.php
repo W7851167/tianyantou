@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\FrontController;
 use App\Repositories\UserRepository;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class BookController extends FrontController
@@ -42,10 +43,24 @@ class BookController extends FrontController
         return view('account.book.index', compact('lists', 'pageHtml'));
     }
 
-    public function create(Request $request)
+    /**
+     * @param Request $request
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     *
+     * 添加记账记录
+     */
+    public function create(Request $request, $id = null)
     {
         if ($request->isMethod('post')) {
-            var_dump($request->get('data'));exit;
+            $data = $request->get('data');
+//            try {
+                $result = $this->userRepository->bookModel->saveBy($data);
+                if ($result) return '记录成功!';
+//            } catch (QueryException $e) {
+//                $e->getMessage();
+//            }
+            return '记录失败';
         }
         return view('account.book.create');
     }

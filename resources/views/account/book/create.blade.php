@@ -18,7 +18,6 @@
                             <div class="note-tpl" style="display: block;">
                                 <table>
                                     <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
-
                                     <tr onclick="javascript:fillRecord('d5e5108e-ccd5-49da-aeb6-f18de4085235')" id="d5e5108e-ccd5-49da-aeb6-f18de4085235">
                                         <td>久信e贷</td>
                                         <td>久信e贷_2016_9_22</td>
@@ -27,8 +26,8 @@
                                         <td>一次性还本付息</td>
                                         <td><a class="del_button" onclick="delModel('d5e5108e-ccd5-49da-aeb6-f18de4085235');">删</a></td>
                                     </tr>
-
-                                    </tbody></table>
+                                    </tbody>
+                                </table>
                                 <i class="icn arr"></i>
                             </div>
                         </div>
@@ -36,6 +35,7 @@
                     </h1>
                     <div class="form-group bindbankcard">
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
+                            <input type="hidden" name="data[user_id]" value="{!! $user['id'] or '' !!}">
                             <div class="control-group">
                                 <label for="real-name">投资平台</label>
                                 <input type="text" name="data[corp_name]" class="input-style" value="">
