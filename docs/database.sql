@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-21 00:35:29
+Date: 2016-09-22 21:18:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -345,7 +345,7 @@ CREATE TABLE `ad_moneys` (
 -- Records of ad_moneys
 -- ----------------------------
 INSERT INTO `ad_moneys` VALUES ('1', '2', null, '0.00', '0.00', '0.00', '100.00', '4450', '2016-09-11 21:23:44', '2016-09-11 21:23:44');
-INSERT INTO `ad_moneys` VALUES ('2', '1', null, '36.99', '0.00', '0.00', '36.99', '0', '2016-09-21 00:00:46', '2016-09-21 00:02:01');
+INSERT INTO `ad_moneys` VALUES ('2', '1', null, '38.63', '0.00', '0.00', '38.63', '12', '2016-09-21 00:00:46', '2016-09-22 20:17:37');
 
 -- ----------------------------
 -- Table structure for `ad_news`
@@ -373,13 +373,30 @@ INSERT INTO `ad_news` VALUES ('13', '1', '12', '《全国住房公积金2015年�
 INSERT INTO `ad_news` VALUES ('14', '1', '11', '网贷行业进入拼爹时代 增信背书或将大缩水', '0', '在后监管时代，当行业趋于理性，这种过分倚重外在的背书将还是会被平台的风控能力、投资者的风险判断所代替，这只是时间问题罢了。', '7', '2016-09-17 23:11:26', '2016-09-18 16:58:39', null);
 
 -- ----------------------------
+-- Table structure for `ad_pasts`
+-- ----------------------------
+DROP TABLE IF EXISTS `ad_pasts`;
+CREATE TABLE `ad_pasts` (
+  `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户名',
+  `days` tinyint(1) NOT NULL DEFAULT '0' COMMENT '连续签到天数',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最近签到时间',
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of ad_pasts
+-- ----------------------------
+INSERT INTO `ad_pasts` VALUES ('1', '1', '2016-09-21 10:24:23', '2016-09-21 11:58:41');
+
+-- ----------------------------
 -- Table structure for `ad_records`
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_records`;
 CREATE TABLE `ad_records` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
-  `type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '不限制 1、invest投资回报 2、income回款 3、recharge充值 4、提现',
+  `type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '不限制 1、invest投资回报 2、提现',
   `income` decimal(10,2) DEFAULT '0.00' COMMENT '收入',
   `cost` decimal(10,2) DEFAULT '0.00' COMMENT '支出',
   `account` decimal(10,2) DEFAULT '0.00' COMMENT '账号金额',
@@ -387,11 +404,12 @@ CREATE TABLE `ad_records` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of ad_records
 -- ----------------------------
+INSERT INTO `ad_records` VALUES ('2', '1', '1', '0.82', '0.00', '38.63', '新手福利标160917X，收益0.82元', '2016-09-21 00:45:20', '2016-09-21 00:46:35');
 
 -- ----------------------------
 -- Table structure for `ad_scores`
@@ -461,7 +479,7 @@ CREATE TABLE `ad_task_receives` (
 -- Records of ad_task_receives
 -- ----------------------------
 INSERT INTO `ad_task_receives` VALUES ('13', '5', '10', '1', '15.00', '3.00', '1', '45000.00', '36.99', '', '1474385788', '1474386523', '1474387255');
-INSERT INTO `ad_task_receives` VALUES ('14', '6', '10', '1', '15.00', '3.00', '2', '1000.00', '0.82', null, '1474388560', '1474389142', '0');
+INSERT INTO `ad_task_receives` VALUES ('14', '6', '10', '1', '15.00', '3.00', '1', '1000.00', '0.82', '1111', '1474388560', '1474389142', '1474389920');
 
 -- ----------------------------
 -- Table structure for `ad_tasks`
