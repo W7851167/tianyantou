@@ -35,8 +35,6 @@ class HomeController extends AdminController
 
     public function index()
     {
-        $result = $this->census->savePast(1);
-        dd($result);
         $where['category_id'] = 10;
         list($counts, $notices) = $this->new->getNewList($where, 1, 8);
 
