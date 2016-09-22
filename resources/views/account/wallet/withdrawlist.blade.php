@@ -20,15 +20,15 @@
                             <div class="unit-bd unit-3 ">
                                 <dl>
                                     <dt>累计提现金额（元）</dt>
-                                    <dd>{!! $withdraws or 0.00 !!}</dd>
+                                    <dd>{!! $withdraws or '0.00' !!}</dd>
                                 </dl>
                                 <dl>
                                     <dt>账户可用余额（元）</dt>
-                                    <dd>{!! $money->money or 0.00 !!}</dd>
+                                    <dd>{!! $money->money or '0.00' !!}</dd>
                                 </dl>
                                 <dl class="last-item">
                                     <dt>提现成功次数</dt>
-                                    <dd>{!! $success or 0 !!}</dd>
+                                    <dd>{!! $success or '0' !!}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                                 <tr>
                                     <td>{!! $wv->created_at or '---' !!}</td>
                                     <td>无</td>
-                                    <td>{!! $wv->price or 0.00 !!}元</td>
-                                    <td>{!! $wv->commission or 0.00 !!}元</td>
+                                    <td>{!! $wv->price or '0.00' !!}元</td>
+                                    <td>{!! $wv->commission or '0.00' !!}元</td>
                                     <td>{!! $wv->price - $wv->commission !!}元</td>
                                     <td>{!! $wv->bank->bank_name or '---' !!}</td>
                                     <td>@if($wv->status==0)已申请@elseif($wv->status==1)已派发@elseif($wv->status=='2')拒绝提现@endif</td>

@@ -37,9 +37,7 @@ class WalletController extends FrontController
     {
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
         //没有银行需要先绑定银行卡
-        if (empty($bank)) {
-            return view('account.wallet.bandcard');
-        }
+        if (empty($bank)) return view('account.wallet.bandcard');
         $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
 
         if ($request->isMethod('post')) {
@@ -94,6 +92,9 @@ class WalletController extends FrontController
         $type = $request->get('opType');
         $time = $request->get('timespan');
         $where = ['user_id' => $this->user['id']];
+        $incomes = $this->userRepository->recordModel->createWhere($this->userRepository->recordModel, $where)->sum('income');
+        $costs = $this->userRepository->recordModel->createWhere($this->userRepository->recordModel, $where)->sum('cost');
+        $money = $this->userRepository->userModel->find($this->user['id'])->money->money;
         if ($time) {
             switch ($time) {
                 case '1w':
@@ -132,6 +133,6 @@ class WalletController extends FrontController
 
         list($count, $lists) = $this->userRepository->getRecordList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
-        return view('account.wallet.book', compact('lists', 'pageHtml'));
+        return view('account.wallet.book', compact('lists', 'pageHtml', 'incomes', 'costs', 'money'));
     }
 }
