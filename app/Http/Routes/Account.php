@@ -60,4 +60,6 @@ Route::group(['middleware' => 'middle.account'], function () {
     //统计
     Route::get('chart/waitIncomeStats', ['as' => 'charts.income', 'uses' => 'ChartController@waitIncomeStats']);
     Route::get('chart/incomeStats', ['as' => 'charts.halfyear', 'uses' => 'ChartController@incomeStats']);
+    //签到
+    Route::get('shop/signin',['as'=>'shop.signin','uses'=>'AccountController@signin']);
 });
