@@ -35,11 +35,10 @@ class HomeController extends FrontController
     public function index()
     {
         $where['status'] = 1;
-        list($counts, $corps) = $this->tasks->getCorpList($where, 8, 1);
-        $userModel = $this->userRepository->userModel->find($this->user['id']);
-        return view('account.index.index', compact(
-            'corps','userModel'
-        ));
+        $data = $this->census->getUserRocordStats($this->user['id']);
+        list($counts, $data['corps']) = $this->tasks->getCorpList($where, 8, 1);
+        $data['userModel'] = $this->userRepository->userModel->find($this->user['id']);
+        return view('account.index.index', $data);
 
     }
 

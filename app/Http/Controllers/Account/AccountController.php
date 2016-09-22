@@ -261,9 +261,12 @@ class AccountController extends FrontController
      */
     public function signin(Request $request)
     {
-        $result = $this->census->savePast($this->user['id']);
-        if($result['status'])
-            return $this->success('签到完成');
-        return $this->error('您已签过到了！');
+        try {
+            $result = $this->census->savePast($this->user['id']);
+            if($result['status'])
+                return $this->success('签到完成');
+        } catch(\Exception $e) {
+            return $this->error('您已签过到了！');
+        }
     }
 }
