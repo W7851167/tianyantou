@@ -45,7 +45,7 @@ class BookController extends FrontController
     public function create(Request $request)
     {
         if ($request->isMethod('post')) {
-
+            var_dump($request->get('data'));exit;
         }
         return view('account.book.create');
     }
