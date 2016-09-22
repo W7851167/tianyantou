@@ -14,6 +14,7 @@ namespace App\Repositories;
 
 use App\Eloquent\Model;
 use App\Models\BankModel;
+use App\Models\BookModel;
 use App\Models\MessageModel;
 use App\Models\MoneyModel;
 use App\Models\RecordModel;
@@ -33,7 +34,8 @@ class UserRepository extends BaseRepository
         WithdrawModel $withdrawModel,
         BankModel $bankModel,
         MessageModel $messageModel,
-        RecordModel $recordModel
+        RecordModel $recordModel,
+        BookModel $bookModel
     )
     {
         $this->userModel = $userModel;
@@ -43,6 +45,7 @@ class UserRepository extends BaseRepository
         $this->withdrawModel = $withdrawModel;
         $this->messageModel = $messageModel;
         $this->recordModel = $recordModel;
+        $this->bookModel = $bookModel;
     }
 
     /**
@@ -107,7 +110,7 @@ class UserRepository extends BaseRepository
             'bank' => $bankFlag,
             "invest" => $investFlag,
             'role' => $userModel->roles,
-            'model' =>$userModel,
+            'model' => $userModel,
         ];
     }
 
@@ -285,11 +288,35 @@ class UserRepository extends BaseRepository
         return [$count, $lists];
     }
 
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     *
+     * 流水列表
+     */
     public function getRecordList($where = [], $limit, $page)
     {
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->recordModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->recordModel->countBy($where);
+        return [$count, $lists];
+    }
+
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     *
+     * 用户记账列表
+     */
+    public function getBookList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->bookModel->lists('*', $where, $orderBy, [], $limit, $page);
+        $count = $this->bankModel->countBy($where);
         return [$count, $lists];
     }
 

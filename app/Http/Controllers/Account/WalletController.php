@@ -86,7 +86,7 @@ class WalletController extends FrontController
      *
      * 资金流水列表
      */
-    public function book(Request $request)
+    public function record(Request $request)
     {
         $page = $request->get('page') ?: 1;
         $type = $request->get('opType');
@@ -105,12 +105,8 @@ class WalletController extends FrontController
 
         if ($type == 'invest') {
             $where['type'] = 1;
-        } elseif ($type == 'income') {
-            $where['type'] = 2;
-        } elseif ($type == 'recharge') {
-            $where['type'] = 3;
         } elseif ($type == 'withdraw') {
-            $where['type'] = 4;
+            $where['type'] = 2;
         } elseif ($type == 'other') {
             $where['type'] = 0;
         }
@@ -118,6 +114,6 @@ class WalletController extends FrontController
         list($count, $lists) = $this->userRepository->getRecordList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
         $census = $this->censusRepository->getUserRocordStats($this->user['id']);
-        return view('account.wallet.book', compact('lists', 'pageHtml', 'census'));
+        return view('account.wallet.record', compact('lists', 'pageHtml', 'census'));
     }
 }

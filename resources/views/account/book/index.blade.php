@@ -11,8 +11,8 @@
             <div class="main tworow" style="height: 917px;">
                 <div class="main-inner">
                     <div class="cont-box-wrap">
-                        <span>当前可续购债权: 0个</span>
-                        <a class="btn btn-blue-o btn-s" style="float:right" href="{!! config('app.account_url') !!}/record/create" data-toggle="modal">记一笔</a>
+                        <span>天眼投记账本</span>
+                        <a class="btn btn-blue-o btn-s" style="float:right" href="{!! config('app.account_url') !!}/book/create" data-toggle="modal">记一笔</a>
                     </div>
                     <div id="autoreserve_records">
                         <table class="table table-blue table-bordered ucenter-table" style="font-size:13px;">
@@ -20,11 +20,11 @@
                             <tr>
                                 <th>投资平台</th>
                                 <th>项目名称</th>
-                                <th>投资金额</th>
                                 <th>起息日期</th>
+                                <th>投资金额</th>
+                                <th>预期利息</th>
                                 <th>利率</th>
                                 <th>期限</th>
-                                <th>还款方式</th>
                                 <th>返现奖励</th>
                                 <th>折扣奖励</th>
                                 <th>操作</th>
@@ -33,7 +33,7 @@
                             <tbody>
                             <tr class="norecord">
                                 <td colspan="10">
-                                    您还没有可续购的债权
+                                    您还没有记账信息
                                 </td>
                             </tr>
                             </tbody>

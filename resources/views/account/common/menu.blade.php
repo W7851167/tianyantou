@@ -46,7 +46,7 @@
                 <li  @if($controller == 'networth') class="current" @endif><a href="{!!config('app.account_url')!!}/networth/index.html">投资记录</a></li>
                 <li  @if($controller == 'platform' && $method == 'statistic') class="current" @endif><a href="{!!config('app.account_url')!!}/platforms/statistic.html">平台统计</a></li>
                 <li  @if($controller == 'platform' && $method == 'analysis') class="current" @endif><a href="{!!config('app.account_url')!!}/platforms/analysis.html">投资明细</a></li>
-                <li  @if($controller == 'record') class="current" @endif><a href="{!!config('app.account_url')!!}/record.html">网贷记账</a></li>
+                <li  @if($controller == 'record') class="current" @endif><a href="{!!config('app.account_url')!!}/book.html">网贷记账</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
@@ -54,8 +54,8 @@
                 <li @if($controller == 'wallet' && substr($method,0,8) == 'withdraw') class="current" @endif>
                     <a href="{!!config('app.account_url')!!}/wallet/withdraw.html">提现</a>
                 </li>
-                <li @if($controller == 'wallet' && $method == 'book') class="current" @endif>
-                    <a href="{!!config('app.account_url')!!}/wallet/book.html">资金流水</a>
+                <li @if($controller == 'wallet' && $method == 'record') class="current" @endif>
+                    <a href="{!!config('app.account_url')!!}/wallet/record.html">资金流水</a>
                 </li>
             </ul>
         </li>
