@@ -25,10 +25,6 @@
                         <i class="icon-bankcard"></i>
                     </a>
                 </p>
-                    <?php
-                        $model = !empty($user['model']->past) ? $user['model']->past : null;
-                        $sign = getPast($model);
-                    ?>
                 <div class="checkin-area">
                     <div class="check-in {!! $sign['checked'] !!}">
                         <p>积分：<span>{!! $user['model']->money->score or 0!!}</span></p>

@@ -13,6 +13,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\PastModel;
+
 class FrontController extends Controller
 {
     protected $user;
@@ -28,6 +30,8 @@ class FrontController extends Controller
             $class = str_replace('controller','', strtolower(substr(strrchr($class,'\\'),1)));
             view()->share('controller',$class);
             view()->share('method', $method);
+            $pass = PastModel::find($this->user['id']);
+            view()->share('sign', getPast($pass));
         }
         view()->share('user', $this->user);
     }
