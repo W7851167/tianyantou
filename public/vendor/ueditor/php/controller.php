@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: https://*.tianyantou.com'); //设置http://*.baidu.com允许跨域访问
+//header('Access-Control-Allow-Origin: https://*.tianyantou.com'); //设置http://*.baidu.com允许跨域访问
 date_default_timezone_set("Asia/Chongqing");
 error_reporting(E_ERROR);
 header("Content-Type: text/html; charset=utf-8");
