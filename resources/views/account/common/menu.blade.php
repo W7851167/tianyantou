@@ -25,13 +25,14 @@
                         <i class="icon-bankcard"></i>
                     </a>
                 </p>
+                    <?php $sign = getPast($user['model']->past); ?>
                 <div class="checkin-area">
-                    <div class="check-in ">
-                        <p>积分：<span>10</span></p>
+                    <div class="check-in {!! $sign['checked'] !!}">
+                        <p>积分：<span>{!! $user['model']->money->score or 0!!}</span></p>
                     </div>
                     <i>+5</i>
                     <div class="checkin-rules">
-                        <p>您已连续签到 <em class="checkin-days">0</em>天，今日签到<em class="check-points">+1</em></p>
+                        <p>您已连续签到 <em class="checkin-days">{!! $sign['days'] !!}</em>天，今日签到<em class="check-points">+{!! $sign['score'] !!}</em></p>
                     </div>
                 </div>
             </div>

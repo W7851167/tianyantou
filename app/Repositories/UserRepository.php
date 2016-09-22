@@ -107,6 +107,7 @@ class UserRepository extends BaseRepository
             'bank' => $bankFlag,
             "invest" => $investFlag,
             'role' => $userModel->roles,
+            'model' =>$userModel,
         ];
     }
 

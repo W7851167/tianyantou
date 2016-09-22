@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -23,11 +24,13 @@ use Illuminate\Support\Facades\Session;
 class AccountController extends FrontController
 {
     public function __construct(
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        CensusRepository $census
     )
     {
         parent::__initalize();
         $this->userRepository = $userRepository;
+        $this->census = $census;
     }
 
     public function safe()
@@ -253,8 +256,14 @@ class AccountController extends FrontController
         return view('account.account.findpassword');
     }
 
-//    public function question()
-//    {
-//        return view('account.account.question');
-//    }
+    /**
+     * 签到操作
+     */
+    public function signin(Request $request)
+    {
+        $result = $this->census->savePast($this->user['id']);
+        if($result['status'])
+            return $this->success('签到完成');
+        return $this->error('您已签过到了！');
+    }
 }
