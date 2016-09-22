@@ -46,18 +46,21 @@ class CensusRepository extends BaseRepository
      */
     public function savePast($userId)
     {
-        $result = $this->pastModel->getConnection()->transaction(function() use($userId){
-            $pastModel = $this->pastModel->where('user_id',$userId)->first();
-            //从未签过到
-            if(empty($pastModel)) {
-                $this->saveBy(['user_id'=>$userId]);
-                $pastModel = $this->pastModel->where('user_id',$userId)->first();
+        $result = $this->pastModel->getConnection()->transaction(function($conn) use($userId){
+
+            $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
+            $today = date('Y-m-d') . ' 00:00:00';
+            //记录创建时间小于今天
+            if($pastModel->created_at < $today) {
+                if($pastModel->updated_at > $today) {
+                    throw new \Exception('您今天已经签过到了！');
+                }
+                //签到
+                $sql = "UPDATE ad_pasts SET days = ";
+                $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
+                $sql .= "ELSE 0 END WHERE user_id = ?";
+                return $conn->update($sql,[$userId]);
             }
-            if($pastModel->updated_at > date('Y-m-d') . ' 00:00:00') {
-                throw new \Exception('您今天已经签过到了！');
-            }
-            //签到
-            $pastModel->record($userId);
         });
 
         if ($result instanceof \Exception) {
