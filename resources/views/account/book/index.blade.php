@@ -43,7 +43,10 @@
                                 <td>@if($bv->rate_unit=='月'){!! sprintf('%.2f',$bv->rate * 12) !!}@elseif($bv->rate_unit=='年'){!! sprintf('%.2f',$bv->rate) !!}@endif</td>
                                 <td>{!! $bv->back_reward or '--' !!}</td>
                                 <td>{!! $bv->discount_reward or '--' !!}</td>
-                                <td></td>
+                                <td>
+                                    <a href="{!! url('book/create',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">编辑</a>
+                                    <a href="{!! url('book/delete',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">删除</a>
+                                </td>
                             </tr>
                                 @endforeach
                             @else
