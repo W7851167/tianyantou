@@ -3,6 +3,7 @@
 @section('style')
     <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/template.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
 @stop
 
@@ -12,7 +13,27 @@
             @include('account.common.menu')
             <div class="main tworow" style="height: 863px;">
                 <div class="main-inner">
-                    <h1 class="section-title">记一笔</h1>
+                    <h1 class="section-title tit tit1">
+                        <div class="use-tpl-btn fr"><div class="txt">使用模板记账</div>
+                            <div class="note-tpl" style="display: block;">
+                                <table>
+                                    <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
+
+                                    <tr onclick="javascript:fillRecord('d5e5108e-ccd5-49da-aeb6-f18de4085235')" id="d5e5108e-ccd5-49da-aeb6-f18de4085235">
+                                        <td>久信e贷</td>
+                                        <td>久信e贷_2016_9_22</td>
+                                        <td>10.80%/年</td>
+                                        <td>6个月</td>
+                                        <td>一次性还本付息</td>
+                                        <td><a class="del_button" onclick="delModel('d5e5108e-ccd5-49da-aeb6-f18de4085235');">删</a></td>
+                                    </tr>
+
+                                    </tbody></table>
+                                <i class="icn arr"></i>
+                            </div>
+                        </div>
+                        记一笔
+                    </h1>
                     <div class="form-group bindbankcard">
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
                             <div class="control-group">
