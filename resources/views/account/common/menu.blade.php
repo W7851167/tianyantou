@@ -37,22 +37,14 @@
             </div>
         </li>
         <li><a href="{!!config('app.account_url')!!}/"><i class="iconfont">&#xe61c;</i>我的天眼投</a></li>
-        <li><h3><i class="iconfont">&#xe685;</i>投资记录</h3>
-            <ul class="second-menu" @if($controller == 'networth') style="display: block;" @endif>
+        <li><h3><i class="iconfont">&#xe612;</i>投资记录</h3>
+            <ul class="second-menu" @if(in_array($controller,['platform','networth'])) style="display: block;" @endif>
                 <li  @if($controller == 'networth') class="current" @endif><a href="{!!config('app.account_url')!!}/networth/index.html">投资记录</a></li>
+                <li  @if($controller == 'platform' && $method == 'statistic') class="current" @endif><a href="{!!config('app.account_url')!!}/platforms/statistic.html">平台统计</a></li>
+                <li  @if($controller == 'platform' && $method == 'analysis') class="current" @endif><a href="{!!config('app.account_url')!!}/platforms/analysis.html">投资明细</a></li>
+                <li  @if($controller == 'record') class="current" @endif><a href="{!!config('app.account_url')!!}/record.html">网贷记账</a></li>
             </ul>
         </li>
-        <li><h3><i class="iconfont">&#xe612;</i>平台管理<span class="iconfont newicon">&#xe64d;</span></h3>
-            <ul class="second-menu" @if($controller == 'platform') style="display: block;" @endif>
-                <li @if($controller == 'platform' && $method == 'statistic') class="current" @endif>
-                    <a href="{!!config('app.account_url')!!}/platforms/statistic.html">平台统计</a>
-                </li>
-                <li @if($controller == 'platform' && $method == 'analysis') class="current" @endif>
-                    <a href="{!!config('app.account_url')!!}/platforms/analysis.html">投资明细</a>
-                </li>
-            </ul>
-        </li>
-        <li><a href="{!!config('app.account_url')!!}/record.html"><i class="iconfont">&#xe617;</i>网贷记账</a></li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
             <ul class="second-menu" @if($controller == 'wallet') style="display: block;" @endif>
                 <li @if($controller == 'wallet' && substr($method,0,8) == 'withdraw') class="current" @endif>
