@@ -13,6 +13,16 @@
             <div class="main tworow" style="height: 917px;">
                 <div class="main-inner">
                     <h1 class="section-title">积分明细</h1>
+                    <div class="cont-box-wrap">
+                        <div class="content-unit ">
+                            <div class="unit-bd unit-3 ">
+                                <dl>
+                                    <dt>总积分</dt>
+                                    <dd>{!! $total or 0 !!}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
                     <div id="autoreserve_records">
                         <table class="table table-blue table-bordered ucenter-table" style="font-size:13px;">
                             <thead>
