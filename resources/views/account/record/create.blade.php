@@ -29,8 +29,8 @@
                             </div>
                             <div class="autobuy-panel-2 control-group">
                                 <label>起息日期</label>
-                                <input class="input-style input-size" type="text" name="investAmount" value="" placeholder="输入实投金额(不含抵扣)" />
-                                <i class="input-icon">元</i>
+                                <input id="valueDate" class="input-style input-size" type="text" name="investAmount" value="" onclick="WdatePicker()" placeholder="选择起息时间" />
+                                <i class="input-icon iconfont">&#xe689;</i>
                             </div>
                             <div class="control-group">
                                 <label>利率</label>
@@ -117,6 +117,7 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/bindbankcard.js"></script>
+    <script src="{!! config('app.url') !!}/vendor/datepicker/WdatePicker.js"></script>
     <script>
         _init_area(["\u7701","\u5e02","\u533a"]);
     </script>
