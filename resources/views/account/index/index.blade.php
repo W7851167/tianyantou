@@ -34,7 +34,6 @@
                         <dd>{!! $userModel->money->rebate or '0.00' !!}</dd>
                     </dl>
                     <div class="shortcuts">
-                        {{--<a href="wallet/recharge.html" class="btn-recharge btn-s">充值</a>--}}
                         <a href="/wallet/withdraw.html" class="btn-widthdraw btn-s">提现</a>
                     </div>
                 </div>
@@ -46,17 +45,13 @@
                     </dl>
                     <dl>
                         <dt><i class="info-icon ic-dollar"></i></dt>
-                        <dd>累计收益
-                            <a href="javascript:void(0)">
-                                <i>?</i>
-                                <p>投资收益【<span>0.00</span>元】+ 天眼投奖励(包含理财券奖励)【<span>0.00</span>元】</p>
-                            </a>
-                            <br><em>0.00</em>元
+                        <dd>累计支出
+                            <br><em>{!! $cost or 0.00!!}</em>元
                         </dd>
                     </dl>
                     <dl>
                         <dt><i class="info-icon ic-awards"></i></dt>
-                        <dd>天眼收入<br><em>0.00</em>元</dd>
+                        <dd>累计收入<br><em>{!! $income or 0.00 !!}</em>元</dd>
                     </dl>
                 </div>
 
