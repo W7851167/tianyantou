@@ -109,11 +109,11 @@
           if (showCharts) {
             $profitChart.highcharts(chartSetting);
           } else {
-            $profitChart.html('<p class="no-record">您暂无任何投资收益</p>');
+            $profitChart.html('<p class="no-book">您暂无任何投资收益</p>');
           }
           Ucenter.readaptSidemenuAndMainpanel();
       }).fail(function() {
-          $('#profit-chart').html('<p class="no-record">加载投资收益信息失败 :-(</p>');
+          $('#profit-chart').html('<p class="no-book">加载投资收益信息失败 :-(</p>');
       });
 
     }

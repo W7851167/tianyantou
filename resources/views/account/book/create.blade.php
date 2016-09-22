@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('title')记一笔@stop
 @section('style')
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/template.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
@@ -17,7 +18,6 @@
                             <div class="note-tpl" style="display: block;">
                                 <table>
                                     <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
-
                                     <tr onclick="javascript:fillRecord('d5e5108e-ccd5-49da-aeb6-f18de4085235')" id="d5e5108e-ccd5-49da-aeb6-f18de4085235">
                                         <td>久信e贷</td>
                                         <td>久信e贷_2016_9_22</td>
@@ -26,8 +26,8 @@
                                         <td>一次性还本付息</td>
                                         <td><a class="del_button" onclick="delModel('d5e5108e-ccd5-49da-aeb6-f18de4085235');">删</a></td>
                                     </tr>
-
-                                    </tbody></table>
+                                    </tbody>
+                                </table>
                                 <i class="icn arr"></i>
                             </div>
                         </div>
@@ -35,48 +35,48 @@
                     </h1>
                     <div class="form-group bindbankcard">
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
+                            <input type="hidden" name="data[user_id]" value="{!! $user['id'] or '' !!}">
                             <div class="control-group">
                                 <label for="real-name">投资平台</label>
-                                <input type="text" name="data[hold_name]" class="input-style" value="">
+                                <input type="text" name="data[corp_name]" class="input-style" value="">
                             </div>
                             <div class="control-group">
                                 <label>项目名称</label>
-                                <input type="text" name="data[branch_name]" class="input-style" value="" placeholder="输入项目名称必填">
+                                <input type="text" name="data[task_name]" class="input-style" value="" placeholder="输入项目名称必填">
                             </div>
                             <div class="autobuy-panel-2 control-group">
                                 <label>投资金额</label>
-                                <input class="input-style input-size" type="text" name="investAmount" value="" placeholder="输入实投金额(不含抵扣)" />
+                                <input class="input-style input-size" type="text" name="data[money]" value="" placeholder="输入实投金额(不含抵扣)" />
                                 <i class="input-icon">元</i>
                             </div>
                             <div class="autobuy-panel-2 control-group">
                                 <label>起息日期</label>
-                                <input id="valueDate" class="input-style input-size" type="text" name="investAmount" value="" onclick="WdatePicker()" placeholder="选择起息时间" />
+                                <input id="valueDate" class="input-style input-size" type="text" name="data[start_time]" value="" onclick="WdatePicker()" placeholder="选择起息时间" />
                                 <i class="input-icon iconfont">&#xe689;</i>
                             </div>
                             <div class="control-group">
                                 <label>利率</label>
-                                <input type="text" name="data[cardno]" class="input-style" placeholder="例:10.8">
+                                <input type="text" name="data[start_time]" class="input-style" placeholder="例:10.8">
                                 <label class="control-option">
-                                    <input type="radio" name="investMonth[]" value="月" checked="checked" /> 月利率
+                                    <input type="radio" name="data[rate_unit]" value="年" checked="checked" /> 年利率
                                 </label>
                                 <label class="control-option">
-                                    <input type="radio" name="investMonth[]" value="年" /> 年利率
+                                    <input type="radio" name="data[rate_unit]" value="月" /> 月利率
                                 </label>
                             </div>
                             <div class="control-group">
                                 <label for="">期限</label>
-                                <input type="text" name="confirm_cardno" class="input-style" placeholder="例:6">
+                                <input type="text" name="data[term]" class="input-style" placeholder="例:6">
                                 <label class="control-option">
-                                    <input type="radio" name="term" value="月" checked="checked" /> 月
+                                    <input type="radio" name="data[term_unit]" value="月" checked="checked" /> 月
                                 </label>
                                 <label class="control-option">
-                                    <input type="radio" name="term" value="年" /> 年
+                                    <input type="radio" name="data[term_unit]" value="年" /> 年
                                 </label>
                             </div>
                             <div class="control-group">
                                 <label for="">还款方式</label>
-                                <select name="data[bank_name]" class="input-style required">
-                                    <option value="">请选择开户银行</option>
+                                <select name="data[term_unit]" class="input-style required">
                                     <option value="一次性还本付息">一次性还本付息</option>
                                     <option value="按月付息到期还本">按月付息到期还本</option>
                                     <option value="按日付息到期还本">按日付息到期还本</option>
@@ -91,25 +91,25 @@
                             </div>
                             <div class="control-group">
                                 <label for="">现金奖励</label>
-                                <input type="text" name="confirm_cardno" class="input-style" placeholder="选填">
+                                <input type="text" name="data[back_reward]" class="input-style" placeholder="选填">
                                 <label for="">折扣奖励</label>
-                                <input type="text" name="confirm_cardno" class="input-style" placeholder="选填">
+                                <input type="text" name="data[discount_reward]" class="input-style" placeholder="选填">
                             </div>
                             <div class="control-group">
                                 <label for="">管理费</label>
-                                <input type="text" name="confirm_cardno" class="input-style" placeholder="输入管理费(选填)">
+                                <input type="text" name="data[manage_fee]" class="input-style" placeholder="输入管理费(选填)">
                                 <i class="input-icon">%</i>
                             </div>
                             <div class="control-group">
                                 <label for="">模板名称</label>
-                                <input type="text" name="confirm_cardno" class="input-style" placeholder="输入模板名称(选填)">
+                                <input type="text" name="data[template_name]" class="input-style" placeholder="输入模板名称(选填)">
                                 <label class="control-option">
-                                    <input type="checkbox" name="investMonth[]" value="3"  /> 存为模板
+                                    <input type="checkbox" name="data[is_template]" value="1"  /> 存为模板
                                 </label>
                             </div>
                             <div class="control-group">
                                 <label for="">备注</label>
-                                <input type="text" name="confirm_cardno" class="input-style">
+                                <input type="text" name="data[remark]" class="input-style">
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
@@ -137,6 +137,5 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/bindbankcard.js"></script>
     <script src="{!! config('app.url') !!}/vendor/datepicker/WdatePicker.js"></script>
 @stop
