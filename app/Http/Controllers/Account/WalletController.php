@@ -14,17 +14,20 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class WalletController extends FrontController
 {
     public function __construct(
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        CensusRepository $censusRepository
     )
     {
         parent::__initalize();
         $this->userRepository = $userRepository;
+        $this->censusRepository = $censusRepository;
     }
 
     /**
@@ -72,12 +75,9 @@ class WalletController extends FrontController
         $where = ['user_id' => $this->user['id']];
         list($count, $lists) = $this->userRepository->getWithdrawList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
-        $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
-        //成功提现次数
-        $where = array_merge($where, ['status' => 1]);
-        $success = $this->userRepository->withdrawModel->countBy($where);
-        $withdraws = $this->userRepository->withdrawModel->createWhere($this->userRepository->withdrawModel, $where)->sum('price');
-        return view('account.wallet.withdrawlist', compact('lists', 'pageHtml', 'money', 'success', 'withdraws'));
+        //提现统计
+        $census = $this->censusRepository->getUserWithdrawStats($this->user['id']);
+        return view('account.wallet.withdrawlist', compact('lists', 'pageHtml', 'census'));
     }
 
     /**
@@ -91,48 +91,33 @@ class WalletController extends FrontController
         $page = $request->get('page') ?: 1;
         $type = $request->get('opType');
         $time = $request->get('timespan');
-        $where = ['user_id' => $this->user['id']];
-        $incomes = $this->userRepository->recordModel->createWhere($this->userRepository->recordModel, $where)->sum('income');
-        $costs = $this->userRepository->recordModel->createWhere($this->userRepository->recordModel, $where)->sum('cost');
-        $money = $this->userRepository->userModel->find($this->user['id'])->money->money;
-        if ($time) {
-            switch ($time) {
-                case '1w':
-                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 1 WEEK)'];
-                    break;
-                case '1m':
-                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 1 MONTH)'];
-                    break;
-                case '3m':
-                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 3 MONTH)'];
-                    break;
-                case '6m':
-                    $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 6 MONTH)'];
-                    break;
-            }
+
+        $where['user_id'] = $this->user['id'];
+        if ($time == '1w') {
+            $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 1 WEEK)'];
+        } elseif ($time == '1m') {
+            $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 1 MONTH)'];
+        } elseif ($time == '3m') {
+            $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 3 MONTH)'];
+        } elseif ($time == '6m') {
+            $where['raw'] = ['created_at>DATE_SUB(NOW(),INTERVAL 6 MONTH)'];
         }
-        if ($type) {
-            switch ($type) {
-                case 'invest':
-                    $where['type'] = 1;
-                    break;
-                case 'income':
-                    $where['type'] = 2;
-                    break;
-                case 'recharge':
-                    $where['type'] = 3;
-                    break;
-                case 'withdraw':
-                    $where['type'] = 4;
-                    break;
-                case 'other':
-                    $where['type'] = 0;
-                    break;
-            }
+
+        if ($type == 'invest') {
+            $where['type'] = 1;
+        } elseif ($type == 'income') {
+            $where['type'] = 2;
+        } elseif ($type == 'recharge') {
+            $where['type'] = 3;
+        } elseif ($type == 'withdraw') {
+            $where['type'] = 4;
+        } elseif ($type == 'other') {
+            $where['type'] = 0;
         }
 
         list($count, $lists) = $this->userRepository->getRecordList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
-        return view('account.wallet.book', compact('lists', 'pageHtml', 'incomes', 'costs', 'money'));
+        $census = $this->censusRepository->getUserRocordStats($this->user['id']);
+        return view('account.wallet.book', compact('lists', 'pageHtml', 'census'));
     }
 }
