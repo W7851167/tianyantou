@@ -47,10 +47,14 @@ class PassportController extends FrontController
             $result = $this->userRepository->checkLogin($username, $password, false, $remember);
 
             if ($result['status']) {
-                return $this->success('登陆成功!', url('/'), true);
+                $url = Session::get('previous');
+                return $this->success('登陆成功!', url($url), true);
             }
 
             return $this->error($result['message'], '', true);
+        }
+        if (!$request->is('signin.html') || !$request->is('register.html') || !$request->is('signout.html')) {
+            Session::put('previous', \URL::previous());
         }
 
         if ($this->user) return redirect('/');
@@ -87,7 +91,7 @@ class PassportController extends FrontController
             }
             $data = array_except($data, ['password_confirmation']);
             $result = $this->userRepository->saveUser($data);
-            if($result['status']) return $this->success('注册成功!', url('/'), true);
+            if ($result['status']) return $this->success('注册成功!', url('/'), true);
 
             return $this->error('注册失败!', null, true);
         }
