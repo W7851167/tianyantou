@@ -35,9 +35,9 @@
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         , toolbars: [
 ['fullscreen',
- 'bold', 'italic', 'underline',  'removeformat', 
+ 'bold', 'italic', 'underline',  'removeformat', 'fontfamily',
  'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
- 'insertimage', 'emotion',  'insertvideo',  'map', 'gmap','|','source'
+ 'insertimage', 'emotion',  'insertvideo',  'map', '|','source'
   ]
                      ]
     
@@ -169,19 +169,19 @@
 
         //fontfamily
         //字体设置 label留空支持多语言自动切换，若配置，则以配置值为准
-        //,'fontfamily':[
-        //    { label:'',name:'songti',val:'宋体,SimSun'},
-        //    { label:'',name:'kaiti',val:'楷体,楷体_GB2312, SimKai'},
-        //    { label:'',name:'yahei',val:'微软雅黑,Microsoft YaHei'},
-        //    { label:'',name:'heiti',val:'黑体, SimHei'},
-        //    { label:'',name:'lishu',val:'隶书, SimLi'},
-        //    { label:'',name:'andaleMono',val:'andale mono'},
-        //    { label:'',name:'arial',val:'arial, helvetica,sans-serif'},
-        //    { label:'',name:'arialBlack',val:'arial black,avant garde'},
-        //    { label:'',name:'comicSansMs',val:'comic sans ms'},
-        //    { label:'',name:'impact',val:'impact,chicago'},
-        //    { label:'',name:'timesNewRoman',val:'times new roman'}
-        //]
+        ,'fontfamily':[
+            { label:'',name:'songti',val:'宋体,SimSun'},
+            { label:'',name:'kaiti',val:'楷体,楷体_GB2312, SimKai'},
+            { label:'',name:'yahei',val:'微软雅黑,Microsoft YaHei'},
+            { label:'',name:'heiti',val:'黑体, SimHei'},
+            { label:'',name:'lishu',val:'隶书, SimLi'},
+            { label:'',name:'andaleMono',val:'andale mono'},
+            { label:'',name:'arial',val:'arial, helvetica,sans-serif'},
+            { label:'',name:'arialBlack',val:'arial black,avant garde'},
+            { label:'',name:'comicSansMs',val:'comic sans ms'},
+            { label:'',name:'impact',val:'impact,chicago'},
+            { label:'',name:'timesNewRoman',val:'times new roman'}
+        ]
 
         //fontsize
         //字号

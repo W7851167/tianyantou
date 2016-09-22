@@ -449,6 +449,7 @@
                     file.rotation = 0;
 
                     /* 检查文件格式 */
+                    console.log(file);
                     if (!file.ext || acceptExtensions.indexOf(file.ext.toLowerCase()) == -1) {
                         showError('not_allow_type');
                         uploader.removeFile(file);
