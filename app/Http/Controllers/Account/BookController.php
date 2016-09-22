@@ -54,20 +54,34 @@ class BookController extends FrontController
     {
         if ($request->isMethod('post')) {
             $data = $request->get('data');
-//            try {
+            try {
                 $result = $this->userRepository->bookModel->saveBy($data);
                 if ($result) return '记录成功!';
-//            } catch (QueryException $e) {
-//                $e->getMessage();
-//            }
+            } catch (QueryException $e) {
+                $e->getMessage();
+            }
             return '记录失败';
         }
-        return view('account.book.create');
+        if ($id) {
+            $book = $this->userRepository->bookModel->find($id);
+        }
+        return view('account.book.create', compact('book'));
     }
 
 
-    public function delete()
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     * 删除记账记录
+     */
+    public function delete($id)
     {
-
+        try {
+            $result = $this->userRepository->bookModel->find($id)->delete();
+        } catch (QueryException $e) {
+            $e->getMessage();
+        }
+        return redirect('book.html');
     }
 }
