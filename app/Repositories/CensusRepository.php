@@ -18,25 +18,30 @@ use App\Models\ImageModel;
 use App\Models\MoneyModel;
 use App\Models\NewModel;
 use App\Models\PastModel;
+use App\Models\ScoreModel;
 use App\Models\TaskAchieveModel;
 use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\QueryException;
 
 class CensusRepository extends BaseRepository
 {
+
     public function __construct(
         TaskReceiveModel $taskReceiveModel,
         TaskAchieveModel $taskAchieveModel,
         MoneyModel $moneyModel,
         UserModel $userModel,
-        PastModel $pastModel
+        PastModel $pastModel,
+        ScoreModel $scoreModel
     ) {
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
         $this->moneyModel = $moneyModel;
         $this->userModel = $userModel;
         $this->pastModel = $pastModel;
+        $this->scoreModel = $scoreModel;
     }
 
 
@@ -47,20 +52,35 @@ class CensusRepository extends BaseRepository
     public function savePast($userId)
     {
         $result = $this->pastModel->getConnection()->transaction(function($conn) use($userId){
-
-            $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
-            $today = date('Y-m-d') . ' 00:00:00';
-            //记录创建时间小于今天
-            if($pastModel->created_at < $today) {
-                if($pastModel->updated_at > $today) {
-                    throw new \Exception('您今天已经签过到了！');
+            $signInReward = getSignReward();
+            $pastModel = $this->pastModel->find($userId);
+             //第一次签到
+            if(empty($pastModel)) {
+                $this->pastModel->create(['user_id'=>$userId]);
+                $score = $signInReward[0];
+                $pastModel = $this->pastModel->find($userId);
+            } else {
+                $today = date('Y-m-d') . ' 00:00:00';
+                //记录创建时间小于今天
+                if($pastModel->created_at < $today) {
+                    if($pastModel->updated_at > $today) {
+                        throw new \Exception('您今天已经签过到了！');
+                    }
+                    //签到
+                    $sql = "UPDATE ad_pasts SET days = ";
+                    $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
+                    $sql .= "ELSE 0 END WHERE user_id = ?";
+                    return $conn->update($sql,[$userId]);
                 }
-                //签到
-                $sql = "UPDATE ad_pasts SET days = ";
-                $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
-                $sql .= "ELSE 0 END WHERE user_id = ?";
-                return $conn->update($sql,[$userId]);
+                $score = $signInReward[$pastModel->days];
             }
+            $days = $pastModel->days + 1;
+            //增加记录积分流水
+            $data['intro'] = sprintf('您第%d签到获天取%d个积分',$days,$score);
+            $data['user_id'] = $userId;
+            $data['score'] = $score;
+            $this->scoreModel->create($data);
+            $this->moneyModel->where('user_id',$userId)->increment('score',$score);
         });
 
         if ($result instanceof \Exception) {
@@ -69,6 +89,8 @@ class CensusRepository extends BaseRepository
             return $this->getSuccess('签到完成', $result);
         }
     }
+
+
 
 
     /**

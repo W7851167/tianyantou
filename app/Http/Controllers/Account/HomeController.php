@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use App\Repositories\TaskRepository;
 use App\Repositories\UserRepository;
 
@@ -21,12 +22,14 @@ class HomeController extends FrontController
 {
     public function __construct(
         UserRepository $userRepository,
-        TaskRepository $tasks
+        TaskRepository $tasks,
+        CensusRepository $census
     )
     {
         parent::__initalize();
         $this->userRepository = $userRepository;
         $this->tasks = $tasks;
+        $this->census = $census;
     }
 
     public function index()

@@ -202,3 +202,12 @@ function getIncome($term, $unit, $ratio, $money)
         return sprintf('%.2f', $money * $ratio * $term / 100);
 
 }
+
+/**
+ * @return array
+ * 签到奖励
+ */
+function getSignReward()
+{
+    return  [1,3,5,7,9,13,15];
+}

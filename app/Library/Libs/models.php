@@ -42,3 +42,30 @@ function sendMessage($title,$body,$ownerId=0,$senderId=0) {
     }
     return \App\Models\MessageModel::sendPrivateMessage($ownerId,$title,$body,$senderId);
 }
+
+
+
+/**
+ * @param $userId
+ * 获取用户签到数据
+ */
+function getPast($model=null)
+{
+    $signInReward = getSignReward();
+    $pass = [];
+    if(empty($model)) {
+        $pass['score'] = $signInReward[0];
+        $pass['checked'] = '';
+        $pass['days'] = 0;
+        return $pass;
+    }
+    $pass['score'] = $signInReward[$model->days];
+    $pass['days'] = $model->days;
+    if($model->updated_at > date('Y-m-d' . ' 00:00:00')) {
+        $pass['checked'] = 'checked';
+    } else {
+        $pass['checked'] = '';
+    }
+    return $pass;
+
+}
