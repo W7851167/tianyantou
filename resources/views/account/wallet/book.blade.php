@@ -16,15 +16,15 @@
                     <div class="unit-bd unit-3 ">
                         <dl >
                             <dt>账户余额(元)</dt>
-                            <dd>0.00</dd>
+                            <dd>{!! $census['money'] or '0.00' !!}</dd>
                         </dl>
                         <dl >
-                            <dt>已充值金额(元)</dt>
-                            <dd>0.00</dd>
+                            <dt>收入(元)</dt>
+                            <dd>{!! $census['income'] or '0.00' !!}</dd>
                         </dl>
                         <dl  class="last-item">
-                            <dt>已提现金额(元)</dt>
-                            <dd>0.00</dd>
+                            <dt>支出(元)</dt>
+                            <dd>{!! $census['cost'] or '0.00' !!}</dd>
                         </dl>
                     </div>
                 </div>

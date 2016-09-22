@@ -1,8 +1,8 @@
 @extends('layout.main')
 @section('title')提现@stop
 @section('style')
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
+    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css"/>
 @stop
 
 @section('content')
@@ -13,22 +13,23 @@
                 <div class="main-inner">
                     <ul class="page-switch page-double clearfix">
                         <li><a href="{!! config('app.account_url_url') !!}/wallet/withdraw.html">我要提现</a></li>
-                        <li class="active"><a href="{!! config('app.account_url_url') !!}/wallet/withdrawlist.html">提现记录</a></li>
+                        <li class="active"><a
+                                    href="{!! config('app.account_url_url') !!}/wallet/withdrawlist.html">提现记录</a></li>
                     </ul>
                     <div class="cont-box-wrap">
                         <div class="content-unit ">
                             <div class="unit-bd unit-3 ">
                                 <dl>
                                     <dt>累计提现金额（元）</dt>
-                                    <dd>{!! $withdraws or 0.00 !!}</dd>
+                                    <dd>{!! $census['withdraw'] or '0.00' !!}</dd>
                                 </dl>
                                 <dl>
                                     <dt>账户可用余额（元）</dt>
-                                    <dd>{!! $money->money or 0.00 !!}</dd>
+                                    <dd>{!! $census['money'] or '0.00' !!}</dd>
                                 </dl>
                                 <dl class="last-item">
                                     <dt>提现成功次数</dt>
-                                    <dd>{!! $success or 0 !!}</dd>
+                                    <dd>{!! $census['success'] or  0 !!}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -49,23 +50,24 @@
                                 </thead>
                                 <tbody>
                                 @if(count($lists) > 0)
-                                @foreach($lists as $wv)
-                                <tr>
-                                    <td>{!! $wv->created_at or '---' !!}</td>
-                                    <td>无</td>
-                                    <td>{!! $wv->price or 0.00 !!}元</td>
-                                    <td>{!! $wv->commission or 0.00 !!}元</td>
-                                    <td>{!! $wv->price - $wv->commission !!}元</td>
-                                    <td>{!! $wv->bank->bank_name or '---' !!}</td>
-                                    <td>@if($wv->status==0)已申请@elseif($wv->status==1)已派发@elseif($wv->status=='2')拒绝提现@endif</td>
-                                </tr>
-                                @endforeach
+                                    @foreach($lists as $wv)
+                                        <tr>
+                                            <td>{!! $wv->created_at or '---' !!}</td>
+                                            <td>无</td>
+                                            <td>{!! $wv->price or '0.00' !!}元</td>
+                                            <td>{!! $wv->commission or '0.00' !!}元</td>
+                                            <td>{!! $wv->price - $wv->commission !!}元</td>
+                                            <td>{!! $wv->bank->bank_name or '---' !!}</td>
+                                            <td>@if($wv->status==0)已申请@elseif($wv->status==1)
+                                                    已派发@elseif($wv->status=='2')拒绝提现@endif</td>
+                                        </tr>
+                                    @endforeach
                                 @else
-                                <tr class="norecord">
-                                    <td colspan="7">
-                                        暂无提现记录
-                                    </td>
-                                </tr>
+                                    <tr class="norecord">
+                                        <td colspan="7">
+                                            暂无提现记录
+                                        </td>
+                                    </tr>
                                 @endif
                                 </tbody>
                             </table>
