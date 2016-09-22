@@ -34,8 +34,6 @@
                         <dt>操作类型：</dt>
                         <dd @if($type == 'all')class="active"@endif><a href="{!! config('app.account_url') !!}/wallet/book.html?opType=&timespan={!! $time !!}">全部</a></dd>
                         <dd @if($type == 'invest')class="active"@endif><a href="{!! config('app.account_url') !!}/wallet/book.html?opType=invest&timespan={!! $time !!}">投资</a></dd>
-                        <dd @if($type == 'income')class="active"@endif><a href="{!! config('app.account_url') !!}/wallet/book.html?opType=income&timespan={!! $time !!}">回款</a></dd>
-{{--                        <dd @if($type == 'recharge')class="active"@endif><a href="{!! config('app.account_url') !!}/wallet/book.html?opType=recharge&timespan={!! $time !!}">充值</a></dd>--}}
                         <dd @if($type == 'withdraw')class="active"@endif><a href="{!! config('app.account_url') !!}/wallet/book.html?opType=withdraw&timespan={!! $time !!}">提现</a></dd>
                         <dd @if($type == 'other')class="active"@endif><a href="{!! config('app.account_url') !!}/wallet/book.html?opType=other&timespan={!! $time !!}">其他</a></dd>
                     </dl>
@@ -64,7 +62,7 @@
                         @foreach($lists as $rv)
                     <tr>
                         <td>{!! $rv->created_at or '---' !!}</td>
-                        <td>@if($rv->type==1)投资@elseif($rv->type==2)回款@elseif($rv->type==3)充值@elseif($rv->type==4)体现@else - @endif</td>
+                        <td>@if($rv->type==1)投资@elseif($rv->type==2)体现@else - @endif</td>
                         <td>{!! $rv->income or 0.00 !!}</td>
                         <td>{!! $rv->cost or 0.00 !!}</td>
                         <td>{!! $rv->account or 0.00 !!}</td>
