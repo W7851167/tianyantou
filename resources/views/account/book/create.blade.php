@@ -14,6 +14,7 @@
             <div class="main tworow" style="height: 863px;">
                 <div class="main-inner">
                     <h1 class="section-title tit tit1">
+                        @if(empty($book))
                         <div class="use-tpl-btn fr"><div class="txt">使用模板记账</div>
                             <div class="note-tpl" style="display: block;">
                                 <table>
@@ -31,6 +32,7 @@
                                 <i class="icn arr"></i>
                             </div>
                         </div>
+                        @endif
                         记一笔
                     </h1>
                     <div class="form-group bindbankcard">
