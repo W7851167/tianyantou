@@ -54,12 +54,14 @@ function getPast($model=null)
     $signInReward = getSignReward();
     $pass = [];
     if(empty($model)) {
-        $pass['score'] = $signInReward[0];
+        $pass['score'] = $signInReward[1];
         $pass['checked'] = '';
         $pass['days'] = 0;
         return $pass;
     }
-    $pass['score'] = $signInReward[$model->days];
+
+    $d = ($model->days + 1) % 7;
+    $pass['score'] = $signInReward[$d];
     $pass['days'] = $model->days;
     if($model->updated_at > date('Y-m-d' . ' 00:00:00')) {
         $pass['checked'] = 'checked';

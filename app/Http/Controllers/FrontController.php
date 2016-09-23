@@ -30,7 +30,7 @@ class FrontController extends Controller
             $class = str_replace('controller','', strtolower(substr(strrchr($class,'\\'),1)));
             view()->share('controller',$class);
             view()->share('method', $method);
-            $pass = PastModel::find($this->user['id']);
+            $pass = PastModel::where('user_id',$this->user['id'])->first();
             view()->share('sign', getPast($pass));
         }
         view()->share('user', $this->user);

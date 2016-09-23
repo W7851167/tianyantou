@@ -31,7 +31,7 @@
                     </div>
                     <i>+5</i>
                     <div class="checkin-rules">
-                        <p>您已连续签到 <em class="checkin-days">{!! $sign['days'] !!}</em>天，今日签到<em class="check-points">+{!! $sign['score'] !!}</em></p>
+                        <p>您已连续签到 <em class="checkin-days">{!! $sign['days'] !!}</em>天，{!! !empty($sign['checked']) ? '明日' : '今日' !!}签到<em class="check-points">+{!! $sign['score'] !!}</em></p>
                     </div>
                 </div>
             </div>
