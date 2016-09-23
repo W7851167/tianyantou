@@ -54,8 +54,9 @@ class BookController extends FrontController
     {
         if ($request->isMethod('post')) {
             $data = $request->get('data');
+
             try {
-                $result = $this->userRepository->bookModel->saveBy($data);
+                $result = $this->userRepository->bookModel->edit($data);
                 if ($result) return '记录成功!';
             } catch (QueryException $e) {
                 $e->getMessage();

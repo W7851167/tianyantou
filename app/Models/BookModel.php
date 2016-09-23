@@ -10,6 +10,8 @@ class BookModel extends BaseModel
     protected $table = 'books';
     protected $primaryKey = 'id';
 
+    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at'];
+
     /**
      * @param $query
      * 是否含有模板
@@ -27,5 +29,19 @@ class BookModel extends BaseModel
     public function getStartTimeAttribute($value)
     {
         return date('Y-m-d', $value);
+    }
+
+    public function edit($data)
+    {
+        $data = $data ? $data : Request::except(['_token', '_url', 's']);
+
+        if (!empty($data[$this->primaryKey])) {
+            $model = $this->findOrNew($data[$this->primaryKey]);
+            if (!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
+        }
+        return $this->create($data);
     }
 }
