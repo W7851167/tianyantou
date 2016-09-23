@@ -46,8 +46,8 @@
                         <!-- 平台列表start -->
                         <div class="tab click-tab btn-tab">
                             <ul class="tab-nav page-switch clearfix">
-                                <li class="active"><a href="javascript:;">已开通平台（2个）</a></li>
-                                <li class=""><a href="{!! config('app.account_url') !!}/platforms/statistic.html">未开通平台（{!! $count !!}个）</a>
+                                <li class="active"><a href="javascript:;">已开通平台（{!! $openCount or 0 !!}个）</a></li>
+                                <li class=""><a href="{!! config('app.account_url') !!}/platforms/statistic.html">未开通平台（{!! $count or 0 !!}个）</a>
                                 </li>
                             </ul>
                             <div class="tab-main">
