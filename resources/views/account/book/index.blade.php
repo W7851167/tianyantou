@@ -33,16 +33,30 @@
                             <tbody>
                             @if(count($lists) > 0)
                                 @foreach($lists as $bv)
+                                    <?php
+                                        if($bv->term_unit=='月' && $bv->rate_unit=='月'){
+                                            $m = ($bv->rate/100)*($bv->term)*($bv->money);
+                                        }
+                                        if($bv->term_unit=='月' && $bv->rate_unit=='年'){
+                                            $m = ($bv->rate/100)*($bv->money)*($bv->term/12);
+                                        }
+                                        if($bv->term_unit=='日' && $bv->rate_unit=='月'){
+                                            $m = ($bv->money)*($bv->term)*($bv->rate/100/30);
+                                        }
+                                        if($bv->term_unit=='日' && $bv->rate_unit=='年'){
+                                            $m = ($bv->rate/100)*($bv->money)*($bv->term/365);
+                                        }
+                                    ?>
                             <tr>
-                                <td>{!! $bv->corp_name or '--' !!}</td>
-                                <td>{!! $bv->task_name or '--' !!}</td>
-                                <td>{!! $bv->start_time or '--' !!}</td>
+                                <td>{!! $bv->corp_name ?: '--' !!}</td>
+                                <td>{!! $bv->task_name ?: '--' !!}</td>
+                                <td>{!! $bv->start_time ?: '--' !!}</td>
                                 <td>{!! $bv->money or '0.00' !!}</td>
-                                <td>@if($bv->rate_unit=='月'){!! $bv->money*12*$bv->rate !!}@elseif($bv->rate_unit=='年'){!! $bv->money*$bv->rate !!}@endif</td>
-                                <td>{!! $bv->rate or '--' !!}@if($bv->rate_unit=='月'){!! $bv->rate ?'个月':'' !!}@elseif($bv->rate_unit=='年'){!! $bv->rate ?'年':'' !!}@endif</td>
-                                <td>@if($bv->rate_unit=='月'){!! sprintf('%.2f',$bv->rate * 12) !!}@elseif($bv->rate_unit=='年'){!! sprintf('%.2f',$bv->rate) !!}@endif</td>
-                                <td>{!! $bv->back_reward or '--' !!}</td>
-                                <td>{!! $bv->discount_reward or '--' !!}</td>
+                                <td>{!! $m?sprintf('%.2f',$m):'0.00' !!}</td>
+                                <td>{!! $bv->term or '--' !!}@if($bv->term_unit=='月'){!! $bv->term ?'个月':'' !!}@elseif($bv->term_unit=='日'){!! $bv->term ?'日':'' !!}@endif</td>
+                                <td>@if($bv->rate_unit=='月'){!! sprintf('%.2f',$bv->rate * 12) !!}@elseif($bv->rate_unit=='年'){!! sprintf('%.2f',$bv->rate)!!}@endif %</td>
+                                <td>{!! $bv->back_reward ?: '--' !!}</td>
+                                <td>{!! $bv->discount_reward ?: '--' !!}</td>
                                 <td>
                                     <a href="{!! url('book/create',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">编辑</a>
                                     <a href="{!! url('book/delete',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">删除</a>
