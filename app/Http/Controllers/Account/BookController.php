@@ -65,8 +65,11 @@ class BookController extends FrontController
         }
         if ($id) {
             $book = $this->userRepository->bookModel->find($id);
+        } else {
+            $where = ['user_id' => $this->user['id'], 'is_template' => 1];
+            list($count, $lists) = $this->userRepository->getBookList($where, $this->perpage, 1);
         }
-        return view('account.book.create', compact('book'));
+        return view('account.book.create', compact('book', 'lists'));
     }
 
 

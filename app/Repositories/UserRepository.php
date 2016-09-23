@@ -316,7 +316,7 @@ class UserRepository extends BaseRepository
     {
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->bookModel->lists('*', $where, $orderBy, [], $limit, $page);
-        $count = $this->bankModel->countBy($where);
+        $count = $this->bookModel->countBy($where);
         return [$count, $lists];
     }
 

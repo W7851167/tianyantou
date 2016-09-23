@@ -33,5 +33,7 @@
             return false;
         }
     });
-
+    $('.use-tpl-btn').on('click',function(){
+        $('.note-tpl').toggle();
+    });
 }());

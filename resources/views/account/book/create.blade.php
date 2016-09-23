@@ -16,17 +16,20 @@
                     <h1 class="section-title tit tit1">
                         @if(empty($book))
                         <div class="use-tpl-btn fr"><div class="txt">使用模板记账</div>
-                            <div class="note-tpl" style="display: block;">
+                            <div class="note-tpl" style="display: none;">
                                 <table>
                                     <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
+                                    @foreach($lists as $tv)
+                                        <?php if($tv->rate_unit=='年'){$r=$tv->rate;}else{$r=$tv->rate*12;} ?>
                                     <tr onclick="javascript:fillRecord('d5e5108e-ccd5-49da-aeb6-f18de4085235')" id="d5e5108e-ccd5-49da-aeb6-f18de4085235">
-                                        <td>久信e贷</td>
-                                        <td>久信e贷_2016_9_22</td>
-                                        <td>10.80%/年</td>
-                                        <td>6个月</td>
-                                        <td>一次性还本付息</td>
+                                        <td>{!! $tv->corp_name ?:'--' !!}</td>
+                                        <td>{!! $tv->template_name ?:'--' !!}</td>
+                                        <td>{!! sprintf('%.2f',$r) !!}%/年</td>
+                                        <td>{!! $tv->term or '--' !!}@if($tv->term_unit=='月'){!! $tv->term ?'个月':'' !!}@elseif($tv->term_unit=='日'){!! $tv->term ?'日':'' !!}@endif</td>
+                                        <td>{!! $tv->repay !!}</td>
                                         <td><a class="del_button" onclick="delModel('d5e5108e-ccd5-49da-aeb6-f18de4085235');">删</a></td>
                                     </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                                 <i class="icn arr"></i>
