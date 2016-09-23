@@ -2,7 +2,6 @@
 @section('title')平台统计@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
 @stop
 
 @section('content')
