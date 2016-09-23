@@ -17,7 +17,7 @@
                             <div class="unit-bd unit-3 ">
                                 <dl>
                                     <dt>总积分</dt>
-                                    <dd>{!! $total or 0 !!}</dd>
+                                    <dd>{!! $census['total'] or 0 !!}</dd>
                                 </dl>
                             </div>
                         </div>
