@@ -155,7 +155,7 @@ function getRealThumb($thumb)
     $patshs = explode('/', $lists['path']);
     unset($patshs[count($patshs)-2]);
     if(!empty($lists['scheme'])) {
-        $lists['scheme'] .'://'. $lists['host'] . implode('/', $patshs)
+        return $lists['scheme'] .'://'. $lists['host'] . implode('/', $patshs);
     } else {
         return '//' . $lists['host'] . implode('/', $patshs);
     }
