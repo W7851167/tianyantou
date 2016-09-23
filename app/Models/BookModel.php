@@ -33,7 +33,7 @@ class BookModel extends BaseModel
 
     public function edit($data)
     {
-        $data = $data ? $data : Request::except(['_token', '_url', 's']);
+        $data = $data ? $data : \Request::except(['_token', '_url', 's']);
 
         if (!empty($data[$this->primaryKey])) {
             $model = $this->findOrNew($data[$this->primaryKey]);

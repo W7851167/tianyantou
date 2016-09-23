@@ -88,4 +88,36 @@ class BookController extends FrontController
         }
         return redirect('book.html');
     }
+
+    /**
+     * @param $id
+     *
+     * 删除记账模板
+     */
+    public function deletetemplate($id)
+    {
+        try {
+            $model = $this->userRepository->bookModel->find($id);
+            $model->template_name = '';
+            $model->is_template = 0;
+            $model->save();
+            return '删除记账模板成功';
+        } catch (QueryException $e) {
+            $e->getMessage();
+        }
+        return '删除记账模板失败';
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 返回模板记账
+     */
+    public function template($id)
+    {
+        $book = $this->userRepository->bookModel->find($id);
+
+        return view('account.book.templatebook', compact('book'));
+    }
 }

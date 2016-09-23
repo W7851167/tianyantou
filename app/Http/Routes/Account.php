@@ -31,8 +31,10 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('wallet/record.html', ['as' => 'wallet.record', 'uses' => 'WalletController@record']);
     //记帐本
     Route::get('book.html', ['as' => 'record.index', 'uses' => 'BookController@index']);
-    Route::any('book/create/{id?}', ['as' => 'record.create', 'uses' => 'BookController@create']);
-    Route::get('book/delete/{id}', ['as' => 'record.delete', 'uses' => 'BookController@delete']);
+    Route::any('book/create/{id?}', ['as' => 'book.create', 'uses' => 'BookController@create']);
+    Route::get('book/delete/{id}', ['as' => 'book.delete', 'uses' => 'BookController@delete']);
+    Route::post('book/template/delete/{id}', ['as' => 'book.template.delete', 'uses' => "BookController@deletetemplate"]);
+    Route::get('book/template/{id}', ['as' => 'book.template', 'uses' => 'BookController@template']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
@@ -61,5 +63,5 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('chart/waitIncomeStats', ['as' => 'charts.income', 'uses' => 'ChartController@waitIncomeStats']);
     Route::get('chart/incomeStats', ['as' => 'charts.halfyear', 'uses' => 'ChartController@incomeStats']);
     //签到
-    Route::get('shop/signin',['as'=>'shop.signin','uses'=>'AccountController@signin']);
+    Route::get('shop/signin', ['as' => 'shop.signin', 'uses' => 'AccountController@signin']);
 });

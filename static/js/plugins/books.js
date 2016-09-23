@@ -36,4 +36,11 @@
     $('.use-tpl-btn').on('click',function(){
         $('.note-tpl').toggle();
     });
+    $('table tr').on('click',function(){
+        var id = $(this).data('id');
+        url = '/book/template/' + id;
+        $.get(url,function(data){
+            $('#bindbankcard').html(data);
+        });
+    });
 }());

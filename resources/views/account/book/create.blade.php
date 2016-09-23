@@ -21,13 +21,13 @@
                                     <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
                                     @foreach($lists as $tv)
                                         <?php if($tv->rate_unit=='年'){$r=$tv->rate;}else{$r=$tv->rate*12;} ?>
-                                    <tr onclick="javascript:fillRecord('d5e5108e-ccd5-49da-aeb6-f18de4085235')" id="d5e5108e-ccd5-49da-aeb6-f18de4085235">
+                                    <tr data-id="{!! $tv->id !!}">
                                         <td>{!! $tv->corp_name ?:'--' !!}</td>
                                         <td>{!! $tv->template_name ?:'--' !!}</td>
                                         <td>{!! sprintf('%.2f',$r) !!}%/年</td>
                                         <td>{!! $tv->term or '--' !!}@if($tv->term_unit=='月'){!! $tv->term ?'个月':'' !!}@elseif($tv->term_unit=='日'){!! $tv->term ?'日':'' !!}@endif</td>
                                         <td>{!! $tv->repay !!}</td>
-                                        <td><a class="del_button" onclick="delModel('d5e5108e-ccd5-49da-aeb6-f18de4085235');">删</a></td>
+                                        <td><a href="{!! config('app.account_url') !!}/book/template/delete/{!! $tv->id !!}" class="del_button action" data-method="post" data-confirm="确定要删除该记账模板?">删</a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -108,6 +108,7 @@
                                 <input type="text" name="data[manage_fee]" value="{!! $book->manage_fee or '' !!}" class="input-style" placeholder="输入管理费(选填)">
                                 <i class="input-icon">%</i>
                             </div>
+                            @if(!empty($book) && $book->is_template)
                             <div class="control-group">
                                 <label for="">模板名称</label>
                                 <input type="text" name="data[template_name]" value="{!! $book->template_name or '' !!}" class="input-style" placeholder="输入模板名称(选填)">
@@ -115,6 +116,7 @@
                                     <input type="checkbox" name="data[is_template]" value="1" @if(!empty($book->is_template)&& $book->is_template==1)checked @endif  /> 存为模板
                                 </label>
                             </div>
+                            @endif
                             <div class="control-group">
                                 <label for="">备注</label>
                                 <input type="text" name="data[remark]" value="{!! $book->remark or '' !!}" class="input-style">
