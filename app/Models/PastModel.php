@@ -10,5 +10,4 @@ class PastModel extends BaseModel
     protected $primaryKey = 'id';
     protected  $fillable = ['user_id','days'];
 
-
 }
