@@ -39,12 +39,7 @@ class ChartController extends FrontController
      */
     public function incomeStats(Request $request)
     {
-        $data['2016-04'] = 1000;
-        $data['2016-05'] = 500;
-        $data['2016-06'] = 600;
-        $data['2016-07'] = 2000;
-        $data['2016-08'] = 100;
-        $data['2016-09'] = 100;
+       $data = $this->census->getHalfYearStat($this->user['id']);
         return $this->ajaxReturn($data);
     }
 }

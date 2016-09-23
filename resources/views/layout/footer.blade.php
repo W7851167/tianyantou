@@ -171,5 +171,14 @@
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
 @yield('script')
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </body>
 </html>
