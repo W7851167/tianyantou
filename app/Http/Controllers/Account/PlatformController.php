@@ -59,7 +59,7 @@ class PlatformController extends FrontController
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * 投资明细页面
+     * 投资明细
      */
     public function analysis(Request $request)
     {
@@ -103,7 +103,6 @@ class PlatformController extends FrontController
 
         list($counts, $lists) = $this->tasks->getReceiveList($where, $this->perpage,$page);
         $pageHtml = $this->pager($counts);
-        print_r($search);
 
         $census = $this->census->getUserAnalysisStats($this->user['id']);
         return view('account.platform.analysis',compact('corps','pageHtml','lists','search','census'));
