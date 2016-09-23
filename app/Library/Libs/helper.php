@@ -213,5 +213,5 @@ function getIncome($term, $unit, $ratio, $money)
  */
 function getSignReward()
 {
-    return  [1,3,5,7,9,13,15];
+    return  [1=>1,2=>3,3=>5,4=>7,5=>9,6=>13,7=>15];
 }

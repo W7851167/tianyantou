@@ -21,8 +21,7 @@ class TestController extends  Controller
     use SmsTrait;
     public function index()
     {
-        $result = $this->sendSms();
-        dd($result);
+        return date('c');
     }
 
 }
