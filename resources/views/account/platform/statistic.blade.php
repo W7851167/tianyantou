@@ -38,7 +38,7 @@
                                         <dt>综合年化收益率</dt>
                                         <dd>0.00%</dd>
                                     </dl>
-                                    <a href="https://account.tianyantou.com/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
+                                    <a href="{!! config('app.account_url') !!}/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
                                 </div>
                             </div>
                         </div>
