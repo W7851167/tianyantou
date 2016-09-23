@@ -268,7 +268,7 @@ class CensusRepository extends BaseRepository
                 ->whereBetween('created_at', [$startTime, $endTime])->sum('income');
             $stats[$yearMonth] = !empty($income) ? (int)$income : '';
         };
-        return $stats;
+        return krsort($stats);
     }
 
     /**
