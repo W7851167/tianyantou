@@ -38,11 +38,11 @@
         </li>
         <li><a href="{!!config('app.account_url')!!}/"><i class="iconfont">&#xe61c;</i>我的天眼投</a></li>
         <li><h3><i class="iconfont">&#xe612;</i>投资记录</h3>
-            <ul class="second-menu" @if(in_array($controller,['platform','networth'])) style="display: block;" @endif>
+            <ul class="second-menu" @if(in_array($controller,['platform','networth','book'])) style="display: block;" @endif>
                 <li  @if($controller == 'networth') class="current" @endif><a href="{!!config('app.account_url')!!}/networth/index.html">投资记录</a></li>
                 <li  @if($controller == 'platform' && $method == 'statistic') class="current" @endif><a href="{!!config('app.account_url')!!}/platforms/statistic.html">平台统计</a></li>
                 <li  @if($controller == 'platform' && $method == 'analysis') class="current" @endif><a href="{!!config('app.account_url')!!}/platforms/analysis.html">投资明细</a></li>
-                <li  @if($controller == 'record') class="current" @endif><a href="{!!config('app.account_url')!!}/record.html">网贷记账</a></li>
+                <li  @if($controller == 'book') class="current" @endif><a href="{!!config('app.account_url')!!}/book.html">网贷记账</a></li>
             </ul>
         </li>
         <li><h3><i class="iconfont">&#xe631;</i>资金管理</h3>
@@ -50,8 +50,8 @@
                 <li @if($controller == 'wallet' && substr($method,0,8) == 'withdraw') class="current" @endif>
                     <a href="{!!config('app.account_url')!!}/wallet/withdraw.html">提现</a>
                 </li>
-                <li @if($controller == 'wallet' && $method == 'book') class="current" @endif>
-                    <a href="{!!config('app.account_url')!!}/wallet/book.html">资金流水</a>
+                <li @if($controller == 'wallet' && $method == 'record') class="current" @endif>
+                    <a href="{!!config('app.account_url')!!}/wallet/record.html">资金流水</a>
                 </li>
             </ul>
         </li>
@@ -68,13 +68,8 @@
         <li class="current">
             <a href="{!!config('app.account_url')!!}/message.html"><i class="iconfont">&#xe62d;</i>消息中心</a>
         </li>
-        <li class="active">
-            <h3><i class="iconfont" style="vertical-align: middle;">&#xe631;</i>我的积分</h3>
-            <ul class="second-menu" @if($controller == 'scores') style="display: block;" @endif>
-                <li @if($controller == 'scores') class="current" @endif>
-                    <a href="{!! config('app.account_url') !!}/user/scores.html">积分明细</a>
-                </li>
-            </ul>
+        <li class="current">
+            <a href="{!!config('app.account_url')!!}/user/scores.html"><i class="iconfont">&#xe631;</i>我的积分</a>
         </li>
     </ul>
 </div>

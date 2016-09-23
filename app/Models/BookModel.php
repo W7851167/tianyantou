@@ -14,9 +14,18 @@ class BookModel extends BaseModel
      * @param $query
      * 是否含有模板
      */
-    public function scopeTemplate($query) {
+    public function scopeTemplate($query)
+    {
         return $query->whereNotNull('template');
     }
 
+    public function setStartTimeAttribute($value)
+    {
+        $this->attributes['start_time'] = strtotime($value);
+    }
 
+    public function getStartTimeAttribute($value)
+    {
+        return date('Y-m-d', $value);
+    }
 }

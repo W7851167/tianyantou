@@ -4573,7 +4573,7 @@
                     }
                 }
 
-                // record current values
+                // book current values
                 text.x = x;
                 text.y = y;
             };
@@ -4906,7 +4906,7 @@
                     baseline = elem.offsetHeight; // assigned to baseline for lint purpose
                 }
 
-                // record current text transform
+                // book current text transform
                 wrapper.cTT = currentTextTransform;
             }
         },
@@ -5438,7 +5438,7 @@
                         element.parentNode.insertBefore(shadow, element);
                     }
 
-                    // record it
+                    // book it
                     shadows.push(shadow);
 
                 }
@@ -8257,7 +8257,7 @@
                 // get fixed positions based on tickInterval
                 axis.setTickInterval();
 
-                // record old values to decide whether a rescale is necessary later on (#540)
+                // book old values to decide whether a rescale is necessary later on (#540)
                 axis.oldUserMin = axis.userMin;
                 axis.oldUserMax = axis.userMax;
 
@@ -9374,7 +9374,7 @@
         }
 
 
-        // record information on the chosen unit - for dynamic label formatter
+        // book information on the chosen unit - for dynamic label formatter
         tickPositions.info = extend(normalizedInterval, {
             higherRanks: higherRanks,
             totalRange: interval * count
@@ -10579,7 +10579,7 @@
                 // a selection has been made
                 if (this.hasDragged || hasPinched) {
 
-                    // record each axis' min and max
+                    // book each axis' min and max
                     each(chart.axes, function (axis) {
                         if (axis.zoomEnabled && defined(axis.min) && (hasPinched || pointer[{ xAxis: 'zoomX', yAxis: 'zoomY' }[axis.coll]])) { // #859, #3569
                             var horiz = axis.horiz,
@@ -16174,7 +16174,7 @@
                     };
                 }
 
-                // record changes in the parallel arrays
+                // book changes in the parallel arrays
                 i = point.index;
                 series.updateParallelArrays(point, i);
                 if (names && point.name) {
@@ -16882,7 +16882,7 @@
                     leftContY = 2 * plotY - rightContY;
                 }
 
-                // record for drawing in next point
+                // book for drawing in next point
                 point.rightContX = rightContX;
                 point.rightContY = rightContY;
 

@@ -28,22 +28,33 @@ class PlatformController extends FrontController
         $this->tasks = $tasks;
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 平台管理
+     */
     public function statistic(Request $request)
     {
         $page = $request->get('page') ? (int)$request->get('page') : 1;
         $where = ['status' => 1];
-        list($count, $lists) = $this->tasks->getCorpList($where, $this->perpage, $page);
+        $corpIds = $this->tasks->taskReceiveModel->where('user_id', $this->user['id'])->distinct('corp_id')->lists('corp_id')->toArray();
 
-        return view('account.platform.statistic', compact('count','lists'));
+        $openWhere = array_merge($where, ['in' => ['id' => $corpIds]]);
+        list($openCount, $openLists) = $this->tasks->getCorpList($openWhere, $this->perpage, $page);
+        $pageHtml = $this->pager($openCount, $page, $this->perpage);
+
+        $unopenWhere = array_merge($where, ['not_in' => ['id' => $corpIds]]);
+        list($count, $lists) = $this->tasks->getCorpList($unopenWhere, $this->perpage, $page);
+        $pageHtml1 = $this->pager($count, $page, $this->perpage);
+
+        return view('account.platform.statistic', compact(
+            'count', 'openLists', 'lists', 'openCount', 'count', 'pageHtml', 'pageHtml1'
+        ));
     }
 
     public function analysis()
     {
         return view('account.platform.analysis');
-    }
-
-    public function bind()
-    {
-        return view('account.platform.bind');
     }
 }

@@ -28,11 +28,11 @@ Route::group(['middleware' => 'middle.account'], function () {
     //账号充值
     Route::match(['get', 'post'], 'wallet/withdraw.html', ['as' => 'wallet.withdraw', 'uses' => 'WalletController@withdraw']);
     Route::get('wallet/withdrawlist.html', ['as' => 'wallet.withdrawlist', 'uses' => 'WalletController@withdrawlist']);
-    Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
+    Route::get('wallet/record.html', ['as' => 'wallet.record', 'uses' => 'WalletController@record']);
     //记帐本
-    Route::get('record.html', ['as' => 'record.index', 'uses' => 'RecordController@index']);
-    Route::any('record/create/{id?}', ['as' => 'record.create', 'uses' => 'RecordController@create']);
-    Route::get('record/delete/{id}', ['as' => 'record.delete', 'uses' => 'RecordController@delete']);
+    Route::get('book.html', ['as' => 'record.index', 'uses' => 'BookController@index']);
+    Route::any('book/create/{id?}', ['as' => 'record.create', 'uses' => 'BookController@create']);
+    Route::get('book/delete/{id}', ['as' => 'record.delete', 'uses' => 'BookController@delete']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
