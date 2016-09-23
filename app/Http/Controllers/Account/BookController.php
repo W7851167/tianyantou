@@ -98,13 +98,26 @@ class BookController extends FrontController
     {
         try {
             $model = $this->userRepository->bookModel->find($id);
-            $model->template = '';
+            $model->template_name = '';
             $model->is_template = 0;
             $model->save();
-            return $this->success('删除记账模板成功', null, true);
+            return '删除记账模板成功';
         } catch (QueryException $e) {
             $e->getMessage();
         }
-        return $this->error('删除记账模板失败', null, true);
+        return '删除记账模板失败';
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 返回模板记账
+     */
+    public function template($id)
+    {
+        $book = $this->userRepository->bookModel->find($id);
+
+        return view('account.book.templatebook', compact('book'));
     }
 }

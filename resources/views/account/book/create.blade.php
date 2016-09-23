@@ -21,13 +21,13 @@
                                     <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
                                     @foreach($lists as $tv)
                                         <?php if($tv->rate_unit=='年'){$r=$tv->rate;}else{$r=$tv->rate*12;} ?>
-                                    <tr onclick="javascript:fillRecord('d5e5108e-ccd5-49da-aeb6-f18de4085235')" id="d5e5108e-ccd5-49da-aeb6-f18de4085235">
+                                    <tr data-id="{!! $tv->id !!}">
                                         <td>{!! $tv->corp_name ?:'--' !!}</td>
                                         <td>{!! $tv->template_name ?:'--' !!}</td>
                                         <td>{!! sprintf('%.2f',$r) !!}%/年</td>
                                         <td>{!! $tv->term or '--' !!}@if($tv->term_unit=='月'){!! $tv->term ?'个月':'' !!}@elseif($tv->term_unit=='日'){!! $tv->term ?'日':'' !!}@endif</td>
                                         <td>{!! $tv->repay !!}</td>
-                                        <td><a class="del_button action" data-method="post" data-confirm="确定要删除该记账模板?">删</a></td>
+                                        <td><a href="{!! config('app.account_url') !!}/book/template/delete/{!! $tv->id !!}" class="del_button action" data-method="post" data-confirm="确定要删除该记账模板?">删</a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
