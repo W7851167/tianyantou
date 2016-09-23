@@ -53,13 +53,9 @@ class CensusRepository extends BaseRepository
     {
         $result = $this->pastModel->getConnection()->transaction(function ($conn) use ($userId) {
             $signInReward = getSignReward();
-            $pastModel = $this->pastModel->find($userId);
-            //第一次签到
-            if (empty($pastModel)) {
-                $this->pastModel->create(['user_id' => $userId]);
-                $score = $signInReward[0];
-                $pastModel = $this->pastModel->find($userId);
-            } else {
+            $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
+            //非第一次
+            if ($pastModel->created_at != $pastModel->updated_at) {
                 $today = date('Y-m-d') . ' 00:00:00';
                 //记录创建时间小于今天
                 if ($pastModel->created_at < $today) {
@@ -70,11 +66,12 @@ class CensusRepository extends BaseRepository
                     $sql = "UPDATE ad_pasts SET days = ";
                     $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
                     $sql .= "ELSE 0 END WHERE user_id = ?";
-                    return $conn->update($sql, [$userId]);
+                    $conn->update($sql, [$userId]);
                 }
-                $score = $signInReward[$pastModel->days];
             }
-            $days = $pastModel->days + 1;
+            $d = ($pastModel->days + 1) % 7;
+            $score = $signInReward[$d];
+            $days = $pastModel->days;
             //增加记录积分流水
             $data['intro'] = sprintf('您第%d签到获天取%d个积分', $days, $score);
             $data['user_id'] = $userId;
@@ -272,6 +269,7 @@ class CensusRepository extends BaseRepository
                 ->whereBetween('created_at', [$startTime, $endTime])->sum('income');
             $stats[$yearMonth] = !empty($income) ? (int)$income : '';
         };
+        krsort($stats);
         return $stats;
     }
 

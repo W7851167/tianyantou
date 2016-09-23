@@ -263,10 +263,20 @@ class AccountController extends FrontController
     {
         try {
             $result = $this->census->savePast($this->user['id']);
-            if($result['status'])
-                return $this->success('签到完成');
+            if($result['status']) {
+                $past = $this->census->pastModel->where('user_id',$this->user['id'])->first();
+                $signReward = getSignReward();
+                $res['ret'] = 1;
+                $res['info']['username'] = $this->user['username'];
+                $res['info']['Score'] = $signReward[$past->days];
+                $res['info']['SignCount'] = $past->days;
+                $res['info']['SignInReward'] = $signReward;
+                $res['info']['LastSignDate'] = date('c',strtotime($past->updated_at));
+                return $this->ajaxReturn($res);
+            }
         } catch(\Exception $e) {
-            return $this->error('您已签过到了！');
+             $res['ret'] = 0;
+            return $this->ajaxReturn($res);
         }
     }
 }
