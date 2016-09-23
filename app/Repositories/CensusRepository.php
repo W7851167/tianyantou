@@ -10,6 +10,7 @@
  * $Dtime:2016/9/15
  ***********************************************************************************/
 namespace App\Repositories;
+
 use App\Models\MoneyModel;
 use App\Models\PastModel;
 use App\Models\RecordModel;
@@ -31,7 +32,8 @@ class CensusRepository extends BaseRepository
         RecordModel $recordModel,
         WithdrawModel $withdrawModel,
         ScoreModel $scoreModel
-    ) {
+    )
+    {
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
         $this->moneyModel = $moneyModel;
@@ -49,36 +51,36 @@ class CensusRepository extends BaseRepository
      */
     public function savePast($userId)
     {
-        $result = $this->pastModel->getConnection()->transaction(function($conn) use($userId){
+        $result = $this->pastModel->getConnection()->transaction(function ($conn) use ($userId) {
             $signInReward = getSignReward();
             $pastModel = $this->pastModel->find($userId);
-             //第一次签到
-            if(empty($pastModel)) {
-                $this->pastModel->create(['user_id'=>$userId]);
+            //第一次签到
+            if (empty($pastModel)) {
+                $this->pastModel->create(['user_id' => $userId]);
                 $score = $signInReward[0];
                 $pastModel = $this->pastModel->find($userId);
             } else {
                 $today = date('Y-m-d') . ' 00:00:00';
                 //记录创建时间小于今天
-                if($pastModel->created_at < $today) {
-                    if($pastModel->updated_at > $today) {
+                if ($pastModel->created_at < $today) {
+                    if ($pastModel->updated_at > $today) {
                         throw new \Exception('您今天已经签过到了！');
                     }
                     //签到
                     $sql = "UPDATE ad_pasts SET days = ";
                     $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
                     $sql .= "ELSE 0 END WHERE user_id = ?";
-                    return $conn->update($sql,[$userId]);
+                    return $conn->update($sql, [$userId]);
                 }
                 $score = $signInReward[$pastModel->days];
             }
             $days = $pastModel->days + 1;
             //增加记录积分流水
-            $data['intro'] = sprintf('您第%d签到获天取%d个积分',$days,$score);
+            $data['intro'] = sprintf('您第%d签到获天取%d个积分', $days, $score);
             $data['user_id'] = $userId;
             $data['score'] = $score;
             $this->scoreModel->create($data);
-            $this->moneyModel->where('user_id',$userId)->increment('score',$score);
+            $this->moneyModel->where('user_id', $userId)->increment('score', $score);
         });
 
         if ($result instanceof \Exception) {
@@ -87,9 +89,6 @@ class CensusRepository extends BaseRepository
             return $this->getSuccess('签到完成', $result);
         }
     }
-
-    
-
 
     /**
      * @param $startTime
@@ -239,6 +238,20 @@ class CensusRepository extends BaseRepository
         //账户余额
         $money = $this->moneyModel->where('user_id', $userId)->first();
         $census['money'] = !empty($money) ? $money->money : '0.00';
+
+        return $census;
+    }
+
+    /**
+     * @param $userId
+     * @return mixed
+     *
+     *
+     * 获取用户总积分
+     */
+    public function getUserScoreTotal($userId)
+    {
+        $census['total'] = $this->scoreModel->where('user_id', $userId)->sum('score');
 
         return $census;
     }
