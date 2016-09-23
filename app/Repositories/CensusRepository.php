@@ -200,6 +200,21 @@ class CensusRepository extends BaseRepository
 
     /**
      * @param $userId
+     * 获取用户明细统计中信息
+     */
+    public function getUserAnalysisStats($userId)
+    {
+        $total = $this->taskReceiveModel->where('user_id', $userId)->sum('total');
+        $census['total'] = !empty($total) ? $total : '0.00';
+        $income = $this->taskReceiveModel->where('user_id', $userId)->sum('income');
+        $census['income'] = !empty($income) ? $income : '0.00';
+        $platform = $this->taskReceiveModel->where('user_id',$userId)->distinct('corp_id')->count();
+        $census['platform'] = !empty($platform) ? $platform : 0;
+        return $census;
+    }
+
+    /**
+     * @param $userId
      * @return mixed
      *
      * 用户流水统计
@@ -269,7 +284,7 @@ class CensusRepository extends BaseRepository
                 ->whereBetween('created_at', [$startTime, $endTime])->sum('income');
             $stats[$yearMonth] = !empty($income) ? (int)$income : '';
         };
-        krsort($stats);
+        ksort($stats);
         return $stats;
     }
 

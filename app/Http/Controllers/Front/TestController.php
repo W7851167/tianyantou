@@ -15,13 +15,20 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Library\Traits\SmsTrait;
+use App\Repositories\CensusRepository;
 
 class TestController extends  Controller
 {
-    use SmsTrait;
+    public function __construct(CensusRepository $census)
+    {
+        $this->census = $census;
+    }
+
     public function index()
     {
-        return date('c');
+        $stats = $this->census->getHalfYearStat(1);
+        ksort($stats);
+        dd($stats);
     }
 
 }
