@@ -68,8 +68,7 @@
                                                                 <span>项目期限：<em>@if($cv->min_days == $cv->max_days){!! dateFormat($cv->max_days) !!}@else{!! dateFormat($cv->min_days) !!}-{!! dateFormat($cv->max_days) !!}@endif</em></span>
                                                                 <span>可投标数：<em>{!! $cv->tasks->count() !!}个</em></span>
                                                                 <span>安全评级：<em>{!! $cv->level or 'B' !!}</em></span>
-                                                                <a class="btn btn-blue-o btn-allwidth" rel="_platform_join"
-                                                                   data-sso-url="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html">查看详情</a>
+                                                                    <a class="btn  btn-blue-o btn-allwidth" href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=all&amp;platform={!! $cv->ename !!}">查看详情</a>
                                                             </div>
                                                         </div>
                                                     </div>
