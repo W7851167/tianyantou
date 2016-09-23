@@ -53,7 +53,7 @@ class CensusRepository extends BaseRepository
     {
         $result = $this->pastModel->getConnection()->transaction(function ($conn) use ($userId) {
             $signInReward = getSignReward();
-            $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId,'days'=>1]);
+            $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
             //非第一次
             if ($pastModel->created_at != $pastModel->updated_at) {
                 $today = date('Y-m-d') . ' 00:00:00';
@@ -69,7 +69,8 @@ class CensusRepository extends BaseRepository
                     $conn->update($sql, [$userId]);
                 }
             }
-            $score = $signInReward[$pastModel->days];
+            $d = ($pastModel->days + 1) % 7;
+            $score = $signInReward[$d];
             $days = $pastModel->days;
             //增加记录积分流水
             $data['intro'] = sprintf('您第%d签到获天取%d个积分', $days, $score);

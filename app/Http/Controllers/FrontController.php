@@ -13,6 +13,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\MoneyModel;
 use App\Models\PastModel;
 
 class FrontController extends Controller
@@ -32,6 +33,8 @@ class FrontController extends Controller
             view()->share('method', $method);
             $pass = PastModel::where('user_id',$this->user['id'])->first();
             view()->share('sign', getPast($pass));
+            $money = MoneyModel::where('user_id',$this->user['id'])->first();
+            view()->share('money', $money);
         }
         view()->share('user', $this->user);
     }
