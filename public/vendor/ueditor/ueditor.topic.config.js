@@ -35,7 +35,7 @@
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         , toolbars: [
 ['fullscreen',
- 'bold', 'italic', 'underline',  'removeformat', 'fontfamily',
+ 'bold', 'italic', 'underline',  'removeformat', 'fontfamily','fontsize',
  'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
  'insertimage', 'emotion',  'insertvideo',  'map', '|','source'
   ]
@@ -185,7 +185,7 @@
 
         //fontsize
         //字号
-        //,'fontsize':[10, 11, 12, 14, 16, 18, 20, 24, 36]
+        ,'fontsize':[10, 11, 12, 14, 16, 18, 20, 24, 36]
 
         //paragraph
         //段落格式 值留空时支持多语言自动识别，若配置，则以配置值为准
