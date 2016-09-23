@@ -209,7 +209,7 @@ class CensusRepository extends BaseRepository
         $income = $this->taskReceiveModel->where('user_id', $userId)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
         $platform = $this->taskReceiveModel->where('user_id',$userId)->distinct('corp_id')->count('corp_id');
-        //count($this->taskReceiveModel->where('user_id',$userId)->groupBy('corp_id')->distinct()->get());
+        //$query = $this->taskReceiveModel->where('user_id',$userId)->groupBy('corp_id')->distinct();
         $census['platform'] = !empty($platform) ? $platform : 0;
         return $census;
     }
