@@ -99,7 +99,7 @@
                                     @if(!empty($lists))
                                         @foreach($lists as $lv)
                                         <tr>
-                                            <td>{!! $lv->corp->name or '' !!}</td>
+                                            <td><a href="{!! config('app.url') . '/platform/' . $lv->corp->ename . '.html' !!}" target="_blank">{!! $lv->corp->name or '' !!}</a></td>
                                             <td>{!! $lv->task->title or '' !!}</td>
                                             <td>{!! $lv->total or 0.00 !!}</td>
                                             <td>{!! $lv->income or 0.00 !!}</td>
