@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td width="200"><span>*</span>文章描述：</td>
-                                <td width="728"><input name="description" class="case_input" type="text" value="{!! $new->description or '' !!}"></td>
+                                <td width="728"><input name="description" class="addText" type="text" value="{!! $new->description or '' !!}"></td>
                             </tr>
                             <tr class="case_compile">
                                 <td><span>*</span>文章内容：</td>
