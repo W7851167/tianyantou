@@ -57,11 +57,11 @@ class BookController extends FrontController
 
             try {
                 $result = $this->userRepository->bookModel->edit($data);
-                if ($result) return '记录成功!';
+                if ($result) return $this->success('记录成功!', url('book.html'), true);
             } catch (QueryException $e) {
                 $e->getMessage();
             }
-            return '记录失败';
+            return $this->error('记录失败', null, true);
         }
         if ($id) {
             $book = $this->userRepository->bookModel->find($id);

@@ -76,7 +76,7 @@
                                     <input type="radio" name="data[term_unit]" value="月" @if(empty($book->term_unit) || (!empty($book->term_unit)&&$book->term_unit=='月'))checked @endif /> 月
                                 </label>
                                 <label class="control-option">
-                                    <input type="radio" name="data[term_unit]" value="年" @if(!empty($book->term_unit)&&$book->term_unit=='年' )checked @endif /> 年
+                                    <input type="radio" name="data[term_unit]" value="日" @if(!empty($book->term_unit)&&$book->term_unit=='年' )checked @endif /> 年
                                 </label>
                             </div>
                             <div class="control-group">
