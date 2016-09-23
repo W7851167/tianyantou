@@ -257,6 +257,25 @@ class CensusRepository extends BaseRepository
     }
 
     /**
+     * @param $userId
+     * 获取用户半年收益统计
+     */
+    public function getHalfYearStat($userId)
+    {
+        $stats = [];
+        for($i=0;  $i < 6; $i++) {
+            $time = $i == 0 ? time() : strtotime('-' . $i . ' months');
+            $yearMonth = date('Y-m', $time);
+            $startTime = $yearMonth .'-01 00:00:01';
+            $endTime  = $yearMonth . '-' . date('t', $time) . ' 23:59:59';
+            $income = $this->recordModel->where('user_id', $userId)
+                ->whereBetween('created_at', [$startTime, $endTime])->sum('income');
+            $stats[$yearMonth] = !empty($income) ? (int)$income : '';
+        };
+        return $stats;
+    }
+
+    /**
      * @param $endTime
      * @param $startTime
      * 判断当开始和结束时间

@@ -21,7 +21,7 @@ class TestController extends  Controller
     use SmsTrait;
     public function index()
     {
-        $result = $this->sendSms([18611570121],'您的验证码121【华信】');
+        $result = $this->sendSms();
         dd($result);
     }
 
