@@ -43,7 +43,7 @@
                             <input type="hidden" name="data[user_id]" value="{!! $user['id'] or '' !!}">
                             <div class="control-group">
                                 <label for="real-name">投资平台</label>
-                                <input type="text" name="data[corp_name]" class="input-style" value="{!! $book->corp_name or '' !!}">
+                                <input type="text" name="data[corp_name]" class="input-style" value="{!! $book->corp_name or '' !!}" placeholder="输入平台名称必填">
                             </div>
                             <div class="control-group">
                                 <label>项目名称</label>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="control-group">
                                 <label>利率</label>
-                                <input type="text" name="data[start_time]" value="{!! $book->id or '' !!}" class="input-style" placeholder="例:10.8">
+                                <input type="text" name="data[rate]" value="{!! $book->id or '' !!}" class="input-style" placeholder="例:10.8">
                                 <label class="control-option">
                                     <input type="radio" name="data[rate_unit]" value="年" @if(empty($book->rate_unit) || (!empty($book->rate_unit)&&$book->rate_unit=='月'))checked @endif /> 年利率
                                 </label>
@@ -142,5 +142,6 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/books.js"></script>
     <script src="{!! config('app.url') !!}/vendor/datepicker/WdatePicker.js"></script>
 @stop
