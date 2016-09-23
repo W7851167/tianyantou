@@ -89,7 +89,7 @@
                                         <th width="100">投资(元)</th>
                                         <th width="100">收益(元)</th>
                                         <th width="120">领任务时间</th>
-                                        <th width="75">平台年化率</th>
+                                        <th width="75">年化率</th>
                                         <th width="85">天眼年化率</th>
                                         <th width="65">状态</th>
                                         <th width="65">操作</th>
