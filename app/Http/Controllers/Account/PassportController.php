@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Library\Traits\SmsTrait;
 use App\Library\Utils\Captcha;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Validator;
 
 class PassportController extends FrontController
 {
+    use SmsTrait;
+
     public function __construct(
         UserRepository $userRepository
     )
@@ -120,6 +123,13 @@ class PassportController extends FrontController
         return view('account.passport.protocol');
     }
 
+    /**
+     * @param Request $request
+     * @param Captcha $captcha
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * 获取图形验证码
+     */
     public function captcha(Request $request, Captcha $captcha)
     {
         if ($request->isMethod('post')) {
@@ -135,4 +145,38 @@ class PassportController extends FrontController
         Session::put('captcha', $captcha->getCode());
     }
 
+    /**
+     * @param Request $request
+     *
+     * 发送手机验证码
+     */
+    public function sendVerifyCode(Request $request)
+    {
+        $action = $request->get('action');
+        $phone = $request->get('telephone');
+        $captcha = $request->get('captcha');
+        $checkCaptcha = Session::get('captcha');
+
+        if ($action == 'register') {
+            if (!$captcha) {
+                return $this->error('图形验证码不能为空', null, true);
+            }
+            if (strtolower($captcha) != strtolower($checkCaptcha)) {
+                return $this->error('图形验证码不正确', null, true);
+            }
+            $model = $this->userRepository->userModel->where('mobile', $phone)->first();
+            if (!empty($model)) {
+                $this->error('该手机号码已注册天眼投账号', null, true);
+            }
+            $code = randomCode();
+            $mobile = [$phone];
+            $template = $this->getSmsTemplates($action, $code);
+            try {
+                $this->sendSms($mobile, $template);
+                Session::put('phone', $code);
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
+        }
+    }
 }

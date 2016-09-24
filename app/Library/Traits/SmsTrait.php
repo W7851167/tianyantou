@@ -90,5 +90,17 @@ trait SmsTrait
         }
     }
 
-
+    /**
+     * @param bool|true $debug
+     * @return array
+     * 短信模板信息
+     */
+    public function getSmsTemplates($type, $code = null, $data = [])
+    {
+        //手机号注册
+        if ($type == "register") {
+            $template = '【天眼投】尊敬的投之家用户，您的手机验证码为：' . $code . '，如非本人操作请忽略此短信。为了您的账号安全，请勿泄露验证码。';
+        }
+        return $template;
+    }
 }
