@@ -57,7 +57,9 @@ class CaluclateRepository extends BaseRepository
             $proceeds = $money * ($rate / 100) * ($term / 30);
         }
 
-        return $proceeds;
+        return [
+            ['money' => $money, 'rate_money' => $proceeds, 'proceeds' => $proceeds],
+        ];
     }
 
     /**
