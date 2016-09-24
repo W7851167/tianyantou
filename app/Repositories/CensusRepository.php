@@ -283,7 +283,7 @@ class CensusRepository extends BaseRepository
             $endTime  = $yearMonth . '-' . date('t', $time) . ' 23:59:59';
             $income = $this->recordModel->where('user_id', $userId)
                 ->whereBetween('created_at', [$startTime, $endTime])->sum('income');
-            $stats[$yearMonth] = !empty($income) ? (int)$income : '';
+            $stats[$yearMonth] = !empty($income) ? (int)$income : 0;
         };
         ksort($stats);
         return $stats;
