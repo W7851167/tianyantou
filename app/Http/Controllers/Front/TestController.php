@@ -32,14 +32,14 @@ class TestController extends  FrontController
             'money' => 10000,       //投资金额
             'term' => 56,           //投资期限
             'term_unit' => 1,     //投资期限单位 0 月 1日
-            'repay_type' => 2,    //还款方式，具体属性repayType
+            'repay_type' => 4,    //还款方式，具体属性repayType
             'manage_fee' => 1, //管理费率
             'reward' => 200,     //奖励
             'discount' => 100,   //折扣奖励
             'start_time' => '2016-09-24',    //起息日期;
         ];
         $obj = app()->make('LibraryManager')->create('income');
-        $result = $obj->_init($config)->getList();
+        $result = $obj->_init($config)->getStats();
         dd($result);
     }
 
