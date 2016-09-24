@@ -118,8 +118,8 @@
                             <dd>
                                 <span class="valid-value">@if($userinfo->money->password)已设置@else未设置@endif</span>
                                 @if($userinfo->money->password)
-                                {{--<a href="{!! config('app.account_url') !!}/safe/finddealpassword.html"--}}
-                                   {{--class="inline-modify modify-btn" data-target="#dealpassword-panel">找回交易密码</a>--}}
+                                <a href="{!! config('app.account_url') !!}/safe/finddealpassword.html"
+                                   class="inline-modify modify-btn" data-target="#dealpassword-panel">找回交易密码</a>
                                 <a href="{!! config('app.account_url') !!}/safe/changeDealPassword.html"
                                    class="inline-modify modify-btn" data-target="#dealpassword-panel">修改</a>
                                 @else

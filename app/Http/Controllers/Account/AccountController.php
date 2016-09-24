@@ -348,8 +348,42 @@ class AccountController extends FrontController
         return view('account.account.dealpassword');
     }
 
-    public function findpassword()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 找回交易密码
+     */
+    public function findpassword(Request $request)
     {
+        if ($request->isMethod('post')) {
+            if ($request->get('step') == 1) {
+                $verifyCode = $request->get('verifyCode');
+                $checkcode = Session::get('phone');
+                if (trim($verifyCode) != $checkcode) {
+                    return $this->error('手机验证码不正确!', null, true);
+                }
+                return view('account.account.findpassword1');
+            }
+            if ($request->get('step') == 2) {
+                $dealpassword = trim($request->get('dealpassword'));
+                $confirmdealpassword = trim($request->get('confirmdealpassword'));
+                if (!$dealpassword != !$confirmdealpassword) {
+                    return $this->error('密码不能为空!', null, true);
+                }
+                if ($dealpassword != $confirmdealpassword) {
+                    return $this->error('两次密码不一致!', null, true);
+                }
+                try {
+                    $money = $this->userRepository->moneyModel->where('user_id', $this->user['id'])->first();
+                    $money->password = \Hash::make($dealpassword);
+                    $money->save();
+                    return $this->success('修改交易密码成功!', null, true);
+                } catch (\Exception $e) {
+                    return $this->error('修改交易密码失败!', null, true);
+                }
+            }
+        }
         return view('account.account.findpassword');
     }
 

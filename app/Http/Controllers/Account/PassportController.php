@@ -172,13 +172,15 @@ class PassportController extends FrontController
             if (!empty($model)) {
                 $this->error('该手机号码已注册天眼投账号', null, true);
             }
-            $code = randomCode();
             $mobile = [$phone];
         }
         if ($action == 'changeEmailByTelephone') {
-            $code = randomCode();
             $mobile = [$this->user['mobile']];
         }
+        if($action == 'verifyTelephone'){
+            $mobile = [$this->user['mobile']];
+        }
+        $code = randomCode();
         $template = $this->getSmsTemplates('register', $code);
         try {
             $this->sendSms($mobile, $template);
