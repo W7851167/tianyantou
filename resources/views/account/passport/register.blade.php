@@ -21,8 +21,8 @@
                         {!! csrf_field() !!}
                         <div class="msg-wrap"></div>
                         <div class="input-box">
-                            <label for="reg-username">用户名：</label>
-                            <input id="reg-username" name="username" class="input-style input-size" type="text" placeholder="请输入用于注册的用户名"/>
+                            <label for="reg-telephone">手机号：</label>
+                            <input id="reg-telephone" name="mobile" class="input-style input-size" type="text" placeholder="请输入用于注册的用户名"/>
                             <i class="iconfont">&#xe61e;</i>
                             <div class="error" id="username-error"></div>
                         </div>
@@ -34,12 +34,12 @@
                             <img id="captcha" src="{!!url('signin/captcha')!!}" class="img" onclick="this.src='{!!url("signin/captcha?")!!}'+Math.random();" style="vertical-align: middle;" />
                             <div class="error" id=""></div>
                         </div>
-                        {{--<div class="input-box">
+                        <div class="input-box">
                             <label for="reg-captcha">验证码：</label>
                             <input id="reg-captcha" name="verifyCode" class="input-style input-size" type="text" placeholder="请输入验证码" />
                             <a href="javascript:;" class="btn-captcha code-btn-size" data-toggle="verifyCode" data-action="register" data-tel="#reg-telephone">发送短信验证码</a>
                             <div class="error" id="captcha-error"></div>
-                        </div>--}}
+                        </div>
                         <div class="input-box">
                             <label for="reg-password">密&nbsp;&nbsp;&nbsp;码：</label>
                             <input id="reg-password" name="password" class="input-style input-size" type="password" placeholder="请输入登录密码"/>

@@ -11,6 +11,7 @@
  ***********************************************************************************/
 Route::get('register/protocol.html', 'PassportController@protocol');
 Route::match(['get', 'post'], 'signin/captcha', 'PassportController@captcha');
+Route::post('common/sendVerifyCode', 'PassportController@sendVerifyCode');
 
 Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
