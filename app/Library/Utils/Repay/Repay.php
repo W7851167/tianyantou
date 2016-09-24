@@ -24,6 +24,7 @@ class Repay
     protected function getDayRate($rate, $unit)
     {
         $days = $unit == 0 ? 365:($unit ==1? 1 : 360);
+        //echo $days;
         return $rate / $days / 100;
     }
 
@@ -40,5 +41,6 @@ class Repay
         $endTime = strtotime('+' . $term . $unit, $startTime);
         return ($endTime - $startTime) / 24 / 60 / 60;
     }
+
 
 }

@@ -18,7 +18,6 @@ use App\Repositories\CensusRepository;
 
 class TestController extends  FrontController
 {
-    use SmsTrait;
     public function __construct(CensusRepository $census)
     {
         $this->census = $census;
@@ -29,11 +28,11 @@ class TestController extends  FrontController
 
         $config =[
             'rate' => 12,         //利率
-            'rate_unit' => 1,      //0年利率 1、日利率 2、年利率（按360天计算）
+            'rate_unit' => 0,      //0年利率 1、日利率 2、年利率（按360天计算）
             'money' => 10000,       //投资金额
-            'term' => 6,           //投资期限
-            'term_unit' => 0,     //投资期限单位 0 月 1日
-            'repay_type' => 1,    //还款方式，具体属性repayType
+            'term' => 56,           //投资期限
+            'term_unit' => 1,     //投资期限单位 0 月 1日
+            'repay_type' => 2,    //还款方式，具体属性repayType
             'manage_fee' => 1, //管理费率
             'reward' => 200,     //奖励
             'discount' => 100,   //折扣奖励
@@ -41,7 +40,6 @@ class TestController extends  FrontController
         ];
         $obj = app()->make('LibraryManager')->create('IncomeProxy');
         $result = $obj->_init($config)->getIncomeList();
-        echo date('Y-m-d', $result['repay_time']);
         dd($result);
     }
 
