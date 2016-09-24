@@ -14,10 +14,12 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Http\Controllers\FrontController;
+use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
 
 class TestController extends  FrontController
 {
+    use SmsTrait;
     public function __construct(CensusRepository $census)
     {
         $this->census = $census;
@@ -25,7 +27,8 @@ class TestController extends  FrontController
 
     public function index()
     {
-
+        $result  = $this->sendSms();
+        exit;
         $config =[
             'rate' => 12,         //利率
             'rate_unit' => 0,      //0年利率 1、日利率 2、年利率（按360天计算）
