@@ -33,7 +33,7 @@ class TestController extends  FrontController
             'money' => 200000,       //投资金额
             'term' => 258,           //投资期限
             'term_unit' => 1,     //投资期限单位 0 月 1日
-            'repay_type' => 5,    //还款方式，具体属性repayType
+            'repay_type' => 2,    //还款方式，具体属性repayType
             'manage_fee' => 1, //管理费率
             'reward' => 200,     //奖励
             'discount' => 100,   //折扣奖励

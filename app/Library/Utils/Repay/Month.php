@@ -71,6 +71,7 @@ class Month extends Repay
         $lastTime = $startTime + $days * 24 * 60 * 60;
         do {
             $endTime = strtotime('+1month', $startTime);
+            $endTime = $endTime >= $lastTime ? $lastTime : $endTime;
             $currentDays = ($endTime - $startTime) / (24 * 60 *60);
             $startTime = $endTime;
             $lists[$i]['repay_time'] = date('Y-m-d',$endTime);
@@ -78,14 +79,10 @@ class Month extends Repay
             $lists[$i]['interest'] = $money * $dayRate * $currentDays;
             $lists[$i]['income'] = 0;
             $i++;
-        }while($lastTime >= $endTime);
+        }while($lastTime > $endTime);
 
         //处理最后一个月
         $lastIndex = count($lists) - 1;
-        $lists[$lastIndex]['repay_time'] = date('Y-m-d',$lastTime);
-        $lastDays = ($lastTime - $startTime) / (24 * 60 * 60);
-        $lists[$lastIndex]['days'] += $lastDays;
-        $lists[$lastIndex]['interest'] =  $money * $dayRate * $lists[$lastIndex]['days'];
         $lists[$lastIndex]['income'] = $lists[$lastIndex]['interest'] + $data['money'] + $data['reward'] + $data['discount'];
         return $lists;
     }
