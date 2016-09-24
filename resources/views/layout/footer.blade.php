@@ -47,8 +47,8 @@
                     <ul>
                         <li><a href="{!! config('app.url') !!}/about/safety.html">安全评级</a></li>
                         <li><a href="{!! config('app.url') !!}/about/media.html">媒体报道</a></li>
-                        <li><a href="{!! config('app.url') !!}/guide.html">新手指引</a></li>
-                        <li><a href="{!! config('app.url') !!}/about/plan.html">T盾保障</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/activity.html">活动展示</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/plan.html">天眼盾保障</a></li>
                     </ul>
                     <ul>
                         <li><a href="{!! config('app.url') !!}/about/career.html">招贤纳士</a></li>
