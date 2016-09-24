@@ -13,7 +13,7 @@
             <span>验证成功</span>
         </li>
     </ul>
-    <form class="form-group" data-toggle="ajaxForm" action="{!! config('app.account_url') !!}/safe/changeTelephone.html?step=0" method="post" data-refresh-url="#telephone-panel">
+    <form class="form-group" data-toggle="ajaxForm" action="{!! config('app.account_url') !!}/safe/changeTelephone.html?step=1" method="post" data-refresh-url="#telephone-panel">
         <div class="control-group">
             <label>原手机号码：</label>
             <input type="text" class="input-style" value="{!! substr_replace($user['mobile'],'****',3,4) !!}" readonly="readonly">
