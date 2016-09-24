@@ -49,10 +49,7 @@
             <option value="等额本金" @if(!empty($book->repay)&&$book->repay=='等额本金')selected @endif>等额本金</option>
             <option value="等额本息" @if(!empty($book->repay)&&$book->repay=='等额本息')selected @endif>等额本息</option>
             <option value="月还息按季等额本金" @if(!empty($book->repay)&&$book->repay=='月还息按季等额本金')selected @endif>月还息按季等额本金</option>
-            <option value="利息复投" @if(!empty($book->repay)&&$book->repay=='利息复投')selected @endif>利息复投</option>
-            <option value="满标付息，到期还本" @if(!empty($book->repay)&&$book->repay=='满标付息，到期还本')selected @endif>满标付息，到期还本</option>
             <option value="按季付息到期还本" @if(!empty($book->repay)&&$book->repay=='按季付息到期还本')selected @endif>按季付息到期还本</option>
-            <option value="固定付息日" @if(!empty($book->repay)&&$book->repay=='固定付息日')selected @endif>固定付息日</option>
         </select>
     </div>
     <div class="control-group">
