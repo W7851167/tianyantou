@@ -151,20 +151,28 @@ class AccountController extends FrontController
                 event(new ValidateEmail($user));
                 return $this->success('发送成功!', null, true);
             }
-            $code = $request->get('verifyCode');
-            $email = $request->get('email');
-            $checkcode = Session::get('user_' . $this->user['id']);
-            if (!$code || !$email || ($code != $checkcode)) {
-                return $this->error('验证失败!', null, true);
+            if ($request->get('action') == 'emailauth') {
+                $code = $request->get('verifyCode');
+                $email = $request->get('email');
+                $checkcode = Session::get('user_' . $this->user['id']);
+                if (!$code) {
+                    return $this->error('邮箱验证码不能为空!', null, true);
+                }
+                if (trim($code) != $checkcode) {
+                    return $this->error('邮箱验证码不正确!', null, true);
+                }
+                $exists = $this->userRepository->userModel->where('email', $email)->exists();
+                if ($exists) {
+                    return $this->error('该邮箱已注册天眼投账号!', null, true);
+                }
+                $data = ['id' => $this->user['id'], 'email' => $email];
+                try {
+                    $result = $this->userRepository->userModel->saveBy($data);
+                    if (!empty($result)) return $this->success('验证邮箱成功!', url('safe.html'), true);
+                } catch (\Exception $e) {
+                    return $this->error('验证邮箱失败!', null, true);
+                }
             }
-            $data = ['id' => $this->user['id'], 'email' => $email];
-            try {
-                $result = $this->userRepository->userModel->saveBy($data);
-                if ($result) $this->success('修改成功!', null, true);
-            } catch (QueryException $e) {
-                $e->getMessage();
-            }
-            return '修改失败!';
         }
 
         return view('account.account.validateemail');
