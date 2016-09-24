@@ -96,19 +96,17 @@ class UserRepository extends BaseRepository
      */
     public function setSessionData($userModel)
     {
-        $emailFlag = !empty($userModel->email) ? 1 : 0;
-        $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
+        $emailFlag = !empty($userModel->email) ? $userModel->email : 0;
+        $mobileFlag = !empty($userModel->mobile) ? $userModel->mobile : 0;
         $bankFlag = !empty($userModel->bank) ? 1 : 0;
         //$investFlag = $emailFlag && $mobileFlag && $bankFlag;
-//        $emailFlag = 1;
-//        $mobileFlag = 1;
-//        $bankFlag = 1;
         $investFlag = 1;
         $avatar = isset($userModel->avatar->name) ? $userModel->avatar->name : '';
 
         return [
             'id' => $userModel->id,
             'username' => $userModel->username,
+            'nickname' => $userModel->nickname,
             'avatar' => $avatar,
             'email' => $emailFlag,
             'mobile' => $mobileFlag,

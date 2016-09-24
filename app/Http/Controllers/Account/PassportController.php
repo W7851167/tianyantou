@@ -92,13 +92,14 @@ class PassportController extends FrontController
             if ($exists) {
                 return $this->error('该手机号码已注册天眼投账号!', null, true);
             }
+            $username = 't' . createUsername();
             $data = [
+                'username' => $username,
                 'mobile' => $mobile,
                 'password' => $password,
             ];
             $result = $this->userRepository->saveUser($data);
             if ($result['status']) return $this->success('注册成功!', url('/'), true);
-
             return $this->error('注册失败!', null, true);
         }
         return view('account.passport.register');
