@@ -174,13 +174,17 @@ class PassportController extends FrontController
             }
             $code = randomCode();
             $mobile = [$phone];
-            $template = $this->getSmsTemplates($action, $code);
-            try {
-                $this->sendSms($mobile, $template);
-                Session::put('phone', $code);
-            } catch (\Exception $e) {
-                $e->getMessage();
-            }
+        }
+        if ($action == 'changeEmailByTelephone') {
+            $code = randomCode();
+            $mobile = [$this->user['mobile']];
+        }
+        $template = $this->getSmsTemplates('register', $code);
+        try {
+            $this->sendSms($mobile, $template);
+            Session::put('phone', $code);
+        } catch (\Exception $e) {
+            $e->getMessage();
         }
     }
 }
