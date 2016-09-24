@@ -36,7 +36,8 @@
         , toolbars: [
 ['fullscreen',
  'bold', 'italic', 'underline',  'removeformat', 'fontfamily','fontsize',
- 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
+ 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', '|',
+    'justifyleft','justifycenter', 'justifyright', 'justifyjustify', '|',
  'insertimage', 'emotion',  'insertvideo',  'map', '|','source'
   ]
                      ]
