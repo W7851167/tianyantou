@@ -27,22 +27,20 @@ class TestController extends  FrontController
 
     public function index()
     {
-        $result  = $this->sendSms();
-        exit;
         $config =[
-            'rate' => 12,         //利率
+            'rate' => 4.2,         //利率
             'rate_unit' => 0,      //0年利率 1、日利率 2、年利率（按360天计算）
-            'money' => 10000,       //投资金额
-            'term' => 56,           //投资期限
+            'money' => 200000,       //投资金额
+            'term' => 258,           //投资期限
             'term_unit' => 1,     //投资期限单位 0 月 1日
-            'repay_type' => 4,    //还款方式，具体属性repayType
+            'repay_type' => 5,    //还款方式，具体属性repayType
             'manage_fee' => 1, //管理费率
             'reward' => 200,     //奖励
             'discount' => 100,   //折扣奖励
             'start_time' => '2016-09-24',    //起息日期;
         ];
         $obj = app()->make('LibraryManager')->create('income');
-        $result = $obj->_init($config)->getStats();
+        $result = $obj->_init($config)->getList();
         dd($result);
     }
 
