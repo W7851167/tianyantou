@@ -71,28 +71,31 @@ class PassportController extends FrontController
     public function register(Request $request)
     {
         if ($request->isMethod('post')) {
-            $rules = [
-                'username' => 'required|unique:users',
-                'password' => 'required|confirmed',
-                'password_confirmation' => 'required',
-            ];
-            $messages = [
-                'username.required' => '请输入用户名!',
-                'username.unique' => '此用户名已被注册!',
-                'password.required' => '密码不能为空!',
-                'password.confirmed' => '两次密码不一致!',
-                'password_confirmation.required' => '请输入确认密码!',
-            ];
-            $data = $request->only(['username', 'password', 'password_confirmation']);
-            $validator = Validator::make($data, $rules, $messages);
-            if ($validator->fails()) {
-                return response()->json([
-                    'statu' => 0,
-                    'info' => '注册失败!',
-                    'data' => $validator->errors(),
-                ]);
+            $mobile = trim($request->mobile);
+            $password = trim($request->password);
+            $confirmpassword = trim($request->password_confirmation);
+            $verifyCode = trim($request->verifyCode);
+            $phoneCode = Session::get('phone');
+            if (!$mobile) {
+                return $this->error('手机号不能为空!', null, true);
             }
-            $data = array_except($data, ['password_confirmation']);
+            if ($verifyCode != $phoneCode) {
+                return $this->error('手机验证码不正确!', null, true);
+            }
+            if (!$password || !$confirmpassword) {
+                return $this->error('密码或确认密码不能为空!', null, true);
+            }
+            if ($password != $confirmpassword) {
+                return $this->error('两次输入密码不一致!', null, true);
+            }
+            $exists = $this->userRepository->userModel->where('mobile', $mobile)->exists();
+            if ($exists) {
+                return $this->error('该手机号码已注册天眼投账号!', null, true);
+            }
+            $data = [
+                'mobile' => $mobile,
+                'password' => $password,
+            ];
             $result = $this->userRepository->saveUser($data);
             if ($result['status']) return $this->success('注册成功!', url('/'), true);
 
