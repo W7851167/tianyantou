@@ -145,13 +145,14 @@ class AccountController extends FrontController
     public function validateemail(Request $request)
     {
         if ($request->isMethod('post')) {
-            if ($request->get('action') == 'authEmail') {
+            $action = $request->get('action');
+            if ($action == 'authEmail') {
                 $user = $this->userRepository->userModel->find($this->user['id']);
                 $user->email = $request->email;
                 event(new ValidateEmail($user));
                 return $this->success('发送成功!', null, true);
             }
-            if ($request->get('action') == 'emailauth') {
+            if ($action == 'emailauth') {
                 $code = $request->get('verifyCode');
                 $email = $request->get('email');
                 $checkcode = Session::get('user_' . $this->user['id']);
@@ -173,8 +174,44 @@ class AccountController extends FrontController
                     return $this->error('验证邮箱失败!', null, true);
                 }
             }
+            if ($action == 'emailstep1') {
+                $code = $request->get('verifyCode');
+                $checkcode = Session::get('user_' . $this->user['id']);
+                if (trim($code) != $checkcode) {
+                    return $this->error('邮箱验证码不正确!', null, true);
+                }
+                return view('account.account.validateemail1');
+            }
+            if ($action == 'emailstep2') {
+                $code = $request->get('verifyCode');
+                $email = $request->get('email');
+                $checkcode = Session::get('user_' . $this->user['id']);
+                if (trim($code) != $checkcode) {
+                    return $this->error('邮箱验证码不正确!', null, true);
+                }
+                $data = ['id' => $this->user['id'], 'email' => $email];
+                try {
+                    $result = $this->userRepository->userModel->saveBy($data);
+                    if (!empty($result)) return $this->success('修改邮箱成功!', url('safe.html'), true);
+                } catch (\Exception $e) {
+                    return $this->error('修改邮箱失败!', null, true);
+                }
+            }
+            $user = $this->userRepository->userModel->find($this->user['id']);
+            if ($action == 'changeEmail') {
+                $email = $request->get('email');
+                $exists = $this->userRepository->userModel->where('email', $email)->exists();
+                if ($exists) {
+                    return $this->error('该邮箱已注册天眼投账号!', null, true);
+                }
+                $user->email = $email;
+            }
+            event(new ValidateEmail($user));
+            return $this->success('发送成功!', null, true);
         }
-
+        if ($this->user['email']) {
+            return view('account.account.changeemail');
+        }
         return view('account.account.validateemail');
     }
 
