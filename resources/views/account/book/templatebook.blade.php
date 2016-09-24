@@ -66,17 +66,15 @@
         <input type="text" name="data[manage_fee]" value="{!! $book->manage_fee or '' !!}" class="input-style" placeholder="输入管理费(选填)">
         <i class="input-icon">%</i>
     </div>
-    @if(!empty($book) && $book->is_template)
-        <div class="control-group">
-            <label for="">模板名称</label>
-            <input type="text" name="data[template_name]" value="{!! $book->template_name or '' !!}" class="input-style" placeholder="输入模板名称(选填)">
-            <label class="control-option">
-                <input type="checkbox" name="data[is_template]" value="1" @if(!empty($book->is_template)&& $book->is_template==1)checked @endif  /> 存为模板
-            </label>
-        </div>
-    @endif
+    <div class="control-group">
+        <label for="">模板名称</label>
+        <input type="text" name="data[template_name]" value="" class="input-style" placeholder="输入模板名称(选填)">
+        <label class="control-option">
+            <input type="checkbox" name="data[is_template]" value="1" /> 存为模板
+        </label>
+    </div>
     <div class="control-group">
         <label for="">备注</label>
-        <input type="text" name="data[remark]" value="{!! $book->remark or '' !!}" class="input-style">
+        <textarea class="remark" name="data[remark]" cols="3" rows="10" placeholder="备注：不超过40字（选填）">{!! $book->remark or '' !!}</textarea>
     </div>
     <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
