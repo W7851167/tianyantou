@@ -131,8 +131,22 @@ class AccountController extends FrontController
         return view('account.account.changenickname');
     }
 
-    public function changetelephone()
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 修改手机号
+     */
+    public function changetelephone(Request $request)
     {
+        if ($request->isMethod('post')) {
+            if ($request->get('step') == 1) {
+                $verifyCode = $request->get('verifyCode');
+                $checkcode = Session::get('phone');
+                if ($verifyCode != $checkcode) {
+                    $this->error('手机验证码不正确!', null, true);
+                }
+            }
+        }
         return view('account.account.changetelephone');
     }
 
@@ -323,6 +337,12 @@ class AccountController extends FrontController
         return view('account.account.setdealpassword');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 修改交易密码
+     */
     public function dealpassword(Request $request)
     {
         if ($request->isMethod('post')) {
