@@ -15,8 +15,9 @@ use GuzzleHttp\Client as HttpClient;
 
 use Illuminate\Support\Facades\Log;
 
-trait SmsTrait {
-    private  $client;
+trait SmsTrait
+{
+    private $client;
 
     /**
      * @param $mobile
@@ -24,22 +25,22 @@ trait SmsTrait {
      * @param $sendTime 设置发送时间
      * 发送短信
      */
-    public function sendSms($mobiles=['18611570121'], $content='您的验证码121【华信】',$sendTime=null,$extno='')
+    public function sendSms($mobiles = ['15072309522'], $content = '您的验证码121【华信】', $sendTime = null, $extno = '')
     {
         $options = $this->getDefault(true);
         $url = $options['url'];
         $params['action'] = 'send';
         $params['account'] = $options['account'];
         $params['password'] = $options['password'];
-        $params['mobile'] = count($mobiles) == 1 ? $mobiles[0] : implode(',',$mobiles);
+        $params['mobile'] = count($mobiles) == 1 ? $mobiles[0] : implode(',', $mobiles);
         $params['content'] = html_entity_decode($content);
-        if(!empty($sendTime)) {
+        if (!empty($sendTime)) {
             $params['sendTime'] = $sendTime;
         }
 
         !empty($extno) && $params['extno'] = $extno;
-        $url = $url .'?'. http_build_query($params);
-        $response =  $this->getClient()->get($url);
+        $url = $url . '?' . http_build_query($params);
+        $response = $this->getClient()->get($url);
 
         Log::debug('Sms Response:', [
             'Status' => $response->getStatusCode(),
@@ -72,23 +73,34 @@ trait SmsTrait {
      */
     private function getDefault($debug = true)
     {
-        if($debug) {
+        if ($debug) {
             return [
-                'url'=>'https://dx.ipyy.net/smsJson.aspx',
-                'useid'=>'',
-                'account'=>'AC00337',
-                'password' =>'AC0033700',
+                'url' => 'https://dx.ipyy.net/smsJson.aspx',
+                'useid' => '',
+                'account' => 'AC00337',
+                'password' => 'AC0033700',
             ];
         } else {
             return [
-                'url'=>'https://dx.ipyy.net/smsJson.aspx',
+                'url' => 'https://dx.ipyy.net/smsJson.aspx',
                 'userid' => '',
-                'account'=>'AC00337',
-                'password' =>'AC00374'
+                'account' => 'AC00337',
+                'password' => 'AC00374'
             ];
         }
     }
 
-
-
+    /**
+     * @param bool|true $debug
+     * @return array
+     * 短信模板信息
+     */
+    public function getSmsTemplates($type, $code = null, $data = [])
+    {
+        //手机号注册
+        if ($type == "register") {
+            $template = '【天眼投】尊敬的投之家用户，您的手机验证码为：' . $code . '，如非本人操作请忽略此短信。为了您的账号安全，请勿泄露验证码。';
+        }
+        return $template;
+    }
 }
