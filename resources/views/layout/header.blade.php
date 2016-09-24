@@ -61,7 +61,7 @@
                                     </a>
                                 </li>--}}
                                 <li>
-                                    <a href="{!! config('app.account_url') !!}/wallet/book.html">
+                                    <a href="{!! config('app.account_url') !!}/wallet/record.html">
                                         <i class="iconfont">&#xe640;</i>资金流水
                                     </a>
                                 </li>
