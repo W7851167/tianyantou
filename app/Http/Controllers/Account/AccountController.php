@@ -178,10 +178,31 @@ class AccountController extends FrontController
         return view('account.account.validateemail');
     }
 
-    public function validcard()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 通过手机修改邮箱
+     */
+    public function changeEmailByTelephone(Request $request)
     {
-        return view('account.account.validcard');
+        if ($request->isMethod('post')) {
+//            $verifyCode = trim($request->get('verifyCode'));
+//            $code = Session::get('phone');
+//            if ($verifyCode != $code) {
+//                return $this->error('手机验证码不正确!', null, true);
+//            }
+            if($request->get('step') == 0){
+                return view('account.account.changeemailbytelephone1');
+            }
+        }
+        return view('account.account.changeemailbytelephone');
     }
+
+//    public function validcard()
+//    {
+//        return view('account.account.validcard');
+//    }
 
 
     public function changepassword(Request $request)

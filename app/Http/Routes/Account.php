@@ -41,6 +41,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
     Route::match(['get', 'post'], 'safe/changeTelephone.html', ['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
     Route::match(['get', 'post'], 'safe/validateEmail.html', ['as' => 'safe.validateEmail', 'uses' => 'AccountController@validateemail']);
+    Route::match(['get', 'post'], 'safe/changeEmailByTelephone.html', ['as' => 'safe.changeEmailByTelephone', 'uses' => 'AccountController@changeEmailByTelephone']);
 //    Route::match(['get', 'post'], 'safe/validIdCard.html', ['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
     Route::match(['get', 'post'], 'safe/changePassword.html', ['as' => 'safe.changePassword', 'uses' => 'AccountController@changepassword']);
     Route::match(['get', 'post'], 'safe/setDealPassword.html', ['as' => 'safe.setDealPassword', 'uses' => 'AccountController@setdealpassword']);

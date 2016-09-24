@@ -54,9 +54,13 @@
                             </dt>
                             <dd>
                                 <span class="valid-value">@if($userinfo->email){!! substr_replace($userinfo->email,'******',1,6) !!}@else 未验证 @endif</span>
-                                <a href="{!! config('app.account_url') !!}/safe/validateEmail.html"
-                                   class="inline-modify modify-btn" data-target="#email-panel">@if($userinfo->email)修改@else验证@endif</a>
-                                <a href="{!! config('app.account_url') !!}/safe.html" class="modify-btn"></a>
+                                @if(empty($userinfo->email))
+                                    <a href="{!! config('app.account_url') !!}/safe/validateEmail.html"
+                                       class="inline-modify modify-btn" data-target="#email-panel">验证</a>
+                                @else
+                                    <a href="{!! config('app.account_url') !!}/safe/validateEmail.html" class="inline-modify modify-btn" data-target="#email-panel">通过原邮箱修改</a>
+                                    <a href="{!! config('app.account_url') !!}/safe/changeEmailByTelephone.html" class="inline-modify modify-btn" data-target="#email-panel">通过手机修改</a>
+                                @endif
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="email-panel"></div>
