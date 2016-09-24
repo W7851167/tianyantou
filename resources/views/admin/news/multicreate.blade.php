@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td width="200"><span>*</span>文章描述：</td>
-                                <td width="728"><textarea name="description" class="addText" style="width: 600px;height:100px;">{!! $new->description or '' !!}</textarea></td>
+                                <td width="728"><textarea name="description" class="addText" style="width: 600px;height:100px;font-size:14px;">{!! $new->description or '' !!}</textarea></td>
                             </tr>
                             <tr class="case_compile">
                                 <td><span>*</span>文章内容：</td>
