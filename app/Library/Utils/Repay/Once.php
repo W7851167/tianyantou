@@ -18,7 +18,7 @@ class Once extends  Repay{
      * 生成总的收入信息
      *  income = (投资总额) * 利率 * 投资月份
      */
-    public function getIncomeStats($data)
+    public function getStats($data)
     {
         $rate = $this->getDayRate($data['rate'], $data['rate_unit']);
         //年利率 日利率
@@ -53,9 +53,9 @@ class Once extends  Repay{
      * @return array
      * 获取详情列表
      */
-    public function getIncomeList($data)
+    public function getList($data)
     {
-        $result = $this->getIncomeStats($data);
+        $result = $this->getStats($data);
         $startTime = strtotime($data['start_time']);
         $unit = $data['term_unit'] == 0 ? 'months':'days';
         $endTime = strtotime('+' . $data['term'] . $unit, $startTime);
