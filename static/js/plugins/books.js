@@ -6,7 +6,7 @@
             $task_name = $(this).find("input[name='data[task_name]']"),
             $money = $(this).find("input[name='data[money]']"),
             $start_time = $(this).find("input[name='data[start_time]']"),
-            $rate = $(this).find("input[name='data[rate]']")
+            $rate = $(this).find("input[name='data[rate]']"),
             $term = $(this).find("input[name='data[term]']");
         if (!$.trim($corp_name.val())) {
             messageBox('请填写投资平台', 2);
@@ -43,4 +43,17 @@
             $('#bindbankcard').html(data);
         });
     });
+
+    function calculate (){
+        var money = $("input[name='data[money]']").val(),
+            rate = $("input[name='data[rate]']").val(),
+            rate_unit = $("input[name='data[rate_unit]']").val(),
+            term = $("input[name='data[term]']").val(),
+            term_unit = $("input[name='data[term_unit]']").val(),
+            repay = $("select[name='data[repay]']");
+        if(money == null || money == ''){
+            return false;
+        }
+    }
+
 }());

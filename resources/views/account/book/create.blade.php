@@ -13,6 +13,17 @@
             width: 470px;
             height: 64px;
         }
+        .total{
+            margin-left: 108px;
+            width: 470px;
+            border: 1px solid #4da3ec;
+            line-height: 59px;
+            padding-left: 22px;
+        }
+        .total em{
+            font-size: 16px;
+            margin: 0 20px 0 6px;
+        }
     </style>
 @stop
 
@@ -100,10 +111,7 @@
                                     <option value="等额本金" @if(!empty($book->repay)&&$book->repay=='等额本金')selected @endif>等额本金</option>
                                     <option value="等额本息" @if(!empty($book->repay)&&$book->repay=='等额本息')selected @endif>等额本息</option>
                                     <option value="月还息按季等额本金" @if(!empty($book->repay)&&$book->repay=='月还息按季等额本金')selected @endif>月还息按季等额本金</option>
-                                    <option value="利息复投" @if(!empty($book->repay)&&$book->repay=='利息复投')selected @endif>利息复投</option>
-                                    <option value="满标付息，到期还本" @if(!empty($book->repay)&&$book->repay=='满标付息，到期还本')selected @endif>满标付息，到期还本</option>
                                     <option value="按季付息到期还本" @if(!empty($book->repay)&&$book->repay=='按季付息到期还本')selected @endif>按季付息到期还本</option>
-                                    <option value="固定付息日" @if(!empty($book->repay)&&$book->repay=='固定付息日')selected @endif>固定付息日</option>
                                 </select>
                             </div>
                             <div class="control-group">
@@ -130,6 +138,10 @@
                                 <label for="">备注</label>
                                 <textarea class="remark" name="data[remark]" cols="3" rows="10" placeholder="备注：不超过40字（选填）">{!! $book->remark or '' !!}</textarea>
                             </div>
+                            <div class="control-group">
+                                <div class="total">预期收益<em class="num1" id="t_profit">0</em>预期利息<em class="num2" id="t_interest">0</em>总奖励<em class="num3" id="t_reward">0</em>实际年化<em class="num1" id="t_rate">0%</em></div>
+                            </div>
+                                <input type="button" id="calcStart" value="计算器">
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
                     </div>
