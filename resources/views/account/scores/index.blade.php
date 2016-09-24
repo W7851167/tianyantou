@@ -28,6 +28,7 @@
                             <tr>
                                 <th>时间</th>
                                 <th>积分</th>
+                                <th>剩余积分</th>
                                 <th>备注</th>
                             </tr>
                             </thead>
@@ -37,6 +38,7 @@
                                     <tr>
                                         <td>{!! $sv->created_at or '--' !!}</td>
                                         <td>{!! $sv->score or 0 !!}</td>
+                                        <td>{!! $census['total'] or 0 !!}</td>
                                         <td>{!! $sv->intro or '' !!}</td>
                                     </tr>
                                 @endforeach

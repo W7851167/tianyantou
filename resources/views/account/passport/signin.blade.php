@@ -37,7 +37,7 @@
                                             <span></span>
                                         </div>
                                         <div class="input-box">
-                                            <input name="username" class="input-style input-size" type="text" placeholder="请输入您的用户名" value=""/>
+                                            <input name="username" class="input-style input-size" type="text" placeholder="请输入您的用户名/邮箱/手机" value=""/>
                                             <i class="iconfont">&#xe604;</i>
                                         </div>
                                         <div class="input-box">
@@ -66,18 +66,6 @@
                                         </div>--}}
                                     </form>
                                 </div>
-                                {{--<div class="code-login">
-                                    <h3>微信扫码 安全登录</h3>
-                                    <div class="code-img" id="wx-qrcode">
-                                        <p>二维码加载中...</p>
-                                    </div>
-                                </div>
-                                <div class="code-btn">
-                                    <a href="javascript:;" class="switch-login">扫码登录</a>
-                                    <span class="msg">
-                                        <img src="{!! config('app.static_url') !!}/images/user/1.png" height="28px"/>使用<b>微信</b>快捷登录→
-                                    </span>
-                                </div>--}}
                             </div>
                         </div>
                     </div>
