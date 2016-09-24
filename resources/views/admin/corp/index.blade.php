@@ -46,7 +46,7 @@
                                     <a href="{!! url('corp/create',['id'=>$cv->id]) !!}">编辑</a>
                                     <a href="{!! url('corp/manage',['id'=>$cv->id]) !!}">管理</a>
                                     <a href="{!! config('app.url').'/platform/'.$cv->ename . '.html' !!}" target="_blank">查看</a>
-                                </td>、
+                                </td>
                             </tr>
                             @endforeach
                            @endif

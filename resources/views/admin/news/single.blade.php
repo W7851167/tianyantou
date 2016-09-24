@@ -28,7 +28,7 @@
                             @foreach($lists as $cat)
                                 <tr>
                                     <td>{!! $cat->id !!}</td>
-                                    <td>{!! $cat->title !!}</td>
+                                    <td><a href="{!! config('app.url') .'/about/'.$cat->page . '.html'!!}" target="_blank">{!! $cat->title !!}</a></td>
                                     <td>{!! $cat->created_at !!}</td>
                                     <td>
                                         <a href="{!! url('news/single/'.$cat->id) !!}">编辑</a>
