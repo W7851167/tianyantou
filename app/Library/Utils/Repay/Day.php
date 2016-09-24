@@ -19,7 +19,7 @@ class Day extends Repay
      * @param $data
      * 获取统计信息
      */
-    public function getIncomeStats($data)
+    public function getStats($data)
     {
 
     }
@@ -28,7 +28,7 @@ class Day extends Repay
      * @param $data
      * 获取统计列表信息
      */
-    public function  getIncomeList($data)
+    public function  getList($data)
     {
 
     }

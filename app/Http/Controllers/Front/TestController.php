@@ -38,8 +38,8 @@ class TestController extends  FrontController
             'discount' => 100,   //折扣奖励
             'start_time' => '2016-09-24',    //起息日期;
         ];
-        $obj = app()->make('LibraryManager')->create('IncomeProxy');
-        $result = $obj->_init($config)->getIncomeList();
+        $obj = app()->make('LibraryManager')->create('income');
+        $result = $obj->_init($config)->getList();
         dd($result);
     }
 
