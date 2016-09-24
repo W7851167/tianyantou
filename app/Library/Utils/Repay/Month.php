@@ -57,10 +57,12 @@ class Month extends Repay
         $result = $this->getStats($data);
         $days = $this->getDays($data['start_time'], $data['term'], $data['term_unit']);
         $dayRate = $this->getDayRate($data['rate'],$data['rate_unit']);
+        $money = $data['money'] + $data['reward'] + $data['discount'];
 
         $startTime = strtotime($data['start_time']);
         if($days < 30) {
             $result['repay_time'] =  $startTime + $days * 24 * 60 *60;
+            $result['days'] = $days;
             return $result;
         }
 
@@ -73,7 +75,7 @@ class Month extends Repay
             $startTime = $endTime;
             $lists[$i]['repay_time'] = date('Y-m-d',$endTime);
             $lists[$i]['days'] = $currentDays;
-            $lists[$i]['interest'] = $data['money'] * $dayRate * $currentDays;
+            $lists[$i]['interest'] = $money * $dayRate * $currentDays;
             $lists[$i]['income'] = 0;
             $i++;
         }while($lastTime >= $endTime);
@@ -83,7 +85,7 @@ class Month extends Repay
         $lists[$lastIndex]['repay_time'] = date('Y-m-d',$lastTime);
         $lastDays = ($lastTime - $startTime) / (24 * 60 * 60);
         $lists[$lastIndex]['days'] += $lastDays;
-        $lists[$lastIndex]['interest'] =  $data['money'] * $dayRate * $lists[$lastIndex]['days'];
+        $lists[$lastIndex]['interest'] =  $money * $dayRate * $lists[$lastIndex]['days'];
         $lists[$lastIndex]['income'] = $lists[$lastIndex]['interest'] + $data['money'] + $data['reward'] + $data['discount'];
         return $lists;
     }
