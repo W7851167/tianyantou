@@ -35,7 +35,9 @@
                             @foreach($lists as $nv)
                                 <tr>
                                     <td>{!! $nv->id !!}</td>
-                                    <td>{!! $nv->title !!}</td>
+                                    <td>
+                                      {!! $nv->title !!}
+                                    </td>
                                     <td>{!! $nv->categoryName($nv->category_id) !!}</td>
                                     <td>{!! $nv->created_at !!}</td>
                                     <td>
