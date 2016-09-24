@@ -29,6 +29,19 @@ class Repay
     }
 
     /**
+     * @param $rate
+     * @param $unit
+     * 获取月利息
+     */
+    protected  function getMonthRate($rate,$unit)
+    {
+        if($unit != 1)
+            return $rate / 12 / 100;
+        else
+            return $rate * 12 / 100;
+    }
+
+    /**
      * @param $startTime
      * @param $term
      * @param $unit

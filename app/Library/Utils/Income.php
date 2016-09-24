@@ -62,6 +62,9 @@ class Income {
             case 4:
                 $class = 'Capital';
                 break;
+            case 5:
+                $class = 'Principal';
+                break;
             default:
                 throw new RepayException('还款方式异常');
         }
