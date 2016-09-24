@@ -60,10 +60,10 @@ class UserRepository extends BaseRepository
     public function checkLogin($username, $password, $isAdmin = false, $remember = 0)
     {
         if ($isAdmin) {
+            $userModel = $this->userModel->where('username', $username)->first();
+        } else {
             $userModel = $this->userModel->where('nickname', $username)
                 ->orWhere('mobile', $username)->orWhere('email', $username)->first();
-        } else {
-            $userModel = $this->userModel->where('username', $username)->first();
         }
 
         if (!$userModel) return $this->getError('该用户不存在!');

@@ -187,13 +187,39 @@ class AccountController extends FrontController
     public function changeEmailByTelephone(Request $request)
     {
         if ($request->isMethod('post')) {
-//            $verifyCode = trim($request->get('verifyCode'));
-//            $code = Session::get('phone');
-//            if ($verifyCode != $code) {
-//                return $this->error('手机验证码不正确!', null, true);
-//            }
-            if($request->get('step') == 0){
+            $action = $request->get('action');
+            if ($request->get('step') == 1) {
+                $verifyCode = trim($request->get('verifyCode'));
+                $code = Session::get('phone');
+                if ($verifyCode != $code) {
+                    return $this->error('手机验证码不正确!', null, true);
+                }
                 return view('account.account.changeemailbytelephone1');
+            }
+            $email = $request->get('email');
+            $exists = $this->userRepository->userModel->where('email', $email)->exists();
+            if ($exists) {
+                return $this->error('该邮箱已注册天眼投账号!', null, true);
+            }
+            if ($action == 'changeEmail') {
+                $user = $this->userRepository->userModel->find($this->user['id']);
+                $user->email = $email;
+                event(new ValidateEmail($user));
+                return $this->success('发送成功!', null, true);
+            }
+            if ($action == 'emailstep2') {
+                $verifyCode = $request->get('verifyCode');
+                $code = Session::get('user_' . $this->user['id']);
+                if ($verifyCode != $code) {
+                    return $this->error('邮箱验证码不正确!', bull, true);
+                }
+                $data = ['id' => $this->user['id'], 'email' => $email];
+                try {
+                    $result = $this->userRepository->userModel->saveBy($data);
+                    if (!empty($result)) return $this->success('修改邮箱成功!', url('safe.html'), true);
+                } catch (\Exception $e) {
+                    return $this->error('修改邮箱失败!', null, true);
+                }
             }
         }
         return view('account.account.changeemailbytelephone');
