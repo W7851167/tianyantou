@@ -139,11 +139,28 @@ class AccountController extends FrontController
     public function changetelephone(Request $request)
     {
         if ($request->isMethod('post')) {
-            if ($request->get('step') == 1) {
-                $verifyCode = $request->get('verifyCode');
-                $checkcode = Session::get('phone');
-                if ($verifyCode != $checkcode) {
-                    $this->error('手机验证码不正确!', null, true);
+            $step = $request->get('step');
+            $verifyCode = $request->get('verifyCode');
+            $checkcode = Session::get('phone');
+            if ($verifyCode != $checkcode) {
+                return $this->error('手机验证码不正确!', null, true);
+            }
+            if ($step == 1) {
+                return view('account.account.changetelephone1');
+            }
+            if ($step == 2) {
+                $phone = $request->get('telephone');
+                $exists = $this->userRepository->userModel->where('mobile', $phone)->exists();
+                if ($exists) {
+                    return $this->error('该手机号已注册天眼投账号!', null, true);
+                }
+                try {
+                    $user = $this->userRepository->userModel->find($this->user['id']);
+                    $user->mobile = $phone;
+                    $user->save();
+                    return $this->success('修改手机号成功!', url('saft.html'), true);
+                } catch (\Exception $e) {
+                    return $this->error('修改手机失败!', null, true);
                 }
             }
         }
