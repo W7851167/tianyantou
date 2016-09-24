@@ -27,7 +27,7 @@
                             <thead>
                             <tr>
                                 <th>时间</th>
-                                <th>类型</th>
+                                <th>积分</th>
                                 <th>剩余积分</th>
                                 <th>备注</th>
                             </tr>
@@ -51,7 +51,7 @@
                             @endif
                             </tbody>
                         </table>
-                        <div class="pagination">{!! $pageHtml !!}</div>
+                        <div class="pagination" >{!! $pageHtml !!}</div>
                     </div>
                 </div>
             </div>
