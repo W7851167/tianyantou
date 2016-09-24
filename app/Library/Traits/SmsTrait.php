@@ -25,7 +25,7 @@ trait SmsTrait
      * @param $sendTime 设置发送时间
      * 发送短信
      */
-    public function sendSms($mobiles = ['15072309522'], $content = '您的验证码121【华信】', $sendTime = null, $extno = '')
+    public function sendSms($mobiles=['18611570121'], $content='您的验证码121【天眼投】',$sendTime=null,$extno='')
     {
         $options = $this->getDefault(true);
         $url = $options['url'];
