@@ -13,7 +13,7 @@ namespace App\Library\Utils;
 
 use App\Library\Utils\Repay\RepayException;
 
-class IncomeProxy {
+class Income {
     //还款方式
     private $repayType = [
         1 => '一次性还本付息',
@@ -89,17 +89,17 @@ class IncomeProxy {
     /**
      * 获取统计信息
      */
-    public function getIncomeStats()
+    public function getStats()
     {
-        return $this->obj->getIncomeStats($this->config);
+        return $this->obj->getStats($this->config);
     }
 
     /**
      * 获取矩阵信息
      */
-    public function getIncomeList()
+    public function getList()
     {
-        return $this->obj->getIncomeList($this->config);
+        return $this->obj->getList($this->config);
     }
 
 

@@ -19,7 +19,7 @@ class Month extends Repay
      * @param $data
      * 获取统计信息
      */
-    public function getIncomeStats($data)
+    public function getStats($data)
     {
         $rate = $this->getDayRate($data['rate'], $data['rate_unit']);
         //年利率 日利率
@@ -52,9 +52,9 @@ class Month extends Repay
      * @param $data
      * 获取统计列表信息
      */
-    public function  getIncomeList($data)
+    public function  getList($data)
     {
-        $result = $this->getIncomeStats($data);
+        $result = $this->getStats($data);
         $days = $this->getDays($data['start_time'], $data['term'], $data['term_unit']);
         $dayRate = $this->getDayRate($data['rate'],$data['rate_unit']);
 
