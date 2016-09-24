@@ -13,6 +13,7 @@
             <div class="main tworow" style="height: 831px;">
                 <div class="main-inner">
                     <h1 class="section-title">安全中心</h1>
+                    @if(empty($userinfo->nickname))
                     <div class="validation-group valid-nickname">
                         <dl class="validation-status clearfix">
                             <dt>
@@ -27,7 +28,8 @@
                         </dl>
                         <div class="validation-process hidden" id="nickname-panel"></div>
                     </div>
-                    {{--<div class="validation-group valid-telephone">
+                    @endif
+                    <div class="validation-group valid-telephone">
                         <dl class="validation-status clearfix">
                             <dt>
                                 <i class="s-icon"></i>
@@ -42,7 +44,7 @@
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="telephone-panel"></div>
-                    </div>--}}
+                    </div>
                     <div class="validation-group valid-email">
                         <dl class="validation-status clearfix">
                             <dt>

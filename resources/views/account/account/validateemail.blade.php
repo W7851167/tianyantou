@@ -9,8 +9,7 @@
             <span>验证成功</span>
         </li>
     </ul>
-    <form class="form-group" data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/validateEmail.html"
-                       data-refresh-url="#email-panel" data-callback ="autoResize">
+    <form class="form-group" data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/validateEmail.html" >
         <div class="control-group">
             <label>邮箱：</label>
             <input id="newemail" type="text" name="email" class="input-style"/>

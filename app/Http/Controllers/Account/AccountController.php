@@ -103,19 +103,24 @@ class AccountController extends FrontController
         if ($request->isMethod('post')) {
             $username = $request->nickname;
             $vUsername = $request->nickname_verify;
-            if (!$username || !$vUsername || $username != $vUsername)
-                return $this->error('修改失败!', null, true);
-            $data = [
-                'id' => $this->user['id'],
-                'username' => $username,
-            ];
+            if (!$username || !$vUsername) {
+                return $this->error('用户名不能为空!', null, true);
+            }
+            if ($username != $vUsername) {
+                return $this->error('两次用户名不一致!', null, true);
+            }
+            $exists = $this->userRepository->userModel->where('nickname', $username)->exists();
+            if ($exists) {
+                return $this->error('该用户名已经存在!', null, true);
+            }
+            $data = ['id' => $this->user['id'], 'nickname' => $username];
             try {
                 $result = $this->userRepository->userModel->saveBy($data);
                 if ($result) {
                     $data = Session::get('user.passport');
-                    $data['username'] = $username;
+                    $data['nickname'] = $username;
                     Session::put('user.passport', $data);
-                    return $this->success('修改成功!', null, true);
+                    return $this->success('修改成功!', url('/'), true);
                 }
             } catch (QueryException $e) {
                 $e->getMessage();
@@ -146,20 +151,28 @@ class AccountController extends FrontController
                 event(new ValidateEmail($user));
                 return $this->success('发送成功!', null, true);
             }
-            $code = $request->get('verifyCode');
-            $email = $request->get('email');
-            $checkcode = Session::get('user_' . $this->user['id']);
-            if (!$code || !$email || ($code != $checkcode)) {
-                return $this->error('验证失败!', null, true);
+            if ($request->get('action') == 'emailauth') {
+                $code = $request->get('verifyCode');
+                $email = $request->get('email');
+                $checkcode = Session::get('user_' . $this->user['id']);
+                if (!$code) {
+                    return $this->error('邮箱验证码不能为空!', null, true);
+                }
+                if (trim($code) != $checkcode) {
+                    return $this->error('邮箱验证码不正确!', null, true);
+                }
+                $exists = $this->userRepository->userModel->where('email', $email)->exists();
+                if ($exists) {
+                    return $this->error('该邮箱已注册天眼投账号!', null, true);
+                }
+                $data = ['id' => $this->user['id'], 'email' => $email];
+                try {
+                    $result = $this->userRepository->userModel->saveBy($data);
+                    if (!empty($result)) return $this->success('验证邮箱成功!', url('safe.html'), true);
+                } catch (\Exception $e) {
+                    return $this->error('验证邮箱失败!', null, true);
+                }
             }
-            $data = ['id' => $this->user['id'], 'email' => $email];
-            try {
-                $result = $this->userRepository->userModel->saveBy($data);
-                if ($result) $this->success('修改成功!', null, true);
-            } catch (QueryException $e) {
-                $e->getMessage();
-            }
-            return '修改失败!';
         }
 
         return view('account.account.validateemail');
@@ -263,19 +276,19 @@ class AccountController extends FrontController
     {
         try {
             $result = $this->census->savePast($this->user['id']);
-            if($result['status']) {
-                $past = $this->census->pastModel->where('user_id',$this->user['id'])->first();
+            if ($result['status']) {
+                $past = $this->census->pastModel->where('user_id', $this->user['id'])->first();
                 $signReward = getSignReward();
                 $res['ret'] = 1;
                 $res['info']['username'] = $this->user['username'];
                 $res['info']['Score'] = $signReward[$past->days];
                 $res['info']['SignCount'] = $past->days;
                 $res['info']['SignInReward'] = $signReward;
-                $res['info']['LastSignDate'] = date('c',strtotime($past->updated_at));
+                $res['info']['LastSignDate'] = date('c', strtotime($past->updated_at));
                 return $this->ajaxReturn($res);
             }
-        } catch(\Exception $e) {
-             $res['ret'] = 0;
+        } catch (\Exception $e) {
+            $res['ret'] = 0;
             return $this->ajaxReturn($res);
         }
     }

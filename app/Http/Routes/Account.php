@@ -39,7 +39,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
-//    Route::match(['get', 'post'], 'safe/changeTelephone.html', ['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
+    Route::match(['get', 'post'], 'safe/changeTelephone.html', ['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
     Route::match(['get', 'post'], 'safe/validateEmail.html', ['as' => 'safe.validateEmail', 'uses' => 'AccountController@validateemail']);
 //    Route::match(['get', 'post'], 'safe/validIdCard.html', ['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
     Route::match(['get', 'post'], 'safe/changePassword.html', ['as' => 'safe.changePassword', 'uses' => 'AccountController@changepassword']);

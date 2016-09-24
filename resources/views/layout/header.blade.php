@@ -18,8 +18,8 @@
 <div id="head">
     <script type="text/javascript">
         var USER={
-            "username":"{!! $user['username'] or ''!!}",
-            "islogin":{!! !empty($user['username']) ? 1 : 0 !!},
+            "username":"{!! $user['nickname'] ?: $user['mobile']!!}",
+            "islogin":{!! !empty($user['nickname']) ? 1 : 0 !!},
             "email_flag":{!! $user['email'] or 0 !!},
             "telephone_flag":{!! $user['mobile'] or 0 !!},
             "bank_flag":{!! $user['bank'] or 0 !!},
@@ -45,7 +45,7 @@
                             <a href="{!! config('app.account_url') !!}">
                                 <i class="shape-circle"></i>
                                 <img src="{!! config('app.static_url') !!}/images/user/headerimg2.png" width="80" height="80">
-                                <h3>您好，<span id="user-name" title="{!! $user['username'] or '' !!}">{!! $user['username'] or '' !!}</span></h3>
+                                <h3>您好，<span id="user-name" title="{!! $user['nickname'] ?: $user['mobile']!!}">{!! $user['nickname'] ?: $user['mobile']!!}</span></h3>
                             </a>
                         </div>
                         <div class="menu-list">

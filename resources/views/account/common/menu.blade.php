@@ -7,18 +7,18 @@
                 @else
                 <img src="{!! config('app.static_url') !!}/images/user/headerimg2.png" alt="" width="100" height="100">
                 @endif
-                <span class="user-nickname" title="{!! $user['username'] or '' !!}">
-                     {!! $user['username'] or '' !!}
+                <span class="user-nickname" title="{!! $user['nickname'] ? : $user['mobile'] !!}">
+                     {!! $user['nickname'] ? : $user['mobile'] !!}
                     <a class="iconfont" style="color: #666;" href="{!! config('app.account_url') !!}/safe.html">&#xe69f;</a>
                 </span>
                 <p class="accoount-validation mt10">
                     <a href="{!! config('app.account_url') !!}/safe.html" title="身份验证" @if($user['invest'] == 1) class="activated" @endif>
                         <i class="icon-identity"></i>
                     </a>
-                    <a href="{!! config('app.account_url') !!}/safe.html" title="手机验证" @if($user['mobile'] == 1) class="activated" @endif>
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="手机验证" @if($user['mobile']) class="activated" @endif>
                         <i class="icon-phoneno"></i>
                     </a>
-                    <a href="{!! config('app.account_url') !!}/safe.html" title="邮箱验证" @if($user['email'] == 1) class="activated" @endif>
+                    <a href="{!! config('app.account_url') !!}/safe.html" title="邮箱验证" @if($user['email']) class="activated" @endif>
                         <i class="icon-email"></i>
                     </a>
                     <a href="{!! config('app.account_url') !!}/safe.html" title="银行卡验证" @if($user['bank'] == 1) class="activated" @endif>
