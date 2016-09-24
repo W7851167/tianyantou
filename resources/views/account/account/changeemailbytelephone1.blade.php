@@ -14,7 +14,7 @@
         </li>
     </ul>
     <form class="form-group" data-toggle="ajaxForm" method="post"
-          action="{!! config('app.account_url') !!}/safe/changeEmailByTelephone.html?step=1" data-refresh-url="#email-panel"
+          action="{!! config('app.account_url') !!}/safe/changeEmailByTelephone.html?step=2" data-refresh-url="#email-panel"
           data-callback="autoResize">
         <div class="control-group">
             <label>新邮箱：</label>

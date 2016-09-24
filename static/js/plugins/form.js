@@ -112,13 +112,17 @@ function enableButton($elem, enable) {
       } else {
         var refreshUrl = $form.data('refresh-url');
         if (refreshUrl) {
-          var parts = refreshUrl.split('#');
-          if (parts[0]) {
-            $('#'+parts[1]).load(parts[0]);
-          } else {
-            $('#'+parts[1]).html(data);
+          if(data.status == 0){
+            messageBox(data.message,2)
+          }else{
+            var parts = refreshUrl.split('#');
+            if (parts[0]) {
+              $('#'+parts[1]).load(parts[0]);
+            } else {
+              $('#'+parts[1]).html(data);
+            }
+            Ucenter.readaptSidemenuAndMainpanel();
           }
-          Ucenter.readaptSidemenuAndMainpanel();
         } else {
          if(data.status == 1) {
            messageBox(data.message, 1);

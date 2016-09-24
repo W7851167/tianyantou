@@ -18,7 +18,7 @@
 <div id="head">
     <script type="text/javascript">
         var USER={
-            "username":"{!! $user['nickname'] ?: $user['mobile']!!}",
+            "username":{!! $user['nickname'] ?: $user['mobile']!!},
             "islogin":{!! !empty($user['nickname']) ? 1 : 0 !!},
             "email_flag":{!! $user['email'] or 0 !!},
             "telephone_flag":{!! $user['mobile'] or 0 !!},

@@ -14,7 +14,7 @@
         </li>
     </ul>
     <form class="form-group" data-toggle="ajaxForm"
-          action="{!! config('app.account_url') !!}/safe/changeEmailByTelephone.html?step=0" method="post">
+          action="{!! config('app.account_url') !!}/safe/changeEmailByTelephone.html?step=1" method="post" data-refresh-url="#email-panel" data-callback="autoResize">
         <div class="control-group">
             <label>原手机号码：</label>
             <input type="text" class="input-style" value="{!! substr_replace($user['mobile'],'****',3,4) !!}" readonly="readonly">

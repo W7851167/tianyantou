@@ -711,7 +711,12 @@ var Ucenter = (function() {
         url: url,
         method: "post",
         success: function(data) {
-          self.countdown(60);
+          if(data.status){
+            self.countdown(60);
+          }else{
+            self.addClass('btn-captcha').removeClass('btn-invalid');
+            messageBox(data.message,2);
+          }
         },
         error: function(xhr) {
           var ct = xhr.getResponseHeader('content-type');
