@@ -134,9 +134,55 @@ class PassportController extends FrontController
    /**
     *  通过手机找回密码
     */
-   public function findPasswordByPhone()
+   public function findPassword()
    {
-		return view();	
+		return view('account.passport.phone');
    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factorypu|\Illuminate\View\View
+     *  通过手机设置密码页面
+     */
+    public function resetByPhone(Request $request)
+    {
+        if($request->isMethod('get')) {
+            return view('account.passport.phone');
+        }
+        return view('account.passport.reset-phone');
+    }
+
+    /**
+     * @param Request $request
+     * 设置完成页面
+     */
+    public function complete(Request $request)
+    {
+        return view('account.passport.complete-phone');
+    }
+
+
+    /**
+     * 通过邮箱找回密码
+     */
+    public function resetByEmail(Request $request)
+    {
+        if($request->isMethod('get')) {
+            return view('account.passport.email');
+        }
+
+        return view('account.passport.reset-email');
+    }
+
+
+    /**
+     * @param $token
+     *  通过邮箱重置密码
+     */
+    public function setPassowrdByEmail($token)
+    {
+        return view('account.passport.set-email-password');
+    }
+
+
 
 }
