@@ -398,6 +398,9 @@ class AccountController extends FrontController
             if ($step == 1) {
                 $verifyCode = $request->get('verifyCode');
                 $checkcode = Session::get('phone');
+                if (!$verifyCode) {
+                    return $this->error('手机验证码不能为空!', null, true);
+                }
                 if (trim($verifyCode) != $checkcode) {
                     return $this->error('手机验证码不正确!', null, true);
                 }
@@ -405,7 +408,7 @@ class AccountController extends FrontController
             if ($step == 2) {
                 $dealpassword = trim($request->get('dealpassword'));
                 $confirmdealpassword = trim($request->get('confirmdealpassword'));
-                if (!$dealpassword != !$confirmdealpassword) {
+                if (!$dealpassword || !$confirmdealpassword) {
                     return $this->error('密码不能为空!', null, true);
                 }
                 if ($dealpassword != $confirmdealpassword) {
