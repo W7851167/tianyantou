@@ -61,8 +61,7 @@
                     <div class="step-content">
                         <h6><i class="iconfont"></i>验证码将发送到与投之家帐号绑定的手机号，请输入该手机号码</h6>
                         <div class="form-group">
-                            <form action="{!! config('app.account_url') !!}/findpassword/resetByPhone.html?via=phone&amp;step=1"
-                                  method="post">
+                            <form data-toggle="ajaxForm" action="{!! config('app.account_url') !!}/findpassword.html?via=phone&amp;step=1" method="post">
                                 <div class="control-group">
                                     <label for="phone-no">手机号码：</label>
                                     <input type="text" class="input-style" name="mobile" id="phone-no">
@@ -91,5 +90,5 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/wxLogin.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/findpassword.js"></script>
 @stop
