@@ -149,13 +149,6 @@ class PassportController extends FrontController
         Session::put('captcha', $captcha->getCode());
     }
 
-   /**
-    *  通过手机找回密码
-    */
-   public function findPassword()
-   {
-		return view('account.passport.phone');
-   }
 
     /**
      * @return \Illuminate\Contracts\View\Factorypu|\Illuminate\View\View
@@ -300,8 +293,8 @@ class PassportController extends FrontController
         return view('account.passport.doresetpasswordphone');
     }
 
-    public function resetByEmail()
-    {
-        return view('account.passport.resetbyemail');
-    }
+//    public function resetByEmail()
+//    {
+//        return view('account.passport.resetbyemail');
+//    }
 }
