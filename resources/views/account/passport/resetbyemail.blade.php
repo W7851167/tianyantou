@@ -72,10 +72,7 @@
                                     <input id="log-captcha" name="captcha" class="input-style input-size" type="text"
                                            placeholder="验证码">
                                     <input type="hidden" name="captcha_token" value="7473676c646f6468326d757373387335">
-                                    <img id="captcha"
-                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAAtCAMAAAB70mJmAAAAP1BMVEUAAAB8fH5paWtVVVcNDQ+BgYNkZGZ/f4EyMjQKCgx6enwWFhhISEoxMTM4ODptbW8aGhx1dXdbW11iYmRYWFpi+KTkAAAAAXRSTlMAQObYZgAAAr5JREFUeJzsWQ9zoy4QhVVBDE1+8/v+X/IuRkP4d0jTm0RQwaPX3ExfZ8wM4PJ2YZeHrRtUHKf0oT8W2vEn0CqAuowZVXiu30OxzSeza8YkwP0Xu78Xwgcti/4oWqXxQasAK67XetURMmwVy0R9FPXVz5/8yvKGPJQrEJq+04oDiGr7VFMHlBPZdVSrpkzOJrkUpFUSl4kW+2oWIRytrBT5S6jR2yBbBMIEXVQRDbewHRowqoFBkbAvBmgwRrYKy4fprDtcLrGErDsl3U+kz1g98vNbmD4Yj9PzINJ2MRDkfOPnecoDqUbnFzuZMfLSMHIuBISOd85Ofwzf6PDgnjd0NiKJVqNqZ7zvwnY8Taqi3i3vKytajs5hsCqvp06ImbTz+Vp7G4HfFny7rFWkdC6bllipFoaQrouUW/WKbgXrYzNd/HNAs/HjU/fkbhItgzqhUBfw6qltpNswPzdY3efRtPEEqH6u8gD3Q4HJLjS1TEtXg7MZSTZJAdCQWlVaGx9p6rtpi2JbftEe4c5ht+yEkKf2N91fXI4ksnJOiLiSw8avMleNjHQ2qFVY4jroY+DM2cpH+vbQfhyoGk9YXWeBbG7s4aiOpPAywkV0tDRDYMP9q/0FpidzWohbAaJB8r+na4s5TKOryKSdUQAD0/Q8C/HJ1QYl61hRXhE2PE5LH8jkHZf6mqPgI5VxBZuWb+SZlWobH/Me2cTD5x1ZrFbVKZ8mDxr15X0tDEur8ruQr06P2lzZ+f9b4tmzD3tEc1eBNTEFfFq6u2djp5Zf3SkF9NvO6/BnK8cXVKYTvmnl4JtWDl6U1mKBUGnDlrApqdfxSd9OKZpL9zxkLSKlNHGkWGe1+XlhM1oPFvyJAxHlnQuGYvr9ETmL6ENVRDewLd++JhM3I55DS6BCwdrGP/5fjOgFa/NivRu/AgAA//8W9eFdJfH2egAAAABJRU5ErkJggg=="
-                                         alt="验证码" class="captcha-img"
-                                         style="width: 150px;height: 45px;vertical-align: middle;cursor: pointer;">
+                                    <img id="captcha" src="{!!url('signin/captcha')!!}" class="img" onclick="this.src='{!!url("signin/captcha?")!!}'+Math.random();" style="vertical-align: middle;" />
                                 </div>
                                 <input type="submit" class="btn-blue btn-l btn-submit">
                             </form>
