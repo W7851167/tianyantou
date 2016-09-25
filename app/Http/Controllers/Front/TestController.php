@@ -17,6 +17,7 @@ use App\Http\Controllers\FrontController;
 use App\Jobs\SendSmsJob;
 use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
+use Illuminate\Support\Facades\Queue;
 
 class TestController extends  FrontController
 {
@@ -28,7 +29,7 @@ class TestController extends  FrontController
 
     public function index()
     {
-        $this->dispatch((new SendSmsJob('dddd')));
+        return $this->dispatch(new SendSmsJob(['message'=>'content']));
     }
 
 }
