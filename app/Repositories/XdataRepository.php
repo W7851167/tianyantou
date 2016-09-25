@@ -16,28 +16,30 @@ use App\Models\ImageModel;
 use App\Models\LinkModel;
 use Illuminate\Database\QueryException;
 
-class XdataRepository extends  BaseRepository {
+class XdataRepository extends BaseRepository
+{
     public function __construct(
         AdvModel $advModel,
         ImageModel $imageModel,
         LinkModel $linkModel
-    ) {
+    )
+    {
         $this->advModel = $advModel;
         $this->imageModel = $imageModel;
         $this->linkModel = $linkModel;
     }
 
-       /**
+    /**
      * @param array $where
      * @param $limit
      * @param $page
      * @return array
      * 获取广告列表
      */
-    public function getAdvList($where = [], $limit, $page, $trashed=0)
+    public function getAdvList($where = [], $limit, $page, $trashed = 0)
     {
         $order['sorts'] = 'desc';
-        $lists = $this->advModel->lists(['*'], $where, $order, [], $limit, $page,$trashed);
+        $lists = $this->advModel->lists(['*'], $where, $order, [], $limit, $page, $trashed);
         $counts = $this->advModel->countBy($where);
         return [$counts, $lists];
     }
@@ -72,6 +74,7 @@ class XdataRepository extends  BaseRepository {
             return static::getError($e->getMessage());
         }
     }
+
     public function deleteLink($id)
     {
         try {
@@ -82,7 +85,6 @@ class XdataRepository extends  BaseRepository {
         } catch (QueryException $e) {
             return static::getError($e->getMessage());
         }
-
 
         if ($result instanceof Exception) {
             return $this->getError($result->getMessage());
@@ -99,18 +101,18 @@ class XdataRepository extends  BaseRepository {
     public function saveAdv($data)
     {
 
-        $result = $this->advModel->getConnection()->transaction(function() use($data){
-            if(!empty($data['img'])) {
+        $result = $this->advModel->getConnection()->transaction(function () use ($data) {
+            if (!empty($data['img'])) {
                 $img = $data['img'];
                 unset($data['img']);
             }
             $advId = $this->advModel->saveBy($data);
             $advId = !empty($data['id']) ? $data['id'] : $advId;
-            if(!empty($img)) {
+            if (!empty($img)) {
                 $imageData['item_id'] = $advId;
                 $imageData['item_type'] = 'App\Models\AdvModel';
                 $imageData['name'] = $img;
-                $this->imageModel->saveImage($imageData,true);
+                $this->imageModel->saveImage($imageData, true);
             }
         });
         if ($result instanceof \Exception) {

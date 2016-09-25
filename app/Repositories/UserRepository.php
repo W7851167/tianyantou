@@ -14,8 +14,10 @@ namespace App\Repositories;
 
 use App\Eloquent\Model;
 use App\Models\BankModel;
+use App\Models\BookModel;
 use App\Models\MessageModel;
 use App\Models\MoneyModel;
+use App\Models\RecordModel;
 use App\Models\ScoreModel;
 use App\Models\UserModel;
 use App\Models\WithdrawModel;
@@ -31,7 +33,9 @@ class UserRepository extends BaseRepository
         MoneyModel $moneyModel,
         WithdrawModel $withdrawModel,
         BankModel $bankModel,
-        MessageModel $messageModel
+        MessageModel $messageModel,
+        RecordModel $recordModel,
+        BookModel $bookModel
     )
     {
         $this->userModel = $userModel;
@@ -40,6 +44,8 @@ class UserRepository extends BaseRepository
         $this->bankModel = $bankModel;
         $this->withdrawModel = $withdrawModel;
         $this->messageModel = $messageModel;
+        $this->recordModel = $recordModel;
+        $this->bookModel = $bookModel;
     }
 
     /**
@@ -51,9 +57,14 @@ class UserRepository extends BaseRepository
      *
      * 验证登录信息
      */
-    public function checkLogin($userName, $password, $isAdmin = false, $remember = 0)
+    public function checkLogin($username, $password, $isAdmin = false, $remember = 0)
     {
-        $userModel = $this->userModel->where('username', $userName)->first();
+        if ($isAdmin) {
+            $userModel = $this->userModel->where('username', $username)->first();
+        } else {
+            $userModel = $this->userModel->where('nickname', $username)
+                ->orWhere('mobile', $username)->orWhere('email', $username)->first();
+        }
 
         if (!$userModel) return $this->getError('该用户不存在!');
 
@@ -85,25 +96,24 @@ class UserRepository extends BaseRepository
      */
     public function setSessionData($userModel)
     {
-        $emailFlag = !empty($userModel->email) ? 1 : 0;
-        $mobileFlag = !empty($userModel->mobile) ? 1 : 0;
+        $emailFlag = !empty($userModel->email) ? $userModel->email : 0;
+        $mobileFlag = !empty($userModel->mobile) ? $userModel->mobile : 0;
         $bankFlag = !empty($userModel->bank) ? 1 : 0;
         //$investFlag = $emailFlag && $mobileFlag && $bankFlag;
-        $emailFlag = 1;
-        $mobileFlag = 1;
-        $bankFlag = 1;
         $investFlag = 1;
         $avatar = isset($userModel->avatar->name) ? $userModel->avatar->name : '';
 
         return [
             'id' => $userModel->id,
             'username' => $userModel->username,
+            'nickname' => $userModel->nickname,
             'avatar' => $avatar,
             'email' => $emailFlag,
             'mobile' => $mobileFlag,
             'bank' => $bankFlag,
             "invest" => $investFlag,
             'role' => $userModel->roles,
+            'model' => $userModel,
         ];
     }
 
@@ -177,8 +187,15 @@ class UserRepository extends BaseRepository
         $result = $this->withdrawModel->getConnection()->transaction(function () use ($data) {
             $this->withdrawModel->saveBy($data);
             $userModel = $this->userModel->find($data['user_id']);
-            $userModel->money->decrement('withdraw', $data['price']);
+            if ($data['status'] == 0) {
+                $userModel->money->increment('withdraw', $data['price']);
+                $userModel->money->decrement('money', $data['price']);
+            }
+            if ($data['status'] == 1) {
+                $userModel->money->decrement('withdraw', $data['price']);
+            }
             if ($data['status'] == 2) {
+                $userModel->money->decrement('withdraw', $data['price']);
                 $userModel->money->increment('money', $data['price']);
             }
         });
@@ -271,6 +288,38 @@ class UserRepository extends BaseRepository
         $orderBy = ['created_at' => 'desc'];
         $lists = $this->messageModel->lists("*", $where, $orderBy, [], $limit, $page);
         $count = $this->messageModel->countBy($where);
+        return [$count, $lists];
+    }
+
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     *
+     * 流水列表
+     */
+    public function getRecordList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->recordModel->lists("*", $where, $orderBy, [], $limit, $page);
+        $count = $this->recordModel->countBy($where);
+        return [$count, $lists];
+    }
+
+    /**
+     * @param array $where
+     * @param $limit
+     * @param $page
+     * @return array
+     *
+     * 用户记账列表
+     */
+    public function getBookList($where = [], $limit, $page)
+    {
+        $orderBy = ['created_at' => 'desc'];
+        $lists = $this->bookModel->lists('*', $where, $orderBy, [], $limit, $page);
+        $count = $this->bookModel->countBy($where);
         return [$count, $lists];
     }
 

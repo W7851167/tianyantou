@@ -104,7 +104,6 @@ function enableButton($elem, enable) {
     success: function(data, status, xhr, $form) {
       $submitBtn = $form.find('input[type=submit]');
       enableButton($submitBtn, true);
-
       layer && layer.closeAll('page');
       if (data.code) {
         if (data.code == 303) {
@@ -113,18 +112,26 @@ function enableButton($elem, enable) {
       } else {
         var refreshUrl = $form.data('refresh-url');
         if (refreshUrl) {
-          var parts = refreshUrl.split('#');
-          if (parts[0]) {
-            $('#'+parts[1]).load(parts[0]);
-          } else {
-            $('#'+parts[1]).html(data);
+          if(data.status == 0){
+            messageBox(data.message,2)
+          }else{
+            var parts = refreshUrl.split('#');
+            if (parts[0]) {
+              $('#'+parts[1]).load(parts[0]);
+            } else {
+              $('#'+parts[1]).html(data);
+            }
+            Ucenter.readaptSidemenuAndMainpanel();
           }
-          Ucenter.readaptSidemenuAndMainpanel();
         } else {
-          data && messageBox(data, 1);
-          setTimeout(function() {
-            location.reload();
-          }, 3000);  
+         if(data.status == 1) {
+           messageBox(data.message, 1);
+           setTimeout(function() {
+             window.location.href = data.url;
+           }, 3000);
+         } else {
+           messageBox(data.message,2)
+         }
         }
       }
     },
@@ -134,7 +141,7 @@ function enableButton($elem, enable) {
       
       var ct = xhr.getResponseHeader('content-type');
       var $message = $form.find('.msg-wrap');
-      var messageText = '系统繁忙请稍后重试，天眼投客服电话 400-883-1803';
+      var messageText = '系统繁忙请稍后重试，天眼投客服电话 010-57283503';
       if (ct.indexOf('plain') > -1) {
         messageText = xhr.responseText;
       }

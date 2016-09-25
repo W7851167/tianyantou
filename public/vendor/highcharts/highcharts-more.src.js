@@ -2304,7 +2304,7 @@ var arrayMin = Highcharts.arrayMin,
             point.plotX = point.polarPlotX = xy.x - chart.plotLeft;
             point.plotY = point.polarPlotY = xy.y - chart.plotTop;
 
-            // If shared tooltip, record the angle in degrees in order to align X points. Otherwise,
+            // If shared tooltip, book the angle in degrees in order to align X points. Otherwise,
             // use a standard k-d tree to get the nearest point in two dimensions.
             if (this.kdByAngle) {
                 clientX = ((plotX / Math.PI * 180) + this.xAxis.pane.options.startAngle) % 360;

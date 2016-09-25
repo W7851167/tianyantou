@@ -11,12 +11,19 @@
  ***********************************************************************************/
 Route::get('register/protocol.html', 'PassportController@protocol');
 Route::match(['get', 'post'], 'signin/captcha', 'PassportController@captcha');
+<<<<<<< HEAD
 Route::get('findpassword.html', 'PassportController@findPassword');
 Route::any('findpassword/resetByPhone.html','PassportController@resetByPhone');
 Route::post('findpassword/doresetpasswordphone.html','PassportController@complete');
 Route::any('findpassword/resetByEmail.html','PassportController@resetByEmail');
 Route::get('findpassword/resetpasswordemail/{token}.html','PassportController@setPassowrdByEmail');
 Route::get('findpassword/doResetPasswordEmail.html','PassportController@complete');
+=======
+Route::post('common/sendVerifyCode', 'PassportController@sendVerifyCode');
+Route::match(['get', 'post'], 'findpassword.html', 'PassportController@findpassword');
+Route::get('findpassword/resetByEmail.html', 'PassportController@resetByEmail');
+Route::match(['get', 'post'], 'findpassword/doresetpasswordphone.html', 'PassportController@doresetpasswordphone');
+>>>>>>> 828505afb4753c652f76ad8755d7283a8e071239
 
 Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
@@ -26,24 +33,35 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     //投资记录
     Route::get('networth/index.html', ['as' => 'networth', 'uses' => 'NetworthController@index']);
-    Route::any('networth/create/{id}', ['as'=>'networth.create','uses'=>'NetworthController@create']);
+    Route::any('networth/create/{id}', ['as' => 'networth.create', 'uses' => 'NetworthController@create']);
+    Route::any('networth/delete/{id}', ['as' => 'networth.delete', 'uses' => 'NetworthController@delete']);
     //平台
     Route::get('platforms/statistic.html', ['as' => 'platform', 'uses' => 'PlatformController@statistic']);
     Route::get('platforms/analysis.html', ['as' => 'platform', 'uses' => 'PlatformController@analysis']);
     //账号充值
-    Route::get('wallet/withdraw.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@withdraw']);
-    Route::get('wallet/book.html', ['as' => 'wallet.recharge', 'uses' => 'WalletController@book']);
+    Route::match(['get', 'post'], 'wallet/withdraw.html', ['as' => 'wallet.withdraw', 'uses' => 'WalletController@withdraw']);
+    Route::get('wallet/withdrawlist.html', ['as' => 'wallet.withdrawlist', 'uses' => 'WalletController@withdrawlist']);
+    Route::get('wallet/record.html', ['as' => 'wallet.record', 'uses' => 'WalletController@record']);
+    //记帐本
+    Route::get('book.html', ['as' => 'record.index', 'uses' => 'BookController@index']);
+    Route::any('book/create/{id?}', ['as' => 'book.create', 'uses' => 'BookController@create']);
+    Route::get('book/delete/{id}', ['as' => 'book.delete', 'uses' => 'BookController@delete']);
+    Route::post('book/template/delete/{id}', ['as' => 'book.template.delete', 'uses' => "BookController@deletetemplate"]);
+    Route::get('book/template/{id}', ['as' => 'book.template', 'uses' => 'BookController@template']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
     Route::match(['get', 'post'], 'safe/changeTelephone.html', ['as' => 'safe.changeTelephone', 'uses' => 'AccountController@changetelephone']);
     Route::match(['get', 'post'], 'safe/validateEmail.html', ['as' => 'safe.validateEmail', 'uses' => 'AccountController@validateemail']);
-    Route::match(['get', 'post'], 'safe/validIdCard.html', ['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
+    Route::match(['get', 'post'], 'safe/changeEmailByTelephone.html', ['as' => 'safe.changeEmailByTelephone', 'uses' => 'AccountController@changeEmailByTelephone']);
+//    Route::match(['get', 'post'], 'safe/validIdCard.html', ['as' => 'safe.validIdCard', 'uses' => 'AccountController@validcard']);
     Route::match(['get', 'post'], 'safe/changePassword.html', ['as' => 'safe.changePassword', 'uses' => 'AccountController@changepassword']);
+    Route::match(['get', 'post'], 'safe/setDealPassword.html', ['as' => 'safe.setDealPassword', 'uses' => 'AccountController@setdealpassword']);
     Route::match(['get', 'post'], 'safe/changeDealPassword.html', ['as' => 'safe.changeDealPassword', 'uses' => 'AccountController@dealpassword']);
     Route::match(['get', 'post'], 'safe/finddealpassword.html', ['as' => 'safe.finddealpassword', 'uses' => 'AccountController@findpassword']);
-    Route::match(['get', 'post'], 'safe/setSecurityQuestion.html', ['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
+//    Route::match(['get', 'post'], 'safe/setSecurityQuestion.html', ['as' => 'safe.setSecurityQuestion', 'uses' => 'AccountController@question']);
     Route::match(['get', 'post'], 'bankcard.html', ['as' => 'safe', 'uses' => 'AccountController@bankcard']);
+    Route::match(['get', 'post'], 'bankcard/update.html', ['as' => 'safe.bankcard', 'uses' => 'AccountController@updatebcard']);
     //活动专区
 //    Route::get('activity/recommend.html', ['as' => 'activity.recommend', 'uses' => 'ActivityController@recommend']);
 //    Route::get('shop.html', ['as' => 'shop', 'uses' => 'ActivityController@shop']);
@@ -58,4 +76,6 @@ Route::group(['middleware' => 'middle.account'], function () {
     //统计
     Route::get('chart/waitIncomeStats', ['as' => 'charts.income', 'uses' => 'ChartController@waitIncomeStats']);
     Route::get('chart/incomeStats', ['as' => 'charts.halfyear', 'uses' => 'ChartController@incomeStats']);
+    //签到
+    Route::get('shop/signin', ['as' => 'shop.signin', 'uses' => 'AccountController@signin']);
 });

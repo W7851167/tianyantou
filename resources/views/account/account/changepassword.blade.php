@@ -1,9 +1,9 @@
-<form data-toggle="ajaxForm" method="post" action="https://account.tianyantou.com/safe/changePassword.html" data-refresh-url="#password-panel">
+<form data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/changePassword.html" data-refresh-url="#password-panel">
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">
             <label for="account-name">用户名：</label>
-            <span>j3MaM43hBE</span>
+            <span>{!! $user['username'] or '' !!}</span>
         </div>
         <div class="control-group">
             <label>原登录密码：</label>

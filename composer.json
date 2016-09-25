@@ -7,7 +7,10 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "illuminate/html": "^5.0"
+        "illuminate/html": "^5.0",
+        "guzzlehttp/guzzle": "^6.2",
+        "pda/pheanstalk": "^3.1",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

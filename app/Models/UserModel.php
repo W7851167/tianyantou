@@ -57,4 +57,10 @@ class UserModel extends BaseModel
         $this->attributes['password'] = \Hash::make($value);
     }
 
+    //签到信息
+    public function past()
+    {
+        return $this->hasOne('App\Models\PastModel','user_id');
+    }
+
 }

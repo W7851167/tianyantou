@@ -47,8 +47,8 @@
                     <ul>
                         <li><a href="{!! config('app.url') !!}/about/safety.html">安全评级</a></li>
                         <li><a href="{!! config('app.url') !!}/about/media.html">媒体报道</a></li>
-                        <li><a href="{!! config('app.url') !!}/guide.html">新手指引</a></li>
-                        <li><a href="{!! config('app.url') !!}/about/plan.html">T盾保障</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/activity.html">活动展示</a></li>
+                        <li><a href="{!! config('app.url') !!}/about/plan.html">天眼盾保障</a></li>
                     </ul>
                     <ul>
                         <li><a href="{!! config('app.url') !!}/about/career.html">招贤纳士</a></li>
@@ -171,5 +171,14 @@
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/layer/layer.js"></script>
 @yield('script')
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </body>
 </html>

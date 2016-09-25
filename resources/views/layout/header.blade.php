@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta content="always" name="referrer">
-    <title>@yield('title')</title>
+    <title>天眼投 - @yield('title')</title>
     <meta name="keywords" content="@yield('description')">
     <meta name="description" content="@yield('description')">
     <meta name="author" content="p2p网贷,p2p理财,天眼投投资理财平台" />
@@ -18,8 +18,8 @@
 <div id="head">
     <script type="text/javascript">
         var USER={
-            "username":"{!! $user['username'] or ''!!}",
-            "islogin":{!! !empty($user['username']) ? 1 : 0 !!},
+            "username":"{!! $user['nickname'] ?: $user['mobile']!!}",
+            "islogin":{!! !empty($user['nickname']) ? 1 : 0 !!},
             "email_flag":{!! $user['email'] or 0 !!},
             "telephone_flag":{!! $user['mobile'] or 0 !!},
             "bank_flag":{!! $user['bank'] or 0 !!},
@@ -29,7 +29,8 @@
             "www": "{!! config('app.url') !!}",
             "account":"{!! config('app.account_url') !!}",
             "static":"{!! config('app.static_url') !!}",
-            "admin":"{!! config('app.admin_url') !!}"
+            "admin":"{!! config('app.admin_url') !!}",
+            "topic": "{!! config('app.static_url') !!}",
         };
     </script>
     <div id="head-top">
@@ -44,7 +45,7 @@
                             <a href="{!! config('app.account_url') !!}">
                                 <i class="shape-circle"></i>
                                 <img src="{!! config('app.static_url') !!}/images/user/headerimg2.png" width="80" height="80">
-                                <h3>您好，<span id="user-name" title="{!! $user['username'] or '' !!}">{!! $user['username'] or '' !!}</span></h3>
+                                <h3>您好，<span id="user-name" title="{!! $user['nickname'] ?: $user['mobile']!!}">{!! $user['nickname'] ?: $user['mobile']!!}</span></h3>
                             </a>
                         </div>
                         <div class="menu-list">
@@ -60,7 +61,7 @@
                                     </a>
                                 </li>--}}
                                 <li>
-                                    <a href="{!! config('app.account_url') !!}/wallet/book.html">
+                                    <a href="{!! config('app.account_url') !!}/wallet/record.html">
                                         <i class="iconfont">&#xe640;</i>资金流水
                                     </a>
                                 </li>
@@ -110,8 +111,8 @@
                 <ul>
                     <li class="@if(\Request::url() == config('app.url'))curr @endif"><a href="{!! config('app.url') !!}/">首页</a></li>
                     <li class="@if(\Request::url() == config('app.url').'/platform')curr @endif"><a href="{!! config('app.url') !!}/platform">精选平台</a></li>
-                    <li class="@if(\Request::url() == config('app.url').'/plan')curr @endif"><a href="{!! config('app.url') !!}/plan">天眼盾</a></li>
-                    <li class="@if(\Request::url() == config('app.url').'/shop')curr @endif"><a href="{!! config('app.url') !!}/shop">积分商城</a></li>
+                    <li class="@if(\Request::url() == config('app.url').'/plan')curr @endif"><a href="javascript:void(0)">天眼盾</a></li>
+                    <li class="@if(\Request::url() == config('app.url').'/shop')curr @endif"><a href="javascript:void(0)">积分商城</a></li>
                 </ul>
             </div>
         </div>

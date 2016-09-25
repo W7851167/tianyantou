@@ -170,7 +170,7 @@
 			}
 		});
 
-		// Add a record of properties for each drilldown level
+		// Add a book of properties for each drilldown level
 		level = {
 			levelNumber: levelNumber,
 			seriesOptions: oldSeries.options,

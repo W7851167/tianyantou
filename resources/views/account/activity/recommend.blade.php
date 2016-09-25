@@ -39,7 +39,7 @@
                                 <div class="tab-main">
                                     <div class="active">
                                         <div class="invite-reward">
-                                            <img src="./投之家 - 个人中心_files/invite-reward.jpg" alt="">
+                                            <img src="./天眼投 - 个人中心_files/invite-reward.jpg" alt="">
                                             <a href="http://topics.tianyantou.com/newregister.html" target="_blank"
                                                class="btn btn-blue btn-l">查看详情</a>
                                         </div>
@@ -84,9 +84,9 @@
                             <h3 class="title-indent">温馨提示</h3>
                             <div class="tip-main">
                                 <ul class="tab-content">
-                                    <li>1. 所有红包、投资券及加息券请在“个人中心-理财劵”中查看，购买投之家定期产品时可以使用；</li>
-                                    <li>2. 请将上方的推广链接发送给您的好友，或者您好友在注册投之家账号的时候，填写您的手机号码；</li>
-                                    <li>3. 根据活动情况，获得投之家邀请奖励会有所变化，具体相关活动请关注网站活动公告。</li>
+                                    <li>1. 所有红包、投资券及加息券请在“个人中心-理财劵”中查看，购买天眼投定期产品时可以使用；</li>
+                                    <li>2. 请将上方的推广链接发送给您的好友，或者您好友在注册天眼投账号的时候，填写您的手机号码；</li>
+                                    <li>3. 根据活动情况，获得天眼投邀请奖励会有所变化，具体相关活动请关注网站活动公告。</li>
                                 </ul>
                             </div>
                         </div>

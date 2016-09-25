@@ -16,8 +16,9 @@ return [
     |
     */
 
-    'default' => env('QUEUE_DRIVER', 'sync'),
+    //'default' => env('QUEUE_DRIVER', 'sync'),
 
+    'default' =>"beanstalkd",
     /*
     |--------------------------------------------------------------------------
     | Queue Connections

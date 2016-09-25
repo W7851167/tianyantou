@@ -1,9 +1,7 @@
 @extends('layout.main')
-@section('title')交任务@stop
+@section('title')提交任务@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css"/>
-    <link media="all" type="text/css" rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/datepicker/skin/WdatePicker.css">
-    <script src="{!! config('app.static_url') !!}/js/lib/datepicker/WdatePicker.js"></script>
 @stop
 
 @section('content')
@@ -23,15 +21,29 @@
                                         <th width="120">投资人用户姓名</th>
                                         <th width="120">注册投资手机号</th>
                                         <th width="90">投资金额(元)</th>
-                                        <th width="140">投标时间</th>
+                                        <th width="140">投标期限</th>
+                                        <th width="64">操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @if(!empty($receiveModel->achieves))
+                                        @foreach($receiveModel->achieves as $av)
+                                        <tr class="record">
+                                            <td>{!! $receiveModel->task->title or '' !!}</td>
+                                            <td>{!! $av->realname or '' !!}</td>
+                                            <td>{!! $av->mobile or ''!!}</td>
+                                            <td>{!! tmoney_format($av->price) !!}</td>
+                                            <td>{!! $av->term or 0!!} {!! $av->task->term_unit == 0 ? '天' : ($av->task->term_unit == 1 ? '个月' : '年')!!}</td>
+                                            <td><a href="{!! url('networth/delete',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">删除</a></td>
+                                        </tr>
+                                        @endforeach
+                                    @else
                                     <tr class="norecord">
                                         <td colspan="6">
                                             没有查询到相关记录
                                         </td>
                                     </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                                 <div class="pagination" data-pagination-ref="networth_records_1"></div>
@@ -41,6 +53,11 @@
                     <div class="form-group bindbankcard">
                         <form id="bindbankcard" method="post" data-toggle="ajaxForm">
                             {!! csrf_field() !!}
+                            <div class="control-group">
+                                <label>投资编号</label>
+                                <input type="text" class="input-style" name="data[order_sn]" value="">
+                                <em>请添加投资人在平台投资的编号</em>
+                            </div>
                             <div class="control-group">
                                 <label for="real-name">真实姓名</label>
                                 <input type="text" class="input-style" name="data[realname]" value="">
@@ -54,11 +71,13 @@
                             <div class="control-group">
                                 <label>投资金额</label>
                                 <input type="text" name="data[price]" class="input-style">
+                                <em>请填写真实的投资金额</em>
                             </div>
                             <div class="control-group">
                                 <label for="">投资时间</label>
-                                <input type="text" name="data[invest_time]" class="input-style Wdate"  
-                                 onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="">
+                                <input type="text" name="data[term]" class="input-style" value=""onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+                                {!! $receiveModel->task->term_unit == 0 ? '天' : ($receiveModel->task->term_unit == 1 ? '个月' : '年')!!}
+                                <em>请填写真实的投资时间</em>
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>

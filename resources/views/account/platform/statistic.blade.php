@@ -2,7 +2,6 @@
 @section('title')平台统计@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
-    <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />
 @stop
 
 @section('content')
@@ -38,7 +37,7 @@
                                         <dt>综合年化收益率</dt>
                                         <dd>0.00%</dd>
                                     </dl>
-                                    <a href="https://account.tianyantou.com/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
+                                    <a href="{!! config('app.account_url') !!}/platforms/analysis.html" class="link footnote-link">查看详情&gt;&gt;</a>
                                 </div>
                             </div>
                         </div>
@@ -46,38 +45,47 @@
                         <!-- 平台列表start -->
                         <div class="tab click-tab btn-tab">
                             <ul class="tab-nav page-switch clearfix">
-                                <li class="active"><a href="javascript:;">已开通平台（2个）</a></li>
-                                <li class=""><a href="{!! config('app.account_url') !!}/platforms/statistic.html">未开通平台（{!! $count !!}个）</a>
+                                <li class="active"><a href="javascript:;">已开通平台（{!! $openCount or 0 !!}个）</a></li>
+                                <li class=""><a href="{!! config('app.account_url') !!}/platforms/statistic.html">未开通平台（{!! $count or 0 !!}个）</a>
                                 </li>
                             </ul>
                             <div class="tab-main">
                                 <!-- 已开通平台选项卡 start -->
                                 <div class="active">
-                                    <!--<div class="activate-plat">
-                                        <i class="iconfont">&#xe624;</i><span>活动：新开平台送积分+豪礼！</span>
-                                        <a class="btn btn-orange btn-l" target="_blank" href="../platform/activate-plat.html">开通新平台(12)</a>
-                                    </div>-->
-                                    <!-- 切换图表分析 end -->
-                                    <!-- 平台列表 start -->
-                                    <div class="platlist-wrap activated-plat" id="opened_platforms">
-                                        <!-- 切换图表分析 start -->
-                                        <div class="switch-btn">
-                                            <!--<a rel="switch-graph" class="btn btn-gray btn-l" href="#"><i class="iconfont">&#xe6b9;</i>图表分析</a>-->
-                                        </div>
-                                        <p class="no-record">您还未开通平台</p>
+                                    <div class="platlist-wrap inactivated-plat" id="opened_platforms">
+                                        @if(count($openLists)>0)
+                                            <div class="plat-list" id="unopened_platforms">
+                                                @foreach($openLists as $cv)
+                                                    <div class="plat-box">
+                                                        <div class="plat-main">
+                                                            <img src="{!! config('app.static_url') !!}{!! $cv->logo or '' !!}" alt="{!! $cv->platform or '' !!}">
+                                                            <div class="plat-info" style="position: relative;">
+                                                                @if($cv->min_yield == $cv->max_yield)
+                                                                    <span class="rate"><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
+                                                                @else
+                                                                    <span class="rate"><em>{!! $cv->min_yield or 0.00 !!}</em>%<em>-</em><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
+                                                                @endif
+                                                                <span>项目期限：<em>@if($cv->min_days == $cv->max_days){!! dateFormat($cv->max_days) !!}@else{!! dateFormat($cv->min_days) !!}-{!! dateFormat($cv->max_days) !!}@endif</em></span>
+                                                                <span>可投标数：<em>{!! $cv->tasks->count() !!}个</em></span>
+                                                                <span>安全评级：<em>{!! $cv->level or 'B' !!}</em></span>
+                                                                    <a class="btn  btn-blue-o btn-allwidth" href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=all&amp;platform={!! $cv->ename !!}">查看详情</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="pagination" data-pagination-ref="unopened_platforms">
+                                                {!! $pageHtml !!}
+                                            </div>
+                                        @else
+                                            <p class="no-record">您还未开通平台</p>
+                                        @endif
                                     </div>
-                                    <!-- 平台列表 end -->
-                                    <!-- 图表分析  start -->
-                                    <div class="graph">
-                                        <div class="switch-btn">
-                                        </div>
-                                    </div>
-                                    <!-- 图表分析  end -->
                                 </div>
-                                <!-- 已开通平台选项卡 end -->
                                 <!-- 未开通平台选项卡 start -->
                                 <div class="">
                                     <div class="platlist-wrap inactivated-plat" id="unopened_platforms">
+                                        @if(count($lists)>0)
                                         <div class="plat-list" id="unopened_platforms">
                                             @foreach($lists as $cv)
                                             <div class="plat-box">
@@ -100,10 +108,11 @@
                                             @endforeach
                                         </div>
                                         <div class="pagination" data-pagination-ref="unopened_platforms">
-                                            <a href="https://account.tianyantou.com/platforms/unopenedPlatforms?page=2" data-ci-pagination-page="2">
-                                                <i class="iconfont next"  style="font-size:12px;"></i>
-                                            </a>
+                                            {!! $pageHtml1 !!}
                                         </div>
+                                        @else
+                                        <p class="no-record">您还没有未开通平台</p>
+                                        @endif
                                     </div>
                                 </div>
                                 <!-- 未开通平台选项卡 end -->

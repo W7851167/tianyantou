@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title')网贷选平台行情_网贷选平台特色数据_投之家精选平台搜索@stop
+@section('title')网贷选平台行情_网贷选平台特色数据_天眼投精选平台搜索@stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/laypage//skin/laypage.css?ver={!! time() !!}" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/laypage//skin/laypage.css?ver={!! time() !!}" />

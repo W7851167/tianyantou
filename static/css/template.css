@@ -1,0 +1,93 @@
+.tit {
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    position: relative;
+}
+.tit {
+    height: 54px;
+    line-height: 54px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 16px;
+    color: #333333;
+    padding-left: 16px;
+}
+
+.tit .use-tpl-btn {
+    padding-bottom: 12px;
+}
+
+.tit  .use-tpl-btn .txt {
+    background: #4da3ec;
+    padding: 0 24px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 4px;
+    margin: 9px 9px 0 0;
+    color: #ffffff;
+}
+
+.fr {
+    float: right;
+}
+
+.note-tpl {
+    display: none;
+    width: 512px;
+    right: 6px;
+    top: 61px;
+    border: 1px solid #dddddd;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff;
+    overflow: auto;
+    max-height: 400px;
+}
+
+.note-tpl table {
+    width: 100%;
+    font-size: 14px;
+    color: #738394;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.note-tpl table tr {
+    cursor: pointer;
+}
+
+.note-tpl table th {
+    line-height: 30px;
+    background: #f8f9fb;
+    color: #666666;
+}
+
+.note-tpl .arr {
+    position: absolute;
+    background-position: -82px -177px;
+    width: 25px;
+    height: 11px;
+    right: 16px;
+    top: -11px;
+}
+.icn {
+    display: inline-block;
+    background-image: url("../images/common/icn.png");
+    vertical-align: middle;
+}
+
+.del_button {
+    color: white;
+    padding: 0 5px;
+    text-decoration: none;
+    background-color: #FF1493;
+    border-radius: 5px;
+}

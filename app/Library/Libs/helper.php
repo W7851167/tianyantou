@@ -98,7 +98,10 @@ function unicodeToDecode($name)
  * 金钱格式
  */
 
-function tmoney_format($number, $fractional=false) {
+function tmoney_format($number, $fractional = false)
+{
+    if ($number == 0)
+        return '0.00';
     if ($fractional) {
         $number = sprintf('%.2f', $number);
     }
@@ -120,9 +123,9 @@ function tmoney_format($number, $fractional=false) {
  * @return float
  * 计算时间差
  */
-function getDiffTime($startTime,$endTime)
+function getDiffTime($startTime, $endTime)
 {
-    return round(abs($endTime-$startTime)/60/60/24);
+    return round(abs($endTime - $startTime) / 60 / 60 / 24);
 }
 
 /**
@@ -131,15 +134,15 @@ function getDiffTime($startTime,$endTime)
  */
 function dateFormat($day)
 {
-    if($day <= 30) {
+    if ($day <= 30) {
         return $day . '天';
     }
-    if($day >30 && $day < 365) {
+    if ($day > 30 && $day < 365) {
         return ceil(abs($day / 30)) . '个月';
     }
 
-    if($day > 365) {
-        return round(abs($day / 365)). '年';
+    if ($day > 365) {
+        return round(abs($day / 365)) . '年';
     }
 }
 
@@ -151,6 +154,101 @@ function getRealThumb($thumb)
 {
     $lists = parse_url($thumb);
     $patshs = explode('/', $lists['path']);
-    unset($patshs[count($patshs)-2]);
-    return $lists['scheme'] .'://'. $lists['host'] . implode('/', $patshs);
+    unset($patshs[count($patshs) - 2]);
+    if (!empty($lists['scheme'])) {
+        return $lists['scheme'] . '://' . $lists['host'] . implode('/', $patshs);
+    } else {
+        return '//' . $lists['host'] . implode('/', $patshs);
+    }
+}
+
+/**
+ * @param $phone
+ * @return bool
+ * 验证手机号码
+ */
+function is_phone($phone)
+{
+    $isMobile = "/^1[3-5,8]{1}[0-9]{9}$/";
+    $isPhone = "/^([0-9]{3,4}-)?[0-9]{7,8}$/";
+    if (!preg_match($isMobile, $phone) && !preg_match($isPhone, $phone)) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * @param $money
+ * @return bool
+ * 验证金额
+ */
+function is_money($money)
+{
+    $isMoney = "#^[0-9]+\.?[0-9]{2}?#";
+    if (!preg_match($isMoney, $money)) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * @param $term 期限
+ * @param $unit 单位0是天 1月 2年
+ * @param $ratio 年化率
+ * @param $money 投资金额
+ *
+ * 计算收益 100是因为年化率为整型
+ */
+function getIncome($term, $unit, $ratio, $money)
+{
+    if ($unit == 0)
+        return sprintf('%.2f', $money * $ratio * $term / 365 / 100);
+    if ($unit == 1)
+        return sprintf('%.2f', $money * $ratio * $term / 12 / 100);
+    if ($unit == 2)
+        return sprintf('%.2f', $money * $ratio * $term / 100);
+
+}
+
+/**
+ * @return array
+ * 签到奖励
+ */
+function getSignReward()
+{
+    return [1 => 1, 2 => 3, 3 => 5, 4 => 7, 5 => 9, 6 => 13, 7 => 15];
+}
+
+//随机验证码
+function randomCode($type = 'num')
+{
+    if ($type == 'num') {
+        $code = rand(100000, 999999);
+    }
+    if ($type == "str") {
+        $code = range('a', 'z');
+        shuffle($code);
+        $code = implode('', array_slice($code, 0, 5));
+    }
+    return $code;
+}
+
+/**
+ * @param int $length
+ * @return mixed
+ *
+ * 随机生成用户名
+ */
+function createUsername($length = 9)
+{
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $username = '';
+    for ($i = 0; $i < $length; $i++) {
+        // 这里提供两种字符获取方式
+        // 第一种是使用substr 截取$chars中的任意一位字符；
+        // 第二种是取字符数组$chars 的任意元素
+        // $password .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+        $username .= $chars[mt_rand(0, strlen($chars) - 1)];
+    }
+    return $username;
 }

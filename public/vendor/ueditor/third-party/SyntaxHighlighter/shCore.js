@@ -2435,7 +2435,7 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
         // http://davidchambersdesign.com/
         var keywords   = 'after before beginning continue copy each end every from return get global in local named of set some that the then times to where whose with without';
         var ordinals   = 'first second third fourth fifth sixth seventh eighth ninth tenth last front back middle';
-        var specials   = 'activate add alias AppleScript ask attachment boolean class constant delete duplicate empty exists false id integer list make message modal modified new no paragraph pi properties quit real record remove rest result reveal reverse run running save string true word yes';
+        var specials   = 'activate add alias AppleScript ask attachment boolean class constant delete duplicate empty exists false id integer list make message modal modified new no paragraph pi properties quit real book remove rest result reveal reverse run running save string true word yes';
 
         this.regexList = [
 
@@ -2830,7 +2830,7 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 						'of on or packed pansichar pansistring pchar pcurrency pdatetime pextended ' +
 						'pint64 pointer private procedure program property pshortstring pstring ' +
 						'pvariant pwidechar pwidestring protected public published raise real real48 ' +
-						'record repeat set shl shortint shortstring shr single smallint string then ' +
+						'book repeat set shl shortint shortstring shr single smallint string then ' +
 						'threadvar to true try type unit until uses val var varirnt while widechar ' +
 						'widestring with word write writeln xor';
 

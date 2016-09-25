@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Repositories\CensusRepository;
 use App\Repositories\TaskRepository;
 use App\Repositories\UserRepository;
 
@@ -21,22 +22,23 @@ class HomeController extends FrontController
 {
     public function __construct(
         UserRepository $userRepository,
-        TaskRepository $tasks
+        TaskRepository $tasks,
+        CensusRepository $census
     )
     {
         parent::__initalize();
         $this->userRepository = $userRepository;
         $this->tasks = $tasks;
+        $this->census = $census;
     }
 
     public function index()
     {
         $where['status'] = 1;
-        list($counts, $corps) = $this->tasks->getCorpList($where, 8, 1);
-
-        return view('account.index.index', compact(
-            'corps'
-        ));
+        $data = $this->census->getUserRocordStats($this->user['id']);
+        list($counts, $data['corps']) = $this->tasks->getCorpList($where, 8, 1);
+        $data['userModel'] = $this->userRepository->userModel->find($this->user['id']);
+        return view('account.index.index', $data);
 
     }
 

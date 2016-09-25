@@ -14,6 +14,7 @@ namespace App\Http\Controllers\Account;
 
 
 use App\Http\Controllers\FrontController;
+use App\Library\Traits\SmsTrait;
 use App\Library\Utils\Captcha;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Validator;
 
 class PassportController extends FrontController
 {
+    use SmsTrait;
+
     public function __construct(
         UserRepository $userRepository
     )
@@ -47,10 +50,14 @@ class PassportController extends FrontController
             $result = $this->userRepository->checkLogin($username, $password, false, $remember);
 
             if ($result['status']) {
-                return $this->success('登陆成功!', url('/'), true);
+                $url = Session::get('previous');
+                return $this->success('登陆成功!', url($url), true);
             }
 
             return $this->error($result['message'], '', true);
+        }
+        if (!$request->is('signin.html') || !$request->is('register.html') || !$request->is('signout.html')) {
+            Session::put('previous', \URL::previous());
         }
 
         if ($this->user) return redirect('/');
@@ -64,31 +71,35 @@ class PassportController extends FrontController
     public function register(Request $request)
     {
         if ($request->isMethod('post')) {
-            $rules = [
-                'username' => 'required|unique:users',
-                'password' => 'required|confirmed',
-                'password_confirmation' => 'required',
-            ];
-            $messages = [
-                'username.required' => '请输入用户名!',
-                'username.unique' => '此用户名已被注册!',
-                'password.required' => '密码不能为空!',
-                'password.confirmed' => '两次密码不一致!',
-                'password_confirmation.required' => '请输入确认密码!',
-            ];
-            $data = $request->only(['username', 'password', 'password_confirmation']);
-            $validator = Validator::make($data, $rules, $messages);
-            if ($validator->fails()) {
-                return response()->json([
-                    'statu' => 0,
-                    'info' => '注册失败!',
-                    'data' => $validator->errors(),
-                ]);
+            $mobile = trim($request->mobile);
+            $password = trim($request->password);
+            $confirmpassword = trim($request->password_confirmation);
+            $verifyCode = trim($request->verifyCode);
+            $phoneCode = Session::get('phone');
+            if (!$mobile) {
+                return $this->error('手机号不能为空!', null, true);
             }
-            $data = array_except($data, ['password_confirmation']);
+            if ($verifyCode != $phoneCode) {
+                return $this->error('手机验证码不正确!', null, true);
+            }
+            if (!$password || !$confirmpassword) {
+                return $this->error('密码或确认密码不能为空!', null, true);
+            }
+            if ($password != $confirmpassword) {
+                return $this->error('两次输入密码不一致!', null, true);
+            }
+            $exists = $this->userRepository->userModel->where('mobile', $mobile)->exists();
+            if ($exists) {
+                return $this->error('该手机号码已注册天眼投账号!', null, true);
+            }
+            $username = 't' . createUsername();
+            $data = [
+                'username' => $username,
+                'mobile' => $mobile,
+                'password' => $password,
+            ];
             $result = $this->userRepository->saveUser($data);
-            if($result['status']) return $this->success('注册成功!', url('/'), true);
-
+            if ($result['status']) return $this->success('注册成功!', url('/'), true);
             return $this->error('注册失败!', null, true);
         }
         return view('account.passport.register');
@@ -116,6 +127,13 @@ class PassportController extends FrontController
         return view('account.passport.protocol');
     }
 
+    /**
+     * @param Request $request
+     * @param Captcha $captcha
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * 获取图形验证码
+     */
     public function captcha(Request $request, Captcha $captcha)
     {
         if ($request->isMethod('post')) {
@@ -185,4 +203,105 @@ class PassportController extends FrontController
 
 
 
+    /**
+     * @param Request $request
+     *
+     * 发送手机验证码
+     */
+    public function sendVerifyCode(Request $request)
+    {
+        $action = $request->get('action');
+        $phone = $request->get('telephone');
+        $captcha = $request->get('captcha');
+        $checkCaptcha = Session::get('captcha');
+
+        if ($action == 'register') {
+            if (!$captcha) {
+                return $this->error('图形验证码不能为空', null, true);
+            }
+            if (strtolower($captcha) != strtolower($checkCaptcha)) {
+                return $this->error('图形验证码不正确', null, true);
+            }
+            $model = $this->userRepository->userModel->where('mobile', $phone)->first();
+            if (!empty($model)) {
+                $this->error('该手机号码已注册天眼投账号', null, true);
+            }
+            $mobile = [$phone];
+        }
+        if ($action == 'changeEmailByTelephone') {
+            $mobile = [$this->user['mobile']];
+        }
+        if ($action == 'verifyTelephone') {
+            $mobile = [$this->user['mobile']];
+        }
+        if ($action == 'reset_password') {
+            $mobile = $phone;
+        }
+
+        $code = randomCode();
+        $template = $this->getSmsTemplates('register', $code);
+        try {
+            $this->sendSms($mobile, $template);
+            Session::put('phone', $code);
+        } catch (\Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function findpassword(Request $request)
+    {
+        $step = $request->get('step') ?: 0;
+        if ($request->isMethod('post')) {
+            if ($step == 1) {
+                $mobile = $request->get('mobile');
+                $captcha = $request->get('captcha');
+                $checkcode = Session::get('phone');
+                if (!$captcha) {
+                    return $this->error('验证码不能为空!', null, true);
+                }
+                if ($captcha != $checkcode) {
+                    return $this->error('手机验证码不正确!', null, true);
+                }
+                $exists = $this->userRepository->userModel->where('mobile', $mobile)->exists();
+                if (!$exists) {
+                    return $this->error('该手机号码未注册天眼投账号!', null, true);
+                }
+                return $this->success('验证码正确!', url('findpassword.html?phone=' . $mobile . '&step=1'), true);
+            }
+        }
+        $mobile = $request->get('phone');
+        return view('account.passport.findpassword', compact('step', 'mobile'));
+    }
+
+    public function doresetpasswordphone(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $phone = $request->get('phone');
+            $password = $request->get('password');
+            $repeatpassword = $request->get('repeat_password');
+            if (!$password || !$repeatpassword) {
+                return $this->error('新密码不能为空!', null, true);
+            }
+            if ($password != $repeatpassword) {
+                return $this->error('两次输入的密码不一致!', null, true);
+            }
+            try {
+                $user = $this->userRepository->userModel->where('mobile', $phone)->first();
+                if (empty($user)) {
+                    return $this->error('该手机号码未注册天眼投账号!', null, true);
+                }
+                $user->password = $password;
+                $user->save();
+                return $this->success('修改密码成功!', url('findpassword/doresetpasswordphone.html'), true);
+            } catch (\Exception $e) {
+                return $this->error('修改密码失败!', null, true);
+            }
+        }
+        return view('account.passport.doresetpasswordphone');
+    }
+
+    public function resetByEmail()
+    {
+        return view('account.passport.resetbyemail');
+    }
 }

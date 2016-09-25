@@ -391,6 +391,7 @@
 
             // 当有文件添加进来时执行，负责view的创建
             function addFile(file) {
+                console.log(file);
                 var $li = $('<li id="' + file.id + '">' +
                         '<p class="title">' + file.name + '</p>' +
                         '<p class="imgWrap"></p>' +
@@ -449,6 +450,7 @@
                     file.rotation = 0;
 
                     /* 检查文件格式 */
+                    console.log(file);
                     if (!file.ext || acceptExtensions.indexOf(file.ext.toLowerCase()) == -1) {
                         showError('not_allow_type');
                         uploader.removeFile(file);

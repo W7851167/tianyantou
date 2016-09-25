@@ -30,7 +30,13 @@
                             @foreach($lists as $nv)
                                 <tr>
                                     <td>{!! $nv->id !!}</td>
-                                    <td>{!! $nv->title !!}</td>
+                                    <td>
+                                    @if($nv->category->page == 'notice')
+                                        <a href="{!! config('app.url') .'/about/' . $nv->category->page . '/' . $nv->id . '.html' !!}" target="_blank">{!! $nv->title !!}</a>
+                                    @else
+                                        {!! $nv->title !!}
+                                    @endif
+                                    </td>
                                     <td>{!! $nv->categoryName($nv->category_id) !!}</td>
                                     <td>{!! $nv->created_at !!}</td>
                                     <td>
