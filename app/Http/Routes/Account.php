@@ -11,10 +11,19 @@
  ***********************************************************************************/
 Route::get('register/protocol.html', 'PassportController@protocol');
 Route::match(['get', 'post'], 'signin/captcha', 'PassportController@captcha');
+<<<<<<< HEAD
+Route::get('findpassword.html', 'PassportController@findPassword');
+Route::any('findpassword/resetByPhone.html','PassportController@resetByPhone');
+Route::post('findpassword/doresetpasswordphone.html','PassportController@complete');
+Route::any('findpassword/resetByEmail.html','PassportController@resetByEmail');
+Route::get('findpassword/resetpasswordemail/{token}.html','PassportController@setPassowrdByEmail');
+Route::get('findpassword/doResetPasswordEmail.html','PassportController@complete');
+=======
 Route::post('common/sendVerifyCode', 'PassportController@sendVerifyCode');
 Route::match(['get', 'post'], 'findpassword.html', 'PassportController@findpassword');
 Route::get('findpassword/resetByEmail.html', 'PassportController@resetByEmail');
 Route::match(['get', 'post'], 'findpassword/doresetpasswordphone.html', 'PassportController@doresetpasswordphone');
+>>>>>>> 828505afb4753c652f76ad8755d7283a8e071239
 
 Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
