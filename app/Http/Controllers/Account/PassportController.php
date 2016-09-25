@@ -131,4 +131,12 @@ class PassportController extends FrontController
         Session::put('captcha', $captcha->getCode());
     }
 
+   /**
+    *  通过手机找回密码
+    */
+   public function findPasswordByPhone()
+   {
+		return view();	
+   }
+
 }
