@@ -393,16 +393,16 @@ class AccountController extends FrontController
      */
     public function findpassword(Request $request)
     {
+        $step = $request->get('step') ?: 0;
         if ($request->isMethod('post')) {
-            if ($request->get('step') == 1) {
+            if ($step == 1) {
                 $verifyCode = $request->get('verifyCode');
                 $checkcode = Session::get('phone');
                 if (trim($verifyCode) != $checkcode) {
                     return $this->error('手机验证码不正确!', null, true);
                 }
-                return view('account.account.findpassword1');
             }
-            if ($request->get('step') == 2) {
+            if ($step == 2) {
                 $dealpassword = trim($request->get('dealpassword'));
                 $confirmdealpassword = trim($request->get('confirmdealpassword'));
                 if (!$dealpassword != !$confirmdealpassword) {
@@ -421,7 +421,7 @@ class AccountController extends FrontController
                 }
             }
         }
-        return view('account.account.findpassword');
+        return view('account.account.findpassword', compact('step'));
     }
 
     /**
