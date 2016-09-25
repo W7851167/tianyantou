@@ -199,7 +199,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'HTML'      => Illuminate\Html\HtmlFacade::class,
-        'API'       => Dingo\Api\Facade\API::class
     ],
 
 ];
