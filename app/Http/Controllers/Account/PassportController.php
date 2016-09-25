@@ -189,4 +189,14 @@ class PassportController extends FrontController
             $e->getMessage();
         }
     }
+
+    public function findpassword()
+    {
+        return view('account.passport.findpassword');
+    }
+
+    public function resetByEmail()
+    {
+        return view('account.passport.resetbyemail');
+    }
 }
