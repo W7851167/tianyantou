@@ -3,13 +3,14 @@
 namespace App\Jobs;
 
 use App\Jobs\Job;
+use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
 class SendSmsJob extends Job implements SelfHandling,ShouldQueue
 {
-    use InteractsWithQueue;
+    use InteractsWithQueue,Queueable;
     public  $queue = 'sms';
     private  $data;
     /**
@@ -29,7 +30,5 @@ class SendSmsJob extends Job implements SelfHandling,ShouldQueue
      */
     public function handle()
     {
-        $data = $this->job->fire();
-        error_log(var_export($data,true),3,"d:/beanstalk.log");
     }
 }
