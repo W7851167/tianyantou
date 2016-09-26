@@ -149,6 +149,53 @@ class PassportController extends FrontController
         Session::put('captcha', $captcha->getCode());
     }
 
+
+    /**
+     * @return \Illuminate\Contracts\View\Factorypu|\Illuminate\View\View
+     *  通过手机设置密码页面
+     */
+    public function resetByPhone(Request $request)
+    {
+        if($request->isMethod('get')) {
+            return view('account.passport.phone');
+        }
+        return view('account.passport.reset-phone');
+    }
+
+    /**
+     * @param Request $request
+     * 设置完成页面
+     */
+    public function complete(Request $request)
+    {
+        return view('account.passport.complete-phone');
+    }
+
+
+    /**
+     * 通过邮箱找回密码
+     */
+    public function resetByEmail(Request $request)
+    {
+        if($request->isMethod('get')) {
+            return view('account.passport.email');
+        }
+
+        return view('account.passport.reset-email');
+    }
+
+
+    /**
+     * @param $token
+     *  通过邮箱重置密码
+     */
+    public function setPassowrdByEmail($token)
+    {
+        return view('account.passport.set-email-password');
+    }
+
+
+
     /**
      * @param Request $request
      *
@@ -177,9 +224,13 @@ class PassportController extends FrontController
         if ($action == 'changeEmailByTelephone') {
             $mobile = [$this->user['mobile']];
         }
-        if($action == 'verifyTelephone'){
+        if ($action == 'verifyTelephone') {
             $mobile = [$this->user['mobile']];
         }
+        if ($action == 'reset_password') {
+            $mobile = $phone;
+        }
+
         $code = randomCode();
         $template = $this->getSmsTemplates('register', $code);
         try {
@@ -189,4 +240,61 @@ class PassportController extends FrontController
             $e->getMessage();
         }
     }
+
+    public function findpassword(Request $request)
+    {
+        $step = $request->get('step') ?: 0;
+        if ($request->isMethod('post')) {
+            if ($step == 1) {
+                $mobile = $request->get('mobile');
+                $captcha = $request->get('captcha');
+                $checkcode = Session::get('phone');
+                if (!$captcha) {
+                    return $this->error('验证码不能为空!', null, true);
+                }
+                if ($captcha != $checkcode) {
+                    return $this->error('手机验证码不正确!', null, true);
+                }
+                $exists = $this->userRepository->userModel->where('mobile', $mobile)->exists();
+                if (!$exists) {
+                    return $this->error('该手机号码未注册天眼投账号!', null, true);
+                }
+                return $this->success('验证码正确!', url('findpassword.html?phone=' . $mobile . '&step=1'), true);
+            }
+        }
+        $mobile = $request->get('phone');
+        return view('account.passport.findpassword', compact('step', 'mobile'));
+    }
+
+    public function doresetpasswordphone(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $phone = $request->get('phone');
+            $password = $request->get('password');
+            $repeatpassword = $request->get('repeat_password');
+            if (!$password || !$repeatpassword) {
+                return $this->error('新密码不能为空!', null, true);
+            }
+            if ($password != $repeatpassword) {
+                return $this->error('两次输入的密码不一致!', null, true);
+            }
+            try {
+                $user = $this->userRepository->userModel->where('mobile', $phone)->first();
+                if (empty($user)) {
+                    return $this->error('该手机号码未注册天眼投账号!', null, true);
+                }
+                $user->password = $password;
+                $user->save();
+                return $this->success('修改密码成功!', url('findpassword/doresetpasswordphone.html'), true);
+            } catch (\Exception $e) {
+                return $this->error('修改密码失败!', null, true);
+            }
+        }
+        return view('account.passport.doresetpasswordphone');
+    }
+
+//    public function resetByEmail()
+//    {
+//        return view('account.passport.resetbyemail');
+//    }
 }

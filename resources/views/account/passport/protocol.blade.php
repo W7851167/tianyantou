@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title') 个人中心 @stop
+@section('title') 用户协议 @stop
 @section('style')
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/account.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/fullcalendar/fullcalendar.min.css" />

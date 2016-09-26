@@ -87,8 +87,13 @@
                                 @if(!empty($userinfo->bank))<i class="iconfont verified">&#xe61b;</i>@endif
                             </dt>
                             <dd>
-                                <span class="valid-value">@if(!empty($userinfo->bank))已绑定@else未绑定@endif</span>
-                                <a href="{!! config('app.account_url') !!}/bankcard.html" class="modify-btn">@if(!empty($userinfo->bank))绑定@else 修改 @endif</a>
+                                @if(!empty($userinfo->bank))
+                                <span class="valid-value">已绑定</span>
+                                <a href="{!! config('app.account_url') !!}/bankcard/update.html" class="modify-btn">修改</a>
+                                @else
+                                    <span class="valid-value">未绑定</span>
+                                    <a href="{!! config('app.account_url') !!}/bankcard.html" class="modify-btn">绑定</a>
+                                @endif
                             </dd>
                         </dl>
                         <div class="validation-process hidden" id="bank_id-panel"></div>
