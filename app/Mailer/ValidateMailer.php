@@ -18,7 +18,7 @@ class ValidateMailer extends Mailer
         $code = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
         $subject = 'tianyantou';
         $view = 'tianyantou';
-        $data = ['%name%' => [$params['username']], '%code%' => [$code]];
+        $data = ['%name%' => [$params['username']], '%code%' => [$code], 'email' => $params['email']];
         Session::put('user_' . $params['id'], $code);
         $this->sendTo($subject, $view, $data);
     }
@@ -32,7 +32,7 @@ class ValidateMailer extends Mailer
     {
         $subject = 'tianyantou_find';
         $view = 'tianyantou_find';
-        $data = ['%name%' => [$params['name']], '%url%' => [$params['url']]];
+        $data = ['%name%' => [$params['username']], '%url%' => [$params['url']], 'email' => $params['email']];
         $this->sendTo($subject, $view, $data);
     }
 }

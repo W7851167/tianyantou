@@ -18,7 +18,6 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\ValidateEmail' => [
             'App\Listeners\SendEmail',
-            'App\Listeners\FindEmail',
         ],
     ];
 

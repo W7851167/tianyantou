@@ -293,9 +293,7 @@ class PassportController extends FrontController
             if ($step == 1) {
                 return view('account.passport.resetbyemail');
             } elseif ($step == 2) {
-                $a = Crypt::encrypt('2384108741@qq.com');
-                $b = Crypt::decrypt($a);
-                var_dump($b);
+
                 return view('account.passport.reset-email');
             }
         }
@@ -322,6 +320,11 @@ class PassportController extends FrontController
         if (empty($user)) {
             return $this->error('该邮箱未注册天眼投账号!', null, true);
         }
+        $params = [
+            'type' => 'find',
+            'email' => $email,
+            'url' =>
+        ];
         event(new ValidateEmail($user));
         return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
     }

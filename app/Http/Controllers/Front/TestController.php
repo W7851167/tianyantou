@@ -13,15 +13,17 @@
 namespace App\Http\Controllers\Front;
 
 
+use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
 use App\Jobs\SendSmsJob;
 use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
 use Illuminate\Support\Facades\Queue;
 
-class TestController extends  FrontController
+class TestController extends FrontController
 {
     use SmsTrait;
+
     public function __construct(CensusRepository $census)
     {
         $this->census = $census;
@@ -29,7 +31,14 @@ class TestController extends  FrontController
 
     public function index()
     {
-        $this->sendSms(['15072309522']);
+        $params = [
+            'email' => '2384108741@qq.com',
+            'username' => 'pengzhizhuang',
+            'url' => 'www.tianyantou.com',
+            'type' => 'find',
+        ];
+        event(new ValidateEmail($params));
+//        $this->sendSms(['15072309522']);
 //        return $this->dispatch(new SendSmsJob(['message'=>'content']));
     }
 
