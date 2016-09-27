@@ -13,13 +13,26 @@ use Illuminate\Support\Facades\Session;
 
 class ValidateMailer extends Mailer
 {
-    public function welcome($user)
+    public function welcome($params)
     {
         $code = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
         $subject = 'tianyantou';
         $view = 'tianyantou';
-        $data = ['%name%' => [$user->username], '%code%' => [$code]];
-        Session::put('user_' . $user->id, $code);
-        $this->sendTo($user, $subject, $view, $data);
+        $data = ['%name%' => [$params['username']], '%code%' => [$code]];
+        Session::put('user_' . $params['id'], $code);
+        $this->sendTo($subject, $view, $data);
+    }
+
+    /**
+     * @param $params
+     *
+     * 发送邮箱找回密码
+     */
+    public function find($params)
+    {
+        $subject = 'tianyantou_find';
+        $view = 'tianyantou_find';
+        $data = ['%name%' => [$params['name']], '%url%' => [$params['url']]];
+        $this->sendTo($subject, $view, $data);
     }
 }

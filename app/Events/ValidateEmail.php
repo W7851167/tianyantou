@@ -9,16 +9,16 @@ class ValidateEmail extends Event
 {
     use SerializesModels;
 
-    public $user;
+    public $params;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(UserModel $user)
+    public function __construct($params)
     {
-        $this->user = $user;
+        $this->params = $params;
     }
 
     /**

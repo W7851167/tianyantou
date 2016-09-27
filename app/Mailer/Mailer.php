@@ -13,9 +13,11 @@ class Mailer
 {
     protected $url = 'http://api.sendcloud.net/apiv2/mail/sendtemplate';
 
-    public function sendTo($user, $subject, $view, $data = [])
+    public function sendTo($subject, $view, $data = [])
     {
-        $vars = json_encode(['to' => [$user->email], 'sub' => $data]);
+        $email = $data['email'];
+        unset($data['email']);
+        $vars = json_encode(['to' => [$email], 'sub' => $data]);
         $param = [
             'apiUser' => env('SENDCLOUD_API_USER'), # 使用api_user和api_key进行验证
             'apiKey' => env('SENDCLOUD_API_KEY'),

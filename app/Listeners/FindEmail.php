@@ -5,7 +5,7 @@ namespace App\Listeners;
 use App\Events\ValidateEmail;
 use App\Mailer\ValidateMailer;
 
-class SendEmail
+class FindEmail
 {
 
     /**
