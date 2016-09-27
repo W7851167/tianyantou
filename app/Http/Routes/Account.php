@@ -16,7 +16,7 @@ Route::post('common/sendVerifyCode', 'PassportController@sendVerifyCode');
 //手机找回密码
 Route::match(['get', 'post'], 'findpassword.html', 'PassportController@findPassword');
 Route::any('findpassword/resetByPhone.html', 'PassportController@resetByPhone');
-Route::post('findpassword/doresetpasswordphone.html', 'PassportController@complete');
+Route::match(['get', 'post'], 'findpassword/doresetpasswordphone.html', 'PassportController@doresetpasswordphone');
 //邮箱找回密码
 Route::any('findpassword/resetByEmail.html', 'PassportController@resetByEmail');
 Route::match(['get', 'post'], 'findpassword/checkEmailRegisted.html', 'PassportController@checkEmailRegisted');
