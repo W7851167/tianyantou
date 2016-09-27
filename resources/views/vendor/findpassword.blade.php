@@ -9,7 +9,7 @@
 
 您需在提交请求后的三天内，通过点击下面的链接重置您的密码：
 
-https://account.tianyantou.com/findpassword/resetpasswordemail/f41ef8567e64362467c94ef20e69cf78.html
+{!! config('app.account_url') !!}/findpassword/resetpasswordemail/f41ef8567e64362467c94ef20e69cf78.html
 
 (如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)
 
@@ -17,4 +17,4 @@ https://account.tianyantou.com/findpassword/resetpasswordemail/f41ef8567e6436246
 
 此致
 
-天眼投管理团队. http://www.tianyantou.com
+天眼投管理团队. {!! config('app.url') !!}

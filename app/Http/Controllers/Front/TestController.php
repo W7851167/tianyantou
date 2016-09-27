@@ -18,7 +18,6 @@ use App\Http\Controllers\FrontController;
 use App\Jobs\SendSmsJob;
 use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
-use Illuminate\Support\Facades\Queue;
 
 class TestController extends FrontController
 {
@@ -31,6 +30,7 @@ class TestController extends FrontController
 
     public function index()
     {
+
         $params = [
             'email' => '2384108741@qq.com',
             'username' => 'pengzhizhuang',
@@ -40,6 +40,12 @@ class TestController extends FrontController
         event(new ValidateEmail($params));
 //        $this->sendSms(['15072309522']);
 //        return $this->dispatch(new SendSmsJob(['message'=>'content']));
+
+//       $result = $this->dispatch((new SendSmsJob(['name'=>'content'])));
+//        dd($result);
+        //return authcode('1','ENCODE');
+        return authcode('902fOqxfiQnOvtSG3c8Fge2nnm6DuRiNZSMNVrXA');
+
     }
 
 }

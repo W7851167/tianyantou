@@ -183,7 +183,7 @@ class PassportController extends FrontController
             $mobile = [$this->user['mobile']];
         }
         if ($action == 'reset_password') {
-            $mobile = $phone;
+            $mobile = [$phone];
         }
 
         $code = randomCode();
@@ -301,6 +301,11 @@ class PassportController extends FrontController
         return view('account.passport.reset-email');
     }
 
+    /**
+     * @param Request $request
+     *
+     * 检测邮箱是否存在
+     */
     public function checkEmailRegisted(Request $request)
     {
         $email = $request->get('email');
@@ -323,9 +328,10 @@ class PassportController extends FrontController
         $params = [
             'type' => 'find',
             'email' => $email,
-            'url' =>
+            'username' => $user->username,
+            'url' => url('findpassword/resetpasswordemail/' . authcode($user->id) . '.html')
         ];
-        event(new ValidateEmail($user));
+        event(new ValidateEmail($params));
         return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
     }
 
