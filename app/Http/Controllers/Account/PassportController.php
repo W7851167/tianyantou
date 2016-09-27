@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
+use App\Jobs\SendEmailJob;
 use App\Library\Traits\SmsTrait;
 use App\Library\Utils\Captcha;
 use App\Repositories\UserRepository;
@@ -332,9 +333,9 @@ class PassportController extends FrontController
             'type' => 'find',
             'email' => $email,
             'username' => $user->username,
-            'url' => url('findpassword/resetpasswordemail/' . authcode($user->id) . '.html')
+            'url' => url('findpassword/resetpasswordemail/' . authcode($user->id, 'ENCODE') . '.html')
         ];
-        event(new ValidateEmail($params));
+        $this->dispatch(new SendEmailJob($params));
         return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
     }
 
@@ -345,6 +346,11 @@ class PassportController extends FrontController
      */
     public function setPassowrdByEmail($token)
     {
+        $userId = authcode($token);
+        $user = $this->userRepository->userModel->find($userId);
+        if (empty($user)) {
+            return 111;
+        }
         return view('account.passport.set-email-password');
     }
 }

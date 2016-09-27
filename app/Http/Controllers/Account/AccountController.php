@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
+use App\Jobs\SendEmailJob;
 use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
@@ -186,7 +187,7 @@ class AccountController extends FrontController
             ];
 
             if ($action == 'authEmail') {
-                event(new ValidateEmail($params));
+                $this->dispatch(new SendEmailJob($params));
                 return $this->success('发送成功!', null, true);
             }
             if ($action == 'emailauth') {
@@ -240,7 +241,7 @@ class AccountController extends FrontController
                 }
             }
 
-            event(new ValidateEmail($params));
+            $this->dispatch(new SendEmailJob($params));
             return $this->success('发送成功!', null, true);
         }
         if ($this->user['email']) {
@@ -279,7 +280,7 @@ class AccountController extends FrontController
                     'username' => $user->username,
                     'id' => $user->id,
                 ];
-                event(new ValidateEmail($params));
+                $this->dispatch(new SendEmailJob($params));
                 return $this->success('发送成功!', null, true);
             }
             if ($action == 'emailstep2') {

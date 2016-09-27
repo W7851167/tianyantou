@@ -10,21 +10,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class SendEmailJob extends Job implements SelfHandling,ShouldQueue
+class SendEmailJob extends Job implements SelfHandling, ShouldQueue
 {
-    use InteractsWithQueue,SerializesModels;
+    use InteractsWithQueue, SerializesModels;
     public $queue = 'email';
-    private $userModel;
-    private $template;
+    private $params;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($template,UserModel $userModel)
+    public function __construct($params)
     {
-        $this->template = $template;
-        $this->userModel = $userModel;
+        $this->params = $params;
     }
 
     /**
@@ -34,19 +33,18 @@ class SendEmailJob extends Job implements SelfHandling,ShouldQueue
      */
     public function handle(Mailer $mailer)
     {
-        if($this->template == 'tianyantou') {
-            $subject = '天眼投用户注册验证';
+        if (isset($params['type']) && $params['type'] == 'find') {
+            $subject = 'tianyantou_find';
+            $view = 'tianyantou_find';
+            $data = ['%name%' => [$params['username']], '%url%' => [$params['url']], 'email' => $params['email']];
+            $mailer->sendTo($subject, $view, $data);
+        } else {
             $code = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
-            $data = ['%name%'=>$this->userModel->name, '%code%'=>$code];
+            $subject = 'tianyantou';
+            $view = 'tianyantou';
+            $data = ['%name%' => [$params['username']], '%code%' => [$code], 'email' => $params['email']];
+            Session::put('user_' . $params['id'], $code);
         }
-
-        if($this->template == 'tianyantou_find') {
-            $subject =  '天眼投用户密码重置';
-            $url =  config('app.account_url').'/findpassword/resetpasswordemail/' .
-                authcode($this->userModel->id,'ENCODE') .'.html';
-            $data = ['%name%'=>$this->userModel->name, '%url%'=>$url];
-        }
-
-        $mailer->sendTo($this->userModel,$subject,$this->template, $data);
+        $mailer->sendTo($subject, $view, $data);
     }
 }
