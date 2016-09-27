@@ -332,7 +332,7 @@ class PassportController extends FrontController
             'type' => 'find',
             'email' => $email,
             'username' => $user->username,
-            'url' => url('findpassword/resetpasswordemail/' . authcode($user->id) . '.html')
+            'url' => url('findpassword/resetpasswordemail/' . authcode($user->id, 'ENCODE') . '.html')
         ];
         event(new ValidateEmail($params));
         return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
@@ -345,6 +345,11 @@ class PassportController extends FrontController
      */
     public function setPassowrdByEmail($token)
     {
+        $userId = authcode($token);
+        $user = $this->userRepository->userModel->find($userId);
+        if (empty($user)) {
+            return 111;
+        }
         return view('account.passport.set-email-password');
     }
 }
