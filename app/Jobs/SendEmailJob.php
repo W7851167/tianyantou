@@ -15,14 +15,16 @@ class SendEmailJob extends Job implements SelfHandling,ShouldQueue
     use InteractsWithQueue,SerializesModels
     public $queue = 'email';
     private $userModel;
+    private $template;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(UserModel $userModel)
+    public function __construct($template,UserModel $userModel)
     {
-        $this->userModel;
+        $this->template = $template;
+        $this->userModel = $userModel;
     }
 
     /**
@@ -32,6 +34,19 @@ class SendEmailJob extends Job implements SelfHandling,ShouldQueue
      */
     public function handle(Mailer $mailer)
     {
-        $mailer->sendTo($this->userModel,'天眼投用户密码重置','vendor.findpassword');
+        if($this->template == 'tianyantou') {
+            $subject = '天眼投用户注册验证';
+            $code = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
+            $data = ['%name%'=>$this->userModel->name, '%code%'=>$code];
+        }
+
+        if($this->template == 'tianyantou_find') {
+            $subject =  '天眼投用户密码重置';
+            $url =  config('app.account_url').'/findpassword/resetpasswordemail/' .
+                authcode($this->userModel->id,'ENCODE') .'.html';
+            $data = ['%name%'=>$this->userModel->name, '%url%'=>$url];
+        }
+
+        $mailer->sendTo($this->userModel,$subject,$this->template, $data);
     }
 }
