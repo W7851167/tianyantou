@@ -77,8 +77,12 @@ class AboutController extends FrontController
     public function detail(Request $request, $page, $id)
     {
         $page = $page == 'news' ? 'dynamic': $page;
-        $category = $this->new->getCategoryByPage($page);
-        $news = $this->new->newModel->find($id);
+        try {
+            $category = $this->new->getCategoryByPage($page);
+            $news = $this->new->newModel->find($id);
+        }catch (\Exception $e) {
+            abort(500);
+        }
         if(!empty($news)) {
             $news->increment('views',1);
         }
