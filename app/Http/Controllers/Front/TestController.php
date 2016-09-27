@@ -17,7 +17,6 @@ use App\Http\Controllers\FrontController;
 use App\Jobs\SendSmsJob;
 use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
-use Illuminate\Support\Facades\Queue;
 
 class TestController extends  FrontController
 {
@@ -29,9 +28,10 @@ class TestController extends  FrontController
 
     public function index()
     {
-       $content = $this->getSmsTemplates('register','1112');
-        $result = $this->sendSms([18611570121], $content);
-        dd($result);
+//       $result = $this->dispatch((new SendSmsJob(['name'=>'content'])));
+//        dd($result);
+        //return authcode('1','ENCODE');
+        return authcode('902fOqxfiQnOvtSG3c8Fge2nnm6DuRiNZSMNVrXA');
     }
 
 }
