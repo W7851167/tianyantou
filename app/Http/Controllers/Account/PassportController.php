@@ -181,7 +181,7 @@ class PassportController extends FrontController
             $mobile = [$this->user['mobile']];
         }
         if ($action == 'reset_password') {
-            $mobile = $phone;
+            $mobile = [$phone];
         }
 
         $code = randomCode();
