@@ -77,6 +77,7 @@ class PassportController extends FrontController
             $password = trim($request->password);
             $confirmpassword = trim($request->password_confirmation);
             $verifyCode = trim($request->verifyCode);
+            $invite = $request->get('invite');
             $phoneCode = Session::get('phone');
             if (!$mobile) {
                 return $this->error('手机号不能为空!', null, true);
@@ -95,10 +96,12 @@ class PassportController extends FrontController
                 return $this->error('该手机号码已注册天眼投账号!', null, true);
             }
             $username = 't' . createUsername();
+            $user = $this->userRepository->userModel->where('mobile', $invite)->first();
             $data = [
                 'username' => $username,
                 'mobile' => $mobile,
                 'password' => $password,
+                'invite' => empty($user) ? '' : $invite,
             ];
             $result = $this->userRepository->saveUser($data);
             if ($result['status']) return $this->success('注册成功!', url('/'), true);

@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 
 class SendEmailJob extends Job implements SelfHandling,ShouldQueue
 {
-    use InteractsWithQueue,SerializesModels
+    use InteractsWithQueue,SerializesModels;
     public $queue = 'email';
     private $userModel;
     private $template;
