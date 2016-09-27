@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
+use App\Jobs\SendEmailJob;
 use App\Library\Traits\SmsTrait;
 use App\Library\Utils\Captcha;
 use App\Repositories\UserRepository;
@@ -334,7 +335,7 @@ class PassportController extends FrontController
             'username' => $user->username,
             'url' => url('findpassword/resetpasswordemail/' . authcode($user->id, 'ENCODE') . '.html')
         ];
-        event(new ValidateEmail($params));
+        $this->dispatch(new SendEmailJob($params));
         return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
     }
 
