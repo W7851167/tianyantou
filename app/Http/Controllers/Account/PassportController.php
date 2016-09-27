@@ -13,12 +13,14 @@
 namespace App\Http\Controllers\Account;
 
 
+use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
 use App\Library\Traits\SmsTrait;
 use App\Library\Utils\Captcha;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -264,7 +266,7 @@ class PassportController extends FrontController
      */
     public function resetByPhone(Request $request)
     {
-        if($request->isMethod('get')) {
+        if ($request->isMethod('get')) {
             return view('account.passport.phone');
         }
         return view('account.passport.reset-phone');
@@ -285,11 +287,52 @@ class PassportController extends FrontController
      */
     public function resetByEmail(Request $request)
     {
-        if($request->isMethod('get')) {
-            return view('account.passport.resetbyemail');
+        if ($request->isMethod('get')) {
+            $step = $request->get('step') ?: 1;
+
+            if ($step == 1) {
+                return view('account.passport.resetbyemail');
+            } elseif ($step == 2) {
+
+                return view('account.passport.reset-email');
+            }
         }
 
         return view('account.passport.reset-email');
+    }
+
+    /**
+     * @param Request $request
+     *
+     * 检测邮箱是否存在
+     */
+    public function checkEmailRegisted(Request $request)
+    {
+        $email = $request->get('email');
+        $captcha = $request->get('captcha');
+        $checkcaptcha = Session::get('captcha');
+
+        if (!$email) {
+            return $this->error('请输入正确的邮箱', null, true);
+        }
+        if (!$captcha) {
+            return $this->error('请输入验证码以发送找回邮件', null, true);
+        }
+        if ($captcha != $checkcaptcha) {
+            return $this->error('请输入正确的验证码', null, true);
+        }
+        $user = $this->userRepository->userModel->where('email', $email)->first();
+        if (empty($user)) {
+            return $this->error('该邮箱未注册天眼投账号!', null, true);
+        }
+        $params = [
+            'type' => 'find',
+            'email' => $email,
+            'username' => $user->username,
+            'url' => url('findpassword/resetpasswordemail/' . authcode($user->id) . '.html')
+        ];
+        event(new ValidateEmail($params));
+        return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
     }
 
 

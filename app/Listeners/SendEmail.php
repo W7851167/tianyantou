@@ -21,11 +21,16 @@ class SendEmail
     /**
      * Handle the event.
      *
-     * @param  UserRegistered  $event
+     * @param  UserRegistered $event
      * @return void
      */
     public function handle(ValidateEmail $event)
     {
-        $this->mailer->welcome($event->user);
+        $params = $event->params;
+        if (isset($params['type']) && $params['type'] == 'find') {
+            $this->mailer->find($params);
+        } else {
+            $this->mailer->welcome($params);
+        }
     }
 }

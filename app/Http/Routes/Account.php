@@ -15,12 +15,13 @@ Route::match(['get', 'post'], 'signin/captcha', 'PassportController@captcha');
 Route::post('common/sendVerifyCode', 'PassportController@sendVerifyCode');
 //手机找回密码
 Route::get('findpassword.html', 'PassportController@findPassword');
-Route::any('findpassword/resetByPhone.html','PassportController@resetByPhone');
-Route::post('findpassword/doresetpasswordphone.html','PassportController@complete');
+Route::any('findpassword/resetByPhone.html', 'PassportController@resetByPhone');
+Route::post('findpassword/doresetpasswordphone.html', 'PassportController@complete');
 //邮箱找回密码
-Route::any('findpassword/resetByEmail.html','PassportController@resetByEmail');
-Route::get('findpassword/resetpasswordemail/{token}.html','PassportController@setPassowrdByEmail');
-Route::get('findpassword/doResetPasswordEmail.html','PassportController@complete');
+Route::any('findpassword/resetByEmail.html', 'PassportController@resetByEmail');
+Route::match(['get', 'post'], 'findpassword/checkEmailRegisted.html', 'PassportController@checkEmailRegisted');
+Route::get('findpassword/resetpasswordemail/{token}.html', 'PassportController@setPassowrdByEmail');
+Route::get('findpassword/doResetPasswordEmail.html', 'PassportController@complete');
 
 Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
