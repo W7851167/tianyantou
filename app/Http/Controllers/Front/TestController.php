@@ -15,9 +15,11 @@ namespace App\Http\Controllers\Front;
 
 use App\Events\ValidateEmail;
 use App\Http\Controllers\FrontController;
+use App\Jobs\SendEmailJob;
 use App\Jobs\SendSmsJob;
 use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
+use Illuminate\Support\Facades\Event;
 
 class TestController extends FrontController
 {
@@ -44,8 +46,11 @@ class TestController extends FrontController
 //       $result = $this->dispatch((new SendSmsJob(['name'=>'content'])));
 //        dd($result);
         //return authcode('1','ENCODE');
-        return authcode('902fOqxfiQnOvtSG3c8Fge2nnm6DuRiNZSMNVrXA');
 
+        $userModel = $this->census->userModel->find(1);
+        $result = Event::fire(new ValidateEmail($userModel));
+        //$result = $this->dispatch(new SendEmailJob('tianyantou',$userModel));
+        dd($result);
     }
 
 }
