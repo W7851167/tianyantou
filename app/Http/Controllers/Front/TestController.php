@@ -29,7 +29,9 @@ class TestController extends  FrontController
 
     public function index()
     {
-        return $this->dispatch(new SendSmsJob(['message'=>'content']));
+       $content = $this->getSmsTemplates('register','1112');
+        $result = $this->sendSms([18611570121], $content);
+        dd($result);
     }
 
 }
