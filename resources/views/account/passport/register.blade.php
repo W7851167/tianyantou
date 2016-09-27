@@ -54,7 +54,7 @@
                          </div>
                         <div class="input-box">
                             <label>推荐码：</label>
-                            <input name="r_popid" class="input-style input-size" type="text" placeholder="选填(手机号，邀请好友注册，得50元红包)" value=""/>
+                            <input name="invite" class="input-style input-size" type="text" placeholder="选填(手机号，邀请好友注册，得50元红包)" value=""/>
                         </div>
                         <p class="submit-box">
                             <span id="is-check">点击注册即同意天眼投&nbsp;<a id="user-agreement" href="{!! config('app.account_url') !!}/register/protocol.html" target="blank">《用户协议》</a></span>
