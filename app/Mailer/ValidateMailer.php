@@ -9,10 +9,13 @@
 namespace App\Mailer;
 
 
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Session;
 
-class ValidateMailer extends Mailer
+class ValidateMailer extends Mailer implements ShouldQueue
 {
+    use InteractsWithQueue;
     public function welcome($user)
     {
         $code = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);

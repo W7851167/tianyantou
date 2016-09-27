@@ -28,6 +28,6 @@ class ValidateEmail extends Event
      */
     public function broadcastOn()
     {
-        return [];
+        return ['user.'.$this->user->id];
     }
 }
