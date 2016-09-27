@@ -149,53 +149,6 @@ class PassportController extends FrontController
         Session::put('captcha', $captcha->getCode());
     }
 
-
-    /**
-     * @return \Illuminate\Contracts\View\Factorypu|\Illuminate\View\View
-     *  通过手机设置密码页面
-     */
-    public function resetByPhone(Request $request)
-    {
-        if($request->isMethod('get')) {
-            return view('account.passport.phone');
-        }
-        return view('account.passport.reset-phone');
-    }
-
-    /**
-     * @param Request $request
-     * 设置完成页面
-     */
-    public function complete(Request $request)
-    {
-        return view('account.passport.complete-phone');
-    }
-
-
-    /**
-     * 通过邮箱找回密码
-     */
-    public function resetByEmail(Request $request)
-    {
-        if($request->isMethod('get')) {
-            return view('account.passport.email');
-        }
-
-        return view('account.passport.reset-email');
-    }
-
-
-    /**
-     * @param $token
-     *  通过邮箱重置密码
-     */
-    public function setPassowrdByEmail($token)
-    {
-        return view('account.passport.set-email-password');
-    }
-
-
-
     /**
      * @param Request $request
      *
@@ -241,6 +194,12 @@ class PassportController extends FrontController
         }
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 手机找回密码
+     */
     public function findpassword(Request $request)
     {
         $step = $request->get('step') ?: 0;
@@ -266,6 +225,12 @@ class PassportController extends FrontController
         return view('account.passport.findpassword', compact('step', 'mobile'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 手机找回密码重新设置密码
+     */
     public function doresetpasswordphone(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -293,8 +258,47 @@ class PassportController extends FrontController
         return view('account.passport.doresetpasswordphone');
     }
 
-//    public function resetByEmail()
-//    {
-//        return view('account.passport.resetbyemail');
-//    }
+    /**
+     * @return \Illuminate\Contracts\View\Factorypu|\Illuminate\View\View
+     *  通过手机设置密码页面
+     */
+    public function resetByPhone(Request $request)
+    {
+        if($request->isMethod('get')) {
+            return view('account.passport.phone');
+        }
+        return view('account.passport.reset-phone');
+    }
+
+    /**
+     * @param Request $request
+     * 设置完成页面
+     */
+    public function complete(Request $request)
+    {
+        return view('account.passport.complete-phone');
+    }
+
+
+    /**
+     * 通过邮箱找回密码
+     */
+    public function resetByEmail(Request $request)
+    {
+        if($request->isMethod('get')) {
+            return view('account.passport.resetbyemail');
+        }
+
+        return view('account.passport.reset-email');
+    }
+
+
+    /**
+     * @param $token
+     *  通过邮箱重置密码
+     */
+    public function setPassowrdByEmail($token)
+    {
+        return view('account.passport.set-email-password');
+    }
 }
