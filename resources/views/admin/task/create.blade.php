@@ -53,6 +53,13 @@
                             <div><input type="text" name = "data[sued]" placeholder="比如 200元" value="{!! $task->sued or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">元</div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>邀请奖励：</div>
+                            <div>
+                                <input type="radio" name = "data[is_reward]" value="0" @if(empty($task) || $task->is_reward == 0) checked @endif>禁止邀请奖励
+                                <input type="radio" name = "data[is_reward]" value="1" @if(!empty($task) && $task->is_reward == 1) checked @endif>启用邀请奖励
+                            </div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>状态：</div>
                             <div>
                                 <input type="radio" name = "data[status]" value="0" @if(empty($task) || $task->status == 0) checked @endif>待发布
