@@ -368,7 +368,7 @@ class PassportController extends FrontController
             try {
                 $user->password = $password;
                 $user->save();
-                return $this->success('修改密码成功!', url('doResetPasswordEmail'), true);
+                return $this->success('修改密码成功!', url('findpassword/doResetPasswordEmail.html'), true);
             } catch (\Exception $e) {
                 return $this->error('修改密码失败!', null, true);
             }

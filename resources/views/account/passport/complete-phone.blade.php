@@ -76,5 +76,5 @@
 </div>
 @stop
 @section('script')
-    <script type="text/javascript" src="{!! config('app.static_url') !!}m/js/plugins/findpassword.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/findpassword.js"></script>
 @stop
