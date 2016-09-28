@@ -15,15 +15,16 @@
  * @param $keys
  * 获取模型中的某些值数据
  */
-function getMetas($models,$keys=[],$isModel=false) {
+function getMetas($models, $keys = [], $isModel = false)
+{
     $result = [];
-    foreach($models as $model) {
-        if(!empty($keys)) {
-            if(!array_key_exists ($model->meta_key, $keys)) {
+    foreach ($models as $model) {
+        if (!empty($keys)) {
+            if (!array_key_exists($model->meta_key, $keys)) {
                 continue 1;
             }
         }
-        if($isModel) {
+        if ($isModel) {
             $model->meta_value = unserialize($model->meta_value);
             $result[$model->meta_key] = $model;
         } else {
@@ -40,24 +41,24 @@ function getMetas($models,$keys=[],$isModel=false) {
  * @param int $senderId
  * 发送消息
  */
-function sendMessage($title,$body,$ownerId=0,$senderId=0) {
-    if($ownerId != 0 ) {
-        return \App\Models\MessageModel::sendGlobalMessage($title,$body);
+function sendMessage($title, $body, $ownerId = 0, $senderId = 0)
+{
+    if ($ownerId != 0) {
+        return \App\Models\MessageModel::sendGlobalMessage($title, $body);
     }
-    return \App\Models\MessageModel::sendPrivateMessage($ownerId,$title,$body,$senderId);
+    return \App\Models\MessageModel::sendPrivateMessage($ownerId, $title, $body, $senderId);
 }
-
 
 
 /**
  * @param $userId
  * 获取用户签到数据
  */
-function getPast($model=null)
+function getPast($model = null)
 {
     $signInReward = getSignReward();
     $pass = [];
-    if(empty($model)) {
+    if (empty($model)) {
         $pass['score'] = $signInReward[1];
         $pass['checked'] = '';
         $pass['days'] = 0;
@@ -67,7 +68,7 @@ function getPast($model=null)
     $d = ($model->days + 1) % 7;
     $pass['score'] = $signInReward[$d];
     $pass['days'] = $model->days;
-    if($model->updated_at > date('Y-m-d' . ' 00:00:00')) {
+    if ($model->updated_at > date('Y-m-d' . ' 00:00:00')) {
         $pass['checked'] = 'checked';
     } else {
         $pass['checked'] = '';
