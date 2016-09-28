@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Session;
 
-class AdminMiddleware
+class RedirectMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,12 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $user = Session::get('user.passport');
-
-        if ($user or $request->is('passport/login.html') or $request->is('passport/logout.html')) {
-
-            return $next($request);
+        $routename = \Route::currentRouteName();
+        if (!in_array($routename, ['passport']) && !$request->ajax()) {
+            $url = $request->url();
+            Session::put('previous', $url);
         }
 
-        return redirect('passport/login');
+        return $next($request);
     }
 }

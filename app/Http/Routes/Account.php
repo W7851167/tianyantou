@@ -9,24 +9,24 @@
  * $Author:zxs
  * $Dtime:2016/9/11
  ***********************************************************************************/
-Route::get('register/protocol.html', 'PassportController@protocol');
-Route::match(['get', 'post'], 'signin/captcha', 'PassportController@captcha');
+Route::get('register/protocol.html', ['as' => 'passport', 'uses' => 'PassportController@protocol']);
+Route::match(['get', 'post'], 'signin/captcha', ['as' => 'passport', 'uses' => 'PassportController@captcha']);
 
-Route::post('common/sendVerifyCode', 'PassportController@sendVerifyCode');
+Route::post('common/sendVerifyCode', ['as' => 'passport', 'uses' => 'PassportController@sendVerifyCode']);
 //手机找回密码
-Route::match(['get', 'post'], 'findpassword.html', 'PassportController@findPassword');
-Route::any('findpassword/resetByPhone.html', 'PassportController@resetByPhone');
-Route::match(['get', 'post'], 'findpassword/doresetpasswordphone.html', 'PassportController@doresetpasswordphone');
+Route::match(['get', 'post'], 'findpassword.html', ['as' => 'passport', 'uses' => 'PassportController@findPassword']);
+Route::any('findpassword/resetByPhone.html', ['as' => 'passport', 'uses' => 'PassportController@resetByPhone']);
+Route::match(['get', 'post'], 'findpassword/doresetpasswordphone.html', ['as' => 'passport', 'uses' => 'PassportController@doresetpasswordphone']);
 //邮箱找回密码
-Route::any('findpassword/resetByEmail.html', 'PassportController@resetByEmail');
-Route::match(['get', 'post'], 'findpassword/checkEmailRegisted.html', 'PassportController@checkEmailRegisted');
-Route::get('findpassword/resetpasswordemail/{token}.html', 'PassportController@setPassowrdByEmail');
-Route::match(['get', 'post'], 'findpassword/doResetPasswordEmail.html', 'PassportController@complete');
+Route::any('findpassword/resetByEmail.html', ['as' => 'passport', 'uses' => 'PassportController@resetByEmail']);
+Route::match(['get', 'post'], 'findpassword/checkEmailRegisted.html', ['as' => 'passport', 'uses' => 'PassportController@checkEmailRegisted']);
+Route::get('findpassword/resetpasswordemail/{token}.html', ['as' => 'passport', 'uses' => 'PassportController@setPassowrdByEmail']);
+Route::match(['get', 'post'], 'findpassword/doResetPasswordEmail.html', ['as' => 'passport', 'uses' => 'PassportController@complete']);
 
 Route::group(['middleware' => 'middle.account'], function () {
-    Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
-    Route::match(['get', 'post'], 'register.html', 'PassportController@register');
-    Route::get('signout.html', 'PassportController@signout');
+    Route::match(['get', 'post'], 'signin.html', ['as' => 'passport', 'uses' => 'PassportController@signin']);
+    Route::match(['get', 'post'], 'register.html', ['as' => 'passport', 'uses' => 'PassportController@register']);
+    Route::get('signout.html', ['as' => 'passport', 'uses' => 'PassportController@signout']);
 
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     //投资记录

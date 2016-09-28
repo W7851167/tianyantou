@@ -59,9 +59,6 @@ class PassportController extends FrontController
 
             return $this->error($result['message'], '', true);
         }
-        if (!$request->is('signin.html') || !$request->is('register.html') || !$request->is('signout.html')) {
-            Session::put('previous', \URL::previous());
-        }
 
         if ($this->user) return redirect('/');
 
