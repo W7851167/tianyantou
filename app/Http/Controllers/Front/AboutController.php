@@ -76,15 +76,16 @@ class AboutController extends FrontController
      */
     public function detail(Request $request, $page, $id)
     {
-        $page = $page == 'news' ? 'dynamic': $page;
+        $page = $page == 'news' ? 'dynamic' : $page;
         try {
             $category = $this->new->getCategoryByPage($page);
             $news = $this->new->newModel->find($id);
-        }catch (\Exception $e) {
+            if (empty($news)) abort(404);
+        } catch (\Exception $e) {
             abort(500);
         }
-        if(!empty($news)) {
-            $news->increment('views',1);
+        if (!empty($news)) {
+            $news->increment('views', 1);
         }
 
         $first = $this->new->getNewInfo(['id <' => $id, 'category_id' => $category->id]);
@@ -140,7 +141,7 @@ class AboutController extends FrontController
 
         $pageHtml = $this->pager($count, $page, $this->perpage);
 
-        return view('front.about.' . $category->page, compact('lists','pageHtml'));
+        return view('front.about.' . $category->page, compact('lists', 'pageHtml'));
     }
 
     /**
