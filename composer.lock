@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b93918301b96138d0f720312e4855897",
-    "content-hash": "f29f5663516b45deecdf299e6af149ff",
+    "hash": "ea74dc7ea4475090e4d2f08b39b25d8a",
+    "content-hash": "68ddead9dc14825a09956caf2af5cbdd",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -708,6 +708,63 @@
                 "laravel"
             ],
             "time": "2016-09-20 13:47:37"
+        },
+        {
+            "name": "laravelbook/ardent",
+            "version": "v3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-ardent/ardent.git",
+                "reference": "93b2114f914dd801e6c5119dcfe604af7f73e22d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-ardent/ardent/zipball/93b2114f914dd801e6c5119dcfe604af7f73e22d",
+                "reference": "93b2114f914dd801e6c5119dcfe604af7f73e22d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.1",
+                "illuminate/events": "~5.1",
+                "illuminate/hashing": "~5.1",
+                "illuminate/support": "~5.1",
+                "illuminate/validation": "~5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LaravelArdent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Santos",
+                    "email": "igorsantos07@gmail.com",
+                    "homepage": "http://igorsantos.com.br",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Max Ehsan",
+                    "role": "Original developer"
+                }
+            ],
+            "description": "Self-validating smart models for Laravel 5's Eloquent ORM",
+            "keywords": [
+                "Active Record",
+                "activerecord",
+                "database",
+                "eloquent",
+                "framework",
+                "laravel",
+                "orm",
+                "sql",
+                "validation"
+            ],
+            "time": "2016-02-02 21:26:36"
         },
         {
             "name": "league/flysystem",
