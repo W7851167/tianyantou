@@ -21,7 +21,7 @@ Route::match(['get', 'post'], 'findpassword/doresetpasswordphone.html', 'Passpor
 Route::any('findpassword/resetByEmail.html', 'PassportController@resetByEmail');
 Route::match(['get', 'post'], 'findpassword/checkEmailRegisted.html', 'PassportController@checkEmailRegisted');
 Route::get('findpassword/resetpasswordemail/{token}.html', 'PassportController@setPassowrdByEmail');
-Route::get('findpassword/doResetPasswordEmail.html', 'PassportController@complete');
+Route::match(['get', 'post'], 'findpassword/doResetPasswordEmail.html', 'PassportController@complete');
 
 Route::group(['middleware' => 'middle.account'], function () {
     Route::match(['get', 'post'], 'signin.html', 'PassportController@signin');
