@@ -24,6 +24,7 @@ class FrontController extends Controller
 
     public function __initalize()
     {
+        $this->middleware('redirect');
         $this->user = \Session::get('user.passport');
         if(!empty($this->user)) {
             $action = \Route::current()->getActionName();
