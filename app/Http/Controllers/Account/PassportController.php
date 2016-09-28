@@ -277,16 +277,6 @@ class PassportController extends FrontController
     }
 
     /**
-     * @param Request $request
-     * 设置完成页面
-     */
-    public function complete(Request $request)
-    {
-        return view('account.passport.complete-phone');
-    }
-
-
-    /**
      * 通过邮箱找回密码
      */
     public function resetByEmail(Request $request)
@@ -335,7 +325,8 @@ class PassportController extends FrontController
             'username' => $user->username,
             'url' => url('findpassword/resetpasswordemail/' . authcode($user->id, 'ENCODE') . '.html')
         ];
-        $this->dispatch(new SendEmailJob($params));
+//        $this->dispatch(new SendEmailJob($params));
+        event(new ValidateEmail($params));
         return $this->success('发送邮箱验证码成功', url('findpassword/resetByEmail.html?step=2'), true);
     }
 
@@ -351,6 +342,37 @@ class PassportController extends FrontController
         if (empty($user)) {
             return 111;
         }
-        return view('account.passport.set-email-password');
+        return view('account.passport.set-email-password', compact('token'));
+    }
+
+    /**
+     * @param Request $request
+     * 设置完成页面
+     */
+    public function complete(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $password = $request->get('password');
+            $confirmpassword = $request->get('confirm_password');
+            $token = $request->get('token');
+            if (!$password || !$confirmpassword) {
+                return $this->error('新密码不能为空!', null, true);
+            }
+            if ($password != $confirmpassword) {
+                return $this->error('两次输入的密码不一致!', null, true);
+            }
+            $user = $this->userRepository->userModel->find(authcode($token));
+            if (empty($user)) {
+                return $this->error('该邮箱未注册天眼投账号!', null, true);
+            }
+            try {
+                $user->password = $password;
+                $user->save();
+                return $this->success('修改密码成功!', url('doResetPasswordEmail'), true);
+            } catch (\Exception $e) {
+                return $this->error('修改密码失败!', null, true);
+            }
+        }
+        return view('account.passport.complete-phone');
     }
 }
