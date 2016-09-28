@@ -15,18 +15,21 @@
  * @param $keys
  * 获取模型中的某些值数据
  */
-function getMetas($models,$keys,$isModel=false) {
+function getMetas($models,$keys=[],$isModel=false) {
     foreach($models as $model) {
-        if(array_key_exists ($model->meta_key, $keys)) {
-            if($isModel) {
-                $model->meta_value = unserialize($model->meta_value);
-                $keys[$model->meta_key] = $model;
-            } else {
-                $keys[$model->meta_key] = unserialize($model->meta_value);
+        if(!empty($keys)) {
+            if(!array_key_exists ($model->meta_key, $keys)) {
+                continue 1;
             }
         }
+        if($isModel) {
+            $model->meta_value = unserialize($model->meta_value);
+            $result[$model->meta_key] = $model;
+        } else {
+            $result[$model->meta_key] = unserialize($model->meta_value);
+        }
     }
-    return $keys;
+    return $result;
 }
 
 /**

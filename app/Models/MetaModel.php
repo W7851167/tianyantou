@@ -45,4 +45,13 @@ class MetaModel extends BaseModel
             return $this->firstOrCreate($data);
         }
     }
+
+    /**
+     * @param $query
+     * @return mixed
+     * 获取系统配置
+     */
+    public function scopeSystem($query){
+       $query->where('item_id',0)->where('item_type','system');
+    }
 }

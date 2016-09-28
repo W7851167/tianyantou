@@ -19,29 +19,24 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">系统功能</a></p>
                 </div>
-                @if(!empty($stores))
-                    <table class="all_shopping" cellspacing="0">
-                        <tr>
-                            <th width='65'>门店ID</th>
-                            <th width="220">门店名称</th>
-                            <th width="400">门店地址</th>
-                            <th width="160">服务电话</th>
-                            <th>操作</th>
-                        </tr>
-                        @foreach($stores as $store)
-                            <tr>
-                                <td>{!! $store['id'] !!}</td>
-                                <td>{!! $store['name'] !!}</td>
-                                <td>{!! $store['location'] !!}</td>
-                                <td>{!! $store['tel'] !!}</td>
-                                <td>
-                                    <a href="{!! url('/shop/edit/'.$store['id']) !!}">编辑</a>
-                                    <a href="{!! url('shop/manage/'.$store['id']) !!}">管理</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                @endif
+                <form  method="post" class="base_form">
+                    {!! csrf_field() !!}
+                    <div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>邀请第一次奖励：</div>
+                            <div><input type="text" name="data[first_reward]" value="{!! $metas['first_reward'] or '' !!}">元</div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>邀请第二次奖励：</div>
+                            <div><input type="text" name="data[second_reward]" value="{!! $metas['second_reward'] or '' !!}">元</div>
+                        </div>
+                    </div>
+                    <div class="w928">
+                        <div class="button">
+                            <input class="submit" type="submit"  value="保存">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
