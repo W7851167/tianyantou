@@ -329,6 +329,25 @@ class UserRepository extends BaseRepository
      * @throws \Exception
      * @throws \Throwable
      *
+     * 保存用户记账信息
+     */
+    public function saveBook($data)
+    {
+        $result = $this->bookModel->getConnection()->transaction(function () use ($data) {
+
+        });
+        if ($result instanceof \Exception) {
+            return static::getError($result->getMessage());
+        }
+        return static::getSuccess('添加记录成功!');
+    }
+
+    /**
+     * @param $data
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     *
      * 保存用户信息
      */
     public function saveUser($data)
