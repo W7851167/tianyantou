@@ -14,17 +14,30 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\CensusRepository;
+use App\Repositories\SystemRepository;
+use Illuminate\Http\Request;
 
 class SystemController extends  AdminController
 {
-    public function __construct()
+    public function __construct(SystemRepository $system)
     {
         parent::__initalize();
+        $this->system = $system;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.system.index');
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->system->saveSystemMeta($data);
+            if($result['status']) {
+                return $this->success('保存系统配置完成',url('system'),true);
+            }
+            return $this->error('保存系统信息异常，请联系开发人员');
+        }
+        $metas = $this->system->getSystemMetas();
+        return view('admin.system.index',compact('metas'));
     }
 
     /**
