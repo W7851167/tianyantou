@@ -55,11 +55,9 @@ class BookController extends FrontController
         if ($request->isMethod('post')) {
             $data = $request->get('data');
 
-            try {
-                $result = $this->userRepository->bookModel->edit($data);
-                if ($result) return $this->success('记录成功!', url('book.html'), true);
-            } catch (QueryException $e) {
-                $e->getMessage();
+            $result = $this->userRepository->saveBook($data);
+            if ($result['status']) {
+                return $this->success('记录成功!', url('book.html'), true);
             }
             return $this->error('记录失败', null, true);
         }

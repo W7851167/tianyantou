@@ -60,7 +60,7 @@
                 <div class="step-content">
                     <h6><i class="iconfont"></i>设置您的新密码</h6>
                     <div class="form-group">
-                        <form action="{!! config('app.account_url') !!}/findpassword/doResetPasswordEmail.html" method="post">
+                        <form action="{!! config('app.account_url') !!}/findpassword/doResetPasswordEmail.html" data-toggle="ajaxForm" method="post">
                             <div class="control-group">
                                 <label for="new-password">新密码：</label>
                                 <input type="password" class="input-style" id="password" name="password">
@@ -68,7 +68,7 @@
                             <div class="control-group">
                                 <label for="repeat-password">重复密码：</label>
                                 <input type="password" class="input-style" id="repeat_password" name="confirm_password">
-                                <input type="hidden" name="token" value="PJ4K75">
+                                <input type="hidden" name="token" value="{!! $token !!}">
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit">
                         </form>
@@ -81,5 +81,10 @@
 </div>
 @stop
 @section('script')
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.form.min.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/ucenter.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/pagination.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/actions.js"></script>
+    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}m/js/plugins/findpassword.js"></script>
 @stop
