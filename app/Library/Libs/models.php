@@ -16,6 +16,7 @@
  * 获取模型中的某些值数据
  */
 function getMetas($models,$keys=[],$isModel=false) {
+    $result = [];
     foreach($models as $model) {
         if(!empty($keys)) {
             if(!array_key_exists ($model->meta_key, $keys)) {
