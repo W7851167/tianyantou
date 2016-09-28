@@ -26,15 +26,15 @@ class FrontController extends Controller
     {
         $this->middleware('redirect');
         $this->user = \Session::get('user.passport');
-        if(!empty($this->user)) {
+        if (!empty($this->user)) {
             $action = \Route::current()->getActionName();
             list($class, $method) = explode('@', $action);
-            $class = str_replace('controller','', strtolower(substr(strrchr($class,'\\'),1)));
-            view()->share('controller',$class);
+            $class = str_replace('controller', '', strtolower(substr(strrchr($class, '\\'), 1)));
+            view()->share('controller', $class);
             view()->share('method', $method);
-            $pass = PastModel::where('user_id',$this->user['id'])->first();
+            $pass = PastModel::where('user_id', $this->user['id'])->first();
             view()->share('sign', getPast($pass));
-            $money = MoneyModel::where('user_id',$this->user['id'])->first();
+            $money = MoneyModel::where('user_id', $this->user['id'])->first();
             view()->share('money', $money);
         }
         view()->share('user', $this->user);
@@ -53,5 +53,13 @@ class FrontController extends Controller
         $pageHtml = $pager->pageInit($count, $currentPage, $perPage, $ajax, $url)->links();
 
         return $pageHtml;
+    }
+
+    public function filterModel($model)
+    {
+        if (empty($model)) {
+            return abort(404);
+        }
+        return $model;
     }
 }

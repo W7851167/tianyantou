@@ -80,7 +80,7 @@ class AboutController extends FrontController
         try {
             $category = $this->new->getCategoryByPage($page);
             $news = $this->new->newModel->find($id);
-            if (empty($news)) abort(404);
+            $news = $this->filterModel($news);
         } catch (\Exception $e) {
             abort(500);
         }

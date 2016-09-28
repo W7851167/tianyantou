@@ -161,6 +161,7 @@ class PlatformController extends FrontController
     public function corp($ename)
     {;
         $corp = $this->tasks->getCorpByEname($ename);
+        $corp = $this->filterModel($corp);
         $metas['icp_domain'] = '';
         $metas['icp_corp_type'] = '';
         $metas['icp_time'] = '';
