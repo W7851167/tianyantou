@@ -10,6 +10,7 @@
  * $Dtime:2016/9/10
  ***********************************************************************************/
 
+
 /**
  * @param $models
  * @param $keys
@@ -58,21 +59,27 @@ function getPast($model = null)
 {
     $signInReward = getSignReward();
     $pass = [];
-    if (empty($model)) {
+
+    if (empty($model) || \Carbon\Carbon::now()->subDay(2) > $model->updated_at ) {
         $pass['score'] = $signInReward[1];
         $pass['checked'] = '';
         $pass['days'] = 0;
         return $pass;
     }
 
-    $d = ($model->days + 1) % 7;
-    $pass['score'] = $signInReward[$d];
-    $pass['days'] = $model->days;
-    if ($model->updated_at > date('Y-m-d' . ' 00:00:00')) {
+   $today = date('Y-m-d') . ' 00:00:00';
+    if($model->updated_at > $today) {
+        $d = $model->days + 1;
+        $pass['score'] = $signInReward[$d];
+        $pass['days'] = $model->days;
         $pass['checked'] = 'checked';
     } else {
+        $d = $model->days + 1;
+        $pass['score'] = $signInReward[$d];
+        $pass['days'] = $model->days;
         $pass['checked'] = '';
     }
+
     return $pass;
 
 }

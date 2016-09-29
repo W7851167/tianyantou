@@ -18,6 +18,7 @@ use App\Http\Controllers\FrontController;
 use App\Jobs\SendEmailJob;
 use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
+use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -441,16 +442,25 @@ class AccountController extends FrontController
     public function signin(Request $request)
     {
         try {
+            $past = $this->census->pastModel->where('user_id', $this->user['id'])->first();
             $result = $this->census->savePast($this->user['id']);
             if ($result['status']) {
-                $past = $this->census->pastModel->where('user_id', $this->user['id'])->first();
                 $signReward = getSignReward();
                 $res['ret'] = 1;
                 $res['info']['username'] = $this->user['username'];
-                $res['info']['Score'] = $signReward[$past->days];
-                $res['info']['SignCount'] = $past->days;
-                $res['info']['SignInReward'] = $signReward;
-                $res['info']['LastSignDate'] = date('c', strtotime($past->updated_at));
+                if(!empty($past)) {
+                    $d = Carbon::now()->subDay(2) > $past->updated_at ? 1 : $past->days + 1;
+                    $res['info']['Score'] = $signReward[$d];
+                    $res['info']['SignCount'] = $d == 6 ? 0 : $d;
+                    $res['info']['SignInReward'] = $signReward;
+                    $res['info']['LastSignDate'] = date('c', strtotime($past->updated_at));
+                } else {
+                    $res['info']['Score'] = $signReward[1];
+                    $res['info']['SignCount'] = 1;
+                    $res['info']['SignInReward'] = $signReward;
+                    $res['info']['LastSignDate'] = date('c', strtotime($past->updated_at));
+                }
+
                 return $this->ajaxReturn($res);
             }
         } catch (\Exception $e) {

@@ -19,6 +19,7 @@ use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
 use App\Models\WithdrawModel;
 use App\Models\ScoreModel;
+use Carbon\Carbon;
 
 class CensusRepository extends BaseRepository
 {
@@ -54,26 +55,18 @@ class CensusRepository extends BaseRepository
         $result = $this->pastModel->getConnection()->transaction(function ($conn) use ($userId) {
             $signInReward = getSignReward();
             $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
-            //非第一次
-            if ($pastModel->created_at != $pastModel->updated_at) {
-                $today = date('Y-m-d') . ' 00:00:00';
-                //记录创建时间小于今天
-                if ($pastModel->created_at < $today) {
-                    if ($pastModel->updated_at > $today) {
-                        throw new \Exception('您今天已经签过到了！');
-                    }
-                    //签到
-                    $sql = "UPDATE ad_pasts SET days = ";
-                    $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
-                    $sql .= "ELSE 0 END WHERE user_id = ?";
-                    $conn->update($sql, [$userId]);
-                }
+            //签到
+            $sql = "UPDATE ad_pasts SET days = ";
+            $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
+            $sql .= "ELSE 0 END WHERE user_id = ?";
+            $conn->update($sql, [$userId]);
+            if($pastModel->days == 0) {
+               $this->pastModel->saveBy(['id'=>$pastModel->id,'days'=>1]);
+                $pastModel->days = 1;
             }
-            $d = ($pastModel->days + 1) % 7;
-            $score = $signInReward[$d];
-            $days = $pastModel->days;
+            $score = $signInReward[$pastModel->days];
             //增加记录积分流水
-            $data['intro'] = sprintf('您第%d签到获天取%d个积分', $days, $score);
+            $data['intro'] = sprintf('您第%d天签到获取%d个积分', $pastModel->days, $score);
             $data['user_id'] = $userId;
             $data['score'] = $score;
             $this->scoreModel->create($data);
