@@ -36,7 +36,6 @@ class PassportController extends AdminController
     public function login(Request $request)
     {
         if ($request->isMethod('post')) {
-
             $username = $request->username;
             $password = $request->password;
             $remember = $request->remember;
@@ -52,7 +51,7 @@ class PassportController extends AdminController
             return $this->error($result['message'], '', true);
         }
 
-        if ($this->user) return redirect('dashboard');
+        if ($this->user && $this->user['role'] == '管理员') return redirect('dashboard');
 
         return view('admin.passport.index');
     }

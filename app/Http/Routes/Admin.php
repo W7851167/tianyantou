@@ -10,11 +10,12 @@
  * $Dtime:2016/9/7
  ***********************************************************************************/
 
-Route::get('/', function () {
-    return redirect(url('passport/login'));
-});
-Route::match(['get', 'post'], 'passport/login', ['as' => 'admin.passport', 'uses' => 'PassportController@login']);
+
 Route::group(['middleware' => 'admin.auth'], function () {
+    Route::get('/', function () {
+        return redirect(url('passport/login'));
+    });
+    Route::match(['get', 'post'], 'passport/login', ['as' => 'admin.passport', 'uses' => 'PassportController@login']);
     //登录退出
     Route::any('passport/logout', ['as' => 'admin.logout', 'uses' => 'PassportController@logout']);
     Route::post('uploadImg', ['as' => 'admin.passport.upload', 'uses' => 'PassportController@uploadImg']);
