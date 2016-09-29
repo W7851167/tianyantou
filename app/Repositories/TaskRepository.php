@@ -21,6 +21,7 @@ use App\Models\RecordModel;
 use App\Models\TaskAchieveModel;
 use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
+use App\Models\UserModel;
 use Illuminate\Database\QueryException;
 
 class TaskRepository extends  BaseRepository
@@ -33,7 +34,8 @@ class TaskRepository extends  BaseRepository
         MetaModel $metaModel,
         TaskReceiveModel $taskReceiveModel,
         TaskAchieveModel $taskAchieveModel,
-        RecordModel $recordModel
+        RecordModel $recordModel,
+        UserModel $userModel
     )
     {
         $this->taskModel = $taskModel;
@@ -44,6 +46,7 @@ class TaskRepository extends  BaseRepository
         $this->recordModel = $recordModel;
         $this->taskReceiveModel = $taskReceiveModel;
         $this->taskAchieveModel = $taskAchieveModel;
+        $this->userModel = $userModel;
     }
 
     /**
@@ -290,9 +293,9 @@ class TaskRepository extends  BaseRepository
     public function saveReceive($data)
     {
         $result = $this->taskReceiveModel->getConnection()->transaction(function() use($data){
+            $taskModel = $this->taskModel->find($data['task_id']);
             //领取任务减库存
             if($data['status'] == 0) {
-                $taskModel = $this->taskModel->find($data['task_id']);
                 if($taskModel->nums <=0)
                     throw new \Exception('该投资任务数已超过限定，请联系运营人员');
                 $nums = $taskModel->nums - 1;
@@ -315,8 +318,35 @@ class TaskRepository extends  BaseRepository
                 $recordData['user_id'] = $receiveModel->user_id;
                 $recordData['income'] = $receiveModel->income;
                 $recordData['account'] = $receiveModel->user->money->money;
-                $recordData['remark'] = $receiveModel->task->title . '，' . $receiveModel->income . '元';
+                $recordData['remark'] = $receiveModel->task->title . '，收益' . $receiveModel->income . '元';
                 $this->recordModel->saveBy($recordData);
+
+                //派发奖励
+                if(!empty($receiveModel->user->invite)) {
+                    //启动了领取奖励
+                    if($taskModel->is_reward == 1) {
+                        $rewardUser = $this->userModel->where('mobile',$receiveModel->user->invite)->first();
+                        $where = ['user_id'=>$receiveModel->user_id,'status'=>1];
+                        $count = $this->taskReceiveModel->countBy($where);
+                        $key  = $count == 0 ? 'first_reward':'second_reward';
+                        $rewardModel = $this->metaModel->system()->where('meta_key',$key)->first();
+                        if(!empty($rewardUser) && $count < 2 && !empty($rewardModel)) {
+                            $reward = unserialize($rewardModel->meta_value);
+                            $rewardUser->money->increment('money',$reward);
+                            $rewardUser->money->increment('total',$reward);
+                            //记录资金流水
+                            $recordData['type'] = 3;
+                            $recordData['user_id'] = $rewardUser->id;
+                            $recordData['income'] = $reward;
+                            $recordData['account'] = $rewardUser->money->money;
+                            $recordData['remark'] = sprintf('您邀请用户%s第%d投资，您获取奖励%.2f元',
+                                $receiveModel->user->username,
+                                $count,
+                                $reward);
+                            $this->recordModel->saveBy($recordData);
+                        }
+                    }
+                }
             }
 
             //驳回审核,不做任何操作

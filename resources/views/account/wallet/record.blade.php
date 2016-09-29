@@ -62,7 +62,7 @@
                         @foreach($lists as $rv)
                     <tr>
                         <td>{!! $rv->created_at or '---' !!}</td>
-                        <td>@if($rv->type==1)投资@elseif($rv->type==2)体现@else - @endif</td>
+                        <td>@if($rv->type==1)投资@elseif($rv->type==2)提现@elseif($rv->type == 3)奖励@else - @endif</td>
                         <td>{!! $rv->income or 0.00 !!}</td>
                         <td>{!! $rv->cost or 0.00 !!}</td>
                         <td>{!! $rv->account or 0.00 !!}</td>
