@@ -27,7 +27,7 @@
                 </p>
                 <div class="checkin-area">
                     <div class="check-in {!! $sign['checked'] !!}">
-                        <p>积分：<span>{!! $money->score or 0!!}</span></p>
+                        <p>积分：<span>{!! $moneyModel->score!!}</span></p>
                     </div>
                     <i>+5</i>
                     <div class="checkin-rules">
