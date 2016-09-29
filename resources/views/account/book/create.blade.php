@@ -15,7 +15,7 @@
         }
         .total{
             margin-left: 108px;
-            width: 470px;
+            width: 500px;
             border: 1px solid #4da3ec;
             line-height: 59px;
             padding-left: 22px;

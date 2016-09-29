@@ -46,6 +46,7 @@ Route::group(['middleware' => 'middle.account'], function () {
     Route::get('book/delete/{id}', ['as' => 'book.delete', 'uses' => 'BookController@delete']);
     Route::post('book/template/delete/{id}', ['as' => 'book.template.delete', 'uses' => "BookController@deletetemplate"]);
     Route::get('book/template/{id}', ['as' => 'book.template', 'uses' => 'BookController@template']);
+    Route::post('book/stats', ['as' => 'book.stats', 'uses' => 'BookController@stats']);
     //账户管理
     Route::get('safe.html', ['as' => 'safe', 'uses' => 'AccountController@safe']);
     Route::match(['get', 'post'], 'safe/changeNickname.html', ['as' => 'safe.changeNickname', 'uses' => 'AccountController@changenickname']);
