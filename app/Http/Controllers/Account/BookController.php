@@ -124,4 +124,20 @@ class BookController extends FrontController
 
         return view('account.book.templatebook', compact('book'));
     }
+
+    public function stats(Request $request)
+    {
+        $data = $request->all();
+        $obj = app()->make('LibraryManager')->create('income');
+
+        $stats = $obj->_init($data)->getstats();
+        $data = [];
+        if($stats){
+            $data['income'] = sprintf('%.2f',$stats['income']);
+            $data['interest'] = sprintf('%.2f',$stats['interest']);
+            $data['reward'] = sprintf('%.2f',$stats['reward']);
+            $data['rate'] = sprintf('%.2f',$stats['rate']*100);
+        }
+        return json_encode($data);
+    }
 }
