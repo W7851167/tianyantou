@@ -38,11 +38,11 @@
                                 <td>{!! $bv->task_name ?: '--' !!}</td>
                                 <td>{!! $bv->start_time ?: '--' !!}</td>
                                 <td>{!! $bv->money or '0.00' !!}</td>
-                                <td>222</td>
+                                <td>{!! isset($bv->stats['interest']) ? sprintf('%.2f',$bv->stats['interest']) : 0 !!}</td>
                                 <td>{!! $bv->term or '--' !!}@if($bv->term_unit==0){!! $bv->term ?'个月':'' !!}@elseif($bv->term_unit==1){!! $bv->term ?'日':'' !!}@endif</td>
-                                <td>11</td>
-                                <td>{!! $bv->back_reward ?: '--' !!}</td>
-                                <td>{!! $bv->discount_reward ?: '--' !!}</td>
+                                <td>{!! isset($bv->stats['rate']) ?  sprintf('%.2f',$bv->stats['rate']*100) : 0 !!}%</td>
+                                <td>{!! $bv->reward ?: '--' !!}</td>
+                                <td>{!! $bv->discount ?: '--' !!}</td>
                                 <td>
                                     <a href="{!! url('book/create',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">编辑</a>
                                     <a href="{!! url('book/delete',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">删除</a>

@@ -144,7 +144,6 @@
                             <div class="control-group">
                                 <div class="total">预期收益<em class="num1" id="t_profit">0</em>预期利息<em class="num2" id="t_interest">0</em>总奖励<em class="num3" id="t_reward">0</em>实际年化<em class="num1" id="t_rate">0%</em></div>
                             </div>
-                                <input type="button" id="calcStart" value="计算器">
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
                     </div>

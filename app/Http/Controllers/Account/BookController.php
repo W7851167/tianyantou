@@ -39,6 +39,12 @@ class BookController extends FrontController
         $page = $request->get('page') ?: 1;
         $where = ['user_id' => $this->user['id']];
         list($count, $lists) = $this->userRepository->getBookList($where, $this->perpage, $page);
+        foreach ($lists as $item) {
+            $obj = app()->make('LibraryManager')->create('income');
+            $stats = $obj->_init($item->toArray())->getStats();
+            $item['stats'] = $stats;
+        }
+
         $pageHtml = $this->pager($count, $page, $this->perpage);
         return view('account.book.index', compact('lists', 'pageHtml'));
     }
