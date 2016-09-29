@@ -86,39 +86,42 @@
                                 <label>利率</label>
                                 <input type="text" name="data[rate]" value="{!! $book->id or '' !!}" class="input-style" placeholder="例:10.8">
                                 <label class="control-option">
-                                    <input type="radio" name="data[rate_unit]" value="年" @if(empty($book->rate_unit) || (!empty($book->rate_unit)&&$book->rate_unit=='月'))checked @endif /> 年利率
+                                    <input type="radio" name="data[rate_unit]" value="0" @if(empty($book->rate_unit) || (!empty($book->rate_unit)&&$book->rate_unit==0))checked @endif /> 年利率
                                 </label>
                                 <label class="control-option">
-                                    <input type="radio" name="data[rate_unit]" value="月" @if(!empty($book->rate_unit)&&$book->rate_unit=='年' )checked @endif /> 月利率
+                                    <input type="radio" name="data[rate_unit]" value="1" @if(!empty($book->rate_unit)&&$book->rate_unit==1 )checked @endif /> 日利率
+                                </label>
+                                <label class="control-option">
+                                    <input type="radio" name="data[rate_unit]" value="2" @if(!empty($book->rate_unit)&&$book->rate_unit==2 )checked @endif /> 年利率（按360天计算）
                                 </label>
                             </div>
                             <div class="control-group">
                                 <label for="">期限</label>
                                 <input type="text" name="data[term]" value="{!! $book->term or '' !!}" class="input-style" placeholder="例:6">
                                 <label class="control-option">
-                                    <input type="radio" name="data[term_unit]" value="月" @if(empty($book->term_unit) || (!empty($book->term_unit)&&$book->term_unit=='月'))checked @endif /> 月
+                                    <input type="radio" name="data[term_unit]" value="0" @if(empty($book->term_unit) || (!empty($book->term_unit)&&$book->term_unit=='月'))checked @endif /> 月
                                 </label>
                                 <label class="control-option">
-                                    <input type="radio" name="data[term_unit]" value="日" @if(!empty($book->term_unit)&&$book->term_unit=='年' )checked @endif /> 年
+                                    <input type="radio" name="data[term_unit]" value="1" @if(!empty($book->term_unit)&&$book->term_unit=='年' )checked @endif /> 年
                                 </label>
                             </div>
                             <div class="control-group">
                                 <label for="">还款方式</label>
-                                <select name="data[repay]" class="input-style required">
-                                    <option value="一次性还本付息" @if(!empty($book->repay)&&$book->repay=='一次性还本付息')selected @endif>一次性还本付息</option>
-                                    <option value="按月付息到期还本" @if(!empty($book->repay)&&$book->repay=='按月付息到期还本')selected @endif>按月付息到期还本</option>
-                                    <option value="按日付息到期还本" @if(!empty($book->repay)&&$book->repay=='按日付息到期还本')selected @endif>按日付息到期还本</option>
-                                    <option value="等额本金" @if(!empty($book->repay)&&$book->repay=='等额本金')selected @endif>等额本金</option>
-                                    <option value="等额本息" @if(!empty($book->repay)&&$book->repay=='等额本息')selected @endif>等额本息</option>
-                                    <option value="月还息按季等额本金" @if(!empty($book->repay)&&$book->repay=='月还息按季等额本金')selected @endif>月还息按季等额本金</option>
-                                    <option value="按季付息到期还本" @if(!empty($book->repay)&&$book->repay=='按季付息到期还本')selected @endif>按季付息到期还本</option>
+                                <select name="data[repay_type]" class="input-style required">
+                                    <option value="1" @if(!empty($book->repay)&&$book->repay=='一次性还本付息')selected @endif>一次性还本付息</option>
+                                    <option value="2" @if(!empty($book->repay)&&$book->repay=='按月付息到期还本')selected @endif>按月付息到期还本</option>
+                                    <option value="3" @if(!empty($book->repay)&&$book->repay=='按日付息到期还本')selected @endif>按日付息到期还本</option>
+                                    <option value="4" @if(!empty($book->repay)&&$book->repay=='等额本金')selected @endif>等额本金</option>
+                                    <option value="5" @if(!empty($book->repay)&&$book->repay=='等额本息')selected @endif>等额本息</option>
+                                    <option value="6" @if(!empty($book->repay)&&$book->repay=='月还息按季等额本金')selected @endif>月还息按季等额本金</option>
+                                    <option value="7" @if(!empty($book->repay)&&$book->repay=='按季付息到期还本')selected @endif>按季付息到期还本</option>
                                 </select>
                             </div>
                             <div class="control-group">
                                 <label for="">现金奖励</label>
-                                <input type="text" name="data[back_reward]" value="{!! $book->back_reward or '' !!}" class="input-style" placeholder="选填">
+                                <input type="text" name="data[reward]" value="{!! $book->back_reward or '' !!}" class="input-style" placeholder="选填">
                                 <label for="">折扣奖励</label>
-                                <input type="text" name="data[discount_reward]" value="{!! $book->discount_reward or '' !!}" class="input-style" placeholder="选填">
+                                <input type="text" name="data[discount]" value="{!! $book->discount_reward or '' !!}" class="input-style" placeholder="选填">
                             </div>
                             <div class="control-group">
                                 <label for="">管理费</label>
@@ -141,7 +144,6 @@
                             <div class="control-group">
                                 <div class="total">预期收益<em class="num1" id="t_profit">0</em>预期利息<em class="num2" id="t_interest">0</em>总奖励<em class="num3" id="t_reward">0</em>实际年化<em class="num1" id="t_rate">0%</em></div>
                             </div>
-                                <input type="button" id="calcStart" value="计算器">
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>
                     </div>

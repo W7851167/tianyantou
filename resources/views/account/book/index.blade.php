@@ -33,30 +33,16 @@
                             <tbody>
                             @if(count($lists) > 0)
                                 @foreach($lists as $bv)
-                                    <?php
-                                        if($bv->term_unit=='月' && $bv->rate_unit=='月'){
-                                            $m = ($bv->rate/100)*($bv->term)*($bv->money);
-                                        }
-                                        if($bv->term_unit=='月' && $bv->rate_unit=='年'){
-                                            $m = ($bv->rate/100)*($bv->money)*($bv->term/12);
-                                        }
-                                        if($bv->term_unit=='日' && $bv->rate_unit=='月'){
-                                            $m = ($bv->money)*($bv->term)*($bv->rate/100/30);
-                                        }
-                                        if($bv->term_unit=='日' && $bv->rate_unit=='年'){
-                                            $m = ($bv->rate/100)*($bv->money)*($bv->term/365);
-                                        }
-                                    ?>
                             <tr>
                                 <td>{!! $bv->corp_name ?: '--' !!}</td>
                                 <td>{!! $bv->task_name ?: '--' !!}</td>
                                 <td>{!! $bv->start_time ?: '--' !!}</td>
                                 <td>{!! $bv->money or '0.00' !!}</td>
-                                <td>{!! $m?sprintf('%.2f',$m):'0.00' !!}</td>
-                                <td>{!! $bv->term or '--' !!}@if($bv->term_unit=='月'){!! $bv->term ?'个月':'' !!}@elseif($bv->term_unit=='日'){!! $bv->term ?'日':'' !!}@endif</td>
-                                <td>@if($bv->rate_unit=='月'){!! sprintf('%.2f',$bv->rate * 12) !!}@elseif($bv->rate_unit=='年'){!! sprintf('%.2f',$bv->rate)!!}@endif %</td>
-                                <td>{!! $bv->back_reward ?: '--' !!}</td>
-                                <td>{!! $bv->discount_reward ?: '--' !!}</td>
+                                <td>{!! isset($bv->stats['interest']) ? sprintf('%.2f',$bv->stats['interest']) : 0 !!}</td>
+                                <td>{!! $bv->term or '--' !!}@if($bv->term_unit==0){!! $bv->term ?'个月':'' !!}@elseif($bv->term_unit==1){!! $bv->term ?'日':'' !!}@endif</td>
+                                <td>{!! isset($bv->stats['rate']) ?  sprintf('%.2f',$bv->stats['rate']*100) : 0 !!}%</td>
+                                <td>{!! $bv->reward ?: '--' !!}</td>
+                                <td>{!! $bv->discount ?: '--' !!}</td>
                                 <td>
                                     <a href="{!! url('book/create',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">编辑</a>
                                     <a href="{!! url('book/delete',['id'=>$bv->id]) !!}" class="btn btn-blue btn-allwidth">删除</a>

@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'pengzhizhuang@outlook.com', 'name' => '天眼投'],
+    'from' => ['address' => 'admin@tianyantou.com', 'name' => '天眼投'],
 
     /*
     |--------------------------------------------------------------------------

@@ -23,11 +23,10 @@ class AdminController extends Controller
 
     public function __initalize()
     {
-//        $this->middleware('redirect');
         $this->user = Session::get('user.passport');
-        if(!empty($this->user) && $this->user['role'] != '管理员') {
-            return abort(500,'非管理员不能登录超级后台');
-        }
+//        if(!empty($this->user) && $this->user['role'] != '管理员') {
+//            return abort(500,'非管理员不能登录超级后台');
+//        }
         view()->share('user', $this->user);
         list($menu, $sidebarHtml) = getNavConfig();
         view()->share('menu', $menu);

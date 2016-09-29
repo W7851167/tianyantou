@@ -18,7 +18,7 @@ class AdminMiddleware
     {
         $user = Session::get('user.passport');
 
-        if ($user or $request->is('passport/login') or $request->is('passport/logout')) {
+        if (($user && $user['role'] == '管理员') or $request->is('passport/login') or $request->is('passport/logout')) {
 
             return $next($request);
         }

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class BookModel extends BaseModel
+class BookRepayModel extends BaseModel
 {
     protected $table = 'books_repay';
     protected $primaryKey = 'id';
