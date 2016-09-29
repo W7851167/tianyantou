@@ -15,6 +15,7 @@ namespace App\Repositories;
 use App\Eloquent\Model;
 use App\Models\BankModel;
 use App\Models\BookModel;
+use App\Models\BookRepayModel;
 use App\Models\MessageModel;
 use App\Models\MoneyModel;
 use App\Models\RecordModel;
@@ -35,7 +36,8 @@ class UserRepository extends BaseRepository
         BankModel $bankModel,
         MessageModel $messageModel,
         RecordModel $recordModel,
-        BookModel $bookModel
+        BookModel $bookModel,
+        BookRepayModel $bookRepayModel
     )
     {
         $this->userModel = $userModel;
@@ -46,6 +48,7 @@ class UserRepository extends BaseRepository
         $this->messageModel = $messageModel;
         $this->recordModel = $recordModel;
         $this->bookModel = $bookModel;
+        $this->bookRepayModel = $bookRepayModel;
     }
 
     /**
@@ -334,7 +337,22 @@ class UserRepository extends BaseRepository
     public function saveBook($data)
     {
         $result = $this->bookModel->getConnection()->transaction(function () use ($data) {
+            $book = $this->bookModel->edit($data);
 
+            $obj = app()->make('LibraryManager')->create('income');
+            $result = $obj->_init($data)->getList();
+            if (!empty($book) && $result) {
+                foreach ($result as $b) {
+                    $item = [
+                        'book_id' => $book->id,
+                        'interest' => $b['interest'],
+                        'income' => $b['income'],
+                        'repay_time' => $b['repay_time'],
+                        'status' => 0,
+                    ];
+                    $this->bookRepayModel->saveBy($item);
+                }
+            }
         });
         if ($result instanceof \Exception) {
             return static::getError($result->getMessage());

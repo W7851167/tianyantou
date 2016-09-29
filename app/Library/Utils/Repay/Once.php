@@ -60,6 +60,6 @@ class Once extends  Repay{
         $unit = $data['term_unit'] == 0 ? 'months':'days';
         $endTime = strtotime('+' . $data['term'] . $unit, $startTime);
         $result['repay_time'] = $endTime;
-        return $result;
+        return [$result];
     }
 }
