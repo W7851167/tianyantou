@@ -25,9 +25,21 @@ class CensusController extends  AdminController
         $this->census = $census;;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.census.index');
+        $startTime = $request->get('start_time');
+        $endTime  = $request->get('end_time');
+        $startTime = !empty($startTime) ? strtotime($startTime . ' 00:00:01'): strtotime('-7 days',time());
+        $endTime   = !empty($endTime) ? strtotime($endTime . ' 23:59:59') : time();
+        $title  = date('Y-m-d', (int)$startTime) . '至' . date('Y-m-d',(int)$endTime) . '任务统计';
+        $data = $this->getCalendar($startTime,$endTime);
+        foreach($data as $i=>$item) {
+            $census[0][]= $this->census->getTaskReceiveStats(0,$item[0],$item[1]);
+            $census[1][]= $this->census->getTaskReceiveStats(1,$item[0],$item[1]);
+            $census[2][]= $this->census->getTaskReceiveStats(2,$item[0],$item[1]);
+        }
+        $categorys = array_keys($data);
+        return view('admin.census.index',compact('categorys','census','startTime','endTime','title'));
     }
 
     /**
