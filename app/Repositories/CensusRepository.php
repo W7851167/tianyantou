@@ -97,6 +97,28 @@ class CensusRepository extends BaseRepository
         return $this->userModel->whereBetween('created_at', [$startTime, $endTime])->count();
     }
 
+
+    /**
+     * @param int $status
+     * @param $startTime
+     * @param $endTime
+     * @return mixed
+     * 用户领取任务统计
+     */
+    public function getTaskReceiveStats($status=0,$startTime, $endTime)
+    {
+        $startTime = strtotime($startTime);
+        $endTime = strtotime($endTime);
+        if($status == 0) {
+            return $this->taskReceiveModel->whereBetween('create_time', [$startTime, $endTime])->count();
+        } else if($status == 2){
+            return $this->taskReceiveModel->whereBetween('commit_time', [$startTime, $endTime])->count();
+        } else if($status == 1) {
+            return $this->taskReceiveModel->whereBetween('complete_time', [$startTime, $endTime])->count();
+        }
+
+    }
+
     /**
      * @param $userId
      * @param $startTime 2016-08-09
