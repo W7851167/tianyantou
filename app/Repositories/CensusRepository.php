@@ -11,6 +11,8 @@
  ***********************************************************************************/
 namespace App\Repositories;
 
+use App\Models\BookModel;
+use App\Models\BookRepayModel;
 use App\Models\MoneyModel;
 use App\Models\PastModel;
 use App\Models\RecordModel;
@@ -19,6 +21,7 @@ use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
 use App\Models\WithdrawModel;
 use App\Models\ScoreModel;
+use Carbon\Carbon;
 
 class CensusRepository extends BaseRepository
 {
@@ -31,7 +34,9 @@ class CensusRepository extends BaseRepository
         PastModel $pastModel,
         RecordModel $recordModel,
         WithdrawModel $withdrawModel,
-        ScoreModel $scoreModel
+        ScoreModel $scoreModel,
+        BookModel $bookModel,
+        BookRepayModel $bookRepayModel
     )
     {
         $this->taskReceiveModel = $taskReceiveModel;
@@ -42,6 +47,8 @@ class CensusRepository extends BaseRepository
         $this->recordModel = $recordModel;
         $this->withdrawModel = $withdrawModel;
         $this->scoreModel = $scoreModel;
+        $this->bookModel = $bookModel;
+        $this->bookRepayModel  = $bookRepayModel;
     }
 
 
@@ -54,26 +61,18 @@ class CensusRepository extends BaseRepository
         $result = $this->pastModel->getConnection()->transaction(function ($conn) use ($userId) {
             $signInReward = getSignReward();
             $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
-            //非第一次
-            if ($pastModel->created_at != $pastModel->updated_at) {
-                $today = date('Y-m-d') . ' 00:00:00';
-                //记录创建时间小于今天
-                if ($pastModel->created_at < $today) {
-                    if ($pastModel->updated_at > $today) {
-                        throw new \Exception('您今天已经签过到了！');
-                    }
-                    //签到
-                    $sql = "UPDATE ad_pasts SET days = ";
-                    $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
-                    $sql .= "ELSE 0 END WHERE user_id = ?";
-                    $conn->update($sql, [$userId]);
-                }
+            //签到
+            $sql = "UPDATE ad_pasts SET days = ";
+            $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
+            $sql .= "ELSE 0 END WHERE user_id = ?";
+            $conn->update($sql, [$userId]);
+            if($pastModel->days == 0) {
+               $this->pastModel->saveBy(['id'=>$pastModel->id,'days'=>1]);
+                $pastModel->days = 1;
             }
-            $d = ($pastModel->days + 1) % 7;
-            $score = $signInReward[$d];
-            $days = $pastModel->days;
+            $score = $signInReward[$pastModel->days];
             //增加记录积分流水
-            $data['intro'] = sprintf('您第%d签到获天取%d个积分', $days, $score);
+            $data['intro'] = sprintf('您第%d天签到获取%d个积分', $pastModel->days, $score);
             $data['user_id'] = $userId;
             $data['score'] = $score;
             $this->scoreModel->create($data);
@@ -156,7 +155,23 @@ class CensusRepository extends BaseRepository
                 $receiveIn += sprintf('%.2f', $income);
                 $stats[] = ['title' => $title, 'color' => $colors[3], 'start' => date('Y-m-d', $receiveModel->complete_time)];
             }
+        }
 
+        //记录记账功能点
+        $query = $this->bookModel->select(['*']);
+        $where['user_id'] = $userId;
+        $query = $this->bookModel->createWhere($query, $where);
+        $bookResult = $query->get();
+        if(!empty($bookResult)) {
+            foreach($bookResult as $book) {
+                if(!empty($book->created_at)) {
+                    $createdTime = strtotime($book->created_at);
+                    if($createdTime >= $startTime && $createdTime < $endTime) {
+                        $title = "记录" . $book->corp_name . '平台，' . $book->task_name . '投资';
+                        $stats[] = ['title' => $title, 'color' => $colors[2], 'start' => date('Y-m-d', $createdTime)];
+                    }
+                }
+            }
         }
         return [$account, $receiveIn, $repayIn, $stats];
     }
@@ -300,8 +315,8 @@ class CensusRepository extends BaseRepository
         //这个月的天数
         $money = date('m', $time);
         $days = date('t', $time);
-        $start = strtotime(date('Y-m', $time) . '-01');
-        $end = strtotime(date('Y-m', $time) . '-' . $days);
+        $start = strtotime(date('Y-m', $time) . '-01 00:00:01');
+        $end = strtotime(date('Y-m', $time) . '-' . $days . ' 23:59:59');
         return [$start, $end];
     }
 

@@ -120,13 +120,11 @@
                             <div class="control-group">
                                 <label for="">还款方式</label>
                                 <select name="data[repay_type]" class="input-style required">
-                                    <option value="1" @if(!empty($book->repay)&&$book->repay=='一次性还本付息')selected @endif>一次性还本付息</option>
-                                    <option value="2" @if(!empty($book->repay)&&$book->repay=='按月付息到期还本')selected @endif>按月付息到期还本</option>
-                                    <option value="3" @if(!empty($book->repay)&&$book->repay=='按日付息到期还本')selected @endif>按日付息到期还本</option>
-                                    <option value="4" @if(!empty($book->repay)&&$book->repay=='等额本金')selected @endif>等额本金</option>
-                                    <option value="5" @if(!empty($book->repay)&&$book->repay=='等额本息')selected @endif>等额本息</option>
-                                    <option value="6" @if(!empty($book->repay)&&$book->repay=='月还息按季等额本金')selected @endif>月还息按季等额本金</option>
-                                    <option value="7" @if(!empty($book->repay)&&$book->repay=='按季付息到期还本')selected @endif>按季付息到期还本</option>
+                                    <option value="1" @if(!empty($book->repay_type)&&$book->repay_type=='1')selected @endif>一次性还本付息</option>
+                                    <option value="2" @if(!empty($book->repay_type)&&$book->repay_type=='2')selected @endif>按月付息到期还本</option>
+                                    <option value="3" @if(!empty($book->repay_type)&&$book->repay_type=='3')selected @endif>按季付息到期还本</option>
+                                    <option value="4" @if(!empty($book->repay_type)&&$book->repay_type=='4')selected @endif>等额本金</option>
+                                    <option value="5" @if(!empty($book->repay_type)&&$book->repay_type=='5')selected @endif>等额本息</option>
                                 </select>
                             </div>
                             <div class="control-group">
