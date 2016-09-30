@@ -15,12 +15,14 @@
         }
         .total{
             margin-left: 108px;
-            width: 500px;
+            width: 550px;
             border: 1px solid #4da3ec;
             line-height: 59px;
             padding-left: 22px;
+            margin-bottom: 10px;
         }
         .total em{
+            color: red;
             font-size: 16px;
             margin: 0 20px 0 6px;
         }
@@ -38,15 +40,25 @@
                         <div class="use-tpl-btn fr"><div class="txt">使用模板记账</div>
                             <div class="note-tpl" style="display: none;">
                                 <table>
-                                    <tbody><tr><th>平台</th><th>项目名称</th><th>年化收益</th><th>期限</th><th>还款方式</th><th></th></tr>
+                                    <tbody>
+                                    <tr>
+                                        <th>平台</th>
+                                        <th>项目名称</th>
+                                        <th>年化收益</th>
+                                        <th>期限</th>
+                                        <th>还款方式</th>
+                                        <th>操作</th>
+                                    </tr>
                                     @foreach($lists as $tv)
                                         <?php if($tv->rate_unit=='年'){$r=$tv->rate;}else{$r=$tv->rate*12;} ?>
                                     <tr data-id="{!! $tv->id !!}">
                                         <td>{!! $tv->corp_name ?:'--' !!}</td>
                                         <td>{!! $tv->template_name ?:'--' !!}</td>
-                                        <td>{!! sprintf('%.2f',$r) !!}%/年</td>
-                                        <td>{!! $tv->term or '--' !!}@if($tv->term_unit=='月'){!! $tv->term ?'个月':'' !!}@elseif($tv->term_unit=='日'){!! $tv->term ?'日':'' !!}@endif</td>
-                                        <td>{!! $tv->repay !!}</td>
+                                        <td>{!! isset($tv->stats['rate']) ?  sprintf('%.2f',$tv->stats['rate']*100) : 0 !!}%</td>
+                                        <td>{!! $tv->term or '--' !!}@if($tv->term_unit==0){!! $tv->term ?'个月':'' !!}@elseif($tv->term_unit==1){!! $tv->term ?'日':'' !!}@endif</td>
+                                        <td>
+                                            @if($tv->repay_type==1)一次性还本付息@elseif($tv->repay_type==2)按月付息到期还本@elseif($tv->repay_type==3)按季付息到期还本@elseif($tv->repay_type==4)等额本金@elseif($tv->repay_type==5)等额本息@endif
+                                        </td>
                                         <td><a href="{!! config('app.account_url') !!}/book/template/delete/{!! $tv->id !!}" class="del_button action" data-method="post" data-confirm="确定要删除该记账模板?">删</a></td>
                                     </tr>
                                     @endforeach
@@ -141,8 +153,11 @@
                                 <label for="">备注</label>
                                 <textarea class="remark" name="data[remark]" cols="3" rows="10" placeholder="备注：不超过40字（选填）">{!! $book->remark or '' !!}</textarea>
                             </div>
-                            <div class="control-group">
-                                <div class="total">预期收益<em class="num1" id="t_profit">0</em>预期利息<em class="num2" id="t_interest">0</em>总奖励<em class="num3" id="t_reward">0</em>实际年化<em class="num1" id="t_rate">0%</em></div>
+                            <div class="total">
+                                预期收益<em class="num1" id="t_profit">{!! isset($stats['income'])?sprintf('%.2f',$stats['income']) : 0 !!}</em>
+                                预期利息<em class="num2" id="t_interest">{!! isset($stats['income'])?sprintf('%.2f',$stats['interest']) : 0 !!}</em>
+                                总奖励<em class="num3" id="t_reward">{!! isset($stats['reward'])?sprintf('%.2f', $stats['reward']):0 !!}</em>
+                                实际年化<em class="num1" id="t_rate">{!! isset($stats['rate'])?sprintf('%.2f', $stats['rate'] * 100):0 !!}%</em>
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
                         </form>

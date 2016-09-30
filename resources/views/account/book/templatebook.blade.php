@@ -57,9 +57,9 @@
     </div>
     <div class="control-group">
         <label for="">现金奖励</label>
-        <input type="text" name="data[back_reward]" value="{!! $book->back_reward or '' !!}" class="input-style" placeholder="选填">
+        <input type="text" name="data[reward]" value="{!! $book->reward or '' !!}" class="input-style" placeholder="选填">
         <label for="">折扣奖励</label>
-        <input type="text" name="data[discount_reward]" value="{!! $book->discount_reward or '' !!}" class="input-style" placeholder="选填">
+        <input type="text" name="data[discount]" value="{!! $book->discount or '' !!}" class="input-style" placeholder="选填">
     </div>
     <div class="control-group">
         <label for="">管理费</label>
@@ -77,4 +77,13 @@
         <label for="">备注</label>
         <textarea class="remark" name="data[remark]" cols="3" rows="10" placeholder="备注：不超过40字（选填）">{!! $book->remark or '' !!}</textarea>
     </div>
+    <div class="control-group">
+        <div class="total">
+            预期收益<em class="num1" id="t_profit">{!! isset($stats['income'])?sprintf('%.2f',$stats['income']) : 0 !!}</em>
+            预期利息<em class="num2" id="t_interest">{!! isset($stats['income'])?sprintf('%.2f',$stats['interest']) : 0 !!}</em>
+            总奖励<em class="num3" id="t_reward">{!! isset($stats['reward'])?sprintf('%.2f', $stats['reward']):0 !!}</em>
+            实际年化<em class="num1" id="t_rate">{!! isset($stats['rate'])?sprintf('%.2f', $stats['rate'] * 100):0 !!}%</em>
+        </div>
+    </div>
     <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
+

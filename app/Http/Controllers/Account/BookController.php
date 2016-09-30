@@ -69,11 +69,20 @@ class BookController extends FrontController
         }
         if ($id) {
             $book = $this->userRepository->bookModel->find($id);
+            if (!empty($book)) {
+                $obj = app()->make('LibraryManager')->create('income');
+                $stats = $obj->_init($book->toArray())->getstats();
+            }
         } else {
             $where = ['user_id' => $this->user['id'], 'is_template' => 1];
             list($count, $lists) = $this->userRepository->getBookList($where, $this->perpage, 1);
+            foreach ($lists as $item) {
+                $obj = app()->make('LibraryManager')->create('income');
+                $stats = $obj->_init($item->toArray())->getStats();
+                $item['stats'] = $stats;
+            }
         }
-        return view('account.book.create', compact('book', 'lists'));
+        return view('account.book.create', compact('book', 'lists','stats'));
     }
 
 
@@ -122,7 +131,12 @@ class BookController extends FrontController
     {
         $book = $this->userRepository->bookModel->find($id);
 
-        return view('account.book.templatebook', compact('book'));
+        if (!empty($book)) {
+            $obj = app()->make('LibraryManager')->create('income');
+            $stats = $obj->_init($book->toArray())->getstats();
+        }
+
+        return view('account.book.templatebook', compact('book', 'stats'));
     }
 
     public function stats(Request $request)
@@ -132,11 +146,11 @@ class BookController extends FrontController
 
         $stats = $obj->_init($data)->getstats();
         $data = [];
-        if($stats){
-            $data['income'] = sprintf('%.2f',$stats['income']);
-            $data['interest'] = sprintf('%.2f',$stats['interest']);
-            $data['reward'] = sprintf('%.2f',$stats['reward']);
-            $data['rate'] = sprintf('%.2f',$stats['rate']*100);
+        if ($stats) {
+            $data['income'] = sprintf('%.2f', $stats['income']);
+            $data['interest'] = sprintf('%.2f', $stats['interest']);
+            $data['reward'] = sprintf('%.2f', $stats['reward']);
+            $data['rate'] = sprintf('%.2f', $stats['rate'] * 100);
         }
         return json_encode($data);
     }
