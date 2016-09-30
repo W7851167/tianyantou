@@ -53,7 +53,7 @@
                                 <!-- 已开通平台选项卡 start -->
                                 <div class="active">
                                     <div class="platlist-wrap inactivated-plat" id="opened_platforms">
-                                        @if(count($openLists)>0)
+                                        {{--@if(count($openLists)>0)
                                             <div class="plat-list" id="unopened_platforms">
                                                 @foreach($openLists as $cv)
                                                     <div class="plat-box">
@@ -79,7 +79,67 @@
                                             </div>
                                         @else
                                             <p class="no-record">您还未开通平台</p>
-                                        @endif
+                                        @endif--}}
+                                        <div class="plat-list active-plat">
+                                            <div class="plat-box">
+                                                <div class="logo">
+                                                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016071813583280943.jpg?ver=20160431006" width="110" alt="">
+                                                    <a rel="show-more" href=" ">明细&nbsp;(0)</a >
+                                                </div>
+                                                <div class="details">
+                                                    <table border="0">
+                                                        <tbody><tr>
+                                                            <th width="130">在投本金</th>
+                                                            <th>待收利息</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.00元</td>
+                                                            <td>0.00元</td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    <table border="0">
+                                                        <tbody><tr>
+                                                            <th width="130">投资占比</th>
+                                                            <th>平均期限</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.00%</td>
+                                                            <td>0.0个月</td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                </div>
+                                                <a class="btn btn-blue-o btn-allwidth" rel="_platform_join" data-sso-url="https://www.touzhijia.com/platform/login/huitouwang/0.html">进入平台</a >
+                                            </div>
+                                            <div class="plat-box">
+                                                <div class="logo">
+                                                    <img src="//static.touzhijia.com/upload/image/bidimg/logo_recommend_img/2016080810123766531.png?ver=20160431006" width="110" alt="">
+                                                    <a rel="show-more" href="https://account.touzhijia.com/platforms/analysis.html?date=all&amp;type=ing&amp;platform=erongsuo">明细&nbsp;(0)</a >
+                                                </div>
+                                                <div class="details">
+                                                    <table border="0">
+                                                        <tbody><tr>
+                                                            <th width="130">在投本金</th>
+                                                            <th>待收利息</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.00元</td>
+                                                            <td>0.00元</td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    <table border="0">
+                                                        <tbody><tr>
+                                                            <th width="130">投资占比</th>
+                                                            <th>平均期限</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.00%</td>
+                                                            <td>0.0个月</td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                </div>
+                                                <a class="btn btn-blue-o btn-allwidth" rel="_platform_join" data-sso-url="https://www.touzhijia.com/platform/login/erongsuo/1333.html">进入平台</a >
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- 未开通平台选项卡 start -->
