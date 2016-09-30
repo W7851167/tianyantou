@@ -9,13 +9,13 @@
                     <div class="content-right-header clearfix">
                         <img src="{!!url('admin/images/u5.png')!!}"/>
                         <a href="{!! url('censu') !!}">数据统计&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                        <a href="javascript">项目列表</a>
+                        <a href="javascript">任务列表</a>
                     </div>
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="javascript:void(0)" class="at">注册统计</a></p>
-                    <p><a href="javascript:void(0)" class="at">任务统计</a></p>
+                    <p><a href="{!! url('census') !!}" class="at">任务统计</a></p>
+                    <p><a href="{!! url('census/register') !!}">注册统计</a></p>
                 </div>
                 @if(!empty($stores))
                     <table class="all_shopping" cellspacing="0">
