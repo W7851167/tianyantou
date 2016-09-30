@@ -21,16 +21,18 @@
                     <table class="all_shopping" cellspacing="0">
                         <tr>
                             <th width='200'>用户名</th>
-                            <th width="100">总资产</th>
-                            <th width="100">钱包</th>
-                            <th width="100">冻结返利</th>
-                            <th width="100">冻结提现</th>
-                            <th width="100">积分</th>
+                            <th width='150'>手机号码</th>
+                            <th width="80">总资产</th>
+                            <th width="80">钱包</th>
+                            <th width="80">冻结返利</th>
+                            <th width="80">冻结提现</th>
+                            <th width="65">积分</th>
                             <th>操作</th>
                         </tr>
                         @foreach($lists as $uv)
                             <tr>
                                 <td>{!! $uv->username !!}</td>
+                                <td>{!! $uv->mobile !!}</td>
                                 <td>{!! $uv->money->total or 0.00!!}</td>
                                 <td>{!! $uv->money->money or 0.00 !!}</td>
                                 <td>{!! $uv->money->rebate or 0.00!!}</td>
