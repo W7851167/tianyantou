@@ -14,16 +14,20 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\AdminController;
+use App\Repositories\AdminRepository;
 use App\Repositories\CensusRepository;
 use App\Repositories\SystemRepository;
 use Illuminate\Http\Request;
 
 class SystemController extends  AdminController
 {
-    public function __construct(SystemRepository $system)
-    {
+    public function __construct(
+        SystemRepository $system,
+        AdminRepository $admin
+    ) {
         parent::__initalize();
         $this->system = $system;
+        $this->admin = $admin;
     }
 
     public function index(Request $request)
@@ -44,8 +48,22 @@ class SystemController extends  AdminController
      * @return \Illuminate\View\View
      * 角色管理
      */
-    public function role()
+    public function role(Request $request)
     {
-        return view('admin.system.index');
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        list($counts, $lists) = $this->admin->getRoleList([],$this->perpage, $page);
+        $page = $this->pager($counts);
+        return view('admin.system.role',compact('page','lists'));
+    }
+
+    /**
+     * @param Request $request
+     * @param null $id
+     * 获取所有权限
+     */
+    public function redit(Request $request,$id=null)
+    {
+        $roles = config('menu.menu');
+        return view('admin.system.redit',compact('roles'));
     }
 }

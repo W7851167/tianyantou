@@ -11,13 +11,13 @@
                 <div class="content-right-header clearfix">
                     <div class="content-right-header clearfix">
                         <img src="{!!url('admin/images/u5.png')!!}"/>
-                        <a href="{!! url('task') !!}">项目管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                        <a href="{!! url('task') !!}">项目列表</a>
+                        <a href="{!! url('system') !!}">系统管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+                        <a href="{!! url('system') !!}">系统设置</a>
                     </div>
                 </div>
 
                 <div class="content-right-tit clearfix">
-                    <p><a href="javascript:void(0)" class="at">系统功能</a></p>
+                    <p><a href="javascript:void(0)" class="at">系统设置</a></p>
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}

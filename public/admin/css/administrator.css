@@ -1,0 +1,474 @@
+/*-----------------------账号列表 start--------------------*/
+.navigation-page{
+	margin:30px auto 0;
+	font-size: 13px;
+}
+.navigation-page{
+    width:928px;
+}
+.content-right-page{
+	margin-left:25px;
+	margin-right:25px;
+}
+.content-right-tit{
+	width:928px;
+}
+.navigation-page tr:nth-child(1){
+	border:1px solid #e7e7e7;
+}
+.navigation-page tr th{
+	color: #999;
+	line-height: 35px;
+	font-weight: normal;
+	border-bottom: 1px solid #d6eaf8;
+	border-top:1px solid #d6eaf8;
+	background: #effaff;
+}
+.navigation-page tr th:first-child{
+	border-left: 1px solid #d6eaf8;
+}
+.navigation-page tr th:last-child{
+	border-right: 1px solid #d6eaf8;
+}
+.navigation-page  tr td{
+	height: 78px;
+	text-align: center;
+	color: #666666;
+    border-bottom: 1px solid #e7ebee;
+}
+.navigation-page  tr td:first-child{
+	border-left: 1px solid #e7ebee;
+	width:118px;
+	padding:0 10px;
+}
+.navigation-page  tr td:last-child{
+	border-right: 1px solid #e7ebee;
+}
+.navigation-page-edit{
+	display: block;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	position: relative;
+	text-align: center;
+	background:#fcfcfc url(../images/u315.png) no-repeat 15px 5px;
+	text-indent: 22px;
+	border:1px solid #dcdcdc;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navigation-page-edit:hover{
+	color: #FFFFFF;
+	background:#29e url(../images/u322.png) no-repeat 15px 5px;
+	border-color:#29e;
+}
+.navigation-page-del{
+	display: block;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	position: relative;
+	text-align: center;
+	background:#fcfcfc url(../images/u367.png) no-repeat 15px 5px;
+	text-indent: 22px;
+	border:1px solid #dcdcdc;
+	margin-top:8px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navigation-page-del:hover{
+	color: #FFFFFF;
+	background: #F13A3A url(../images/u374.png) no-repeat 18px 5px;
+	border-color:#f13a3a;
+}
+.navigation-page-none{
+	margin:115px auto;
+	width: 200px;
+	position: relative;
+}
+.navigation-page-none  p{
+	float: right;
+	color: #27A9E3;
+	font-weight: bold;
+}
+.navigation-page-none .images{
+	position: absolute;
+	top:-2px;
+	left: 20px;
+}
+/**/
+.navigation-show{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999999;
+}
+.navigation-show-del{
+	position: fixed;
+	top:30%;
+	left: 45%;
+	border:4px solid #BCBCBC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 392px;
+	height: 137px;
+	background-color: #FFFFFF;
+	display: none;
+}
+.navigation-show-del p{
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	background-color: #F2F2F2;
+	text-indent: 10px;
+}
+.navigation-show-del p a{
+	float: right;
+	margin-right: 15px;
+}
+.navigation-show-del button{
+	display: block;
+	width: 120px;
+	height: 30px;
+	color: #FFFFFF;
+	line-height: 30px;
+	background-color: #F13A3A;
+	margin: 30px auto;
+}
+/*-----------------------账号列表 end-------------------*/
+/*--------------------日志列表 start--------------------------------------*/
+.daily-time{
+	padding:25px 0 35px 20px;
+	line-height: 30px;
+	width:912px;
+}
+.daily-time-int{
+	float: left;
+}
+.daily-time-year{
+	float: left;
+	margin-left:52px;
+}
+.daily-time-int-page{
+	float: left;
+}
+.daily-time-int-page p{
+	float: left;
+	color: #999999;
+}
+.daily-time-int-page input{
+	width: 118px;
+	height: 26px;
+	margin-left: 10px;
+}
+.daily-time-int-page input:focus{	
+	border: 1px solid #7A9CD3;
+}
+.daily-time-int div:last-child{
+	margin-left: 20px;
+}
+.daily-time-int div:last-child input{
+	width: 198px;
+	height: 26px;
+}
+.daily-time-year input{
+	font-size: 12px;
+	color: #666666;
+	width: 120px;
+	height: 26px;
+	background: url(../images/u325.png) no-repeat 118px 5px;
+	background-size: 15px 15px;
+	border: 1px solid #A9A9A9;
+	cursor: pointer;
+}
+.daily-time-year span{
+	color: #999999;
+}
+.daily-time-year button{
+	width: 68px;
+	height: 28px;
+	line-height: 26px;
+	background-color: #fff;
+	margin-left: 10px;
+	color: #333;
+	border:1px solid #dcdcdc;
+}
+.daily-time-year button:hover{
+	background:#29e;
+	color:#fff;
+	border:1px solid #29e;
+}
+/**/
+.daily-list{
+	width: 926px;
+	margin: 0 auto;
+	font-size: 13px;
+}
+.daily-list tr{
+	width:900px;
+}
+.daily-list tr th{
+	height: 40px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #999999;
+	background-color: #effaff;
+	border-top:1px solid #d6eaf8;
+	border-bottom: 1px solid #d6eaf8;
+}
+.daily-list tr th:first-child{
+	border-left:1px solid #d6eaf8;
+}
+.daily-list tr th:last-child{
+	border-right:1px solid #d6eaf8;
+}
+.daily-list tr th:nth-child(2){
+	text-align: center;
+	width:253px;
+}
+.daily-list tr td{
+	height:50px;
+	text-align: center;
+	color: #666666;
+	border-bottom: 1px solid #E4E4E4;
+}
+.daily-list tr td>span{
+	margin-left: 10px;
+}
+/*--------------------日志列表 end--------------------------------------*/
+/*---------------组列表 start-------------------------*/
+.system-page{
+	margin-top:45px;
+	font-size: 13px;
+	margin-right:-25px;
+	margin-left:5px;
+}
+.system-page li{
+	height: 80px;
+	line-height: 80px;
+	width: 928px;
+	border:1px solid #e7ebee;
+	border-top:none;
+	margin-left: -7px;
+}
+.system-page li:nth-child(1){
+	color: #999;
+	height:35px;
+	line-height: 35px;
+	font-weight: normal;
+	border: 1px solid #d6eaf8;
+	background: #effaff;
+}
+.system-page li>p{
+	width: 807px;
+	text-indent:38px;
+	float: left;
+	color: #999999;
+}
+.system-page li:first-child p:last-child{
+	width: 100px;
+	float: left;
+	text-align: center;
+	color: #999999;
+	text-indent: 0;
+	margin-left: 19px;
+}
+.all-check{
+	float: left;
+	margin-right: 10px;
+	margin-left: 14px;
+}
+.all-check label{
+	color: #666666;
+}
+.all-del{
+	float: left;
+	width: 55px;
+	height: 22px;
+	line-height: 22px;
+	color: #FFFFFF;
+	background: #CCD0D9 url(../images/u374.png) no-repeat 7px 4px;
+	margin-top:8px;
+	text-indent: 12px;
+}
+.all-del:hover{
+	background-color: #AAB2BD;
+}
+/*end*/
+.system-handle{
+	float: left;
+	width: 102px;
+	text-align: center;
+	margin-left: 19px;
+}
+.system-handle>a{
+	display: block;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	position: relative;
+	text-align: center;
+	text-indent: 22px;
+	border: 1px solid #dcdcdc;
+	margin:5px auto;
+}
+.system-handle>a:first-child{
+	margin-top:10px;
+	background: url(../images/u315.png) no-repeat 15px 5px;
+}
+.system-handle>a:first-child:hover{
+	background: #29e url(../images/u322.png) no-repeat 15px 5px;
+	color: #FFFFFF;
+	border:1px solid #29e;
+}
+.system-handle>a:last-child{
+	background: url(../images/u367.png) no-repeat 15px 5px;
+}
+.system-handle>a:last-child:hover{
+	background: #F13A3A url(../images/u374.png) no-repeat 18px 5px;
+	color: #FFFFFF;
+	border:1px solid #f13A3A;
+}
+/*end*/
+.system-window{
+	position: fixed;
+	top:30%;
+	left: 40%;
+	width:542px;
+	height: 322px;
+	border: 4px solid #969696;
+	background-color: #FFFFFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display: none;
+}
+.system-window>p{
+	height: 40px;
+	line-height: 40px;
+	text-indent: 10px;
+	background-color: #F2F2F2;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+.system-window>p a{
+	float: right;
+	margin-right: 10px;
+}
+.system-window-page{
+	border-bottom: 1px solid #CCCCCC;
+	padding-bottom: 16px;
+}
+.system-window-page li{
+	width: 100%;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+.system-window-page-tit{
+	width: 142px;
+	text-align: right;
+	float: left;
+}
+.system-window-page-tit>span{
+	color: #FF3300;
+}
+.system-window-page-ct{
+	padding-left: 18px;
+	float: left;
+}
+.system-window-page-ct>input{
+	height: 28px;
+	width:198px;
+	float: left;
+}
+.system-name-cue{
+	color: #F13A3A;
+	float: left;
+	margin-left: 10px;
+}
+.system-window-page-ct>input:focus{
+	-webkit-box-shadow: 0px 0px 0px 1px #A6C8FF;
+	box-shadow: 0px 0px 0px 1px #A6C8FF;
+	border:1px solid #7A9CD3;
+}
+.system-window-page-ct>select{
+	width: 118px;
+	height: 28px;
+}
+.system-window-page-ct>input.system-order{
+	width: 118px;
+	height: 28px;
+}
+.system-window-page-ct>div{
+	float: left;
+	margin-right: 57px;
+}
+.system-submit{
+	display: block;
+	margin: 8px auto;
+	background-color: #51B9E9;
+	color: #FFFFFF;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+}
+/*end*/
+.system-page-none{
+	width: 187px;
+	height: 25px;
+	margin:225px auto;
+}
+.system-page-none p{
+	position: relative;
+	text-align: right;
+	color: #27A9E3;
+	line-height: 25px;
+	font-weight: bold;
+}
+.system-page-none p img{
+	position: absolute;
+	top:0px;
+	left: 10px;
+}
+/*---------------组列表 end-------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

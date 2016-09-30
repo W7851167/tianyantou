@@ -67,6 +67,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //系统管理
     Route::any('system', ['as' => 'system.system.index', 'uses' => 'SystemController@index']);
     Route::get('system/role', ['as' => 'system.role.index', 'uses' => 'SystemController@role']);
+    Route::get('system/redit/{id?}', ['as' => 'system.role.edit', 'uses' => 'SystemController@redit']);
     //文章管理
     Route::get('news/multi', ['as' => 'news.multi.index', 'uses' => 'NewController@index']);
     Route::match(['get', 'post'], 'news/multi/create/{id?}', ['as' => 'news.multi.edit', 'uses' => 'NewController@createmulti']);
