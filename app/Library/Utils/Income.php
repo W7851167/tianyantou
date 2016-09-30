@@ -18,11 +18,9 @@ class Income {
     private $repayType = [
         1 => '一次性还本付息',
         2 => '按月付息到期还本',
-        3 => '按日付息到期还本',
+        3 => '按季付息到期还本',
         4 => '等额本金',
         5 => '等额本息',
-        6 => '月还息按季等额本金',
-        7 => '按季付息到期还本'
     ];
     //配置文件
     private $config =[
@@ -57,7 +55,7 @@ class Income {
                 $class = 'Month';
                 break;
             case 3:
-                $class = 'Day';
+                $class = 'Quarter';
                 break;
             case 4:
                 $class = 'Capital';
