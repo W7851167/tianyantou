@@ -39,6 +39,7 @@ return [
         ['name' => '系统管理', 'url' => 'system', 'tag' => 'system', 'child' => [
             ['name' => '系统管理', 'url' => 'system', 'tag' => 'system.system.index'],
             ['name' => '角色管理', 'url' => 'system/role', 'tag' => 'system.role.index'],
+            ['name' => '管理员管理', 'url' => 'system/user', 'tag' => 'system.user.index'],
         ]],
     ],
 ];
