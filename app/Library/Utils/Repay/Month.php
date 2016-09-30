@@ -54,18 +54,10 @@ class Month extends Repay
      */
     public function  getList($data)
     {
-        $result = $this->getStats($data);
         $days = $this->getDays($data['start_time'], $data['term'], $data['term_unit']);
         $dayRate = $this->getDayRate($data['rate'],$data['rate_unit']);
         $money = $data['money'] + $data['reward'] + $data['discount'];
-
         $startTime = strtotime($data['start_time']);
-        if($days < 30) {
-            $result['repay_time'] =  $startTime + $days * 24 * 60 *60;
-            $result['days'] = $days;
-            return $result;
-        }
-
         $lists = [];
         $i = 0;
         $lastTime = $startTime + $days * 24 * 60 * 60;
