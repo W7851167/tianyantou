@@ -11,6 +11,8 @@
  ***********************************************************************************/
 namespace App\Repositories;
 
+use App\Models\BookModel;
+use App\Models\BookRepayModel;
 use App\Models\MoneyModel;
 use App\Models\PastModel;
 use App\Models\RecordModel;
@@ -32,7 +34,9 @@ class CensusRepository extends BaseRepository
         PastModel $pastModel,
         RecordModel $recordModel,
         WithdrawModel $withdrawModel,
-        ScoreModel $scoreModel
+        ScoreModel $scoreModel,
+        BookModel $bookModel,
+        BookRepayModel $bookRepayModel
     )
     {
         $this->taskReceiveModel = $taskReceiveModel;
@@ -43,6 +47,8 @@ class CensusRepository extends BaseRepository
         $this->recordModel = $recordModel;
         $this->withdrawModel = $withdrawModel;
         $this->scoreModel = $scoreModel;
+        $this->bookModel = $bookModel;
+        $this->bookRepayModel  = $bookRepayModel;
     }
 
 
@@ -149,7 +155,23 @@ class CensusRepository extends BaseRepository
                 $receiveIn += sprintf('%.2f', $income);
                 $stats[] = ['title' => $title, 'color' => $colors[3], 'start' => date('Y-m-d', $receiveModel->complete_time)];
             }
+        }
 
+        //记录记账功能点
+        $query = $this->bookModel->select(['*']);
+        $where['user_id'] = $userId;
+        $query = $this->bookModel->createWhere($query, $where);
+        $bookResult = $query->get();
+        if(!empty($bookResult)) {
+            foreach($bookResult as $book) {
+                if(!empty($book->created_at)) {
+                    $createdTime = strtotime($book->created_at);
+                    if($createdTime >= $startTime && $createdTime < $endTime) {
+                        $title = "记录" . $book->corp_name . '平台，' . $book->task_name . '投资';
+                        $stats[] = ['title' => $title, 'color' => $colors[2], 'start' => date('Y-m-d', $createdTime)];
+                    }
+                }
+            }
         }
         return [$account, $receiveIn, $repayIn, $stats];
     }
@@ -293,8 +315,8 @@ class CensusRepository extends BaseRepository
         //这个月的天数
         $money = date('m', $time);
         $days = date('t', $time);
-        $start = strtotime(date('Y-m', $time) . '-01');
-        $end = strtotime(date('Y-m', $time) . '-' . $days);
+        $start = strtotime(date('Y-m', $time) . '-01 00:00:01');
+        $end = strtotime(date('Y-m', $time) . '-' . $days . ' 23:59:59');
         return [$start, $end];
     }
 
