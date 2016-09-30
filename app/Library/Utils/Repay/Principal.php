@@ -19,7 +19,6 @@ class Principal extends  Repay
     public function getStats($data)
     {
         $interest =  $this->getPrincipal($data);
-        echo $interest;
         $money = $data['money'] + $data['reward'] + $data['discount'];
         $stat['interest'] = $interest - $interest * $data['manage_fee'] / 100;
         $stat['income'] = $stat['interest'] + $data['reward'] + $data['discount'];

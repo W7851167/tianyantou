@@ -3,23 +3,19 @@
  *  PhpStorm - phpad
  *-------------------------------------------------------------------------------
  * 版权所有: CopyRight By cw100.com
- * 按月付息到期还本
+ * 文件内容简单说明
  *-------------------------------------------------------------------------------
- * $FILE:Month.php
+ * $FILE:Quarter.php
  * $Author:zxs
- * $Dtime:2016/9/24
+ * $Dtime:2016/9/30
  ***********************************************************************************/
 
 namespace App\Library\Utils\Repay;
 
 
-class Month extends Repay
+class Quarter extends  Repay
 {
-    /**
-     * @param $data
-     * 获取统计信息
-     */
-    public function getStats($data)
+    public function  getStats($data)
     {
         $rate = $this->getDayRate($data['rate'], $data['rate_unit']);
         //年利率 日利率
@@ -48,29 +44,18 @@ class Month extends Repay
         ];
     }
 
-    /**
-     * @param $data
-     * 获取统计列表信息
-     */
-    public function  getList($data)
+    public function getList($data)
     {
         $result = $this->getStats($data);
         $days = $this->getDays($data['start_time'], $data['term'], $data['term_unit']);
         $dayRate = $this->getDayRate($data['rate'],$data['rate_unit']);
         $money = $data['money'] + $data['reward'] + $data['discount'];
-
         $startTime = strtotime($data['start_time']);
-        if($days < 30) {
-            $result['repay_time'] =  $startTime + $days * 24 * 60 *60;
-            $result['days'] = $days;
-            return $result;
-        }
-
         $lists = [];
         $i = 0;
         $lastTime = $startTime + $days * 24 * 60 * 60;
         do {
-            $endTime = strtotime('+1month', $startTime);
+            $endTime = strtotime('+3month', $startTime);
             $endTime = $endTime >= $lastTime ? $lastTime : $endTime;
             $currentDays = ($endTime - $startTime) / (24 * 60 *60);
             $startTime = $endTime;
@@ -86,5 +71,4 @@ class Month extends Repay
         $lists[$lastIndex]['income'] = $lists[$lastIndex]['interest'] + $data['money'] + $data['reward'] + $data['discount'];
         return $lists;
     }
-
 }
