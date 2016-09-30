@@ -46,7 +46,6 @@ class Quarter extends  Repay
 
     public function getList($data)
     {
-        $result = $this->getStats($data);
         $days = $this->getDays($data['start_time'], $data['term'], $data['term_unit']);
         $dayRate = $this->getDayRate($data['rate'],$data['rate_unit']);
         $money = $data['money'] + $data['reward'] + $data['discount'];
