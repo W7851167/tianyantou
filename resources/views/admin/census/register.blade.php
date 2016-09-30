@@ -57,7 +57,7 @@
                                     }]
                                 },
                                 tooltip: {
-                                    valueSuffix: ''
+                                    valueSuffix: '人'
                                 },
                                 legend: {
                                     layout: 'vertical',
