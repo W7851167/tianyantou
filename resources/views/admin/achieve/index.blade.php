@@ -20,8 +20,8 @@
                 <div class="source_title">
                     <ul>
                         <li>任务名称</li>
-                        <li>&nbsp;</li>
                         <li>投资人</li>
+                        <li>投资金额</li>
                         <li>状态</li>
                         <li>操作</li>
                     </ul>
@@ -30,16 +30,11 @@
                     <ul>
                         @foreach($lists as $rv)
                             <li class="js_reply_all">
-                                <div class="list_01">【{!! $rv->corp->name!!}】{!! $rv->task->title or '' !!}</div>
-                                <div class="list_02">
-                                    <span class="number_gray">
-                                      {!! $rv->user->username or '' !!}/{!! $rv->total or 0 !!}元
-                                    </span>
-                                </div>
+                                <div class="list_02">【{!! $rv->corp->name!!}】{!! $rv->task->title or '' !!}</div>
+                                <div class="list_02"> {!! $rv->user->username or '' !!}</div>
+                                <div class="list_02">{!! $rv->total or 0 !!}元</div>
                                 <div class="list_03">
-                                    <span class="number_gray">
                                         {!! $rv->status == 0 ? '已领取' : ($rv->status == 1 ? '已审核': '已交任务') !!}
-                                    </span>
                                 </div>
                                 <div class="list_03">
                                     @if(!empty($rv->status != 0))
@@ -49,8 +44,15 @@
                                 </div>
                                 <div class="reply_row" style="display:none;">
                                     <ul>
+                                        <li style="width: 700px;" class="clearfix">
+                                            <span style="margin-left: 30px;">ID</span>
+                                            <span style="margin-left: 30px;">投资真实用户</span>
+                                            <span style="margin-left: 30px;">投资人手机</span>
+                                            <span style="margin-left: 30px;">投资金额 </span>
+                                            <span style="margin-left: 30px;;">投资订单号</span>
+                                            <span style="margin-left: 30px;;">提交时间</span>
                                         @foreach($rv->achieves as $av)
-                                            <li style="width: 600px;" class="clearfix">
+                                            <li style="width: 700px;" class="clearfix">
                                                 <span style="margin-left: 30px;">{!! $av->id !!}</span>
                                                 <span style="margin-left: 30px;">{!! $av->realname !!}</span>
                                                 <span style="margin-left: 30px;">{!! $av->mobile !!}</span>
