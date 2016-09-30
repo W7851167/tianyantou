@@ -25,12 +25,12 @@
                 </div>
                 <div class="info">
                     <div class="info1">
-                        <form action="{!! url('census/register') !!}" method="get">
+                        <form action="{!! url('census') !!}" method="get">
                             {!! csrf_field() !!}
                             开始时间：<input type="text" name="start_time" class="Wdate" value="{!! date('Y-m-d', $startTime) !!}"  onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             结束时间：<input type="text" name="end_time" class="Wdate"  value="{!! date('Y-m-d', $endTime) !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             <input type="submit" value="查询">
-                            <input type="reset" value="重置" onclick="location='/census/register'">
+                            <input type="reset" value="重置" onclick="location='/census'">
                         </form>
                     </div>
                     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;"
