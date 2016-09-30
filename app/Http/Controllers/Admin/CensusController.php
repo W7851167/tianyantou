@@ -36,14 +36,18 @@ class CensusController extends  AdminController
      */
     public function register(Request $request)
     {
-        $startTime = strtotime('-7 days');
-        $data = $this->getCalendar($startTime,time());
+        $startTime = $request->get('start_time');
+        $endTime  = $request->get('end_time');
+        $startTime = !empty($startTime) ? strtotime($startTime . ' 00:00:01'): strtotime('-7 days',time());
+        $endTime   = !empty($endTime) ? strtotime($endTime . ' 23:59:59') : time();
+        $title  = date('Y-m-d', (int)$startTime) . '至' . date('Y-m-d',(int)$endTime) . '注册用户统计';
+        $data = $this->getCalendar($startTime,$endTime);
         foreach($data as $i=>$item) {
             $data[$i] = $this->census->getRegisterUserStats($item[0],$item[1]);
         }
         $categorys = array_keys($data);
         $census = array_values($data);
-        return view('admin.census.register',compact('categorys','census'));
+        return view('admin.census.register',compact('categorys','census','startTime','endTime','title'));
     }
 
     /**
