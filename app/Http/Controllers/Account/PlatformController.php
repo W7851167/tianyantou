@@ -44,15 +44,14 @@ class PlatformController extends FrontController
         $corpIds = $this->tasks->taskReceiveModel->where('user_id', $this->user['id'])->distinct('corp_id')->lists('corp_id')->toArray();
 
         $openWhere = array_merge($where, ['in' => ['id' => $corpIds]]);
-        list($openCount, $openLists) = $this->tasks->getCorpList($openWhere, $this->perpage, $page);
-        $pageHtml = $this->pager($openCount, $page, $this->perpage);
+        list($openCount, $openLists) = $this->tasks->getOpenPlatform($openWhere, $this->user['id']);
 
         $unopenWhere = array_merge($where, ['not_in' => ['id' => $corpIds]]);
         list($count, $lists) = $this->tasks->getCorpList($unopenWhere, $this->perpage, $page);
-        $pageHtml1 = $this->pager($count, $page, $this->perpage);
+        $pageHtml = $this->pager($count, $page, $this->perpage);
 
         return view('account.platform.statistic', compact(
-            'count', 'openLists', 'lists', 'openCount', 'count', 'pageHtml', 'pageHtml1'
+            'count', 'openLists', 'lists', 'openCount', 'count', 'pageHtml'
         ));
     }
 
@@ -67,15 +66,15 @@ class PlatformController extends FrontController
         $search['type'] = 'all';
         $search['platform'] = 'all';
         $page = $request->get('page') ? (int)$request->get('page') : 1;
-        if(!empty($request->get('date')) ) {
+        if (!empty($request->get('date'))) {
             $search['date'] = $request->get('date');
         }
 
-        if(!empty($request->get('type')) ){
+        if (!empty($request->get('type'))) {
             $search['type'] = $request->get('type');
         }
 
-        if(!empty($request->get('platform'))) {
+        if (!empty($request->get('platform'))) {
             $search['platform'] = $request->get('platform');
         }
 
@@ -83,28 +82,28 @@ class PlatformController extends FrontController
         $corps = $this->tasks->getNormalCorps($where);
         unset($where);
         $where['user_id'] = $this->user['id'];
-        if($search['date'] != 'all') {
-            $startTime = strtotime('-'. $search['date']);
+        if ($search['date'] != 'all') {
+            $startTime = strtotime('-' . $search['date']);
             $endTime = time();
             $where['between']['create_time'] = [$startTime, $endTime];
         }
-        if($search['platform'] != 'all') {
+        if ($search['platform'] != 'all') {
             $currentCorp = $this->tasks->getCorpByEname($search['platform']);
             $where['corp_id'] = $currentCorp->id;
         }
 
-        if($search['type'] != 'all') {
-            if($search['type']  == 'ing') {
+        if ($search['type'] != 'all') {
+            if ($search['type'] == 'ing') {
                 $where['status !='] = 1;
             } else {
                 $where['status'] = 1;
             }
         }
 
-        list($counts, $lists) = $this->tasks->getReceiveList($where, $this->perpage,$page);
+        list($counts, $lists) = $this->tasks->getReceiveList($where, $this->perpage, $page);
         $pageHtml = $this->pager($counts);
 
         $census = $this->census->getUserAnalysisStats($this->user['id']);
-        return view('account.platform.analysis',compact('corps','pageHtml','lists','search','census'));
+        return view('account.platform.analysis', compact('corps', 'pageHtml', 'lists', 'search', 'census'));
     }
 }
