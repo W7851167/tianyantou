@@ -37,7 +37,7 @@
                                 描述：
                             </p>
                             <div class="navigation-ct">
-                               <textarea class="addText" name="data[intro]"></textarea>
+                               <textarea class="addText" name="data[intro]" style="height:100px;width: 500px;"></textarea>
                             </div>
                         </li>
                         <li>
@@ -46,12 +46,6 @@
                                 基本权限：
                             </p>
                             <div class="navigation-ct">
-                                <div class="power-all-check">
-                                    <label>
-                                        <input type="checkbox" id="basicCheckAll">
-                                        全选
-                                    </label>
-                                </div>
                                 <ul class="power-page clearfix">
                                     <li>
                                         <div class="power-page-all-check">
@@ -97,9 +91,6 @@
 @section('script')
     <script language="javascript">
         $(function(){
-            $(document).on("click", "#basicCheckAll", function(){
-                $("[name='privi_ids[]']:checkbox").prop("checked", this.checked);
-            });
             $(document).on("click", ".check", function(){
                 $(this).parents("div").next("ul").find("input").prop("checked", this.checked);
             });
