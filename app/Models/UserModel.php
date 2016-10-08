@@ -63,4 +63,12 @@ class UserModel extends BaseModel
         return $this->hasOne('App\Models\PastModel','user_id');
     }
 
+    /**
+     * 角色
+     */
+    public function role()
+    {
+        return $this->belongsTo('App\Models\RoleModel','roles');
+    }
+
 }

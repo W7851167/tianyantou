@@ -1,6 +1,8 @@
 @extends('admin.common.layout')
 @section('title')系统管理@stop
 @section('style')
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
     {!!HTML::style('admin/css/administrator_create.css')!!}
 @stop
 @section('content')
@@ -21,7 +23,9 @@
                 </div>
                 <form  method="POST" class="base_form">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="id" value="32">
+                    @if(!empty($roleModel))
+                    <input type="hidden" name="data[id]" value="{!! $roleModel->id !!}">
+                    @endif
                     <ul class="navigation-message role_create clearfix">
                         <li>
                             <p class="message-tit">
@@ -29,15 +33,16 @@
                                 角色名称：
                             </p>
                             <div class="navigation-ct">
-                                <input type="text" name="data[name]" value="">
-                                <p>设定权限组名称,方便区分权限类型.</p>                                </div>
+                                <input type="text" name="data[name]" value="{!! $roleModel->name or '' !!}">
+                                <p>设定权限组名称,方便区分权限类型.</p>
+                            </div>
                         </li>
                         <li>
                             <p class="message-tit">
                                 描述：
                             </p>
                             <div class="navigation-ct">
-                               <textarea class="addText" name="data[intro]" style="height:100px;width: 500px;"></textarea>
+                               <textarea class="addText" name="data[intro]" style="height:100px;width: 500px;">{!! $roleModel->intro or '' !!}</textarea>
                             </div>
                         </li>
                         <li>
@@ -58,7 +63,7 @@
                                     <li>
                                         <div class="power-page-all-check">
                                             <label>
-                                                <input type="checkbox" class="check" name="groles[]" value="{!! $rv['url'] !!}">
+                                                <input type="checkbox" class="check" @if(!empty($roleModel->roles) && in_array($rv['url'],$roleModel->roles)) checked @endif name="data[roles][]" value="{!! $rv['url'] !!}">
                                                 {!! $rv['name'] !!}
                                             </label>
                                         </div>
@@ -67,7 +72,7 @@
                                                 @foreach($rv['child'] as $rc)
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="groles[]" value="{!! $rc['url'] !!}">
+                                                    <input type="checkbox" name="data[roles][]" value="{!! $rc['url'] !!}" @if(!empty($roleModel->roles) && in_array($rc['url'],$roleModel->roles)) checked @endif>
                                                     {!! $rc['name'] !!}
                                                 </label>
                                             </li>
