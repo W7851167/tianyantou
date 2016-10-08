@@ -224,7 +224,7 @@ class CensusRepository extends BaseRepository
         $total = $this->taskReceiveModel->where('status', 1)->sum('total');
         $census['total'] = !empty($total) ? $total : '0.00';
         //累计注册人数
-        $census['registers'] = $this->userModel->where('roles', '用户')->count();
+        $census['registers'] = $this->userModel->where('roles',0)->count();
         //累计产生收益
         $income = $this->taskReceiveModel->where('status', 1)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
