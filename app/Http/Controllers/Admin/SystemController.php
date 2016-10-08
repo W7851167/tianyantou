@@ -71,7 +71,7 @@ class SystemController extends  AdminController
             if(empty($data['name'])) {
                 return $this->error('请输入权限组名称',null,true);
             }
-            if(!empty($data['roles'])) {
+            if(empty($id) && !empty($data['roles'])) {
                 $data['roles'] = implode(',',$data['roles']);
             }
             if($this->admin->saveRole($data)) {
