@@ -425,13 +425,21 @@ class TaskRepository extends BaseRepository
 
     }
 
+    /**
+     * @param $where
+     * @param $userId
+     * @return array
+     *
+     * 获取开通的平台
+     */
     public function getOpenPlatform($where, $userId)
     {
         $corps = $this->corpModel->createWhere($this->corpModel, $where)->get();
         $count = $this->corpModel->countBy($where);
         foreach ($corps as $c) {
-//            $c
+            $c->census = $this->corpsCensus($c->id, $userId);
         }
+        return [$count, $corps];
     }
 
     /**
@@ -443,7 +451,7 @@ class TaskRepository extends BaseRepository
      */
     public function corpsCensus($corpId, $userId)
     {
-        $query = $this->corpModel->where('user_id', $userId)->where('corp_id', $corpId);
+        $query = $this->taskReceiveModel->where('user_id', $userId)->where('corp_id', $corpId);
         $census['count'] = $query->count();
         $census['total'] = $query->sum('total');
         $census['income'] = $query->sum('income');

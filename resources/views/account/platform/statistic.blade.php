@@ -86,7 +86,7 @@
                                             <div class="plat-box">
                                                 <div class="logo">
                                                     <img src="{!! config('app.account_url') !!}{!! $cv->logo or '' !!}" width="110" alt="{!! $cv->platform or '' !!}">
-                                                    <a rel="show-more" href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&type=all&platform={!! $cv->ename or '' !!}">明细&nbsp;(0)</a >
+                                                    <a rel="show-more" href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&type=all&platform={!! $cv->ename or '' !!}">明细&nbsp;({!! $cv->census['count'] or 0 !!})</a >
                                                 </div>
                                                 <div class="details">
                                                     <table border="0">
@@ -96,8 +96,8 @@
                                                                 <th>待收利息</th>
                                                             </tr>
                                                             <tr>
-                                                                <td>0.00元</td>
-                                                                <td>0.00元</td>
+                                                                <td>{!! $cv->census['total'] or 0.00 !!}元</td>
+                                                                <td>{!! $cv->census['income'] or 0.00 !!}元</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
