@@ -72,7 +72,7 @@ class UserRepository extends BaseRepository
         if (!$userModel) return $this->getError('该用户不存在!');
 
         if ($isAdmin) {
-            if ($userModel->roles != '管理员')
+            if ($userModel->roles == 0)
                 return $this->getError('此账号非管理员账号!');
         }
 
