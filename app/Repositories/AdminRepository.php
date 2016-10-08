@@ -29,4 +29,13 @@ class AdminRepository extends  BaseRepository
         $count = $this->roleModel->countBy($where);
         return [$count, $lists];
     }
+
+    /**
+     * @param $data
+     * 保存角色信息
+     */
+    public function saveRole($data)
+    {
+        return $this->roleModel->saveBy($data);
+    }
 }

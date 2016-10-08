@@ -63,7 +63,47 @@ class SystemController extends  AdminController
      */
     public function redit(Request $request,$id=null)
     {
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            if(empty($data['roles'])) {
+                return $this->error('请选择相应选线',null,true);
+            }
+            if(empty($data['name'])) {
+                return $this->error('请输入权限组名称',null,true);
+            }
+            if(!empty($data['roles'])) {
+                $data['roles'] = implode(',',$data['roles']);
+            }
+            if($this->admin->saveRole($data)) {
+                return $this->success('创建或编辑用户角色完成',url('system/role'),true);
+            }
+            return $this->error('创建或编辑用户角色异常，请联系管理员',null,true);
+        }
         $roles = config('menu.menu');
+        if(!empty($id)) {
+            $roleModel = $this->admin->roleModel->find($id);
+            return view('admin.system.redit',compact('roles','roleModel'));
+        }
+
         return view('admin.system.redit',compact('roles'));
+    }
+
+    /**
+     * @param $id
+     * 删除角色
+     */
+    public function rdelete($id)
+    {
+        $roleModel = $this->admin->roleModel->find($id);
+        if(empty($roleModel)) {
+            return $this->error('未找到该角色，删除异常',url('system/role'));
+        }
+        if(count($roleModel->users) > 0) {
+            return $this->error('该角色已有管理员，不能删除', url('system/role'));
+        }
+        if($roleModel->delete()) {
+            return $this->success('删除角色完成',url('system/role'));
+        }
+        return $this->error('删除该角色异常，请联系开发人员',url('system/role'));
     }
 }

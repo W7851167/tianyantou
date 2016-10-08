@@ -11,4 +11,17 @@ class RoleModel extends BaseModel
     protected $table = 'roles';
     protected $primaryKey = 'id';
 
+    public function users()
+    {
+        return $this->hasMany('App\Models\UserModel','roles','id');
+    }
+
+    public function setRolesAttribute($value){
+        $this->attributes['roles'] = implode(',',$value);
+    }
+
+    public function getRolesAttribute($value)
+    {
+        return explode(',', $value);
+    }
 }
