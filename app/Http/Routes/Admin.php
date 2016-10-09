@@ -69,6 +69,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('system/role', ['as' => 'system.role.index', 'uses' => 'SystemController@role']);
     Route::any('system/redit/{id?}', ['as' => 'system.role.edit', 'uses' => 'SystemController@redit']);
     Route::any('system/rdelete/{id}', ['as' => 'system.role.delete', 'uses' => 'SystemController@rdelete']);
+    Route::get('system/user', ['as' => 'system.user.index', 'uses' => 'SystemController@user']);
+    Route::match(['get', 'post'], 'system/uedit/{id?}', ['as' => 'system.user.edit', 'uses' => 'SystemController@uedit']);
+    Route::get('system/udelete/{id}', ['as' => 'system.user.delete', 'uses' => 'SystemController@udelete']);
     //文章管理
     Route::get('news/multi', ['as' => 'news.multi.index', 'uses' => 'NewController@index']);
     Route::match(['get', 'post'], 'news/multi/create/{id?}', ['as' => 'news.multi.edit', 'uses' => 'NewController@createmulti']);
@@ -80,5 +83,5 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('news/del/{id}', ['as' => 'news.news.del', 'uses' => 'NewController@del']);
 });
 
-Route::get('test','TestController@index');
+Route::get('test', 'TestController@index');
 

@@ -38,4 +38,5 @@ class AdminRepository extends  BaseRepository
     {
         return $this->roleModel->saveBy($data);
     }
+
 }
