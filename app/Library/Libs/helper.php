@@ -23,13 +23,13 @@ function getNavConfig()
     $two = isset($routeName['1']) ? $routeName[1] : '';
 
     $nav = config('menu.menu');
+    $user = \Illuminate\Support\Facades\Session::get('user.passport');
 
     $navHtml = $sidebarHtml = '';
 
     foreach ($nav as $key => $value) {
         $navHtml .= '<div class="header-nav-inner">';
         $navHtml .= '<a href="' . url($value['url']) . '"';
-
         if ($one == $value['tag']) {
             $navHtml .= ' class="at"';
             $sidebarHtml .= '<ul class="content-left-menu clearfix">';

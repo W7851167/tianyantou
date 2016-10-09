@@ -37,11 +37,11 @@
                                     <td>{!! $lv->is_default == 1 ? '默认组':'非默认组' !!}</td>
                                     <td>
                                         @if($lv->is_default == 1)
-                                            <a href="{!! url('system/redit',['id'=>$lv->id]) !!}">编辑</a>
-                                            @else
+                                            ----
+                                        @else
                                         <a href="{!! url('system/redit',['id'=>$lv->id]) !!}">编辑</a>
                                         <a href="{!! url('system/rdelete',['id'=>$lv->id]) !!}">删除</a>
-                                            @endif
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
