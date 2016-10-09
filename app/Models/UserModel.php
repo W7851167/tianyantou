@@ -71,4 +71,18 @@ class UserModel extends BaseModel
         return $this->belongsTo('App\Models\RoleModel','roles');
     }
 
+    public function edit($data)
+    {
+        $data = $data ? $data : \Request::except(['_token', '_url', 's']);
+
+        if (!empty($data[$this->primaryKey])) {
+            $model = $this->findOrNew($data[$this->primaryKey]);
+            if (!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
+        }
+        return $this->create($data);
+    }
+
 }

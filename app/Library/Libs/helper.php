@@ -82,9 +82,9 @@ function checkPrivi($privicode)
 
     $role = \App\Models\RoleModel::find($user['role']);
     if (empty($role)) return false;
-    $roles = explode('.', $role->roles);
+//    $roles = explode('.', $role->roles);
 
-    if (in_array($code, $roles)) return true;
+    if (in_array($code, $role->roles)) return true;
 
     return false;
 }

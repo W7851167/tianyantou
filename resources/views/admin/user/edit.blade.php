@@ -1,5 +1,5 @@
 @extends('admin.common.layout')
-@section('title')提现操作@stop
+@section('title')编辑操作@stop
 @section('style')
     {!!HTML::style('admin/css/dialog.css')!!}
     {!!HTML::style('admin/css/form.css')!!}
