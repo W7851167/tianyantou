@@ -111,6 +111,12 @@ class SystemController extends AdminController
         return $this->error('删除该角色异常，请联系开发人员', url('system/role'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * 管理员列表
+     */
     public function user(Request $request)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
@@ -121,21 +127,59 @@ class SystemController extends AdminController
         return view('admin.system.user', compact('pageHtml', 'lists'));
     }
 
+    /**
+     * @param Request $request
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     *
+     * 更新管理员
+     */
     public function uedit(Request $request, $id = null)
     {
         if ($request->isMethod('post')) {
-
+            $data = $request->get('data');
+            if (!$data['roles']) {
+                return $this->error('未选择角色!', null);
+            }
+            if (!$data['password'] || !$data['comfirm_password']) {
+                return $this->error('密码不能为空!', null);
+            }
+            if ($data['password'] != $data['comfirm_password']) {
+                return $this->error('两次密码不正确!', null);
+            }
+            unset($data['comfirm_password']);
+            try {
+                $result = $this->userRepository->userModel->edit($data);
+                if ($result) return $this->success('添加管理员成功!', url('system/user'));
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
+            return $this->error('添加管理员失败!', null);
         }
 
         if ($id) {
             $usermodel = $this->userRepository->userModel->find($id);
         }
 
-        return view('admin.system.uedit', compact('usermodel'));
+        list($counts, $roles) = $this->admin->getRoleList([]);
+
+        return view('admin.system.uedit', compact('usermodel', 'roles'));
     }
 
+    /**
+     * @param $id
+     *
+     * 删除管理员
+     */
     public function udelete($id)
     {
-
+        $usermodel = $this->userRepository->userModel->find($id);
+        if (empty($usermodel)) {
+            return $this->error('未找到该管理员,删除异常!', url('systme/user'));
+        }
+        if ($usermodel->delete()) {
+            return $this->success('删除管理员完成!', url('system/user'));
+        }
+        return $this->error('删除该管理员异常,请联系开发人员', url('system/user'));
     }
 }

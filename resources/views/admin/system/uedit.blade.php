@@ -17,8 +17,9 @@
                 </div>
                 <form  method="post" class="base_form">
                     {!! csrf_field() !!}
+                    @if(!empty($usermodel))
                     <input type="hidden" name="data[id]" value="{!! $usermodel->id or '' !!}">
-                    {{--<input type="hidden" name="data[user_id]" value="{!! $withdraw->user_id !!}">--}}
+                    @endif
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">用户：</div>
@@ -27,10 +28,11 @@
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">选择角色：</div>
                             <div>
-                                <select name="data[corp_id]" style="width: 240px;">
-                                    <option value="0">请选择</option>
-                                    <option value="5" >e融所</option>
-                                    <option value="6" >爱钱进</option>
+                                <select name="data[roles]" style="width: 240px;">
+                                    <option value="">请选择</option>
+                                    @foreach($roles as $rv)
+                                    <option value="{!! $rv->id !!}" @if(isset($usermodel->roles) && $usermodel->roles == $rv->id)selected @endif>{!! $rv->name !!}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

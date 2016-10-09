@@ -32,8 +32,8 @@
                             <td>{!! $uv->username !!}</td>
                             <td>{!! $uv->role->name or '' !!}</td>
                             <td>
-                                <a href="{!! url('sysuser/edit',['id'=>$uv->id]) !!}">编辑</a>
-                                <a href="{!! url('user/manage',['id'=>$uv->id]) !!}">删除</a>
+                                <a href="{!! url('system/uedit',['id'=>$uv->id]) !!}">编辑</a>
+                                <a href="{!! url('system/udelete',['id'=>$uv->id]) !!}">删除</a>
                             </td>
                         </tr>
                     @endforeach
