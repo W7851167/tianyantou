@@ -149,7 +149,7 @@
                                             @endforeach
                                         </div>
                                         <div class="pagination" data-pagination-ref="unopened_platforms">
-                                            {!! $pageHtml1 !!}
+                                            {!! $pageHtml !!}
                                         </div>
                                         @else
                                         <p class="no-record">您还没有未开通平台</p>
