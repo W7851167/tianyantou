@@ -23,33 +23,70 @@ function getNavConfig()
     $two = isset($routeName['1']) ? $routeName[1] : '';
 
     $nav = config('menu.menu');
+    $user = \Illuminate\Support\Facades\Session::get('user.passport');
 
     $navHtml = $sidebarHtml = '';
 
     foreach ($nav as $key => $value) {
         $navHtml .= '<div class="header-nav-inner">';
-        $navHtml .= '<a href="' . url($value['url']) . '"';
-
-        if ($one == $value['tag']) {
-            $navHtml .= ' class="at"';
-            $sidebarHtml .= '<ul class="content-left-menu clearfix">';
-            if (!empty($value['child'])) {
-                foreach ($value['child'] as $sidebar) {
-                    $tag = explode('.', $sidebar['tag']);
-                    $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
-                    if (isset($tag[1]) && ($two == $tag[1])) {
-                        $sidebarHtml .= ' class="on"';
+        if (checkPrivi($value['tag'])) {
+            $navHtml .= '<a href="' . url($value['url']) . '"';
+            if ($one == $value['tag']) {
+                $navHtml .= ' class="at"';
+                $sidebarHtml .= '<ul class="content-left-menu clearfix">';
+                if (!empty($value['child'])) {
+                    foreach ($value['child'] as $sidebar) {
+                        if (checkPrivi($sidebar['tag'])) {
+                            $tag = explode('.', $sidebar['tag']);
+                            $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
+                            if (isset($tag[1]) && ($two == $tag[1])) {
+                                $sidebarHtml .= ' class="on"';
+                            }
+                            $sidebarHtml .= ' >' . $sidebar['name'] . '</a></li>';
+                        }
                     }
-                    $sidebarHtml .= ' >' . $sidebar['name'] . '</a></li>';
+                    $sidebarHtml .= '</ul>';
                 }
-                $sidebarHtml .= '</ul>';
             }
+            $navHtml .= '>' . $value['name'] . '</a>';
         }
-        $navHtml .= '>' . $value['name'] . '</a>';
         $navHtml .= '</div>';
     }
 
     return [$navHtml, $sidebarHtml];
+}
+
+/**
+ * @param $privicode
+ * @return bool
+ *
+ * 检测权限
+ */
+function checkPrivi($privicode)
+{
+    $user = \Illuminate\Support\Facades\Session::get('user.passport');
+    if (!$user) return false;
+
+    $filter = ['passport.login', 'passport.logout'];
+    if (in_array($privicode, $filter)) return true;
+
+    if ($user['role'] == 1) return true;
+
+    $n = substr_count($privicode, '.');
+    if ($n <= 1) {
+        $code = $privicode;
+    } else {
+        $p = strpos($privicode, '.', strpos($privicode, '.') + 1);
+        $code = substr($privicode, 0, $p);
+    }
+
+    $role = \App\Models\RoleModel::find($user['role']);
+    if (empty($role)) return false;
+    $roles = explode('.', $role->roles);
+
+    if (in_array($code, $roles)) return true;
+
+    return false;
 }
 
 //将内容进行UNICODE编码，编码后的内容格式：\u56fe\u7247 （原始：图片）
