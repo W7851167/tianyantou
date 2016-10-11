@@ -108,13 +108,13 @@
                                                                 <th>平均期限</th>
                                                             </tr>
                                                             <tr>
-                                                                <td>0.00%</td>
+                                                                <td>{!! $cv->census['proportion'] or 0.00 !!}%</td>
                                                                 <td>0.0个月</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <a class="btn btn-blue-o btn-allwidth" rel="_platform_join" data-sso-url="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html">进入平台</a >
+                                                <a href="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html" class="btn btn-blue-o btn-allwidth" rel="_platform_join" data-sso-url="{!! config('app.url') !!}/platform/{!! $cv->ename !!}.html">进入平台</a >
                                             </div>
                                                 @endforeach
                                             @else

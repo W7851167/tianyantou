@@ -19,6 +19,7 @@ use App\Repositories\CensusRepository;
 use App\Repositories\SystemRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SystemController extends AdminController
 {
@@ -138,16 +139,27 @@ class SystemController extends AdminController
     {
         if ($request->isMethod('post')) {
             $data = $request->get('data');
-            if (!$data['roles']) {
-                return $this->error('未选择角色!', null);
+            $rules = [
+                'username' => $id ? 'required|unique:users' : 'required|unique:users,username,' . $id,
+                'roles' => 'required',
+                'password' => 'required|confirmed|min:6|max:16',
+                'password_confirmation' => 'required',
+            ];
+            $messages = [
+                'username.required' => '请填写用户名!',
+                'username.unique' => '该用户名已经存在!',
+                'roles.required' => '请选择角色!',
+                'password.required' => '请填写密码!',
+                'password_confirmation.required' => '请输入确认密码!',
+                'password.confirmed' => '两次密码不一致!',
+                'password.min' => '密码长度不能小于6位!',
+                'password.max' => '密码长度不能大于16位',
+            ];
+            $validator = Validator::make($data, $rules, $messages);
+            if ($validator->fails()) {
+                return $this->error($validator->errors()->first(), null);
             }
-            if (!$data['password'] || !$data['comfirm_password']) {
-                return $this->error('密码不能为空!', null);
-            }
-            if ($data['password'] != $data['comfirm_password']) {
-                return $this->error('两次密码不正确!', null);
-            }
-            unset($data['comfirm_password']);
+            unset($data['password_confirmation']);
             try {
                 $result = $this->userRepository->userModel->edit($data);
                 if ($result) return $this->success('添加管理员成功!', url('system/user'));

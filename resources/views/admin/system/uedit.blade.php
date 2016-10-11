@@ -42,7 +42,7 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">确认密码：</div>
-                            <div><input type="password" name="data[comfirm_password]" value=""></div>
+                            <div><input type="password" name="data[password_confirmation]" value=""></div>
                         </div>
                     </div>
                     <div class="w928">
