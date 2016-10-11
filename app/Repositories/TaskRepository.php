@@ -455,6 +455,8 @@ class TaskRepository extends BaseRepository
         $census['count'] = $query->count();
         $census['total'] = $query->sum('total');
         $census['income'] = $query->sum('income');
+        $total = $this->taskReceiveModel->where('user_id', $userId)->sum('total');
+        $census['proportion'] = sprintf('%.2f', $census['total'] / $total * 100);
         return $census;
     }
 }

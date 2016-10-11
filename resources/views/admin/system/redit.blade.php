@@ -63,7 +63,7 @@
                                     <li>
                                         <div class="power-page-all-check">
                                             <label>
-                                                <input type="checkbox" class="check" @if(!empty($roleModel->roles) && in_array($rv['url'],$roleModel->roles)) checked @endif name="data[roles][]" value="{!! $rv['url'] !!}">
+                                                <input type="checkbox" class="check" @if(!empty($roleModel->roles) && in_array($rv['url'],$roleModel->roles)) checked @endif name="data[roles][]" value="{!! $rv['tag'] !!}">
                                                 {!! $rv['name'] !!}
                                             </label>
                                         </div>
@@ -72,7 +72,7 @@
                                                 @foreach($rv['child'] as $rc)
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="data[roles][]" value="{!! $rc['url'] !!}" @if(!empty($roleModel->roles) && in_array($rc['url'],$roleModel->roles)) checked @endif>
+                                                    <input type="checkbox" name="data[roles][]" value="{!! $rc['tag'] !!}" @if(!empty($roleModel->roles) && in_array($rc['url'],$roleModel->roles)) checked @endif>
                                                     {!! $rc['name'] !!}
                                                 </label>
                                             </li>
