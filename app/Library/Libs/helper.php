@@ -81,9 +81,7 @@ function checkPrivi($privicode)
 
     $role = \App\Models\RoleModel::find($user['role']);
     if (empty($role)) return false;
-//    $roles = explode('.', $role->roles);
-    var_dump($privicode);
-    var_dump($role->roles);
+
     if (in_array($code, $role->roles)) return true;
 
     return false;
