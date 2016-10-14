@@ -109,7 +109,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>{!! $cv->census['proportion'] or 0.00 !!}%</td>
-                                                                <td>0.0个月</td>
+                                                                <td>{!! $cv->census['term'] or 0.0 !!}个月</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

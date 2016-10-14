@@ -27,27 +27,27 @@ function getNavConfig()
 
     foreach ($nav as $key => $value) {
         $navHtml .= '<div class="header-nav-inner">';
+//        var_dump(checkPrivi($value['tag']));
         if (checkPrivi($value['tag'])) {
             $navHtml .= '<a href="' . url($value['url']) . '"';
-
             if ($one == $value['tag']) {
                 $navHtml .= ' class="at"';
-                $sidebarHtml .= '<ul class="content-left-menu clearfix">';
-                if (!empty($value['child'])) {
-                    foreach ($value['child'] as $sidebar) {
-                        if (checkPrivi($sidebar['tag'])) {
-                            $tag = explode('.', $sidebar['tag']);
-                            $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
-                            if (isset($tag[1]) && ($two == $tag[1])) {
-                                $sidebarHtml .= ' class="on"';
-                            }
-                            $sidebarHtml .= ' >' . $sidebar['name'] . '</a></li>';
-                        }
-                    }
-                    $sidebarHtml .= '</ul>';
-                }
             }
             $navHtml .= '>' . $value['name'] . '</a>';
+            if (!empty($value['child'])) {
+                $sidebarHtml .= '<ul class="content-left-menu clearfix">';
+                foreach ($value['child'] as $sidebar) {
+                    if (checkPrivi($sidebar['tag'])) {
+                        $tag = explode('.', $sidebar['tag']);
+                        $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
+                        if (isset($tag[1]) && ($two == $tag[1])) {
+                            $sidebarHtml .= ' class="on"';
+                        }
+                        $sidebarHtml .= ' >' . $sidebar['name'] . '</a></li>';
+                    }
+                }
+                $sidebarHtml .= '</ul>';
+            }
         }
         $navHtml .= '</div>';
     }

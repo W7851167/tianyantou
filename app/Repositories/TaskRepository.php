@@ -457,6 +457,9 @@ class TaskRepository extends BaseRepository
         $census['income'] = $query->sum('income');
         $total = $this->taskReceiveModel->where('user_id', $userId)->sum('total');
         $census['proportion'] = sprintf('%.2f', $census['total'] / $total * 100);
+        $receiveIds = $query->lists('id')->toArray();
+        $term = $this->taskAchieveModel->whereIn('receive_id', $receiveIds)->avg('term');
+        $census['term'] = sprintf('%.1f', $term);
         return $census;
     }
 }
