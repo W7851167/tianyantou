@@ -71,18 +71,10 @@ function checkPrivi($privicode)
 
     if ($user['role'] == 1) return true;
 
-    $n = substr_count($privicode, '.');
-    if ($n <= 1) {
-        $code = $privicode;
-    } else {
-        $p = strpos($privicode, '.', strpos($privicode, '.') + 1);
-        $code = substr($privicode, 0, $p);
-    }
-
     $role = \App\Models\RoleModel::find($user['role']);
     if (empty($role)) return false;
 
-    if (in_array($code, $role->roles)) return true;
+    if (in_array($privicode, $role->roles)) return true;
 
     return false;
 }
