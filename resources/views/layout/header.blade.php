@@ -50,16 +50,6 @@
                         </div>
                         <div class="menu-list">
                             <ul>
-                                {{--<li>
-                                    <a href="{!! config('app.account_url') !!}/wallet/recharge.html">
-                                        <i class="iconfont">&#xe63f;</i>账户充值
-                                    </a>
-                                </li>--}}
-                                {{--<li>
-                                    <a href="{!! config('app.account_url') !!}/debt.html">
-                                        <i class="iconfont">&#xe641;</i>理财管理
-                                    </a>
-                                </li>--}}
                                 <li>
                                     <a href="{!! config('app.account_url') !!}/wallet/record.html">
                                         <i class="iconfont">&#xe640;</i>资金流水
@@ -111,7 +101,7 @@
                 <ul>
                     <li class="@if(\Request::url() == config('app.url'))curr @endif"><a href="{!! config('app.url') !!}/">首页</a></li>
                     <li class="@if(\Request::url() == config('app.url').'/platform')curr @endif"><a href="{!! config('app.url') !!}/platform">精选平台</a></li>
-                    <li class="@if(\Request::url() == config('app.url').'/plan')curr @endif"><a href="javascript:void(0)">天眼盾</a></li>
+                    <li class="@if(\Request::url() == config('app.url').'/plan')curr @endif"><a href="{!! config('app.url') !!}/plan">天眼盾</a></li>
                     <li class="@if(\Request::url() == config('app.url').'/shop')curr @endif"><a href="javascript:void(0)">积分商城</a></li>
                 </ul>
             </div>

@@ -100,7 +100,8 @@
                     <li><a href="{!! config('app.url') !!}/about/notice/{{$nv->id}}.html" target="_blank">{!! $nv->title !!}</a><span>{!! date('m-d',strtotime($nv->created_at)) !!}</span></li>
                     @endforeach
                 </ul>
-            </div>        </div>
+            </div>
+        </div>
         <!-- 数据展示区 e-->
     </div>
 

@@ -21,6 +21,8 @@ Route::get('platform/login/{corp}/{task_id}', ['as' => 'platform.login', 'uses' 
 Route::any('platform/redirect', ['as' => 'platform.redirect', 'uses' => 'PlatformController@redirect']);
 //积分商城
 Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@index']);
+//天眼盾
+Route::get('plan', ['as' => 'plan', 'uses' => 'PlanController@index']);
 
 //文章管理
 Route::get('about', 'AboutController@about');
@@ -28,7 +30,7 @@ Route::get('about/{page}.html', ['as' => 'about', 'uses' => 'AboutController@ind
 Route::get('about/{page}/{id}.html', ['as' => 'about', 'uses' => 'AboutController@detail']);
 
 //测试内容
-Route::get('test','TestController@index');
+Route::get('test', 'TestController@index');
 
 
 
