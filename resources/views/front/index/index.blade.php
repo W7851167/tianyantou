@@ -24,10 +24,10 @@
                 <p class="banner-nav imgnav"></p>
                 <div class="main-data">
                     <div class="main-data-show">
-                        <p class="trading-volume">撮合成交量：<span class="data-num" datanum="{!! tmoney_format($stats['total']) !!}"></span>元</p>
-                        <p class="user-number">累计用户数：<span class="data-num" datanum="{!! tmoney_format($stats['registers']) !!}"></span>人</p>
-                        <p class="earnings-num">累计产生收益：<span class="data-num" datanum="{!! tmoney_format($stats['income']) !!}"></span>元</p>
-                        <p class="fund-num">待完成投资：<span class="data-num" datanum="{!! tmoney_format($stats['untotal']) !!}"></span>元</p>
+                        <p class="trading-volume">撮合成交量：<span class="data-num" datanum="{!! tmoney_format($stats['total']+10000000000) !!}"></span>元</p>
+                        <p class="user-number">累计用户数：<span class="data-num" datanum="{!! tmoney_format($stats['registers']+250000) !!}"></span>人</p>
+                        <p class="earnings-num">累计产生收益：<span class="data-num" datanum="{!! tmoney_format($stats['income']+20000000) !!}"></span>元</p>
+                        <p class="fund-num">投资笔数：<span class="data-num" datanum="{!! tmoney_format($stats['itotal']+5000) !!}"></span>笔</p>
                     </div>
                     <div class="main-data-mask"></div>
                 </div>

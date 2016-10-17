@@ -15,10 +15,10 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('/', function () {
         return redirect(url('passport/login'));
     });
-    Route::match(['get', 'post'], 'passport/login', ['as' => 'passport.login', 'uses' => 'PassportController@login']);
+    Route::match(['get', 'post'], 'passport/login', ['as' => 'home.passport.login', 'uses' => 'PassportController@login']);
     //登录退出
-    Route::any('passport/logout', ['as' => 'passport.logout', 'uses' => 'PassportController@logout']);
-    Route::post('uploadImg', ['as' => 'passport.upload', 'uses' => 'PassportController@uploadImg']);
+    Route::any('passport/logout', ['as' => 'home.passport.logout', 'uses' => 'PassportController@logout']);
+    Route::post('uploadImg', ['as' => 'home.passport.upload', 'uses' => 'PassportController@uploadImg']);
     //修改密码
     Route::match(['get', 'post'], 'passport/password', ['as' => 'home.passport.password', 'uses' => 'PassportController@password']);
     //控制面板

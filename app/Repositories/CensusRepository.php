@@ -48,7 +48,7 @@ class CensusRepository extends BaseRepository
         $this->withdrawModel = $withdrawModel;
         $this->scoreModel = $scoreModel;
         $this->bookModel = $bookModel;
-        $this->bookRepayModel  = $bookRepayModel;
+        $this->bookRepayModel = $bookRepayModel;
     }
 
 
@@ -60,14 +60,14 @@ class CensusRepository extends BaseRepository
     {
         $result = $this->pastModel->getConnection()->transaction(function ($conn) use ($userId) {
             $signInReward = getSignReward();
-            $pastModel = $this->pastModel->firstOrCreate(['user_id'=>$userId]);
+            $pastModel = $this->pastModel->firstOrCreate(['user_id' => $userId]);
             //签到
             $sql = "UPDATE ad_pasts SET days = ";
             $sql .= "CASE WHEN TO_DAYS(updated_at) = TO_DAYS(now()) - 1 THEN (days + 1) MOD 7 ";
             $sql .= "ELSE 0 END WHERE user_id = ?";
             $conn->update($sql, [$userId]);
-            if($pastModel->days == 0) {
-               $this->pastModel->saveBy(['id'=>$pastModel->id,'days'=>1]);
+            if ($pastModel->days == 0) {
+                $this->pastModel->saveBy(['id' => $pastModel->id, 'days' => 1]);
                 $pastModel->days = 1;
             }
             $score = $signInReward[$pastModel->days];
@@ -105,15 +105,15 @@ class CensusRepository extends BaseRepository
      * @return mixed
      * 用户领取任务统计
      */
-    public function getTaskReceiveStats($status=0,$startTime, $endTime)
+    public function getTaskReceiveStats($status = 0, $startTime, $endTime)
     {
         $startTime = strtotime($startTime);
         $endTime = strtotime($endTime);
-        if($status == 0) {
+        if ($status == 0) {
             return $this->taskReceiveModel->whereBetween('create_time', [$startTime, $endTime])->count();
-        } else if($status == 2){
+        } else if ($status == 2) {
             return $this->taskReceiveModel->whereBetween('commit_time', [$startTime, $endTime])->count();
-        } else if($status == 1) {
+        } else if ($status == 1) {
             return $this->taskReceiveModel->whereBetween('complete_time', [$startTime, $endTime])->count();
         }
 
@@ -184,11 +184,11 @@ class CensusRepository extends BaseRepository
         $where['user_id'] = $userId;
         $query = $this->bookModel->createWhere($query, $where);
         $bookResult = $query->get();
-        if(!empty($bookResult)) {
-            foreach($bookResult as $book) {
-                if(!empty($book->created_at)) {
+        if (!empty($bookResult)) {
+            foreach ($bookResult as $book) {
+                if (!empty($book->created_at)) {
                     $createdTime = strtotime($book->created_at);
-                    if($createdTime >= $startTime && $createdTime < $endTime) {
+                    if ($createdTime >= $startTime && $createdTime < $endTime) {
                         $title = "记录" . $book->corp_name . '平台，' . $book->task_name . '投资';
                         $stats[] = ['title' => $title, 'color' => $colors[2], 'start' => date('Y-m-d', $createdTime)];
                     }
@@ -224,13 +224,15 @@ class CensusRepository extends BaseRepository
         $total = $this->taskReceiveModel->where('status', 1)->sum('total');
         $census['total'] = !empty($total) ? $total : '0.00';
         //累计注册人数
-        $census['registers'] = $this->userModel->where('roles',0)->count();
+        $census['registers'] = $this->userModel->where('roles', 0)->count();
         //累计产生收益
         $income = $this->taskReceiveModel->where('status', 1)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
         //待完成成交
-        $invested = $this->taskReceiveModel->where('status', 2)->sum("total");
-        $census['untotal'] = !empty($invested) ? $invested : '0.00';
+//        $invested = $this->taskReceiveModel->where('status', 2)->sum("total");
+//        $census['untotal'] = !empty($invested) ? $invested : '0.00';
+        //投资笔数
+        $census['itotal'] = $this->taskReceiveModel->count();
 
         return $census;
     }
@@ -245,7 +247,7 @@ class CensusRepository extends BaseRepository
         $census['total'] = !empty($total) ? $total : '0.00';
         $income = $this->taskReceiveModel->where('user_id', $userId)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
-        $platform = $this->taskReceiveModel->where('user_id',$userId)->distinct()->count('corp_id');
+        $platform = $this->taskReceiveModel->where('user_id', $userId)->distinct()->count('corp_id');
         //$query = $this->taskReceiveModel->where('user_id',$userId)->groupBy('corp_id')->distinct();
         $census['platform'] = !empty($platform) ? $platform : 0;
         return $census;
@@ -313,11 +315,11 @@ class CensusRepository extends BaseRepository
     public function getHalfYearStat($userId)
     {
         $stats = [];
-        for($i=0;  $i < 6; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $time = $i == 0 ? time() : strtotime('-' . $i . ' months');
             $yearMonth = date('Y-m', $time);
-            $startTime = $yearMonth .'-01 00:00:01';
-            $endTime  = $yearMonth . '-' . date('t', $time) . ' 23:59:59';
+            $startTime = $yearMonth . '-01 00:00:01';
+            $endTime = $yearMonth . '-' . date('t', $time) . ' 23:59:59';
             $income = $this->recordModel->where('user_id', $userId)
                 ->whereBetween('created_at', [$startTime, $endTime])->sum('income');
             $stats[$yearMonth] = !empty($income) ? (int)$income : 0;
