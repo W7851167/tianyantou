@@ -27,7 +27,7 @@ function getNavConfig()
 
     foreach ($nav as $key => $value) {
         $navHtml .= '<div class="header-nav-inner">';
-        if (checkPrivi($value['tag'])) {
+        if (checkMenuPrivi($value['tag'])) {
             $navHtml .= '<a href="' . url($value['url']) . '"';
 
             if ($one == $value['tag']) {
@@ -35,7 +35,7 @@ function getNavConfig()
                 $sidebarHtml .= '<ul class="content-left-menu clearfix">';
                 if (!empty($value['child'])) {
                     foreach ($value['child'] as $sidebar) {
-                        if (checkPrivi($sidebar['tag'])) {
+                        if (checkMenuPrivi($sidebar['tag'])) {
                             $tag = explode('.', $sidebar['tag']);
                             $sidebarHtml .= '<li><a href="' . url($sidebar['url']) . '"';
                             if (isset($tag[1]) && ($two == $tag[1])) {
@@ -61,7 +61,7 @@ function getNavConfig()
  *
  * 检测权限
  */
-function checkPrivi($privicode)
+function checkMenuPrivi($privicode)
 {
     $user = \Illuminate\Support\Facades\Session::get('user.passport');
     if (!$user) return false;
@@ -77,6 +77,11 @@ function checkPrivi($privicode)
     if (in_array($privicode, $role->roles)) return true;
 
     return false;
+}
+
+function checkPrivi($code)
+{
+
 }
 
 //将内容进行UNICODE编码，编码后的内容格式：\u56fe\u7247 （原始：图片）
