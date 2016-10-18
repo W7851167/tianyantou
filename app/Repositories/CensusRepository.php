@@ -13,6 +13,7 @@ namespace App\Repositories;
 
 use App\Models\BookModel;
 use App\Models\BookRepayModel;
+use App\Models\CorpModel;
 use App\Models\MoneyModel;
 use App\Models\PastModel;
 use App\Models\RecordModel;
@@ -36,7 +37,8 @@ class CensusRepository extends BaseRepository
         WithdrawModel $withdrawModel,
         ScoreModel $scoreModel,
         BookModel $bookModel,
-        BookRepayModel $bookRepayModel
+        BookRepayModel $bookRepayModel,
+        CorpModel $corpModel
     )
     {
         $this->taskReceiveModel = $taskReceiveModel;
@@ -49,6 +51,7 @@ class CensusRepository extends BaseRepository
         $this->scoreModel = $scoreModel;
         $this->bookModel = $bookModel;
         $this->bookRepayModel = $bookRepayModel;
+        $this->corpModel = $corpModel;
     }
 
 
@@ -105,18 +108,22 @@ class CensusRepository extends BaseRepository
      * @return mixed
      * 用户领取任务统计
      */
-    public function getTaskReceiveStats($status = 0, $startTime, $endTime)
+    public function getTaskReceiveStats($status = 0, $startTime, $endTime, $corpId)
     {
         $startTime = strtotime($startTime);
         $endTime = strtotime($endTime);
         if ($status == 0) {
-            return $this->taskReceiveModel->whereBetween('create_time', [$startTime, $endTime])->count();
+            $query = $this->taskReceiveModel->whereBetween('create_time', [$startTime, $endTime]);
         } else if ($status == 2) {
-            return $this->taskReceiveModel->whereBetween('commit_time', [$startTime, $endTime])->count();
+            $query = $this->taskReceiveModel->whereBetween('commit_time', [$startTime, $endTime]);
         } else if ($status == 1) {
-            return $this->taskReceiveModel->whereBetween('complete_time', [$startTime, $endTime])->count();
+            $query = $this->taskReceiveModel->whereBetween('complete_time', [$startTime, $endTime]);
         }
-
+        if ($corpId) {
+            $query = $query->where('corp_id', $corpId);
+        }
+        $count = $query->count();
+        return $count;
     }
 
     /**
