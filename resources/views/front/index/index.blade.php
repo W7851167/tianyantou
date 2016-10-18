@@ -48,7 +48,7 @@
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
-                                赛富、创东方助力<br />新未来
+                                本息盾、风控团队<br />把控投资人本金
                             </p>
                         </a>
                     </li>
@@ -61,7 +61,7 @@
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
-                                中国互联网金融协会<br />会员单位
+                                平台资质、备案<br />债权严格考核
                             </p>
                         </a>
                     </li>
@@ -74,7 +74,7 @@
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
-                                确保投资人资金安全<br />为您的投资保驾护航
+                                多平台、多样化投资
                             </p>
                         </a>
                     </li>
@@ -87,7 +87,7 @@
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
-                                央视采访<br />权威媒体报道
+                                天眼投给额外年华收益
                             </p>
                         </a>
                     </li>
