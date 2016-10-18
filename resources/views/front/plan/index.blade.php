@@ -6,7 +6,7 @@
 @stop
 @section('content')
     <div id="platform" class="wrap">
-        <div class="container">
+        <div class="container" style="margin-top: 30px;">
             <img src="{!! config('app.static_url') !!}/images/plan/tianyandun.jpg">
         </div>
     </div>
