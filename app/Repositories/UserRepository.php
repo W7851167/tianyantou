@@ -113,8 +113,8 @@ class UserRepository extends BaseRepository
             'avatar' => $avatar,
             'email' => $emailFlag,
             'mobile' => $mobileFlag,
-            'bank' => $bankFlag,
-            "invest" => $investFlag,
+            'bank' => 1,
+            "invest" => 1,
             'role' => $userModel->roles,
             'model' => $userModel,
         ];
