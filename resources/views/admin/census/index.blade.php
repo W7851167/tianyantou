@@ -27,6 +27,13 @@
                     <div class="info1">
                         <form action="{!! url('census') !!}" method="get">
                             {!! csrf_field() !!}
+                            平台名称:
+                            <select name="corp_id">
+                                <option value="0">全部平台&nbsp;&nbsp;</option>
+                                @foreach($corps as $cv)
+                                    <option value="{!! $cv->id or '' !!}">{!! $cv->name or '' !!}</option>
+                                @endforeach
+                            </select>
                             开始时间：<input type="text" name="start_time" class="Wdate" value="{!! date('Y-m-d', $startTime) !!}"  onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             结束时间：<input type="text" name="end_time" class="Wdate"  value="{!! date('Y-m-d', $endTime) !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             <input type="submit" value="查询">
