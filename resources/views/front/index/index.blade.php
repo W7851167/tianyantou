@@ -44,7 +44,7 @@
                             <div class="honour-iconcon">
                                 <span class="honour-icon"></span>
                                 <p class="honour-title">
-                                    <span>顶尖风投亿级融资</span>
+                                    <span>多重安全保障体系</span>
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
@@ -57,7 +57,7 @@
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon0"></span>
                                 <p class="honour-title">
-                                    <span>中国互联网金融协会</span>
+                                    <span>严格审核平台背景</span>
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
@@ -70,7 +70,7 @@
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon1"></span>
                                 <p class="honour-title">
-                                    <span>天眼盾计划</span>
+                                    <span>分散投资降低风险</span>
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
@@ -83,7 +83,7 @@
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon3"></span>
                                 <p class="honour-title">
-                                    <span>CCTV等权威媒体采访</span>
+                                    <span>天眼投收益+平台收益</span>
                                 </p>
                             </div>
                             <p class="honourdetail honourdetail0">
