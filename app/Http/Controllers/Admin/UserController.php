@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends AdminController
 {
@@ -114,6 +115,36 @@ class UserController extends AdminController
             return $this->error('给用户添加积分异常，请联系开发人员');
         }
         return view('admin.user.score', compact('user'));
+    }
+
+    /**
+     * 用户列表数据导出
+     */
+    public function export()
+    {
+        $data = [
+            ['编号', '手机号', '用户名', '昵称', '真实姓名', '邮箱', '性别']
+        ];
+        $where['roles'] = 0;
+        $users = $this->userRepository->userModel->where('roles', 0)->get();
+        foreach ($users as $u) {
+            $item = [
+                $u->id ?: '',
+                $u->mobile ?: '',
+                $u->username ?: ',',
+                $u->nickname ?: '',
+                $u->realname ?: '',
+                $u->email ?: '',
+                $u->gender ?: '',
+            ];
+            array_push($data, $item);
+        }
+        $title = '会员数据';
+        Excel::create($title, function ($excel) use ($data) {
+            $excel->sheet('users', function ($sheet) use ($data) {
+                $sheet->rows($data);
+            });
+        })->export('xls');
     }
 
 }
