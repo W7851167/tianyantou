@@ -21,7 +21,20 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">提现列表</a></p>
                 </div>
-
+                <div class="comment-search clearfix">
+                    <form action="{!! url('withdraw') !!}" id="filterForm" method="GET">
+                        <div class="comment-search-inner">
+                            <div class="comment-search-goods">
+                                <p>账户名<input type="text" name="hold_name" value="{!! Input::get('hold_name') !!}" /></p>
+                            </div>
+                            <div class="comment-search-person">
+                                <p>卡号<input type="text" name="cardno" value="{!! Input::get('cardno') !!}" /></p>
+                            </div>
+                            <button class="comment-search-btn" id="search">搜索</button>
+                            <input type="reset" value="重置" onclick="location='/withdraw'">
+                        </div>
+                    </form>
+                </div>
                     <form action="">
                         <table class="all_shopping" cellspacing="0">
                             <tr>

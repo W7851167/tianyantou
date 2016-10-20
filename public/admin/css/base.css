@@ -736,3 +736,48 @@ label[class="error"]{
     width: 180px;
     height: 20px;
 }
+.comment-search{
+	padding:12px 10px 12px 0;
+	background:#fafafa;
+	margin-bottom:20px;
+}
+.comment-search-inner{
+	float: right;
+	margin-right:70px;
+}
+.comment-search-inner p{
+	color: #999999;
+}
+.comment-search-inner input:focus{
+	border: 1px solid #7B9DD4;
+}
+.comment-search-goods{
+	float: left;
+	margin-right: 20px;
+}
+.comment-search-goods>p input{
+	width: 130px;
+	height: 23px;
+	margin-left: 10px;
+}
+.comment-search-person{
+	float: left;
+}
+.comment-search-person>p input{
+	width:148px;
+	height: 23px;
+	margin-left: 10px;
+}
+.comment-search-btn{
+	width: 58px;
+	height: 25px;
+	background-color: #fff;
+	line-height: 23px;
+	border: 1px solid #e7e7e7;
+	margin-left: 10px;
+	color: #333;
+}
+.comment-search-btn:hover{
+	background-color: #29e;
+	color:#fff
+}
