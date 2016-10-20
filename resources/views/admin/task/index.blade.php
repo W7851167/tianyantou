@@ -24,10 +24,24 @@
                     <p><a href="{!! url('task/trashed')!!}">回收站</a></p>
                     <a href="{!!url('task/create')!!}" class="buttonA">创建项目</a>
                 </div>
+                <div class="comment-search clearfix">
+                    <form action="{!! url('task') !!}" id="filterForm" method="GET">
+                        <div class="comment-search-inner">
+                            <div class="comment-search-goods">
+                                <p>平台名称<input type="text" name="name" value="{!! Input::get('name') !!}" /></p>
+                            </div>
+                            <div class="comment-search-person">
+                                <p>任务标题<input type="text" name="title" value="{!! Input::get('title') !!}" /></p>
+                            </div>
+                            <button class="comment-search-btn" id="search">搜索</button>
+                            <input type="reset" value="重置" onclick="location='/task'">
+                        </div>
+                    </form>
+                </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width='100'>公司信息</th>
-                            <th width="180">标题</th>
+                            <th width='100'>平台名称</th>
+                            <th width="180">任务标题</th>
                             <th width="60">位置</th>
                             <th width="60">库存</th>
                             <th width="60">领取</th>

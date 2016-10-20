@@ -55,6 +55,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //领取任务管理
     Route::get('achieve', ['as' => 'task.achieve.index', 'uses' => 'AchieveController@index']);
     Route::any('achieve/create/{id}', ['as' => 'task.achieve.create', 'uses' => 'AchieveController@create']);
+    Route::get('achieve/export', ['as' => 'task.achieve.export', 'uses' => 'AchieveController@export']);
     //统计管理
     Route::get('census', ['as' => 'census.census.index', 'uses' => 'CensusController@index']);
     Route::get('census/register', ['as' => 'census.census.register', 'uses' => 'CensusController@register']);

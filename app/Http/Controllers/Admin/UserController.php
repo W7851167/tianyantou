@@ -37,6 +37,12 @@ class UserController extends AdminController
     public function index(Request $request)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        if ($request->username) {
+            $where['username'] = trim($request->username);
+        }
+        if ($request->mobile) {
+            $where['mobile'] = trim($request->mobile);
+        }
         $where['roles'] = 0;
         list($counts, $lists) = $this->userRepository->getUserList($where, $this->perpage, $page);
         $pageHtml = $this->pager($counts, $page, $this->perpage);
