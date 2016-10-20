@@ -123,7 +123,7 @@ class UserController extends AdminController
     public function export()
     {
         $data = [
-            ['编号', '手机号', '用户名', '昵称', '真实姓名', '邮箱', '性别']
+            ['编号', '手机号', '用户名', '昵称', '真实姓名', '邮箱', '性别', '账户余额', '积分', '开户名/支付宝名', '类型', '开户行名称', '银行卡号/支付账号']
         ];
         $where['roles'] = 0;
         $users = $this->userRepository->userModel->where('roles', 0)->get();
@@ -136,6 +136,12 @@ class UserController extends AdminController
                 $u->realname ?: '',
                 $u->email ?: '',
                 $u->gender ?: '',
+                !empty($u->money) ? $u->money->money : 0.00,
+                !empty($u->money) ? $u->money->score : 0,
+                !empty($u->bank) ? $u->bank->hold_name : '',
+                !empty($u->bank) ? $u->bank->type == 0 ? '银行卡' : '支付宝' : '',
+                !empty($u->bank) ? $u->bank->bank_name : '',
+                !empty($u->bank) ? $u->bank->cardno : ''
             ];
             array_push($data, $item);
         }
