@@ -17,6 +17,7 @@
                 </div>
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">用户列表</a></p>
+                    <a href="{!! config('app.admin_url') !!}/user/export" class="buttonA">数据导出</a>
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>

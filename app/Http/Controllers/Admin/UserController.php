@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends AdminController
 {
@@ -114,6 +115,42 @@ class UserController extends AdminController
             return $this->error('给用户添加积分异常，请联系开发人员');
         }
         return view('admin.user.score', compact('user'));
+    }
+
+    /**
+     * 用户列表数据导出
+     */
+    public function export()
+    {
+        $data = [
+            ['编号', '手机号', '用户名', '昵称', '真实姓名', '邮箱', '性别', '账户余额', '积分', '开户名/支付宝名', '类型', '开户行名称', '银行卡号/支付账号']
+        ];
+        $where['roles'] = 0;
+        $users = $this->userRepository->userModel->where('roles', 0)->get();
+        foreach ($users as $u) {
+            $item = [
+                $u->id ?: '',
+                $u->mobile ?: '',
+                $u->username ?: ',',
+                $u->nickname ?: '',
+                $u->realname ?: '',
+                $u->email ?: '',
+                $u->gender ?: '',
+                !empty($u->money) ? $u->money->money : 0.00,
+                !empty($u->money) ? $u->money->score : 0,
+                !empty($u->bank) ? $u->bank->hold_name : '',
+                !empty($u->bank) ? $u->bank->type == 0 ? '银行卡' : '支付宝' : '',
+                !empty($u->bank) ? $u->bank->bank_name : '',
+                !empty($u->bank) ? $u->bank->cardno : ''
+            ];
+            array_push($data, $item);
+        }
+        $title = '会员数据';
+        Excel::create($title, function ($excel) use ($data) {
+            $excel->sheet('users', function ($sheet) use ($data) {
+                $sheet->rows($data);
+            });
+        })->export('xls');
     }
 
 }
