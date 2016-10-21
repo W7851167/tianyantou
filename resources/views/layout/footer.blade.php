@@ -62,7 +62,7 @@
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
                     <h2>010-57283503</h2>
-                    <p>天眼投投资交流3群：452691932</p>
+                    <p>天眼投投资交流3群：309104968</p>
                     <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
                 </div>
             </div>
