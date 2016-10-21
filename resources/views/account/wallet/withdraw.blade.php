@@ -21,13 +21,23 @@
                 <div class="cont-box-wrap">
                     <div class="form-group withdraw-deposit">
                         <form method="post" autocomplete="off" class="">
+                            @if($bank->type == 0)
                             <div class="control-group">
                                 <label for="bankcard">提现银行</label>
                                 <div class="card-sketch">
-                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/601288.png"></div>
+                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/{!! getBrandLogo($bank->bank_name) !!}"></div>
                                     <div class="card-id">银行卡号:{!! substr_replace($bank->cardno,'***************',0,14) !!}</div>
                                 </div>
                             </div>
+                            @else
+                            <div class="control-group">
+                                <label for="bankcard">提现支付宝</label>
+                                <div class="card-sketch">
+                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/zhifubao.png"></div>
+                                    <div class="card-id">支付宝账号:{!! substr_replace($bank->cardno,'*********',0,(strlen($bank->cardno) - 7)) !!}</div>
+                                </div>
+                            </div>
+                            @endif
                             <div class="control-group">
                                 <label for="bankcard">账户余额:</label>
                                 <span><em id="account-balance" data-amount="{!! $money->money or '0.00' !!}">¥{!! $money->money or '0.00' !!}</em></span>
