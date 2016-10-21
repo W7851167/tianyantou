@@ -100,10 +100,11 @@
             </div>
             @else
             <div class="main tworow" style="height: 827px;">
+                @if($bank->type == 0)
                 <div class="main-inner">
                     <h1 class="section-title">银行卡</h1>
                     <div class="card-sketch">
-                        <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/601288.png"></div>
+                        <div class="card-img"><img src="{!! config('app.static_url') !!}{!! getBrandLogo($bank->bank_name) !!}"></div>
                         <div class="card-id">银行卡号:{!! substr_replace($bank->cardno,'***************',0,(strlen($bank->cardno) - 4)) !!}</div>
                     </div>
                     <div style="margin-top: 12px;">
@@ -111,6 +112,20 @@
                            style="width:250px;">修改银行卡</a>
                     </div>
                 </div>
+                @endif
+                @if($bank->type == 1)
+                <div class="main-inner">
+                    <h1 class="section-title">支付宝</h1>
+                    <div class="card-sketch">
+                        <div class="card-img"><img src="{!! config('app.static_url') !!}images/brandlogo/zhifubao.png"></div>
+                        <div class="card-id">支付宝账号:{!! substr_replace($bank->cardno,'*********',0,(strlen($bank->cardno) - 4)) !!}</div>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <a href="{!! config('app.account_url') !!}/bankcard/update.html" class="btn-blue btn-l"
+                           style="width:250px;">修改银行卡</a>
+                    </div>
+                </div>
+                @endif
             </div>
             @endif
         </div>

@@ -355,3 +355,46 @@ function stats($data)
     $result = $obj->_init($data)->getStats();
     return $result;
 }
+
+function getBrandLogo($key)
+{
+    $brands = brandData();
+    $brand = $brands[$key];
+    return !empty($brand) ? $brand['brandlogo'] : '';
+}
+
+function brandData()
+{
+    return [
+        '中国工商银行' => ['name' => '中国工商银行', 'brandlogo' => '/images/brandlogo/601398.png'],
+        '中国光大银行' => ['name' => '中国光大银行', 'brandlogo' => '/images/brandlogo/601818.png'],
+        '中国建设银行' => ['name' => '中国建设银行', 'brandlogo' => '/images/brandlogo/601939.png'],
+        '中国农业银行' => ['name' => '中国农业银行', 'brandlogo' => '/images/brandlogo/601288.png'],
+        '招商银行' => ['name' => '招商银行', 'brandlogo' => '/images/brandlogo/600036.png'],
+        '中国银行' => ['name' => '中国银行', 'brandlogo' => '/images/brandlogo/900020.png'],
+        '交通银行' => ['name' => '交通银行', 'brandlogo' => '/images/brandlogo/601328.png'],
+        '广发银行' => ['name' => '广发银行', 'brandlogo' => '/images/brandlogo/162703.png'],
+        '兰州银行' => ['name' => '兰州银行', 'brandlogo' => '/images/brandlogo/900017.png'],
+        '中国民生银行' => ['name' => '中国民生银行', 'brandlogo' => '/images/brandlogo/900016.png'],
+        '中信银行' => ['name' => '中信银行', 'brandlogo' => '/images/brandlogo/900014.png'],
+        '平安银行' => ['name' => '平安银行', 'brandlogo' => '/images/brandlogo/000001.png'],
+        '北京银行' => ['name' => '北京银行', 'brandlogo' => '/images/brandlogo/601169.png'],
+        '成都银行' => ['name' => '成都银行', 'brandlogo' => '/images/brandlogo/900002.png'],
+        '浦东发展银行' => ['name' => '浦东发展银行', 'brandlogo' => '/images/brandlogo/600000.png'],
+        '华夏银行' => ['name' => '华夏银行', 'brandlogo' => '/images/brandlogo/600015.png'],
+        '上海银行' => ['name' => '上海银行', 'brandlogo' => '/images/brandlogo/900003.png'],
+        '渤海银行' => ['name' => '渤海银行', 'brandlogo' => '/images/brandlogo/900019.png'],
+        '宁波银行' => ['name' => '宁波银行', 'brandlogo' => '/images/brandlogo/002142.png'],
+        '南京银行' => ['name' => '南京银行', 'brandlogo' => '/images/brandlogo/601009.png'],
+        'BEA东亚银行' => ['name' => 'BEA东亚银行', 'brandlogo' => '/images/brandlogo/900018.png'],
+        '兴业银行' => ['name' => '兴业银行', 'brandlogo' => '/images/brandlogo/601116.png'],
+        '天津银行' => ['name' => '天津银行', 'brandlogo' => '/images/brandlogo/900015.png'],
+        '北京农商行' => ['name' => '北京农商行', 'brandlogo' => '/images/brandlogo/900007.png'],
+        '杭州银行' => ['name' => '杭州银行', 'brandlogo' => '/images/brandlogo/900008.png'],
+        '恒丰银行' => ['name' => '恒丰银行', 'brandlogo' => '/images/brandlogo/900009.png'],
+        '中国邮政储蓄银行' => ['name' => '中国邮政储蓄银行', 'brandlogo' => '/images/brandlogo/900010.png'],
+        '青岛银行' => ['name' => '青岛银行', 'brandlogo' => '/images/brandlogo/900011.png'],
+        '上海农商行' => ['name' => '上海农商行', 'brandlogo' => '/images/brandlogo/900012.png'],
+        '重庆农商银行' => ['name' => '重庆农商银行', 'brandlogo' => '/images/brandlogo/900013.png'],
+    ];
+}

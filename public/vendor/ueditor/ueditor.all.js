@@ -23346,7 +23346,7 @@ UE.commands['insertparagraph'] = {
  * @remind 需要百度APPKey
  * @remind 百度应用主页： <a href="http://app.baidu.com/" target="_blank">http://app.baidu.com/</a>
  * @param { Object } appOptions 应用所需的参数项， 支持的key有： title=>应用标题， width=>应用容器宽度，
- * height=>应用容器高度，logo=>应用logo，url=>应用地址
+ * height=>应用容器高度，brandlogo=>应用logo，url=>应用地址
  * @example
  * ```javascript
  * //editor是编辑器实例
@@ -23355,7 +23355,7 @@ UE.commands['insertparagraph'] = {
  *     title: '植物大战僵尸',
  *     width: 560,
  *     height: 465,
- *     logo: '应用展示的图片',
+ *     brandlogo: '应用展示的图片',
  *     url: '百度应用的地址'
  * } );
  * ```
@@ -23366,10 +23366,10 @@ UE.commands['insertparagraph'] = {
 //    function createInsertStr( obj, toIframe, addParagraph ) {
 //        return !toIframe ?
 //                (addParagraph ? '<p>' : '') + '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
-//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
+//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + obj.brandlogo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
 //                        (addParagraph ? '</p>' : '')
 //                :
-//                '<iframe class="edui-faked-webapp" title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = '+obj.logo+'></iframe>';
+//                '<iframe class="edui-faked-webapp" title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = '+obj.brandlogo+'></iframe>';
 //    }
 //
 //    function switchImgAndIframe( img2frame ) {
@@ -23380,7 +23380,7 @@ UE.commands['insertparagraph'] = {
 //                continue;
 //            }
 //            tmpdiv = me.document.createElement( "div" );
-//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,logo:node.style.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
+//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,brandlogo:node.style.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,brandlogo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
 //            node.parentNode.replaceChild( tmpdiv.firstChild, node );
 //        }
 //    }
@@ -23466,7 +23466,7 @@ UE.plugin.register('webapp', function (){
              * @remind 需要百度APPKey
              * @remind 百度应用主页： <a href="http://app.baidu.com/" target="_blank">http://app.baidu.com/</a>
              * @param { Object } appOptions 应用所需的参数项， 支持的key有： title=>应用标题， width=>应用容器宽度，
-             * height=>应用容器高度，logo=>应用logo，url=>应用地址
+             * height=>应用容器高度，brandlogo=>应用logo，url=>应用地址
              * @example
              * ```javascript
              * //editor是编辑器实例
@@ -23475,7 +23475,7 @@ UE.plugin.register('webapp', function (){
              *     title: '植物大战僵尸',
              *     width: 560,
              *     height: 465,
-             *     logo: '应用展示的图片',
+             *     brandlogo: '应用展示的图片',
              *     url: '百度应用的地址'
              * } );
              * ```

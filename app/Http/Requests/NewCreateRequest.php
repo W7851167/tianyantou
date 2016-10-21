@@ -40,7 +40,7 @@ class NewCreateRequest extends Request
             'title' => $this->title,
             'description' => $this->description,
             'content' => $this->new_content,
-            'logo' => $this->logo ? str_replace(config('app.static_url'), '', $this->logo) : '',
+            'brandlogo' => $this->logo ? str_replace(config('app.static_url'), '', $this->logo) : '',
         ];
     }
 }

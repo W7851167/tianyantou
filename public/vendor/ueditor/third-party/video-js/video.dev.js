@@ -5136,7 +5136,7 @@ vjs.Html5.prototype.createEl = function(){
 
   // Check if this browser supports moving the element into the box.
   // On the iPhone video will break if you move the element,
-  // So we have to create a brand new element.
+  // So we have to create a brandlogo new element.
   if (!el || this.features['movingMediaElementInDOM'] === false) {
 
     // If the original tag is still there, clone and remove it.

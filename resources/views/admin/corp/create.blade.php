@@ -156,7 +156,7 @@
                 data = eval('('+data+')');
                 if (data.status == 1) {
                     var html = '<img style="width:180px;" src="' + data.info[180180] + '">';
-                    html += '<input type="hidden" name="data[logo]" value="' + data.info[180180] + '" />'
+                    html += '<input type="hidden" name="data[brandlogo]" value="' + data.info[180180] + '" />'
                     $('#logoShow').html(html);
                 }
             },
