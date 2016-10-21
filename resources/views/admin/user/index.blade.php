@@ -17,6 +17,21 @@
                 </div>
                 <div class="content-right-tit clearfix">
                     <p><a href="javascript:void(0)" class="at">用户列表</a></p>
+                    <a href="{!! config('app.admin_url') !!}/user/export" class="buttonA">数据导出</a>
+                </div>
+                <div class="comment-search clearfix">
+                    <form action="{!! url('user') !!}" id="filterForm" method="GET">
+                        <div class="comment-search-inner">
+                            <div class="comment-search-goods">
+                                <p>用户名<input type="text" name="username" value="{!! Input::get('username') !!}" /></p>
+                            </div>
+                            <div class="comment-search-person">
+                                <p>手机号<input type="text" name="mobile" value="{!! Input::get('mobile') !!}" /></p>
+                            </div>
+                            <button class="comment-search-btn" id="search">搜索</button>
+                            <input type="reset" value="重置" onclick="location='/user'">
+                        </div>
+                    </form>
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>

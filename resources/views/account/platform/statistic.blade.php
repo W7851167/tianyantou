@@ -53,39 +53,12 @@
                                 <!-- 已开通平台选项卡 start -->
                                 <div class="active">
                                     <div class="platlist-wrap inactivated-plat" id="opened_platforms">
-                                        {{--@if(count($openLists)>0)
-                                            <div class="plat-list" id="unopened_platforms">
-                                                @foreach($openLists as $cv)
-                                                    <div class="plat-box">
-                                                        <div class="plat-main">
-                                                            <img src="{!! config('app.static_url') !!}{!! $cv->logo or '' !!}" alt="{!! $cv->platform or '' !!}">
-                                                            <div class="plat-info" style="position: relative;">
-                                                                @if($cv->min_yield == $cv->max_yield)
-                                                                    <span class="rate"><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
-                                                                @else
-                                                                    <span class="rate"><em>{!! $cv->min_yield or 0.00 !!}</em>%<em>-</em><em>{!! $cv->max_yield or 0.00 !!}</em>%</span>
-                                                                @endif
-                                                                <span>项目期限：<em>@if($cv->min_days == $cv->max_days){!! dateFormat($cv->max_days) !!}@else{!! dateFormat($cv->min_days) !!}-{!! dateFormat($cv->max_days) !!}@endif</em></span>
-                                                                <span>可投标数：<em>{!! $cv->tasks->count() !!}个</em></span>
-                                                                <span>安全评级：<em>{!! $cv->level or 'B' !!}</em></span>
-                                                                    <a class="btn  btn-blue-o btn-allwidth" href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=all&amp;platform={!! $cv->ename !!}">查看详情</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                            <div class="pagination" data-pagination-ref="unopened_platforms">
-                                                {!! $pageHtml !!}
-                                            </div>
-                                        @else
-                                            <p class="no-record">您还未开通平台</p>
-                                        @endif--}}
                                         <div class="plat-list active-plat">
                                             @if(count($openLists)>0)
                                                 @foreach($openLists as $cv)
                                             <div class="plat-box">
                                                 <div class="logo">
-                                                    <img src="{!! config('app.account_url') !!}{!! $cv->logo or '' !!}" width="110" alt="{!! $cv->platform or '' !!}">
+                                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo or '' !!}" width="110" alt="{!! $cv->platform or '' !!}">
                                                     <a rel="show-more" href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&type=all&platform={!! $cv->ename or '' !!}">明细&nbsp;({!! $cv->census['count'] or 0 !!})</a >
                                                 </div>
                                                 <div class="details">

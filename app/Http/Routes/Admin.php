@@ -28,6 +28,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::match(['get', 'post'], 'user/edit/{id}', ['as' => 'user.user.edit', 'uses' => 'UserController@edit']);
     Route::match(['get', 'post'], 'user/manage/{id}', ['as' => 'user.user.manage', 'uses' => 'UserController@manage']);
     Route::any('user/score/{user_id}', ['as' => 'user.user.score', 'uses' => 'UserController@score']);
+    Route::get('user/export', ['as' => 'user.user.export', 'uses' => 'UserController@export']);
     Route::get('withdraw', ['as' => 'user.withdraw.index', 'uses' => 'WithdrawController@index']);
     Route::any('withdraw/create/{id}', ['as' => 'user.withdraw.create', 'uses' => 'WithdrawController@create']);
     Route::post('withdraw/batch', ['as' => 'user.withdraw.batch', 'uses' => 'WithdrawController@batch']);
@@ -54,6 +55,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //领取任务管理
     Route::get('achieve', ['as' => 'task.achieve.index', 'uses' => 'AchieveController@index']);
     Route::any('achieve/create/{id}', ['as' => 'task.achieve.create', 'uses' => 'AchieveController@create']);
+    Route::get('achieve/export', ['as' => 'task.achieve.export', 'uses' => 'AchieveController@export']);
     //统计管理
     Route::get('census', ['as' => 'census.census.index', 'uses' => 'CensusController@index']);
     Route::get('census/register', ['as' => 'census.census.register', 'uses' => 'CensusController@register']);

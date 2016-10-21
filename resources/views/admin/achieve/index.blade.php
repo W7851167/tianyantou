@@ -16,6 +16,24 @@
                         <a href="{!! url('achieve') !!}">任务列表</a>
                     </div>
                 </div>
+                <div class="content-right-tit clearfix">
+                    <p><a href="javascript:void(0)" class="at">任务列表</a></p>
+                    <a href="{!! config('app.admin_url') !!}/achieve/export" class="buttonA">数据导出</a>
+                </div>
+                <div class="comment-search clearfix">
+                    <form action="{!! url('achieve') !!}" id="filterForm" method="GET">
+                        <div class="comment-search-inner">
+                            <div class="comment-search-goods">
+                                <p>投资者<input type="text" name="realname" value="{!! Input::get('realname') !!}" /></p>
+                            </div>
+                            <div class="comment-search-person">
+                                <p>投资手机号<input type="text" name="mobile" value="{!! Input::get('mobile') !!}" /></p>
+                            </div>
+                            <button class="comment-search-btn" id="search">搜索</button>
+                            <input type="reset" value="重置" onclick="location='/achieve'">
+                        </div>
+                    </form>
+                </div>
                 <a data-tab="1" href="javascript:;" id="zs_tab">全部展开</a>
                 <div class="source_title">
                     <ul>

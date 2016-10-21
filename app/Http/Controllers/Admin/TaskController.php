@@ -17,11 +17,12 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
-class TaskController extends  AdminController
+class TaskController extends AdminController
 {
     public function __construct(
         TaskRepository $taskRepository
-    ) {
+    )
+    {
         parent::__initalize();
         $this->taskRepository = $taskRepository;
     }
@@ -31,13 +32,20 @@ class TaskController extends  AdminController
      * @return \Illuminate\View\View
      * 项目列表
      */
-    public function index(Request $request, $status=null)
+    public function index(Request $request, $status = null)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
-        $where = isset($status) ? ['status'=>$status] : [];
+        $where = isset($status) ? ['status' => $status] : [];
+        if ($request->name) {
+            $corpids = $this->taskRepository->corpModel->where('name', trim($request->name))->lists('id')->all();
+            $where['in'] = ['corp_id' => $corpids];
+        }
+        if ($request->title) {
+            $where['title'] = trim($request->title);
+        }
         list($count, $lists) = $this->taskRepository->getTaskList($where, $this->perpage, $page);
-        $pageHtml = $this->pager($count,$page, $this->perpage);
-        return view('admin.task.index', compact('lists','pageHtml','status'));
+        $pageHtml = $this->pager($count, $page, $this->perpage);
+        return view('admin.task.index', compact('lists', 'pageHtml', 'status'));
     }
 
     /**
@@ -46,29 +54,29 @@ class TaskController extends  AdminController
      * @return \Illuminate\View\View|void
      * 添加创建项目
      */
-    public function create(Request $request,$id=null)
+    public function create(Request $request, $id = null)
     {
-        if($request->isMethod('post')) {
+        if ($request->isMethod('post')) {
             $data = $request->get('data');
-            if(!empty($data['start_time']))
+            if (!empty($data['start_time']))
                 $data['start_time'] = strtotime($data['start_time']);
-            if(!empty($data['end_time']))
+            if (!empty($data['end_time']))
                 $data['end_time'] = strtotime($data['end_time']);
-            if(!empty($data['home_img']))
+            if (!empty($data['home_img']))
                 $data['home_img'] = str_replace(config('app.static_url'), '', $data['home_img']);
 
             $result = $this->taskRepository->saveTask($data);
-            if($result['status']) {
-                return $this->success($result['message'],url('task'),true);
+            if ($result['status']) {
+                return $this->success($result['message'], url('task'), true);
             }
-            return $this->error('创建项目异常，请联系开发人员',null, true);
+            return $this->error('创建项目异常，请联系开发人员', null, true);
         }
-        $corps = $this->taskRepository->getNormalCorps(['status'=>1]);
-        if(!empty($id)) {
+        $corps = $this->taskRepository->getNormalCorps(['status' => 1]);
+        if (!empty($id)) {
             $task = $this->taskRepository->taskModel->find($id);
-            return view('admin.task.create',compact('task','corps'));
+            return view('admin.task.create', compact('task', 'corps'));
         }
-        return view('admin.task.create',compact('corps'));
+        return view('admin.task.create', compact('corps'));
     }
 
     /**
@@ -79,10 +87,10 @@ class TaskController extends  AdminController
     public function trashed(Request $request)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
-        $where = isset($status) ? ['status'=>$status] : [];
-        list($count, $lists) = $this->taskRepository->getTaskList($where, $this->perpage, $page,2);
-        $pageHtml = $this->pager($count,$page, $this->perpage);
-        return view('admin.task.trashed', compact('lists','pageHtml','status'));
+        $where = isset($status) ? ['status' => $status] : [];
+        list($count, $lists) = $this->taskRepository->getTaskList($where, $this->perpage, $page, 2);
+        $pageHtml = $this->pager($count, $page, $this->perpage);
+        return view('admin.task.trashed', compact('lists', 'pageHtml', 'status'));
     }
 
     /**
@@ -91,11 +99,11 @@ class TaskController extends  AdminController
      */
     public function untrashed($id)
     {
-            $result = $this->taskRepository->untrashed($id);
-            if($result['status']) {
-                return $this->success($result['message'],url('task',['status'=>0]));
-            }
-            return $this->error('还原数据异常，请联系开发人员',url('tash'));
+        $result = $this->taskRepository->untrashed($id);
+        if ($result['status']) {
+            return $this->success($result['message'], url('task', ['status' => 0]));
+        }
+        return $this->error('还原数据异常，请联系开发人员', url('tash'));
     }
 
     /**
@@ -104,9 +112,9 @@ class TaskController extends  AdminController
      */
     public function delete($id)
     {
-       $result = $this->taskRepository->deleteTask($id);
-        if($result['status'])
-            return $this->success($result['message'],url('task/trashed'));
+        $result = $this->taskRepository->deleteTask($id);
+        if ($result['status'])
+            return $this->success($result['message'], url('task/trashed'));
         return $this->error('删除该项目异常,请联系开发人员');
 
     }

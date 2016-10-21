@@ -32,7 +32,16 @@ class WithdrawController extends AdminController
     public function index(Request $request)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
-        list($counts, $lists) = $this->userRepository->getWithdrawList([], $this->perpage, $page);
+        $where = [];
+        if ($request->hold_name) {
+            $userids = $this->userRepository->bankModel->where('hold_name', $request->hold_name)->lists('user_id')->all();
+            $where['in'] = ['user_id' => $userids];
+        }
+        if ($request->cardno) {
+            $userids = $this->userRepository->bankModel->where('cardno', $request->cardno)->lists('user_id')->all();
+            $where['in'] = ['user_id' => $userids];
+        }
+        list($counts, $lists) = $this->userRepository->getWithdrawList($where, $this->perpage, $page);
         $pageHtml = $this->pager($counts, $page, $this->perpage);
         return view('admin.withdraw.index', compact('lists', 'pageHtml'));
     }
