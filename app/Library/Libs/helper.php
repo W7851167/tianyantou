@@ -359,7 +359,7 @@ function stats($data)
 function getBrandLogo($key)
 {
     $brands = brandData();
-    $brand = $brands[$key];
+    $brand = isset($brands[$key]) ? $brands[$key] : null;
     return !empty($brand) ? $brand['brandlogo'] : '';
 }
 

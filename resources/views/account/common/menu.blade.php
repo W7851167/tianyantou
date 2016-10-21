@@ -57,10 +57,10 @@
         </li>
         <li><h3><i class="iconfont">&#xe632;</i>账号管理</h3>
             <ul class="second-menu"  @if($controller == 'account') style="display: block;" @endif>
-                <li @if($controller == 'account' && $method != 'bankcard') class="current" @endif>
+                <li @if($controller == 'account' && $method != 'bankcard' && $method != 'updatebcard') class="current" @endif>
                     <a href="{!!config('app.account_url')!!}/safe.html">安全中心</a>
                 </li>
-                <li @if($controller == 'account' && $method == 'bankcard') class="current" @endif>
+                <li @if($controller == 'account' && ($method == 'bankcard' || $method == 'updatebcard')) class="current" @endif>
                     <a href="{!!config('app.account_url')!!}/bankcard.html">银行卡</a>
                 </li>
             </ul>

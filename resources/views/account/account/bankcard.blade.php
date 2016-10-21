@@ -111,8 +111,8 @@
                 <div class="main-inner">
                     <h1 class="section-title">支付宝</h1>
                     <div class="card-sketch">
-                        <div class="card-img"><img src="{!! config('app.static_url') !!}images/brandlogo/zhifubao.png"></div>
-                        <div class="card-id">支付宝账号:{!! substr_replace($bank->cardno,'*********',0,(strlen($bank->cardno) - 4)) !!}</div>
+                        <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brandlogo/zhifubao.png"></div>
+                        <div class="card-id">支付宝账号:{!! substr_replace($bank->cardno,'*********',0,(strlen($bank->cardno) - 7)) !!}</div>
                     </div>
                     <div style="margin-top: 12px;">
                         <a href="{!! config('app.account_url') !!}/bankcard/update.html" class="btn-blue btn-l"
