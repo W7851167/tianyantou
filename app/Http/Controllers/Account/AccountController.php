@@ -60,8 +60,9 @@ class AccountController extends FrontController
                 return $this->error('添加银行卡失败', null, true);
             }
         }
-//        if (empty($bank)) return redirect('/bankcard.html');
-        return view('account.account.bankcard', compact('bank'));
+        $type = $request->get('type');
+        $type = $type == 1 ? 1 : 0;
+        return view('account.account.bankcard', compact('bank', 'type'));
     }
 
     /**
@@ -448,7 +449,7 @@ class AccountController extends FrontController
                 $signReward = getSignReward();
                 $res['ret'] = 1;
                 $res['info']['username'] = $this->user['username'];
-                if(!empty($past)) {
+                if (!empty($past)) {
                     $d = Carbon::now()->subDay(2) > $past->updated_at ? 1 : $past->days + 1;
                     $res['info']['Score'] = $signReward[$d];
                     $res['info']['SignCount'] = $d == 6 ? 0 : $d;
