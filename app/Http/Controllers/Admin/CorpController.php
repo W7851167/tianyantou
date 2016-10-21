@@ -51,8 +51,8 @@ class CorpController extends AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            if(!empty($data['logo']))
-                $data['logo'] = str_replace(config('app.static_url'), '', $data['logo']);
+            if(!empty($data['brandlogo']))
+                $data['brandlogo'] = str_replace(config('app.static_url'), '', $data['brandlogo']);
             if(!empty($data['chartered']))
                 $data['chartered'] = str_replace(config('app.static_url'), '', $data['chartered']);
             $pinyin = app()->make('LibraryManager')->create('pinyin');
@@ -214,8 +214,8 @@ class CorpController extends AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            if(!empty($data['logo']))
-                $data['logo'] = str_replace(config('app.static_url'), '', $data['logo']);
+            if(!empty($data['brandlogo']))
+                $data['brandlogo'] = str_replace(config('app.static_url'), '', $data['brandlogo']);
             $result = $this->newRepository->saveMultiNew($data);
             if($result['status'])
                 return $this->success('创建/编辑动态完成', url('corp/news',['id'=>$corpId]),true);

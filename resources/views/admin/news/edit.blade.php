@@ -104,7 +104,7 @@
                 data = eval('('+data+')');
                 if (data.status == 1) {
                     var html = '<img style="width:242px;height:82px;" src="' + data.info[24282] + '">';
-                    html += '<input type="hidden" name="logo" value="' + data.info[24282] + '" />'
+                    html += '<input type="hidden" name="brandlogo" value="' + data.info[24282] + '" />'
                     $('.container-img').html(html);
                 }
             },

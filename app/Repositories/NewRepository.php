@@ -106,9 +106,9 @@ class NewRepository extends BaseRepository
     public function saveMultiNew($data)
     {
         $result = $this->newModel->getConnection()->transaction(function () use ($data) {
-            $logo = $data['logo'];
+            $logo = $data['brandlogo'];
             $content = $data['content'];
-            $data = array_except($data, ['logo', 'content']);
+            $data = array_except($data, ['brandlogo', 'content']);
 
             $id = $this->newModel->saveBy($data);
             $id = !empty($data['id']) ? $data['id'] : $id;

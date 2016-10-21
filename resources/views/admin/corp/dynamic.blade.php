@@ -106,7 +106,7 @@
                 data = eval('('+data+')');
                 if (data.status == 1) {
                     var html = '<img style="width:184px;" src="' + data.info[184125] + '">';
-                    html += '<input type="hidden" name="data[logo]" value="' + data.info[184125] + '" />'
+                    html += '<input type="hidden" name="data[brandlogo]" value="' + data.info[184125] + '" />'
                     $('.imgbox').html(html);
                 }
             }
