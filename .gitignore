@@ -7,3 +7,5 @@
 .DS_Store
 /static/uploads
 .idea
+app.php
+sesion.php
