@@ -62,7 +62,7 @@
                             <div class="infospaceAddLeft">支付宝账户：</div>
                             <div><input type="text" name="cardno" value="{!! $withdraw->bank->cardno !!}"  disabled></div>
                         </div>
-                        @endif
+                            @endif
                         @endif
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">审核：</div>

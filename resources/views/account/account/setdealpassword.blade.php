@@ -1,4 +1,4 @@
-<form data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/setDealPassword.html" data-refresh-url="#dealpassword-panel">
+<form data-toggle="ajaxForm" method="post" action="{!! config('app.account_url') !!}/safe/setDealPassword.html">
     <div class="form-group">
         <div class="msg-wrap"></div>
         <div class="control-group">
