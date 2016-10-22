@@ -5,7 +5,7 @@
     //showLocation($province, $city);
 
     $form.submit(function () {
-        var $type = $(this).find("select[name='data[type]']").val();
+        var $type = $(this).find("input[name='data[type]']").val();
         var $hold_name = $(this).find("input[name='data[hold_name]']").val();
         var $province = $(this).find("select[name='data[province]']");
         var $city = $(this).find("select[name='data[city]']");
@@ -87,4 +87,6 @@
             messageBox('请选择账户类型', 2);
         }
     });
-})();
+})();/**
+ * Created by pengzhizhuang on 16/10/21.
+ */

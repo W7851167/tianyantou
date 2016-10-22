@@ -51,7 +51,7 @@ class PassportController extends AdminController
             return $this->error($result['message'], '', true);
         }
 
-        if ($this->user && $this->user['role'] == '管理员') return redirect('dashboard');
+        if ($this->user && $this->user['role'] > 0) return redirect('dashboard');
 
         return view('admin.passport.index');
     }

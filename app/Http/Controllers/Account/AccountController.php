@@ -51,17 +51,19 @@ class AccountController extends FrontController
     {
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
         if ($request->isMethod('post')) {
-            if (!empty($bank)) return $this->error('该用户已绑定银行卡', null, true);
+            if (!empty($bank)) return $this->error('该用户已绑定银行卡或支付宝账号', null, true);
             $data = $request->get('data');
+            $type = $data['type'] == 0 ? '银行卡' : '支付宝';
             try {
                 $result = $this->userRepository->bankModel->saveBy($data);
-                if ($result) return $this->success('添加银行卡成功', url('bankcard.html'), true);
+                if ($result) return $this->success('添加' . $type . '成功', url('bankcard.html'), true);
             } catch (QueryException $e) {
-                return $this->error('添加银行卡失败', null, true);
+                return $this->error('添加' . $type . '失败', null, true);
             }
         }
-//        if (empty($bank)) return redirect('/bankcard.html');
-        return view('account.account.bankcard', compact('bank'));
+        $type = $request->get('type');
+        $type = $type == 1 ? 1 : 0;
+        return view('account.account.bankcard', compact('bank', 'type'));
     }
 
     /**
@@ -75,13 +77,14 @@ class AccountController extends FrontController
 
         if ($request->isMethod('post')) {
             $data = $request->get('data');
+            $type = $data['type'] == 0 ? '银行卡' : '支付宝';
             $bank = $this->userRepository->bankModel->find($data['id']);
-            if (empty($bank)) return $this->error('该银行卡不存在', null, true);
+            if (empty($bank)) return $this->error('该银行卡或支付宝账号不存在', null, true);
             try {
                 $result = $this->userRepository->bankModel->saveBy($data);
-                if ($result) return $this->success('修改银行卡信息成功', url('bankcard.html'), true);
+                if ($result) return $this->success('修改' . $type . '信息成功', url('bankcard.html'), true);
             } catch (QueryException $e) {
-                return $this->error('修改银行卡失败信息失败', null, true);
+                return $this->error('修改' . $type . '失败信息失败', null, true);
             }
         }
         $bank = $this->userRepository->bankModel->where('user_id', $this->user['id'])->first();
@@ -448,7 +451,7 @@ class AccountController extends FrontController
                 $signReward = getSignReward();
                 $res['ret'] = 1;
                 $res['info']['username'] = $this->user['username'];
-                if(!empty($past)) {
+                if (!empty($past)) {
                     $d = Carbon::now()->subDay(2) > $past->updated_at ? 1 : $past->days + 1;
                     $res['info']['Score'] = $signReward[$d];
                     $res['info']['SignCount'] = $d == 6 ? 0 : $d;
