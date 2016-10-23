@@ -1,5 +1,5 @@
 @extends('admin.common.layout')
-@section('title') 项目信息 @stop
+@section('title') 领取任务管理 @stop
 @section('style')
     {!!HTML::style('admin/css/dialog.css')!!}
 @stop
@@ -12,17 +12,11 @@
                     <div class="content-right-header clearfix">
                         <img src="{!!url('admin/images/u5.png')!!}"/>
                         <a href="{!! url('task') !!}">项目管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
-                        <a href="{!! url('task') !!}">项目列表</a>
+                        <a href="{!! url('achieve') !!}">任务列表</a>
                     </div>
                 </div>
-
                 <div class="content-right-tit clearfix">
-                    <p><a href="{!! url('achieve') !!}" @if(!isset($status))class="at" @endif>所有</a></p>
-                    <p><a href="{!! url('achieve',['status'=>0]) !!}" @if(isset($status) && $status == 0)class="at" @endif>已领取</a></p>
-                    <p><a href="{!! url('achieve',['status'=>2]) !!}" @if(!empty($status) && $status == 2)class="at" @endif>待审核</a></p>
-                    <p><a href="{!! url('achieve',['status'=>1]) !!}" @if(!empty($status) && $status == 1) class="at" @endif>已审核</a></p>
-                    <p><a href="{!! url('achieve',['status'=>3]) !!}" @if(!empty($status) && $status == 3) class="at" @endif>已驳回</a></p>
-                    <p><a href="{!! url('achieve',['status'=>4]) !!}" @if(!empty($status) && $status == 4) class="at" @endif>已完成</a></p>
+                    <p><a href="javascript:void(0)" class="at">任务列表</a></p>
                     <a href="{!! config('app.admin_url') !!}/achieve/export" class="buttonA">数据导出</a>
                 </div>
                 <div class="comment-search clearfix">
@@ -39,41 +33,83 @@
                         </div>
                     </form>
                 </div>
-                    <table class="all_shopping" cellspacing="0">
-                        <tr>
-                            <th width='100'>平台名称</th>
-                            <th width='280'>任务名称</th>
-                            <th width="100">投资人</th>
-                            <th width="100">投资金额</th>
-                            @if(!isset($status))
-                            <th width="100">状态</th>
-                            @endif
-                            <th>操作</th>
-                        </tr>
-                        @if(!empty($lists))
+                <a data-tab="1" href="javascript:;" id="zs_tab">全部展开</a>
+                <div class="source_title">
+                    <ul>
+                        <li>任务名称</li>
+                        <li>投资人</li>
+                        <li>投资金额</li>
+                        <li>状态</li>
+                        <li>操作</li>
+                    </ul>
+                </div>
+                <div class="source_list">
+                    <ul>
                         @foreach($lists as $rv)
-                            <tr>
-                                <td>{!! $rv->corp->name!!}}</td>
-                                <td>{!! $rv->task->title or '' !!}</td>
-                                <td>{!! $rv->user->username or '' !!}</td>
-                                <td>{!! $rv->total or 0 !!}元</td>
-                                @if(!isset($status))
-                                <td>
-                                    @if($rv->status == 0) 已领取 @endif
-                                    @if($rv->status == 2) 待审核 @endif
-                                    @if($rv->status == 1) 已审核 @endif
-                                    @if($rv->status == 3) 已驳回 @endif
-                                    @if($rv->status == 4) 已完成 @endif
-                                </td>
-                                @endif
-                                <td>
-
-                                </td>
-                            </tr>
+                            <li class="js_reply_all">
+                                <div class="list_02">【{!! $rv->corp->name!!}】{!! $rv->task->title or '' !!}</div>
+                                <div class="list_02"> {!! $rv->user->username or '' !!}</div>
+                                <div class="list_02">{!! $rv->total or 0 !!}元</div>
+                                <div class="list_03">
+                                        {!! $rv->status == 0 ? '已领取' : ($rv->status == 1 ? '已审核': '已交任务') !!}
+                                </div>
+                                <div class="list_03">
+                                    @if(!empty($rv->status != 0))
+                                    <a data-tab="1" style="float:left;" href="javascript:;" class="zs_tab">展开</a>
+                                    @endif
+                                    <a  href="{!! url('achieve/create',['id'=>$rv->id]) !!}">审核</a>
+                                </div>
+                                <div class="reply_row" style="display:none;">
+                                    <ul>
+                                        <li style="width: 700px;" class="clearfix">
+                                            <span style="margin-left: 30px;">ID</span>
+                                            <span style="margin-left: 30px;">投资真实用户</span>
+                                            <span style="margin-left: 30px;">投资人手机</span>
+                                            <span style="margin-left: 30px;">投资金额 </span>
+                                            <span style="margin-left: 30px;;">投资订单号</span>
+                                            <span style="margin-left: 30px;;">提交时间</span>
+                                        @foreach($rv->achieves as $av)
+                                            <li style="width: 700px;" class="clearfix">
+                                                <span style="margin-left: 30px;">{!! $av->id !!}</span>
+                                                <span style="margin-left: 30px;">{!! $av->realname !!}</span>
+                                                <span style="margin-left: 30px;">{!! $av->mobile !!}</span>
+                                                <span style="margin-left: 30px;">{!! $av->price !!} </span>
+                                                <span style="margin-left: 30px;;">{!! $av->order_sn or '---' !!}</span>
+                                                <span style="margin-left: 30px;;">{!! $av->created_at or '---' !!}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </li>
                         @endforeach
-                        @endif
-                    </table>
+                    </ul>
+                </div>
+                <ul class="page_info page">
+                    {!! $pageHtml !!}
+                </ul>
             </div>
         </div>
     </div>
 @stop
+@section('script')
+    <script language="javascript">
+        $('.zs_tab').click(function(){
+            if($(this).attr('data-tab')==1){
+                $(this).parentsUntil('.js_reply_all').parent().find('.reply_row').show();
+                $(this).attr('data-tab',2).text('收起');;
+            }else{
+                $(this).attr('data-tab',1).text('展开');;
+                $(this).parentsUntil('.js_reply_all').parent().find('.reply_row').hide();
+            }
+        });
+        $('#zs_tab').click(function(){
+            if($(this).attr('data-tab')==1){
+                $(this).attr('data-tab',2).text('全部收起');
+                $('.reply_row').show();
+            }else{
+                $(this).attr('data-tab',1).text('全部展开');
+                $('.reply_row').hide();
+            }
+        });
+    </script>
+    @stop
