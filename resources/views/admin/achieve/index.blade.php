@@ -53,7 +53,7 @@
                         @foreach($lists as $rv)
                             <li class="js_reply_all">
                                 <div class="list_07">
-                                    <input type="checkbox" class="">
+                                    <input type="checkbox">
                                 </div>
                                 <div class="list_02">【{!! $rv->corp->name!!}】{!! $rv->task->title or '' !!}</div>
                                 <div class="list_02"> {!! $rv->user->username or '' !!}</div>
