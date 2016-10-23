@@ -3,6 +3,9 @@
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
     {!!HTML::style('admin/css/dialog.css')!!}
+    <style>
+        .list_07{width: 10px;padding-left: 20px;color: #333;float: left;margin-top: 20px;}
+    </style>
 @stop
 @section('content')
     <div class="content-all">
@@ -37,6 +40,7 @@
                 <a data-tab="1" href="javascript:;" id="zs_tab">全部展开</a>
                 <div class="source_title">
                     <ul>
+                        <li style="width: 10px;"><input type="checkbox" class="checkAll"></li>
                         <li>任务名称</li>
                         <li>投资人</li>
                         <li>投资金额</li>
@@ -48,6 +52,9 @@
                     <ul>
                         @foreach($lists as $rv)
                             <li class="js_reply_all">
+                                <div class="list_07">
+                                    <input type="checkbox" class="">
+                                </div>
                                 <div class="list_02">【{!! $rv->corp->name!!}】{!! $rv->task->title or '' !!}</div>
                                 <div class="list_02"> {!! $rv->user->username or '' !!}</div>
                                 <div class="list_02">{!! $rv->total or 0 !!}元</div>
@@ -63,17 +70,19 @@
                                 <div class="reply_row" style="display:none;">
                                     <ul>
                                         <li style="width: 700px;" class="clearfix">
+                                            <span style="margin-left: 30px;"></span>
                                             <span style="margin-left: 30px;">ID</span>
                                             <span style="margin-left: 30px;">投资真实用户</span>
-                                            <span style="margin-left: 30px;">投资人手机</span>
+                                            <span style="margin-left: 40px;">投资人手机</span>
                                             <span style="margin-left: 30px;">投资金额 </span>
                                             <span style="margin-left: 30px;;">投资订单号</span>
                                             <span style="margin-left: 30px;;">提交时间</span>
                                         @foreach($rv->achieves as $av)
                                             <li style="width: 700px;" class="clearfix">
+                                                <span style="margin-left: 30px;"><input type="checkbox"></span>
                                                 <span style="margin-left: 30px;">{!! $av->id !!}</span>
                                                 <span style="margin-left: 30px;">{!! $av->realname !!}</span>
-                                                <span style="margin-left: 30px;">{!! $av->mobile !!}</span>
+                                                <span style="margin-left: 40px;">{!! $av->mobile !!}</span>
                                                 <span style="margin-left: 30px;">{!! $av->price !!} </span>
                                                 <span style="margin-left: 30px;;">{!! $av->order_sn or '---' !!}</span>
                                                 <span style="margin-left: 30px;;">{!! $av->created_at or '---' !!}</span>
@@ -94,6 +103,9 @@
 @stop
 @section('script')
     <script language="javascript">
+        $(".checkAll").click(function () {
+            $("[type=checkbox]:enabled").prop("checked", this.checked);
+        });
         $('.zs_tab').click(function(){
             if($(this).attr('data-tab')==1){
                 $(this).parentsUntil('.js_reply_all').parent().find('.reply_row').show();
