@@ -38,17 +38,17 @@
                     <form action="">
                         <table class="all_shopping" cellspacing="0">
                             <tr>
-                                <th width='65'></th>
+                                <th width='45'></th>
                                 <th width='65'>用户名</th>
+                                <th width='65'>账号类型</th>
                                 <th width='65'>账户名</th>
                                 <th width='100'>开户银行</th>
-                                {{--<th width='100'>省/市</th>--}}
                                 <th width="100">支行名称</th>
                                 <th width="150">卡号</th>
                                 <th width="80">金额</th>
                                 <th width="80">手续费</th>
-                                <th width="80">提现时间</th>
-                                <th width="80">状态</th>
+                                <th width="60">提现时间</th>
+                                <th width="60">状态</th>
                                 <th>操作</th>
                             </tr>
                             @if(count($lists) > 0)
@@ -59,10 +59,10 @@
                                     </td>
                                     </td>
                                     <td>{!! $wv->user->username or ''!!}</td>
+                                    <td>{!! $wv->bank->type==0 ? '银行卡' : '支付宝' !!}</td>
                                     <td>{!! $wv->bank->hold_name or ''  !!}</td>
                                     <td>{!! $wv->bank->bank_name or ''  !!}</td>
-                                    {{--                                <td>{!! $wv->bank->province or ''  !!}/{!! $wv->bank->city or ''  !!}</td>--}}
-                                    <td>{!! $wv->bank->branch_name or ''  !!}</td>
+                                    <td>{!! $wv->bank->branch_name or '--'  !!}</td>
                                     <td>{!! $wv->bank->cardno or ''  !!}</td>
                                     <td>{!! $wv->price or 0.00 !!}</td>
                                     <td>{!! $wv->commission or 0.00 !!}</td>
@@ -74,9 +74,8 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td colspan="11">
-                                    <input type="checkbox" class="checkAll"
-                                           style="float: left;margin-left: 24px;margin-top: 15px;">全选
+                                <td colspan="12">
+                                    <input type="checkbox" class="checkAll" style="float: left;margin-left: 24px;margin-top: 15px;">全选
                                     <button type="button" class="all-del">审核</button>
                                 </td>
                             </tr>

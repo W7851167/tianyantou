@@ -65,6 +65,10 @@ class AchieveController extends AdminController
                 return $this->success($result['message'], url('achieve'), true);
             return $this->error('审核任务异常，请联系开发人员');
         }
+        if (empty($receive)) {
+            return $this->error('该审核任务异常，请联系开发人员');
+        }
+
         return view('admin.achieve.create', compact('receive'));
     }
 

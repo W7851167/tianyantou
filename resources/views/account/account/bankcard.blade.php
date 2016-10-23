@@ -116,7 +116,7 @@
                     </div>
                     <div style="margin-top: 12px;">
                         <a href="{!! config('app.account_url') !!}/bankcard/update.html" class="btn-blue btn-l"
-                           style="width:250px;">修改银行卡</a>
+                           style="width:250px;">修改支付宝</a>
                     </div>
                 </div>
                 @endif
