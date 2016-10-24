@@ -31,10 +31,10 @@ class AchieveController extends AdminController
      * @return \Illuminate\View\View
      * 获取任务列表
      */
-    public function index(Request $request)
+    public function index(Request $request, $status=null)
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
-        $where = [];
+        $where = isset($status) ? ['status'=>$status]: [];
         if ($request->realname) {
             $receiveids = $this->taskRepository->taskAchieveModel->where('realname', ($request->realname))->lists('receive_id')->all();
             $where['in'] = ['id' => $receiveids];
@@ -45,7 +45,7 @@ class AchieveController extends AdminController
         }
         list($count, $lists) = $this->taskRepository->getReceiveList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
-        return view('admin.achieve.index', compact('lists', 'pageHtml'));
+        return view('admin.achieve.index', compact('lists', 'pageHtml','status'));
     }
 
     /**
