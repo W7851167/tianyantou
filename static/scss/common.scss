@@ -1,0 +1,209 @@
+﻿/*define iconfont*/
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot'); /* IE9*/
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('../fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+//-webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*base parameter*/
+@import "basestyle/parameter";
+
+/*base style*/
+@import "basestyle/effect";
+@import "basestyle/animate";
+@import "basestyle/link";
+@import "basestyle/head";
+@import "basestyle/foot";
+@import "basestyle/title";
+@import "basestyle/button";
+@import "basestyle/list";
+@import "basestyle/table";
+@import "basestyle/form";
+@import "basestyle/paging";
+@import "basestyle/tab";
+@import "basestyle/filter";
+@import "basestyle/overlayer";
+@import "basestyle/carousel";
+@import "basestyle/tagscloud";
+@import "basestyle/share";
+
+/*all*/
+html,body{
+  width: $WIDTH_ALL;
+  min-width: 1200px;
+  font-family: $FONT_CN;
+  font-size: $FONT_LEVEL2;
+  color:$TEXT_MAIN;
+  line-height: $TEXT_LH;
+  background-color: $BODY_BG;
+}
+.bg_white{
+  background-color: #FFF;
+}
+/*content*/
+.wrap{
+  width: $WIDTH_ALL;
+}
+.container{
+  width: $MAIN_WIDTH;
+  min-width: $MAIN_WIDTH;
+  margin:0 auto;
+  overflow: hidden;
+  h2{
+    @include list-title;
+  }
+  /*Bread crumbs nav*/
+  .main-nav{
+    width: $WIDTH_ALL;
+    height: 52px;
+    line-height: 52px;
+    span{
+      float: left;
+    }
+    li{
+      float: left;
+      & + li:before{
+        color: #999;
+        content: '>';
+        padding: 0 3px;
+      }
+    }
+    a{
+      @extend .main-link;
+      color: $MAIN_BLUE;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .nav-location{
+      font-weight: bold;
+      color: $TEXT_MAIN;
+    }
+  }
+  .main{
+    box-sizing: border-box;
+    border: $MAIN_BORDER;
+    background-color: #FFF;
+    margin-bottom: $GAP;
+    & > h2{
+      @extend .title-black-bold;
+      @extend .block-title-style;
+      @include list-title;
+      .iconfont{
+        font-size: $FONT_LEVEL5;
+        color: $MAIN_BLUE;
+      }
+    }
+  }
+  .tworow{
+    width: 890px;
+    box-sizing: border-box;
+    float: left;
+    margin-right: -1px;
+  }
+  .threerow{
+    width: 578px;
+    float: left;
+  }
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: #FFF;
+  background-image: none;
+  color: transparent;
+}
+a{
+  @extend .main-link;
+}
+/*side*/
+.leftside{
+  float: left;
+  width: 300px;
+  margin-right: $GAP;
+}
+.rightside{
+  float: right;
+  width: 300px;
+  margin-left: $GAP;
+} 
+.r-side-menu,.l-side-menu{
+  width: 298px;
+  border: $MAIN_BORDER;
+  background-color: #FFF;
+  margin-bottom: $GAP;
+  & > h2{
+    @extend .title-black-bold;
+    @include list-title;
+    padding: 0 20px;
+  }
+}
+.r-side-menu{
+  float: right;
+  margin-left: $GAP;
+}
+.l-side-menu{
+  float: left;
+  margin-right: $GAP;
+}
+.noborder{
+  border: none !important;
+  //padding-bottom: 1px;
+  & > a{
+    border: none;
+  }
+}
+.time{
+  color: #999;
+}
+.numicon{
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 16px;
+  text-align: center;
+  min-width: 16px;
+  height: 16px;
+  font-family: $FONT_EN;
+  font-size: 12px;
+  color: #FFF;
+  background-color: $DARK_GREEN;
+  //padding: 0 4.5px;
+  @include RADIUS(8px);
+}
+.clearfix {
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+  zoom: 1;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+/*page style*/
+@import "pagestyle/login";
+@import "pagestyle/404";
+@import "pagestyle/float";
+@import "pagestyle/guide";
+@import "pagestyle/about";
+@import "pagestyle/wenda";
+@import "pagestyle/specialtopic";
+@import "pagestyle/huoqi";
+@import "pagestyle/platform";
+@import "pagestyle/mall";
+@import "pagestyle/mascot";

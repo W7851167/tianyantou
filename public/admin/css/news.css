@@ -1,0 +1,195 @@
+@charset "utf-8";
+/* CSS Document */
+/*领取的需求单*/
+.get_requirement,.client_cases{
+	margin-top:30px;
+    width:928px;
+    text-align:left;
+}
+.content-right-page{
+	padding:0 25px;
+}
+.get_requirement th,.client_cases th{
+    font-weight:normal;
+    border-bottom:1px solid #e4e4e4;
+    height:40px;
+}
+.get_requirement th:nth-child(1){
+    text-indent:20px;
+}
+.get_requirement td,.client_cases td{
+    border-bottom:1px solid #e4e4e4;
+    height:40px;
+}
+.get_requirement td:nth-child(1),.client_cases:nth-child(1){
+     border-left:1px solid #e4e4e4;
+     text-indent:20px;
+}
+.get_requirement td:last-child,.client_cases td:last-child{
+    border-right:1px solid #e4e4e4;
+}
+.get_requirement td:last-child a,.client_cases td:last-child a{
+    color:#29e;
+}
+
+/*客户案例*/
+.client_cases th:nth-child(1),.client_cases td:nth-child(1){
+    text-align:center;
+
+}
+.client_cases td:nth-child(1){
+	border-left:1px solid #E4E4E4;
+}
+/*需求单详情*/
+.requirement_specific,.case_specific{
+    width:928px;
+    margin-top:30px;
+}
+.requirement_specific tr:first-child td,.case_specific tr:first-child td{
+    border-top:1px solid #e4e4e4;
+}
+.requirement_specific td,.case_specific td{
+    padding:20px 0;
+    height:20px;
+    border-bottom:1px solid #e4e4e4;
+}
+.requirement_specific tr td:first-child span,.case_specific tr td:first-child span{
+    color:#f13a3a;
+}
+.requirement_specific tr td:first-child,.case_specific tr td:first-child{
+    border-left:1px solid #e4e4e4;
+    text-align:right;
+}
+.requirement_specific tr td:last-child,.case_specific tr td:last-child{
+    padding-left:20px;
+    border-right:1px solid #e4e4e4;
+    text-align:left;
+    font-weight:700;
+    position:relative;
+}
+.requirement_img img{
+    width:100px;
+    height:100px;
+}
+.requirement_img li{
+    float:left;
+    margin-left:30px;
+}
+.requirement_btm{
+    width:340px;
+    margin:20px auto;
+}
+.requirement_btm a,button{
+    width:140px;
+    height:40px;
+    display:inline-block;
+    background:#fff;
+    color:#333;
+    border:1px solid #dcdcdc;
+    text-align:center;
+    line-height:40px;
+    margin-left:20px
+}
+.requirement_btm a:hover{
+    background:#29e;
+    color:#fff;
+    border:1px solid #29e;
+}
+.requirement_btm button:hover{
+    background:#29e;
+    border:1px solid #29e;
+    color:#fff;
+}
+/*设计案例*/
+.case_input{
+    height:30px;
+    width:300px;
+}
+.case_select{
+    width:150px;
+    height:30px;
+}
+.case_compile{
+    vertical-align:top;
+}
+.case_compile_content{
+    /*width:700px;*/
+    /*height:700px;*/
+    border:1px solid #dcdcdc;
+}
+.activity_brief{
+    height:100px;
+    width:500px;
+}
+.click_check{
+    width:926px;
+    height:30px;
+    line-height:30px;
+    text-indent:80px;
+    margin-bottom:30px;
+    border:1px solid #e4e4e4;
+    border-top:none;
+}
+.click_check a{
+    color:#29e;
+}
+.requirement_check tr:nth-child(n+4){
+    display:none;
+}
+/*上传*/
+.upload{
+    width:275px;
+    height:30px;
+    font-size:0;
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index:99;
+    opacity:0;
+}
+.clickUpload{
+    display:inline-block;
+    background:#e7e7e7;
+    text-align:center;
+    line-height:30px;
+    width:90px;
+    height:30px;
+}
+.inputClick{
+    width:175px;
+    border:1px solid #e4e4e4;
+    float:left;
+    height:27px;
+    border-right:none;
+    outline:none;
+    background:#fff;
+}
+.imgbox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #e4e4e4;
+    float: left;
+    margin-top: 20px;
+}
+.imgbox img {
+    width: 100px;
+    height: 100px;
+}
+.navigation-page-none{
+	margin:200px auto;
+	width:200px;	
+}
+.navigation-page-none p{
+	color:#29e;
+	font-size:13px;
+    position: relative;
+    text-align: right;
+    font-weight: bold;
+    font-style: normal;
+}
+.navigation-page-none p img{
+    position: absolute;
+    left: 5px;
+    top: -1px;
+}
+

@@ -1,0 +1,14 @@
+body{ margin: 0; }
+.impowerBox .qrcode {width: 100%; margin-top:0;border: none;}
+.impowerBox .title {display: none;}
+.impowerBox .info {width: 160px;}
+.impowerBox .status {
+	text-align:center;
+}
+.impowerBox .icon38_msg.succ {
+	display:none;
+}
+
+.impowerBox .icon38_msg.warn {
+	display:none;
+}

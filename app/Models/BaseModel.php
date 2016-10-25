@@ -2,7 +2,7 @@
 /*********************************************************************************
  *  PhpStorm - phpad
  *-------------------------------------------------------------------------------
- * 版权所有: CopyRight By cw100.com
+ * 版权所有: CopyRight By
  * 文件内容简单说明
  *-------------------------------------------------------------------------------
  * $FILE:BaseModel.php
@@ -14,8 +14,9 @@ namespace App\Models;
 
 
 use App\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BaseModel extends  Model
+class BaseModel extends Model
 {
     /**
      * @param array $fields
@@ -27,13 +28,18 @@ class BaseModel extends  Model
      * @return mixed
      * 返回数据模型列表
      */
-    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page = null)
+    public function lists($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $pagesize = 10, $page = null, $trashed = 0)
     {
         if (!is_array($fields)) {
             $fields = explode(',', $fields);
             $fields = array_map('trim', $fields);
         }
+
         $query = $this->select($fields);
+        if ($trashed == 1)
+            $query->withTrashed();
+        if ($trashed == 2)
+            $query->onlyTrashed();
         $query = $this->createWhere($query, $where, $orderBy, $groupBy);
         if (isset($page)) {
             $limit = $pagesize * ($page - 1);
@@ -43,6 +49,31 @@ class BaseModel extends  Model
         }
         return $result;
     }
+
+    /**
+     * @param array $fields
+     * @param array $where
+     * @param array $orderBy
+     * @param array $groupBy
+     * @return mixed
+     * 获取所有内容
+     */
+    public function alls($fields = ['*'], $where = [], $orderBy = [], $groupBy = [], $trashed = 0)
+    {
+        if (!is_array($fields)) {
+            $fields = explode(',', $fields);
+            $fields = array_map('trim', $fields);
+        }
+
+        $query = $this->select($fields);
+        if ($trashed == 1)
+            $query->withTrashed();
+        if ($trashed == 2)
+            $query->onlyTrashed();
+        $query = $this->createWhere($query, $where, $orderBy, $groupBy);
+        return $query->get();
+    }
+
 
     /**
      * @param $query
@@ -129,4 +160,59 @@ class BaseModel extends  Model
         }
         return $query;
     }
+
+    /**
+     * @param $data
+     * 编辑信息
+     */
+    public function saveBy($data)
+    {
+        $model = $this;
+        $data = $data ? $data : Request::all();
+        $data = array_except($data, ['_token', '_url', 's']);
+
+
+        if (!empty($data[$this->primaryKey])) {
+            $model = $this->findOrNew($data[$this->primaryKey]);
+            if (!empty($model)) {
+                $this->setModelData($model, $data);
+                return $model->save();
+            }
+        }
+        return $this->query()->insertGetId($data);
+    }
+
+    /**
+     * @param $data
+     * @param $where
+     * @return mixed
+     * 根据条件更新数据
+     */
+    public function updateBy($data, $where)
+    {
+        $query = $this->createWhere($this, $where);
+        return $query->update($data);
+    }
+
+    /**
+     * @param array $where
+     * @return mixed
+     * 根据条件统计总数
+     *
+     */
+    public function countBy($where = [])
+    {
+        $query = $this->createWhere($this, $where);
+        $result = $query->count();
+        return $result;
+    }
+
+    protected function setModelData($model, $data)
+    {
+        foreach ($data as $key => $value) {
+            $model->{$key} = $value;
+        }
+        return $model;
+    }
+
 }

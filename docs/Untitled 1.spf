@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>phpad</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-5357264264685531266</string>
+			<key>name</key>
+			<string>localhost</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
+			dXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5TTXV0YWJs
+			ZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tleWVkQXJj
+			aGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBl
+			AGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA
+			1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEtATIBRAFIAVEBVgFl
+			AWkBcQF2AXkBiwGOAZMAAAAAAAACAQAAAAAAAAA6AAAAAAAAAAAA
+			AAAAAAABlQ==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {986.5, 565}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>table</key>
+			<string>ad_articles</string>
+			<key>view</key>
+			<string>SP_VIEW_CONTENT</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>292</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>INSERT INTO `ps_suppliers_shop_privi` (`id`, `privi_name`, `privi_code`, `privi_route`, `parent_id`, `is_menu`)
+VALUES
+(1, '首页', 'index', '/', 0, 1),
+(2, '商品管理', 'goods', '/goods/add/one', 0, 1),
+(3, '认领商品', 'goods.add', '/goods/add/one', 2, 1),
+(4, '在售商品管理', 'goods.online', '/goods/online/list', 2, 1),
+(5, '下架商品管理', 'goods.offline', '/goods/offline/list', 2, 1),
+(6, '套餐管理', 'goods.package', '/goods/relation/list', 2, 1),
+(8, '评论管理', 'goods.comment', '/goods/comment/list', 2, 1),
+(9, '订单管理', 'order', '/order/list', 0, 1),
+(10, '订单列表', 'order.order', '/order/list', 9, 1),
+(11, '订单发货', 'order.ordersend', '/order/list', 9, 1),
+(12, '发货设置', 'order.set', '/order/list', 9, 1),
+(13, '店铺信息', 'store', '/store/info', 0, 1),
+(14, '基本信息', 'store.info', '/store/info', 13, 1),
+(15, '店铺设置', 'store.setting', '/store/setting', 13, 1),
+(16, '店铺导航', 'store.nav', '/store/nav/list', 13, 1),
+(17, '店铺分类', 'store.category', '/store/category/list', 13, 1),
+(18, '品牌申请', 'store.brand', '/store/brand', 13, 1),
+(19, '店铺续约', 'store.renew', '/store/renew', 13, 1),
+(20, '体验馆', 'shop', '/shop/index', 0, 1),
+(21, '体验店管理', 'shop.shop', '/shop/index', 20, 1),
+(22, '导购设置', 'shop.guide', '/shop/guide/index', 20, 1),
+(23, '门店活动设置', 'shop.activity', '/shop/activity/index', 20, 1),
+(24, '售后/物流', 'consult', '/consult/repair/index', 0, 1),
+(25, '返修/退换货管理', 'consult.repair', '/consult/repair/index', 24, 1),
+(26, '咨询回复', 'consult.consult', '/consult/index', 24, 1),
+(27, '增票管理', 'consult.ticket', '/consult/ticket／index', 24, 1),
+(28, '设计师管理', 'shop', '/shop/index', 0, 1),
+(29, '设计师管理', 'shop', '/shop/index', 28, 1),
+(30, '设计馆', 'design', '/design/plan/index', 0, 1),
+(31, '设计方案', 'design.plan', '/design/plan/index', 30, 1),
+(32, '客户案例', 'design.case', '/design/case/index', 30, 1),
+(33, '客户需求单', 'design.request', '/design/request/index', 30, 1),
+(34, '费用统计', 'design.cost', '/design/cost/index', 30, 1),
+(35, '个人设置', 'design.design-setting', '/design/index', 30, 1),
+(36, '咨询留言', 'design.message', '/design/message/index', 30, 1),
+(37, '微信管理', 'wechat', '/wechat/setting', 0, 1),
+(38, '微信设置', 'wechat.setting', '/wechat/setting', 37, 1),
+(39, '素材管理', 'wechat.materials', '/shop/index', 37, 1),
+(40, '统计管理', 'wechat.user', '/wechat/user/stat', 37, 1),
+(41, '群发管理', 'wechat.mass', '/wechat/mass', 37, 1),
+(42, '智能回复', 'wechat.keyword', '/wechat/keyword', 37, 1),
+(43, '菜单设置', 'wechat.menu', '/wechat/menu/index', 37, 1),
+(44, '二维码管理', 'wechat.channel', '/wechat/channel/index', 37, 1),
+(45, '周边管理', 'wechat.zb', '/wechat/zb/index', 37, 1),
+(46, '专题管理', 'wechat.toptic', '/wechat/toptic/index', 37, 1),
+(47, '佣金管理', 'wechat.commission', '/wechat/commission/lists', 37, 1),
+(48, '卡券设置', 'wechat.cart', '/wechat/cart', 37, 1),
+(49, '账号', 'shop', '/shop/index', 0, 1),
+(50, '账号列表', 'account.account', '/account/list', 49, 1),
+(51, '权限组', 'account.role', '/role/list', 49, 1),
+(52, '账户日志', 'account.log', '/log/list', 49, 1)</string>
+		<string>select * from `ps_comment` where `images` is not null and `item_id` = 849 and `item_type` = 'goods' order by `add_time` desc</string>
+		<string>INSERT INTO `ps_site_recommend` (`id`, `site_id`, `item_type`, `item_id`, `position`, `sort_order`, `created_at`, `updated_at`)
+VALUES
+	(8, 5, 0, 14, '', 0, '2016-07-12 12:01:26', '0000-00-00 00:00:00'),
+	(12, 5, 0, 1, 'main-1f-left', 0, '2016-09-01 09:35:23', '0000-00-00 00:00:00'),
+	(13, 5, 0, 2, 'main-2f-left', 0, '2016-09-01 09:35:28', '0000-00-00 00:00:00'),
+	(14, 5, 0, 3, 'main-3f-left', 0, '2016-09-01 09:35:34', '0000-00-00 00:00:00'),
+	(15, 6, 0, 5, 'main-center', 0, '2016-09-01 09:35:41', '0000-00-00 00:00:00'),
+	(16, 6, 0, 6, 'main-center', 0, '2016-09-01 09:35:45', '0000-00-00 00:00:00'),
+	(17, 5, 0, 9, 'main-center', 0, '2016-09-01 09:35:49', '0000-00-00 00:00:00'),
+	(18, 5, 0, 10, 'main-center', 0, '2016-09-01 09:35:54', '0000-00-00 00:00:00'),
+	(19, 5, 0, 11, 'main-center', 0, '2016-09-01 09:35:59', '0000-00-00 00:00:00'),
+	(20, 80, 0, 19, 'main-2f-left', 0, '2016-09-01 09:36:48', '0000-00-00 00:00:00')</string>
+		<string>ALTER TABLE `ps_goods` CHANGE `service_id` `service_id` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '商品特色服务编号'</string>
+		<string>ALTER TABLE `ps_order` ADD `email` VARCHAR(60) NOT NULL COMMENT '收货人邮箱' AFTER `mobile`</string>
+		<string>ALTER TABLE `ps_order_goods` ADD `type` VARCHAR(50) NULL DEFAULT NULL COMMENT '订单商品来源类型' AFTER `order_suppliers_id`</string>
+		<string>update ps_goods set is_vat_invoice =1 where 1</string>
+		<string>update `ps_basic_brand` set brand_status = '0' where 1</string>
+		<string>update `ps_basic_brand` set brand_status = 0 where 1</string>
+		<string>ALTER TABLE `ps_goods` ADD `sales` INT NOT NULL COMMENT '销量数' AFTER `is_gift`, ADD `comments` INT NOT NULL COMMENT '评论数' AFTER `sales`</string>
+		<string>CREATE TABLE `ps_order_suppliers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `user_id` int(11) NOT NULL COMMENT '购买人ID',
+  `order_id` int(11) NOT NULL COMMENT '买家订单ID',
+  `suppliers_id` int(11) NOT NULL COMMENT '供应商ID',
+  `order_sn` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '供应商订单编号',
+  `order_status` tinyint(11) NOT NULL COMMENT '订单状态 字段 字段值 订单状态信息  order_status 0 订单未确认  order_status 1 订单已确认  order_status 2 订单已发货  order_status 3 订单已经取消  order_status 4 订单退货',
+  `pay_status` tinyint(11) NOT NULL COMMENT '支付状态 ?支付状态字段 字段值 订单状态信息  pay_status 0 未?支付  pay_status 1 已?支付',
+  `price` decimal(10,2) NOT NULL COMMENT '订单总金额',
+  `real_price` decimal(10,2) NOT NULL COMMENT '实际需支付金额',
+  `discount_price` decimal(10,2) NOT NULL COMMENT '优惠金额',
+  `post_fee` decimal(10,2) NOT NULL COMMENT '运费金额',
+  `logicstics_id` int(11) NOT NULL COMMENT '配送方式 ID',
+  `logicstics_status` tinyint(11) NOT NULL COMMENT '发货状态 配送状态字段 字段值 订单状态信息  logicstics_status0 未确认 logicstics_status1 已发货  logicstics_status2 已收货  logicstics_status3 配货中',
+  `logistics_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '配送方式名称',
+  `logistics_service` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '配送服务说明',
+  `logistics_time` int(11) NOT NULL COMMENT '配送发货时间 ',
+  `send_time` int(11) DEFAULT NULL COMMENT '发货时间',
+  `finished_time` int(11) NOT NULL COMMENT '供应商订单完成时间',
+  `comfirm_time` int(11) NOT NULL COMMENT '订单确认时间',
+  `cancel_time` int(11) NOT NULL COMMENT '订单取消时间',
+  `pay_time` int(11) DEFAULT '0' COMMENT '支付时间',
+  `message` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '卖家留言，包含取消订单，取消原因等',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='买家付款后，系统根据供应商分组进行拆弹，每个供应商生成单独的订单。 供应商和买家在个人中心中看到的基本上都是供应商信息表数据'</string>
+		<string>update ps_goods_sku set nums = 40 where 1</string>
+		<string>ALTER TABLE `ps_cart` CHANGE `session_id` `suppliers_id` INT(11) NOT NULL</string>
+		<string>INSERT INTO `ps_basic_goods_sku` (`id`, `basic_goods_id`, `basic_field_values_ids`, `price`, `nums`, `name`, `imgs`, `desc`, `created_at`, `updated_at`)
+VALUES
+	(47, 965, '1,4', 444.00, 444, '444', 'sku/2016-06-21/800800/576896c47edec.jpg', '44', '2016-06-21 09:21:51', '0000-00-00 00:00:00'),
+	(48, 968, '1,4', 33.00, 33, '33', 'sku/2016-06-21/800800/5768b8b9e62b5.jpg', '33', '2016-06-21 11:46:37', '2016-06-21 11:47:08'),
+	(49, 969, '1,4,22', 0.01, 20, 'M-Cr精钢材质	合金	红色', '[\"sku\\/2016-07-13\\/800800\\/5785eb16b9b4d.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb1a8280c.jpg\"]', 'M-Cr精钢材质	合金	红色', '2016-07-31 15:30:11', '2016-07-31 15:30:11'),
+	(50, 969, '1,4,23', 0.01, 20, 'M-Cr精钢材质	合金	黑色', '[\"sku\\/2016-07-13\\/800800\\/5785eb1d6e05b.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb1fdd4f1.jpg\"]', 'M-Cr精钢材质	合金	黑色', '2016-07-31 15:30:11', '2016-07-31 15:30:11'),
+	(51, 969, '1,5,22', 0.01, 30, 'M-Cr精钢材质	铁	红色M-Cr精钢材质	铁	红色', '[\"sku\\/2016-07-13\\/800800\\/5785eb226148e.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb251ee5c.jpg\"]', 'M-Cr精钢材质	铁	红色M-Cr精钢材质	铁	红色', '2016-07-31 15:30:11', '2016-07-31 15:30:11'),
+	(52, 969, '1,5,23', 0.01, 40, 'M-Cr精钢材质	铁	黑色', '[\"sku\\/2016-07-13\\/800800\\/5785eb28d5749.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb2d3de50.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb309ded3.jpg\"]', 'M-Cr精钢材质	铁	黑色', '2016-07-31 15:30:11', '2016-07-31 15:30:11'),
+	(53, 970, '24,26', 200.00, 30, '发的是双方的恢复速度', 'sku/2016-06-22/800800/576a1f9bd0463.jpg', '个梵蒂冈', '2016-06-22 13:17:49', '0000-00-00 00:00:00'),
+	(54, 970, '25,26', 500.00, 40, '发给过非法', 'sku/2016-06-22/800800/576a1f9e6b11d.jpg', '的法规 打个电话', '2016-06-22 13:17:49', '0000-00-00 00:00:00'),
+	(55, 971, '24,26', 500.00, 800, '发生的发生', 'sku/2016-06-22/800800/576a36d31c9cb.jpg', '发生地方过热', '2016-06-24 18:45:22', '2016-06-24 18:45:22'),
+	(56, 971, '24,27', 1000.00, 800, '1111', 'sku/2016-06-22/800800/576a36d8cc76b.jpg', '2222', '2016-06-24 18:45:22', '2016-06-24 18:45:22'),
+	(57, 972, '24,26', 300.00, 50, '多少就会大大', 'sku/2016-06-26/800800/576f5067b5726.jpg', '的时间肯定撒', '2016-06-26 11:47:58', '2016-06-26 11:47:58'),
+	(58, 972, '24,27', 400.00, 50, '大神级别撒谎', 'sku/2016-06-26/800800/576f506cd31d4.jpg', '圣诞节第三节课', '2016-06-26 11:47:58', '2016-06-26 11:47:58'),
+	(59, 976, '28', 1111.00, 50, '哈哈1', 'sku/2016-06-30/800800/57748312138e5.jpg', '', '2016-06-30 10:29:58', '2016-06-30 10:29:58'),
+	(60, 976, '29', 2222.00, 60, '哈哈2', 'sku/2016-06-30/800800/5774840080e48.jpg', '', '2016-06-30 10:29:58', '2016-06-30 10:29:58'),
+	(61, 974, '1,4,22', 0.01, 33, 'M-Cr精钢材质,合金	红色', '[\"sku\\/2016-07-13\\/800800\\/5785e58b2c990.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e58db99f2.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e5926fa2c.jpg\"]', 'dfgdgdfg', '2016-07-31 15:22:04', '2016-07-31 15:22:04'),
+	(62, 974, '2,4,22', 0.01, 55, '钢化玻璃,合金	红色', '[\"sku\\/2016-07-13\\/800800\\/5785e59924697.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e59be12c4.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e59df3c07.jpg\"]', '方式发送多个', '2016-07-31 15:22:04', '2016-07-31 15:22:04'),
+	(63, 974, '1,5,22', 0.01, 33, 'M-Cr精钢材质	铁	红色', '[\"sku\\/2016-07-13\\/800800\\/5785e5a277e36.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e5a72956d.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e5aab621e.jpg\"]', '给他人突然', '2016-07-31 15:22:04', '2016-07-31 15:22:04'),
+	(64, 974, '2,5,22', 0.01, 33, '钢化玻璃	铁	红色', '[\"sku\\/2016-07-13\\/800800\\/5785e5ad449b1.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e5b0a6255.jpg\",\"sku\\/2016-07-13\\/800800\\/5785e5b3aba20.jpg\"]', '而儿童', '2016-07-31 15:22:04', '2016-07-31 15:22:04'),
+	(65, 973, '1,4,22', 0.00, 0, '', '[\"sku\\/2016-07-12\\/800800\\/5784a8dfcb9fc.jpg\",\"sku\\/2016-07-12\\/800800\\/5784a8e4202fd.jpg\"]', '', '2016-07-12 16:23:01', '0000-00-00 00:00:00'),
+	(66, 977, '31,33,37', 6600.00, 9, '汉诺威电热水器DSC-ME1即热式多功率红色7KW', '', '此商品为全国销售，北京地区提供上门安装服务', '2016-07-25 17:22:51', '2016-07-25 17:22:51'),
+	(67, 977, '31,34,37', 6601.00, 8, '汉诺威电热水器DSC-ME1即热式多功率红色8.8KW', '', '此商品为全国销售，北京地区提供上门安装服务', '2016-07-25 17:22:51', '2016-07-25 17:22:51'),
+	(68, 977, '32,33,37', 6602.00, 7, '汉诺威电热水器DSC-ME1即热式多功率黄色7KW', '[\"sku\\/2016-07-25\\/800800\\/5795da69ad9c9.jpg\"]', '此商品为全国销售，北京地区提供上门安装服务', '2016-07-25 17:22:51', '2016-07-25 17:22:51'),
+	(69, 977, '32,34,37', 6603.00, 6, '汉诺威电热水器DSC-ME1即热式多功率黄色8.8KW', '', '此商品为全国销售，北京地区提供上门安装服务', '2016-07-25 17:22:51', '2016-07-25 17:22:51'),
+	(72, 969, '2,4,22', 0.01, 33, '钢化玻璃	合金	红色', '[\"sku\\/2016-07-31\\/800800\\/579da8d1a7d50.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8d4ec190.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8d7b5e48.jpg\"]', '钢化玻璃	合金	红色', '2016-07-31 15:30:11', '0000-00-00 00:00:00'),
+	(73, 969, '2,4,23', 0.01, 44, '钢化玻璃	合金	黑色', '[\"sku\\/2016-07-31\\/800800\\/579da8daf05af.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8dde1b65.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8e0d2f2a.jpg\"]', '钢化玻璃	合金	黑色', '2016-07-31 15:30:11', '0000-00-00 00:00:00'),
+	(74, 969, '2,5,22', 0.01, 55, '钢化玻璃	铁	红色', '[\"sku\\/2016-07-31\\/800800\\/579da8e68d692.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8ea34a13.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8f467077.jpg\"]', '钢化玻璃	铁	红色', '2016-07-31 15:30:11', '0000-00-00 00:00:00'),
+	(75, 969, '2,5,23', 0.01, 66, '钢化玻璃	铁	黑色', '[\"sku\\/2016-07-31\\/800800\\/579da8ed372ff.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8eff3c96.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8fd72868.jpg\",\"sku\\/2016-07-31\\/800800\\/579da901897dd.jpg\"]', '钢化玻璃	铁	黑色', '2016-07-31 15:30:11', '0000-00-00 00:00:00')</string>
+		<string>INSERT INTO `ps_basic_field_values` (`id`, `basic_field_id`, `name`, `status`, `ext_name`, `img`, `sort_order`, `created_at`, `updated_at`)
+VALUES
+	(1, 8, 'M-Cr精钢材质', 0, '', NULL, 0, '2016-07-13 15:31:29', '0000-00-00 00:00:00'),
+	(2, 8, '钢化玻璃', 0, '', NULL, 0, '2016-07-13 15:31:57', '0000-00-00 00:00:00'),
+	(3, 8, '钢琴烤漆', 0, '', NULL, 0, '2016-07-13 15:32:18', '0000-00-00 00:00:00'),
+	(4, 10, '合金', 0, '', NULL, 0, '2016-06-11 17:13:02', '0000-00-00 00:00:00'),
+	(5, 10, '铁', 0, '', NULL, 0, '2016-06-11 17:13:10', '0000-00-00 00:00:00'),
+	(18, 10, '钛合金', 0, '', '[]', 0, '2016-06-11 17:13:16', '0000-00-00 00:00:00'),
+	(19, 10, '铜', 0, '', '[]', 0, '2016-06-11 17:13:29', '0000-00-00 00:00:00'),
+	(22, 923, '红色', 0, '111', '[]', 0, '2016-07-13 15:21:50', '0000-00-00 00:00:00'),
+	(23, 923, '黑色', 0, '222', '[]', 0, '2016-07-13 15:21:50', '0000-00-00 00:00:00'),
+	(24, 924, '不用盐软水机', 0, '', '[]', 0, '2016-06-22 13:07:05', '0000-00-00 00:00:00'),
+	(25, 924, '用盐软水机', 0, '', '[]', 0, '2016-06-22 13:07:05', '0000-00-00 00:00:00'),
+	(26, 925, '离子交换', 0, '', '[]', 0, '2016-06-22 13:12:17', '0000-00-00 00:00:00'),
+	(27, 925, '非离子交换', 0, '', '[]', 0, '2016-06-22 13:12:17', '0000-00-00 00:00:00'),
+	(28, 944, 'A1', 0, '', '[]', 0, '2016-06-30 10:16:40', '0000-00-00 00:00:00'),
+	(29, 944, 'A2', 0, '', '[]', 0, '2016-06-30 10:16:40', '0000-00-00 00:00:00'),
+	(31, 376, '红色', 0, '', '[]', 0, '2016-07-25 17:01:45', '0000-00-00 00:00:00'),
+	(32, 376, '黄色', 0, '', '[]', 0, '2016-07-25 17:01:45', '0000-00-00 00:00:00'),
+	(33, 381, '7KW', 0, '', '[]', 0, '2016-07-25 17:02:09', '0000-00-00 00:00:00'),
+	(34, 381, '8.8KW', 0, '', '[]', 0, '2016-07-25 17:02:09', '0000-00-00 00:00:00'),
+	(35, 384, '10L', 0, '', '[]', 0, '2016-07-25 17:02:33', '0000-00-00 00:00:00'),
+	(36, 384, '11L', 0, '', '[]', 0, '2016-07-25 17:02:33', '0000-00-00 00:00:00'),
+	(37, 384, '即热式', 0, '', '[]', 0, '2016-07-25 17:02:33', '0000-00-00 00:00:00'),
+	(38, 1, '', 0, '', '[]', 0, '2016-07-26 18:08:40', '0000-00-00 00:00:00')</string>
+		<string>INSERT INTO `ps_goods_sku` (`id`, `goods_id`, `suppliers_id`, `goods_sn`, `basic_field_values_ids`, `price`, `nums`, `name`, `imgs`, `desc`, `nventory_warning`, `created_at`, `updated_at`)
+VALUES
+	(90, 1015, 0, '', '1,4,22', 0.01, 20, '范德萨发的66', 'sku/2016-06-22/800800/5769f0cea2c4a.jpg', '放的地方66', 0, '2016-07-29 16:17:06', '0000-00-00 00:00:00'),
+	(91, 1015, 0, '', '1,4,23', 0.01, 20, '佛挡杀佛66666', 'sku/2016-06-21/800800/5769432dcc34b.jpg', '地方 66', 0, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(92, 1015, 0, '', '1,5,22', 0.01, 30, '放的地方66', 'sku/2016-06-21/800800/5769431a36c76.jpg', '地方法规 66', 0, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(93, 1015, 0, '', '1,5,23', 0.01, 40, '方法66', 'sku/2016-06-22/800800/5769f0e475015.jpg', '个地方官 66', 0, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(99, 1027, 20160104, '', '31,33,37', 0.01, 9, '汉诺威电热水器DSC-ME1即热式多功率红色7KW', '', '此商品为全国销售，北京地区提供上门安装服务', 1, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(100, 1027, 20160104, '', '31,34,37', 0.01, 8, '汉诺威电热水器DSC-ME1即热式多功率红色8.8KW', '', '此商品为全国销售，北京地区提供上门安装服务', 1, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(101, 1027, 20160104, '', '32,33,37', 0.01, 7, '汉诺威电热水器DSC-ME1即热式多功率黄色7KW', '', '此商品为全国销售，北京地区提供上门安装服务', 1, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(102, 1027, 20160104, '', '32,34,37', 0.01, 6, '汉诺威电热水器DSC-ME1即热式多功率黄色8.8KW', '', '此商品为全国销售，北京地区提供上门安装服务', 1, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(103, 1028, 20160104, '', '31,33,37', 0.01, 9, '汉诺威电热水器DSC-MH1即热式7KW', '', '为销售，北京地区提供上门安装服务', 1, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(104, 1028, 20160104, '', '32,33,37', 0.01, 8, '汉诺威电热水器DSC-MH1即热式8.8KW', '', '为全国销售，北京地区提供上门安装服务', 1, '2016-07-29 16:17:07', '0000-00-00 00:00:00'),
+	(105, 1026, 20160104, 'aaaa', '1,4,22', 0.01, 20, 'M-Cr精钢材质	合金	红色', '[\"sku\\/2016-07-13\\/800800\\/5785eb16b9b4d.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb1a8280c.jpg\"]', 'M-Cr精钢材质	合金	红色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(106, 1026, 20160104, 'bbbb', '1,4,23', 0.01, 20, 'M-Cr精钢材质	合金	黑色', '[\"sku\\/2016-07-13\\/800800\\/5785eb1d6e05b.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb1fdd4f1.jpg\"]', 'M-Cr精钢材质	合金	黑色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(107, 1026, 20160104, 'ccccc', '1,5,22', 0.01, 30, 'M-Cr精钢材质	铁	红色M-Cr精钢材质	铁	红色', '[\"sku\\/2016-07-13\\/800800\\/5785eb226148e.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb251ee5c.jpg\"]', 'M-Cr精钢材质	铁	红色M-Cr精钢材质	铁	红色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(108, 1026, 20160104, 'ddddd', '1,5,23', 0.01, 40, 'M-Cr精钢材质	铁	黑色', '[\"sku\\/2016-07-13\\/800800\\/5785eb28d5749.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb2d3de50.jpg\",\"sku\\/2016-07-13\\/800800\\/5785eb309ded3.jpg\"]', 'M-Cr精钢材质	铁	黑色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(109, 1026, 20160104, 'eeeee', '2,4,22', 0.01, 33, '钢化玻璃	合金	红色', '[\"sku\\/2016-07-31\\/800800\\/579da8d1a7d50.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8d4ec190.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8d7b5e48.jpg\"]', '钢化玻璃	合金	红色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(110, 1026, 20160104, 'ffffff', '2,4,23', 0.01, 44, '钢化玻璃	合金	黑色', '[\"sku\\/2016-07-31\\/800800\\/579da8daf05af.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8dde1b65.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8e0d2f2a.jpg\"]', '钢化玻璃	合金	黑色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(111, 1026, 20160104, 'tttt', '2,5,22', 0.01, 55, '钢化玻璃	铁	红色', '[\"sku\\/2016-07-31\\/800800\\/579da8e68d692.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8ea34a13.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8f467077.jpg\"]', '钢化玻璃	铁	红色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00'),
+	(112, 1026, 20160104, 'yyyyy', '2,5,23', 0.01, 66, '钢化玻璃	铁	黑色', '[\"sku\\/2016-07-31\\/800800\\/579da8ed372ff.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8eff3c96.jpg\",\"sku\\/2016-07-31\\/800800\\/579da8fd72868.jpg\",\"sku\\/2016-07-31\\/800800\\/579da901897dd.jpg\"]', '钢化玻璃	铁	黑色', 0, '2016-07-31 15:31:18', '0000-00-00 00:00:00')</string>
+		<string>INSERT INTO `ps_wx_app` (`appid`, `suppliers_id`, `name`, `mid`, `aeskey`, `appsecret`, `is_auth`, `is_pay`, `img`, `type`, `introduce`, `phone`, `address`, `corp`, `create_time`, `raw_id`, `count`)
+VALUES
+	('wxeb057f40f208f74b', 20160726, '厨卫百分百', 5, 'WO7uhHZpEo1dhyOcUiKSKZgw3xafzAq7xi5GCzCgeDc', '62766fd07f55e8ffcf9cc1cf8fd434fb', 1, 1, '', 2, '厨卫百分百网招商部门服务号，用于合作商家的咨询，洽谈，合作交流', '010-53382109', '北京市丰台区南苑新宫南路8号中福丽宫品牌基地2号楼3层', '腾信达科技有限公司', 0, 'gh_026ea984f2a5', 1190)</string>
+		<string>CREATE TABLE `ps_wx_commission_goods` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `commission_id` int(11) NOT NULL DEFAULT '0' COMMENT '佣金ID',
+  `goods_id` int(11) NOT NULL DEFAULT '0' COMMENT ' 产品ID',
+  `suppliers_id` int(11) NOT NULL DEFAULT '0' COMMENT '商家ID',
+  `share_count` int(11) NOT NULL COMMENT '分享数量',
+  `visits_count` int(11) NOT NULL COMMENT '访问数量',
+  `order_count` int(11) NOT NULL COMMENT '下单数量',
+  `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci</string>
+		<string>CREATE TABLE `ps_wx_commission` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `appid` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '普通用户添加未有appid，审核通过后才有appid添入',
+  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '佣金名称（不能超过5个汉字）',
+  `intro` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '介绍不能超过20汉字',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、未开始 1、开始、2、暂停、3、过期',
+  `rate` tinyint(1) NOT NULL DEFAULT '0' COMMENT '佣金比例',
+  `suppliers_id` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '商家ID',
+  `is_reviewed` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、未审核 1、审核通过',
+  `start_time` int(11) DEFAULT '0' COMMENT '开始时间',
+  `end_time` int(11) DEFAULT '0' COMMENT '结束时间',
+  `is_time_limit` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0、未做时间限制 1、时间段内有效',
+  `create_time` int(11) DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(11) DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci</string>
+		<string>INSERT INTO `ps_wx_notice` (`id`, `appid`, `template_id`, `title`, `primary_industry`, `deputy_industry`, `content`, `example`, `created_at`, `updated_at`, `deleted_at`)
+VALUES
+	(1, 'wx3b400e2d1442f964', 'f1qYeH0ys60f3EGjakHrhaSlsOJb2squRqC0AXC-1KY', '购买成功通知', 'IT科技', '互联网|电子商务', '您好，您已购买成功。\n\n商品信息：{{name.DATA}}\n{{remark.DATA}}', '您好，您已购买成功。\n\n商品信息：微信影城影票\n有效期：永久有效\n券号为QQ5024813399，密码为123456890', '2016-07-11 18:30:53', '0000-00-00 00:00:00', NULL),
+	(2, 'wx3b400e2d1442f964', 'KS2n2t3mhNsNbfZ6IsuZ-tKEhsKoE2JEZvn90ON7o1I', '新订单通知', 'IT科技', '互联网|电子商务', '{{first.DATA}}\n\n提交时间：{{tradeDateTime.DATA}}\n订单类型：{{orderType.DATA}}\n客户信息：{{customerInfo.DATA}}\n{{orderItemName.DATA}}：{{orderItemData.DATA}}\n{{remark.DATA}}', '您收到了一条新的订单。\n\n提交时间：02月18日 01时05分\n订单类型：询价订单\n客户信息：广州 王俊\n兴趣车型：骐达 2011款 1.6 CVT 舒适版\n\n截止24日09:39分,您尚有10个订单未处理。', '2016-07-11 18:30:53', '0000-00-00 00:00:00', NULL),
+	(3, 'wx3b400e2d1442f964', 'BexaGM4dSebbxI30BDgnLeOUfZx21Cr_CAuh45wWtH8', '最新订单信息提醒', 'IT科技', '互联网|电子商务', '{{first.DATA}}\n\n订单编号: {{OrderSn.DATA}}\n订单状态: {{OrderStatus.DATA}}\n{{remark.DATA}}', '尊敬的kant:\n\n订单编号: 1130927196009757\n订单状态: 已收货\n\n其他订单信息\n物流信息: 圆通速递(上海)\n快递单号: 8031971890\n点击“详情”查看完整物流信息', '2016-07-11 18:30:53', '0000-00-00 00:00:00', NULL),
+	(4, 'wx3b400e2d1442f964', '7D0GhK10FRoQ-3Qy9kjvarwu6GOHDgXWFrrHDFT7yrY', '购买成功通知', 'IT科技', '互联网|电子商务', '您好，您已购买成功。\n\n商品信息：{{name.DATA}}\n{{remark.DATA}}', '您好，您已购买成功。\n\n商品信息：微信影城影票\n有效期：永久有效\n券号为QQ5024813399，密码为123456890', '2016-07-11 18:30:53', '0000-00-00 00:00:00', NULL),
+	(5, 'wx3b400e2d1442f964', 'lF5iOKB6lbUzLajAJusI_OvBqMIyssV0M-buzwolC0E', '订单状态更新', 'IT科技', '互联网|电子商务', '{{first.DATA}}\n\n订单编号: {{OrderSn.DATA}}\n订单状态: {{OrderStatus.DATA}}\n{{remark.DATA}}', '尊敬的kant:\n\n订单编号: 1130927196009757\n订单状态: 已收货\n\n其他订单信息\n物流信息: 圆通速递(上海)\n快递单号: 8031971890\n点击“详情”查看完整物流信息', '2016-07-11 18:31:34', '2016-07-11 18:31:34', '2016-07-11 18:31:34')</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>10.1.10-MariaDB</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

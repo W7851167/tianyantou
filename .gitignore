@@ -5,4 +5,7 @@
 /storage
 *.json
 .DS_Store
-
+/static/uploads
+.idea
+app.php
+session.php
