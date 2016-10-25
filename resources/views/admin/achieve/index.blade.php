@@ -54,7 +54,7 @@
                     @if(!empty($lists))
                         @foreach($lists as $rv)
                             <tr class="js_reply_all">
-                                <td>{!! $rv->corp->name!!}}</td>
+                                <td>{!! $rv->corp->name!!}</td>
                                 <td>{!! $rv->task->title or '' !!}</td>
                                 <td>{!! $rv->user->username or '' !!}</td>
                                 <td>{!! $rv->user->mobile or '' !!}</td>
