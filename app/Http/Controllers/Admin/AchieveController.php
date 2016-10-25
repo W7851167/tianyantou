@@ -94,7 +94,6 @@ class AchieveController extends AdminController
             ];
             array_push($data, $item);
         }
-        dd($data);
         $title = '投资记录';
         Excel::create($title, function ($excel) use ($data) {
             $excel->sheet('receives', function ($sheet) use ($data) {
