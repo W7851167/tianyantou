@@ -95,8 +95,10 @@
 @section('script')
     <script language="javascript">
         $('.zs_tab').click(function(){
+            alert('aaa');
             if($(this).attr('data-tab')==1){
-                $(this).parentsUntil('.js_reply_all').parent().find('.reply_row').show();
+                console.log($(this).parentsUntil('.js_reply_all').find('.reply_row'));
+                $(this).parentsUntil('.js_reply_all').find('.reply_row').show();
                 $(this).attr('data-tab',2).text('收起');;
             }else{
                 $(this).attr('data-tab',1).text('展开');;

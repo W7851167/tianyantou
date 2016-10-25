@@ -1,7 +1,7 @@
 @extends('admin.common.layout')
 @section('title') 项目信息 @stop
 @section('style')
-    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/lists.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -43,19 +43,21 @@
                     <tr>
                         <th width='100'>平台名称</th>
                         <th width='280'>任务名称</th>
-                        <th width="100">投资人</th>
+                        <th width="100">注册用户</th>
+                        <th width="100">注册手机</th>
                         <th width="100">投资金额</th>
                         @if(!isset($status))
-                            <th width="100">状态</th>
+                        <th width="100">状态</th>
                         @endif
                         <th>操作</th>
                     </tr>
                     @if(!empty($lists))
                         @foreach($lists as $rv)
-                            <tr>
-                                <td>{!! $rv->corp->name!!}</td>
+                            <tr class="js_reply_all">
+                                <td>{!! $rv->corp->name!!}}</td>
                                 <td>{!! $rv->task->title or '' !!}</td>
                                 <td>{!! $rv->user->username or '' !!}</td>
+                                <td>{!! $rv->user->mobile or '' !!}</td>
                                 <td>{!! $rv->total or 0 !!}元</td>
                                 @if(!isset($status))
                                     <td>
@@ -67,13 +69,73 @@
                                     </td>
                                 @endif
                                 <td>
-
+                                    @if($rv->status == 0) --- @endif
+                                    @if($rv->status == 2)
+                                            <a href="{!! url('achieve/create',['id'=>$rv->id]) !!}">审核</a>
+                                            <a data-tab="1"  href="javascript:;" class="zs_tab">展开</a>
+                                    @endif
+                                    @if($rv->status == 1)
+                                            <a href="{!! url('achieve/create',['id'=>$rv->id]) !!}">查看</a>
+                                    @endif
                                 </td>
                             </tr>
+                            @if($rv->status == 2)
+                            <tr class="reply_row" style="display:none;">
+                                <td @if(!isset($status)) colspan="7" @else colspan="6" @endif>
+                                    <table cellspacing="0" border="1">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>投资用户</th>
+                                        <th>投资人手机</th>
+                                        <th>投资金额 </th>
+                                        <th>投资订单号</th>
+                                        <th>提交时间</th>
+                                    </tr>
+                                     @foreach($rv->achieves as $av)
+                                      <tr>
+                                        <td>{!! $av->id !!}</td>
+                                        <td>{!! $av->realname !!}</td>
+                                        <td>{!! $av->mobile !!}</td>
+                                        <td>{!! $av->price !!} </td>
+                                        <td>{!! $av->order_sn or '---' !!}</td>
+                                        <td>{!! $av->created_at or '---' !!}</td>
+                                      </tr>
+                                        @endforeach
+                                    </table>
+                                </td>
+                            </tr>
+                            @endif
                         @endforeach
-                    @endif
-                </table>
+                        @endif
+                    </table>
+                <ul class="page_info page">
+                    {!! $pageHtml !!}
+                </ul>
             </div>
         </div>
     </div>
+@stop
+
+@section('script')
+    <script language="javascript">
+        $('.zs_tab').click(function(){
+            if($(this).attr('data-tab')==1){
+                console.log( $(this).parentsUntil('.js_reply_all').parent().html());
+                $(this).parentsUntil('.js_reply_all').parent().next().show();
+                $(this).attr('data-tab',2).text('收起');;
+            }else{
+                $(this).attr('data-tab',1).text('展开');;
+                $(this).parentsUntil('.js_reply_all').parent().siblings('.reply_row').hide();
+            }
+        });
+        $('#zs_tab').click(function(){
+            if($(this).attr('data-tab')==1){
+                $(this).attr('data-tab',2).text('全部收起');
+                $('.reply_row').show();
+            }else{
+                $(this).attr('data-tab',1).text('全部展开');
+                $('.reply_row').hide();
+            }
+        });
+    </script>
 @stop
