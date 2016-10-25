@@ -30,20 +30,29 @@ class CensusController extends AdminController
         $startTime = $request->get('start_time');
         $endTime = $request->get('end_time');
         $corpId = $request->get('corp_id');
+        $taskId = $request->get('task_id');
         $startTime = !empty($startTime) ? strtotime($startTime . ' 00:00:01') : strtotime('-7 days', time());
         $endTime = !empty($endTime) ? strtotime($endTime . ' 23:59:59') : time();
         $corpId = !empty($corpId) ? $corpId : 0;
+        $taskId = !empty($taskId) ? $taskId : 0;
         $title = date('Y-m-d', (int)$startTime) . '至' . date('Y-m-d', (int)$endTime) . '任务统计';
         $data = $this->getCalendar($startTime, $endTime);
         foreach ($data as $i => $item) {
-            $census[0][] = $this->census->getTaskReceiveStats(0, $item[0], $item[1], $corpId);
-            $census[1][] = $this->census->getTaskReceiveStats(1, $item[0], $item[1], $corpId);
-            $census[2][] = $this->census->getTaskReceiveStats(2, $item[0], $item[1], $corpId);
+            $census[0][] = $this->census->getTaskReceiveStats(0, $item[0], $item[1], $corpId, $taskId);
+            $census[1][] = $this->census->getTaskReceiveStats(1, $item[0], $item[1], $corpId, $taskId);
+            $census[2][] = $this->census->getTaskReceiveStats(2, $item[0], $item[1], $corpId, $taskId);
         }
         $categorys = array_keys($data);
 
         $corps = $this->census->corpModel->where('status', 1)->get();
-        return view('admin.census.index', compact('categorys', 'census', 'startTime', 'endTime', 'title', 'corps'));
+        $tasks = $this->census->taskModel->where('status', 1)->get();
+
+        $where = ['status' => 1];
+        $taskstats = $this->census->getTaskStats($where);
+//var_dump($taskstats);
+        return view('admin.census.index', compact(
+            'categorys', 'census', 'startTime', 'endTime', 'title', 'corps', 'tasks', 'taskstats'
+        ));
     }
 
     /**
