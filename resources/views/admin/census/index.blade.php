@@ -34,6 +34,13 @@
                                     <option value="{!! $cv->id or '' !!}">{!! $cv->name or '' !!}</option>
                                 @endforeach
                             </select>
+                            任务名称:
+                            <select name="task_id">
+                                <option value="0">全部任务&nbsp;&nbsp;</option>
+                                @foreach($tasks as $tv)
+                                    <option value="{!! $tv->id or '' !!}">{!! $tv->title or '' !!}</option>
+                                @endforeach
+                            </select>
                             开始时间：<input type="text" name="start_time" class="Wdate" value="{!! date('Y-m-d', $startTime) !!}"  onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             结束时间：<input type="text" name="end_time" class="Wdate"  value="{!! date('Y-m-d', $endTime) !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             <input type="submit" value="查询">
@@ -43,6 +50,34 @@
                     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;"
                          data-highcharts-chart="0">
                     </div>
+                    <table class="all_shopping" cellspacing="0">
+                        <tr>
+                            <th width='100'>平台名称</th>
+                            <th width="100">任务标题</th>
+                            <th width="60">投资笔数</th>
+                            <th width="60">剩余投资笔数</th>
+                            <th width="60">已领取金额</th>
+                            <th width="60">已交金额</th>
+                            <th width="60">已完成金额</th>
+                            <th width="65">收益金额</th>
+                        </tr>
+                        @if(count($taskstats) > 0)
+                            @foreach($taskstats as $tv)
+                        <tr>
+                            <td>{!! $tv->corp->name or '' !!}</td>
+                            <td>{!! $tv->title or '--' !!}</td>
+                            <td>{!! $tv->investnums or '0' !!}</td>
+                            <td>{!! $tv->overplus or '0.00' !!}</td>
+                            <td>{!! $tv->create or '0.00' !!}</td>
+                            <td>{!! $tv->commit or '0.00' !!}</td>
+                            <td>{!! $tv->complete or '0.00' !!}</td>
+                            <td>{!! $tv->income or '0.00' !!}</td>
+                        </tr>
+                            @endforeach
+                        @else
+                        <tr><td colspan="8"></td></tr>
+                        @endif
+                    </table>
                     <script>
                         $(function () {
                             $('#container').highcharts({
