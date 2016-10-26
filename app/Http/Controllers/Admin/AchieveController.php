@@ -53,21 +53,20 @@ class AchieveController extends AdminController
      */
     public function create(Request $request, $id)
     {
-        $receive = $this->taskRepository->taskReceiveModel->find($id);
+        $achieves = $this->taskRepository->taskAchieveModel->find($id);
         if ($request->isMethod('post')) {
             $data = $request->get('data');
-            $data['complete_time'] = time();
-            $data['task_id'] = $receive->task_id;
-            $result = $this->taskRepository->saveReceive($data);
+            $data['task_id'] = $achieves->task_id;
+            $result = $this->taskRepository->saveAchieves($data);
             if ($result['status'])
                 return $this->success($result['message'], url('achieve'), true);
             return $this->error('审核任务异常，请联系开发人员');
         }
-        if (empty($receive)) {
+        if (empty($achieves)) {
             return $this->error('该审核任务异常，请联系开发人员');
         }
 
-        return view('admin.achieve.create', compact('receive'));
+        return view('admin.achieve.create', compact('achieves'));
     }
 
     /**

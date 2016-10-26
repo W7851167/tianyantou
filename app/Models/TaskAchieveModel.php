@@ -29,4 +29,12 @@ class TaskAchieveModel extends BaseModel
     {
         return $this->belongsTo('App\Models\CorpModel','corp_id');
     }
+
+    /**
+     * 获取领任务用户
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\UserModel','user_id');
+    }
 }

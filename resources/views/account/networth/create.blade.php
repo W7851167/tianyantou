@@ -22,6 +22,7 @@
                                         <th width="120">注册投资手机号</th>
                                         <th width="90">投资金额(元)</th>
                                         <th width="140">投标期限</th>
+                                        <th width="64">状态</th>
                                         <th width="64">操作</th>
                                     </tr>
                                     </thead>
@@ -34,7 +35,18 @@
                                             <td>{!! $av->mobile or ''!!}</td>
                                             <td>{!! tmoney_format($av->price) !!}</td>
                                             <td>{!! $av->term or 0!!} {!! $av->task->term_unit == 0 ? '天' : ($av->task->term_unit == 1 ? '个月' : '年')!!}</td>
-                                            <td><a href="{!! url('networth/delete',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">删除</a></td>
+                                            <td>
+                                                @if($av->status == 0)待审核@endif
+                                                @if($av->status == 1)已审核@endif
+                                                @if($av->status == 2)已驳回@endif
+                                            </td>
+                                            <td>
+                                                @if($av->status != 1)
+                                                <a href="{!! url('networth/delete',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">删除</a>
+                                                 @else
+                                                 ----
+                                                 @endif
+                                            </td>
                                         </tr>
                                         @endforeach
                                     @else
