@@ -25,8 +25,16 @@ class TaskAchieveModel extends BaseModel
         return $this->belongsTo('App\Models\TaskReceiveModel','receive_id');
     }
 
-    public function crop()
+    public function corp()
     {
         return $this->belongsTo('App\Models\CorpModel','corp_id');
+    }
+
+    /**
+     * 获取领任务用户
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\UserModel','user_id');
     }
 }
