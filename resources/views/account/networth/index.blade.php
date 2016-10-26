@@ -47,6 +47,7 @@
                                                     <th width="120">任务名称</th>
                                                     <th width="90">平台年化率</th>
                                                     <th width="140">天眼投年化率</th>
+                                                    <th width="65">已交任务</th>
                                                     <th width="65">操作</th>
                                                 </tr>
                                                 </thead>
@@ -57,8 +58,9 @@
                                                             <td>{!! $av->created_at !!}</td>
                                                             <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
-                                                            <td>{!! $av->ratio !!}%</td>
-                                                            <td>{!! $av->mratio !!}%</td>
+                                                            <td>{!! $av->ratio or 0!!}%</td>
+                                                            <td>{!! $av->mratio or 0!!}%</td>
+                                                            <td>{!! $av->nums or 0 !!}</td>
                                                             <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
