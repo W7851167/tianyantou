@@ -83,6 +83,16 @@ class NetworthController extends FrontController
             $data['user_id'] = $this->user['id'];
             $data['corp_id'] = $receiveModel->corp_id;
             $data['status'] = 0;
+            $count = $this->taskRepository->taskAchieveModel
+                ->where('user_id',$this->user['id'])
+                ->where('receive_id',$receiveModel->id)
+                ->where('realname', $data['realname'])
+                ->where('mobile',$data['mobile'])->count();
+            if($count > 0) {
+                return $this->error('用户名' . $data['realname']. '和手机号'.$data['mobile'] . '已提交过', null,true);
+            }
+
+
             $result  = $this->taskRepository->saveAchieves($data);
             if($result['status']) {
                 return $this->success($result['message'],url('networth/create',['id'=>$receiveModel->id]),true);

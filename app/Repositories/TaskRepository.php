@@ -437,6 +437,8 @@ class TaskRepository extends BaseRepository
         return $census;
     }
 
+
+
     /**
      * @param $corpModel
      * 初始化平台信息
