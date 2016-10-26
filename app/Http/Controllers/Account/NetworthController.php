@@ -38,21 +38,12 @@ class NetworthController extends FrontController
     public function index()
     {
         //待提交的任务
-        $where = ['user_id' => $this->user['id'], 'status'=>0];
-        list($count, $lists0) = $this->taskRepository->getReceiveList($where, $this->perpage);
-        //待审核的任务
-        $where = ['user_id' => $this->user['id'], 'status' => 2];
-        list($count, $lists2) = $this->taskRepository->getReceiveList($where, $this->perpage);
-        //已审核的任务
-        $where = ['user_id' => $this->user['id'], 'status' => 1];
-        list($count, $lists1) = $this->taskRepository->getReceiveList($where, $this->perpage);
-        //已驳回的任务
-        $where = ['user_id' => $this->user['id'], 'status' => 3];
-        list($count, $lists3) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        $where = ['user_id' => $this->user['id']];
+        list($count, $lists) = $this->taskRepository->getReceiveList($where, $this->perpage);
 
         list($unIncome, $hasIncome,$unCount) = $this->censusRepository->getUserInvestIncome($this->user['id']);
         return view('account.networth.index', compact(
-            'lists0', 'lists1','lists2','lists3','lists4','unIncome','hasIncome','unCount'
+            'lists','unIncome','hasIncome','unCount'
         ));
     }
 

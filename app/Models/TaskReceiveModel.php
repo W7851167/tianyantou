@@ -7,7 +7,6 @@ class TaskReceiveModel extends BaseModel
 {
     public $table = 'task_receives';
     protected $primaryKey = 'id';
-    public  $timestamps = false;
 
     /**
      * @param $data
