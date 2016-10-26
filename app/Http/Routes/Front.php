@@ -29,8 +29,6 @@ Route::get('about', 'AboutController@about');
 Route::get('about/{page}.html', ['as' => 'about', 'uses' => 'AboutController@index']);
 Route::get('about/{page}/{id}.html', ['as' => 'about', 'uses' => 'AboutController@detail']);
 
-//测试内容
-Route::get('test', 'TestController@index');
 
 
 

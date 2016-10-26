@@ -226,10 +226,7 @@ class PlatformController extends FrontController
         $data['user_id'] = $this->user['id'];
         $data['ratio'] = $task->ratio;
         $data['mratio'] = $task->mratio;
-        $data['total'] = 0;
-        $data['status'] = 0;
-        $data['create_time'] = time();
-        $sign = $this->signature($id,$task->url,$ename, $data['create_time']);
+        $sign = $this->signature($id,$task->url,$ename);
 
         $result = $this->tasks->saveReceive($data);
         if($result['status']) {
