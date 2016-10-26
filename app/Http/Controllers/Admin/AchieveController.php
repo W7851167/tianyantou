@@ -36,14 +36,12 @@ class AchieveController extends AdminController
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status'=>$status]: [];
         if ($request->realname) {
-            $receiveids = $this->taskRepository->taskAchieveModel->where('realname', ($request->realname))->lists('receive_id')->all();
-            $where['in'] = ['id' => $receiveids];
+            $where['realname'] = $request->name;
         }
         if ($request->mobile) {
-            $receiveids = $this->taskRepository->taskAchieveModel->where('mobile', ($request->mobile))->lists('receive_id')->all();
-            $where['in'] = ['id' => $receiveids];
+            $where['mobile'] = $this->mobile;
         }
-        list($count, $lists) = $this->taskRepository->getReceiveList($where, $this->perpage, $page);
+        list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
         return view('admin.achieve.index', compact('lists', 'pageHtml','status'));
     }
@@ -55,21 +53,20 @@ class AchieveController extends AdminController
      */
     public function create(Request $request, $id)
     {
-        $receive = $this->taskRepository->taskReceiveModel->find($id);
+        $achieves = $this->taskRepository->taskAchieveModel->find($id);
         if ($request->isMethod('post')) {
             $data = $request->get('data');
-            $data['complete_time'] = time();
-            $data['task_id'] = $receive->task_id;
-            $result = $this->taskRepository->saveReceive($data);
+            $data['task_id'] = $achieves->task_id;
+            $result = $this->taskRepository->saveAchieves($data);
             if ($result['status'])
                 return $this->success($result['message'], url('achieve'), true);
             return $this->error('审核任务异常，请联系开发人员');
         }
-        if (empty($receive)) {
+        if (empty($achieves)) {
             return $this->error('该审核任务异常，请联系开发人员');
         }
 
-        return view('admin.achieve.create', compact('receive'));
+        return view('admin.achieve.create', compact('achieves'));
     }
 
     /**
