@@ -238,6 +238,7 @@ class CensusRepository extends BaseRepository
         $hasIncome = !empty($hasIncome) ? $hasIncome : 0.00;
         //待收笔数
         $unCount = $this->taskAchieveModel->where('user_id', $userId)->where('status', 0)->count();
+
         return [$unIncome, $hasIncome, $unCount];
     }
 
@@ -256,7 +257,7 @@ class CensusRepository extends BaseRepository
         $census['income'] = !empty($income) ? $income : '0.00';
         //待完成成交
         //投资笔数
-        $census['itotal'] = $this->taskReceiveModel->count();
+        $census['itotal'] = $this->taskAchieveModel->count();
 
         return $census;
     }

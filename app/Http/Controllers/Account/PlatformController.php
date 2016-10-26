@@ -85,7 +85,7 @@ class PlatformController extends FrontController
         if ($search['date'] != 'all') {
             $startTime = strtotime('-' . $search['date']);
             $endTime = time();
-            $where['between']['create_time'] = [$startTime, $endTime];
+            $where['between']['created_at'] = [$startTime, $endTime];
         }
         if ($search['platform'] != 'all') {
             $currentCorp = $this->tasks->getCorpByEname($search['platform']);
@@ -100,7 +100,7 @@ class PlatformController extends FrontController
             }
         }
 
-        list($counts, $lists) = $this->tasks->getReceiveList($where, $this->perpage, $page);
+        list($counts, $lists) = $this->tasks->getAchievesList($where, $this->perpage, $page);
         $pageHtml = $this->pager($counts);
 
         $census = $this->census->getUserAnalysisStats($this->user['id']);

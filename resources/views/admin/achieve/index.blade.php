@@ -59,33 +59,33 @@
                         @endif
                     </tr>
                     @if(!empty($lists))
-                        @foreach($lists as $tv)
+                        @foreach($lists as $av)
                             <tr class="js_reply_all">
-                                <td>{!! $tv->corp->name or ''!!}</td>
-                                <td>{!! $tv->user->username or '' !!}</td>
-                                <td>{!! $tv->user->mobile or '' !!}</td>
-                                <td>{!! $tv->realname or '' !!}</td>
-                                <td>{!! $tv->mobile or '' !!}</td>
-                                <td>{!! $tv->income or 0 !!}元</td>
-                                <td>{!! $tv->price or 0 !!}元</td>
-                                <td>{!! $tv->term or 0 !!}{!! $tv->task->term_unit == 0 ? '天' : ($tv->task->term_unit == 1 ? '个月' : '年')!!}</td>
+                                <td>{!! $av->corp->name or ''!!}</td>
+                                <td>{!! $av->user->username or '' !!}</td>
+                                <td>{!! $av->user->mobile or '' !!}</td>
+                                <td>{!! $av->realname or '' !!}</td>
+                                <td>{!! $av->mobile or '' !!}</td>
+                                <td>{!! $av->income or '0.00' !!}元</td>
+                                <td>{!! $av->price or '0.00' !!}元</td>
+                                <td>{!! $av->term or 0 !!}{!! $av->task->term_unit == 0 ? '天' : ($av->task->term_unit == 1 ? '个月' : '年')!!}</td>
                                 @if(!isset($status))
                                     <td>
-                                        @if($tv->status == 0) 待审核 @endif
-                                        @if($tv->status == 2) 已驳回 @endif
-                                        @if($tv->status == 1) 已审核 @endif
+                                        @if($av->status == 0) 待审核 @endif
+                                        @if($av->status == 2) 已驳回 @endif
+                                        @if($av->status == 1) 已审核 @endif
                                     </td>
                                 @endif
                                 @if(isset($status))
                                 <td>
                                     @if($status == 0)
-                                            <a href="{!! url('achieve/create',['id'=>$tv->id]) !!}">审核</a>
+                                            <a href="{!! url('achieve/create',['id'=>$av->id]) !!}">审核</a>
                                     @endif
                                     @if($status == 1)
                                             ----
                                     @endif
                                     @if($status == 2)
-                                        {!! $tv->remark or '' !!}
+                                        {!! $av->remark or '' !!}
                                     @endif
                                 </td>
                                  @endif

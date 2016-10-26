@@ -118,12 +118,13 @@ class TaskRepository extends BaseRepository
 
     /**
      * @param array $where
-     * @param $limit
-     * @param $page
+     * @param int $limit
+     * @param int $page
      * @return array
+     *
      * 获取投标列表
      */
-    public function getAchievesList($where = [], $limit, $page = 1)
+    public function getAchievesList($where = [], $limit = 10, $page = 1)
     {
         $order['id'] = 'desc';
         $lists = $this->taskAchieveModel->lists(['*'], $where, $order, [], $limit, $page);
