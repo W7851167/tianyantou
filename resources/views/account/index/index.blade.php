@@ -34,7 +34,8 @@
                         <dd>{!! $userModel->money->rebate or '0.00' !!}</dd>
                     </dl>
                     <div class="shortcuts">
-                        <a href="/wallet/withdraw.html" class="btn-widthdraw btn-s">提现</a>
+                        <a href="{!! config('account_url') !!}/networth/index.html" class="btn-recharge btn-s">投资记录</a>
+                        <a href="{!! config('account_url') !!}/wallet/withdraw.html" class="btn-widthdraw btn-s">提现</a>
                     </div>
                 </div>
 

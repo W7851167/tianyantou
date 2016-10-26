@@ -23,8 +23,10 @@
                             <div class="infospaceAddLeft">用户：</div>
                             <div><input type="text" name="username" value="{!! $withdraw->user->username !!}"  disabled></div>
                         </div>
+                        @if(!empty($withdraw->bank))
+                            @if($withdraw->bank->type == 0)
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft">开户：</div>
+                            <div class="infospaceAddLeft">开户名：</div>
                             <div><input type="text" name="hold_name" value="{!! $withdraw->bank->hold_name !!}"  disabled></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
@@ -51,6 +53,17 @@
                             <div class="infospaceAddLeft">手续费：</div>
                             <div><input type="text" name="data[commission]" value="{!! $withdraw->commission or 0 !!}"></div>
                         </div>
+                        @else
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">支付宝账户名：</div>
+                            <div><input type="text" name="hold_name" value="{!! $withdraw->bank->hold_name !!}"  disabled></div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft">支付宝账户：</div>
+                            <div><input type="text" name="cardno" value="{!! $withdraw->bank->cardno !!}"  disabled></div>
+                        </div>
+                            @endif
+                        @endif
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft">审核：</div>
                             <div>
@@ -67,7 +80,6 @@
                     <div class="w928">
                         <div class="button">
                             <input class="submit" type="submit"  value="保存">
-                            <input class="return" type="reset" value="返回列表">
                         </div>
                     </div>
                    @endif

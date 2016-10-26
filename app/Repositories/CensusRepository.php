@@ -18,6 +18,7 @@ use App\Models\MoneyModel;
 use App\Models\PastModel;
 use App\Models\RecordModel;
 use App\Models\TaskAchieveModel;
+use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
 use App\Models\WithdrawModel;
@@ -38,7 +39,8 @@ class CensusRepository extends BaseRepository
         ScoreModel $scoreModel,
         BookModel $bookModel,
         BookRepayModel $bookRepayModel,
-        CorpModel $corpModel
+        CorpModel $corpModel,
+        TaskModel $taskModel
     )
     {
         $this->taskReceiveModel = $taskReceiveModel;
@@ -52,6 +54,7 @@ class CensusRepository extends BaseRepository
         $this->bookModel = $bookModel;
         $this->bookRepayModel = $bookRepayModel;
         $this->corpModel = $corpModel;
+        $this->taskModel = $taskModel;
     }
 
 
@@ -108,7 +111,7 @@ class CensusRepository extends BaseRepository
      * @return mixed
      * 用户领取任务统计
      */
-    public function getTaskReceiveStats($status = 0, $startTime, $endTime, $corpId)
+    public function getTaskReceiveStats($status = 0, $startTime, $endTime, $corpId, $taskId)
     {
         $startTime = strtotime($startTime);
         $endTime = strtotime($endTime);
@@ -122,8 +125,34 @@ class CensusRepository extends BaseRepository
         if ($corpId) {
             $query = $query->where('corp_id', $corpId);
         }
+        if ($taskId) {
+            $query = $query->where('task_id', $taskId);
+        }
         $count = $query->count();
         return $count;
+    }
+
+    /**
+     * @param array $where
+     * @return mixed
+     *
+     * 任务统计
+     */
+    public function getTaskStats($where = [])
+    {
+        $tasks = $this->taskModel->alls('*', $where);
+
+        foreach ($tasks as $task) {
+            $receive = $this->taskReceiveModel->where('task_id', $task->id);
+            $task->investnums = $receive->count();
+            $task->overplus = $task->nums - $task->investnums;
+            $task->create = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 0)->sum('total');
+            $task->commit = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 2)->sum('total');
+            $task->complete = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 1)->sum('total');
+            $task->income = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 1)->sum('income');
+        }
+
+        return $tasks;
     }
 
     /**
