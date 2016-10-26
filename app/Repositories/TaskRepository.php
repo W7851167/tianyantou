@@ -198,13 +198,20 @@ class TaskRepository extends BaseRepository
      */
     public function deleteTask($id)
     {
-        try {
-            $this->taskModel->find($id)->delete();
-            return static::getSuccess('删除项目数据完成');
-        } catch (QueryException $e) {
-            return static::getError($e->getMessage());
+        $result = $this->taskModel->getConnection()->transaction(function () use ($id) {
+            $taskModel = $this->taskModel->find($id);
+            $corpModel = $taskModel->corp;
+            $this->initCorp($corpModel);
+            $taskModel->delete();
+
+        });
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('删除项目完成', $result);
         }
     }
+
 
     /**
      * @param $data
@@ -216,46 +223,14 @@ class TaskRepository extends BaseRepository
         $result = $this->corpTermModel->getConnection()->transaction(function () use ($data) {
             //保存项目
             $this->taskModel->saveBy($data);
-            if (!empty($data['corp_id'])) {
-                $days = getDiffTime($data['start_time'], $data['end_time']);
-                $days = (int)$days;
+            $corpModel = $this->corpModel->find($data['corp_id']);
+            if (!empty($data['corp_id']) && $data['status'] == 1) {
                 $ratio = (float)$data['ratio'];
-                $corpModel = $this->corpModel->find($data['corp_id']);
-                if ($corpModel->min_yield == 0) {
-                    $corpData['min_yield'] = $ratio;
-                } else {
-                    if ($corpModel->min_yield > $ratio) {
-                        $corpData['min_yield'] = $ratio;
-                    }
-                }
-                if ($corpModel->max_yield == 0) {
-                    $corpData['max_yield'] = $ratio;
-                } else {
-                    if ($corpModel->max_yield < $ratio) {
-                        $corpData['max_yield'] = $ratio;
-                    }
-                }
-
-                if (empty($corpModel->min_days)) {
-                    $corpData['min_days'] = $days;
-                } else {
-                    if ($corpModel->min_days > $days) {
-                        $corpData['min_days'] = $days;
-                    }
-                }
-                if (empty($corpModel->max_days)) {
-                    $corpData['max_days'] = $days;
-                } else {
-                    if ($corpModel->max_days < $days) {
-                        $corpData['max_days'] = $days;
-                    }
-                }
-                //保存公司信息
-                if (!empty($corpData)) {
-                    $corpData['id'] = $data['corp_id'];
-                    $corpModel->saveBy($corpData);
-                }
-
+                $this->setCorp($corpModel, $data['start_time'], $data['end_time'], $ratio);
+            }
+            if($data['status'] == 0 || $data['status'] == 2)
+            {
+                $this->initCorp($corpModel);
             }
         });
         if ($result instanceof \Exception) {
@@ -461,5 +436,91 @@ class TaskRepository extends BaseRepository
         $term = $this->taskAchieveModel->whereIn('receive_id', $receiveIds)->avg('term');
         $census['term'] = sprintf('%.1f', $term);
         return $census;
+    }
+
+    /**
+     * @param $corpModel
+     * 初始化平台信息
+     */
+    private function initCorp($corpModel)
+    {
+          if(empty($corpModel->tasks))
+                return $this->setCorp($corpModel, 0,0,0);
+            $startTime = 0;
+            $endTime = 0;
+            $minRatio = 0;
+            $maxRatio = 0;
+            $maxDays = $minDays = 0;
+            foreach($corpModel->tasks as $task) {
+                if($task->status != 1) continue 1;
+                if($startTime == 0)
+                    $startTime = $task->start_time;
+                if($endTime == 0)
+                    $endTime = $task->end_time;
+                if($minRatio == 0)
+                    $minRatio = $task->ratio;
+                if($maxRatio)
+                    $maxRatio = $task->ratio;
+                $startTime = $startTime > $task->start_time ? $task->start_time : $startTime;
+                $endTime   = $endTime > $task->end_time ? $endTime : $task->end_time;
+                $days = getDiffTime($startTime,$endTime);
+                $days = (int)$days;
+                if($maxDays == 0)
+                    $maxDays = $days;
+                if($minDays == 0)
+                    $minDays = $days;
+                $minRatio  = $minRatio > $task->ratio ? $task->ratio : $minRatio;
+                $maxRatio  = $maxRatio > $task->ratio ? $maxRatio : $task->ratio;
+            }
+
+            $corpModel->max_days = $maxDays;
+            $corpModel->min_days = $minDays;
+            $corpModel->min_yield = $minRatio;
+            $corpModel->max_yield = $maxRatio;
+            return $corpModel->save();
+    }
+
+    /**
+     * @param $corpModel
+     * @param $startTime
+     * @param $endTime
+     * @param $ratio
+     * 重新设置投资转化率
+     */
+    private function setCorp($corpModel, $startTime, $endTime, $ratio)
+    {
+        $days = getDiffTime($startTime,$endTime);
+        $days = (int)$days;
+        $ratio = (float)$ratio;
+        if ($corpModel->min_yield == 0) {
+            $corpModel->min_yield = $ratio;
+        } else {
+            if ($corpModel->min_yield > $ratio) {
+                $corpModel->min_yield = $ratio;
+            }
+        }
+        if ($corpModel->max_yield == 0) {
+            $corpModel->max_yield = $ratio;
+        } else {
+            if ($corpModel->max_yield < $ratio) {
+                $corpModel->max_yield = $ratio;
+            }
+        }
+
+        if (empty($corpModel->min_days)) {
+            $corpModel->min_days = $days;
+        } else {
+            if ($corpModel->min_days > $days) {
+                $corpModel->min_days = $days;
+            }
+        }
+        if (empty($corpModel->max_days)) {
+            $corpModel->max_days = $days;
+        } else {
+            if ($corpModel->max_days < $days) {
+                $corpModel->max_days = $days;
+            }
+        }
+        return $corpModel->save();
     }
 }
