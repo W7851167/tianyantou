@@ -36,10 +36,10 @@ class AchieveController extends AdminController
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status'=>$status]: [];
         if ($request->realname) {
-            $where['realname'] = $request->name;
+            $where['realname'] = $request->realname;
         }
         if ($request->mobile) {
-            $where['mobile'] = $this->mobile;
+            $where['mobile'] = $request->mobile;
         }
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
