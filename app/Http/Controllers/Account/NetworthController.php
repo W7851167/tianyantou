@@ -39,16 +39,16 @@ class NetworthController extends FrontController
     {
         //待提交的任务
         $where = ['user_id' => $this->user['id'], 'status'=>0];
-        list($count, $lists0) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        list($count, $lists0) = $this->taskRepository->getAchievesList($where, $this->perpage);
         //待审核的任务
         $where = ['user_id' => $this->user['id'], 'status' => 2];
-        list($count, $lists2) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        list($count, $lists2) = $this->taskRepository->getAchievesList($where, $this->perpage);
         //已审核的任务
         $where = ['user_id' => $this->user['id'], 'status' => 1];
-        list($count, $lists1) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        list($count, $lists1) = $this->taskRepository->getAchievesList($where, $this->perpage);
         //已驳回的任务
         $where = ['user_id' => $this->user['id'], 'status' => 3];
-        list($count, $lists3) = $this->taskRepository->getReceiveList($where, $this->perpage);
+        list($count, $lists3) = $this->taskRepository->getAchievesList($where, $this->perpage);
 
         list($unIncome, $hasIncome,$unCount) = $this->censusRepository->getUserInvestIncome($this->user['id']);
         return view('account.networth.index', compact(
@@ -62,9 +62,9 @@ class NetworthController extends FrontController
      */
     public function create(Request $request,$id)
     {
-        $receiveModel = $this->taskRepository->taskReceiveModel->find($id);
+        $achieveModel = $this->taskRepository->taskAchieveModel->find($id);
 
-        if(empty($receiveModel) || $receiveModel->status == 1) {
+        if(empty($achieveModel) || $achieveModel->status == 1) {
             return redirect(url('networth/index.html'));
         }
         if($request->isMethod('post')) {
@@ -84,11 +84,11 @@ class NetworthController extends FrontController
             if(!is_money($data['price'])) {
                 return $this->error('投资金额必须为数字或.',null,true);
             }
-            if($receiveModel->corp->limit <= $receiveModel->achieves->count()) {
-                return $this->error('该平台每标限定投资' . $receiveModel->corp->limit . '次', null,true);
+            if($achieveModel->corp->limit <= $achieveModel->achieves->count()) {
+                return $this->error('该平台每标限定投资' . $achieveModel->corp->limit . '次', null,true);
             }
-            $data['receive_id'] = $receiveModel->id;
-            $data['task_id'] = $receiveModel->task_id;
+            $data['receive_id'] = $achieveModel->id;
+            $data['task_id'] = $achieveModel->task_id;
             $result  = $this->taskRepository->saveAchieves($data);
             if($result['status']) {
                 return $this->success($result['message'],url('networth/create',['id'=>$receiveModel->id]),true);

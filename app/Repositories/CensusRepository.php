@@ -241,13 +241,13 @@ class CensusRepository extends BaseRepository
     public function getUserInvestIncome($userId)
     {
         //待收总额
-        $unIncome = $this->taskReceiveModel->where('user_id', $userId)->where('status', 2)->sum('income');
+        $unIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 2)->sum('income');
         $unIncome = !empty($unIncome) ? $unIncome : 0.00;
         //已投资收益
-        $hasIncome = $this->taskReceiveModel->where('user_id', $userId)->where('status', 1)->sum('income');
+        $hasIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 1)->sum('income');
         $hasIncome = !empty($hasIncome) ? $hasIncome : 0.00;
         //待收笔数
-        $unCount = $this->taskReceiveModel->where('user_id', $userId)->where('status', 2)->count();
+        $unCount = $this->taskAchieveModel->where('user_id', $userId)->where('status', 2)->count();
         return [$unIncome, $hasIncome, $unCount];
     }
 
@@ -257,18 +257,18 @@ class CensusRepository extends BaseRepository
     public function getHomeStats()
     {
         //撮合成交总量
-        $total = $this->taskReceiveModel->where('status', 1)->sum('total');
+        $total = $this->taskAchieveModel->where('status', 1)->sum('price');
         $census['total'] = !empty($total) ? $total : '0.00';
         //累计注册人数
         $census['registers'] = $this->userModel->where('roles', 0)->count();
         //累计产生收益
-        $income = $this->taskReceiveModel->where('status', 1)->sum('income');
+        $income = $this->taskAchieveModel->where('status', 1)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
         //待完成成交
 //        $invested = $this->taskReceiveModel->where('status', 2)->sum("total");
 //        $census['untotal'] = !empty($invested) ? $invested : '0.00';
         //投资笔数
-        $census['itotal'] = $this->taskReceiveModel->count();
+        $census['itotal'] = $this->taskAchieveModel->count();
 
         return $census;
     }
@@ -279,11 +279,11 @@ class CensusRepository extends BaseRepository
      */
     public function getUserAnalysisStats($userId)
     {
-        $total = $this->taskReceiveModel->where('user_id', $userId)->sum('total');
+        $total = $this->taskAchieveModel->where('user_id', $userId)->sum('price');
         $census['total'] = !empty($total) ? $total : '0.00';
-        $income = $this->taskReceiveModel->where('user_id', $userId)->sum('income');
+        $income = $this->taskAchieveModel->where('user_id', $userId)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
-        $platform = $this->taskReceiveModel->where('user_id', $userId)->distinct()->count('corp_id');
+        $platform = $this->taskAchieveModel->where('user_id', $userId)->distinct()->count('corp_id');
         //$query = $this->taskReceiveModel->where('user_id',$userId)->groupBy('corp_id')->distinct();
         $census['platform'] = !empty($platform) ? $platform : 0;
         return $census;

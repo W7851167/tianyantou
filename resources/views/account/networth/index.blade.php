@@ -60,8 +60,8 @@
                                                             <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
                                                             <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
-                                                            <td>{!! $av->ratio !!}%</td>
-                                                            <td>{!! $av->mratio !!}%</td>
+                                                            <td>{!! $av->receive->ratio or '0.00' !!}%</td>
+                                                            <td>{!! $av->receive->mratio or '0.00' !!}%</td>
                                                             <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
