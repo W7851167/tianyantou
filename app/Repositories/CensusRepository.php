@@ -241,7 +241,7 @@ class CensusRepository extends BaseRepository
     public function getUserInvestIncome($userId)
     {
         //待收总额
-        $unIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 2)->sum('income');
+        $unIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 0)->sum('income');
         $unIncome = !empty($unIncome) ? $unIncome : 0.00;
         //已投资收益
         $hasIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 1)->sum('income');
