@@ -35,28 +35,28 @@
                                 <dl class="filter plat-filter">
                                     <dt>领取时间：</dt>
                                     <dd @if($search['date'] == 'all')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=all&amp;platform=all">全部</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&amp;type=all&amp;platform=all">全部</a>
                                     </dd>
                                     <dd @if($search['date'] == '3days')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=3days&amp;type=all&amp;platform=all">近3天</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=3days&amp;type=all&amp;platform=all">近3天</a>
                                     </dd>
                                     <dd @if($search['date'] == '7days')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=7days&amp;type=all&amp;platform=all">近7天</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=7days&amp;type=all&amp;platform=all">近7天</a>
                                     </dd>
                                     <dd @if($search['date'] == '1month')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=1month&amp;type=all&amp;platform=all">近1个月</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=1month&amp;type=all&amp;platform=all">近1个月</a>
                                     </dd>
                                 </dl>
                                 <dl class="filter plat-filter">
                                     <dt>投资类型：</dt>
                                     <dd @if($search['type'] == 'all')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=all&amp;platform=all">全部</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&amp;type=all&amp;platform=all">全部</a>
                                     </dd>
                                     <dd @if($search['type'] == 'ing')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=ing&amp;platform=all">进行中</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&amp;type=ing&amp;platform=all">进行中</a>
                                     </dd>
                                     <dd @if($search['type'] == 'done')class="active" @endif>
-                                        <a href="{!! url('platforms/analysis.html') !!}?date=all&amp;type=done&amp;platform=all">已完成</a>
+                                        <a href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&amp;type=done&amp;platform=all">已完成</a>
                                     </dd>
                                 </dl>
                                 <dl class="filter project-origin noborder" style="height: 76px;">
@@ -101,11 +101,11 @@
                                         <tr>
                                             <td><a href="{!! config('app.url') . '/platform/' . $lv->corp->ename . '.html' !!}" target="_blank">{!! $lv->corp->name or '' !!}</a></td>
                                             <td>{!! $lv->task->title or '' !!}</td>
-                                            <td>{!! $lv->total or 0.00 !!}</td>
-                                            <td>{!! $lv->income or 0.00 !!}</td>
+                                            <td>{!! $lv->price or '0.00' !!}</td>
+                                            <td>{!! $lv->income or '0.00' !!}</td>
                                             <td>{!! date('Y-m-d',$lv->create_time) !!}</td>
-                                            <td>{!! $lv->ratio or 0.00 !!}%</td>
-                                            <td>{!! $lv->mratio or 0.00 !!}%</td>
+                                            <td>{!! $lv->receive->ratio or '0.00' !!}%</td>
+                                            <td>{!! $lv->receive->mratio or '0.00' !!}%</td>
                                             <td>
                                                 @if($lv->status ==0)已领@endif
                                                 @if($lv->status ==1)已审核@endif

@@ -18,11 +18,9 @@
 
                 <div class="content-right-tit clearfix">
                     <p><a href="{!! url('achieve') !!}" @if(!isset($status))class="at" @endif>所有</a></p>
-                    <p><a href="{!! url('achieve',['status'=>0]) !!}" @if(isset($status) && $status == 0)class="at" @endif>已领取</a></p>
-                    <p><a href="{!! url('achieve',['status'=>2]) !!}" @if(!empty($status) && $status == 2)class="at" @endif>待审核</a></p>
-                    <p><a href="{!! url('achieve',['status'=>1]) !!}" @if(!empty($status) && $status == 1) class="at" @endif>已审核</a></p>
-                    <p><a href="{!! url('achieve',['status'=>3]) !!}" @if(!empty($status) && $status == 3) class="at" @endif>已驳回</a></p>
-                    <p><a href="{!! url('achieve',['status'=>4]) !!}" @if(!empty($status) && $status == 4) class="at" @endif>已完成</a></p>
+                    <p><a href="{!! url('achieve',['status'=>2]) !!}" @if(!empty($status) && $status == 0)class="at" @endif>待审核</a></p>
+                    <p><a href="{!! url('achieve',['status'=>3]) !!}" @if(!empty($status) && $status == 1) class="at" @endif>已完成</a></p>
+                    <p><a href="{!! url('achieve',['status'=>4]) !!}" @if(!empty($status) && $status == 2) class="at" @endif>已驳回</a></p>
                     <a href="{!! config('app.admin_url') !!}/achieve/export" class="buttonA">数据导出</a>
                 </div>
                 <div class="comment-search clearfix">
@@ -52,59 +50,30 @@
                         <th>操作</th>
                     </tr>
                     @if(!empty($lists))
-                        @foreach($lists as $rv)
+                        @foreach($lists as $av)
                             <tr class="js_reply_all">
-                                <td>{!! $rv->corp->name!!}</td>
-                                <td>{!! $rv->task->title or '' !!}</td>
-                                <td>{!! $rv->user->username or '' !!}</td>
-                                <td>{!! $rv->user->mobile or '' !!}</td>
-                                <td>{!! $rv->total or 0 !!}元</td>
+                                <td>{!! $av->corp->name or ''!!}</td>
+                                <td>{!! $av->task->title or '' !!}</td>
+                                <td>{!! $av->user->username or '' !!}</td>
+                                <td>{!! $av->user->mobile or '' !!}</td>
+                                <td>{!! $av->price or '0.00' !!}元</td>
                                 @if(!isset($status))
                                     <td>
-                                        @if($rv->status == 0) 已领取 @endif
-                                        @if($rv->status == 2) 待审核 @endif
-                                        @if($rv->status == 1) 已审核 @endif
-                                        @if($rv->status == 3) 已驳回 @endif
-                                        @if($rv->status == 4) 已完成 @endif
+                                        @if($av->status == 0) 待审核 @endif
+                                        @if($av->status == 1) 已完成 @endif
+                                        @if($av->status == 2) 已驳回 @endif
                                     </td>
                                 @endif
                                 <td>
-                                    @if($rv->status == 0) --- @endif
-                                    @if($rv->status == 2)
-                                            <a href="{!! url('achieve/create',['id'=>$rv->id]) !!}">审核</a>
-                                            <a data-tab="1"  href="javascript:;" class="zs_tab">展开</a>
+                                    @if($av->status == 1) --- @endif
+                                    @if($av->status == 0)
+                                        <a href="{!! url('achieve/create',['id'=>$av->id]) !!}">审核</a>
                                     @endif
-                                    @if($rv->status == 1)
-                                            <a href="{!! url('achieve/create',['id'=>$rv->id]) !!}">查看</a>
+                                    @if($av->status == 2)
+                                        <a href="{!! url('achieve/create',['id'=>$av->id]) !!}">查看</a>
                                     @endif
                                 </td>
                             </tr>
-                            @if($rv->status == 2)
-                            <tr class="reply_row" style="display:none;">
-                                <td @if(!isset($status)) colspan="7" @else colspan="6" @endif>
-                                    <table cellspacing="0" border="1">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>投资用户</th>
-                                        <th>投资人手机</th>
-                                        <th>投资金额 </th>
-                                        <th>投资订单号</th>
-                                        <th>提交时间</th>
-                                    </tr>
-                                     @foreach($rv->achieves as $av)
-                                      <tr>
-                                        <td>{!! $av->id !!}</td>
-                                        <td>{!! $av->realname !!}</td>
-                                        <td>{!! $av->mobile !!}</td>
-                                        <td>{!! $av->price !!} </td>
-                                        <td>{!! $av->order_sn or '---' !!}</td>
-                                        <td>{!! $av->created_at or '---' !!}</td>
-                                      </tr>
-                                        @endforeach
-                                    </table>
-                                </td>
-                            </tr>
-                            @endif
                         @endforeach
                         @endif
                     </table>

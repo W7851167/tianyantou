@@ -58,7 +58,7 @@
                                                 @foreach($openLists as $cv)
                                             <div class="plat-box">
                                                 <div class="logo">
-                                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo or '' !!}" width="110" alt="{!! $cv->platform or '' !!}">
+                                                    <img src="{!! config('app.static_url') !!}{!! $cv->logo or '' !!}" width="110" height="50" alt="{!! $cv->platform or '' !!}">
                                                     <a rel="show-more" href="{!! config('app.account_url') !!}/platforms/analysis.html?date=all&type=all&platform={!! $cv->ename or '' !!}">明细&nbsp;({!! $cv->census['count'] or 0 !!})</a >
                                                 </div>
                                                 <div class="details">

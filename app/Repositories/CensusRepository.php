@@ -241,13 +241,14 @@ class CensusRepository extends BaseRepository
     public function getUserInvestIncome($userId)
     {
         //待收总额
-        $unIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 2)->sum('income');
+        $unIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 0)->sum('income');
         $unIncome = !empty($unIncome) ? $unIncome : 0.00;
         //已投资收益
         $hasIncome = $this->taskAchieveModel->where('user_id', $userId)->where('status', 1)->sum('income');
         $hasIncome = !empty($hasIncome) ? $hasIncome : 0.00;
         //待收笔数
-        $unCount = $this->taskAchieveModel->where('user_id', $userId)->where('status', 2)->count();
+        $unCount = $this->taskAchieveModel->where('user_id', $userId)->where('status', 0)->count();
+
         return [$unIncome, $hasIncome, $unCount];
     }
 
@@ -265,8 +266,6 @@ class CensusRepository extends BaseRepository
         $income = $this->taskAchieveModel->where('status', 1)->sum('income');
         $census['income'] = !empty($income) ? $income : '0.00';
         //待完成成交
-//        $invested = $this->taskReceiveModel->where('status', 2)->sum("total");
-//        $census['untotal'] = !empty($invested) ? $invested : '0.00';
         //投资笔数
         $census['itotal'] = $this->taskAchieveModel->count();
 

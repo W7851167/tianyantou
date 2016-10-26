@@ -25,7 +25,7 @@ class TaskAchieveModel extends BaseModel
         return $this->belongsTo('App\Models\TaskReceiveModel','receive_id');
     }
 
-    public function crop()
+    public function corp()
     {
         return $this->belongsTo('App\Models\CorpModel','corp_id');
     }
