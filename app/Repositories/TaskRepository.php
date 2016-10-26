@@ -271,7 +271,7 @@ class TaskRepository extends BaseRepository
         $result = $this->taskReceiveModel->getConnection()->transaction(function () use ($data) {
             $taskModel = $this->taskModel->find($data['task_id']);
             //领取任务减库存
-            if ($data['status'] == 0) {
+            //if ($data['status'] == 0) {
                 if ($taskModel->nums <= 0)
                     throw new \Exception('该投资任务数已超过限定，请联系运营人员');
                 $nums = $taskModel->nums - 1;
@@ -280,50 +280,50 @@ class TaskRepository extends BaseRepository
                 $taskModel->nums = $nums;
                 $taskModel->proccess = $proccess;
                 $taskModel->save();
-            }
+            //}
 
             $receiveId = $this->taskReceiveModel->saveBy($data);
             $receiveId = !empty($data['id']) ? $data['id'] : $receiveId;
             //审核完成、可用金额增加
-            if ($data['status'] == 1) {
-                $receiveModel = $this->taskReceiveModel->find($receiveId);
-                $receiveModel->user->money->increment('money', $receiveModel->income);
-                $receiveModel->user->money->increment('total', $receiveModel->income);
-                //记录资金流水
-                $recordData['type'] = 1;
-                $recordData['user_id'] = $receiveModel->user_id;
-                $recordData['income'] = $receiveModel->income;
-                $recordData['account'] = $receiveModel->user->money->money;
-                $recordData['remark'] = $receiveModel->task->title . '，收益' . $receiveModel->income . '元';
-                $this->recordModel->saveBy($recordData);
-
-                //派发奖励
-                if (!empty($receiveModel->user->invite)) {
-                    //启动了领取奖励
-                    if ($taskModel->is_reward == 1) {
-                        $rewardUser = $this->userModel->where('mobile', $receiveModel->user->invite)->first();
-                        $where = ['user_id' => $receiveModel->user_id, 'status' => 1];
-                        $count = $this->taskReceiveModel->countBy($where);
-                        $key = $count == 0 ? 'first_reward' : 'second_reward';
-                        $rewardModel = $this->metaModel->system()->where('meta_key', $key)->first();
-                        if (!empty($rewardUser) && $count < 2 && !empty($rewardModel)) {
-                            $reward = unserialize($rewardModel->meta_value);
-                            $rewardUser->money->increment('money', $reward);
-                            $rewardUser->money->increment('total', $reward);
-                            //记录资金流水
-                            $recordData['type'] = 3;
-                            $recordData['user_id'] = $rewardUser->id;
-                            $recordData['income'] = $reward;
-                            $recordData['account'] = $rewardUser->money->money;
-                            $recordData['remark'] = sprintf('您邀请用户%s第%d投资，您获取奖励%.2f元',
-                                $receiveModel->user->username,
-                                $count,
-                                $reward);
-                            $this->recordModel->saveBy($recordData);
-                        }
-                    }
-                }
-            }
+//            if ($data['status'] == 1) {
+//                $receiveModel = $this->taskReceiveModel->find($receiveId);
+//                $receiveModel->user->money->increment('money', $receiveModel->income);
+//                $receiveModel->user->money->increment('total', $receiveModel->income);
+//                //记录资金流水
+//                $recordData['type'] = 1;
+//                $recordData['user_id'] = $receiveModel->user_id;
+//                $recordData['income'] = $receiveModel->income;
+//                $recordData['account'] = $receiveModel->user->money->money;
+//                $recordData['remark'] = $receiveModel->task->title . '，收益' . $receiveModel->income . '元';
+//                $this->recordModel->saveBy($recordData);
+//
+//                //派发奖励
+//                if (!empty($receiveModel->user->invite)) {
+//                    //启动了领取奖励
+//                    if ($taskModel->is_reward == 1) {
+//                        $rewardUser = $this->userModel->where('mobile', $receiveModel->user->invite)->first();
+//                        $where = ['user_id' => $receiveModel->user_id, 'status' => 1];
+//                        $count = $this->taskReceiveModel->countBy($where);
+//                        $key = $count == 0 ? 'first_reward' : 'second_reward';
+//                        $rewardModel = $this->metaModel->system()->where('meta_key', $key)->first();
+//                        if (!empty($rewardUser) && $count < 2 && !empty($rewardModel)) {
+//                            $reward = unserialize($rewardModel->meta_value);
+//                            $rewardUser->money->increment('money', $reward);
+//                            $rewardUser->money->increment('total', $reward);
+//                            //记录资金流水
+//                            $recordData['type'] = 3;
+//                            $recordData['user_id'] = $rewardUser->id;
+//                            $recordData['income'] = $reward;
+//                            $recordData['account'] = $rewardUser->money->money;
+//                            $recordData['remark'] = sprintf('您邀请用户%s第%d投资，您获取奖励%.2f元',
+//                                $receiveModel->user->username,
+//                                $count,
+//                                $reward);
+//                            $this->recordModel->saveBy($recordData);
+//                        }
+//                    }
+//                }
+//            }
 
             //驳回审核,不做任何操作
         });
@@ -342,18 +342,16 @@ class TaskRepository extends BaseRepository
     public function saveAchieves($data)
     {
         $result = $this->taskAchieveModel->getConnection()->transaction(function () use ($data) {
-            $this->taskAchieveModel->saveBy($data);
+
             $receiveModel = $this->taskReceiveModel->find($data['receive_id']);
-            $receiveModel->status = 2;
-            $receiveModel->commit_time = time();
-            //总金额++
-            $receiveModel->total = $receiveModel->total + $data['price'];
             //收入金额--
-            $income = getIncome(
+            $data['income'] = getIncome(
                 $receiveModel->task->term,
                 $receiveModel->task->term_unit,
                 $receiveModel->mratio, $data['price']);
-            $receiveModel->income += $income;
+
+            $this->taskAchieveModel->saveBy($data);
+            $receiveModel->nums += 1;
             $receiveModel->save();
         });
 
@@ -373,21 +371,8 @@ class TaskRepository extends BaseRepository
         $result = $this->taskAchieveModel->getConnection()->transaction(function () use ($id) {
             $achieveModel = $this->taskAchieveModel->find($id);
             $receiveModel = $this->taskReceiveModel->find($achieveModel->receive_id);
-            //总金额--
-            $receiveModel->total -= $achieveModel->price;
-            //收入金额--
-            $receiveModel->income -= getIncome(
-                $receiveModel->task->term,
-                $receiveModel->task->term_unit,
-                $receiveModel->mratio, $achieveModel->price);
-            //删除提交的任务
             $achieveModel->delete();
-            //已经无提交的任务、任务为待提交状态
-            if ($receiveModel->achieves->count() == 0) {
-                $receiveModel->status = 0;
-                $receiveModel->commit_time = 0;
-            }
-            //保存领取任务情况
+            $receiveModel->nums -= 1;
             $receiveModel->save();
 
         });

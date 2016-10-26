@@ -80,6 +80,8 @@ class NetworthController extends FrontController
             }
             $data['receive_id'] = $receiveModel->id;
             $data['task_id'] = $receiveModel->task_id;
+            $data['user_id'] = $this->user['id'];
+            $data['corp_id'] = $receiveModel->corp_id;
             $result  = $this->taskRepository->saveAchieves($data);
             if($result['status']) {
                 return $this->success($result['message'],url('networth/create',['id'=>$receiveModel->id]),true);

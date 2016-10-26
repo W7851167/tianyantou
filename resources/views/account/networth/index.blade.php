@@ -54,7 +54,7 @@
                                                 @if(count($lists)  > 0)
                                                     @foreach($lists as $av)
                                                         <tr>
-                                                            <td>{!! date('Y-m-d H:i:s',$av->create_time) !!}</td>
+                                                            <td>{!! $av->created_at !!}</td>
                                                             <td>{!! $av->corp->name or '' !!}</td>
                                                             <td>{!! $av->task->title or '' !!}</td>
                                                             <td>{!! $av->ratio !!}%</td>
