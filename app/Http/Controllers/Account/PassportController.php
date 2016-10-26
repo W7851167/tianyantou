@@ -337,7 +337,7 @@ class PassportController extends FrontController
         $userId = authcode($token);
         $user = $this->userRepository->userModel->find($userId);
         if (empty($user)) {
-            return 111;
+            return redirect('findpassword/resetByEmail.html');
         }
         return view('account.passport.set-email-password', compact('token'));
     }
