@@ -54,6 +54,10 @@ class AchieveController extends AdminController
     public function create(Request $request, $id)
     {
         $achieves = $this->taskRepository->taskAchieveModel->find($id);
+        if (empty($achieves)) {
+            return $this->error('该审核任务异常，请联系开发人员');
+        }
+
         if ($request->isMethod('post')) {
             $data = $request->get('data');
             $data['task_id'] = $achieves->task_id;
@@ -61,9 +65,6 @@ class AchieveController extends AdminController
             if ($result['status'])
                 return $this->success($result['message'], url('achieve'), true);
             return $this->error('审核任务异常，请联系开发人员');
-        }
-        if (empty($achieves)) {
-            return $this->error('该审核任务异常，请联系开发人员');
         }
 
         return view('admin.achieve.create', compact('achieves'));

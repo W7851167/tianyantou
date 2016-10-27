@@ -59,12 +59,13 @@
                             <div><textarea class="addText" name="data[remark]">{!! $achieves->remark or '恭喜您获取' . $achieves->income . '元收入' !!}</textarea></div>
                         </div>
                     </div>
-
-                    <div class="w928" @if( $achieves->status == 1 ||  $achieves->status == 2) style="display: none;" @endif>
+                    @if($achieves->status == 0)
+                    <div class="w928">
                         <div class="button">
                             <input class="submit" type="submit"  value="提交">
                         </div>
                     </div>
+                    @endif
                 </form>
             </div>
         </div>

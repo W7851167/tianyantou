@@ -47,16 +47,8 @@
                         <th width="100">投资金额</th>
                         <th width="100">投资收益</th>
                         <th width="100">投资期限</th>
-                        @if(!isset($status))
                         <th width="100">状态</th>
-                        @endif
-                        @if(isset($status))
-                            @if($status == 2)
-                                <th>原因</th>
-                            @else
-                               <th>操作</th>
-                            @endif
-                        @endif
+                        <th>操作</th>
                     </tr>
                     @if(!empty($lists))
                         @foreach($lists as $av)
@@ -69,14 +61,11 @@
                                 <td>{!! $av->income or '0.00' !!}元</td>
                                 <td>{!! $av->price or '0.00' !!}元</td>
                                 <td>{!! $av->term or 0 !!}{!! $av->task->term_unit == 0 ? '天' : ($av->task->term_unit == 1 ? '个月' : '年')!!}</td>
-                                @if(!isset($status))
-                                    <td>
-                                        @if($av->status == 0) 待审核 @endif
-                                        @if($av->status == 2) 已驳回 @endif
-                                        @if($av->status == 1) 已审核 @endif
-                                    </td>
-                                @endif
-                                @if(isset($status))
+                                <td>
+                                    @if($av->status == 0) 待审核 @endif
+                                    @if($av->status == 2) 已驳回 @endif
+                                    @if($av->status == 1) 已审核 @endif
+                                </td>
                                 <td>
                                     @if($status == 0)
                                             <a href="{!! url('achieve/create',['id'=>$av->id]) !!}">审核</a>
@@ -88,7 +77,6 @@
                                         {!! $av->remark or '' !!}
                                     @endif
                                 </td>
-                                 @endif
                             </tr>
                         @endforeach
                         @endif
