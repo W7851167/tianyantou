@@ -103,20 +103,16 @@
                                             <td>{!! $lv->task->title or '' !!}</td>
                                             <td>{!! $lv->price or '0.00' !!}</td>
                                             <td>{!! $lv->income or '0.00' !!}</td>
-                                            <td>{!! date('Y-m-d',$lv->create_time) !!}</td>
+                                            <td>{!! $lv->created_at or '--' !!}</td>
                                             <td>{!! $lv->receive->ratio or '0.00' !!}%</td>
                                             <td>{!! $lv->receive->mratio or '0.00' !!}%</td>
                                             <td>
-                                                @if($lv->status ==0)已领@endif
-                                                @if($lv->status ==1)已审核@endif
-                                                @if($lv->status ==2)已交@endif
-                                                @if($lv->status ==3)已驳回@endif
+                                                @if($lv->status ==0)待审核@endif
+                                                @if($lv->status ==1)已完成@endif
+                                                @if($lv->status ==2)已驳回@endif
                                             </td>
                                             <td>
-                                                @if($lv->status ==0)<a href="{!! url('networth/create',['id'=>$lv->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a>@endif
-                                                @if($lv->status ==1)----@endif
-                                                @if($lv->status ==2)<a href="{!! url('networth/create',['id'=>$lv->id]) !!}" class="btn btn-blue btn-allwidth">查看</a>@endif
-                                                @if($lv->status ==3)<a href="{!! url('networth/create',['id'=>$lv->id]) !!}" class="btn btn-blue btn-allwidth" title="{!! $lv->intro or '' !!}">查看</a>@endif
+                                                <a href="{!! config('app.account_url') !!}/networth/show/{!! $lv->id or ''!!}" class="btn btn-blue btn-allwidth">查看</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -129,10 +125,11 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- 查询结果end -->            <!-- 查询结果end -->
+                            <!-- 查询结果end -->
+                            <!-- 查询结果end -->
                             <!-- 翻页start -->
                             <div class="flip-wrap">
-                                <div class="pagination">{!! $pageHtml !!}</div>
+                                <div class="pagination">{!! $pageHtml or '' !!}</div>
                             </div>
                             <!-- 翻页end -->
                             <div class="tip tab-rules">
