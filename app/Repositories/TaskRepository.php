@@ -244,8 +244,7 @@ class TaskRepository extends BaseRepository
                 $ratio = (float)$data['ratio'];
                 $this->setCorp($corpModel, $data['start_time'], $data['end_time'], $ratio);
             }
-            if($data['status'] == 0 || $data['status'] == 2)
-            {
+            if ($data['status'] == 0 || $data['status'] == 2) {
                 $this->initCorp($corpModel);
             }
         });
@@ -286,15 +285,15 @@ class TaskRepository extends BaseRepository
     {
         $result = $this->taskReceiveModel->getConnection()->transaction(function () use ($data) {
             $taskModel = $this->taskModel->find($data['task_id']);
-                if ($taskModel->nums <= 0)
-                    throw new \Exception('该投资任务数已超过限定，请联系运营人员');
-                $nums = $taskModel->nums - 1;
-                $counts = $taskModel->receives->count() + 1;
-                $proccess = sprintf('%.2f', ($counts / ($nums + $counts))) * 100;
-                $taskModel->nums = $nums;
-                $taskModel->proccess = $proccess;
-                $taskModel->save();
-               $this->taskReceiveModel->saveBy($data);
+            if ($taskModel->nums <= 0)
+                throw new \Exception('该投资任务数已超过限定，请联系运营人员');
+            $nums = $taskModel->nums - 1;
+            $counts = $taskModel->receives->count() + 1;
+            $proccess = sprintf('%.2f', ($counts / ($nums + $counts))) * 100;
+            $taskModel->nums = $nums;
+            $taskModel->proccess = $proccess;
+            $taskModel->save();
+            $this->taskReceiveModel->saveBy($data);
 
         });
         if ($result instanceof \Exception) {
@@ -314,7 +313,7 @@ class TaskRepository extends BaseRepository
         $result = $this->taskAchieveModel->getConnection()->transaction(function () use ($data) {
             $receiveModel = $this->taskReceiveModel->find($data['receive_id']);
 
-            if($data['status'] == 0) {
+            if ($data['status'] == 0) {
                 $data['income'] = getIncome(
                     $receiveModel->task->term,
                     $receiveModel->task->term_unit,
@@ -326,7 +325,7 @@ class TaskRepository extends BaseRepository
             }
 
             $achieveId = $this->taskAchieveModel->saveBy($data);
-            $achieveId =  !empty($data['id']) ? $data['id'] : $achieveId;
+            $achieveId = !empty($data['id']) ? $data['id'] : $achieveId;
 
             //审核完成、可用金额增加
             if ($data['status'] == 1) {
@@ -377,6 +376,78 @@ class TaskRepository extends BaseRepository
         } else {
             return $this->getSuccess('提交投标信息完成', $result);
         }
+    }
+
+    public function saveBatchAchieves($data)
+    {
+        $result = $this->taskAchieveModel->getConnection()->transaction(function () use ($data) {
+            $errors = 0;
+            foreach ($data['ids'] as $id) {
+                $achieveModel = $this->taskAchieveModel->find($id);
+                if (empty($achieveModel)) {
+                    $errors++;
+                    continue;
+                }
+                if ($data['status'] == 1) {
+                    $achieveModel->status = 1;
+                    if ($achieveModel->save()) {
+                        $achieveModel->user->money->increment('money', $achieveModel->income);
+                        $achieveModel->user->money->increment('total', $achieveModel->income);
+                        //记录资金流水
+                        $recordData['type'] = 1;
+                        $recordData['user_id'] = $achieveModel->user_id;
+                        $recordData['income'] = $achieveModel->income;
+                        $recordData['account'] = $achieveModel->user->money->money;
+                        $recordData['remark'] = $achieveModel->task->title . '，收益' . $achieveModel->income . '元';
+                        $this->recordModel->saveBy($recordData);
+
+                        //派发奖励
+                        if (!empty($achieveModel->user->invite)) {
+                            //启动了领取奖励
+                            if ($achieveModel->task->is_reward == 1) {
+                                $rewardUser = $this->userModel->where('mobile', $achieveModel->user->invite)->first();
+                                $where = ['user_id' => $achieveModel->user_id, 'status' => 1];
+                                $count = $this->taskAchieveModel->countBy($where);
+                                $key = $count == 0 ? 'first_reward' : 'second_reward';
+                                $rewardModel = $this->metaModel->system()->where('meta_key', $key)->first();
+                                if (!empty($rewardUser) && $count < 2 && !empty($rewardModel)) {
+                                    $reward = unserialize($rewardModel->meta_value);
+                                    $rewardUser->money->increment('money', $reward);
+                                    $rewardUser->money->increment('total', $reward);
+                                    //记录资金流水
+                                    $recordData['type'] = 3;
+                                    $recordData['user_id'] = $rewardUser->id;
+                                    $recordData['income'] = $reward;
+                                    $recordData['account'] = $rewardUser->money->money;
+                                    $recordData['remark'] = sprintf('您邀请用户%s第%d投资，您获取奖励%.2f元',
+                                        $achieveModel->user->username,
+                                        $count,
+                                        $reward);
+                                    $this->recordModel->saveBy($recordData);
+                                }
+                            }
+                        }
+                    } else {
+                        $errors++;
+                        continue;
+                    }
+                }
+                if ($data['status'] == 2) {
+                    $achieveModel->status = 2;
+                    $achieveModel->remark = '提交任务失败';
+                    if (!$achieveModel->save()) {
+                        $errors++;
+                        continue;
+                    }
+                }
+            }
+            return ['errors' => $errors];
+        });
+
+        if ($result instanceof \Exception) {
+            return static::getError($result->getMessage(), $result);
+        }
+        return static::getSuccess('审核记录数据完成', $result);
     }
 
     /**
@@ -440,47 +511,46 @@ class TaskRepository extends BaseRepository
     }
 
 
-
     /**
      * @param $corpModel
      * 初始化平台信息
      */
     private function initCorp($corpModel)
     {
-          if(empty($corpModel->tasks))
-                return $this->setCorp($corpModel, 0,0,0);
-            $startTime = 0;
-            $endTime = 0;
-            $minRatio = 0;
-            $maxRatio = 0;
-            $maxDays = $minDays = 0;
-            foreach($corpModel->tasks as $task) {
-                if($task->status != 1) continue 1;
-                if($startTime == 0)
-                    $startTime = $task->start_time;
-                if($endTime == 0)
-                    $endTime = $task->end_time;
-                if($minRatio == 0)
-                    $minRatio = $task->ratio;
-                if($maxRatio)
-                    $maxRatio = $task->ratio;
-                $startTime = $startTime > $task->start_time ? $task->start_time : $startTime;
-                $endTime   = $endTime > $task->end_time ? $endTime : $task->end_time;
-                $days = getDiffTime($startTime,$endTime);
-                $days = (int)$days;
-                if($maxDays == 0)
-                    $maxDays = $days;
-                if($minDays == 0)
-                    $minDays = $days;
-                $minRatio  = $minRatio > $task->ratio ? $task->ratio : $minRatio;
-                $maxRatio  = $maxRatio > $task->ratio ? $maxRatio : $task->ratio;
-            }
+        if (empty($corpModel->tasks))
+            return $this->setCorp($corpModel, 0, 0, 0);
+        $startTime = 0;
+        $endTime = 0;
+        $minRatio = 0;
+        $maxRatio = 0;
+        $maxDays = $minDays = 0;
+        foreach ($corpModel->tasks as $task) {
+            if ($task->status != 1) continue 1;
+            if ($startTime == 0)
+                $startTime = $task->start_time;
+            if ($endTime == 0)
+                $endTime = $task->end_time;
+            if ($minRatio == 0)
+                $minRatio = $task->ratio;
+            if ($maxRatio)
+                $maxRatio = $task->ratio;
+            $startTime = $startTime > $task->start_time ? $task->start_time : $startTime;
+            $endTime = $endTime > $task->end_time ? $endTime : $task->end_time;
+            $days = getDiffTime($startTime, $endTime);
+            $days = (int)$days;
+            if ($maxDays == 0)
+                $maxDays = $days;
+            if ($minDays == 0)
+                $minDays = $days;
+            $minRatio = $minRatio > $task->ratio ? $task->ratio : $minRatio;
+            $maxRatio = $maxRatio > $task->ratio ? $maxRatio : $task->ratio;
+        }
 
-            $corpModel->max_days = $maxDays;
-            $corpModel->min_days = $minDays;
-            $corpModel->min_yield = $minRatio;
-            $corpModel->max_yield = $maxRatio;
-            return $corpModel->save();
+        $corpModel->max_days = $maxDays;
+        $corpModel->min_days = $minDays;
+        $corpModel->min_yield = $minRatio;
+        $corpModel->max_yield = $maxRatio;
+        return $corpModel->save();
     }
 
     /**
@@ -492,7 +562,7 @@ class TaskRepository extends BaseRepository
      */
     private function setCorp($corpModel, $startTime, $endTime, $ratio)
     {
-        $days = getDiffTime($startTime,$endTime);
+        $days = getDiffTime($startTime, $endTime);
         $days = (int)$days;
         $ratio = (float)$ratio;
         if ($corpModel->min_yield == 0) {

@@ -2,6 +2,9 @@
 @section('title') 项目信息 @stop
 @section('style')
     {!!HTML::style('admin/css/lists.css')!!}
+    {!! HTML::style('admin/css/pop.css') !!}
+    {!!HTML::style('admin/css/dialog.css')!!}
+    {!!HTML::style('admin/css/form.css')!!}
 @stop
 @section('content')
     <div class="content-all">
@@ -24,7 +27,7 @@
                     <a href="{!! config('app.admin_url') !!}/achieve/export" class="buttonA">数据导出</a>
                 </div>
                 <div class="comment-search clearfix">
-                    <form action="{!! url('achieve') !!}" id="filterForm" method="GET">
+                    <form action="{!! url('achieve') !!}{!! isset($status)?'/'.$status:'' !!}" id="filterForm" method="GET">
                         <div class="comment-search-inner">
                             <div class="comment-search-goods">
                                 <p>投资者<input type="text" name="realname" value="{!! Input::get('realname') !!}" /></p>
@@ -67,7 +70,7 @@
                         @foreach($lists as $av)
                             <tr class="js_reply_all">
                                 @if(isset($status) && $status == 0)
-                                <td><input type="checkbox" name="ids[]" value="{!! $av->id !!}"> </td>
+                                <td><input type="checkbox" class="achieve-id" name="ids[]" value="{!! $av->id !!}"> </td>
                                 @endif
                                 <td>{!! $av->corp->name or ''!!}</td>
                                 <td>{!! $av->user->username or '' !!}</td>
@@ -115,7 +118,40 @@
                 $("[name=ids\\[\\]]:checkbox").prop('checked', this.checked);
             });
             $('input[name="checked"]').click(function(){
+                var ids = [];
+                $(".achieve-id:checked").each(function(){
+                    ids.push($(this).val());
+                });
+                if(ids.length > 0){
+                    $.post('/achieve/batch/1',{ids:ids.join(',')},function(data){
+                        if(data.status){
+                            succes(data.message);
+                            window.location.href = data.url;
+                        }else{
+                            error(data.message);
+                        }
+                    },'json');
+                }else{
+                    error('未选中任何审核记录!');
+                }
+            });
+            $('input[name="unchecked"]').click(function(){
+                var ids = [];
+                $(".achieve-id:checked").each(function(){
+                    ids.push($(this).val());
+                });
+                if(ids.length > 0){
+                    $.post('/achieve/batch/2',{ids:ids.join(',')},function(data){
+                        if(data.status){
+                            window.location.href = data.url;
+                        }else{
+                            error(data.message);
+                        }
+                    },'json');
+                }else{
+                    error('未选中任何审核记录!');
+                }
             });
         });
     </script>
-    @stop
+@stop

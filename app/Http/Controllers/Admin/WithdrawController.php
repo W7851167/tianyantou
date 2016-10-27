@@ -87,7 +87,8 @@ class WithdrawController extends AdminController
 
         $result = $this->userRepository->saveWithdraws($data);
         if ($result['status']) {
-            $message = '批量提现审核完成' . (count($data['ids']) - $result['data']) . '条记录,审核失败' . $result['data'] . '条记录 !';
+            $errors = isset($result['data']) ? isset($result['data']['errors']) ? $result['data']['errors'] : 0 : 0;
+            $message = '批量提现审核完成' . (count($data['ids']) - $errors) . '条记录,审核失败' . $errors . '条记录 !';
             return $this->success($message, url('withdraw'), true);
         }
         return $this->error('批量提现审核失败!', null, true);

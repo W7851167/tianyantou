@@ -70,6 +70,21 @@ class AchieveController extends AdminController
         return view('admin.achieve.create', compact('achieves'));
     }
 
+    public function batch($status, Request $request)
+    {
+        $data['ids'] = explode(',', $request->get('ids'));
+        $data['status'] = $status;
+        if (!$data['ids']) return $this->error('未选中任何审核记录!');
+
+        $result = $this->taskRepository->saveBatchAchieves($data);
+        if ($result['status']) {
+            $errors = isset($result['data']) ? isset($result['data']['errors']) ? $result['data']['errors'] : 0 : 0;
+            $message = '批量审核完成' . (count($data['ids']) - $errors) . '条记录,审核失败' . $errors . '条记录 !';
+            return $this->success($message, url('achieve/1'), true);
+        }
+        return $this->error('批量审核失败!', null, true);
+    }
+
     /**
      * 数据导出
      */

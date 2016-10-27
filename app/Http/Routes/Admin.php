@@ -53,8 +53,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::any('corp/dynamic/{corp_id}/{id?}', ['as' => 'task.corp.dynamic', 'uses' => 'CorpController@dynamic']);
     Route::any('corp/newdelete/{corp_id}/{id}', ['as' => 'task.corp.newdelete', 'uses' => 'CorpController@newdelete']);
     //领取任务管理
-    Route::get('achieve/{status?}', ['as' => 'task.achieve.index', 'uses' => 'AchieveController@index'])->where('status','[0-9]+');
+    Route::get('achieve/{status?}', ['as' => 'task.achieve.index', 'uses' => 'AchieveController@index'])->where('status', '[0-9]+');
     Route::any('achieve/create/{id}', ['as' => 'task.achieve.create', 'uses' => 'AchieveController@create']);
+    Route::post('achieve/batch/{status}', ['as' => 'task.achieve.batch', 'uses' => 'AchieveController@batch'])->where('status', '[0-9]+');
     Route::get('achieve/export', ['as' => 'task.achieve.export', 'uses' => 'AchieveController@export']);
     //统计管理
     Route::get('census', ['as' => 'census.census.index', 'uses' => 'CensusController@index']);

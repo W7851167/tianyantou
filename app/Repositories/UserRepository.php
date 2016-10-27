@@ -253,7 +253,7 @@ class UserRepository extends BaseRepository
                     $userModel->money->increment('money', $item['price']);
                 }
             }
-            return $errors;
+            return ['errors' => $errors];
         });
 
         if ($result instanceof \Exception) {
