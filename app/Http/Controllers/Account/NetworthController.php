@@ -39,6 +39,7 @@ class NetworthController extends FrontController
     {
         $where = ['user_id' => $this->user['id']];
         //待提交的任务
+        $where['status'] = 0;
         list($count, $lists) = $this->taskRepository->getReceiveList($where, $this->perpage);
         $pageHtml = $this->pager($count);
         //待审核的任务
