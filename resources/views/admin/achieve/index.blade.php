@@ -64,7 +64,7 @@
                         @if(!isset($status))
                         <th width="100">状态</th>
                         @endif
-                        <th>操作</th>
+                        <th>{!! $status == 2? '原因' : '操作' !!}</th>
                     </tr>
                     @if(!empty($lists))
                         @foreach($lists as $av)
@@ -94,7 +94,7 @@
                                     @if($av->status == 1)
                                             ----
                                     @endif
-                                    @if($av->status == 2)
+                                    @if($status == 2)
                                         {!! $av->remark or '' !!}
                                     @endif
                                 </td>
