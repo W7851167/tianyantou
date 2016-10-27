@@ -49,7 +49,7 @@ class CensusController extends AdminController
 
         $where = ['status' => 1];
         $taskstats = $this->census->getTaskStats($where);
-//var_dump($taskstats);
+
         return view('admin.census.index', compact(
             'categorys', 'census', 'startTime', 'endTime', 'title', 'corps', 'tasks', 'taskstats'
         ));
