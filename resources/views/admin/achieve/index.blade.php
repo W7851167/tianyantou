@@ -37,8 +37,19 @@
                         </div>
                     </form>
                 </div>
+                <form class="base_form">
+                @if(isset($status) && $status == 0)
+                <div style="margin-left: 50px;">
+                    <input type="checkbox" name="selectAll" id="selectAll">全选
+                    <input type="button" class="comment-search-btn" name="checked" value="通过">
+                    <input type="button" class="comment-search-btn" name="unchecked" value="驳回">
+                </div>
+                @endif
                 <table class="all_shopping" cellspacing="0">
                     <tr>
+                        @if(isset($status) && $status == 0)
+                         <th width='64'>ID</th>
+                        @endif
                         <th width='100'>平台名称</th>
                         <th width="100">注册用户</th>
                         <th width="100">注册手机</th>
@@ -47,12 +58,17 @@
                         <th width="100">投资金额</th>
                         <th width="100">投资收益</th>
                         <th width="100">投资期限</th>
+                        @if(!isset($status))
                         <th width="100">状态</th>
+                        @endif
                         <th>操作</th>
                     </tr>
                     @if(!empty($lists))
                         @foreach($lists as $av)
                             <tr class="js_reply_all">
+                                @if(isset($status) && $status == 0)
+                                <td><input type="checkbox" name="ids[]" value="{!! $av->id !!}"> </td>
+                                @endif
                                 <td>{!! $av->corp->name or ''!!}</td>
                                 <td>{!! $av->user->username or '' !!}</td>
                                 <td>{!! $av->user->mobile or '' !!}</td>
@@ -61,11 +77,13 @@
                                 <td>{!! $av->income or '0.00' !!}元</td>
                                 <td>{!! $av->price or '0.00' !!}元</td>
                                 <td>{!! $av->term or 0 !!}{!! $av->task->term_unit == 0 ? '天' : ($av->task->term_unit == 1 ? '个月' : '年')!!}</td>
+                                @if(!isset($status))
                                 <td>
                                     @if($av->status == 0) 待审核 @endif
                                     @if($av->status == 2) 已驳回 @endif
                                     @if($av->status == 1) 已审核 @endif
                                 </td>
+                                @endif
                                 <td>
                                     @if($status == 0)
                                             <a href="{!! url('achieve/create',['id'=>$av->id]) !!}">审核</a>
@@ -81,10 +99,23 @@
                         @endforeach
                         @endif
                     </table>
+                    </form>
                 <ul class="page_info page">
                     {!! $pageHtml !!}
                 </ul>
+
             </div>
         </div>
     </div>
 @stop
+@section('script')
+    <script language="javascript">
+        $(function(){
+            $('#selectAll').click(function(){
+                $("[name=ids\\[\\]]:checkbox").prop('checked', this.checked);
+            });
+            $('input[name="checked"]').click(function(){
+            });
+        });
+    </script>
+    @stop
