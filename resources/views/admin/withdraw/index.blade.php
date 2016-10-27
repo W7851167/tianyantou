@@ -118,7 +118,6 @@
             $(".withdraw-ids:checked").each(function(){
                 ids.push($(this).val());
             });
-            console.log(ids.length);
             if(ids.length < 1){
                 error('未选中任何提现记录!');
             } else{

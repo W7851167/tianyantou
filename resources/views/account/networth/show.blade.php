@@ -97,7 +97,7 @@
                             <div class="control-group">
                                 <label for="">投资时间</label>
                                 <input type="text" name="data[term]" class="input-style" value="{!! $achieveModel->term or '' !!}" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
-                                {!! $receiveModel->task->term_unit == 0 ? '天' : ($receiveModel->task->term_unit == 1 ? '个月' : '年')!!}
+                                {!! $achieveModel->task->term_unit == 0 ? '天' : ($achieveModel->task->term_unit == 1 ? '个月' : '年')!!}
                                 <em>请填写真实的投资时间</em>
                             </div>
                             <input type="submit" class="btn-blue btn-l btn-submit" value="提交">
