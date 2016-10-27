@@ -116,11 +116,11 @@ class CensusRepository extends BaseRepository
         $startTime = strtotime($startTime);
         $endTime = strtotime($endTime);
         if ($status == 0) {
-            $query = $this->taskReceiveModel->whereBetween('create_time', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
         } else if ($status == 2) {
-            $query = $this->taskReceiveModel->whereBetween('commit_time', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
         } else if ($status == 1) {
-            $query = $this->taskReceiveModel->whereBetween('complete_time', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
         }
         if ($corpId) {
             $query = $query->where('corp_id', $corpId);
@@ -143,13 +143,12 @@ class CensusRepository extends BaseRepository
         $tasks = $this->taskModel->alls('*', $where);
 
         foreach ($tasks as $task) {
-            $receive = $this->taskReceiveModel->where('task_id', $task->id);
-            $task->investnums = $receive->count();
+            $task->investnums = $this->taskAchieveModel->where('task_id', $task->id)->count();
             $task->overplus = $task->nums - $task->investnums;
-            $task->create = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 0)->sum('total');
-            $task->commit = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 2)->sum('total');
-            $task->complete = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 1)->sum('total');
-            $task->income = $this->taskReceiveModel->where('task_id', $task->id)->where('status', 1)->sum('income');
+            $task->create = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 0)->sum('price');
+            $task->commit = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 2)->sum('price');
+            $task->complete = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 1)->sum('price');
+            $task->income = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 1)->sum('income');
         }
 
         return $tasks;

@@ -33,7 +33,8 @@
                     <div class="cont-box-wrap">
                         <div class="tab click-tab">
                             <ul class="tab-nav">
-                                <li class="active"><a href="javascript:void(0);">待审核的任务</a></li>
+                                <li class="active"><a href="javascript:void(0);">待提交的任务</a></li>
+                                <li class=""><a href="javascript:void(0);">待审核的任务</a></li>
                                 <li class=""><a href="javascript:void(0);">已完成任务</a></li>
                                 <li class=""><a href="javascript:void(0);">已驳回任务</a></li>
                             </ul>
@@ -53,15 +54,15 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @if(count($lists0)  > 0)
-                                                    @foreach($lists0 as $av)
+                                                @if(count($lists)  > 0)
+                                                    @foreach($lists as $rv)
                                                         <tr>
-                                                            <td>{!! $av->created_at !!}</td>
-                                                            <td>{!! $av->corp->name or '' !!}</td>
-                                                            <td>{!! $av->task->title or '' !!}</td>
-                                                            <td>{!! $av->receive->ratio or '0.00' !!}%</td>
-                                                            <td>{!! $av->receive->mratio or '0.00' !!}%</td>
-                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
+                                                            <td>{!! $rv->created_at or '--' !!}</td>
+                                                            <td>{!! $rv->corp->name or '' !!}</td>
+                                                            <td>{!! $rv->task->title or '' !!}</td>
+                                                            <td>{!! $rv->ratio or '0.00' !!}%</td>
+                                                            <td>{!! $rv->mratio or '0.00' !!}%</td>
+                                                            <td><a href="{!! url('networth/create',['id'=>$rv->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
                                                 @else
@@ -83,12 +84,51 @@
                                             <table class="table table-bordered ucenter-table" style="font-size: 13px;">
                                                 <thead>
                                                 <tr>
+                                                    <th width="140">领取任务时间</th>
+                                                    <th width="120">平台名称</th>
+                                                    <th width="120">任务名称</th>
+                                                    <th width="90">平台年化率</th>
+                                                    <th width="140">天眼投年化率</th>
+                                                    <th width="65">操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @if(count($lists0)  > 0)
+                                                    @foreach($lists0 as $av)
+                                                        <tr>
+                                                            <td>{!! $av->created_at !!}</td>
+                                                            <td>{!! $av->corp->name or '' !!}</td>
+                                                            <td>{!! $av->task->title or '' !!}</td>
+                                                            <td>{!! $av->receive->ratio or '0.00' !!}%</td>
+                                                            <td>{!! $av->receive->mratio or '0.00' !!}%</td>
+                                                            <td><a href="{!! url('networth/show',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">查看</a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr class="norecord">
+                                                        <td colspan="6">
+                                                            没有查询到相关记录
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                </tbody>
+                                            </table>
+                                            <div class="pagination" data-pagination-ref="networth_records_1">{!! $pageHtml0 or '' !!}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="tab-content tab-content-table">
+                                        <div id="networth_records_3">
+                                            <table class="table table-bordered ucenter-table" style="font-size: 13px;">
+                                                <thead>
+                                                <tr>
                                                     <th width="120">平台名称</th>
                                                     <th width="120">任务名称</th>
                                                     <th width="90">完成金额(元)</th>
                                                     <th width="140">收益(元)</th>
                                                     <th width="140">领取任务时间</th>
-                                                    <th width="140">领取任务时间</th>
+                                                    <th width="140">审核时间</th>
                                                     <th width="65">操作</th>
                                                 </tr>
                                                 </thead>
@@ -102,7 +142,7 @@
                                                             <td>{!! $av->income or '0.00' !!}%</td>
                                                             <td>{!! $av->created_at or '--' !!}</td>
                                                             <td>{!! $av->updated_at or '--' !!}</td>
-                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">查看</a></td>
+                                                            <td><a href="{!! url('networth/show',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">查看</a></td>
                                                         </tr>
                                                     @endforeach
                                                 @else
@@ -120,7 +160,7 @@
                                 </div>
                                 <div class="">
                                     <div class="tab-content tab-content-table">
-                                        <div id="networth_records_3">
+                                        <div id="networth_records_4">
                                             <table class="table table-bordered ucenter-table" style="font-size: 13px;">
                                                 <thead>
                                                 <tr>
@@ -139,7 +179,7 @@
                                                             <td>{!! $av->task->title or '' !!}</td>
                                                             <td>{!! $av->updated_at or '--' !!}</td>
                                                             <td>{!! $av->remark !!}</td>
-                                                            <td><a href="{!! url('networth/create',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
+                                                            <td><a href="{!! url('networth/show',['id'=>$av->id]) !!}" class="btn btn-blue btn-allwidth">完成任务</a></td>
                                                         </tr>
                                                     @endforeach
                                                 @else

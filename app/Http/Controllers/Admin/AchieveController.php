@@ -76,13 +76,14 @@ class AchieveController extends AdminController
     public function export()
     {
         $data = [
-            ['编号', '平台名称', '任务名称', '投资人', '投资者手机', '投资金额', '投资订单号', '提交时间']
+            ['编号', '状态', '平台名称', '任务名称', '投资人', '投资者手机', '投资金额', '投资订单号', '提交时间']
         ];
         $achieves = $this->taskRepository->taskAchieveModel->get();
         foreach ($achieves as $achieve) {
             $item = [
                 $achieve->id ?: '',
-                !empty($achieve->receive) ? !empty($achieve->receive->corp) ? $achieve->receive->corp->name : '' : '',
+                !empty($achieve->status) ? $achieve->status == 1 ? '已完成' : '已驳回' : '待审核',
+                !empty($achieve->corp) ? $achieve->corp->name : '',
                 !empty($achieve->task) ? $achieve->task->title ?: '' : '',
                 $achieve->realname ?: '',
                 $achieve->mobile ?: '',

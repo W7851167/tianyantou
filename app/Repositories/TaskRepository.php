@@ -318,7 +318,9 @@ class TaskRepository extends BaseRepository
                 $data['income'] = getIncome(
                     $receiveModel->task->term,
                     $receiveModel->task->term_unit,
-                    $receiveModel->mratio, $data['price']);
+                    $receiveModel->mratio,
+                    $data['price']
+                );
                 $receiveModel->nums += 1;
                 $receiveModel->save();
             }
@@ -426,13 +428,12 @@ class TaskRepository extends BaseRepository
      */
     public function corpsCensus($corpId, $userId)
     {
-        $query = $this->taskReceiveModel->where('user_id', $userId)->where('corp_id', $corpId);
-        $census['count'] = $query->count();
-        $census['total'] = $query->sum('total');
-        $census['income'] = $query->sum('income');
-        $total = $this->taskReceiveModel->where('user_id', $userId)->sum('total');
+        $census['count'] = $this->taskAchieveModel->where('user_id', $userId)->where('corp_id', $corpId)->count();
+        $census['total'] = $this->taskAchieveModel->where('user_id', $userId)->where('corp_id', $corpId)->sum('price');
+        $census['income'] = $this->taskAchieveModel->where('user_id', $userId)->where('corp_id', $corpId)->sum('income');
+        $total = $this->taskAchieveModel->where('user_id', $userId)->sum('price');
         $census['proportion'] = sprintf('%.2f', $census['total'] / $total * 100);
-        $receiveIds = $query->lists('id')->toArray();
+        $receiveIds = $this->taskAchieveModel->where('user_id', $userId)->where('corp_id', $corpId)->lists('id')->toArray();
         $term = $this->taskAchieveModel->whereIn('receive_id', $receiveIds)->avg('term');
         $census['term'] = sprintf('%.1f', $term);
         return $census;

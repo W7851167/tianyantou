@@ -41,7 +41,7 @@ class PlatformController extends FrontController
     {
         $page = $request->get('page') ? (int)$request->get('page') : 1;
         $where = ['status' => 1];
-        $corpIds = $this->tasks->taskReceiveModel->where('user_id', $this->user['id'])->distinct('corp_id')->lists('corp_id')->toArray();
+        $corpIds = $this->tasks->taskAchieveModel->where('user_id', $this->user['id'])->distinct('corp_id')->lists('corp_id')->toArray();
 
         $openWhere = array_merge($where, ['in' => ['id' => $corpIds]]);
         list($openCount, $openLists) = $this->tasks->getOpenPlatform($openWhere, $this->user['id']);

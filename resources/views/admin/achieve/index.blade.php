@@ -19,7 +19,7 @@
                 <div class="content-right-tit clearfix">
                     <p><a href="{!! url('achieve') !!}" @if(!isset($status))class="at" @endif>所有</a></p>
                     <p><a href="{!! url('achieve',['status'=>0]) !!}" @if(isset($status) && $status == 0)class="at" @endif>待审核</a></p>
-                    <p><a href="{!! url('achieve',['status'=>1]) !!}" @if(!empty($status) && $status == 1) class="at" @endif>已审核</a></p>
+                    <p><a href="{!! url('achieve',['status'=>1]) !!}" @if(!empty($status) && $status == 1) class="at" @endif>已完成</a></p>
                     <p><a href="{!! url('achieve',['status'=>2]) !!}" @if(!empty($status) && $status == 2) class="at" @endif>已驳回</a></p>
                     <a href="{!! config('app.admin_url') !!}/achieve/export" class="buttonA">数据导出</a>
                 </div>
@@ -81,17 +81,17 @@
                                 <td>
                                     @if($av->status == 0) 待审核 @endif
                                     @if($av->status == 2) 已驳回 @endif
-                                    @if($av->status == 1) 已审核 @endif
+                                    @if($av->status == 1) 已完成 @endif
                                 </td>
                                 @endif
                                 <td>
-                                    @if($status == 0)
+                                    @if($av->status == 0)
                                             <a href="{!! url('achieve/create',['id'=>$av->id]) !!}">审核</a>
                                     @endif
-                                    @if($status == 1)
+                                    @if($av->status == 1)
                                             ----
                                     @endif
-                                    @if($status == 2)
+                                    @if($av->status == 2)
                                         {!! $av->remark or '' !!}
                                     @endif
                                 </td>
