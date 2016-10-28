@@ -83,7 +83,7 @@ class CensusController extends AdminController
     private function getCalendar($startTime, $endTime)
     {
         $days = ($endTime - $startTime) / (24 * 60 * 60);
-        for ($i = 0; $i < $days; $i++) {
+        for ($i = 0; $i <= $days; $i++) {
             $date = date('Y-m-d', strtotime('+' . $i . 'days', $startTime));
             $data[$date] = [$date . ' 00:00:01', $date . ' 23:59:59'];
         }
