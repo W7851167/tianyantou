@@ -13,6 +13,7 @@
 namespace App\Repositories;
 
 
+use App\Exceptions\LimitException;
 use App\Models\CorpModel;
 use App\Models\CorpTermModel;
 use App\Models\ImageModel;
@@ -23,7 +24,6 @@ use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
 use Illuminate\Database\QueryException;
-use Pheanstalk\Exception;
 
 class TaskRepository extends BaseRepository
 {
@@ -215,17 +215,21 @@ class TaskRepository extends BaseRepository
      */
     public function deleteTask($id)
     {
-        $result = $this->taskModel->getConnection()->transaction(function () use ($id) {
-            $taskModel = $this->taskModel->find($id);
-            $receives = $taskModel->receives->count();
-            if($receives > 0) {
-                throw new \Exception('存在已领取任务不能删除');
-            }
-            $corpModel = $taskModel->corp;
-            $this->initCorp($corpModel);
-            $taskModel->delete();
+        try {
+            $result = $this->taskModel->getConnection()->transaction(function () use ($id) {
+                $taskModel = $this->taskModel->find($id);
+                $receives = $taskModel->receives->count();
+                if ($receives > 0)
+                    throw new LimitException('该项目已有人领取，不能删除');
 
-        });
+                $corpModel = $taskModel->corp;
+                $this->initCorp($corpModel);
+                $taskModel->delete();
+
+            });
+        }catch (\Exception $e) {
+            return $this->getError($e->getMessage());
+        }
         if ($result instanceof \Exception) {
             return $this->getError($result->getMessage());
         } else {
@@ -288,19 +292,22 @@ class TaskRepository extends BaseRepository
      */
     public function saveReceive($data)
     {
-        $result = $this->taskReceiveModel->getConnection()->transaction(function () use ($data) {
-            $taskModel = $this->taskModel->find($data['task_id']);
-            if ($taskModel->nums <= 0)
-                throw new \Exception('该投资任务数已超过限定，请联系运营人员');
-            $nums = $taskModel->nums - 1;
-            $counts = $taskModel->receives->count() + 1;
-            $proccess = sprintf('%.2f', ($counts / ($nums + $counts))) * 100;
-            $taskModel->nums = $nums;
-            $taskModel->proccess = $proccess;
-            $taskModel->save();
-            $this->taskReceiveModel->saveBy($data);
-
-        });
+        try {
+            $result = $this->taskReceiveModel->getConnection()->transaction(function () use ($data) {
+                $taskModel = $this->taskModel->find($data['task_id']);
+                if ($taskModel->nums <= 0)
+                    throw new \Exception('该投资任务数已超过限定，请联系运营人员');
+                $nums = $taskModel->nums - 1;
+                $counts = $taskModel->receives->count() + 1;
+                $proccess = sprintf('%.2f', ($counts / ($nums + $counts))) * 100;
+                $taskModel->nums = $nums;
+                $taskModel->proccess = $proccess;
+                $taskModel->save();
+                $this->taskReceiveModel->saveBy($data);
+            });
+        }catch (\Exception $e) {
+            return $this->getError($e->getMessage());
+        }
         if ($result instanceof \Exception) {
             return $this->getError($result->getMessage());
         } else {
