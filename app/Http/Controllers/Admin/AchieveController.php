@@ -39,25 +39,25 @@ class AchieveController extends AdminController
         if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
             $query = 'realname=' . $where['realname'];
-            $str .= !empty($str) ? '&' . $query : $query;
+            $str .= !empty($str) ? '&' . $query : '?'.$query;
         }
         if (!empty($request->mobile)) {
             $where['mobile'] = trim($request->mobile);
             $query = 'mobile=' . $where['mobile'];
-            $str .= !empty($str) ? '&' . $query : $query;
+            $str .= !empty($str) ? '&' . $query : '?'.$query;
         }
         if(!empty($request->corp_id)) {
             $where['corp_id'] = $request->corp_id;
             $query = 'corp_id=' . $where['corp_id'];
-            $str .= !empty($str) ? '&' . $query : $query;
+            $str .= !empty($str) ? '&' . $query : '?'.$query;
         }
 
         if(!empty($request->task_id)) {
             $where['task_id'] = $request->task_id;
             $query = 'task_id=' . $where['task_id'];
-            $str .= !empty($str) ? '&' . $query : $query;
+            $str .= !empty($str) ? '&' . $query : '?'.$query;
         }
-        
+
 
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
 
