@@ -18,6 +18,7 @@ use App\Http\Controllers\FrontController;
 use App\Jobs\SendEmailJob;
 use App\Library\Traits\SmsTrait;
 use App\Library\Utils\Captcha;
+use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -30,11 +31,13 @@ class PassportController extends FrontController
     use SmsTrait;
 
     public function __construct(
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        CensusRepository $census
     )
     {
         parent::__initalize();
         $this->userRepository = $userRepository;
+        $this->census = $census;
     }
 
     /**
@@ -105,7 +108,8 @@ class PassportController extends FrontController
             if ($result['status']) return $this->success('注册成功!', url('/'), true);
             return $this->error('注册失败!', null, true);
         }
-        return view('account.passport.register');
+        $stats = $this->census->getHomeStats();
+        return view('account.passport.register',compact('stats'));
     }
 
     /**
