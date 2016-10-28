@@ -58,8 +58,8 @@
                         <th width="100">注册手机</th>
                         <th width="100">投资人姓名</th>
                         <th width="100">投资人电话</th>
-                        <th width="100">投资金额</th>
                         <th width="100">投资收益</th>
+                        <th width="100">投资金额</th>
                         <th width="100">投资期限</th>
                         @if(!isset($status))
                         <th width="100">状态</th>
