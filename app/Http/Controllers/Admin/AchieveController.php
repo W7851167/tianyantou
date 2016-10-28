@@ -115,7 +115,7 @@ class AchieveController extends AdminController
     public function export(Request $request)
     {
         $data = [
-            ['编号', '平台名称', '任务名称', '投资人', '投资金额', '收益', '投资者手机', '状态', '投资订单号', '提交时间']
+            ['编号', '平台名称', '任务名称', '投资人', '投资金额', '收益', '投资者手机', '状态', '投资订单号', '注册用户名', '注册手机', '提交时间']
         ];
         $status = $request->get('status');
         $where = isset($status) ? ['status' => $status] : [];
@@ -143,6 +143,8 @@ class AchieveController extends AdminController
                 $achieve->mobile ?: '',
                 !empty($achieve->status) ? $achieve->status == 1 ? '已完成' : '已驳回' : '待审核',
                 $achieve->order_sn ?: '',
+                !empty($achieve->user) ? $achieve->user->username ?: '' : '',
+                !empty($achieve->user) ? $achieve->user->mobile ?: '' : '',
                 $achieve->created_at ?: '',
             ];
             array_push($data, $item);
