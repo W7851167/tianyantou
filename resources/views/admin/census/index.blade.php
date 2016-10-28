@@ -26,7 +26,6 @@
                 <div class="info">
                     <div class="info1">
                         <form action="{!! url('census') !!}" method="get">
-                            {!! csrf_field() !!}
                             平台名称:
                             <select name="corp_id">
                                 <option value="0">全部平台&nbsp;&nbsp;</option>
