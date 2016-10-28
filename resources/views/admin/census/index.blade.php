@@ -52,10 +52,10 @@
                             <th width="100">任务标题</th>
                             <th width="60">投资笔数</th>
                             <th width="60">驳回笔数</th>
-                            <th width="60">剩余投资笔数</th>
-                            <th width="60">驳回金额</th>
-                            <th width="60">已完成金额</th>
-                            <th width="65">收益金额</th>
+                            <th width="100">剩余投资笔数</th>
+                            <th width="100">驳回金额</th>
+                            <th width="100">已完成金额</th>
+                            <th width="100">收益金额</th>
                         </tr>
                         @if(count($taskstats) > 0)
                             @foreach($taskstats as $tv)
