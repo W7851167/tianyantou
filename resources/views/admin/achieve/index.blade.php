@@ -24,7 +24,7 @@
                     <p><a href="{!! url('achieve',['status'=>0]) !!}" @if(isset($status) && $status == 0)class="at" @endif>待审核</a></p>
                     <p><a href="{!! url('achieve',['status'=>1]) !!}" @if(!empty($status) && $status == 1) class="at" @endif>已完成</a></p>
                     <p><a href="{!! url('achieve',['status'=>2]) !!}" @if(!empty($status) && $status == 2) class="at" @endif>已驳回</a></p>
-                    <a href="{!! config('app.admin_url') !!}/achieve/export" class="buttonA">数据导出</a>
+                    <a href="{!! config('app.admin_url') !!}/achieve/export{!! $uri?'?'.$uri:'' !!}" class="buttonA">数据导出</a>
                 </div>
                 <div class="comment-search clearfix">
                     <form action="{!! url('achieve') !!}{!! isset($status)?'/'.$status:'' !!}" id="filterForm" method="GET">
