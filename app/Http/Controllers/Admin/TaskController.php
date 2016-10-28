@@ -36,15 +36,20 @@ class TaskController extends AdminController
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status' => $status] : [];
+        $str = '';
         if ($request->name) {
             $corpids = $this->taskRepository->corpModel->where('name', trim($request->name))->lists('id')->all();
             $where['in'] = ['corp_id' => $corpids];
+            $query = 'name=' . trim($request->name);
+            $str .= !empty($str) ? '&' . $query : '?'.$query;
         }
         if ($request->title) {
             $where['title'] = trim($request->title);
+            $query = 'title=' . trim($request->title);
+            $str .= !empty($str) ? '&' . $query : '?'.$query;
         }
         list($count, $lists) = $this->taskRepository->getTaskList($where, $this->perpage, $page);
-        $pageHtml = $this->pager($count, $page, $this->perpage);
+        $pageHtml = $this->pager($count, $page, $this->perpage,null,$str);
         return view('admin.task.index', compact('lists', 'pageHtml', 'status'));
     }
 
