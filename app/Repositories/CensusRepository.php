@@ -116,11 +116,11 @@ class CensusRepository extends BaseRepository
         $startTime = $startTime;
         $endTime = $endTime;
         if ($status == 0) {
-            $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
+            $query = $this->taskReceiveModel->whereBetween('created_at', [$startTime, $endTime]);
         } else if ($status == 2) {
-            $query = $this->taskAchieveModel->whereBetween('updated_at', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->where('status',0)->whereBetween('created_at', [$startTime, $endTime]);
         } else if ($status == 1) {
-            $query = $this->taskAchieveModel->whereBetween('updated_at', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->where('status',1)->whereBetween('updated_at', [$startTime, $endTime]);
         }
         if ($corpId) {
             $query = $query->where('corp_id', $corpId);

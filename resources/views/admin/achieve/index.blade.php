@@ -35,15 +35,12 @@
                                     <select name="corp_id">
                                         <option value="0">全部平台&nbsp;&nbsp;</option>
                                         @foreach($corps as $cv)
-                                            <option value="{!! $cv->id or '' !!}">{!! $cv->name or '' !!}</option>
+                                            <option value="{!! $cv->id or '' !!}" @if( Input::get('corp_id')  == $cv->id) selected @endif>{!! $cv->name or '' !!}</option>
                                         @endforeach
                                     </select>
                                     任务名称:
-                                    <select name="task_id">
+                                    <select name="task_id" id="task_id">
                                         <option value="0">全部任务&nbsp;&nbsp;</option>
-                                        @foreach($tasks as $tv)
-                                            <option value="{!! $tv->id or '' !!}">{!! $tv->title or '' !!}</option>
-                                        @endforeach
                                     </select>
                                 </p>
                             </div>
@@ -130,6 +127,10 @@
     </div>
 @stop
 @section('script')
+<script id="taskTemplate" type="text/x-jquery-tmpl">
+    <option value="${id}">${title}</option>
+</script>
+    <script src="{!!URL('vendor/jquery.tmpl/jquery.tmpl.min.js')!!}"></script>
     <script language="javascript">
         $(function(){
             $('#selectAll').click(function(){
@@ -174,7 +175,12 @@
             $('select[name="corp_id"]').change(function(){
                var corpId = $(this).val();
                 $.post('ajax/tasks',{corp_id:corpId}, function(res){
-
+                    if(res.status == 0) {
+                        error(res.message);
+                    }
+                    var tasks = res.tasks;
+                    console.log(tasks);
+                    $('#taskTemplate').tmpl(tasks).appendTo('#task_id');
                 });
             });
         });
