@@ -57,10 +57,7 @@ class AchieveController extends AdminController
             $query = 'task_id=' . $where['task_id'];
             $str .= !empty($str) ? '&' . $query : $query;
         }
-
-        if(!empty($str)) {
-            $str = '?page=' . $page . $str;
-        }
+        
 
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
 
