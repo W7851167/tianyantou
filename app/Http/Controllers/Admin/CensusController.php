@@ -65,7 +65,7 @@ class CensusController extends AdminController
         $endTime = $request->get('end_time');
         $startTime = !empty($startTime) ? strtotime($startTime . ' 00:00:01') : strtotime('-7 days', time());
         $endTime = !empty($endTime) ? strtotime($endTime . ' 23:59:59') : time();
-        $title = date('Y-m-d', (int)$startTime + 24 * 60 * 60) . '至' . date('Y-m-d', (int)$endTime) . '注册用户统计';
+        $title = date('Y-m-d', (int)$startTime) . '至' . date('Y-m-d', (int)$endTime) . '注册用户统计';
         $data = $this->getCalendar($startTime, $endTime);
         foreach ($data as $i => $item) {
             $data[$i] = $this->census->getRegisterUserStats($item[0], $item[1]);
@@ -83,7 +83,7 @@ class CensusController extends AdminController
     private function getCalendar($startTime, $endTime)
     {
         $days = ($endTime - $startTime) / (24 * 60 * 60);
-        for ($i = 1; $i <= $days; $i++) {
+        for ($i = 0; $i <= $days; $i++) {
             $date = date('Y-m-d', strtotime('+' . $i . 'days', $startTime));
             $data[$date] = [$date . ' 00:00:01', $date . ' 23:59:59'];
         }
