@@ -106,7 +106,7 @@
             <a href="javascript:void(0);" class="float-link"><i class="iconfont">&#xe605;</i><br/>顾问</a>
             <div class="hovercon server-hovercon">
                 <div class="tap-show customer-service">
-                    <p class="server-time"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA2NTc2NF8zMzA1NzBfNDAwODgzMTgwM18yXw" target="_blank">在线咨询</a></p>
+                    <p class="server-time"><a href="http://wpa.qq.com/msgrd?v=3&uin=304677228&site=qq&menu=yes" target="_blank">在线咨询</a></p>
                 </div>
             </div>
         </li>
