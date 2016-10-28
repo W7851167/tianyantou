@@ -23,6 +23,7 @@ use App\Models\TaskModel;
 use App\Models\TaskReceiveModel;
 use App\Models\UserModel;
 use Illuminate\Database\QueryException;
+use Pheanstalk\Exception;
 
 class TaskRepository extends BaseRepository
 {
@@ -216,6 +217,10 @@ class TaskRepository extends BaseRepository
     {
         $result = $this->taskModel->getConnection()->transaction(function () use ($id) {
             $taskModel = $this->taskModel->find($id);
+            $receives = $taskModel->receives->count();
+            if($receives > 0) {
+                throw new Exception('存在已领取任务不能删除');
+            }
             $corpModel = $taskModel->corp;
             $this->initCorp($corpModel);
             $taskModel->delete();
