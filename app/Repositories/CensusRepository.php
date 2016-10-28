@@ -113,14 +113,14 @@ class CensusRepository extends BaseRepository
      */
     public function getTaskReceiveStats($status = 0, $startTime, $endTime, $corpId, $taskId)
     {
-        $startTime = strtotime($startTime);
-        $endTime = strtotime($endTime);
+        $startTime = $startTime;
+        $endTime = $endTime;
         if ($status == 0) {
             $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
         } else if ($status == 2) {
-            $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->whereBetween('updated_at', [$startTime, $endTime]);
         } else if ($status == 1) {
-            $query = $this->taskAchieveModel->whereBetween('created_at', [$startTime, $endTime]);
+            $query = $this->taskAchieveModel->whereBetween('updated_at', [$startTime, $endTime]);
         }
         if ($corpId) {
             $query = $query->where('corp_id', $corpId);
