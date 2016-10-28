@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\CensusRepository;
 use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class HomeController extends AdminController
 {
@@ -66,8 +66,16 @@ class HomeController extends AdminController
      */
     public function ajaxTasks(Request $request)
     {
-        return $this->tasks->taskModel
-            ->where('corp_id',$request->corp_id)
-            ->where('status',1)->get();
+        if($request->isMethod('post')) {
+            $data['tasks'] = $this->tasks->taskModel
+                ->where('corp_id',$request->corp_id)
+                ->where('status',1)->get();
+            $data['status'] = 1;
+            $data['message'] = '获取任务信息完成';
+            return $this->ajaxReturn($data);
+        }
+
+        return $this->error('传递方式错误',null,true);
+
     }
 }

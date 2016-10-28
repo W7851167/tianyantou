@@ -35,11 +35,8 @@
                                 @endforeach
                             </select>
                             任务名称:
-                            <select name="task_id">
+                            <select name="task_id" id="task_id">
                                 <option value="0">全部任务&nbsp;&nbsp;</option>
-                                @foreach($tasks as $tv)
-                                    <option value="{!! $tv->id or '' !!}">{!! $tv->title or '' !!}</option>
-                                @endforeach
                             </select>
                             开始时间：<input type="text" name="start_time" class="Wdate" value="{!! date('Y-m-d', $startTime) !!}"  onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
                             结束时间：<input type="text" name="end_time" class="Wdate"  value="{!! date('Y-m-d', $endTime) !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})">
@@ -115,4 +112,23 @@
 @stop
 @section('script')
     {!!HTML::script(config('app.static_url').'/js/plugins/highcharts.js')!!}
+    <script id="taskTemplate" type="text/x-jquery-tmpl">
+    <option value="${id}">${title}</option>
+    </script>
+    <script src="{!!URL('vendor/jquery.tmpl/jquery.tmpl.min.js')!!}"></script>
+    <script language="javascript">
+        $(function(){
+            $('select[name="corp_id"]').change(function(){
+                var corpId = $(this).val();
+                $.post('ajax/tasks',{corp_id:corpId}, function(res){
+                    if(res.status == 0) {
+                        error(res.message);
+                    }
+                    var tasks = res.tasks;
+                    console.log(tasks);
+                    $('#taskTemplate').tmpl(tasks).appendTo('#task_id');
+                });
+            });
+        })
+    </script>
 @stop
