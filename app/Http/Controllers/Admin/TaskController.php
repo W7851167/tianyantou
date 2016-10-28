@@ -120,7 +120,7 @@ class TaskController extends AdminController
         $result = $this->taskRepository->deleteTask($id);
         if ($result['status'])
             return $this->success($result['message'], url('task/trashed'));
-        return $this->error('删除该项目异常,请联系开发人员');
+        return $this->error($result['message']);
 
     }
 }
