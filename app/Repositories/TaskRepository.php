@@ -219,7 +219,7 @@ class TaskRepository extends BaseRepository
             $taskModel = $this->taskModel->find($id);
             $receives = $taskModel->receives->count();
             if($receives > 0) {
-                throw new Exception('存在已领取任务不能删除');
+                throw new \Exception('存在已领取任务不能删除');
             }
             $corpModel = $taskModel->corp;
             $this->initCorp($corpModel);
