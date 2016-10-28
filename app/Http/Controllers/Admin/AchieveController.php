@@ -39,32 +39,35 @@ class AchieveController extends AdminController
         if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
             $query = 'realname=' . $where['realname'];
-            $str .= !empty($str) ? '&' . $query : '?'.$query;
+            $str .= !empty($str) ? '&' . $query : '?' . $query;
         }
         if (!empty($request->mobile)) {
             $where['mobile'] = trim($request->mobile);
             $query = 'mobile=' . $where['mobile'];
-            $str .= !empty($str) ? '&' . $query : '?'.$query;
+            $str .= !empty($str) ? '&' . $query : '?' . $query;
         }
-        if(!empty($request->corp_id)) {
+        if (!empty($request->corp_id)) {
             $where['corp_id'] = $request->corp_id;
             $query = 'corp_id=' . $where['corp_id'];
-            $str .= !empty($str) ? '&' . $query : '?'.$query;
+            $str .= !empty($str) ? '&' . $query : '?' . $query;
         }
 
-        if(!empty($request->task_id)) {
+        if (!empty($request->task_id)) {
             $where['task_id'] = $request->task_id;
             $query = 'task_id=' . $where['task_id'];
-            $str .= !empty($str) ? '&' . $query : '?'.$query;
+            $str .= !empty($str) ? '&' . $query : '?' . $query;
         }
 
 
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
 
-        $pageHtml = $this->pager($count, $page, $this->perpage,'', $str);
+        $pageHtml = $this->pager($count, $page, $this->perpage, '', $str);
         $corps = $this->taskRepository->corpModel->where('status', 1)->get();
         $tasks = $this->taskRepository->taskModel->where('status', 1)->get();
-        return view('admin.achieve.index', compact('lists', 'pageHtml', 'status','corps','tasks','where'));
+        $uri = $where ? http_build_query($where) : '';
+        return view('admin.achieve.index', compact(
+            'lists', 'pageHtml', 'status', 'corps', 'tasks', 'where', 'uri'
+        ));
     }
 
     /**
@@ -109,12 +112,25 @@ class AchieveController extends AdminController
     /**
      * 数据导出
      */
-    public function export()
+    public function export(Request $request)
     {
         $data = [
             ['编号', '状态', '平台名称', '任务名称', '投资人', '投资者手机', '投资金额', '投资订单号', '提交时间']
         ];
-        $achieves = $this->taskRepository->taskAchieveModel->get();
+        $where = isset($status) ? ['status' => $status] : [];
+        if (!empty($request->realname)) {
+            $where['realname'] = trim($request->realname);
+        }
+        if (!empty($request->mobile)) {
+            $where['mobile'] = trim($request->mobile);
+        }
+        if (!empty($request->corp_id)) {
+            $where['corp_id'] = $request->corp_id;
+        }
+        if (!empty($request->task_id)) {
+            $where['task_id'] = $request->task_id;
+        }
+        $achieves = $this->taskRepository->taskAchieveModel->alls('*', $where, ['id' => 'desc']);
         foreach ($achieves as $achieve) {
             $item = [
                 $achieve->id ?: '',
