@@ -120,7 +120,7 @@
         $(function(){
             $('select[name="corp_id"]').change(function(){
                 var corpId = $(this).val();
-                $.post('ajax/tasks',{corp_id:corpId}, function(res){
+                $.post('/ajax/tasks',{corp_id:corpId}, function(res){
                     if(res.status == 0) {
                         error(res.message);
                     }
