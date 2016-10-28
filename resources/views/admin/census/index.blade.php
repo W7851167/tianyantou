@@ -53,6 +53,7 @@
                             <th width="60">投资笔数</th>
                             <th width="60">驳回笔数</th>
                             <th width="100">剩余投资笔数</th>
+                            <th width="100">待审金额</th>
                             <th width="100">驳回金额</th>
                             <th width="100">已完成金额</th>
                             <th width="100">收益金额</th>
