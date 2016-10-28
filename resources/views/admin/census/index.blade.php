@@ -30,7 +30,7 @@
                             <select name="corp_id">
                                 <option value="0">全部平台&nbsp;&nbsp;</option>
                                 @foreach($corps as $cv)
-                                    <option value="{!! $cv->id or '' !!}">{!! $cv->name or '' !!}</option>
+                                    <option value="{!! $cv->id or '' !!}" @if(Input::get('corp_id') == $cv->id) selected @endif>{!! $cv->name or '' !!}</option>
                                 @endforeach
                             </select>
                             任务名称:
