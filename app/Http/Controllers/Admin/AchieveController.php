@@ -115,8 +115,9 @@ class AchieveController extends AdminController
     public function export(Request $request)
     {
         $data = [
-            ['编号', '状态', '平台名称', '任务名称', '投资人', '投资者手机', '投资金额', '投资订单号', '提交时间']
+            ['编号', '平台名称', '任务名称', '投资人', '投资金额', '收益', '投资者手机', '状态', '投资订单号', '提交时间']
         ];
+        $status = $request->get('status');
         $where = isset($status) ? ['status' => $status] : [];
         if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
@@ -134,12 +135,13 @@ class AchieveController extends AdminController
         foreach ($achieves as $achieve) {
             $item = [
                 $achieve->id ?: '',
-                !empty($achieve->status) ? $achieve->status == 1 ? '已完成' : '已驳回' : '待审核',
                 !empty($achieve->corp) ? $achieve->corp->name : '',
                 !empty($achieve->task) ? $achieve->task->title ?: '' : '',
                 $achieve->realname ?: '',
-                $achieve->mobile ?: '',
                 $achieve->price ?: 0.00,
+                $achieve->income ?: 0.00,
+                $achieve->mobile ?: '',
+                !empty($achieve->status) ? $achieve->status == 1 ? '已完成' : '已驳回' : '待审核',
                 $achieve->order_sn ?: '',
                 $achieve->created_at ?: '',
             ];
