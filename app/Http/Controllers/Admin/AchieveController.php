@@ -35,22 +35,32 @@ class AchieveController extends AdminController
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status' => $status] : [];
+        $str = '';
         if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
+            $query = 'realname=' . $where['realname'];
+            $str .= !empty($str) ? '&' . $query : $query;
         }
         if (!empty($request->mobile)) {
             $where['mobile'] = trim($request->mobile);
+            $query = 'mobile=' . $where['mobile'];
+            $str .= !empty($str) ? '&' . $query : $query;
         }
         if(!empty($request->corp_id)) {
             $where['corp_id'] = $request->corp_id;
+            $query = 'corp_id=' . $where['corp_id'];
+            $str .= !empty($str) ? '&' . $query : $query;
         }
 
         if(!empty($request->task_id)) {
             $where['task_id'] = $request->task_id;
+            $query = 'task_id=' . $where['task_id'];
+            $str .= !empty($str) ? '&' . $query : $query;
         }
 
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
-        $pageHtml = $this->pager($count, $page, $this->perpage);
+
+        $pageHtml = $this->pager($count, $page, $this->perpage,'', $str);
         $corps = $this->taskRepository->corpModel->where('status', 1)->get();
         $tasks = $this->taskRepository->taskModel->where('status', 1)->get();
         return view('admin.achieve.index', compact('lists', 'pageHtml', 'status','corps','tasks','where'));
