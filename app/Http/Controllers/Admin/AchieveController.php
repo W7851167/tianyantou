@@ -35,7 +35,7 @@ class AchieveController extends AdminController
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status' => $status] : [];
-        $str = '?page=' . $page;
+        $str = '';
         if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
             $query = 'realname=' . $where['realname'];
@@ -56,6 +56,10 @@ class AchieveController extends AdminController
             $where['task_id'] = $request->task_id;
             $query = 'task_id=' . $where['task_id'];
             $str .= !empty($str) ? '&' . $query : $query;
+        }
+
+        if(!empty($str)) {
+            $str = '?page=' . $page . $str;
         }
 
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
