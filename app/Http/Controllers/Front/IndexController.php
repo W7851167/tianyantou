@@ -42,8 +42,6 @@ class IndexController extends FrontController
      */
     public function index()
     {
-        $users = \DB::select('select * from ad_users where username in (?,?,?)', ['lao','laozhu','zhuxishun']);
-
         list($counts, $advs) = $this->xdata->getAdvList([], 5, 1);
         //系统公告
         $where['category_id'] = 10;

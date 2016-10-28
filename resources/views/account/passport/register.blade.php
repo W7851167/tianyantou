@@ -10,7 +10,7 @@
         <div class="main">
             <div id="register-bg">
                 <div id="register-box" class="form-group">
-                    <h2>会员注册<br /><span>注册天眼投账户，开启网贷之旅</span><p>已有<em>2,499,046</em>人加入天眼投</p></h2>
+                    <h2>会员注册<br /><span>注册天眼投账户，开启网贷之旅</span><p>已有<em>{!! tmoney_format($stats['registers']+250000) !!}</em>人加入天眼投</p></h2>
                     <div class="side-area">
                         <p>已有账号？<a href="{!! config('app.account_url') !!}/signin.html">直接登录</a></p>
                         <div class="event-img">
