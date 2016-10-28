@@ -35,7 +35,7 @@ class AchieveController extends AdminController
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status' => $status] : [];
-        $str = '';
+        $str = '?page=' . $page;
         if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
             $query = 'realname=' . $where['realname'];
