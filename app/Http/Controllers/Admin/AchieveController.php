@@ -52,8 +52,8 @@ class AchieveController extends AdminController
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
         $corps = $this->taskRepository->corpModel->where('status', 1)->get();
-
-        return view('admin.achieve.index', compact('lists', 'pageHtml', 'status','corps'));
+        $tasks = $this->taskRepository->taskModel->where('status', 1)->get();
+        return view('admin.achieve.index', compact('lists', 'pageHtml', 'status','corps','tasks'));
     }
 
     /**
