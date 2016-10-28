@@ -109,7 +109,7 @@ class PassportController extends FrontController
             return $this->error('注册失败!', null, true);
         }
         $stats = $this->census->getHomeStats();
-        return view('account.passport.register');
+        return view('account.passport.register',compact('stats'));
     }
 
     /**
