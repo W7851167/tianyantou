@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\CensusRepository;
 use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
+use Illuminate\Support\Facades\Request;
 
 class HomeController extends AdminController
 {
@@ -57,5 +58,16 @@ class HomeController extends AdminController
         return view('admin.home.index', compact(
             'notices','latests','dayUserStats','monthUserStats','tasks'
         ));
+    }
+
+    /**
+     * @param Request $request
+     * 获取任务列表
+     */
+    public function ajaxTasks(Request $request)
+    {
+        return $this->tasks->taskModel
+            ->where('corp_id',$request->corp_id)
+            ->where('status',1)->get();
     }
 }

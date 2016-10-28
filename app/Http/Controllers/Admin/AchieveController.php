@@ -35,15 +35,25 @@ class AchieveController extends AdminController
     {
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         $where = isset($status) ? ['status' => $status] : [];
-        if ($request->realname) {
+        if (!empty($request->realname)) {
             $where['realname'] = trim($request->realname);
         }
-        if ($request->mobile) {
+        if (!empty($request->mobile)) {
             $where['mobile'] = trim($request->mobile);
         }
+        if(!empty($request->corp_id)) {
+            $where['corp_id'] = $request->corp_id;
+        }
+
+        if(!empty($request->task_id)) {
+            $where['task_id'] = $request->task_id;
+        }
+
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
         $pageHtml = $this->pager($count, $page, $this->perpage);
-        return view('admin.achieve.index', compact('lists', 'pageHtml', 'status'));
+        $corps = $this->taskRepository->corpModel->where('status', 1)->get();
+
+        return view('admin.achieve.index', compact('lists', 'pageHtml', 'status','corps'));
     }
 
     /**

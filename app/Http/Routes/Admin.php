@@ -19,6 +19,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //登录退出
     Route::any('passport/logout', ['as' => 'home.passport.logout', 'uses' => 'PassportController@logout']);
     Route::post('uploadImg', ['as' => 'home.passport.upload', 'uses' => 'PassportController@uploadImg']);
+    Route::post('ajax/tasks',['as'=>'home.ajax.tasks','uses'=>'HomeController@ajaxTasks']);
     //修改密码
     Route::match(['get', 'post'], 'passport/password', ['as' => 'home.passport.password', 'uses' => 'PassportController@password']);
     //控制面板
@@ -86,5 +87,4 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('news/del/{id}', ['as' => 'news.news.del', 'uses' => 'NewController@del']);
 });
 
-Route::get('test', 'TestController@index');
 

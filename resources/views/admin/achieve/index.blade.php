@@ -30,6 +30,24 @@
                     <form action="{!! url('achieve') !!}{!! isset($status)?'/'.$status:'' !!}" id="filterForm" method="GET">
                         <div class="comment-search-inner">
                             <div class="comment-search-goods">
+                                <p>
+                                    平台名称
+                                    <select name="corp_id">
+                                        <option value="0">全部平台&nbsp;&nbsp;</option>
+                                        @foreach($corps as $cv)
+                                            <option value="{!! $cv->id or '' !!}">{!! $cv->name or '' !!}</option>
+                                        @endforeach
+                                    </select>
+                                    任务名称:
+                                    <select name="task_id">
+                                        <option value="0">全部任务&nbsp;&nbsp;</option>
+                                        @foreach($tasks as $tv)
+                                            <option value="{!! $tv->id or '' !!}">{!! $tv->title or '' !!}</option>
+                                        @endforeach
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="comment-search-goods">
                                 <p>投资者<input type="text" name="realname" value="{!! Input::get('realname') !!}" /></p>
                             </div>
                             <div class="comment-search-person">
@@ -151,6 +169,13 @@
                 }else{
                     error('未选中任何审核记录!');
                 }
+            });
+
+            $('select[name="corp_id"]').change(function(){
+               var corpId = $(this).val();
+                $.post('ajax/tasks',{corp_id:corpId}, function(res){
+
+                });
             });
         });
     </script>

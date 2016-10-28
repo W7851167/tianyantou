@@ -42,8 +42,8 @@
     } else if (name_lens && !pw_lens) {
       showMsg('请输入密码');
       $password_input.focus();
-    } else if(name_lens && pw_lens && pw_lens <8){
-      showMsg('密码最少8位');
+    } else if(name_lens && pw_lens && pw_lens <6){
+      showMsg('密码最少6位');
       $password_input.focus();
     }else if(name_lens && pw_lens>=8 && $captcha.length && !captcha_lens){
       showMsg('请输入验证码');
