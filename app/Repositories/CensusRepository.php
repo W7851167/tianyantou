@@ -145,6 +145,7 @@ class CensusRepository extends BaseRepository
         foreach ($tasks as $task) {
             $task->investnums = $this->taskAchieveModel->where('task_id', $task->id)->count();
             $task->overplus = $task->nums - $task->investnums;
+            $task->reject = $this->taskAchieveModel->where('task_id',$task->id)->where('status',2)->count();
             $task->create = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 0)->sum('price');
             $task->commit = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 2)->sum('price');
             $task->complete = $this->taskAchieveModel->where('task_id', $task->id)->where('status', 1)->sum('price');
