@@ -94,6 +94,13 @@
                             <div><input class="Wdate" type="text" name="data[online]" placeholder="2016-09-09" value="{!! $corp->online or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-M-d'})"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>状态：</div>
+                            <div>
+                                <input type="radio" name = "data[status]" value="0" @if(empty($corp) || $corp->status == 0) checked @endif>停止
+                                <input type="radio" name = "data[status]" value="1" @if(!empty($corp) && $corp->status == 1) checked @endif>正常
+                            </div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>每个任务完成数限定：</div>
                             <div><input type="text" name="data[limit]" placeholder="任务完成数限定" value="{!! $corp->limit or 1 !!}"></div>
                         </div>
