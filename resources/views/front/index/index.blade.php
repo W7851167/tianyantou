@@ -27,7 +27,7 @@
                         <p class="trading-volume">撮合成交量：<span class="data-num" datanum="{!! tmoney_format($stats['total']+10000000000) !!}"></span>元</p>
                         <p class="user-number">累计用户数：<span class="data-num" datanum="{!! tmoney_format($stats['registers']+250000) !!}"></span>人</p>
                         <p class="earnings-num">累计产生收益：<span class="data-num" datanum="{!! tmoney_format($stats['income']+20000000) !!}"></span>元</p>
-                        <p class="fund-num">投资笔数：<span class="data-num" datanum="{!! tmoney_format($stats['itotal']+5000) !!}"></span>笔</p>
+                        <p class="fund-num">投资笔数：<span class="data-num" datanum="{!! tmoney_format($stats['itotal']+8000) !!}"></span>笔</p>
                     </div>
                     <div class="main-data-mask"></div>
                 </div>
