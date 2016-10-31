@@ -40,7 +40,7 @@
             <div class="honour-show">
                 <ul class="company-honour" id="honour-list">
                     <li>
-                        <a href="{!! config('app.topics_url') !!}/financing.html" target="_blank">
+                        <a href="javascript:;" target="_blank">
                             <div class="honour-iconcon">
                                 <span class="honour-icon"></span>
                                 <p class="honour-title">
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{!! config('app.topics_url') !!}/honorwall.html" target="_blank">
+                        <a href="javascript:;" target="_blank">
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon0"></span>
                                 <p class="honour-title">
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{!! config('app.topics_url') !!}/tplan.html" target="_blank">
+                        <a href="javascript:;" target="_blank">
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon1"></span>
                                 <p class="honour-title">
@@ -79,7 +79,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{!! config('app.url') !!}/about/latest/2274.html" target="_blank">
+                        <a href="javascript:;" target="_blank">
                             <div class="honour-iconcon">
                                 <span class="honour-icon honour-icon3"></span>
                                 <p class="honour-title">
