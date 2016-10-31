@@ -33,7 +33,7 @@
                                     <option value="0">请选择</option>
                                     @if(!empty($corps))
                                         @foreach($corps as $cv)
-                                            <option value="{!! $cv->id !!}" @if(!empty($task->corp_id)) selected @endif>{!! $cv->name !!}</option>
+                                            <option value="{!! $cv->id !!}" @if(!empty($task->corp_id) && $task->corp_id==$cv->id) selected @endif>{!! $cv->name !!}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -79,7 +79,7 @@
                             <div class="infospaceAddLeft"><span>*</span>期限：</div>
                             <div>
                                 <input type="text" style="width:160px;" name = "data[term]" placeholder="" value="{!! $task->term or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" >
-                                <select type="select" name="term_unit">
+                                <select type="select" name="data[term_unit]">
                                     <option value="0">天</option>
                                     <option value="1">月</option>
                                     <option value="2">年</option>
