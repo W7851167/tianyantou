@@ -51,8 +51,8 @@ class CorpController extends AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            if(!empty($data['brandlogo']))
-                $data['brandlogo'] = str_replace(config('app.static_url'), '', $data['brandlogo']);
+            if(!empty($data['logo']))
+                $data['logo'] = str_replace(config('app.static_url'), '', $data['logo']);
             if(!empty($data['chartered']))
                 $data['chartered'] = str_replace(config('app.static_url'), '', $data['chartered']);
             $pinyin = app()->make('LibraryManager')->create('pinyin');
