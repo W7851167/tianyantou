@@ -248,10 +248,11 @@ class PlatformController extends FrontController
                 return abort(500, '没有跳转的URL信息,请联系运营人员');
             }
             $newSign = $this->signature($appid, $task->url, $nonce, $timestamp);
-            if($newSign != $signature) {
+            if($newSign['signature'] != $signature) {
                 return abort(500, '签名错误');
             }
-            return redirect($task->url);
+            $url = strpos($task->url, 'http') !== false ? $task->url : 'http://'.$task->url;
+            return redirect($url);
         }
         return abort(500, '异常、请联系开发人员');
     }
