@@ -251,7 +251,7 @@ class TaskRepository extends BaseRepository
             $corpModel = $this->corpModel->find($data['corp_id']);
             if (!empty($data['corp_id']) && $data['status'] == 1) {
                 $ratio = (float)$data['ratio'];
-                $this->setCorp($corpModel, $data['start_time'], $data['end_time'], $ratio);
+                $this->setCorp($corpModel, $data['mratio'], $ratio);
             }
             if ($data['status'] == 0 || $data['status'] == 2) {
                 $this->initCorp($corpModel);
@@ -530,36 +530,29 @@ class TaskRepository extends BaseRepository
     private function initCorp($corpModel)
     {
         if (empty($corpModel->tasks))
-            return $this->setCorp($corpModel, 0, 0, 0);
-        $startTime = 0;
-        $endTime = 0;
+            return $this->setCorp($corpModel, 0, 0);
+        $minMratio = 0;
+        $maxMratio = 0;
         $minRatio = 0;
         $maxRatio = 0;
-        $maxDays = $minDays = 0;
         foreach ($corpModel->tasks as $task) {
             if ($task->status != 1) continue 1;
-            if ($startTime == 0)
-                $startTime = $task->start_time;
-            if ($endTime == 0)
-                $endTime = $task->end_time;
+            if ($minMratio == 0)
+                $minMratio = $task->mratio;
+            if ($maxMratio == 0)
+                $maxMratio = $task->mratio;
             if ($minRatio == 0)
                 $minRatio = $task->ratio;
             if ($maxRatio)
                 $maxRatio = $task->ratio;
-            $startTime = $startTime > $task->start_time ? $task->start_time : $startTime;
-            $endTime = $endTime > $task->end_time ? $endTime : $task->end_time;
-            $days = getDiffTime($startTime, $endTime);
-            $days = (int)$days;
-            if ($maxDays == 0)
-                $maxDays = $days;
-            if ($minDays == 0)
-                $minDays = $days;
             $minRatio = $minRatio > $task->ratio ? $task->ratio : $minRatio;
             $maxRatio = $maxRatio > $task->ratio ? $maxRatio : $task->ratio;
+            $minMratio = $minMratio > $task->mratio ? $task->mratio : $minMratio;
+            $maxMratio = $maxMratio > $task->mratio ? $maxMratio : $task->mratio;
         }
 
-        $corpModel->max_days = $maxDays;
-        $corpModel->min_days = $minDays;
+        $corpModel->max_myield = $maxMratio;
+        $corpModel->min_myield = $minMratio;
         $corpModel->min_yield = $minRatio;
         $corpModel->max_yield = $maxRatio;
         return $corpModel->save();
@@ -572,10 +565,8 @@ class TaskRepository extends BaseRepository
      * @param $ratio
      * 重新设置投资转化率
      */
-    private function setCorp($corpModel, $startTime, $endTime, $ratio)
+    private function setCorp($corpModel, $mratio, $ratio)
     {
-        $days = getDiffTime($startTime, $endTime);
-        $days = (int)$days;
         $ratio = (float)$ratio;
         if ($corpModel->min_yield == 0) {
             $corpModel->min_yield = $ratio;
@@ -592,18 +583,18 @@ class TaskRepository extends BaseRepository
             }
         }
 
-        if (empty($corpModel->min_days)) {
-            $corpModel->min_days = $days;
+        if (empty($corpModel->min_myield)) {
+            $corpModel->min_myield = $mratio;
         } else {
-            if ($corpModel->min_days > $days) {
-                $corpModel->min_days = $days;
+            if ($corpModel->min_myield > $mratio) {
+                $corpModel->min_myield = $mratio;
             }
         }
-        if (empty($corpModel->max_days)) {
-            $corpModel->max_days = $days;
+        if (empty($corpModel->max_myield)) {
+            $corpModel->max_myield = $mratio;
         } else {
-            if ($corpModel->max_days < $days) {
-                $corpModel->max_days = $days;
+            if ($corpModel->max_myield < $mratio) {
+                $corpModel->max_myield = $mratio;
             }
         }
         return $corpModel->save();
