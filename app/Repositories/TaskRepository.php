@@ -568,6 +568,7 @@ class TaskRepository extends BaseRepository
     private function setCorp($corpModel, $mratio, $ratio)
     {
         $ratio = (float)$ratio;
+        $mratio = (float)$mratio;
         if ($corpModel->min_yield == 0) {
             $corpModel->min_yield = $ratio;
         } else {
