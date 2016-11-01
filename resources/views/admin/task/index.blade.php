@@ -38,7 +38,7 @@
                         </div>
                     </form>
                 </div>
-                    <table class="all_shopping" cellspacing="0">
+                <table class="all_shopping" cellspacing="0">
                         <tr>
                             <th width='100'>平台名称</th>
                             <th width="180">任务标题</th>
@@ -81,6 +81,9 @@
                         @endforeach
                         @endif
                     </table>
+                <ul class="page_info page">
+                    {!! $pageHtml or '' !!}
+                </ul>
             </div>
         </div>
     </div>
