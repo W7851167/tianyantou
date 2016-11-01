@@ -226,11 +226,33 @@ class PlatformController extends FrontController
         $data['user_id'] = $this->user['id'];
         $data['ratio'] = $task->ratio;
         $data['mratio'] = $task->mratio;
-        $sign = $this->signature($id,$task->url,$ename);
+        $timestamp = time();
+        $sign = $this->signature($id,$task->url,$ename, $timestamp);
 
         $result = $this->tasks->saveReceive($data);
         if($result['status']) {
             return view('front.platform.login',compact('task','corp','sign'));
+        }
+        return abort(500, '异常、请联系开发人员');
+    }
+
+    public function redirect(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $signature = $request->get('signature');
+            $appid = $request->get('appid');
+            $nonce = $request->get('nonce');
+            $timestamp = $request->get('timestamp');
+            $task = $this->tasks->taskModel->find($appid);
+            if(empty($task->url)) {
+                return abort(500, '没有跳转的URL信息,请联系运营人员');
+            }
+            $newSign = $this->signature($appid, $task->url, $nonce, $timestamp);
+            if($newSign['signature'] != $signature) {
+                return abort(500, '签名错误');
+            }
+            $url = strpos($task->url, 'http') !== false ? $task->url : 'http://'.$task->url;
+            return redirect($url);
         }
         return abort(500, '异常、请联系开发人员');
     }
