@@ -31,8 +31,8 @@
                             <td>{!! $achieves->realname or '' !!}</td>
                             <td>{!! $achieves->price or 0.00 !!}</td>
                             <td>{!! $achieves->income or 0.00 !!}</td>
-                            <td>{!! $achieves->term or 0!!} {!! $achieves->task->term_unit == 0 ? '天' : ($receive->task->term_unit == 1 ? '个月' : '年')!!}</td>
-                            <td>{!! $achieves->receive->mratio or 0.00 !!}</td>
+                            <td>{!! $achieves->term or 0!!} {!! $achieves->task->term_unit == 0 ? '天' : ($achieves->task->term_unit == 1 ? '个月' : '年')!!}</td>
+                            <td>{!! $achieves->receive->mratio or 0.00 !!}%</td>
                         </tr>
                 </table>
                 <div style="margin-top: 30px;margin-left: 30px;"><h2> 审核信息 </h2>
@@ -59,13 +59,12 @@
                             <div><textarea class="addText" name="data[remark]">{!! $achieves->remark or '恭喜您获取' . $achieves->income . '元收入' !!}</textarea></div>
                         </div>
                     </div>
-                    @if($achieves->status == 0)
-                    <div class="w928">
+
+                    <div class="w928" @if( $achieves->status == 1 ||  $achieves->status == 2) style="display: none;" @endif>
                         <div class="button">
                             <input class="submit" type="submit"  value="提交">
                         </div>
                     </div>
-                    @endif
                 </form>
             </div>
         </div>
