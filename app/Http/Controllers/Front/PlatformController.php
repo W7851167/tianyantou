@@ -235,6 +235,26 @@ class PlatformController extends FrontController
         return abort(500, '异常、请联系开发人员');
     }
 
+    public function redirect(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $signature = $request->get('signature');
+            $appid = $request->get('appid');
+            $nonce = $request->get('nonce');
+            $timestamp = $request->get('timestamp');
+            $task = $this->tasks->taskModel->find($appid);
+            if(empty($task->url)) {
+                return abort(500, '没有跳转的URL信息,请联系运营人员');
+            }
+            $newSign = $this->signature($appid, $task->url, $nonce, $timestamp);
+            if($newSign != $signature) {
+                return abort(500, '签名错误');
+            }
+            return redirect($task->url);
+        }
+        return abort(500, '异常、请联系开发人员');
+    }
+
 
     private function signature($appId,$url = null, $nonce = null, $timestamp = null)
     {
