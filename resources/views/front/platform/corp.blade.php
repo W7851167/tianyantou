@@ -54,11 +54,11 @@
                             </td>
                             <td width="120" style="text-indent: 20px;">注册资本<span>{!! $corp->capital or 0 !!}</span></td>
                             <td class="safe" width="120">安全评级<span>{!! $corp->level or '' !!}</span></td>
-                            <td class="expire noborder" width="160">项目期限
-                                @if($corp->min_days == $corp->max_days)
-                                    <span  title="{!! dateFormat($corp->min_days) !!}">{!! dateFormat($corp->min_days) !!}</span>
+                            <td class="expire noborder" width="160">天眼投年化率
+                                @if($corp->min_myield == $corp->max_myield)
+                                    <span  title="{!! $corp->max_myield or 0.00 !!}%">{!! $corp->max_myield or 0.00 !!}%</span>
                                     @else
-                                <span  title="{!! dateFormat($corp->min_days) !!}-{!! dateFormat($corp->max_days) !!}">{!! dateFormat($corp->min_days) !!}-{!! dateFormat($corp->max_days) !!}</span>
+                                <span  title="{!! $corp->min_myield or 0.00 !!}%-{!! $corp->max_myield or 0.00 !!}%">{!! $corp->min_myield or 0.00 !!}%-{!! $corp->max_myield or 0.00 !!}%</span>
                                     @endif
                             </td>
                         </tr>
