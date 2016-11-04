@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-    {!! $category->title or '' !!} - 关于我们 - 天眼投
+    {!! $category->title or '' !!} - {!! $news->title or '' !!}
 @stop
 
 @section('content')
