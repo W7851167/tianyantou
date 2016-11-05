@@ -86,7 +86,7 @@
                             <td class="no-pleft">VIP费用：<span class="text-ellipsis"
                                                              style=" float:none;width: 100px;margin-left: 6px;"
                                                              title="无">无</span></td>
-                            <td>ICP备案：<span style="margin-left: 5px;">{!! $metas['icp_no'] !!}</span></td>
+                            <td>ICP备案：<span style="margin-left: 5px;">{!! $metas['icp_no'] or '' !!}</span></td>
                         </tr>
                         <tr>
                             <td colspan='2' style="color: #75b227;">重要提示：网贷有风险，投资需谨慎</td>
@@ -201,23 +201,23 @@
                                 </tr>
                                 <tr>
                                     <td><span>备案域名：</span></td>
-                                    <td>{!! $metas['icp_domain'] !!}</td>
+                                    <td>{!! $metas['icp_domain'] or '' !!}</td>
                                 </tr>
                                 <tr>
                                     <td><span>备案时间：</span></td>
-                                    <td>{!! $metas['icp_time'] !!}</td>
+                                    <td>{!! $metas['icp_time'] or '' !!}</td>
                                 </tr>
                                 <tr>
                                     <td><span>单位性质：</span></td>
-                                    <td>{!! $metas['icp_corp_type'] !!}</td>
+                                    <td>{!! $metas['icp_corp_type'] or '' !!}</td>
                                 </tr>
                                 <tr>
                                     <td><span>单位名称：</span></td>
-                                    <td>{!! $metas['icp_corp_name'] !!}</td>
+                                    <td>{!! $metas['icp_corp_name'] or '' !!}</td>
                                 </tr>
                                 <tr>
                                     <td><span>ICP备案号：</span></td>
-                                    <td>{!! $metas['icp_no'] !!}</td>
+                                    <td>{!! $metas['icp_no'] or '' !!}</td>
                                 </tr>
                                 </tbody>
                             </table>
