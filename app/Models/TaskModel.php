@@ -19,7 +19,7 @@ class TaskModel extends BaseModel
      */
     public function images()
     {
-        return $this->morphMany('App\Models\ImageModel', 'item');
+        return $this->morphMany(ImageModel::class, 'item');
     }
 
     /**
@@ -28,7 +28,7 @@ class TaskModel extends BaseModel
      */
     public function corp()
     {
-        return $this->belongsTo('App\Models\CorpModel','corp_id');
+        return $this->belongsTo(CorpModel::class,'corp_id');
     }
 
     /**
@@ -37,7 +37,7 @@ class TaskModel extends BaseModel
      */
     public function receives()
     {
-        return $this->hasMany('App\Models\TaskReceiveModel','task_id');
+        return $this->hasMany(TaskReceiveModel::class,'task_id');
     }
 
 }
