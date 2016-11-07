@@ -33,7 +33,7 @@
                             <div class="control-group">
                                 <label for="bankcard">提现支付宝</label>
                                 <div class="card-sketch">
-                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brand/zhifubao.png"></div>
+                                    <div class="card-img"><img src="{!! config('app.static_url') !!}/images/brandlogo/zhifubao.png"></div>
                                     <div class="card-id">支付宝账号:{!! substr_replace($bank->cardno,'*********',0,(strlen($bank->cardno) - 7)) !!}</div>
                                 </div>
                             </div>
