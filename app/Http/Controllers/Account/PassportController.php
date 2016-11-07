@@ -96,8 +96,9 @@ class PassportController extends FrontController
             if ($exists) {
                 return $this->error('该手机号码已注册天眼投账号!', null, true);
             }
-            $count = $this->userRepository->userModel->countBy() + 1;
-            $username = 'tyt' . $count + 250000;
+            $count = $this->userRepository->userModel->count();
+            $count += 250001;
+            $username = 'tyt' . $count;
             $user = $this->userRepository->userModel->where('mobile', $invite)->first();
             $data = [
                 'username' => $username,
