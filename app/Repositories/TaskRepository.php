@@ -251,7 +251,8 @@ class TaskRepository extends BaseRepository
             $corpModel = $this->corpModel->find($data['corp_id']);
             if (!empty($data['corp_id']) && $data['status'] == 1) {
                 $ratio = (float)$data['ratio'];
-                $this->setCorp($corpModel, $data['mratio'], $ratio);
+                $mratio = (float)$data['mratio'];
+                $this->setCorp($corpModel, $mratio, $ratio);
             }
             if ($data['status'] == 0 || $data['status'] == 2) {
                 $this->initCorp($corpModel);
