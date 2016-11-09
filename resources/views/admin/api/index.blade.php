@@ -22,9 +22,9 @@
                 </div>
                     <table class="all_shopping" cellspacing="0">
                         <tr>
-                            <th width="220">平台名称</th>
-                            <th width="200">接口说明</th>
-                            <th width="300">配置信息</th>
+                            <th width="120">平台名称</th>
+                            <th width="150">接口说明</th>
+                            <th width="400">配置信息</th>
                             <th>操作</th>
                         </tr>
                         @foreach($lists  as $lv)
@@ -32,7 +32,11 @@
                                 <td>{!! $lv->corp->name or '' !!}</td>
                                 <td>{!! $lv->intro or '' !!}</td>
                                 <td>
-                                   {!! $lv->options  or ''!!}
+                                   @if(!empty($lv->options))
+                                       @foreach($lv->options as $key=>$value)
+                                           <p>{!! $key or ''!!} : {!! $value or ''!!}</p>
+                                       @endforeach
+                                    @endif
                                 </td>
 
                                 <td>

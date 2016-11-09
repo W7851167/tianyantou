@@ -35,16 +35,35 @@
                             <div class="infospaceAddLeft"><span>*</span>接口说明：</div>
                             <div><input type="text" name="data[intro]" placeholder="接口说明" value="{!! $api->intro or '' !!}"></div>
                         </div>
+                        @if(!empty($api->options))
+                            @foreach($api->options as $key=>$value)
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>参数配置：</div>
+                            <div class="infospaceAddLeft"><span>*</span>参数{!! $key or '' !!}：</div>
                             <div>
-                                <textarea name="data[options]" class="addText" style="height: 200px;">
-                                 {!! $api->options or '' !!}
-                                </textarea>
-
+                                <input type="text" name="data[options][{!! $key !!}]" value="{!! $value or '' !!}">
                             </div>
                         </div>
-
+                            @endforeach
+                        @else
+                            <div class="infospaceAddContent clearfix">
+                                <div class="infospaceAddLeft"><span>*</span>参数api_key：</div>
+                                <div>
+                                    <input type="text" name="data[options][api_key]" value="">
+                                </div>
+                            </div>
+                            <div class="infospaceAddContent clearfix">
+                                <div class="infospaceAddLeft"><span>*</span>参数api_url：</div>
+                                <div>
+                                    <input type="text" name="data[options][api_url]" value="">
+                                </div>
+                            </div>
+                            <div class="infospaceAddContent clearfix">
+                                <div class="infospaceAddLeft"><span>*</span>参数api_type：</div>
+                                <div>
+                                    <input type="text" name="data[options][type]" value="">
+                                </div>
+                            </div>
+                        @endif
                     </div>
                     <div class="w928">
                         <div class="button">
