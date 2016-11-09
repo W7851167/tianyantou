@@ -22,15 +22,27 @@
                     <div>
                         <div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>名称：</div>
-                            <div><input type="text" name="data[name]" placeholder="平台" value="{!! $api->name or '' !!}"></div>
+                            <div>
+                                <select name="data[corp_id]">
+                                    <option value="0">全部平台&nbsp;&nbsp;</option>
+                                    @foreach($corps as $cv)
+                                        <option value="{!! $cv->id or '' !!}" @if(!empty($api->corp_id) && $api->corp_id == $cv->id) selected @endif>{!! $cv->name or '' !!}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>URL：</div>
-                            <div><input type="text" name="data[url]" placeholder="友情链接地址" value="{!! $link->url or '' !!}"></div>
+                            <div class="infospaceAddLeft"><span>*</span>接口说明：</div>
+                            <div><input type="text" name="data[intro]" placeholder="接口说明" value="{!! $api->intro or '' !!}"></div>
                         </div>
                         <div class="infospaceAddContent clearfix">
-                            <div class="infospaceAddLeft"><span>*</span>排序：</div>
-                            <div><input type="text" name="data[sorts]" placeholder="数值大靠前" value="{!! $link->sorts or '' !!}"></div>
+                            <div class="infospaceAddLeft"><span>*</span>参数配置：</div>
+                            <div>
+                                <textarea name="data[options]" class="addText" style="height: 200px;">
+                                 {!! $api->options or '' !!}
+                                </textarea>
+
+                            </div>
                         </div>
 
                     </div>

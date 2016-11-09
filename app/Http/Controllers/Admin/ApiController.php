@@ -36,7 +36,7 @@ class ApiController extends  AdminController
         $page = !empty($request->get('page')) ? $request->get('page') : 1;
         list($counts, $lists) = $this->api->getApiList([], $this->perpage, $page);
         $pageHtml = $this->pager($counts, $page, $this->perpage);
-        $corps = $this->census->corpModel->where('status', 1)->get();
+        $corps = $this->task->corpModel->where('status', 1)->get();
         return view('admin.api.index', compact('lists', 'pageHtml','corps'));
     }
 
@@ -48,7 +48,7 @@ class ApiController extends  AdminController
      */
     public function create(Request $request, $id = null)
     {
-        $corps = $this->census->corpModel->where('status', 1)->get();
+        $corps = $this->task->corpModel->where('status', 1)->get();
         if ($request->isMethod('post')) {
             $data = $request->get('data');
             $result = $this->api->saveApi($data);
@@ -69,7 +69,7 @@ class ApiController extends  AdminController
      * @param Request $request
      * 接口结果集合
      */
-    public function result(Request $request)
+    public function result(Request $request, $id)
     {
 
     }

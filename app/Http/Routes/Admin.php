@@ -42,8 +42,8 @@ Route::group(['middleware' => 'admin.auth'], function () {
 
     //接口管理
     Route::get('api',['as'=>'task.api.index','uses'=>'ApiController@index']);
-    Route::any('api/create',['as'=>'task.api.create', 'uses'=>'ApiController@create']);
-    Route::get('api/result', ['as'=>'task.api.result', 'uses'=>'ApiController@result']);
+    Route::any('api/create/{id?}',['as'=>'task.api.create', 'uses'=>'ApiController@create']);
+    Route::get('api/result/{id}', ['as'=>'task.api.result', 'uses'=>'ApiController@result']);
     //平台管理
     Route::get('corp', ['as' => 'task.corp.index', 'uses' => 'CorpController@index']);
     Route::any('corp/create/{id?}', ['as' => 'task.corp.create', 'uses' => 'CorpController@create']);

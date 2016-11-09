@@ -38,4 +38,18 @@ class ApiRepository extends  BaseRepository
         return [$counts, $lists];
     }
 
+    /**
+     * @param $data
+     * 保存api接口信息
+     */
+    public function saveApi($data)
+    {
+        if($this->apiModel->saveBy($data)) {
+            return $this->getSuccess('保存接口完成');
+        }
+        return $this->getError('保存接口异常');
+    }
+
+
+
 }

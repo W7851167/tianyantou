@@ -32,11 +32,7 @@
                                 <td>{!! $lv->corp->name or '' !!}</td>
                                 <td>{!! $lv->intro or '' !!}</td>
                                 <td>
-                                    @if(!empty($lv->options))
-                                        @foreach($lv->options as $key=>$value)
-                                        <p>key:{!! $key !!} value:{{$valule}}</p>
-                                        @endforeach
-                                    @endif
+                                   {!! $lv->options  or ''!!}
                                 </td>
 
                                 <td>
