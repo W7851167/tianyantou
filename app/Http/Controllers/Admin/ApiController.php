@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\ApiRepository;
 use App\Repositories\TaskRepository;
 use App\Repositories\XdataRepository;
+use GuzzleHttp\ClientInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -71,7 +72,29 @@ class ApiController extends  AdminController
      */
     public function result(Request $request, $id)
     {
+        $api = $this->api->apiModel->find($id);
+        $result = $this->getDefaultDriver($request, $api->options);
+        $result = json_decode($result,true);
+        return view('admin.api.result',compact('api','result'));
+    }
 
+    /**
+     * 获取默认驱动
+     */
+    private function getDefaultDriver($request, $options)
+    {
+        $startTime = $request->get('start_time');
+        $endTime = $request->get('end_time');
+        $startTime = !empty($startTime) ? $startTime : date('Y-m-d',strtotime('- 7days'));
+        $endTime = !empty($endTime) ? $endTime : date('Y-m-d');
+        $params['sign'] = md5($startTime . $endTime . md5($options['api_key']));
+        $params['startday'] = $startTime;
+        $params['endday'] = $endTime;
+        $params['type'] = $options['type'];
+        $url = $options['api_url'] . '?' . http_build_query($params);
+        $client = new \GuzzleHttp\Client();
+        $response  = $client->get($url);
+        return strval($response->getBody());
     }
 
 

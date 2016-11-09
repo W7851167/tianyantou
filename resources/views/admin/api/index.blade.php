@@ -50,11 +50,6 @@
                 <ul class="page_info page">
                     {!! $pageHtml !!}
                 </ul>
-                <!-- 友情链接 s-->
-
-                <ul class="page_info page">
-                    {!! $pageHtml !!}
-                </ul>
             </div>
         </div>
     </div>
