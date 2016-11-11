@@ -192,6 +192,7 @@ class PlatformController extends FrontController
             $metas = getMetas($corp->metas, $metas);
         }
 
+
         return view('front.platform.corp',compact('corp','metas'));
     }
 
