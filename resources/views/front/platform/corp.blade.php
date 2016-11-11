@@ -16,9 +16,9 @@
             <div class="main plat-detaile">
                 <div class="plat-evaluate">
                     <div id="safety-rating" style="width:330px;height:260px;margin-top: 10px;"></div>
-                    @if(!empty($corp->tasks[0]))
-                        <a href="javascript:;" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $corp->tasks[0]->id !!}" rel="platform_join"
-                           data-plat-url="{!! $corp->tasks[0]->url or '' !!}" class="btn btn-blue btn-allwidth">进入平台
+                    @if(!empty($ctask = $corp->tasks->where('status',1)->first()))
+                        <a href="javascript:;" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $ctask->id or 0 !!}" rel="platform_join"
+                           data-plat-url="{!! $ctask->url or '' !!}" class="btn btn-blue btn-allwidth">进入平台
                         </a>
                      @endif
                 </div>
