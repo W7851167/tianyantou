@@ -58,6 +58,10 @@
                     </ul>
                 </div>
                 <div class="f-code">
+                    <p id="f-fuwuhao">
+                        <img src="{!! config('app.static_url') !!}/images/common/f_service.jpg" alt="天眼投服务号" title="天眼投服务号" />
+                        <span>官方服务号</span>
+                    </p>
                 </div>
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
