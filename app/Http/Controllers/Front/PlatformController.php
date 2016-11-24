@@ -71,7 +71,7 @@ class PlatformController extends FrontController
                 5=>['AAA','AA','A','BBB','BB'],
                 6=>['AAA','AA','A','BBB','BB','B']
             ];
-            $where['in']['level'] = $grades[$search['grade']];
+            $where['in']['corps.level'] = $grades[$search['grade']];
         }
         //年收益查询
         if($search['overall'] > 0) {
@@ -84,30 +84,32 @@ class PlatformController extends FrontController
                     2 => [12,16],
                     3 => [8,12],
                 ];
-                $where['between']['max_yield'] = $overalls[$search['overall']];
+                $where['between']['corps.max_yield'] = $overalls[$search['overall']];
             }
         }
 
         if($search['time'] > 0) {
             if($search['time'] == 1) {
-                $where['max_days <='] = 30;
-                $where['max_days !='] = 0;
+                $where['tasks.term <='] = 30;
+                $where['tasks.term !='] = 0;
             }
             if($search['time'] == 2) {
-                $where['between']['max_days'] = [30,90];
+                $where['between']['tasks.term'] = [30,90];
             }
             if($search['time'] == 3) {
-                $where['between']['max_days'] = [90,180];
+                $where['between']['tasks.term'] = [90,180];
             }
             if($search['time'] == 4) {
-                $where['between']['max_days'] = [180,365];
+                $where['between']['tasks.term'] = [180,365];
             }
             if($search['time'] == 5) {
-                $where['max_days >='] = 365;
+                $where['tasks.term >='] = 365;
             }
         }
-        $where['status'] = 1;
-        list($counts,$lists) = $this->tasks->getCorpList($where,$this->perpage,$page);
+        $where['corps.status'] = 1;
+        $where['tasks.position'] = 1;
+        list($counts,$lists) = $this->tasks->getPlatformList($where,$this->perpage,$page);
+
         $result['total'] = $counts;
         $result['page']  = $page;
         $html = view('front.platform.lists', compact('lists'))->render();
