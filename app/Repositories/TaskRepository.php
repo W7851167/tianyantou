@@ -134,7 +134,25 @@ class TaskRepository extends BaseRepository
     }
 
     /**
-     * @param $data
+     * @param array $where
+     * @param int $limit
+     * @param int $page
+     * @return array
+     *
+     * 获取平台列表
+     */
+    public function getPlatformList( $where=[], $limit, $page)
+    {
+        $fields = ['corps.*','tasks.term','tasks.term_unit'];
+        $query = $this->corpModel->leftJoin('tasks', 'corps.id','=','tasks.corp_id')->select($fields);
+        $query = $this->corpModel->createWhere($query,$where);
+        $lists = $query->skip($limit *($page -1))->take($limit)->get();
+        $counts = $query->count();
+        return [$counts,$lists];
+    }
+
+    /**
+     * @param
      * 保存信息
      */
     public function saveCorp($data)
