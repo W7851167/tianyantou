@@ -66,7 +66,7 @@
                 <div class="f-hotline">
                     <span><i class="iconfont">&#xe615;</i>全国统一咨询热线</span>
                     <h2>010-57283503</h2>
-                    <p>天眼投投资交流3群：309104968</p>
+                    <p>天眼投投资交流6群：548722429</p>
                     <p>工作日&nbsp;9:00~20:30&nbsp;&nbsp;节假日&nbsp;10:00~18:00</p>
                 </div>
             </div>
@@ -177,12 +177,4 @@
 @yield('script')
 <script>
     var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</body>
-</html>
+    (functio
