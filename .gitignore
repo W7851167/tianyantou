@@ -1,0 +1,11 @@
+/vendor
+/node_modules
+.env
+/.idea
+/storage
+*.json
+.DS_Store
+/static/uploads
+.idea
+app.php
+session.php

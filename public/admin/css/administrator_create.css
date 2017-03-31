@@ -1,0 +1,173 @@
+
+/*----------------账号详情  start----------------------*/
+.navigation-message{
+	margin-top: 23px;
+}
+.navigation-message>li{
+	width:925px;
+	padding:7px 0;
+	line-height: 59px;
+	margin:0 6px;
+}
+.admin_create .message-tit{
+	float: left;
+	width: 130px;
+	text-align: right;
+	line-height: 30px;
+	color: #333333;
+}
+.role_create .message-tit{
+	float: left;
+	width: 131px;
+	text-align: right;
+	line-height: 30px;
+	color: #333333;
+}
+.message-tit span{
+	color: #FF3300;
+}
+.navigation-ct{
+	float: left;
+	line-height: 30px;
+	padding-left: 10px;
+}
+.role_create .navigation-ct{
+	width: 787px;
+	float: left;
+	line-height: 30px;
+	padding-left: 5px;
+}
+.navigation-ct .power-all-check{
+	padding-left: 13px;
+}
+.navigation-ct .power-all-check label{
+	color: #666666;
+	font-size: 14px;
+}
+.navigation-ct .power-all-check label input{
+	float: left;
+	margin: 9px 5px 0 0;
+}
+.navigation-ct-rad{
+	float: left;
+	margin-right: 20px;
+}
+.navigation-ct-editor{
+	width: 700px;
+	height: 300px;
+	border: 1px solid #E4E4E4;
+}
+.navigation-ct>select{
+	width:150px;
+	height: 30px;
+	float: left;
+	border:1px solid #a9a9a9;
+	margin-right: 10px;
+}
+.navigation-ct>input[type=text],input[type=password]{
+	width: 148px;
+	height: 28px;
+	border: 1px solid #A9A9A9;
+	float: left;
+	margin-right:10px;
+}
+.navigation-ct>input:focus{
+	border: 1px solid #7A9CD3;
+}
+.navigation-ct>p{
+	float: left;
+	color: #999999;
+}
+/*end*/
+.navigation-ct-btn{
+	margin: 20px auto;
+	width: 90px;
+}
+.navigation-ct-btn button{
+	width: 90px;
+	height: 30px;
+	color: #333;
+	line-height: 30px;
+	display: block;
+	background:#fff;
+	border:1px solid #dcdcdc;
+}
+.navigation-ct-btn button:hover{
+	background-color: #29e;
+	color:#fff;
+}
+/**/
+.power-page{
+	margin-top:10px;
+	color: #666666;
+}
+.power-page>li{
+	border:1px solid #E4E4E4;
+	padding:8px 0px 8px 13px;
+	margin-top: -1px;
+}
+.power-page>li:nth-child(odd){
+	background-color: #f1f1f1;
+}
+.power-page-all-check{
+	float: left;
+	width: 115px;
+}
+.power-page-ct{
+	padding-left: 10px;
+	width: 653px;
+	float: left;
+	border-left: 1px solid #E3E3E3;
+}
+.power-page-ct>li{
+	margin-right:40px;
+}
+.message-power{
+	width: 100%;
+	border:none;
+	padding-left: 0px;
+}
+.message-power>li:nth-child(5n){
+	margin-right: 63px;
+}
+.message-power>li:nth-child(6n){
+	margin-right: 0px;
+}
+.content-right-page{
+	padding-left:20px;
+}
+/*----------------账号详情  end----------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
