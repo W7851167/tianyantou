@@ -15,14 +15,9 @@ Route::get('/', ['as' => 'mindex', 'uses' => 'IndexController@index']);
 /**
  * 平台相关路由
  */
-<<<<<<< HEAD
-Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
-Route::get('platform/{ename}.html', ['as' => 'platform.detail', 'uses' => 'PlatformController@detail']);
-=======
 //Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
 Route::get('platform/{ename}.html', ['as' => 'platform.detail', 'uses' => 'PlatformController@detail']);
 
 
 
 
->>>>>>> 4179dbccf91a1df6a05e04aafbc9c57d4b798bd1
