@@ -12,8 +12,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Session;
+use App\Models\MoneyModel;
+use App\Models\PastModel;
 
 class MobileController extends Controller
 {
@@ -23,14 +23,20 @@ class MobileController extends Controller
 
     public function __initalize()
     {
-        $this->user = Session::get('user.passport');
-//        if(!empty($this->user) && $this->user['role'] != '管理员') {
-//            return abort(500,'非管理员不能登录超级后台');
-//        }
+        $this->middleware('redirect');
+        $this->user = \Session::get('user.passport');
+        if (!empty($this->user)) {
+            $action = \Route::current()->getActionName();
+            list($class, $method) = explode('@', $action);
+            $class = str_replace('controller', '', strtolower(substr(strrchr($class, '\\'), 1)));
+            view()->share('controller', $class);
+            view()->share('method', $method);
+            $pass = PastModel::where('user_id', $this->user['id'])->first();
+            view()->share('sign', getPast($pass));
+            $moneyModel = MoneyModel::where('user_id', $this->user['id'])->first();
+            view()->share('moneyModel', $moneyModel);
+        }
         view()->share('user', $this->user);
-        list($menu, $sidebarHtml) = getNavConfig();
-        view()->share('menu', $menu);
-        view()->share('silderMenu', $sidebarHtml);
     }
 
 
@@ -40,16 +46,21 @@ class MobileController extends Controller
      * @param int $每页数目
      * @param string 页数
      */
-    public function pager($count, $currentPage = 0, $perPage = 0, $pageUrl = '', $str = '', $ajax = false)
+    public function pager($count, $currentPage = 1, $perPage = 10, $ajax = false, $pageUrl = '')
     {
-        $currentPage = $currentPage ? $currentPage : Request::input('page');
-        $url = $pageUrl ? $pageUrl : url(Request::path());
-        $url = trim($url) . $str;
-        $limit = $perPage ? $perPage : $this->perpage;
-        $pager = app()->make('LibraryManager')->create('page');
-        $pageHtml = $pager->pageInit($count, $currentPage, $limit, $url, $ajax)->links();
-        if ($count == 0) $pageHtml = '';
+        $pager = app()->make('LibraryManager')->create('paginate');
+        $url = $pageUrl ? $pageUrl : url(\Request::path());
+        $pageHtml = $pager->pageInit($count, $currentPage, $perPage, $ajax, $url)->links();
+
         return $pageHtml;
+    }
+
+    public function filterModel($model)
+    {
+        if (empty($model)) {
+            return abort(404);
+        }
+        return $model;
     }
 
 
