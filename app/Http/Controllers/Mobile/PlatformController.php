@@ -35,10 +35,7 @@ class PlatformController extends MobileController
      */
     public function index(Request $request)
     {
-        $page = !empty($request->get('page')) ? $request->get('page') : 1;
-        $where['status'] = 1;
-        list($counts, $lists) = $this->tasks->getCorpList($where, $this->perpage,$page);
-        return view('front.platform.index', compact('lists','citys'));
+        return view('mobile.platform.index');
     }
 
     /**
@@ -80,6 +77,16 @@ class PlatformController extends MobileController
             $metas = getMetas($corp->metas, $metas);
         }
         return view('mobile.platform.detail',compact('corp','metas'));
+    }
+
+    /**
+     * @param $ename
+     * @return View
+     * 单平台数据详情
+     */
+    public function info()
+    {
+        return view('mobile.platform.info');
     }
 
 
