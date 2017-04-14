@@ -25,6 +25,11 @@ if (strtolower($prefix) == 'www') {
     $namespace = 'Account';
 } else if(strtolower($prefix) == 'auth') {
     $namespace = 'Auth';
+<<<<<<< HEAD
+=======
+} else if(strtolower($prefix) == 'm') {
+    $namespace = "Mobile";
+>>>>>>> a9b81174f79399fedfa45201b5e390ce0df67938
 } else { //解决composer时自动查找localhost的问题
     $namespace = 'Front';
 }
