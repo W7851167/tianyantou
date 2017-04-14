@@ -1,0 +1,422 @@
+/****************platform1************************/
+.platform{
+	width: 100%;
+}
+.platform .header{
+	width: 100%;
+	background: #57a3ef;
+	position: relative;
+}
+.plat-title{
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	font-size:22px ;
+}
+.platform .header img{
+	width: 8%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.platform .header-nav{
+	width: 100%;
+	background: #57a3ef;
+	font-size: 0;
+}
+.platform .header-nav a{
+	width: 50%;
+	text-align: center;
+	display: inline-block;
+	font-size: 18px;
+	color: #FFFFFF;
+	line-height: 30px;
+}
+.platform .content1{
+	width: 100%;			
+}
+.platform .content1 div{
+	overflow: hidden;	
+}
+.platform .content1 img{
+	width: 40%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-right: 2%;
+    float: left;				
+}
+.platform .content1 a{
+	width: 23%;
+    color: #bc8a4a;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    float: left;
+    margin-top: 7%;
+    margin-left: 2%;
+    border: 1px solid #bc8a4a;
+    border-radius: 5px;
+}
+.platform .content1 p{
+	width: 100%;
+    font-size: 18px;
+    color: #81807f;
+    margin-top: 5%;			    
+    text-indent: 2em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #bcbcbc;
+}
+.platform .title{
+	width: 100%;
+	font-size: 18px;
+    margin-top: 5%;
+    text-align: center;
+    margin-top: 5%;
+    font-weight: 600;
+}
+.platform .content2{
+	width: 100%;
+	background: #f0f0f0;
+	padding: 4% 0;
+	margin-top: 5%;
+	
+}
+.platform  .tit{
+	font-size: 22px;
+	font-weight: 700;				
+	width: 95%;
+	margin-left: 5%;
+    
+}
+.platform .content2 .titcont{
+	width: 90%;
+    padding: 0px 5%;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: justify;
+    margin-top: 2%;
+    color: #3d3d3d;
+}
+.platform .content3{
+	width: 100%;
+	margin-top: 5%;
+}
+.platform .content3 table{
+	width: 88%;
+	margin: 0 auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+.platform .content3 td{
+	border: 1px solid #0a0a0a;
+	font-weight: 600;
+	padding: 2% 0;
+	color: #000000;
+}
+.platform .content4{
+	width: 100%;
+	margin-bottom: 4%;
+}
+.platform .content4 .plat-img1{
+	width: 30%;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+.platform .content4 .plat-img2{
+	width: 16%;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+.platform  .content5{
+	width: 90%;
+	margin-left: 5%;
+	border-top: 1px solid #000000;
+}
+.platform  .content5 .cont5-tit{
+	font-size: 12px;
+    line-height: 18px;
+    text-align: left;
+    margin-top: 2%;
+    color: #3d3d3d;
+}
+.platform  .content5 .cont5-con{
+	font-size: 12px;
+    line-height: 18px;
+    text-align: justify;
+    margin-top: 2%;
+    color: #3d3d3d;
+}
+.foot{
+	margin-top:5% ;
+	width: 100%;
+	padding: 3% 0;
+	background: #eeeeee;				
+}
+.foot a{
+	width: 90%;
+	margin-left: 5%;
+	display: inline-block;
+	font-size: 26px;
+	color: #fff;
+	background: #ff0000;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+}
+.active{
+	background: #87baf0;
+}
+.platform .content1 .native{
+	color: #FF0000;
+	border: 1px solid #FF0000;
+}
+/****************platform1************************/
+
+/****************platform-blanks************************/
+
+
+.platfrom-blanks .pl-bl-t{
+	width: 100%;
+	font-size: 0;
+	margin-top: 5%;
+}
+.platfrom-blanks .pl-bl-t a{
+	display: inline-block;
+    width: 32.7%;
+    border: 1px solid #7a7a7a;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    color: #000000;
+}
+.platfrom-blanks .pl-bl-c{
+	width: 100%;
+	margin-top: 5%;
+	background: #f6f6f6;
+	padding: 5% 0;
+	
+}
+.platfrom-blanks .pl-bl-c .hc{
+	margin-left: 5%;
+    margin-top: 3%;
+    font-size: 20px;
+    font-weight: 700;
+}
+.platfrom-blanks .pl-bl-c .hc input{
+	width: 35%;
+	border: 0px;
+	border-bottom:1px solid #000000 ;
+	text-align: center;
+	background: #f6f6f6;
+	outline: none;
+}
+.platfrom-blanks .pl-bl-c .tc{
+	margin-left: 5%;
+    margin-top: 3%;
+    font-size: 16px;
+   
+}
+.platfrom-blanks .pl-bl-c .tc input{
+	width: 20%;
+	border: 0px;
+	border-bottom:1px solid #000000 ;
+	text-align: center;
+	color: #FF0000;
+	background: #f6f6f6;
+	outline: none;
+}
+.platfrom-blanks .pl-bl-c .p-right{
+	text-align: left;
+    margin-left: 54%;
+    margin-top: 3%;
+    font-size: 18px;
+    width: 43%;
+}
+.platfrom-blanks .pl-bl-c2{
+	width: 100%;
+	margin-top: 5%;
+	background: #f6f6f6;
+	padding: 5% 0;
+}
+.platfrom-blanks .pl-bl-c2 .tit{
+	margin-left: 5%;
+    margin-top: 3%;
+    font-size: 20px;
+    color: #000000;
+    font-weight: 700;
+}
+.platfrom-blanks .pl-bl-c2 .con{
+	width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-size: 12px;
+    color: #3d3d3d;
+    line-height: 16px;
+}
+.platfrom-blanks .win{
+	width: 100%;
+}
+
+/****************platform-blanks************************/
+/****************jpform-blanks************************/
+
+.jpform{
+	width: 100%;
+}
+.jpform .header{
+	width: 100%;
+	background: #57a3ef;
+	position: relative;
+}
+.jpform .plat-title{
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	font-size:22px ;
+}
+.jpform .header img{
+	width: 7%;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+.jpform .jpform-nav{
+	width: 100%;
+	background: #57a3ef;
+	padding: 3% 0;
+	font-size: 0;
+}
+.jpform .jpform-nav a{
+	width: 25%;
+	display: inline-block;
+	font-size: 18px;
+	color: #ffffff;
+	background: #57a3ef;
+	text-align: center;				
+}
+.jpform-con{
+	padding-bottom:18% ;
+}
+ .data-list{
+	width: 100%;
+	background: #f4f4f4;
+}
+ .data-list .data-title{
+	width: 90%;
+	padding:3% 5%;
+	overflow: hidden;
+	
+}
+ .data-title img{
+	width: 15%;
+	float: left;
+}
+ .data-title span{
+	float: left;
+    margin-top: 1%;
+    font-size: 13px;
+    margin-left: 5px;
+    color: #959595;
+}
+.data-list{
+	margin-bottom: 2%;
+}
+ .data-title a{
+	width: 44px;
+    color: #FFFFFF;
+    background: #52a8f7;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    border-radius: 7px;
+    float: right;
+}
+.data-list ul{
+	font-size: 0px;
+	padding-bottom: 5% ;
+}
+.data-list ul li{
+	width: 33%;
+	display: inline-block;
+	text-align: center;
+	font-size: 12px;
+}
+.data-list ul li p{
+	
+	margin-bottom: 3%;
+	color:#afafaf;
+}
+.data-list ul .con-red{
+	border-right: 1px solid #d2d2d2;
+}
+.data-list ul .con-red .rt{
+	font-size: 26px;
+	color: #FF0000;
+	margin-bottom: 2%;
+}
+.data-list .con-p p{
+	white-space: nowrap;
+	text-align: left;
+	margin-left: 10%;
+}
+.jpform-foot{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background:#f6f6f6 ;
+	border-top:1px solid #a8a8a8 ;
+	padding-top: 3%;
+}
+.jpform-foot ul{
+	font-size: 0;
+	padding-bottom: 2%;
+}
+.jpform-foot li{
+	display: inline-block;
+	width: 33.3%;
+	font-size: 13px;
+	text-align: center;
+}
+.jpform-foot li img{
+	width: 20%;
+	margin-bottom: 2px;
+}
+/****************jpform-blanks************************/
+
+
+/****************index************************/
+
+.header-sec{
+	width: 100%;
+	padding:5% 0;
+}
+.header-sec ul{
+	font-size: 0;
+}
+.header-sec ul li{
+	width: 25%;
+	text-align: center;
+	display: inline-block;
+}
+.header-sec ul img{
+	width: 69%;
+}
+.header-sec ul .last-img{
+	width: 84%;
+}
+.header-sec ul p{
+	white-space: nowrap;
+	color: #83cae0;
+	font-size: 10px;
+	margin-top: 2%;
+}
+.swiper-slide img{
+	width: 100%;
+}
+.jpform-foot a{
+	color: #3D3D3D;
+}

@@ -27,6 +27,8 @@ if (strtolower($prefix) == 'www') {
     $namespace = 'Auth';
 } else if(strtolower($prefix) == 'm') {
     $namespace = "Mobile";
+} else if(strtolower($prefix) == 'api') {
+    $namespace = "Api";
 } else { //解决composer时自动查找localhost的问题
     $namespace = 'Front';
 }
