@@ -42,24 +42,24 @@ class IndexController extends MobileController
 	 */
     public function index()
     {
-//       list($counts, $advs) = $this->xdata->getAdvList([], 5, 1);
-//		//系统公告
-//		$where['category_id'] = 10;
-//		list($counts, $notices) = $this->news->getNewList($where, 1, 5);
-//		//最新动态
-//		$where['category_id'] = 11;
-//		list($counts, $latests) = $this->news->getNewList($where, 1, 4);
-//		//投资攻略
-//		$where['category_id'] = 12;
-//		list($counts, $strategys) = $this->news->getNewList($where, 1, 6);
-//		//已上线项目
-//		unset($where);
-//		$where['status'] = 1;
-//		$where['position'] = 1;
-//		list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
-//		//links
-//		list($counts, $links) = $this->xdata->getLinkList([], 15, 1);
-//		$stats = $this->census->getHomeStats();
+       list($counts, $advs) = $this->xdata->getAdvList([], 5, 1);
+		//系统公告
+		$where['category_id'] = 10;
+		list($counts, $notices) = $this->news->getNewList($where, 1, 5);
+		//最新动态
+		$where['category_id'] = 11;
+		list($counts, $latests) = $this->news->getNewList($where, 1, 4);
+		//投资攻略
+		$where['category_id'] = 12;
+		list($counts, $strategys) = $this->news->getNewList($where, 1, 6);
+		//已上线项目
+		unset($where);
+		$where['status'] = 1;
+		$where['position'] = 1;
+		list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
+		//links
+		list($counts, $links) = $this->xdata->getLinkList([], 15, 1);
+		$stats = $this->census->getHomeStats();
 		return view('mobile.index.index', compact('advs', 'notices', 'tasks', 'latests', 'strategys', 'links','stats'));
     }
 

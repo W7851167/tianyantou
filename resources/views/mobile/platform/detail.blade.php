@@ -11,11 +11,11 @@
 <div class="platform">
     <div class="header">
         <a href="index.html"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
-        <p class="plat-title">点融网</p>
+        <p class="plat-title">{!! $corp->name or '' !!}</p>
     </div>
     <div class="header-nav">
-        <a class="active"  href="infor.html">投资信息</a>
-        <a href="platform.html">平台信息</a>
+        <a class="active"  href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}.html">投资信息</a>
+        <a href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}.info">平台信息</a>
     </div>
 
     <div class="content1">
@@ -81,8 +81,8 @@
             <p class="tit">
                 投资必看
             </p>
-            <p class="con">1，不在生菜网合作标的范围内且首投资格作废。</p>
-            <p class="con">2，未通过生菜跳转注册、投资和注册平台手机号与生菜网手机号不统一、不予返利。</p>
+            <p class="con">1，不在天眼投合作标的范围内且首投资格作废。</p>
+            <p class="con">2，未通过天眼投转注册、投资和注册平台手机号与天眼投手机号不统一、不予返利。</p>
         </div>
         <img class="win" src="//static.tianyantou.com/images/mobile/2win.png"/>
     </div>
@@ -107,7 +107,11 @@
         </p>
     </div>
     <div class="foot">
-        <a href="javascript:;">立即投资</a>
+        @if(!empty($ctask = $corp->tasks->where('status',1)->first()))
+            <a href="{!! $ctask->url or '' !!}" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $ctask->id or 0 !!}" rel="platform_join"
+               data-plat-url="{!! $ctask->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
+            </a>
+        @endif
     </div>
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>

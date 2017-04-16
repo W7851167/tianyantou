@@ -35,7 +35,10 @@ class PlatformController extends MobileController
      */
     public function index(Request $request)
     {
-        return view('mobile.platform.index');
+        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        $where['status'] = 1;
+        list($counts, $lists) = $this->tasks->getCorpList($where, $this->perpage,$page);
+        return view('mobile.platform.index', compact('lists','citys'));
     }
 
     /**
@@ -84,9 +87,40 @@ class PlatformController extends MobileController
      * @return View
      * 单平台数据详情
      */
-    public function info()
+    public function info($ename)
     {
-        return view('mobile.platform.info');
+        $corp = $this->tasks->getCorpByEname($ename);
+        $corp = $this->filterModel($corp);
+        $metas['icp_domain'] = '';
+        $metas['icp_corp_type'] = '';
+        $metas['icp_time'] = '';
+        $metas['icp_corp_name'] = '';
+        $metas['icp_no'] = '';
+        $metas['credentials'] = '';
+        $metas['office_address'] = '';
+        //资本充足率
+        $metas['capital_adequacy'] = '';
+        //运营能力比率
+        $metas['operating_capacity'] = '';
+        //流动性
+        $metas['flowability'] = '';
+        //分散率
+        $metas['dissemination'] = '';
+        //透明去
+        $metas['transparency'] = '';
+        //违约比率
+        $metas['contract_rate'] = '';
+        //担保机构
+        $metas['assure'] = '';
+        //担保方式
+        $metas['pattern'] = '';
+        //荣誉
+        $metas['honour_1'] = $metas['honour_2'] = $metas['honour_3'] = '';
+        $metas['honour_corp_1'] = $metas['honour_corp_2'] = $metas['honour_corp_3'] = '';
+        if(!empty($corp->metas[0])) {
+            $metas = getMetas($corp->metas, $metas);
+        }
+        return view('mobile.platform.info',compact('corp','metas'));
     }
 
 

@@ -18,6 +18,8 @@ Route::get('/', ['as' => 'mindex', 'uses' => 'IndexController@index']);
 Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
 Route::get('platform/{ename}.html', ['as' => 'platform.detail', 'uses' => 'PlatformController@detail']);
 Route::get('platform/{ename}.info', ['as' => 'platform.info', 'uses' => 'PlatformController@info']);
+Route::get('platform/login/{corp}/{task_id}', ['as' => 'platform.login', 'uses' => 'PlatformController@login']);
+Route::any('platform/redirect', ['as' => 'platform.redirect', 'uses' => 'PlatformController@redirect']);
 
 
 

@@ -15,26 +15,27 @@
 <div class="platform">
     <div class="header">
         <a href="index.html"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
-        <p class="plat-title">点融网</p>
+        <p class="plat-title">{!! $corp->name or '' !!}</p>
     </div>
     <div class="header-nav">
-        <a  href="infor.html">投资信息</a>
-        <a class="active" href="platform.html">平台信息</a>
+        <a  href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}.html">投资信息</a>
+        <a class="active" href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}.html">平台信息</a>
     </div>
 
     <div class="content1">
         <div >
-            <img src="//static.tianyantou.com/images/mobile/log1.jpg"/>
+            <img src="{!! config('app.static_url') !!}{!! $corp->logo or '' !!}"/>
             <a class="native" href="javascript:;">商家返现</a>
             <a href="javascript:;">仅限首投</a>
         </div>
         <p>关键词：前海上市（666339）</p>
 
     </div>
-    <p class="title">天眼投综合评级：A</p>
+    <p class="title">天眼投综合评级：{!! $corp->level or '' !!}</p>
     <div class="content2">
         <p class="tit">平台简介</p>
-        <p class="titcont">
+            {!! $corp->article->content or '' !!}
+        <!--<p class="titcont">
             点融网是中国领先的互联网金融公司，2012年，由Lendin Club的联合创始人，前技术总监苏海德（Soul Htite）与上海
             知名律师、私募基金合伙人郭宇航共同创立，总部位于上海。平台上线时间为2013年3月，目前点融网在全国有28个网点
             。2600多名员工。
@@ -50,7 +51,7 @@
         <p class="titcont">
             银行解决方案专注于利用技术协助大型金融机构从传统运营模式转换成现代互联网金融驱动的业务模式。点融网的解决方案
             基于自身平台多年的运营科技和风险管理技术。
-        </p>
+        </p>-->
     </div>
     <div class="content3">
         <p class="tit">平台档案</p>
@@ -65,11 +66,11 @@
             </tr>
             <tr>
                 <td width="40%">提现门槛</td>
-                <td width="60%"></td>
+                <td width="60%">免费</td>
             </tr>
             <tr>
                 <td width="40%">VIP费用</td>
-                <td width="60%"></td>
+                <td width="60%">无</td>
             </tr>
             <tr>
                 <td width="40%">起息时间</td>
@@ -97,23 +98,34 @@
             </tr>
             <tr>
                 <td width="40%">上线时间</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $corp->online or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">注册资本</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $corp->capital or 0 !!}</td>
             </tr>
             <tr>
                 <td width="40%">ICP备案</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_no'] or '' !!}</td>
             </tr>
         </table>
     </div>
     <div class="content4">
         <p class="tit">平台证照</p>
-        <img class="plat-img1"  src="//static.tianyantou.com/images/mobile/pID1.jpg"/>
+        @if(!empty($metas['credentials']))
+            <?php $count = count($metas['credentials']); $len = $count / 5 + 1; ?>
+                @for($i=0; $i<$len; $i++)
+                    @for($l=0;$l<5;$l++)
+                        <?php $key = 5 * $i + $l;?>
+                        @if(!empty($metas['credentials'][$key]))
+                            <img src="{!! $metas['credentials'][$key] !!}"/>
+                        @endif
+                    @endfor
+                @endfor
+            @endif
+        <!--<img class="plat-img1"  src="//static.tianyantou.com/images/mobile/pID1.jpg"/>
         <img class="plat-img2" src="//static.tianyantou.com/images/mobile/pID2.jpg"/>
-        <img class="plat-img1" src="//static.tianyantou.com/images/mobile/pID3.jpg"/>
+        <img class="plat-img1" src="//static.tianyantou.com/images/mobile/pID3.jpg"/>-->
     </div>
     <div class="content5">
         <p class="cont5-tit">*风险提示：</p>
@@ -132,10 +144,14 @@
         </p>
     </div>
     <div class="foot">
-        <a href="javascript:;">立即投资</a>
+        @if(!empty($ctask = $corp->tasks->where('status',1)->first()))
+            <a href="{!! $ctask->url or '' !!}" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $ctask->id or 0 !!}" rel="platform_join"
+               data-plat-url="{!! $ctask->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
+            </a>
+        @endif
     </div>
 </div>
-<script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="{!! config('app.static_url') !!}/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function(){
         $(".header-nav a").click(function(){
@@ -146,5 +162,28 @@
         })
     })
 </script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/lib/jquery-1.11.3.min.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/lib/jquery.dotdotdot.min.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/lib/prettyPhoto/jquery.prettyPhoto.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/imgopacity.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript" src="{!!config('app.static_url')!!}/js/lib/jquery.form.min.js"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/imgmove.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/tab.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/form.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/login.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/echarts-all.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/plugins/main.js?ver={!! date('YmdHIs') !!}"></script>
+<script type="text/javascript"
+        src="{!! config('app.static_url') !!}/js/lib/laypage/laypage.js?ver={!! date('YmdHIs') !!}"></script>
 </body>
 </html>
