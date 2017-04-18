@@ -10,7 +10,7 @@
 <body>
 <div class="platform">
     <div class="header">
-        <a href="index.html"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="/platform"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">{!! $corp->name or '' !!}</p>
     </div>
     <div class="header-nav">

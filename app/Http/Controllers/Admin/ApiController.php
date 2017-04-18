@@ -20,6 +20,9 @@ use App\Repositories\XdataRepository;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Log;
+use Cache;
+use Illuminate\Routing\Controller;
 
 class ApiController extends  AdminController
 {
@@ -73,11 +76,14 @@ class ApiController extends  AdminController
     public function result(Request $request, $id)
     {
         $api = $this->api->apiModel->find($id);
-        $result = $this->getDefaultDriver($request, $api->options);
-        $result = json_decode($result,true);
-        return view('admin.api.result',compact('api','result'));
+        $api_key = $api->options['api_key'];
+//        var_dump($api->options['api_key']);exit;
+//        $options['api_url'] = 'http://api.niwodai.com/interface/callHttpInterfaces.do';
+//        $result = $this->getDefaultDriver($request, $api->options);
+//        $result = $this->getDefaultDriver($request, $options);var_dump($result);exit;
+//        $result = json_decode($result,true);
+        return view("admin.api.$api_key",compact('api','api_key'));
     }
-
     /**
      * 获取默认驱动
      */
@@ -91,10 +97,7 @@ class ApiController extends  AdminController
         $params['startday'] = $startTime;
         $params['endday'] = $endTime;
         $params['type'] = $options['type'];
-        $url = $options['api_url'] . '?' . http_build_query($params);
-        $client = new \GuzzleHttp\Client();
-        $response  = $client->get($url);
-        return strval($response->getBody());
+//        $url = $options['api_url'] . '?' . http_build_query($params);
     }
 
 

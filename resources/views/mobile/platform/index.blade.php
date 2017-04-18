@@ -10,7 +10,7 @@
 <body>
 <div class="jpform">
     <div class="header">
-        <a href="index.html"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="/"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">平台筛选</p>
     </div>
     <div class="jpform-nav">
@@ -26,7 +26,7 @@
             <div class="data-title">
                 <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}"/>
                 <span>{!! $cv->name or '' !!}</span>
-                <a href="javascript:;">首投</a>
+                <a href="{!! config('app.m_url') !!}/platform/{!! $cv->ename or ''!!}.html">首投</a>
             </div>
             <ul>
                 <li class="con-red">
