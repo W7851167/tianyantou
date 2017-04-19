@@ -24,7 +24,7 @@
         @foreach($lists as $cv)
         <div class="data-list">
             <div class="data-title">
-                <img src="{!! config('app.static_url') !!}{!! $cv->logo  or ''!!}" alt="{!! $cv->platform !!}"/>
+                <img src="{!! config('app.static_url') !!}{!! $cv->m_logo  or ''!!}" alt="{!! $cv->platform !!}"/>
                 <span>{!! $cv->name or '' !!}</span>
                 <a href="{!! config('app.m_url') !!}/platform/{!! $cv->ename or ''!!}.html">首投</a>
             </div>

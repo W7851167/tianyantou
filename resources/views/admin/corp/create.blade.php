@@ -43,6 +43,23 @@
                         </div>
                         <div class="infospaceAddContent clearfix">
                         </div>
+
+                        <!--移动端LOGO-->
+                        <div class="infospaceAddImg">
+                            <div class="infospaceAddLeft h80"><span>*</span>移动端LOGO：</div>
+                            <div id="storeimg">
+                                <a class="clickUpload" id="uploadMImg" href="javascript:void(0)">点击上传</a>
+                            </div>
+                            <p class="hint">必须上传100*50px生成的图片！</p>
+                            <ul class="imgbox" id="mlogoShow" style="width: 100px;height: 50px;">
+                                @if(!empty($corp->m_logo))
+                                    <img style="width:100px;height:50px;" src="{!! config('app.static_url').$corp->m_logo !!}">
+                                    <input type="hidden" name="data[m_logo]" value="{!! $corp->m_logo or '' !!}" />
+                                @endif
+                            </ul>
+                        </div>
+                        <!--移动端LOGO-->
+
                         <div class="infospaceAddImg">
                             <div class="infospaceAddLeft h80"><span>*</span>营业执照：</div>
                             <div id="storeimg">
@@ -165,6 +182,32 @@
                     var html = '<img style="width:180px;" src="' + data.info[180180] + '">';
                     html += '<input type="hidden" name="data[logo]" value="' + data.info[180180] + '" />'
                     $('#logoShow').html(html);
+                }
+            },
+
+        });
+
+        $('#uploadMImg').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':100,'height0':50, 'type0':1},
+            'buttonText':'',
+            'width':'82',
+//            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': false,
+            'button_height':36,
+            'button_width':88,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if (data.status == 1) {
+                    var html = '<img style="width:100px;height:50px;" src="' + data.info[10050] + '">';
+                    html += '<input type="hidden" name="data[m_logo]" value="' + data.info[10050] + '" />'
+                    $('#mlogoShow').html(html);
                 }
             },
 

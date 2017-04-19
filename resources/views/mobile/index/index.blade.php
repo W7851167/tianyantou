@@ -17,7 +17,7 @@
                     @foreach($advs as $av)
                         @if(!empty($av->image->name))
                             <div class="swiper-slide">
-                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->image->name !!}" alt="{!! $av->title !!}"/></a>
+                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->image->name !!}" alt="{!! $av->title !!}"  style="width:360px;height: 177px;"/></a>
                             </div>
                         @endif
                     @endforeach
@@ -47,9 +47,9 @@
     <div class="jpform-con">
 
         @foreach($tasks as $tv)
-        <div class="data-list">
+        <div class="data-list" style="cursor:pointer;">
             <div class="data-title">
-                <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo or ''!!}"/>
+                <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo or ''!!}" style="height:18px;width: 49px;"/>
                 <span>{!! $tv->title or '' !!}</span>
                 <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}.html">首投</a>
             </div>
@@ -117,7 +117,6 @@
         </ul>
     </div>
 </div>
-
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/swiper.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
@@ -129,6 +128,12 @@
         prevButton:".swiper-button-prev",/*前进按钮*/
         nextButton:".swiper-button-next",/*后退按钮*/
         autoplay:3000/*每隔3秒自动播放*/
+    })
+    $(function(){
+        $(".data-list").click(function(){
+            var url = $(this).find("a").attr("href");
+            window.location.href=url;
+        })
     })
 </script>
 </body>
