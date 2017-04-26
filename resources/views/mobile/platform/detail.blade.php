@@ -42,7 +42,11 @@
                 元
             </p>
             <p class="hc">
-                期限：<span>(1)</span><span>(月)</span>
+						期限：<select>
+								<option>（1）月	</option>
+								<option>（2）月	</option>
+								<option>（3）月	</option>
+							</select>
             </p>
             <p class="tc">
                 天眼投加息奖励：
@@ -115,6 +119,7 @@
     </div>
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//static.tianyantou.com/js/mobile/new_file.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function(){
         $(".header-nav a").click(function(){

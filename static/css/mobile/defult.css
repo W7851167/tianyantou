@@ -83,7 +83,7 @@
 	
 }
 .platform  .tit{
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 700;				
 	width: 95%;
 	margin-left: 5%;
@@ -154,16 +154,20 @@
 	background: #eeeeee;				
 }
 .foot a{
-	width: 90%;
-	margin-left: 5%;
+	
+	left: 5%;
+	width: 90%;	
 	display: inline-block;
-	font-size: 26px;
+	font-size: 18px;
 	color: #fff;
+	margin-left: 5%;	
 	background: #ff0000;
 	text-align: center;
-	height: 40px;
-	line-height: 40px;
+	height: 30px;
+	line-height: 30px;
 	border-radius: 5px;
+	
+	box-shadow: 4px 0 7px #6d6868, /*”“±ﬂ“ı”∞ */ 0 6px 6px #7A7A7A;
 }
 .active{
 	background: #87baf0;
@@ -194,7 +198,6 @@
 }
 .platfrom-blanks .pl-bl-c{
 	width: 100%;
-	margin-top: 5%;
 	background: #f6f6f6;
 	padding: 5% 0;
 	
@@ -202,7 +205,7 @@
 .platfrom-blanks .pl-bl-c .hc{
 	margin-left: 5%;
     margin-top: 3%;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 .platfrom-blanks .pl-bl-c .hc input{
@@ -244,7 +247,7 @@
 .platfrom-blanks .pl-bl-c2 .tit{
 	margin-left: 5%;
     margin-top: 3%;
-    font-size: 20px;
+    font-size: 18px;
     color: #000000;
     font-weight: 700;
 }
@@ -340,7 +343,7 @@
 	padding-bottom: 5% ;
 }
 .data-list ul li{
-	width: 33%;
+	width: 32%;
 	display: inline-block;
 	text-align: center;
 	font-size: 12px;
@@ -354,7 +357,7 @@
 	border-right: 1px solid #d2d2d2;
 }
 .data-list ul .con-red .rt{
-	font-size: 26px;
+	font-size: 24px;
 	color: #FF0000;
 	margin-bottom: 2%;
 }
@@ -367,13 +370,14 @@
 	width: 100%;
 	position: fixed;
 	bottom: 0;
-	background:#f6f6f6 ;
+	background:#ffffff ;
 	border-top:1px solid #a8a8a8 ;
 	padding-top: 3%;
 }
 .jpform-foot ul{
 	font-size: 0;
 	padding-bottom: 2%;
+	
 }
 .jpform-foot li{
 	display: inline-block;
@@ -383,7 +387,19 @@
 }
 .jpform-foot li img{
 	width: 20%;
-	margin-bottom: 2px;
+	
+	
+	
+	
+	
+}
+.hc select{
+	font-size: 20px;
+	color: #000000;
+	text-align: center;
+	outline: none;
+	border: 1px solid #f6f6f6;
+	background: #f6f6f6;
 }
 /****************jpform-blanks************************/
 
@@ -416,7 +432,24 @@
 }
 .swiper-slide img{
 	width: 100%;
+	
 }
 .jpform-foot a{
 	color: #3D3D3D;
+}
+body{
+	font-family: "Œ¢»Ì—≈∫⁄";
+}
+.jpform-foot li div{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	
+}
+.jpform-foot li .nmactive{
+	background:#000;
+}
+.jpform-foot li img{
+	width: 20px;
+	height: 20px;
 }

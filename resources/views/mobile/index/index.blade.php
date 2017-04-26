@@ -98,20 +98,20 @@
         <ul>
             <li>
                 <a href="{!! config('app.m_url') !!}">
-                    <img src="//static.tianyantou.com/images/mobile/biao1.png"/>
+                    <img src="//static.tianyantou.com/images/mobile/h1-1.png"/>
                 </a>
                 <p>首页</p>
 
             </li>
             <li>
                 <a href="{!! config('app.m_url') !!}/platform">
-                    <img src="//static.tianyantou.com/images/mobile/biao2.png"/>
+                    <img src="//static.tianyantou.com/images/mobile/h2.png"/>
                 </a>
                 <p>精选</p>
 
             </li>
             <li>
-                <img src="//static.tianyantou.com/images/mobile/biao3.png"/>
+                <img src="//static.tianyantou.com/images/mobile/h3.png"/>
                 <p>我的</p>
             </li>
         </ul>
