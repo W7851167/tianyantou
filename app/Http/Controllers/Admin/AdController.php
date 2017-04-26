@@ -49,6 +49,8 @@ class AdController extends  AdminController
             $data = $request->get('data');
             if(!empty($data['img']))
                 $data['img'] = str_replace(config('app.static_url'), '', $data['img']);
+			if(!empty($data['m_img']))
+                $data['m_img'] = str_replace(config('app.static_url'), '', $data['m_img']);
             $result = $this->xdata->saveAdv($data);
             if($result['status'])
                 return $this->success($result['message'],url('ad'),true);

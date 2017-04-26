@@ -15,9 +15,9 @@
             <div class="swiper-wrapper">
                 @if(!empty($advs))
                     @foreach($advs as $av)
-                        @if(!empty($av->image->name))
+                        @if(!empty($av->m_img))
                             <div class="swiper-slide">
-                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->image->name !!}" alt="{!! $av->title !!}"  style="height: 177px;"/></a>
+                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->m_img !!}" alt="{!! $av->title !!}"  style="height: 176px;"/></a>
                             </div>
                         @endif
                     @endforeach

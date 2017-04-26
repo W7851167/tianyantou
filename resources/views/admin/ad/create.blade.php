@@ -45,6 +45,21 @@
                                @endif
                             </ul>
                         </div>
+                        <!--移动端轮播-->
+						<div class="infospaceAddImg">
+                            <div class="infospaceAddLeft h80"><span>*</span>移动端图片：</div>
+                            <div id="storeimg">
+                                <a class="clickUpload" id="uploadMImg" href="javascript:void(0)">点击上传</a>
+                            </div>
+                            <p class="hint">必须上传674*176的图片！</p>
+                            <ul class="imgbox m_img"  style="width: 674px;height: 176px;">
+                                @if(!empty($adv->m_img))
+                                    <img style="width: 674px;height: 176px;" src="{!! config('app.static_url').$adv->m_img !!}">
+                                    <input type="hidden" name="data[m_img]" value="{!! $adv->m_img or '' !!}" />
+                               @endif
+                            </ul>
+                        </div>
+                        <!--移动端轮播-->
                     </div>
                     <div class="w928">
                         <div class="button">
@@ -87,6 +102,32 @@
                     var html = '<img style="width:674px;" src="' + data.info[1349246] + '">';
                     html += '<input type="hidden" name="data[img]" value="' + data.info[1349246] + '" />'
                     $('.imgbox').html(html);
+                }
+            },
+
+        });
+		//移动端图片
+		$('#uploadMImg').uploadify({
+            'onInit': function () {$("#queueID").hide();},
+            'swf'      : '/vendor/uploadify/uploadify.swf',
+            'uploader' : '/uploadImg',
+            'formData' :{'width0':674,'height0':176, 'type0':1},
+            'buttonText':'',
+            'width':'82',
+//            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
+            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
+            'multi': false,
+            'button_height':36,
+            'button_width':88,
+            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
+            'fileSizeLimit' : '2MB',
+            'queueID': 'queueID',
+            'onUploadSuccess' : function(file,data) {
+                data = eval('('+data+')');
+                if (data.status == 1) {
+                    var html = '<img style="width:674px;123px;" src="' + data.info[674176] + '">';
+                    html += '<input type="hidden" name="data[m_img]" value="' + data.info[674176] + '" />'
+                    $('.m_img').html(html);
                 }
             },
 
