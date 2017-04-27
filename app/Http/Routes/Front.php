@@ -12,6 +12,7 @@
 
 //首页
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+Route::get('/thirdPlatform', ['as' => 'index', 'uses' => 'IndexController@thirdPlatform']);
 //选平台
 Route::get('platform', ['as' => 'platform', 'uses' => 'PlatformController@index']);
 Route::get('platform/{ename}.html', ['as' => 'platform.corp', 'uses' => 'PlatformController@corp']);

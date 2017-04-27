@@ -62,4 +62,13 @@ class IndexController extends FrontController
         $stats = $this->census->getHomeStats();
         return view('front.index.index', compact('advs', 'notices', 'tasks', 'latests', 'strategys', 'links','stats'));
     }
+
+    /**
+     * 第三方跳转
+     */
+    public function thirdPlatform()
+    {
+        $url = "http://m.niwodai.com/index.do?method=acReg&artId=5820160000006480&nwd_ext_aid=5020160090133035&v=http%253a%252f%252fm.niwodai.com%252factivity.mhtml%253fartId%253d5820160000006483";
+        return redirect($url);
+    }
 }

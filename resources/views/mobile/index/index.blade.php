@@ -63,7 +63,6 @@
                     <p>期 限</p>
                 </li>
                 <li class="con-p">
-                    <p>返利上限：2000元 </p>
                     <p>起投金额：100元 </p>
                     <p>最大金额：{!! tmoney_format($tv->limit) !!}</p>
                 </li>
