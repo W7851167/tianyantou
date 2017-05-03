@@ -11,7 +11,7 @@
 	text-align: center;
 	line-height: 40px;
 	color: #fff;
-	font-size:22px ;
+	font-size:20px ;
 }
 .platform .header img{
 	width: 8%;
@@ -151,7 +151,8 @@
 	margin-top:5% ;
 	width: 100%;
 	padding: 3% 0;
-	background: #eeeeee;				
+	background: #eeeeee;
+			
 }
 .foot a{
 	
@@ -167,7 +168,7 @@
 	line-height: 30px;
 	border-radius: 5px;
 	
-	box-shadow: 4px 0 7px #6d6868, /*”“±ﬂ“ı”∞ */ 0 6px 6px #7A7A7A;
+	box-shadow: 4px 0 7px #6d6868, /*Âè≥ËæπÈò¥ÂΩ± */ 0 6px 6px #7A7A7A;
 }
 .active{
 	background: #87baf0;
@@ -438,7 +439,7 @@
 	color: #3D3D3D;
 }
 body{
-	font-family: "Œ¢»Ì—≈∫⁄";
+	font-family: "ÂæÆËΩØÈõÖÈªë";
 }
 .jpform-foot li div{
 	display: inline-block;
@@ -452,4 +453,73 @@ body{
 .jpform-foot li img{
 	width: 20px;
 	height: 20px;
+}
+
+
+/***********************submit****************************/
+.submit-btn{
+	width: 50%;
+    display: inline-block;
+    background: #FF0000;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 12%;
+}
+.submit-img{
+	width: 100%;  
+    position: fixed;
+    bottom: 0;
+}
+.submit{
+	width: 94%;
+	padding: 0 3%;
+}
+.submit .submit-p1{
+    width: 46%;
+	font-size: 16px;
+	color: #000000;
+	border-bottom: 4px solid #FF0000;
+	padding: 2%;
+	margin-top: 5%;
+}
+.submit .submit-p2{
+	width: 94%;
+    padding: 7% 3% 3% 1%;
+    text-align: justify;
+    font-size: 16px;
+    color: #e93323;
+    line-height: 20px;
+    font-weight: 600;			  
+    border-top: 2px solid #e6e6e6;
+	border-bottom: 2px solid #b6b3b3;
+}
+.submit ul{
+	margin-top: 8%;
+}
+.submit li{
+	width: 90%;
+	margin-left:5% ;
+	margin-top: 3%;
+	overflow: hidden;
+}
+.submit li p{
+	width: 33%;
+	float: left;
+	font-size: 16px;
+	line-height: 22px;
+	text-align: center;
+}
+.submit li input{
+	width: 60%;
+	float: left;
+	font-size: 12px;
+	line-height: 20px;
+	border-radius: 5px;
+	border: 1px solid #7A7A7A;
+	text-indent: 5px;
+	outline: none;
 }

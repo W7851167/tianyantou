@@ -12,6 +12,7 @@
 
 //首页
 Route::get('/', ['as' => 'mindex', 'uses' => 'IndexController@index']);
+Route::get('/userInvestInfo', ['as' => 'mindex', 'uses' => 'IndexController@userInvestInfo']);
 /**
  * 平台相关路由
  */

@@ -63,6 +63,15 @@ class IndexController extends MobileController
 		return view('mobile.index.index', compact('advs', 'notices', 'tasks', 'latests', 'strategys', 'links','stats'));
     }
 
+	/**
+	 * 用户投资记录提交
+	 * @return View
+	 */
+	public function userInvestInfo()
+	{
+		return view('mobile.index.submit');
+	}
+
 	//测试展示效果
 	public function show()
 	{

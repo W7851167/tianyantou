@@ -17,16 +17,24 @@ use App\Http\Controllers\MobileController;
 use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
+use App\Repositories\CensusRepository;
+use App\Repositories\UserRepository;
+use App\Repositories\XdataRepository;
 
 class PlatformController extends MobileController
 {
     public function __construct(
+        XdataRepository $xdata,
+        NewRepository $news,
         TaskRepository $tasks,
-        NewRepository $news
-    ) {
+        CensusRepository $census
+    )
+    {
         parent::__initalize();
-        $this->tasks = $tasks;
+        $this->xdata = $xdata;
         $this->news = $news;
+        $this->tasks = $tasks;
+        $this->census = $census;
     }
 
     /**
@@ -35,10 +43,11 @@ class PlatformController extends MobileController
      */
     public function index(Request $request)
     {
-        $page = !empty($request->get('page')) ? $request->get('page') : 1;
+        //已上线项目
         $where['status'] = 1;
-        list($counts, $lists) = $this->tasks->getCorpList($where, $this->perpage,$page);
-        return view('mobile.platform.index', compact('lists','citys'));
+        $where['position'] = 1;
+        list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
+        return view('mobile.platform.index', compact('tasks'));
     }
 
     /**
