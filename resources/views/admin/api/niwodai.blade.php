@@ -23,8 +23,8 @@
                 </div>
                 <div class="info">
                     <div class="info1">
-                            开始时间：<input type="text" name="start_time" id="start_time" class="Wdate"  value="{!! \Input::get('start_time') !!}" onfocus="WdatePicker({dateFmt: 'yyyyMMd000000'})">
-                            结束时间：<input type="text" name="end_time" id="end_time" class="Wdate"   value = "{!! \Input::get('end_time')  !!}" onfocus="WdatePicker({dateFmt: 'yyyyMMd000000'})">
+                            开始时间：<input type="text" name="start_time" id="start_time" class="Wdate"  value="{!! \Input::get('start_time') !!}" onfocus="WdatePicker({dateFmt: 'yyyyMMdd000000'})">
+                            结束时间：<input type="text" name="end_time" id="end_time" class="Wdate"   value = "{!! \Input::get('end_time')  !!}" onfocus="WdatePicker({dateFmt: 'yyyyMMdd000000'})">
                             <input type="submit" id="getData" value="查询">
                     </div>
                 </div>
