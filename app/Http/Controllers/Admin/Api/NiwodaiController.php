@@ -54,8 +54,8 @@ class NiwodaiController extends AdminController
      */
     public function index()
     {
-        $startTime = $_REQUEST['start_time'];
-        $endTime = $_REQUEST['end_time'];
+        $startTime = str_replace('-','',$_REQUEST['start_time'])."000000";
+        $endTime = str_replace('-','',$_REQUEST['end_time'])."000000";
         $token = $this->getToken();//获取token
         $allDatas = $this->getAllData($token,$startTime,$endTime);//获取所有数据
         echo $allDatas;exit;
