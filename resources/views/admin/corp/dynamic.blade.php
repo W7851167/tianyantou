@@ -22,6 +22,7 @@
                     <p><a href="{!! url('corp/photos',['id'=>$corpId]) !!}">图片资料</a></p>
                     <p><a href="{!! url('corp/news',['id'=>$corpId]) !!}"  class="at">最新动态</a></p>
                     <p><a href="{!! url('corp/honour',['id'=>$corpId]) !!}">企业荣誉</a></p>
+                    <p><a href="{!! url('corp/archives',['id'=>$corp->id]) !!}">档案</a></p>
                     <a href="{!!url('corp/dynamic',['corp_id'=>$corpId])!!}" class="buttonA">创建动态</a>
                 </div>
                 <form  method="post" class="base_form">

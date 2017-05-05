@@ -26,7 +26,7 @@
             <div class="data-title">
                 <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo  or ''!!}" alt="{!! $tv->platform !!}" style="height:17px;width: 46px;"/>
                 <span>{!! $tv->title or '' !!}</span>
-                <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}.html">首投</a>
+                <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}/{!! $tv->id or ''!!}.html">首投</a>
             </div>
             <ul>
                 <li class="con-red">

@@ -36,6 +36,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //项目管理
     Route::get('task/{status?}', ['as' => 'task.task.index', 'uses' => 'TaskController@index'])->where('status', '[0-9]+');
     Route::any('task/create/{id?}', ['as' => 'task.task.create', 'uses' => 'TaskController@create']);
+	Route::any('task/income/{id?}', ['as' => 'task.task.income', 'uses' => 'TaskController@income']);
     Route::any('task/trashed', ['as' => 'task.task.trashed', 'uses' => 'TaskController@trashed']);
     Route::get('task/untrashed/{id}', ['as' => 'task.task.untrashed', 'uses' => 'TaskController@untrashed']);
     Route::get('task/delete/{id}', ['as' => 'task.task.delete', 'uses' => 'TaskController@delete']);
@@ -56,6 +57,7 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::any('corp/photos/{id?}', ['as' => 'task.corp.photos', 'uses' => 'CorpController@photos']);
     Route::any('corp/news/{id?}', ['as' => 'task.corp.news', 'uses' => 'CorpController@news']);
     Route::any('corp/honour/{id?}', ['as' => 'task.corp.honour', 'uses' => 'CorpController@honour']);
+	Route::any('corp/archives/{id?}', ['as' => 'task.corp.archives', 'uses' => 'CorpController@archives']);
     Route::any('corp/dynamic/{corp_id}/{id?}', ['as' => 'task.corp.dynamic', 'uses' => 'CorpController@dynamic']);
     Route::any('corp/newdelete/{corp_id}/{id}', ['as' => 'task.corp.newdelete', 'uses' => 'CorpController@newdelete']);
     //领取任务管理

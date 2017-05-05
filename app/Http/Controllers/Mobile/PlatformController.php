@@ -55,40 +55,13 @@ class PlatformController extends MobileController
      * @return View
      * 单平台数据详情
      */
-    public function detail($ename)
+    public function detail($ename,$id)
     {
-        $corp = $this->tasks->getCorpByEname($ename);
-        $corp = $this->filterModel($corp);
-        $metas['icp_domain'] = '';
-        $metas['icp_corp_type'] = '';
-        $metas['icp_time'] = '';
-        $metas['icp_corp_name'] = '';
-        $metas['icp_no'] = '';
-        $metas['credentials'] = '';
-        $metas['office_address'] = '';
-        //资本充足率
-        $metas['capital_adequacy'] = '';
-        //运营能力比率
-        $metas['operating_capacity'] = '';
-        //流动性
-        $metas['flowability'] = '';
-        //分散率
-        $metas['dissemination'] = '';
-        //透明去
-        $metas['transparency'] = '';
-        //违约比率
-        $metas['contract_rate'] = '';
-        //担保机构
-        $metas['assure'] = '';
-        //担保方式
-        $metas['pattern'] = '';
-        //荣誉
-        $metas['honour_1'] = $metas['honour_2'] = $metas['honour_3'] = '';
-        $metas['honour_corp_1'] = $metas['honour_corp_2'] = $metas['honour_corp_3'] = '';
-        if(!empty($corp->metas[0])) {
-            $metas = getMetas($corp->metas, $metas);
+        $tasks = $this->tasks->getTaskById($id);
+        if(!empty($tasks)) {
+            $corps = $this->tasks->getCorpById($tasks['corp_id']);
         }
-        return view('mobile.platform.detail',compact('corp','metas'));
+        return view('mobile.platform.detail',compact('tasks','corps'));
     }
 
     /**
@@ -96,7 +69,7 @@ class PlatformController extends MobileController
      * @return View
      * 单平台数据详情
      */
-    public function info($ename)
+    public function info($ename,$task_id)
     {
         $corp = $this->tasks->getCorpByEname($ename);
         $corp = $this->filterModel($corp);
@@ -126,10 +99,20 @@ class PlatformController extends MobileController
         //荣誉
         $metas['honour_1'] = $metas['honour_2'] = $metas['honour_3'] = '';
         $metas['honour_corp_1'] = $metas['honour_corp_2'] = $metas['honour_corp_3'] = '';
+        $metas['icp_invest_cost'] = '';//投资服务费
+        $metas['icp_cash_in'] = '';//提现到账
+        $metas['icp_cash_door'] = '';//体现门槛
+        $metas['icp_vip_cost'] = '';//vip费用
+        $metas['icp_carry_time'] = '';//起息时间
+        $metas['icp_payment_time'] = '';//回款时间
+        $metas['icp_custody'] = '';//托管存管
+        $metas['icp_overdue_ensure'] = '';//逾期/坏账保障
+        $metas['icp_overdue_pay'] = '';//逾期垫付
+        $metas['icp_bond'] = '';//债权转让
         if(!empty($corp->metas[0])) {
             $metas = getMetas($corp->metas, $metas);
         }
-        return view('mobile.platform.info',compact('corp','metas'));
+        return view('mobile.platform.info',compact('corp','metas','task_id'));
     }
 
 

@@ -74,6 +74,24 @@ class TaskRepository extends BaseRepository
     }
 
     /**
+     * @param $ename
+     * 通过项目id获取项目信息
+     */
+    public function getTaskById($id)
+    {
+        return $this->taskModel->where('id', $id)->first();
+    }
+
+    /**
+     * @param $ename
+     * 通过平台id获取平台信息
+     */
+    public function getCorpById($corp_id)
+    {
+        return $this->corpModel->where('id', $corp_id)->first();
+    }
+
+    /**
      * @param array $where
      * 获取所有项目
      */

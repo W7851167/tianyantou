@@ -84,6 +84,31 @@ class TaskController extends AdminController
         return view('admin.task.create', compact('corps'));
     }
 
+	/**
+     * @param Request $request
+     * @param null $id
+     * @return \Illuminate\View\View|void
+     * 项目收益计算
+     */
+    public function income(Request $request, $id = null)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->get('data');
+
+            $result = $this->taskRepository->saveTask($data);
+            if ($result['status']) {
+                return $this->success($result['message'], url('task'), true);
+            }
+            return $this->error('创建项目收益异常，请联系开发人员', null, true);
+        }
+        $corps = $this->taskRepository->getNormalCorps(['status' => 1]);
+        if (!empty($id)) {
+            $task = $this->taskRepository->taskModel->find($id);
+            return view('admin.task.income', compact('task', 'corps'));
+        }
+        return view('admin.task.income', compact('corps'));
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\View\View

@@ -18,8 +18,8 @@
         <p class="plat-title">{!! $corp->name or '' !!}</p>
     </div>
     <div class="header-nav">
-        <a  href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}.html">投资信息</a>
-        <a class="active" href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}.html">平台信息</a>
+        <a  href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}/{!! $task_id or '' !!}.html">投资信息</a>
+        <a class="active" href="{!! config('app.m_url') !!}/platform/{!! $corp->ename or '' !!}/{!! $task_id or '' !!}.info">平台信息</a>
     </div>
 
     <div class="content1">
@@ -58,43 +58,43 @@
         <table border="0" cellspacing="" cellpadding="">
             <tr>
                 <td width="40%">投资服务费</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_invest_cost'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">提现到账</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_cash_in'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">提现门槛</td>
-                <td width="60%">免费</td>
+                <td width="60%">{!! $metas['icp_cash_door'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">VIP费用</td>
-                <td width="60%">无</td>
+                <td width="60%">{!! $metas['icp_vip_cost'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">起息时间</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_carry_time'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">回款时间</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_payment_time'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">托管存管</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_custody'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">逾期/坏账保障</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_overdue_ensure'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">逾期垫付</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_overdue_pay'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">债权转账</td>
-                <td width="60%"></td>
+                <td width="60%">{!! $metas['icp_bond'] or '' !!}</td>
             </tr>
             <tr>
                 <td width="40%">上线时间</td>

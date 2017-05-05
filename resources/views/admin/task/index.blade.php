@@ -73,6 +73,7 @@
                                 <td>{!! $tv->limit or 0!!}</td>
                                 <td>
                                     <a href="{!! url('task/create',['id'=>$tv->id]) !!}">编辑</a>
+									<a href="{!! url('task/income',['id'=>$tv->id]) !!}">收益</a>
                                     @if(isset($status) && ($status == 0 || $status == 2))
                                         <a href="{!! url('task/delete',['id'=>$tv->id]) !!}">删除</a>
                                     @endif

@@ -303,4 +303,35 @@ class CorpController extends AdminController
         return view('admin.corp.honour',compact('corp','metas'));
     }
 
+	/**
+     * @param Request $request
+     * @param $id
+     * 档案管理
+     */
+    public function archives(Request $request, $id)
+    {
+        $corp = $this->taskRepository->corpModel->find($id);
+        if($request->isMethod('post')) {
+            $data = $request->get('data');
+            $result = $this->taskRepository->saveMeta($id,$data);
+            if($result['status'])
+                return $this->success('保存档案信息完成',url('corp/archives',['id'=>$id]),true);
+            return $this->error($result['message'],null,true);
+        }
+        $metas['icp_invest_cost'] = '';
+		$metas['icp_cash_in'] = '';
+		$metas['icp_cash_door'] = '';
+		$metas['icp_vip_cost'] = '';
+		$metas['icp_carry_time'] = '';
+		$metas['icp_payment_time'] = '';
+		$metas['icp_custody'] = '';
+		$metas['icp_overdue_ensure'] = '';
+		$metas['icp_overdue_pay'] = '';
+		$metas['icp_bond'] = '';
+        if(!empty($corp->metas[0])) {
+            $metas = getMetas($corp->metas, $metas);
+        }
+        return view('admin.corp.archives',compact('corp','metas'));
+    }
+
 }

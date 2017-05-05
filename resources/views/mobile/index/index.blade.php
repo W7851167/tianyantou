@@ -51,7 +51,7 @@
             <div class="data-title">
                 <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo or ''!!}" style="height:18px;width: 49px;"/>
                 <span>{!! $tv->title or '' !!}</span>
-                <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}.html">首投</a>
+                <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}/{!! $tv->id or ''!!}.html">首投</a>
             </div>
             <ul>
                 <li class="con-red">

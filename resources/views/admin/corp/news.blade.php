@@ -25,6 +25,7 @@
                     <p><a href="{!! url('corp/news',['id'=>$corp->id]) !!}"  class="at">最新动态</a></p>
                     <p><a href="{!! url('corp/charts',['id'=>$corp->id]) !!}" >雷达图</a></p>
                     <p><a href="{!! url('corp/honour',['id'=>$corp->id]) !!}">企业荣誉</a></p>
+                    <p><a href="{!! url('corp/archives',['id'=>$corp->id]) !!}">档案</a></p>
                     <a href="{!!url('corp/dynamic',['corp_id'=>$corp->id])!!}" class="buttonA">创建动态</a>
                 </div>
                 <table class="all_shopping" cellspacing="0">
