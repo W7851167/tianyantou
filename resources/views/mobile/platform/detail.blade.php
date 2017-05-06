@@ -248,8 +248,8 @@
      *
      *   综合年化算法
      *   单位：天    计算：总收益/360*天数/本金*100
-     *   单位：月    计算：总收益/360*月数/本金*100
-     *   单位：年    计算：总收益/360*年数/本金*100
+     *   单位：月    计算：总收益/12*月数/本金*100
+     *   单位：年    计算：总收益/1*年数/本金*100
      */
     //计算利息和收益
     function inSlefPacket()
@@ -268,7 +268,7 @@
         var allPlatYear = 0;
         var calculateDay = countDay(termVal,termUnitVal);//标期
         accrual = (moneys*(platYear/100))/calculateDay;//利息
-        inTotal = moneys+tytPrice+tytPacket+tytExperience+plPrice+accrual;//综合收益
+        inTotal = tytPrice+tytPacket+plPrice+accrual;//综合收益
         allPlatYear = parseInt(inTotal)/calculateDay/moneys*100;//综合年化
         //列入内容
         $("#accrual").attr({placeholder:parseInt(accrual)});

@@ -32,7 +32,7 @@
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>红包：</div>
-                            <div><input type="text" name= "data[packet]" placeholder="单位元" value="{!! $task->packet or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">元</div>
+                            <div><input type="text" name= "data[packet]" placeholder="单位元" value="{!! $task->packet or 0 !!}">元</div>
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>体验金：</div>

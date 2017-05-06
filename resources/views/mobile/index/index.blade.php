@@ -39,9 +39,9 @@
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p3.png"/>
             </li>
-            <li>
+            <li class="submit-gold">
                 <a href="/userInvestInfo">
-                    <img class="last-img" src="//static.tianyantou.com/images/mobile/p4.png"/>
+                    <img class="last-img" src="//static.tianyantou.com/images/mobile/p4.jpg"/>
                 </a>
             </li>
         </ul>
@@ -132,6 +132,10 @@
     })
     $(function(){
         $(".data-list").click(function(){
+            var url = $(this).find("a").attr("href");
+            window.location.href=url;
+        })
+        $(".submit-gold").click(function(){
             var url = $(this).find("a").attr("href");
             window.location.href=url;
         })
