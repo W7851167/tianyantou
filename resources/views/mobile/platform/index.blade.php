@@ -10,7 +10,7 @@
 <body>
 <div class="jpform">
     <div class="header">
-        <a href="/"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">平台筛选</p>
     </div>
     <div class="jpform-nav">

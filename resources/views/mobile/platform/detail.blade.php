@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
     <title></title>
 </head>
-<body>
+<body style="padding-bottom:60px;">
 <div class="platform">
     <div class="header">
-        <a href="/platform"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">{!! $tasks->title or '' !!}</p>
     </div>
     <div class="header-nav">
@@ -52,35 +52,35 @@
             </p>
             <p class="tc">
                 天眼投加息奖励：
-                <input type="text" name="" id="tytPrice" placeholder="{!! $tasks->raise or '' !!}" value="{!! $tasks->raise or '' !!}" />
+                <input type="text" name="" id="tytPrice" placeholder="{!! $tasks->raise or 0 !!}" value="{!! $tasks->raise or 0 !!}" />
                 元
             </p>
             <p class="tc">
                 红  包：
-                <input type="text" name="" id="tytPacket" placeholder="{!! $tasks->packet or '' !!}" value="{!! $tasks->packet or '' !!}" />
+                <input type="text" name="" id="tytPacket" placeholder="{!! $tasks->packet or 0 !!}" value="{!! $tasks->packet or 0 !!}" />
                 元
             </p>
             <p class="tc">
                 体验金：
-                <input type="text" name="" id="tytExperience" placeholder="{!! $tasks->bbin or '' !!}" value="{!! $tasks->bbin or '' !!}" />
+                <input type="text" name="" id="tytExperience" placeholder="{!! $tasks->bbin or 0 !!}" value="{!! $tasks->bbin or 0 !!}" />
                 元
             </p>
             <p class="tc">
                 平台奖励：
-                <input type="text" name="" id="plPrice" placeholder="{!! $tasks->plat_reward or '' !!}" value="{!! $tasks->plat_reward or '' !!}" />
+                <input type="text" name="" id="plPrice" placeholder="{!! $tasks->plat_reward or 0 !!}" value="{!! $tasks->plat_reward or 0 !!}" />
                 元
             </p>
             <p class="tc">
                 利 息：
-                <input type="text" name="" id="accrual" placeholder="" />
+                <input type="text" name="" id="accrual" placeholder="0"  />
                 元
             </p>
 
             <p class="p-right" id="inTotal" style="margin-right:50px;">
-                总合收益：( <span>1</span>   )元
+                总合收益：( <span>0</span>   )元
             </p>
             <p class="p-right" id="allPlatYear" style="margin-right:50px;">
-                综合年华：(  <span>2</span>  )%
+                综合年华：(  <span>0</span>  )%
             </p>
         </div>
         <div class="pl-bl-c2">
@@ -113,7 +113,7 @@
             投资项目的真实性、可行性等因素。用户如因投资发生争议，请与该平台进行沟通交涉。
         </p>
     </div>
-    <div class="foot">
+    <div class="foot" style="position:fixed;bottom:0;">
         @if(!empty($tasks))
             <a href="{!! $tasks->url or '' !!}" data-sso-url="/platform/login/{!! $corps->ename or 0 !!}{!! $tasks->id or 0 !!}" rel="platform_join"
                data-plat-url="{!! $tasks->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
@@ -135,22 +135,69 @@
         })
     })
     $(document).ready(function() {
-        forTermUnit();
+        forTermUnit();//展示下拉框
     //#N_ID改变的标签值得id；例如改变下拉框的值
         $("#term").change(function(){
             //前台接收值的标签
+            forTermUnit();//展示下拉框
+            checkMoney();//检查金额
+        })
+
+        //触发期限事件
+        $("#term_unit").change(function(){
+            checkMoney();//检查金额
+        });
+
+        //输入金额
+        $("#money").keyup(function(){
             var money = $("#money").val();
-            if(money == '' || money == 0)
+            if(money == '' || money <= 0)
             {
-                alert("请输入投资金额");
+                setInCome();
                 return false;
             }
-            forTermUnit();
+            if(money>=100)
+            {
+                inSlefPacket();//计算收益
+            }
         })
 
     });
+
+    //利息和收益设置为0
+    function setInCome()
+    {
+        $("#accrual").attr({placeholder:0});
+        $("#inTotal").find("span").html(0);
+        $("#allPlatYear").find("span").html(0);
+    }
+
+    //判断金额
+    function checkMoney()
+    {
+        var money = $("#money").val();
+        if(money == '' || money <= 0)
+        {
+            setInCome();
+            alert("请输入投资金额");
+            return false;
+        }
+        if(money<100)
+        {
+            setInCome();
+            alert("投资金额需要大于100");
+            return false;
+        }
+
+        if(money>=100)
+        {
+            inSlefPacket();//计算收益
+        }
+    }
+
     /**
      * 刷新即调用
+     * 展示期限选择下拉框
      */
     function forTermUnit()
     {
@@ -185,38 +232,50 @@
     function countDay(termVal,termUnitVal)
     {
         if(termVal == 0){
-            return termUnitVal;
-        }else if(termVal == 1){
-            return termUnitVal*30;
-        }else if(termVal == 2){
             return termUnitVal*360;
+        }else if(termVal == 1){
+            return termUnitVal*12;
+        }else if(termVal == 2){
+            return termUnitVal*1;
         }
     }
 
-    $(document).ready(function() {
-        $("#term_unit").change(function(){
-            //前台接收值的标签
-            var termVal = $("#term").find("option:selected").val();//天/月/年
-            var termUnitVal = $("#term_unit").find("option:selected").val();//期限
-            var moneys = $("#money").val();//投资金额
-            var tytPrice = $("#tytPrice").val();console.log(tytPrice);//天眼投加息
-            var tytPacket = $("#tytPacket").val();console.log(tytPacket);//红包
-            var tytExperience = $("#tytExperience").val();console.log(tytExperience);//体验金
-            var plPrice = $("#plPrice").val();console.log(plPrice);//平台奖励
-            var platYear = $("#plat_year").val();//平台年化
-            var accrual = 0;
-            var inTotal = 0;
-            var allPlatYear = 0;
-            var calculateDay = countDay(termVal,termUnitVal);//期限(单位：天)
-            accrual = moneys*platYear/calculateDay;//利息
-            inTotal = parseInt(moneys)+parseInt(tytPrice)+parseInt(tytPacket)+parseInt(tytExperience)+parseInt(plPrice)+parseInt(accrual);//综合收益
-            allPlatYear = inTotal/calculateDay*360/moneys*100;//综合年化
-            //列入内容
-            $("#accrual").attr({placeholder:parseInt(accrual)});
-            $("#inTotal").find("span").html(parseInt(inTotal));
-            $("#allPlatYear").find("span").html(parseInt(allPlatYear/100));
-        });
-    });
+    /**
+     *   利息算法
+     *   单位：天   投资金额：1000    计算：(投资金额*年华/100)/360*天数
+     *   单位：月   投资金额：1000    计算：（投资金额*年华/100)/12*月数
+     *   单位：年   投资金额：1000    计算：（投资金额*年化/100)/1*年数
+     *
+     *   综合年化算法
+     *   单位：天    计算：总收益/360*天数/本金*100
+     *   单位：月    计算：总收益/360*月数/本金*100
+     *   单位：年    计算：总收益/360*年数/本金*100
+     */
+    //计算利息和收益
+    function inSlefPacket()
+    {
+        //前台接收值的标签
+        var termVal = $("#term").find("option:selected").val();//天/月/年
+        var termUnitVal = $("#term_unit").find("option:selected").val();//期限
+        var moneys = parseInt($("#money").val())>0?parseInt($("#money").val()):0;//投资金额
+        var tytPrice = parseInt($("#tytPrice").val())>0?parseInt($("#tytPrice").val()):0;//天眼投加息
+        var tytPacket = parseInt($("#tytPacket").val())>0?parseInt($("#tytPacket").val()):0;//红包
+        var tytExperience = parseInt($("#tytExperience").val())>0? parseInt($("#tytExperience").val()):0;//体验金
+        var plPrice = parseInt($("#plPrice").val())>0?parseInt($("#plPrice").val()):0;//平台奖励
+        var platYear = parseInt($("#plat_year").val())>0?parseInt($("#plat_year").val()):0;//平台年化
+        var accrual = 0;
+        var inTotal = 0;
+        var allPlatYear = 0;
+        var calculateDay = countDay(termVal,termUnitVal);//标期
+        accrual = (moneys*(platYear/100))/calculateDay;//利息
+        inTotal = moneys+tytPrice+tytPacket+tytExperience+plPrice+accrual;//综合收益
+        allPlatYear = parseInt(inTotal)/calculateDay/moneys*100;//综合年化
+        //列入内容
+        $("#accrual").attr({placeholder:parseInt(accrual)});
+        $("#inTotal").find("span").html(parseInt(inTotal));
+        $("#allPlatYear").find("span").html(parseInt(allPlatYear));
+    }
+
 </script>
 </body>
 </html>

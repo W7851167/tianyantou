@@ -40,7 +40,9 @@
                 <img src="//static.tianyantou.com/images/mobile/p3.png"/>
             </li>
             <li>
-                <img class="last-img" src="//static.tianyantou.com/images/mobile/p4.png"/>
+                <a href="/userInvestInfo">
+                    <img class="last-img" src="//static.tianyantou.com/images/mobile/p4.png"/>
+                </a>
             </li>
         </ul>
     </div>

@@ -11,10 +11,10 @@
     </style>
 
 </head>
-<body>
+<body style="padding-bottom:60px;">
 <div class="platform">
     <div class="header">
-        <a href="/platform"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">{!! $corp->name or '' !!}</p>
     </div>
     <div class="header-nav">
@@ -143,7 +143,7 @@
             投资项目的真实性、可行性等因素。用户如因投资发生争议，请与该平台进行沟通交涉。
         </p>
     </div>
-    <div class="foot">
+    <div class="foot" style="position:fixed;bottom:0;">
         @if(!empty($ctask = $corp->tasks->where('status',1)->first()))
             <a href="{!! $ctask->url or '' !!}" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $ctask->id or 0 !!}" rel="platform_join"
                data-plat-url="{!! $ctask->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资

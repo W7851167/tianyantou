@@ -11,7 +11,7 @@
 	<body>
 		<div class="platform">
 			<div class="header">
-				<a href="index.html"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+				<a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
 				<p class="plat-title">投资记录提交</p>
 			</div>
 			<div class="submit">
@@ -20,19 +20,19 @@
 				<ul>
 					<li>
 						<p>理财平台：</p>
-						<input type="text" id="" value="" />
+						<input type="text" id="moneyPlat" name="moneyPlat" value="" />
 					</li>
 					<li>
 						<p>投资标期：</p>
-						<input type="text" id="" value="" />
+						<input type="text" id="investTarget" name="investTarget" value="" />
 					</li>
 					<li>
 						<p>手机号码：</p>
-						<input type="text" id="" value=""  placeholder="请输入手机号码"/>
+						<input type="text" id="phone" name="phone" value=""  placeholder="请输入手机号码"/>
 					</li>
 					<li>
 						<p>投资金额：</p>
-						<input type="text" id="" value="" placeholder="请输入投资金额"/>
+						<input type="text" id="invesetMoney" name="invesetMoney" value="" placeholder="请输入投资金额"/>
 					</li>
 					
 				</ul>
