@@ -11,6 +11,10 @@ class TaskModel extends BaseModel
     public  $table = 'tasks';
     protected  $primaryKey = 'id';
     protected  $touches = ['corp'];
+	protected $casts = [
+        'packet' => 'array',
+		'plat_reward'=>'array',
+    ];
 
 
     /**

@@ -52,12 +52,12 @@
             </p>
             <p class="tc">
                 天眼投加息奖励：
-                <input type="text" name="" id="tytPrice" placeholder="{!! $tasks->raise or 0 !!}" value="{!! $tasks->raise or 0 !!}" />
+                <input type="text" name="" id="tytPrice" placeholder="0" />
                 元
             </p>
             <p class="tc">
                 红  包：
-                <input type="text" name="" id="tytPacket" placeholder="{!! $tasks->packet or 0 !!}" value="{!! $tasks->packet or 0 !!}" />
+                <input type="text" name="" id="tytPacket" placeholder="0" />
                 元
             </p>
             <p class="tc">
@@ -67,7 +67,7 @@
             </p>
             <p class="tc">
                 平台奖励：
-                <input type="text" name="" id="plPrice" placeholder="{!! $tasks->plat_reward or 0 !!}" value="{!! $tasks->plat_reward or 0 !!}" />
+                <input type="text" name="" id="plPrice" placeholder="0"  />
                 元
             </p>
             <p class="tc">
@@ -122,6 +122,10 @@
     </div>
     <input type="hidden" value="{!! $tasks->ratio or 0 !!}" id="plat_year" />
     <input type="hidden" value="{!! $tasks->mratio or 0 !!}" id="tyt_year" />
+	<input type="hidden" value="{!! $tasks['packet']['title'] or 0 !!}" id="packet_title" />
+	<input type="hidden" value="{!! $tasks['packet']['status'] or 0 !!}" id="packet_status" />
+	<input type="hidden" value="{!! $tasks['plat_reward']['title'] or 0 !!}" id="plat_reward_title" />
+	<input type="hidden" value="{!! $tasks['plat_reward']['status'] or 0 !!}" id="plat_reward_status" />
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/new_file.js" type="text/javascript" charset="utf-8"></script>
@@ -167,6 +171,9 @@
     //利息和收益设置为0
     function setInCome()
     {
+		$("#tytPacket").attr({placeholder:0});
+		$("#tytPrice").attr({placeholder:0});
+		$("#plPrice").attr({placeholder:0});
         $("#accrual").attr({placeholder:0});
         $("#inTotal").find("span").html(0);
         $("#allPlatYear").find("span").html(0);
@@ -212,7 +219,7 @@
         $("#term_unit").show();
     }
 
-    //计算相对应的时间
+    //计算相对应的时间（下拉框）
     function calculateTerm(termVal)
     {
         var termUnit = 0;
@@ -228,7 +235,7 @@
         return termUnit;
     }
 
-    //计算天数
+    //计算天数（标期）
     function countDay(termVal,termUnitVal)
     {
         if(termVal == 0){
@@ -258,23 +265,59 @@
         var termVal = $("#term").find("option:selected").val();//天/月/年
         var termUnitVal = $("#term_unit").find("option:selected").val();//期限
         var moneys = parseInt($("#money").val())>0?parseInt($("#money").val()):0;//投资金额
-        var tytPrice = parseInt($("#tytPrice").val())>0?parseInt($("#tytPrice").val()):0;//天眼投加息
-        var tytPacket = parseInt($("#tytPacket").val())>0?parseInt($("#tytPacket").val()):0;//红包
         var tytExperience = parseInt($("#tytExperience").val())>0? parseInt($("#tytExperience").val()):0;//体验金
-        var plPrice = parseInt($("#plPrice").val())>0?parseInt($("#plPrice").val()):0;//平台奖励
         var platYear = parseInt($("#plat_year").val())>0?parseInt($("#plat_year").val()):0;//平台年化
-        var accrual = 0;
-        var inTotal = 0;
-        var allPlatYear = 0;
-        var calculateDay = countDay(termVal,termUnitVal);//标期
-        accrual = (moneys*(platYear/100))/calculateDay;//利息
-        inTotal = tytPrice+tytPacket+plPrice+accrual;//综合收益
-        allPlatYear = parseInt(inTotal)/calculateDay/moneys*100;//综合年化
+		var tytYear = parseInt($("#tyt_year").val())>0?parseInt($("#tyt_year").val()):0;//天眼投年化
+
+		var calculateDay = countDay(termVal,termUnitVal);//标期
+		var tytPrice = 0;  tytPrice = (moneys*(tytYear/100))/calculateDay;//天眼投加息奖励（1）
+		var tytPacket = 0;  tytPacket = packetOrPlatCount($("#packet_title").val(),$("#packet_status").val());//平台红包（2）
+		var plPrice = 0;   plPrice = packetOrPlatCount($("#plat_reward_title").val(),$("#plat_reward_status").val());//平台奖励（4）
+        var accrual = 0;  accrual = (moneys*(platYear/100))/calculateDay;//利息（5）
+        var inTotal = 0; inTotal = tytPrice+tytPacket+plPrice+accrual;//综合收益（6）
+        var allPlatYear = 0;  allPlatYear = inTotal/calculateDay/moneys*100;//综合年化（7）
+ 
         //列入内容
-        $("#accrual").attr({placeholder:parseInt(accrual)});
-        $("#inTotal").find("span").html(parseInt(inTotal));
-        $("#allPlatYear").find("span").html(parseInt(allPlatYear));
+		$("#tytPrice").attr({placeholder:Math.floor(tytPrice*100)/100});//天眼投加息奖励（1）
+		$("#tytPacket").attr({placeholder:parseInt(tytPacket)});//平台红包（2）
+		$("#plPrice").attr({placeholder:parseInt(plPrice)});//平台奖励（4）
+        $("#accrual").attr({placeholder:Math.floor(accrual*100)/100});//利息（5）
+        $("#inTotal").find("span").html(Math.floor(inTotal*100)/100);//综合收益（6）
+        $("#allPlatYear").find("span").html(Math.floor(allPlatYear*100)/100);//综合年华（7）
     }
+
+	//红包和平台奖励算法
+	function packetOrPlatCount(title,status)
+	{
+		//title:红包档位/平台奖励档位
+		//status:1-->相加0-->不相加
+		var price = 0;
+		if(title == 0)
+		{
+			return price;
+		}
+        var moneys = parseInt($("#money").val())>0?parseInt($("#money").val()):0;//投资金额
+		var str = new Array();
+		var ss  =  new Array();
+		str = title.split("|");
+		for(var i=0;i<str.length;i++)
+		{
+			ss = str[i].split("-");
+			if(moneys >= ss[0])
+			{
+				if(status == 1)
+				{
+					price = parseInt(price)+parseInt(ss[1]);//累计相加
+				}
+				else if(status == 0)
+				{
+					price = parseInt(ss[1]);//单独计算
+				}
+				
+			}
+		}
+		return price;
+	}
 
 </script>
 </body>

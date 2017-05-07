@@ -32,7 +32,11 @@
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>红包：</div>
-                            <div><input type="text" name= "data[packet]" placeholder="单位元" value="{!! $task->packet or 0 !!}">元</div>
+                            <div>
+								<input type="text" name= "data[packet][title]" placeholder="单位元" value="{!! $task['packet']['title'] or 0 !!}">元
+								<input type="radio" @if($task['packet']['status']==1) checked="checked" @endif name="data[packet][status]" value="1" />相加
+								<input type="radio" @if($task['packet']['status']==0) checked="checked" @endif name="data[packet][status]" value="0" />不相加
+							</div>
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>体验金：</div>
@@ -40,7 +44,11 @@
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>平台奖励：</div>
-                            <div><input type="text" name="data[plat_reward]" value="{!! $task->plat_reward or '' !!}"></div>
+                            <div>
+								<input type="text" name="data[plat_reward][title]" value="{!! $task['plat_reward']['title'] or '' !!}">
+								<input type="radio" @if($task['plat_reward']['status']==1) checked="checked" @endif name="data[plat_reward][status]" value="1" />相加
+								<input type="radio" @if($task['plat_reward']['status']==0) checked="checked" @endif name="data[plat_reward][status]" value="0" />不相加
+							</div>
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>投资必看：</div>
