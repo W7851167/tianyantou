@@ -163,14 +163,14 @@
 </div>
 <div class="jpform-foot">
     <ul>
-        <li>
+        <li class="jump_url">
             <a href="{!! config('app.m_url') !!}">
                 <img src="//static.tianyantou.com/images/mobile/h1.png"/>
             </a>
             <p>首页</p>
 
         </li>
-        <li>
+        <li class="jump_url">
             <a href="{!! config('app.m_url') !!}/platform">
                 <img src="//static.tianyantou.com/images/mobile/h2-2.png"/>
             </a>
@@ -197,6 +197,10 @@
     })
     $(function(){
         $(".data-list").click(function(){
+            var url = $(this).find("a").attr("href");
+            window.location.href=url;
+        })
+        $(".jump_url").click(function(){
             var url = $(this).find("a").attr("href");
             window.location.href=url;
         })
