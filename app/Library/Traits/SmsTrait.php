@@ -78,14 +78,14 @@ trait SmsTrait
                 'url' => 'https://dx.ipyy.net/smsJson.aspx',
                 'useid' => '',
                 'account' => 'AC00337',
-                'password' => 'AC0033700',
+                'password' => 'chuangyige888',
             ];
         } else {
             return [
                 'url' => 'https://dx.ipyy.net/smsJson.aspx',
                 'userid' => '',
                 'account' => 'AC00337',
-                'password' => 'AC00374'
+                'password' => 'chuangyige888'
             ];
         }
     }
