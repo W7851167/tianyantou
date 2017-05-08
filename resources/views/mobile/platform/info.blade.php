@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
+    <title>P2P投资理财节</title>
     <style type="text/css">
 
     </style>
@@ -14,7 +14,7 @@
 <body style="padding-bottom:60px;">
 <div class="platform">
     <div class="header">
-        <a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="{!! config('app.m_url') !!}/platform"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">{!! $corp->name or '' !!}</p>
     </div>
     <div class="header-nav">
@@ -28,7 +28,7 @@
             <a class="native" href="javascript:;">商家返现</a>
             <a href="javascript:;">仅限首投</a>
         </div>
-        <p>关键词：前海上市（666339）</p>
+        <p>关键词：{!! $corp->keyword or '' !!}</p>
 
     </div>
     <p class="title">天眼投综合评级：{!! $corp->level or '' !!}</p>

@@ -5,12 +5,12 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
+    <title>P2P投资理财节</title>
 </head>
 <body>
 <div class="jpform">
     <div class="header">
-        <a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="{!! config('app.m_url') !!}"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">平台筛选</p>
     </div>
     <div class="jpform-nav">
@@ -31,7 +31,7 @@
             <ul>
                 <li class="con-red">
                     <p class="rt"><b>{!! $tv->ratio or 0.00 !!}</b><i>%</i></p>
-                    <p>综合年华收益</p>
+                    <p>综合年化收益</p>
                 </li>
                 <li class="con-red">
                     <p class="rt">{!! $tv->term or '' !!}@if(isset($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</p>

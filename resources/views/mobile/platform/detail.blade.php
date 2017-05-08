@@ -5,12 +5,12 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
     <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
+    <title>P2P投资理财节</title>
 </head>
 <body style="padding-bottom:60px;">
 <div class="platform">
     <div class="header">
-        <a href="#" onClick="javascript :history.back(-1);"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="{!! config('app.m_url') !!}/platform"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">{!! $tasks->title or '' !!}</p>
     </div>
     <div class="header-nav">
@@ -20,7 +20,7 @@
 
     <div class="content1">
         <div >
-            <img src="//static.tianyantou.com/images/mobile/log1.jpg"/>
+            <img src="{!! config('app.static_url') !!}{!! $corps->logo or '' !!}" style="width:137px;height:31px;"/>
             <a class="native" href="javascript:;">商家返现</a>
             <a href="javascript:;">仅限首投</a>
         </div>
@@ -79,12 +79,13 @@
                 <input type="text" name="" id="accrual" placeholder="0"  />
                 元
             </p>
-
-            <p class="p-right" id="inTotal" style="margin-right:50px;">
-                总合收益：( <span>0</span>   )元
+            <br/>
+            <p  id="inTotal" style="text-align: right">
+                预计综合收益：( <span>0</span>   )元
             </p>
-            <p class="p-right" id="allPlatYear" style="margin-right:50px;">
-                综合年华：(  <span>0</span>  )%
+            <br/>
+            <p id="allPlatYear" style="text-align: right">
+                预计综合年化：(  <span>0</span>  )%
             </p>
         </div>
         <div class="pl-bl-c2">

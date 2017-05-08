@@ -50,10 +50,10 @@
                             <div id="storeimg">
                                 <a class="clickUpload" id="uploadMImg" href="javascript:void(0)">点击上传</a>
                             </div>
-                            <p class="hint">必须上传100*50px生成的图片！</p>
-                            <ul class="imgbox" id="mlogoShow" style="width: 100px;height: 50px;">
+                            <p class="hint">必须上传100*35px生成的图片！</p>
+                            <ul class="imgbox" id="mlogoShow" style="width: 100px;height: 35px;">
                                 @if(!empty($corp->m_logo))
-                                    <img style="width:100px;height:50px;" src="{!! config('app.static_url').$corp->m_logo !!}">
+                                    <img style="width:100px;height:35px;" src="{!! config('app.static_url').$corp->m_logo !!}">
                                     <input type="hidden" name="data[m_logo]" value="{!! $corp->m_logo or '' !!}" />
                                 @endif
                             </ul>
@@ -135,6 +135,10 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>关键词：</div>
+                            <div><input type="text" name="data[keyword]" placeholder="关键词" value="{!! $corp->keyword or '' !!}"></div>
+                        </div>
                     </div>
                     <div class="w928">
                         <div class="button">
@@ -191,7 +195,7 @@
             'onInit': function () {$("#queueID").hide();},
             'swf'      : '/vendor/uploadify/uploadify.swf',
             'uploader' : '/uploadImg',
-            'formData' :{'width0':100,'height0':50, 'type0':1},
+            'formData' :{'width0':100,'height0':35, 'type0':1},
             'buttonText':'',
             'width':'82',
 //            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
@@ -205,8 +209,8 @@
             'onUploadSuccess' : function(file,data) {
                 data = eval('('+data+')');
                 if (data.status == 1) {
-                    var html = '<img style="width:100px;height:50px;" src="' + data.info[10050] + '">';
-                    html += '<input type="hidden" name="data[m_logo]" value="' + data.info[10050] + '" />'
+                    var html = '<img style="width:100px;height:50px;" src="' + data.info[10035] + '">';
+                    html += '<input type="hidden" name="data[m_logo]" value="' + data.info[10035] + '" />'
                     $('#mlogoShow').html(html);
                 }
             },

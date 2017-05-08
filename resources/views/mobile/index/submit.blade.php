@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
 		
-		<title></title>
+		<title>P2P投资理财节</title>
 	</head>
 	<body>
 		<div class="platform">
