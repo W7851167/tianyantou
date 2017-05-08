@@ -43,9 +43,13 @@
             </p>
             <p class="hc">
 						期限：<select id="term">
-								<option value="0" selected="selected">天</option>
-								<option value="1">月</option>
-								<option value="2">年</option>
+                            @if($tasks->term_unit == 0)
+								<option value="{!! $tasks->term_unit or 0 !!}">天</option>
+                            @elseif($tasks->term_unit == 1)
+								<option value="{!! $tasks->term_unit or 0 !!}">月</option>
+                            @elseif($tasks->term_unit == 2)
+								<option value="{!! $tasks->term_unit or 0 !!}">年</option>
+                            @endif
 							</select>
                             <select id="term_unit" style="display: none;">
                             </select>
@@ -122,6 +126,7 @@
     </div>
     <input type="hidden" value="{!! $tasks->ratio or 0 !!}" id="plat_year" />
     <input type="hidden" value="{!! $tasks->mratio or 0 !!}" id="tyt_year" />
+    <input type="hidden" value="{!! $tasks->term or 0 !!}" id="termDay" />
 	<input type="hidden" value="{!! $tasks['packet']['title'] or 0 !!}" id="packet_title" />
 	<input type="hidden" value="{!! $tasks['packet']['status'] or 0 !!}" id="packet_status" />
 	<input type="hidden" value="{!! $tasks['plat_reward']['title'] or 0 !!}" id="plat_reward_title" />
@@ -222,28 +227,19 @@
     //计算相对应的时间（下拉框）
     function calculateTerm(termVal)
     {
-        var termUnit = 0;
-        if(termVal == 0){
-            termUnit = 360;
-        }else if(termVal == 1){
-            termUnit = 24;
-        }else if(termVal == 2){
-            termUnit = 2;
-        }else{
-            termUnit = 1;
-        }
+        var termUnit = $("#termDay").val();
         return termUnit;
     }
 
     //计算天数（标期）
-    function countDay(termVal,termUnitVal)
+    function countDay(termVal)
     {
         if(termVal == 0){
-            return termUnitVal*360;
+            return 360;
         }else if(termVal == 1){
-            return termUnitVal*12;
+            return 12;
         }else if(termVal == 2){
-            return termUnitVal*1;
+            return 1;
         }
     }
 
@@ -262,20 +258,20 @@
     function inSlefPacket()
     {
         //前台接收值的标签
-        var termVal = $("#term").find("option:selected").val();//天/月/年
+        var termVal = $("#term").find("option").val();//天/月/年
         var termUnitVal = $("#term_unit").find("option:selected").val();//期限
         var moneys = parseInt($("#money").val())>0?parseInt($("#money").val()):0;//投资金额
         var tytExperience = parseInt($("#tytExperience").val())>0? parseInt($("#tytExperience").val()):0;//体验金
         var platYear = parseInt($("#plat_year").val())>0?parseInt($("#plat_year").val()):0;//平台年化
 		var tytYear = parseInt($("#tyt_year").val())>0?parseInt($("#tyt_year").val()):0;//天眼投年化
 
-		var calculateDay = countDay(termVal,termUnitVal);//标期
-		var tytPrice = 0;  tytPrice = (moneys*(tytYear/100))/calculateDay;//天眼投加息奖励（1）
+		var calculateDay = countDay(termVal);//标期
+		var tytPrice = 0;  tytPrice = moneys*(tytYear/100)/calculateDay*termUnitVal;//天眼投加息奖励（1）
 		var tytPacket = 0;  tytPacket = packetOrPlatCount($("#packet_title").val(),$("#packet_status").val());//平台红包（2）
 		var plPrice = 0;   plPrice = packetOrPlatCount($("#plat_reward_title").val(),$("#plat_reward_status").val());//平台奖励（4）
-        var accrual = 0;  accrual = (moneys*(platYear/100))/calculateDay;//利息（5）
+        var accrual = 0;  accrual = moneys*(platYear/100)/calculateDay*termUnitVal;//利息（5）
         var inTotal = 0; inTotal = tytPrice+tytPacket+plPrice+accrual;//综合收益（6）
-        var allPlatYear = 0;  allPlatYear = inTotal/calculateDay/moneys*100;//综合年化（7）
+        var allPlatYear = 0;  allPlatYear = inTotal/termUnitVal*calculateDay/moneys*100;//综合年化（7）
  
         //列入内容
 		$("#tytPrice").attr({placeholder:Math.floor(tytPrice*100)/100});//天眼投加息奖励（1）
