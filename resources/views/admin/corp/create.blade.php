@@ -36,7 +36,7 @@
                             <p class="hint">必须上传180*60px生成的图片！</p>
                             <ul class="imgbox" id="logoShow" style="width: 180px;height: 60px;">
                                 @if(!empty($corp->logo))
-                                    <img style="width:180px;" src="{!! config('app.static_url').$corp->logo !!}">
+                                    <img style="width:180px;height:60px;" src="{!! config('app.static_url').$corp->logo !!}">
                                     <input type="hidden" name="data[logo]" value="{!! $corp->logo or '' !!}" />
                                 @endif
                             </ul>
