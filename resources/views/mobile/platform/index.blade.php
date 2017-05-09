@@ -22,6 +22,7 @@
     </div>
     <div class="jpform-con">
         @foreach($tasks as $tv)
+        @if(!empty($tv->corp->m_logo))
         <div class="data-list" style="cursor:pointer;">
             <div class="data-title">
                 <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo  or ''!!}" alt="{!! $tv->platform !!}" style="height:17px;width: 46px;"/>
@@ -43,6 +44,7 @@
                 </li>
             </ul>
         </div>
+        @endif
         @endforeach
 
         <!--<div class="data-list">
