@@ -33,8 +33,8 @@
                             <div>
                                 <a class="clickUpload" id="uploadimg" href="javascript:void(0)">点击上传</a>
                             </div>
-                            <p class="hint">必须上传180*180px生成的图片！</p>
-                            <ul class="imgbox" id="logoShow" style="width: 180px;height: 180px;">
+                            <p class="hint">必须上传180*60px生成的图片！</p>
+                            <ul class="imgbox" id="logoShow" style="width: 180px;height: 60px;">
                                 @if(!empty($corp->logo))
                                     <img style="width:180px;" src="{!! config('app.static_url').$corp->logo !!}">
                                     <input type="hidden" name="data[logo]" value="{!! $corp->logo or '' !!}" />
@@ -169,7 +169,7 @@
             'onInit': function () {$("#queueID").hide();},
             'swf'      : '/vendor/uploadify/uploadify.swf',
             'uploader' : '/uploadImg',
-            'formData' :{'width0':180,'height0':180, 'type0':1},
+            'formData' :{'width0':180,'height0':60, 'type0':1},
             'buttonText':'上传',
             'width':'82',
             'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
@@ -183,8 +183,8 @@
             'onUploadSuccess' : function(file,data) {
                 data = eval('('+data+')');
                 if (data.status == 1) {
-                    var html = '<img style="width:180px;" src="' + data.info[180180] + '">';
-                    html += '<input type="hidden" name="data[logo]" value="' + data.info[180180] + '" />'
+                    var html = '<img style="width:180px;" src="' + data.info[18060] + '">';
+                    html += '<input type="hidden" name="data[logo]" value="' + data.info[18060] + '" />'
                     $('#logoShow').html(html);
                 }
             },
