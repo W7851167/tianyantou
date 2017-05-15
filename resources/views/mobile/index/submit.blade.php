@@ -20,6 +20,9 @@
 				<form id="sendInComeGold" method="post" data-toggle="ajaxFormGold">
 					{!! csrf_field() !!}
 					<ul>
+						<li style="color:red; font-size:12px;">
+							爱奇艺会员会在5个工作日内,充值到投资人的手机号上
+						</li>
 						<li>
 							<p>理财平台：</p>
 							<input type="text" id="moneyPlat" name="data[moneyPlat]" value="" />
