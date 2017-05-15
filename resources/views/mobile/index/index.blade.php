@@ -49,7 +49,7 @@
     <div class="jpform-con">
 
         @foreach($tasks as $tv)
-        @if(!empty($tv->corp->m_logo))
+        @if(!empty($tv->corp->m_logo) && $tv->corp->m_logo != 'NULL')
         <div class="data-list" style="cursor:pointer;">
             <div class="data-title">
                 <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo or ''!!}" style="height:18px;width: 49px;"/>
@@ -66,7 +66,7 @@
                     <p>期 限</p>
                 </li>
                 <li class="con-p">
-                    <p>起投金额：100元 </p>
+                    <p>起投金额：{!! tmoney_format($tv->sued) !!} </p>
                     <p>最大金额：{!! tmoney_format($tv->limit) !!}</p>
                 </li>
             </ul>
@@ -114,7 +114,7 @@
 
             </li>
             <li>
-                <img src="//static.tianyantou.com/images/mobile/h3.png"/>
+                    <img src="//static.tianyantou.com/images/mobile/h3.png"/>
                 <p>我的</p>
             </li>
         </ul>

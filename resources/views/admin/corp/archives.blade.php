@@ -50,11 +50,11 @@
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>起息时间：</div>
-                        <div><input type="text" class="Wdate" name="data[icp_carry_time]" placeholder="起息时间" value="{!! $metas['icp_carry_time'] or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd'})"></div>
+                        <div><input type="text" name="data[icp_carry_time]" placeholder="起息时间" value="{!! $metas['icp_carry_time'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>回款时间：</div>
-                        <div><input type="text" class="Wdate" name="data[icp_payment_time]" placeholder="回款时间" value="{!! $metas['icp_payment_time'] or '' !!}" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd'})"></div>
+                        <div><input type="text" name="data[icp_payment_time]" placeholder="回款时间" value="{!! $metas['icp_payment_time'] or '' !!}"></div>
                     </div>
                     <div class="infospaceAddContent clearfix">
                         <div class="infospaceAddLeft"><span>*</span>托管存管：</div>
