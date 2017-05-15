@@ -38,7 +38,7 @@
         <div class="pl-bl-c">
             <p class="hc">
                 投资金额预算
-                <input type="text" name="" id="money" placeholder="请输入投资金额" />
+                <input type="text" name="" id="money" placeholder="请输入投资金额" style="width:150px;font-size:20px;" />
                 元
             </p>
             <p class="hc">
@@ -93,8 +93,6 @@
                 投资必看
             </p>
             <p class="con">{!! $tasks->must_see or '' !!}</p>
-            <!--<p class="con">1，不在天眼投合作标的范围内且首投资格作废。</p>
-            <p class="con">2，未通过天眼投转注册、投资和注册平台手机号与天眼投手机号不统一、不予返利。</p>-->
         </div>
         <img class="win" src="//static.tianyantou.com/images/mobile/2win.png"/>
     </div>
@@ -216,8 +214,9 @@
     {
         var termVal = $("#term").find("option:selected").val();
         var termStr = '';
+		var termUnit = $("#termDay").val();
         var termUnits = calculateTerm(termVal);
-        for(var i=1;i<=termUnits;i++)
+        for(var i=termUnit;i<=termUnits;i++)
         {
             termStr += '<option value='+i+'>'+i+'</option>'
         }
@@ -228,8 +227,13 @@
     //计算相对应的时间（下拉框）
     function calculateTerm(termVal)
     {
-        var termUnit = $("#termDay").val();
-        return termUnit;
+		if(termVal == 0){
+            return 360;
+        }else if(termVal == 1){
+            return 24;
+        }else if(termVal == 2){
+            return 1;
+        }
     }
 
     //计算天数（标期）
