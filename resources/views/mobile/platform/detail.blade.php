@@ -283,7 +283,7 @@
 
 		var calculateDay = countDay(termVal);//标期
 		var tytPrice = 0;  tytPrice = moneys*(tytYear/100)/calculateDay*termUnitVal;//天眼投加息奖励（1）
-		var tytPacket = 0;  tytPacket = packetOrPlatCount($("#packet_title").val(),$("#packet_status").val(),$("#pack_time").val(),termUnitVal);//平台红包（2）
+		var tytPacket = 0;  tytPacket = packetOrPlatCount($("#packet_title").val(),$("#packet_status").val(),$("#packet_time").val(),termUnitVal);//平台红包（2）
 		var plPrice = 0;   plPrice = packetOrPlatCount($("#plat_reward_title").val(),$("#plat_reward_status").val(),$("#plat_time").val(),termUnitVal);//平台奖励（4）
         var accrual = 0;  accrual = moneys*(platYear/100)/calculateDay*termUnitVal;//利息（5）
         var inTotal = 0; inTotal = tytPrice+tytPacket+plPrice+accrual;//综合收益（6）
