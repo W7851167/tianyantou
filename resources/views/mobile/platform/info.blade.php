@@ -9,7 +9,15 @@
     <style type="text/css">
 
     </style>
-
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body style="padding-bottom:60px;">
 <div class="platform">

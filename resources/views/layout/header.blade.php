@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/css/css.css" />
     <link rel="stylesheet" href="{!! config('app.static_url') !!}/js/lib/layer/skin/layer.css" id="layui_layer_skinlayercss">
     @yield('style')
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
 <div id="head">
