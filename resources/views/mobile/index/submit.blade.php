@@ -20,7 +20,7 @@
 				<form id="sendInComeGold" method="post" data-toggle="ajaxFormGold">
 					{!! csrf_field() !!}
 					<ul>
-						<li style="color:red; font-size:12px;">
+						<li style="color:red; font-size:16px;">
 							爱奇艺会员会在5个工作日内,充值到投资人的手机号上
 						</li>
 						<li>

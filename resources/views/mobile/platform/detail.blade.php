@@ -20,7 +20,7 @@
 
     <div class="content1">
         <div >
-            <img src="{!! config('app.static_url') !!}{!! $corps->logo or '' !!}" style="width:137px;height:31px;"/>
+            <img src="{!! config('app.static_url') !!}{!! $corps->logo or '' !!}"/>
             <a class="native" href="javascript:;">商家返现</a>
             <a href="javascript:;">仅限首投</a>
         </div>
