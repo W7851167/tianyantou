@@ -100,7 +100,7 @@ class IndexController extends MobileController
 				return $this->error('提交次数过多，请稍等', null, true);
 			}
 //			return $this->success("成功", url('/'), true);
-			$data['receive_id'] = "88";
+			$data['receive_id'] = "888";
 			$data['task_id'] = $tasks->id;
 			$data['user_id'] = "8888";
 			$data['corp_id'] = $tasks->corp_id;
