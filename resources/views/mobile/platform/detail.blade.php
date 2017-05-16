@@ -42,7 +42,7 @@
         <div class="pl-bl-t">
             <a href="javascript:;">期限一个月</a>
             <a href="javascript:;">起投{!! $tasks->sued or 0 !!}</a>
-            <a href="javascript:;">限投{!! $tasks->limit or 0 !!}</a>
+            <a href="javascript:;">限投@if($tasks->limit >= 100000.00)100000.00 @else {!! $tasks->limit or 0 !!}@endif</a>
         </div>
         <div class="pl-bl-c">
             <p class="hc">

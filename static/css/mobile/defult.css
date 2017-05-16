@@ -90,12 +90,13 @@
     
 }
 
-/*.platform .content2 p:first-child{
+.platform .content2 p:first-child{
 	font-size: 20px;
 	font-weight: 700;
 	width: 95%;
 	margin-left: 5%;
 }
+
 .platform .content2 p{
 	width: 90%;
 	padding: 0px 5%;
@@ -104,7 +105,7 @@
 	text-align: justify;
 	margin-top: 2%;
 	color: #3d3d3d;
-}*/
+}
 .platform .content2 .titcont{
 	width: 90%;
     padding: 0px 5%;
