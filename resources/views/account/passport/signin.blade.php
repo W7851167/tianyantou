@@ -83,5 +83,4 @@
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/form.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/base64encode.js"></script>
     <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/login.js"></script>
-    <script type="text/javascript" src="{!! config('app.static_url') !!}/js/plugins/wxLogin.js"></script>
 @stop
