@@ -139,6 +139,8 @@
 	<input type="hidden" value="{!! $tasks['packet']['status'] or 0 !!}" id="packet_status" />
 	<input type="hidden" value="{!! $tasks['plat_reward']['title'] or 0 !!}" id="plat_reward_title" />
 	<input type="hidden" value="{!! $tasks['plat_reward']['status'] or 0 !!}" id="plat_reward_status" />
+	<input type="hidden" value="{!! $tasks['plat_time'] or 0 !!}" id="plat_time" />
+	<input type="hidden" value="{!! $tasks['packet_time'] or 0 !!}" id="packet_time" />
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/new_file.js" type="text/javascript" charset="utf-8"></script>
@@ -281,8 +283,8 @@
 
 		var calculateDay = countDay(termVal);//标期
 		var tytPrice = 0;  tytPrice = moneys*(tytYear/100)/calculateDay*termUnitVal;//天眼投加息奖励（1）
-		var tytPacket = 0;  tytPacket = packetOrPlatCount($("#packet_title").val(),$("#packet_status").val());//平台红包（2）
-		var plPrice = 0;   plPrice = packetOrPlatCount($("#plat_reward_title").val(),$("#plat_reward_status").val());//平台奖励（4）
+		var tytPacket = 0;  tytPacket = packetOrPlatCount($("#packet_title").val(),$("#packet_status").val(),$("#pack_time").val(),termUnitVal);//平台红包（2）
+		var plPrice = 0;   plPrice = packetOrPlatCount($("#plat_reward_title").val(),$("#plat_reward_status").val(),$("#plat_time").val(),termUnitVal);//平台奖励（4）
         var accrual = 0;  accrual = moneys*(platYear/100)/calculateDay*termUnitVal;//利息（5）
         var inTotal = 0; inTotal = tytPrice+tytPacket+plPrice+accrual;//综合收益（6）
         var allPlatYear = 0;  allPlatYear = inTotal/termUnitVal*calculateDay/moneys*100;//综合年化（7）
@@ -297,7 +299,7 @@
     }
 
 	//红包和平台奖励算法
-	function packetOrPlatCount(title,status)
+	function packetOrPlatCount(title,status,time,termUnit)
 	{
 		//title:红包档位/平台奖励档位
 		//status:1-->相加0-->不相加
@@ -306,6 +308,10 @@
 		{
 			return price;
 		}
+		if(termUnit < time)
+        {
+            return price;
+        }
         var moneys = parseInt($("#money").val())>0?parseInt($("#money").val()):0;//投资金额
 		var str = new Array();
 		var ss  =  new Array();

@@ -38,6 +38,13 @@
 								<input type="radio" @if($task['packet']['status']==0) checked="checked" @endif name="data[packet][status]" value="0" />不相加
 							</div>
                         </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>红包期限：</div>
+                            <div>
+                                <input type="text" name="data[packet_time]" value="{!! $task->packet_time or '' !!}">
+                                @if($task->term_unit == 0)天@elseif($task->term_unit == 1)月@elseif($task->term_unit == 2)@endif
+                            </div>
+                        </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>体验金：</div>
                             <div><input type="text" name= "data[bbin]" placeholder="单位元" value="{!! $task->bbin or 0 !!}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">元</div>
@@ -49,6 +56,13 @@
 								<input type="radio" @if($task['plat_reward']['status']==1) checked="checked" @endif name="data[plat_reward][status]" value="1" />相加
 								<input type="radio" @if($task['plat_reward']['status']==0) checked="checked" @endif name="data[plat_reward][status]" value="0" />不相加
 							</div>
+                        </div>
+                        <div class="infospaceAddContent clearfix">
+                            <div class="infospaceAddLeft"><span>*</span>平台期限：</div>
+                            <div>
+                                <input type="text" name="data[plat_time]" value="{!! $task->packet_time or '' !!}">
+                                @if($task->term_unit == 0)天@elseif($task->term_unit == 1)月@elseif($task->term_unit == 2)@endif
+                            </div>
                         </div>
 						<div class="infospaceAddContent clearfix">
                             <div class="infospaceAddLeft"><span>*</span>投资必看：</div>
