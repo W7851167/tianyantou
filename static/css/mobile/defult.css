@@ -89,7 +89,23 @@
 	margin-left: 5%;
     
 }
-.platform .content2 .titcont{
+
+.platform .content2 p:first-child{
+	font-size: 20px;
+	font-weight: 700;
+	width: 95%;
+	margin-left: 5%;
+}
+.platform .content2 p{
+	width: 90%;
+	padding: 0px 5%;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: justify;
+	margin-top: 2%;
+	color: #3d3d3d;
+}
+/*.platform .content2 .titcont{
 	width: 90%;
     padding: 0px 5%;
     font-size: 12px;
@@ -97,7 +113,7 @@
     text-align: justify;
     margin-top: 2%;
     color: #3d3d3d;
-}
+}*/
 .platform .content3{
 	width: 100%;
 	margin-top: 5%;
@@ -246,14 +262,12 @@
 	background: #f6f6f6;
 	padding: 5% 0;
 }
-.platfrom-blanks .pl-bl-c2 .tit{
-	margin-left: 5%;
-    margin-top: 3%;
+.platfrom-blanks .pl-bl-c2 p:first-child{
     font-size: 18px;
     color: #000000;
     font-weight: 700;
 }
-.platfrom-blanks .pl-bl-c2 .con{
+.platfrom-blanks .pl-bl-c2 p{
 	width: 90%;
     margin-left: 5%;
     margin-top: 3%;
@@ -261,6 +275,14 @@
     color: #3d3d3d;
     line-height: 16px;
 }
+/*.platfrom-blanks .pl-bl-c2 .con{
+	width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-size: 12px;
+    color: #3d3d3d;
+    line-height: 16px;
+}*/
 .platfrom-blanks .win{
 	width: 100%;
 }

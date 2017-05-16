@@ -34,19 +34,26 @@
 						</li>
 						<li>
 							<p>理财平台：</p>
-							<input type="text" id="moneyPlat" name="data[moneyPlat]" value="" />
+							<select name="data[task_id]" id="task_id">
+								<option value="0">请选择</option>
+								@if(!empty($tasks))
+									@foreach($tasks as $cv)
+										<option value="{!! $cv->id !!}">{!! $cv->title !!}</option>
+									@endforeach
+								@endif
+							</select>
 						</li>
 						<li>
 							<p>投资标期：</p>
-							<input type="text" id="investTarget" name="data[investTarget]" value="" />
+							<input type="text" id="term" name="data[term]" value="" style="width:100px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  />个月
 						</li>
 						<li>
 							<p>手机号码：</p>
-							<input type="text" id="phone" name="data[phone]" value=""  placeholder="请输入手机号码"/>
+							<input type="text" id="mobile" name="data[mobile]" value=""  placeholder="请输入手机号码" onkeyup="this.value=this.value.replace(/\D/g,'')" />
 						</li>
 						<li>
 							<p>投资金额：</p>
-							<input type="text" id="invesetMoney" name="data[invesetMoney]" value="" placeholder="请输入投资金额"/>
+							<input type="text" id="price" name="data[price]" value="" placeholder="请输入投资金额"/>
 						</li>
 					</ul>
 					<input type="submit" class="btn-blue btn-l btn-submit submit-btn" value="提交">

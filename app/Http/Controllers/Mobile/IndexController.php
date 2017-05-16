@@ -19,21 +19,21 @@ use App\Repositories\UserRepository;
 use App\Repositories\NewRepository;
 use App\Repositories\XdataRepository;
 use Illuminate\Http\Request;
-use Illuminate\Cache;
+use Cache;
 
 class IndexController extends MobileController
 {
 	public function __construct(
 			XdataRepository $xdata,
 			NewRepository $news,
-			TaskRepository $tasks,
+			TaskRepository $taskRepository,
 			CensusRepository $census
 	)
 	{
 		parent::__initalize();
 		$this->xdata = $xdata;
 		$this->news = $news;
-		$this->tasks = $tasks;
+        $this->taskRepository = $taskRepository;
 		$this->census = $census;
 	}
 
@@ -42,7 +42,7 @@ class IndexController extends MobileController
 	 *
 	 * H5首页控制器
 	 */
-    public function index()
+    public function index(Request $request)
     {
        list($counts, $advs) = $this->xdata->getAdvList([], 5, 1);
 		//系统公告
@@ -58,7 +58,7 @@ class IndexController extends MobileController
 		unset($where);
 		$where['status'] = 1;
 		$where['position'] = 1;
-		list($counts, $tasks) = $this->tasks->getTaskList($where, 12, 1);
+		list($counts, $tasks) = $this->taskRepository->getTaskList($where, 12, 1);
 		//links
 		list($counts, $links) = $this->xdata->getLinkList([], 15, 1);
 		$stats = $this->census->getHomeStats();
@@ -74,20 +74,20 @@ class IndexController extends MobileController
 		if ($request->isMethod('post')) {
 			$data = $request->get('data');
 
-//			$receiveModel = $this->taskRepository->taskReceiveModel->find($data['task_id']);
-			if (empty($data['moneyPlat']))
+			$tasks = $this->taskRepository->getTaskById($data['task_id']);
+			if (empty($data['task_id']))
 				return $this->error(' 请输入理财平台', null, true);
-			if (empty($data['investTarget']))
+			if (empty($data['term']))
 				return $this->error(' 请添加投资标期', null, true);
-			if (empty($data['phone']))
+			if (empty($data['mobile']))
 				return $this->error('请添加投资人手机号码', null, true);
-			if (empty($data['invesetMoney'])) {
+			if (empty($data['price'])) {
 				return $this->error('请添加投资金额', null, true);
 			}
-			if (!is_phone($data['phone'])) {
+			if (!is_phone($data['mobile'])) {
 				return $this->error('请填写真实的手机号码或固定电话', null, true);
 			}
-			if (!is_money($data['invesetMoney'])) {
+			if (!is_money($data['price'])) {
 				return $this->error('投资金额必须为数字.', null, true);
 			}
 //			if ($receiveModel->corp->limit <= $receiveModel->achieves->count()) {
@@ -95,24 +95,34 @@ class IndexController extends MobileController
 //			}
 			$clientIp = $request->getClientIp();
 
-//			$sendNum  = (int)Cache::get($clientIp);
-//			if($sendNum>50){
-//				return $this->error('提交次数过多，请稍等', null, true);
-//			}
-			return $this->success("成功", url('/'), true);
-			$data['receive_id'] = $receiveModel->id;
-			$data['task_id'] = $receiveModel->task_id;
-			$data['user_id'] = "88888888";
-			$data['corp_id'] = $receiveModel->corp_id;
+			$sendNum  = (int)Cache::get($clientIp);
+			if($sendNum>50){
+				return $this->error('提交次数过多，请稍等', null, true);
+			}
+//			return $this->success("成功", url('/'), true);
+			$data['receive_id'] = "88";
+			$data['task_id'] = $tasks->id;
+			$data['user_id'] = "8888";
+			$data['corp_id'] = $tasks->corp_id;
 			$data['status'] = 0;
-
 			$result = $this->taskRepository->saveAchieves($data);
 			if ($result['status']) {
+			    if($sendNum>0){
+			        $num = $sendNum+1;
+                }else{
+			        $num = 1;
+                }
+                Cache::put($clientIp,$num,60);
 				return $this->success($result['message'], url('/'), true);
 			}
 			return $this->error($result['message'], null, true);
 		}
-		return view('mobile.index.submit');
+
+        $where['status'] = 1;
+        $where['position'] = 1;
+        list($counts, $tasks) = $this->taskRepository->getTaskList($where, 12, 1);
+
+		return view('mobile.index.submit',compact( 'tasks'));
 	}
 
 	//测试展示效果
