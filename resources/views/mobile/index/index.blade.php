@@ -142,15 +142,15 @@
         autoplay:3000/*每隔3秒自动播放*/
     })
     $(function(){
-        $(".data-list").click(function(){
+        $(".data-list").bind('click',function(){
             var url = $(this).find("a").attr("href");
             window.location.href=url;
         })
-        $(".submit-gold").click(function(){
+        $(".submit-gold").bind('click',function(){
             var url = $(this).find("a").attr("href");
             window.location.href=url;
         })
-        $(".jump_url").click(function(){
+        $(".jump_url").bind('click',function(){
             var url = $(this).find("a").attr("href");
             window.location.href=url;
         })
