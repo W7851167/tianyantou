@@ -38,7 +38,7 @@
 								<option value="0">请选择</option>
 								@if(!empty($tasks))
 									@foreach($tasks as $cv)
-										<option value="{!! $cv->id !!}">{!! $cv->title !!}</option>
+										<option value="{!! $cv->id !!}">{!! $cv->corp->name !!}</option>
 									@endforeach
 								@endif
 							</select>
