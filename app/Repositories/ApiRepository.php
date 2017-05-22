@@ -44,14 +44,21 @@ class ApiRepository extends  BaseRepository
      */
     public function saveApi($data)
     {
-        unset($data['options']);
-        $data['options']['api_key'] = 'yigewangluo';
-        $data['options']['api_url'] = 'http://yrt.51haoyitou.com/api/spreadUserData';
-        $data['options']['type'] = 42;
-        if($this->apiModel->saveBy($data)) {
-            return $this->getSuccess('保存接口完成');
+        try {
+            $result = $this->apiModel->getConnection()->transaction(function () use ($data) {
+                if($this->apiModel->saveBy($data)) {
+                    return $this->getSuccess('保存接口完成');
+                }
+                return $this->getError('保存接口异常');
+            });
+        }catch (\Exception $e) {
+            return $this->getError($e->getMessage());
         }
-        return $this->getError('保存接口异常');
+        if ($result instanceof \Exception) {
+            return $this->getError($result->getMessage());
+        } else {
+            return $this->getSuccess('保存接口完成', $result);
+        }
     }
 
 
