@@ -36,7 +36,7 @@
     </div>
 @stop
 @section('script')
-    <script language="javascript">
+    <script language="javascript" type="text/javascript">
         $(function(){
             $("#getData").click(function(){
                 var start_time = $("#start_time").val();
@@ -63,7 +63,7 @@
                             var allTotalPrice = 0;
                             $.each(json.data, function (index, val) {
                                 if(val.deadline > 1) {
-                                    str += '<tr><td>' + val.OrderNo + '</td><td>' + val.mobile + '</td><td>' + val.real_name + '</td><td>' + val.goodsname + '</td><td>' + val.money + '</td><td>' + val.annualrate + '</td><td>' + val.create_time + '</td><td>' + val.status + '</td></tr>';
+                                    str += '<tr><td>' + val.OrderNo + '</td><td>' + val.mobile + '</td><td>' + val.real_name + '</td><td>' + val.goodsname + '</td><td>' + val.money + '</td><td>' + val.annualrate + '</td><td>' + formatDate(val.create_time) + '</td><td>' + val.status + '</td></tr>';
                                     allTotalPrice += parseInt(val.money);
                                 }
                             });
@@ -78,6 +78,9 @@
                 })
             })
         })
+        function formatDate(now) {
+            return new Date(parseInt(now)).toLocaleString();
+        }
 
     </script>
 @stop
