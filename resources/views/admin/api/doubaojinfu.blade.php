@@ -41,7 +41,6 @@
             $("#getData").click(function(){
                 var start_time = $("#start_time").val();
                 var end_time = $("#end_time").val();
-                var dataTime = daysBetween(start_time,end_time);
                 if(start_time == '')
                 {
                     alert("开始时间不能为空");
@@ -52,36 +51,27 @@
                     alert("结束时间不能为空");
                     return false;
                 }
-                if( dataTime != 1 )
-                {
-                    alert("间隔时间为1天");
-                    return false;
-                }
                 $.ajax({
                     url: "/doubaojinfu",
                     type: 'post',
                     data:{start_time:start_time,end_time:end_time},
                     dataType:'json',
                     success:function(json){
-                        var str = '<tr><th width="100">商品ID</th><th width="50">商品名称</th><th width="50">商品单价</th><th width="50">商品数量</th><th width="50">是否首投</th><th width="50">交易时间</th><th width="50">订单号</th><th width="50">优惠金额</th><th width="50">商品总净金额</th></tr>';
-                        if(json.success == 1)
+                        var str = '<tr><th width="100">订单ID</th><th width="50">手机号</th><th width="50">真实姓名</th><th width="50">标详情</th><th width="50">投资金额</th><th width="50">投资年化</th><th width="50">交易时间</th><th width="50">订单状态</th></tr>';
+                        if(json.totalcount > 0)
                         {
-                            if(json.data.data.length>0) {
-                                var allTotalPrice = 0;
-                                $.each(json.data.data, function (index, val) {
-                                    str += '<tr><td>'+val.goods_id+'</td><td>'+val.goods_name+'</td><td>'+val.goods_price+'</td><td>'+val.goods_num+'</td><td>'+val.isFirst+'</td><td>'+val.order_time+'</td><td>'+val.order_sn+'</td><td>'+val.discount_amount+'</td><td>'+val.totalPrice+'</td></tr>';
-                                    allTotalPrice+=parseInt(val.totalPrice);
-                                });
-                                str += '<tr><td colspan="9">总金额：'+allTotalPrice+'元（RMB）</td></tr>';
-                                $('.all_shopping').html(str);
-                            }
-                            else{
-                                str += '<tr><td colspan="9">暂无信息</td></tr>';
-                                $('.all_shopping').html(str);
-                            }
+                            var allTotalPrice = 0;
+                            $.each(json.data, function (index, val) {
+                                if(val.deadline > 1) {
+                                    str += '<tr><td>' + val.OrderNo + '</td><td>' + val.mobile + '</td><td>' + val.real_name + '</td><td>' + val.goodsname + '</td><td>' + val.money + '</td><td>' + val.annualrate + '</td><td>' + val.create_time + '</td><td>' + val.status + '</td></tr>';
+                                    allTotalPrice += parseInt(val.money);
+                                }
+                            });
+                            str += '<tr><td colspan="8">总金额：'+allTotalPrice+'元（RMB）</td></tr>';
+                            $('.all_shopping').html(str);
                         }
                         else{
-                            str += '<tr><td colspan="9" style="color:red;">查询失败</td></tr>';
+                            str += '<tr><td colspan="8" style="color:red;">暂无信息</td></tr>';
                             $('.all_shopping').html(str);
                         }
                     }
@@ -89,18 +79,5 @@
             })
         })
 
-        /**
-         * 根据两个日期，判断相差天数
-         * @param sDate1 开始日期 如：2016-11-01
-         * @param sDate2 结束日期 如：2016-11-02
-         * @returns {number} 返回相差天数
-         */
-        function daysBetween(sDate1,sDate2){
-            //Date.parse() 解析一个日期时间字符串，并返回1970/1/1 午夜距离该日期时间的毫秒数
-            var time1 = Date.parse(new Date(sDate1));
-            var time2 = Date.parse(new Date(sDate2));
-            var nDays = Math.abs(parseInt((time2 - time1)/1000/3600/24));
-            return  nDays;
-        };
     </script>
 @stop
