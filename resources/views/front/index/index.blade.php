@@ -116,7 +116,7 @@
                     </p>
                     <div class="plaform-about">
                         <a href="{!! config('app.url') !!}/platform/{!! $tv->corp->ename or ''!!}.html" target="_blank" class="plat-logo" title="{!! $tv->corp->name or '' !!}">
-                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo or ''!!}" width="70" height="40" alt="">
+                            <img src="{!! config('app.static_url') !!}{!! $tv->corp->logo or ''!!}" width="85" height="28" alt="">
                         </a>
                         <h4 class="debt-title" title="{!! $tv->title or '' !!}">{!! $tv->title or '' !!}</h4>
                         <div class="platform-data">
