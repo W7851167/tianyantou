@@ -19,6 +19,8 @@ use App\Repositories\UserRepository;
 use App\Repositories\NewRepository;
 use App\Repositories\XdataRepository;
 use Illuminate\Http\Request;
+use App\Models\TaskReceiveModel;
+use App\Models\TaskModel;
 use Cache;
 
 class IndexController extends MobileController
@@ -75,6 +77,7 @@ class IndexController extends MobileController
 			$data = $request->get('data');
 
 			$tasks = $this->taskRepository->getTaskById($data['task_id']);
+
 			if (empty($data['task_id']))
 				return $this->error(' 请输入理财平台', null, true);
 			if (empty($data['term']))
@@ -93,19 +96,25 @@ class IndexController extends MobileController
 //			if ($receiveModel->corp->limit <= $receiveModel->achieves->count()) {
 //				return $this->error('该平台每标限定投资' . $receiveModel->corp->limit . '次', null, true);
 //			}
+			//获取客户端ip
 			$clientIp = $request->getClientIp();
-
 			$sendNum  = (int)Cache::get($clientIp);
 			if($sendNum>50){
 				return $this->error('提交次数过多，请稍等', null, true);
 			}
-//			return $this->success("成功", url('/'), true);
-			$data['receive_id'] = "888";
+			$receives['task_id'] = $tasks->id;
+			$receives['corp_id'] = $tasks->corp_id;
+			$receives['user_id'] = $this->user['id'];
+			$receives['ratio'] = $tasks->ratio;
+			$receives['mratio'] = $tasks->mratio;
 			$data['task_id'] = $tasks->id;
-			$data['user_id'] = "8888";
+			$data['user_id'] = $this->user['id'];
 			$data['corp_id'] = $tasks->corp_id;
 			$data['status'] = 0;
+			$receiveModel = new TaskReceiveModel();
+			$data['receive_id'] = $receiveModel->adtask($receives);
 			$result = $this->taskRepository->saveAchieves($data);
+
 			if ($result['status']) {
 			    if($sendNum>0){
 			        $num = $sendNum+1;
@@ -119,8 +128,9 @@ class IndexController extends MobileController
 		}
 
         $where['status'] = 1;
-        $where['position'] = 1;
-        list($counts, $tasks) = $this->taskRepository->getTaskList($where, 12, 1);
+		$model = new TaskModel();
+		$tasks = $model->taskslist($where);
+        //list($counts, $tasks) = $this->taskRepository->getTaskList($where, 12, 1);
 
 		return view('mobile.index.submit',compact( 'tasks'));
 	}

@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
-</head>
+<!-- 头信息 -->
+@include('mobile.public.header')
+        <!-- 头信息结束 -->
 <body>
 <div class="touzi">
     <div class="first">
         <p class="p1">
             <img src="//static.tianyantou.com/images/mobile/tixian.png"/>
-            <span>用户名:</span>
-            <span>手机号:13641411254</span>
+            <span>用户名:{!! $user['mobile'] !!}</span>
+
         </p>
         <p class="p2">
             <img src="//static.tianyantou.com/images/mobile/tixian-2.png"/>
@@ -23,12 +17,12 @@
     </div>
     <div class="header">
         <p class="p1">天眼投资累计收益（元）</p>
-        <p class="p2" style="font-size: 22px;margin-top: 3%;">1,000,000</p>
+        <p class="p2" style="font-size: 22px;margin-top: 3%;">{{$return->total}}</p>
     </div>
     <ul class="header2">
         <li>
 
-            <p class="p2">可用余额<span>200</span>元</p>
+            <p class="p2">可用余额<span>{{$return->money}}</span>元</p>
         </li>
         <li>
 
@@ -39,39 +33,47 @@
     <ul class="content">
         <li class="llot">
             <img src="//static.tianyantou.com/images/mobile/tixian-a.jpg"/>
+            <a href="/userInvestInfo">
             <div>
                 <p class="p1">投资提交</p>
-                <p class="p2">投资记录明细</p>
+                <p class="p2">记录投资、奖励领取</p>
             </div>
+            </a>
         </li>
         <li class="llot">
             <img src="//static.tianyantou.com/images/mobile/tixian-b.jpg"/>
-            <div>
-                <p class="p1">投资提交</p>
-                <p class="p2">投资记录明细</p>
+
+                <div>
+                <p class="p1">提现记录</p>
+                <p class="p2">{{$return->price}}</p>
             </div>
+
         </li>
         <li class="llot">
             <img src="//static.tianyantou.com/images/mobile/tixian-c.jpg"/>
+            <a href="record.html">
             <div>
-                <p class="p1">投资提交</p>
-                <p class="p2">投资记录明细</p>
+                <p class="p1">投资记录</p>
+                <p class="p2">最高11%的收益</p>
             </div>
+            </a>
         </li>
         <li class="llot">
             <img src="//static.tianyantou.com/images/mobile/tixian-d.jpg"/>
+            <a href="recommend.html">
             <div>
-                <p class="p1">投资提交</p>
-                <p class="p2">投资记录明细</p>
+                <p class="p1">推荐有奖</p>
+                <p class="p2">1个可用</p>
             </div>
+            </a>
         </li>
     </ul>
     <ul class="foot-cont">
-        <li>
+        <a href="coupon.html"><li>
             <img src="//static.tianyantou.com/images/mobile/tixian-e.jpg"/>
             <span>优惠卷</span>
             <img src="//static.tianyantou.com/images/mobile/tixian--.png"/>
-        </li>
+        </li></a>
         <li>
             <img src="//static.tianyantou.com/images/mobile/tixian-f.jpg"/>
             <span>大转盘</span>
@@ -89,30 +91,9 @@
         </li>
     </ul>
 </div>
-<div class="jpform-foot">
-    <ul>
-        <li class="jump_url">
-            <a href="{!! config('app.m_url') !!}">
-                <img src="//static.tianyantou.com/images/mobile/h1.png"/>
-            </a>
-            <p>首页</p>
-        </li>
-        <li class="jump_url">
-            <a href="{!! config('app.m_url') !!}/platform">
-                <img src="//static.tianyantou.com/images/mobile/h2.png"/>
-            </a>
-            <p>精选</p>
-        </li>
-        <li class="jump_url">
-            <div class="">
-                <a href="{!! config('app.m_url') !!}/signin.html">
-                    <img src="//static.tianyantou.com/images/mobile/h3-3.png"/>
-                </a>
-            </div>
-            <p>我的</p>
-        </li>
-    </ul>
-</div>
+<!-- 公用banner开始 -->
+@include('mobile.public.userbanner')
+        <!-- 公用banner结束 -->
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/swiper.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">

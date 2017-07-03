@@ -14,6 +14,13 @@ class MoneyModel extends BaseModel
     }
 
     /**
+     * 用户首页数据，金额（手机）(6-27xie)
+     */
+    public function userIndex($userId){
+        return $this->where('user_id',$userId)->select('total','money')->first();
+    }
+
+    /**
      * @param null $userId
      * @param $data
      * 创建用户信息

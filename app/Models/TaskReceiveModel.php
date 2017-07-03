@@ -9,6 +9,17 @@ class TaskReceiveModel extends BaseModel
     protected $primaryKey = 'id';
 
     /**
+     *  先查询后添加任务（17-6-29xie）
+     */
+    public function adtask($receive){
+        $return = $this->where($receive)->first();
+        if(!$return){
+           return $this->insertGetId($receive);
+        }
+        return $return->id;
+    }
+
+    /**
      * @param $data
      * 编辑信息
      */

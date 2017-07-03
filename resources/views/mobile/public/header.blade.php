@@ -5,9 +5,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
     <meta name="csrf-token" content="{!! csrf_token() !!}">
     <title>P2P投资理财节</title>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{!! config('app.static_url') !!}/css/mobile/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="{!! config('app.static_url') !!}/css/mobile/defult.css"/>
+    <link rel="stylesheet" type="text/css" href="{!! config('app.static_url') !!}/css/mobile/swiper.min.css"/>
     @yield('style')
     <script>
         var _hmt = _hmt || [];

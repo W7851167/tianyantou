@@ -1,88 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
-    <style type="text/css">
-
-    </style>
-</head>
+<!-- 头信息 -->
+@include('mobile.public.header')
+<!-- 头信息结束 -->
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("a").click(function () {
+            $(this).attr('class','activenn');
+        });
+    });
+</script>
 <body class="jilu-body">
 <div class="jilu">
     <div class="header">
-        <a href="{!! config("app.m_url") !!}"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
+        <a href="{!! config("app.m_url") !!}/user"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">投资记录</p>
     </div>
     <div class="content">
         <ul class="na1">
             <li>
-                <a href="javascript:;">申核中</a>
+                <a href="record.html?key=audit">申核中</a>
             </li>
             <li>
-                <a href="javascript:;" >已投资</a>
+                <a href="record.html?key=pass">已投资</a>
             </li>
             <li>
-                <a href="javascript:;" class="activenn">已回款</a>
+                <a href="record.html?key=reject">已回款</a>
             </li>
         </ul>
-        <div class="cont1">
-            <ul>
-                <li>
-                    <div class="p1">
-                        <img src="//static.tianyantou.com/images/mobile/jilu-1.jpg"/>
-                        <span id="">
-									已回款
-								</span>
-                    </div>
-                    <div class="p2">
-                        <div class="p2-c1">
-                            <p>预计年华:20.11% </p>
-                            <p>投资时间:2017-01-01 </p>
-                            <p>投资周期:30天</p>
-                        </div>
-                        <div class="p2-c2">
-                            <p class="tit">10000000</p>
-                            <p>出借金额（元）</p>
-                        </div>
-                    </div>
-                    <div class="p3">
-                        <span>出借时间：2017年2月1日</span>
-                        <span>到期时间：2017年3月28日</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        @if(count($return)>0)
 
+
+        @foreach($return as $value)
         <div class="cont1">
             <ul>
                 <li>
                     <div class="p1">
-                        <img src="//static.tianyantou.com/images/mobile/jilu-1.jpg"/>
-                        <span id="">
-									已回款
+                        <img src="//static.tianyantou.com{{$value->logo}}" style="width: auto; height:50px;"/>
+                        <span>
+									{{$status}}
 								</span>
                     </div>
                     <div class="p2">
                         <div class="p2-c1">
-                            <p>预计年华:20.11% </p>
-                            <p>投资时间:2017-01-01 </p>
-                            <p>投资周期:30天</p>
+                            <p>投标期限: {{$value->term}}个月</p>
+                            <p>平台年化率：{{$value->ratio}}%</p>
+                            <p>天眼投年化率:{{$value->mratio}}%</p>
                         </div>
                         <div class="p2-c2">
-                            <p class="tit">10000000</p>
-                            <p>出借金额（元）</p>
+                            <p class="tit">{{$value->price}}</p>
+                            <p>投资金额(元)</p>
                         </div>
                     </div>
                     <div class="p3">
-                        <span>出借时间：2017年2月1日</span>
-                        <span>到期时间：2017年3月28日</span>
+                        <span>领取任务时间：{{$value->created_at}}</span>
+                        <span></span>
                     </div>
                 </li>
             </ul>
         </div>
+        @endforeach
+        @else
+            <p style=" text-align: center; color:#666; margin-top: 10px;">没有查询到相关记录</p>
+        @endif
     </div>
 </div>
 </body>

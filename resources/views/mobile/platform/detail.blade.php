@@ -27,7 +27,7 @@
         <div class="pl-bl-t">
             <a href="javascript:;">期限一个月</a>
             <a href="javascript:;">起投{!! $tasks->sued or 0 !!}</a>
-            <a href="javascript:;">限投@if($tasks->limit >= 100000.00){!! $tasks->limit/10000 !!}万 @else {!! $tasks->limit or 0 !!}@endif</a>
+            <a href="javascript:;">限投@if($tasks->limit >= 100000.00)100000.00 @else {!! $tasks->limit or 0 !!}@endif</a>
         </div>
         <div class="pl-bl-c">
             <p class="hc">
@@ -50,27 +50,27 @@
             </p>
             <p class="tc">
                 天眼投加息奖励：
-                <input type="text" name="" id="tytPrice" placeholder="0" />
+                <input type="text" name="" id="tytPrice" placeholder="0" disabled="disabled" />
                 元
             </p>
             <p class="tc">
                 红  包：
-                <input type="text" name="" id="tytPacket" placeholder="0" />
+                <input type="text" name="" id="tytPacket" placeholder="0" disabled="disabled" />
                 元
             </p>
             <p class="tc">
                 体验金：
-                <input type="text" name="" id="tytExperience" placeholder="{!! $tasks->bbin or 0 !!}" value="{!! $tasks->bbin or 0 !!}" />
+                <input type="text" un name="" disabled="disabled" id="tytExperience" placeholder="{!! $tasks->bbin or 0 !!}" value="{!! $tasks->bbin or 0 !!}" />
                 元
             </p>
             <p class="tc">
                 平台奖励：
-                <input type="text" name="" id="plPrice" placeholder="0"  />
+                <input type="text" name="" id="plPrice" placeholder="0" disabled="disabled" />
                 元
             </p>
             <p class="tc">
                 利 息：
-                <input type="text" name="" id="accrual" placeholder="0"  />
+                <input type="text" name="" id="accrual" placeholder="0" disabled="disabled" />
                 元
             </p>
             <br/>

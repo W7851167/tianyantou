@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-    <meta name="csrf-token" content="{!! csrf_token() !!}">
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
-
-</head>
+<!-- 头信息 -->
+@include('mobile.public.header')
+        <!-- 头信息结束 -->
 <body>
 <div class="zhuce">
     <div class="header">
         <a href="{!! config("app.m_url") !!}"><img src="//static.tianyantou.com/images/mobile/close.jpg"/></a>
         <a href="{!! config("app.m_url") !!}/signin.html"><p>已有账号，去登录</p></a>
     </div>
-    <form id="m_register" data-toggle="ajaxForm" method="post">
+    <form id="m_register" data-toggle="ajaxForm" method="post" action="">
         {!! csrf_field() !!}
         <img class="zhuceimg" src="//static.tianyantou.com/images/mobile/zhuce.jpg"/>
         <ul>
@@ -29,11 +21,11 @@
                 <input type="password" name="password" id="m_loginpage-pwd" placeholder="6至16位数字、字母组合"/>
                 <img class="zhuce22img" src="//static.tianyantou.com/images/mobile/tiany-3.png"/>
             </li>
-            <li>
+            <!--<li>
                 <p>图形验证码</p>
                 <input id="m_log-captcha" name="captcha" type="text"  placeholder="验证码" style="width: 134px;margin-right: 13px;" />
                 <img id="captcha" src="{!!url('signin/captcha')!!}" class="img" onclick="this.src='{!!url("signin/captcha?")!!}'+Math.random();" style="vertical-align: middle; float:right;" />
-            </li>
+            </li>-->
             <li>
                 <p>动态码</p>
                 <input class="dongtai"  type="text" name="verifyCode" id="reg-captcha" placeholder="动态码"/>
@@ -47,7 +39,7 @@
             <p style="font-size:12px;">我已阅读并同意<span>《天眼投服务协议（个人会员版）》</span></p>
         </div>
         <div class="error" style="text-align: center;">
-            
+
         </div>
         <input type="submit" class="sub-btn"  value="注册">
     </form>

@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/swiper.min.css"/>
-    <title>P2P投资理财节</title>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-</head>
+<!-- 头信息 -->
+@include('mobile.public.header')
+<!-- 头信息结束 -->
 <body>
 <div class="index">
     <div class="header">
@@ -83,51 +67,11 @@
         @endif
         @endforeach
 
-        <!--<div class="data-list">
-            <div class="data-title">
-                <img src="//static.tianyantou.com/images/mobile/biao0.png"/>
-                <span>搜易贷-搜狐集团旗下公司</span>
-                <a href="javascript:;">首投</a>
-            </div>
-            <ul>
-                <li class="con-red">
-                    <p class="rt">11-25%</p>
-                    <p>综合年华收益</p>
-                </li>
-                <li class="con-red">
-                    <p class="rt">30天</p>
-                    <p>期 限</p>
-                </li>
-                <li class="con-p">
-                    <p>返利上限：2000元 </p>
-                    <p>起投金额：100元 </p>
-                    <p>最大金额：50万</p>
-                </li>
-            </ul>
-        </div>-->
-    </div>
-    <div class="jpform-foot">
-        <ul>
-            <li class="jump_url">
-                <a href="{!! config('app.m_url') !!}">
-                    <img src="//static.tianyantou.com/images/mobile/h1-1.png"/>
-                </a>
-                <p>首页</p>
 
-            </li>
-            <li class="jump_url">
-                <a href="{!! config('app.m_url') !!}/platform">
-                    <img src="//static.tianyantou.com/images/mobile/h2.png"/>
-                </a>
-                <p>精选</p>
-
-            </li>
-            <li>
-                    <img src="//static.tianyantou.com/images/mobile/h3.png"/>
-                <p>我的</p>
-            </li>
-        </ul>
     </div>
+    <!-- 公用banner开始 -->
+    @include('mobile.public.userbanner')
+    <!-- 公用banner结束 -->
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/swiper.jquery.min.js" type="text/javascript" charset="utf-8"></script>

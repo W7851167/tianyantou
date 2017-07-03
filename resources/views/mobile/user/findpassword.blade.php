@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title></title>
-    <style type="text/css">
-
-    </style>
-</head>
+@include('mobile.public.header')
 <body>
 <div class="find-pass">
     <div class="header">
         <a href="{!! config('app.m_url') !!}"><img src="//static.tianyantou.com/images/mobile/11.png"/></a>
         <p class="plat-title">找回登录密码</p>
     </div>
+    <form action="" method="post" data-toggle="ajaxForm">
+        <input type="hidden" value="1" name="step" />
+        {!! csrf_field() !!}
     <ul>
         <li>
             <p>手机号码</p>
-            <input type="text" name="" id="" placeholder="请输入手机号" />
+            <input type="text" name="mobile" id="m_reg-telephone" placeholder="请输入手机号" />
         </li>
         <li>
             <p>验证码</p>
-            <input type="text" name="" id="" placeholder="请输入验证码" />
-            <a href="javascript:;">发送验证码</a>
+            <input type="text" name="captcha" id="" placeholder="请输入验证码" />
+            <a href="javascript:;" class="btn-captcha" data-toggle="m_verifyCode" data-action="m_register" data-tel="#m_reg-telephone">获取验证码</a>
         </li>
-        <li>
+        {{--<li>
             <p>证件号</p>
             <input type="text" name="" id="" placeholder="请输入证件号"/>
-        </li>
+        </li>--}}
     </ul>
-    <a class="sub-btn" href="javascript:;">下一步</a>
+
+        <input type="submit"  value="下一步" class="sub-btn" />
+    </form>
 </div>
 </body>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.form.min.js"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/form.js"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/login.js"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/login-frontend.js"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/ucenter.js"></script>
 </html>

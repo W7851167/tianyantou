@@ -1,7 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2017/6/7
- * Time: 20:14
- */
+<!-- 头信息 -->
+@include('mobile.public.header')
+<!-- 头信息结束 -->
+
+@yield('content')
+
+<!-- footer部分 -->
+@include('mobile.public.footer')
+<!-- footer部分结束 -->

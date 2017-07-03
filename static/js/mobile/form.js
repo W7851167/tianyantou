@@ -16,35 +16,35 @@ formCheckBtn();
 //让不支持placeholder的浏览器实现此属性  
 (function(){
   function supports_input_placeholder(){
-    var i = document.createElement("input");  
+    var i = document.createElement("input");
     return "placeholder" in i;
   }
-  var input_placeholder = $("input[placeholder],textarea[placeholder]");  
+  var input_placeholder = $("input[placeholder],textarea[placeholder]");
   if (input_placeholder.length !== 0 && !supports_input_placeholder()) {
-    var color_place = "#C3C3C3";   
+    var color_place = "#C3C3C3";
     var color_blur = "#94969B";
-    $.each(input_placeholder, function(i){  
+    $.each(input_placeholder, function(i){
       var isUserEnter = 0; // 是否为用户输入内容,placeholder允许用户的输入和默认内容一样  
-      var ph = $(this).attr("placeholder");  
-      var curColor = $(this).css("color");  
-      $(this).val(ph).css("color", color_place); 
-      $(this).focus(function(){  
-        if ($(this).val() == ph && !isUserEnter) $(this).val("").css("color", curColor);  
-      }).blur(function(){  
-        if ($(this).val() == "") {  
-          $(this).val(ph).css("color", color_place);  
-          isUserEnter = 0;  
+      var ph = $(this).attr("placeholder");
+      var curColor = $(this).css("color");
+      $(this).val(ph).css("color", color_place);
+      $(this).focus(function(){
+        if ($(this).val() == ph && !isUserEnter) $(this).val("").css("color", curColor);
+      }).blur(function(){
+        if ($(this).val() == "") {
+          $(this).val(ph).css("color", color_place);
+          isUserEnter = 0;
         }
         $(this).addClass('inputted');
-      }).keyup(function(){  
-        if ($(this).val() !== ph) isUserEnter = 1;  
-      });  
-    });  
+      }).keyup(function(){
+        if ($(this).val() !== ph) isUserEnter = 1;
+      });
+    });
   }
   input_placeholder.blur(function(){
-    if ($(this).val() !== "") {  
+    if ($(this).val() !== "") {
       $(this).addClass('inputted');
-    }  
+    }
   });
 })();
 
@@ -52,18 +52,18 @@ formCheckBtn();
 (function(){
   var selectMenu = $('.select span');
   var allUl = selectMenu.next('ul');
-  var iTag = '<i></i>'; 
+  var iTag = '<i></i>';
   allUl.hide();
   selectMenu.on('click',function(e){
     var thisUl = $(this).next('ul');
     var thisItem = thisUl.find('li a');
-    
+
     ulH = thisUl.prev().outerWidth();
     allUl.hide();
     thisUl.css({
-      width: ulH + 'px'
-    })
-    .slideDown(200);
+          width: ulH + 'px'
+        })
+        .slideDown(200);
     //点击空白关闭下拉菜单
     $(document).click(function(){
       thisUl.hide();
@@ -74,7 +74,7 @@ formCheckBtn();
       var pUl = $(this).parents('ul');
       if(!pUl.is(':animated')){
         pUl.hide()
-        .prev().html($(this).text()+iTag);
+            .prev().html($(this).text()+iTag);
       }
     });
     //阻止冒泡
@@ -90,7 +90,7 @@ function enableButton($elem, enable) {
     $elem.addClass('btn-invalid');
     $elem.prop("disabled", true);
   }
-  
+
 }
 
 (function() {
@@ -102,43 +102,58 @@ function enableButton($elem, enable) {
       enableButton($submitBtn, false);
     },
     success: function(data, status, xhr, $form) {
-      $submitBtn = $form.find('input[type=submit]');
       enableButton($submitBtn, true);
-      layer && layer.closeAll('page');
-      if (data.code) {
-        if (data.code == 303) {
-          window.location.href = data.url;
-        }
-      } else {
-        var refreshUrl = $form.data('refresh-url');
-        if (refreshUrl) {
-          if(data.status == 0){
-            messageBox(data.message,2)
-          }else{
-            var parts = refreshUrl.split('#');
-            if (parts[0]) {
-              $('#'+parts[1]).load(parts[0]);
-            } else {
-              $('#'+parts[1]).html(data);
-            }
-            Ucenter.readaptSidemenuAndMainpanel();
-          }
-        } else {
-         if(data.status == 1) {
-           messageBox(data.message, 1);
-           setTimeout(function() {
-             window.location.href = data.url;
-           }, 3000);
-         } else {
-           messageBox(data.message,2)
-         }
-        }
+      if(data.status==0)
+      {
+        alert(data.message);
       }
+      else if(data.status == 1)
+      {
+        alert(data.message);
+        setTimeout(function() {
+          window.location.href = data.url;
+        }, 3000);
+      }
+      //$submitBtn = $form.find('input[type=submit]');
+      //enableButton($submitBtn, true);
+      //layer && layer.closeAll('page');
+      //if (data.code) {
+      //  if (data.code == 303) {
+      //    window.location.href = data.url;
+      //  }
+      //} else {
+      //  var refreshUrl = $form.data('refresh-url');
+      //  if (refreshUrl) {
+      //    if(data.status == 0){
+      //      //messageBox(data.message,2)
+      //      alert(data.message);
+      //    }else{
+      //      var parts = refreshUrl.split('#');
+      //      if (parts[0]) {
+      //        $('#'+parts[1]).load(parts[0]);
+      //      } else {
+      //        $('#'+parts[1]).html(data);
+      //      }
+      //      Ucenter.readaptSidemenuAndMainpanel();
+      //    }
+      //  } else {
+      //   if(data.status == 1) {
+      //     //messageBox(data.message, 1);
+      //     alert(data.message);
+      //     setTimeout(function() {
+      //       window.location.href = data.url;
+      //     }, 3000);
+      //   } else {
+      //     //messageBox(data.message,2)
+      //     alert(data.message);
+      //   }
+      //  }
+      //}
     },
     error: function(xhr, status, text, $form) {
       $submitBtn = $form.find('input[type=submit]');
       enableButton($submitBtn, true);
-      
+
       var ct = xhr.getResponseHeader('content-type');
       var $message = $form.find('.msg-wrap');
       var messageText = '系统繁忙请稍后重试，天眼投客服电话 010-57283503';
@@ -161,8 +176,10 @@ function enableButton($elem, enable) {
       });
 
       if (!messageHandled) {
-        messageBox(messageText, 2);
+        //messageBox(messageText, 2);
+        alert(messageText);
       }
+
     }
   });
 })();

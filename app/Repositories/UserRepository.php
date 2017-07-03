@@ -52,6 +52,16 @@ class UserRepository extends BaseRepository
     }
 
     /**
+     *
+     */
+    public function findLogin($mobile){
+        $return = $this->userModel->where('mobile',$mobile)->first();
+        if(!$return) return $this->getError('该用户不存在!');
+        Session::put('user.passport', $this->setSessionData($return));
+        return static::getSuccess('登录成功!');
+    }
+
+    /**
      * @param $suppliersId
      * @param $email
      * @param $password
@@ -380,5 +390,5 @@ class UserRepository extends BaseRepository
             return static::getError($result->getMessage());
         }
         return static::getSuccess('注册成功!');
-    }
+}
 }

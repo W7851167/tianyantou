@@ -16,6 +16,12 @@ class TaskModel extends BaseModel
 		'plat_reward'=>'array',
     ];
 
+    /**
+     *获取任务列表(17-6-29xie)
+     */
+    public function taskslist($where){
+        return $this->where($where)->get();
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany

@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-    <meta name="csrf-token" content="{!! csrf_token() !!}">
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-    <title>P2P投资理财节</title>
-
-</head>
+<!-- 头信息 -->
+@include('mobile.public.header')
+<!-- 头信息结束 -->
 <body>
 
 <div class="login">
@@ -18,17 +10,17 @@
     </div>
     <img class="log"  src="//static.tianyantou.com/images/mobile/tiany.png"/>
     <div class="cont1">
-        <form id="login" method="post"  action="{!! config('app.m_url') !!}/signin.html">
+        <form id="login" method="post" data-toggle="ajaxForm" action="{!! config('app.m_url') !!}/signin.html">
             {!! csrf_field() !!}
             <div class="">
-                <input type="text" name="username" id="" placeholder="手机号" />
+                <input type="text" name="username" id="log-username" placeholder="手机号" />
             </div>
             <div class="">
-                <input type="password" name="password" id="loginpage-pwd" placeholder="登录密码" />
-                <img src="//static.tianyantou.com/images/mobile/yan-1.png"/>
+                <input type="password" name="password" id="m_loginpage-pwd" placeholder="登录密码" />
+                <img src="//static.tianyantou.com/images/mobile/yan-1.png" id="loginpage-pwd" />
             </div>
 
-            <input class="sub-btn" type="submit"  id="m-login-submit" value="登录">
+            <input class="sub-btn" type="submit" value="登录">
             <input type="hidden" name="m_url" value="{!! config('app.m_url') !!}"/>
             <p>
                 <a href="{!! config('app.m_url') !!}/register.html">注册</a>/
@@ -41,5 +33,7 @@
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/form.js"></script>
 <script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/login.js"></script>
+<script type="text/javascript" src="{!! config('app.static_url') !!}/js/mobile/login-frontend.js"></script>
+
 </body>
 </html>

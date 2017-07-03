@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
-		<link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="//static.tianyantou.com/css/mobile/defult.css"/>
-		
-		<title>P2P投资理财节</title>
-		<script>
-            var _hmt = _hmt || [];
-            (function() {
-                var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?4bce883bdb22bd76c22b2983afc1ae4d";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-		</script>
-	</head>
+<!-- 头信息 -->
+@include('mobile.public.header')
+<!-- 头信息结束 -->
 	<body>
 		<div class="platform">
 			<div class="header">
@@ -38,7 +22,7 @@
 								<option value="0">请选择</option>
 								@if(!empty($tasks))
 									@foreach($tasks as $cv)
-										<option value="{!! $cv->id !!}">{!! $cv->corp->name !!}</option>
+										<option value="{!! $cv->id !!}">{!! $cv->title !!}</option>
 									@endforeach
 								@endif
 							</select>

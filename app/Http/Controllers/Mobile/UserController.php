@@ -18,7 +18,12 @@ use App\Library\Traits\SmsTrait;
 use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use App\Models\MoneyModel;
+use App\Models\WithdrawModel;
+use App\Models\TaskAchieveModel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends MobileController
 {
@@ -35,11 +40,16 @@ class UserController extends MobileController
     }
 
     /**
-     * 个人中心首页
+     * 个人中心首页(6-27xie)
      */
     public function index()
     {
-        return view('mobile.user.index');
+       // $user = DB::select('select total,money from ad_moneys where user_id=? limit 1',[$this->user['id']]);
+        $model = new MoneyModel();
+        $with = new WithdrawModel();
+        $user= $model->userIndex($this->user['id']);
+        $user['price']= $with->userIndex($this->user['id']);
+        return view('mobile.user.index')->with('return',$user);
     }
 
     /**
@@ -49,13 +59,23 @@ class UserController extends MobileController
     {
         return view('mobile.user.invitation');
     }
-
     /**
      * 个人投资记录
      */
     public function record(Request $request)
     {
-        return view('mobile.user.record');
+       // print_r( Input::get());
+        $key = Input::get('key');
+        $model = new TaskAchieveModel();
+        switch($key){
+            case 'reject': $record=$model->userRecord($this->user['id'],2); $status='已回款';
+                break;
+            case 'audit': $record=$model->userRecord($this->user['id'],0);$status='审核中';
+                break;
+            default:$record=$model->userRecord($this->user['id'],1);$status='已投资';
+                break;
+        }
+        return view('mobile.user.record')->with('return',$record)->with('status',$status);
     }
 
     /**

@@ -796,7 +796,7 @@ body{
 	float: left;				
 	width: 20px;
     height: 20px;
-    background: url(../img/rdios.png);
+    background: url(/images/mobile/rdios.png);
     background-size: 100% 100%;
 }
 .zhuce .foot p{
