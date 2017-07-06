@@ -36,6 +36,11 @@ class HomeController extends AdminController
 
     public function index()
     {
+        /*开通豆包金服的查询功能*/
+        if($this->user['role'] == 3){
+            return redirect('api/result/3');
+        }
+        /*开通豆包金服的查询功能*/
         $where['category_id'] = 10;
         list($counts, $notices) = $this->new->getNewList($where, 1, 8);
 

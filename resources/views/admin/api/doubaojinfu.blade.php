@@ -34,6 +34,8 @@
             </div>
         </div>
     </div>
+    <?php $user = \Session::get('user.passport'); ?>
+    <input  type="hidden" value="{!! $user['role'] !!}" id="roleid" />
 @stop
 @section('script')
     <script language="javascript" type="text/javascript">
@@ -63,7 +65,14 @@
                             var allTotalPrice = 0;
                             $.each(json.data, function (index, val) {
                                 if(val.deadline > 1) {
-                                    str += '<tr><td>' + val.OrderNo + '</td><td>' + val.mobile + '</td><td>' + val.real_name + '</td><td>' + val.goodsname + '</td><td>' + val.money + '</td><td>' + val.annualrate + '</td><td>' + formatDate(val.create_time) + '</td><td>' + val.status + '</td></tr>';
+                                    var roleid = $("#roleid").val();
+                                    var user_mobile = val.mobile;
+                                    var str_mobile = user_mobile.substr(0,3)+"***"+user_mobile.substr(6);
+                                    if(roleid==3)
+                                    {
+                                        user_mobile = str_mobile;
+                                    }
+                                    str += '<tr><td>' + val.OrderNo + '</td><td>' + user_mobile + '</td><td>' + val.real_name + '</td><td>' + val.goodsname + '</td><td>' + val.money + '</td><td>' + val.annualrate + '</td><td>' + formatDate(val.create_time) + '</td><td>' + val.status + '</td></tr>';
                                     allTotalPrice += parseInt(val.money);
                                 }
                             });
