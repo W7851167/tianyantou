@@ -68,7 +68,7 @@
                                     var roleid = $("#roleid").val();
                                     var user_mobile = val.mobile;
                                     var str_mobile = user_mobile.substr(0,3)+"***"+user_mobile.substr(6);
-                                    if(roleid==3)
+                                    if(roleid==4)
                                     {
                                         user_mobile = str_mobile;
                                     }

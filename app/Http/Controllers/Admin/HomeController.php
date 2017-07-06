@@ -37,7 +37,7 @@ class HomeController extends AdminController
     public function index()
     {
         /*开通豆包金服的查询功能*/
-        if($this->user['role'] == 3){
+        if($this->user['role'] == 4){
             return redirect('api/result/3');
         }
         /*开通豆包金服的查询功能*/
