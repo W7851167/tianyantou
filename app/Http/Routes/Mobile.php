@@ -29,20 +29,22 @@ Route::match(['get', 'post'], 'signin/captcha', ['as' => 'mpassport.mcaptcha', '
 //post路由
 Route::post('common/sendVerifyCode', ['as' => 'mpassport.msendVerifyCode', 'uses' => 'PassportController@sendVerifyCode']);//发送验证码到手机
 
+Route::match(['get', 'post'], 'signin.html', ['as' => 'mpassport.msignin', 'uses' => 'PassportController@signin']);//登录
+Route::match(['get', 'post'], 'register.html', ['as' => 'mpassport.mregister', 'uses' => 'PassportController@register']);//注册
+
 //手机找回密码
 Route::match(['get', 'post'], 'findpassword.html', ['as' => 'mpassport', 'uses' => 'PassportController@findPassword']);//找回密码
 
 //H5注册登录
 Route::group(['middleware' => 'middle.account'], function () {//中间件，以下所有接口先访问中间件
-    Route::get('/user', ['as' => 'muser', 'uses' => 'UserController@index']);//优惠券
-	Route::match(['get', 'post'], 'signin.html', ['as' => 'mpassport.msignin', 'uses' => 'PassportController@signin']);//登录
-    Route::match(['get', 'post'], 'register.html', ['as' => 'mpassport.mregister', 'uses' => 'PassportController@register']);//注册
+    Route::get('/user', ['as' => 'muser', 'uses' => 'UserController@index']);//个人中心
     Route::match(['get', 'post'], 'resetpass.html', ['as' => 'mpassport.mresetpass', 'uses' => 'PassportController@resetpass']);//重置密码
     Route::get('signout.html', ['as' => 'mpassport.msingout', 'uses' => 'PassportController@signout']);//退出
     Route::get('invitation.html', ['as' => 'muser.minvitation', 'uses' => 'UserController@invitation']);//邀请好友
     Route::get('record.html', ['as' => 'muser.mrecord', 'uses' => 'UserController@record']);//投资记录
     Route::get('recommend.html', ['as' => 'muser.mrecommend', 'uses' => 'UserController@recommend']);//推荐好友
     Route::get('coupon.html', ['as' => 'muser.mcoupon', 'uses' => 'UserController@coupon']);//优惠券
+    Route::match(['get', 'post'],'/user/wallet', ['as' => 'muser.mwallet', 'uses' => 'UserController@wallet']);//优惠券
 
 });
 

@@ -24,7 +24,7 @@
 
         </li>
         <li class="jump_url">
-            <a href="">
+            <a href="{!! config('app.m_url') !!}/user">
                 @if($current == 'muser')
                     <img src="//static.tianyantou.com/images/mobile/h3-3.png"/>
                 @else

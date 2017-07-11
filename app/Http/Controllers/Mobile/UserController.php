@@ -94,4 +94,12 @@ class UserController extends MobileController
         return view('mobile.user.coupon');
     }
 
+    /**
+     * 提现
+     */
+    public function wallet(Request $request)
+    {
+        return view('mobile.user.wallet');
+    }
+
 }
