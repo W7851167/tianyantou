@@ -6,7 +6,7 @@
     <div class="first">
         <p class="p1">
             <img src="//static.tianyantou.com/images/mobile/tixian.png"/>
-            <span>用户名:{!! $user['mobile'] !!}</span>
+            <span>用户名:{!! $user['mobile'] or 0 !!}</span>
 
         </p>
         <p class="p2">
@@ -17,12 +17,12 @@
     </div>
     <div class="header">
         <p class="p1">天眼投资累计收益（元）</p>
-        <p class="p2" style="font-size: 22px;margin-top: 3%;">{{$return->total}}</p>
+        <p class="p2" style="font-size: 22px;margin-top: 3%;">{!!  $return->total or 0 !!}</p>
     </div>
     <ul class="header2">
         <li>
 
-            <p class="p2">可用余额<span>{{$return->money}}</span>元</p>
+            <p class="p2">可用余额<span>{!!  $return->money or 0 !!}</span>元</p>
         </li>
         <li>
 
@@ -45,7 +45,7 @@
 
                 <div>
                 <p class="p1">提现记录</p>
-                <p class="p2">{{$return->price}}</p>
+                <p class="p2">{!!  $return->price or '' !!}</p>
             </div>
 
         </li>
