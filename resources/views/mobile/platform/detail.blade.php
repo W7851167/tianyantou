@@ -112,9 +112,9 @@
     </div>
     <div class="foot" style="position:fixed;bottom:0;">
         @if(!empty($tasks))
-            <a href="{!! $tasks->url or '' !!}" data-sso-url="/platform/login/{!! $corps->ename or 0 !!}{!! $tasks->id or 0 !!}" rel="platform_join"
-               data-plat-url="{!! $tasks->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
-            </a>
+                <a id="jump_url" goto="{!! $tasks->url or '' !!}" data-sso-url="/platform/login/{!! $corps->ename or 0 !!}{!! $tasks->id or 0 !!}" rel="platform_join"
+                   data-plat-url="{!! $tasks->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
+                </a>
         @endif
     </div>
     <input type="hidden" value="{!! $tasks->ratio or 0 !!}" id="plat_year" />
@@ -126,6 +126,7 @@
 	<input type="hidden" value="{!! $tasks['plat_reward']['status'] or 0 !!}" id="plat_reward_status" />
 	<input type="hidden" value="{!! $tasks['plat_time'] or 0 !!}" id="plat_time" />
 	<input type="hidden" value="{!! $tasks['packet_time'] or 0 !!}" id="packet_time" />
+    <input type="hidden" value="{!! $user['mobile'] or 0 !!}" id="user_mobile" />
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/new_file.js" type="text/javascript" charset="utf-8"></script>
@@ -320,6 +321,22 @@
 		return price;
 	}
 
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#jump_url").click(function(){
+            var user_mobile = $("#user_mobile").val();
+            if(user_mobile > 0)
+            {
+                var url = $(this).attr("goto");
+                window.location.href=url;
+            }
+            else
+            {
+                window.location.href="https://m.tianyantou.com/signin.html";
+            }
+        })
+    })
 </script>
 </body>
 </html>
