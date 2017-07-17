@@ -21,7 +21,7 @@ use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Input;
 class PassportController extends MobileController
 {
     use SmsTrait;
@@ -70,7 +70,7 @@ class PassportController extends MobileController
 //            $confirmpassword = trim($request->password_confirmation);
             $verifyCode = trim($request->verifyCode);
             //邀请人账号
-            $invite = $request->get('invite');
+            $invite = Input::get('id');
             $phoneCode = Session::get('phone');
 
             if (!$mobile) {

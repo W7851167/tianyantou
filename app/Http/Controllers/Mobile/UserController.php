@@ -95,7 +95,7 @@ class UserController extends MobileController
         include public_path('qrcode/qrlib.php');
         $name = $userId.'.png';
         $file = '../static/uploads/code/'.$name;
-        $data = 'http://blog.csdn.net/qq_37167546/article/details/73936968';
+        $data = 'https://m.tianyantou.com/register.html?id='.$userId;
         if(!file_exists($file)) Qrcode::png($data,$file,'',5,1);
         return view('mobile.user.recommend')->with('return',$name);
 
