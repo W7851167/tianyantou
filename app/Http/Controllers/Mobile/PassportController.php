@@ -50,15 +50,12 @@ class PassportController extends MobileController
             $result = $this->userRepository->checkLogin($username, $password, false, $remember);
 
             if ($result['status']) {
-                $url = Session::get('m_previous');
-                return $this->success('登陆成功!', url($url), true);
+                return $this->success('登陆成功!', url('/user/'), true);
             }
 
             return $this->error($result['message'], '', true);
         }
-
         if ($this->user) return redirect('/');
-
         return view('mobile.user.signin');
     }
 
@@ -72,8 +69,10 @@ class PassportController extends MobileController
             $password = trim($request->password);
 //            $confirmpassword = trim($request->password_confirmation);
             $verifyCode = trim($request->verifyCode);
+            //邀请人账号
             $invite = $request->get('invite');
             $phoneCode = Session::get('phone');
+
             if (!$mobile) {
                 return $this->error('手机号不能为空!', null, true);
             }
@@ -93,7 +92,7 @@ class PassportController extends MobileController
             $count = $this->userRepository->userModel->count();
             $count += 250001;
             $username = 'tyt' . $count;
-            $user = $this->userRepository->userModel->where('mobile', $invite)->first();
+            $user = $this->userRepository->userModel->where('id', $invite)->first();
             $data = [
                 'username' => $username,
                 'mobile' => $mobile,

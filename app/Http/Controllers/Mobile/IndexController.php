@@ -130,11 +130,19 @@ class IndexController extends MobileController
         $where['status'] = 1;
 		$model = new TaskModel();
 		$tasks = $model->taskslist($where);
-        //list($counts, $tasks) = $this->taskRepository->getTaskList($where, 12, 1);
-
+		print_r($tasks);
 		return view('mobile.index.submit',compact( 'tasks'));
 	}
 
+	public function item(Request $request){
+	    $model = new TaskModel();
+	    $where['status'] = 1;
+	    $where['corp_id'] = $request->get('corp_id');
+	    $return = $model->taskslist($where);
+
+	    $data = array("<option name='1'>1</option>","<option  name='2'>2</option>");
+	    return $data;
+    }
 	//测试展示效果
 	public function show()
 	{

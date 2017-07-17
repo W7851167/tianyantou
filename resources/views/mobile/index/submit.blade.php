@@ -13,18 +13,23 @@
 				<form id="sendInComeGold" method="post" data-toggle="ajaxFormGold">
 					{!! csrf_field() !!}
 					<ul>
-						<li style="color:red; font-size:16px;">
-							爱奇艺会员会在5个工作日内,充值到投资人的手机号上
-						</li>
+
 						<li>
 							<p>理财平台：</p>
 							<select name="data[task_id]" id="task_id">
-								<option value="0">请选择</option>
+								<option value="0" onclick="item()">请选择</option>
 								@if(!empty($tasks))
 									@foreach($tasks as $cv)
-										<option value="{!! $cv->id !!}">{!! $cv->title !!}</option>
+										<option value="{!! $cv->id !!}" onclick="item()">{!! $cv->title !!}</option>
 									@endforeach
 								@endif
+							</select>
+						</li>
+						<li>
+							<p>平台项目：</p>
+
+							<select name="data[item_id]" id="item_id">
+								<option name='0'>请选择</option>
 							</select>
 						</li>
 						<li>
@@ -71,5 +76,23 @@
 				});
 			});
 		</script>
+	<script>
+
+		function item() {
+		    var select = document.getElementById('item_id');
+		    select.options.length=1;
+            var selectIndex = document.getElementById("task_id").selectedIndex;//获得是第几个被选中了
+            var selectText = document.getElementById("task_id").options[selectIndex].value; //获得被选中的项目的文本
+
+			$.post("/item",	 {'_token':'{!! csrf_token() !!}','corp_id':selectText },function (data) {
+					var count = data.length;
+					for(var i=0;i<count;i++){
+					   $('#item_id').append(data[i]);
+
+					}
+                }
+			 )
+        }
+	</script>
 	</body>
 </html>

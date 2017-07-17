@@ -13,7 +13,8 @@
 //首页
 Route::get('/', ['as' => 'mindex', 'uses' => 'IndexController@index']);//get路由
 //多重路由，可允许get和post访问    as路由命名   uses对应的路径
-Route::match(['get','post'],'/userInvestInfo', ['as' => 'mindex.userInvestInfo', 'uses' => 'IndexController@userInvestInfo']);
+Route::match(['get','post'],'/userInvestInfo', ['as' => 'mindex.userInvestInfo', 'uses' => 'IndexController@userInvestInfo']);//提交投资
+Route::post('/item',['as' =>'m.index.item', 'uses' => 'IndexController@item']);//投资项目（提交投资页面ajax）
 /**
  * 平台相关路由
  */
