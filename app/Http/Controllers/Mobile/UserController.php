@@ -12,19 +12,22 @@
 
 namespace App\Http\Controllers\Mobile;
 
-
 use App\Http\Controllers\MobileController;
 use App\Library\Traits\SmsTrait;
+use App\Models\share;
 use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
+
 use Illuminate\Http\Request;
 use App\Models\MoneyModel;
 use App\Models\WithdrawModel;
 use App\Models\TaskAchieveModel;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-
+use App\Models\ShareModel;
+use App\Models\CouponModel;
+use App\Models\CorpModel;
+use QRcode;
 class UserController extends MobileController
 {
     use SmsTrait;
@@ -32,11 +35,13 @@ class UserController extends MobileController
     public function __construct(
         UserRepository $userRepository,
         CensusRepository $census
+
     )
     {
         parent::__initalize();
         $this->userRepository = $userRepository;
         $this->census = $census;
+
     }
 
     /**
@@ -49,6 +54,8 @@ class UserController extends MobileController
         $with = new WithdrawModel();
         $user= $model->userIndex($this->user['id']);
         $user['price']= $with->userIndex($this->user['id']);
+        $user['mobile'] = $this->user['mobile'];
+        //print_r($user);
         return view('mobile.user.index')->with('return',$user);
     }
 
@@ -83,23 +90,48 @@ class UserController extends MobileController
      */
     public function recommend(Request $request)
     {
-        return view('mobile.user.recommend');
+        //获取用户id为分享标识
+        $userId = Session::get('user.passport.id');
+        include public_path('qrcode/qrlib.php');
+        $name = $userId.'.png';
+        $file = '../static/uploads/code/'.$name;
+        $data = 'http://blog.csdn.net/qq_37167546/article/details/73936968';
+        if(!file_exists($file)) Qrcode::png($data,$file,'',5,1);
+        return view('mobile.user.recommend')->with('return',$name);
+
     }
 
+    public function shareUser(){
+        $share = new ShareModel();
+        $user_id = input::get('user_id','44');
+        $share->userAdd($user_id);
+    }
     /**
      * 优惠券
      */
     public function coupon(Request $request)
     {
-        return view('mobile.user.coupon');
-    }
+        //获取用户id
+        $userId = Session::get('user.passport.id');
+        $model = new CouponModel();
+        $return = $model->getCoupon($userId);
+        $returnFor = array();
+        foreach ($return as $k=>$v){
+           $v->pertinence==0 ? '' : $returnFor[]= $v->pertinence;
+        }
+        $corp = new CorpModel();
+        $var = $corp->corpName(array_unique($returnFor));
+        $array['0'] = '无限制';
+        foreach ($var as $value){
+            $array[$value->id] = $value->name;
 
-    /**
-     * 提现
-     */
-    public function wallet(Request $request)
-    {
-        return view('mobile.user.wallet');
+        }
+
+        foreach ($return as $value){
+            $value->pertinence = $array[$value->pertinence];
+        }
+
+        return view('mobile.user.coupon')->with('return',$return);
     }
 
 }

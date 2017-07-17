@@ -96,6 +96,9 @@ Route::group(['middleware' => 'admin.auth'], function () {
     //对外接口
     Route::match(['get', 'post'], '/niwodai', ['as' => 'api.niwodai', 'uses' => 'Api\NiwodaiController@index']);
     Route::match(['get', 'post'], '/doubaojinfu', ['as' => 'api.doubaojinfu', 'uses' => 'Api\DoubaojinfuController@index']);
+
+    //红包接口
+    Route::get('coupon/{status}',['as' => 'task.coupon.index','uses' => 'CouponController@index']);
 });
 
 

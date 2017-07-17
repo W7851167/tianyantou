@@ -12,6 +12,10 @@ class CorpModel extends BaseModel
     protected  $primaryKey = 'id';
 
 
+    public function corpName($in){
+
+        return $this->whereIn('id',$in)->select('name','id')->get();
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      * 获取

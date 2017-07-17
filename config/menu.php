@@ -25,6 +25,7 @@ return [
             ['name' => '项目管理', 'url' => 'task', 'tag' => 'task.task.index'],
             ['name' => '任务管理', 'url' => 'achieve', 'tag' => 'task.achieve.index'],
             ['name' => 'API管理', 'url' => 'api', 'tag' => 'task.api.index'],
+            ['name' => '红包管理', 'url' => 'coupon', 'tag' => 'task.coupon.index']
         ]],
         ['name' => '文章管理', 'url' => 'news/multi', 'tag' => 'news', 'child' => [
             ['name' => '单分类文章', 'url' => 'news/single', 'tag' => 'news.single.index'],
