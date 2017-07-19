@@ -16,11 +16,11 @@
 
 						<li>
 							<p>理财平台：</p>
-							<select name="data[task_id]" id="task_id">
+							<select name="" id="corp_id">
 								<option value="0" onclick="item()">请选择</option>
 								@if(!empty($tasks))
 									@foreach($tasks as $cv)
-										<option value="{!! $cv->id !!}" onclick="item()">{!! $cv->title !!}</option>
+										<option value="{!! $cv->id !!}" onclick="item()">{!! $cv->name !!}</option>
 									@endforeach
 								@endif
 							</select>
@@ -28,21 +28,29 @@
 						<li>
 							<p>平台项目：</p>
 
-							<select name="data[item_id]" id="item_id">
-								<option name='0'>请选择</option>
+							<select name="data[task_id]" id="task_id">
+								<option value='0'>请选择</option>
 							</select>
 						</li>
+
 						<li>
 							<p>投资标期：</p>
-							<input type="text" id="term" name="data[term]" value="" style="width:100px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  />个月
+							<input type="text" id="term" name="data[term]" onblur="coupon()" value="" style="width:100px;" onkeyup="this.value=this.value.replace(/\D/g,'')"  />个月
 						</li>
 						<li>
 							<p>手机号码：</p>
-							<input type="text" id="mobile" name="data[mobile]" value=""  placeholder="请输入手机号码" onkeyup="this.value=this.value.replace(/\D/g,'')" />
+							<input type="text" id="mobile" name="data[mobile]" value="" onblur="coupon()"  placeholder="请输入手机号码" onkeyup="this.value=this.value.replace(/\D/g,'')" />
+						</li>
+			 			<li>
+							<p>投资金额：</p>
+							<input type="text" id="price" name="data[price]" value=""  onblur="coupon()" placeholder="请输入投资金额"/>
 						</li>
 						<li>
-							<p>投资金额：</p>
-							<input type="text" id="price" name="data[price]" value="" placeholder="请输入投资金额"/>
+							<p>优惠卷：</p>
+
+							<select name="data[use_id]" id="use_id">
+								<option value='0'>请选择</option >
+							</select>
 						</li>
 					</ul>
 					<input type="submit" class="btn-blue btn-l btn-submit submit-btn" value="提交">
@@ -79,19 +87,39 @@
 	<script>
 
 		function item() {
-		    var select = document.getElementById('item_id');
-		    select.options.length=1;
-            var selectIndex = document.getElementById("task_id").selectedIndex;//获得是第几个被选中了
-            var selectText = document.getElementById("task_id").options[selectIndex].value; //获得被选中的项目的文本
+            var select = document.getElementById('task_id');
+            select.options.length = 1;
+            var selectIndex = document.getElementById("corp_id").selectedIndex;//获得是第几个被选中了
+            var selectText = document.getElementById("corp_id").options[selectIndex].value; //获得被选中的项目的文本
 
-			$.post("/item",	 {'_token':'{!! csrf_token() !!}','corp_id':selectText },function (data) {
-					var count = data.length;
-					for(var i=0;i<count;i++){
-					   $('#item_id').append(data[i]);
+            if (selectText > 0) {
+                $.post("/item", {'_token': '{!! csrf_token() !!}', 'corp_id': selectText}, function (data) {
+                        var count = data.length;
+                        for (var i = 0; i < count; i++) {
+                            $('#task_id').append(data[i]);
 
-					}
-                }
-			 )
+                        }
+                    }
+                )
+            }
+        }
+	</script>
+	<script type="application/javascript">
+        function coupon() {
+            var select = document.getElementById('use_id');
+            select.options.length = 1;
+            var selectIndex = document.getElementById("corp_id").selectedIndex;//获得是第几个被选中了
+            var selectText = document.getElementById("corp_id").options[selectIndex].value; //获得被选中的项目的文本
+			var price = $("#price").val();
+			var term = $('#term').val();
+			if(price != '' && term != '' && selectText !=0){
+			    $.post("/coupon", {'_token': '{!! csrf_token() !!}', 'data[sum]':price , 'data[month]':term , 'data[corp_id]':selectText}, function (data) {
+                    var count = data.length;
+                    for (var i = 0; i < count; i++) {
+                        $('#use_id').append(data[i]);
+                    }
+                })
+			}
         }
 	</script>
 	</body>

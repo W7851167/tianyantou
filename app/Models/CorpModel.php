@@ -11,7 +11,10 @@ class CorpModel extends BaseModel
     public  $table = 'corps';
     protected  $primaryKey = 'id';
 
-
+    public function corp($where){
+        return $this->where($where)->select('name','id')->get();
+    }
+    //in方法获取公司名称
     public function corpName($in){
 
         return $this->whereIn('id',$in)->select('name','id')->get();

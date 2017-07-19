@@ -13,6 +13,7 @@
 namespace App\Http\Controllers\Mobile;
 
 use App\Http\Controllers\MobileController;
+use App\Models\CouponModel;
 use App\Repositories\CensusRepository;
 use App\Repositories\TaskRepository;
 use App\Repositories\UserRepository;
@@ -21,7 +22,10 @@ use App\Repositories\XdataRepository;
 use Illuminate\Http\Request;
 use App\Models\TaskReceiveModel;
 use App\Models\TaskModel;
+use App\Models\CorpModel;
 use Cache;
+use Illuminate\Support\Facades\Session;
+use App\Models\CouponUseModel;
 
 class IndexController extends MobileController
 {
@@ -78,21 +82,18 @@ class IndexController extends MobileController
 
 			$tasks = $this->taskRepository->getTaskById($data['task_id']);
 
-			if (empty($data['task_id']))
-				return $this->error(' 请输入理财平台', null, true);
-			if (empty($data['term']))
-				return $this->error(' 请添加投资标期', null, true);
-			if (empty($data['mobile']))
-				return $this->error('请添加投资人手机号码', null, true);
-			if (empty($data['price'])) {
-				return $this->error('请添加投资金额', null, true);
-			}
-			if (!is_phone($data['mobile'])) {
-				return $this->error('请填写真实的手机号码或固定电话', null, true);
-			}
-			if (!is_money($data['price'])) {
-				return $this->error('投资金额必须为数字.', null, true);
-			}
+			if (empty($data['task_id'])) return $this->error(' 请选择平台项目', null, true);
+
+			if (empty($data['term'])) return $this->error(' 请添加投资标期', null, true);
+
+			if (empty($data['mobile'])) return $this->error('请添加投资人手机号码', null, true);
+
+			if (empty($data['price'])) return $this->error('请添加投资金额', null, true);
+
+			if (!is_phone($data['mobile'])) return $this->error('请填写真实的手机号码或固定电话', null, true);
+
+			if (!is_money($data['price'])) return $this->error('投资金额必须为数字.', null, true);
+			if(empty($data['use_id'])) return $this->error(' 请添加', null, true);
 //			if ($receiveModel->corp->limit <= $receiveModel->achieves->count()) {
 //				return $this->error('该平台每标限定投资' . $receiveModel->corp->limit . '次', null, true);
 //			}
@@ -113,7 +114,14 @@ class IndexController extends MobileController
 			$data['status'] = 0;
 			$receiveModel = new TaskReceiveModel();
 			$data['receive_id'] = $receiveModel->adtask($receives);
+            $coupon = new CouponModel();
+            $coupon->UseCoupon($this->user['id'], $data['use_id']);
+            $use =array('coupon_id'=>$data['use_id'],'user_id'=>$this->user['id']);
+            $useModel = new CouponUseModel();
+            $data['use_id'] = $useModel->addUse($use);
+
 			$result = $this->taskRepository->saveAchieves($data);
+
 
 			if ($result['status']) {
 			    if($sendNum>0){
@@ -122,26 +130,40 @@ class IndexController extends MobileController
 			        $num = 1;
                 }
                 Cache::put($clientIp,$num,60);
+
 				return $this->success($result['message'], url('/'), true);
 			}
 			return $this->error($result['message'], null, true);
 		}
 
         $where['status'] = 1;
-		$model = new TaskModel();
-		$tasks = $model->taskslist($where);
-		print_r($tasks);
+		$model = new CorpModel();
+		$tasks = $model->corp($where);
 		return view('mobile.index.submit',compact( 'tasks'));
 	}
 
 	public function item(Request $request){
-	    $model = new TaskModel();
-	    $where['status'] = 1;
-	    $where['corp_id'] = $request->get('corp_id');
-	    $return = $model->taskslist($where);
-
-	    $data = array("<option name='1'>1</option>","<option  name='2'>2</option>");
-	    return $data;
+            $model = new TaskModel();
+            $where['status'] = 1;
+            $where['corp_id'] = $request->get('corp_id');
+            $return = $model->taskslist($where);
+            $data = array();
+            foreach ($return as $value){
+               $data[] = array("<option value='$value->id'>$value->title</option>");
+            }
+            return $data;
+    }
+    function coupon(Request $request)
+    {
+        $data =  $request->get('data');
+        $model = new CouponModel();
+        $time = date('Y-m-d',time());
+        $return = $model->submitCoupon(Session::get('user.passport.id'),$data['corp_id'],$data['month'],$data['sum'],$time);
+        $var = array();
+        foreach ($return as $value){
+            $var[] = array("<option value='$value->coupon_id'>$value->moneys 元红包</option>");
+        }
+        return $var;
     }
 	//测试展示效果
 	public function show()

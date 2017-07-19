@@ -71,7 +71,7 @@ class PassportController extends MobileController
             $verifyCode = trim($request->verifyCode);
             //邀请人账号
             $invite = Input::get('id');
-            $phoneCode = Session::get('phone');
+            $phoneCode = 11;//Session::get('phone');
 
             if (!$mobile) {
                 return $this->error('手机号不能为空!', null, true);

@@ -88,7 +88,7 @@ class UserController extends MobileController
     /**
      * 推荐有奖
      */
-    public function recommend(Request $request)
+    public function recommend()
     {
         //获取用户id为分享标识
         $userId = Session::get('user.passport.id');
