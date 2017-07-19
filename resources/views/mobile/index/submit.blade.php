@@ -16,11 +16,11 @@
 
 						<li>
 							<p>理财平台：</p>
-							<select name="" id="corp_id">
-								<option value="0" onclick="item()">请选择</option>
+							<select name="" id="corp_id" >
+								<option value="0">请选择</option>
 								@if(!empty($tasks))
 									@foreach($tasks as $cv)
-										<option value="{!! $cv->id !!}" onclick="item()">{!! $cv->name !!}</option>
+										<option value="{!! $cv->id !!}">{!! $cv->name !!}</option>
 									@endforeach
 								@endif
 							</select>
@@ -30,6 +30,7 @@
 
 							<select name="data[task_id]" id="task_id">
 								<option value='0'>请选择</option>
+                                <option value='1'>请选择</option>
 							</select>
 						</li>
 
@@ -84,36 +85,32 @@
 				});
 			});
 		</script>
-	<script>
+        <script>
+            $(document).ready(function () {
+                $('#corp_id').change(function () {
+                   var value = $(this).val();
+                   $("#task_id option[value!='0']").remove();
+                   if(value>0){
+                       $.post("/item", {'_token' : '{!! csrf_token() !!}' , 'corp_id' : value}, function (data) {
+                           var count = data.length;
+                           for (var i = 0; i < count; i++) {
+                               $('#task_id').append(data[i]);
 
-		function item() {
-            var select = document.getElementById('task_id');
-            select.options.length = 1;
-            var selectIndex = document.getElementById("corp_id").selectedIndex;//获得是第几个被选中了
-            var selectText = document.getElementById("corp_id").options[selectIndex].value; //获得被选中的项目的文本
+                           }
+                       })
+                   }
 
-            if (selectText > 0) {
-                $.post("/item", {'_token': '{!! csrf_token() !!}', 'corp_id': selectText}, function (data) {
-                        var count = data.length;
-                        for (var i = 0; i < count; i++) {
-                            $('#task_id').append(data[i]);
-
-                        }
-                    }
-                )
-            }
-        }
-	</script>
+                })
+            })
+        </script>
 	<script type="application/javascript">
         function coupon() {
-            var select = document.getElementById('use_id');
-            select.options.length = 1;
-            var selectIndex = document.getElementById("corp_id").selectedIndex;//获得是第几个被选中了
-            var selectText = document.getElementById("corp_id").options[selectIndex].value; //获得被选中的项目的文本
+            $("#use_id option[value!=0]").remove();
+            var corp = $('#corp_id').val();
 			var price = $("#price").val();
 			var term = $('#term').val();
-			if(price != '' && term != '' && selectText !=0){
-			    $.post("/coupon", {'_token': '{!! csrf_token() !!}', 'data[sum]':price , 'data[month]':term , 'data[corp_id]':selectText}, function (data) {
+			if(price != '' && term != '' && corp !=0){
+			    $.post("/coupon", {'_token': '{!! csrf_token() !!}', 'data[sum]':price , 'data[month]':term , 'data[corp_id]':corp}, function (data) {
                     var count = data.length;
                     for (var i = 0; i < count; i++) {
                         $('#use_id').append(data[i]);
