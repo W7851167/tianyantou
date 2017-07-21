@@ -98,7 +98,8 @@ Route::group(['middleware' => 'admin.auth'], function () {
     Route::match(['get', 'post'], '/doubaojinfu', ['as' => 'api.doubaojinfu', 'uses' => 'Api\DoubaojinfuController@index']);
 
     //红包接口
-    Route::get('coupon/{status}',['as' => 'task.coupon.index','uses' => 'CouponController@index']);
+    Route::get('coupon/{status?}',['as' => 'task.coupon.index','uses' => 'CouponController@index'])->where('status','[0-9]+');
+    Route::any('coupon/create/{id?}',['as' => 'task.coupon.create','uses' => 'CouponController@create']);
 });
 
 

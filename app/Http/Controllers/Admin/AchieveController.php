@@ -58,13 +58,13 @@ class AchieveController extends AdminController
             $str .= !empty($str) ? '&' . $query : '?' . $query;
         }
 
-
         list($count, $lists) = $this->taskRepository->getAchievesList($where, $this->perpage, $page);
 
         $pageHtml = $this->pager($count, $page, $this->perpage, '', $str);
         $corps = $this->taskRepository->corpModel->where('status', 1)->get();
         $tasks = $this->taskRepository->taskModel->where('status', 1)->get();
         $uri = $where ? http_build_query($where) : '';
+
         return view('admin.achieve.index', compact(
             'lists', 'pageHtml', 'status', 'corps', 'tasks', 'where', 'uri'
         ));
