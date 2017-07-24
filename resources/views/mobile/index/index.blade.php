@@ -10,13 +10,13 @@
                     @foreach($advs as $av)
                         @if(!empty($av->m_img))
                             <div class="swiper-slide">
-                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->m_img !!}" alt="{!! $av->title !!}"  style="height: 176px;"/></a>
+                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->m_img !!}" alt="{!! $av->title !!}"/></a>
                             </div>
                         @endif
                     @endforeach
                 @endif
             </div>
-            <div class="swiper-pagination" style="width: 20%;float: right;margin-left: 80%;"></div><!--分页器-->
+            <div class="swiper-pagination" style="width: 90%;float: right; height: 8%;"></div><!--分页器-->
         </div>
     </div>
 
@@ -25,6 +25,7 @@
         <ul>
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p1.png"/>
+                <p>多重安全<br />保障体系</p>
             </li>
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p2.png"/>

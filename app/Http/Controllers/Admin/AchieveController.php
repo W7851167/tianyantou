@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\CouponUseModel;
 
 class AchieveController extends AdminController
 {
@@ -78,6 +79,7 @@ class AchieveController extends AdminController
     public function create(Request $request, $id)
     {
         $achieves = $this->taskRepository->taskAchieveModel->find($id);
+
         if (empty($achieves)) {
             return $this->error('该审核任务异常，请联系开发人员');
         }
@@ -86,6 +88,13 @@ class AchieveController extends AdminController
             $data = $request->get('data');
             $data['task_id'] = $achieves->task_id;
             $result = $this->taskRepository->saveAchieves($data);
+            if($data['status']==1){
+                $use = new CouponUseModel();
+                $useReturn = $use->saveStatus($achieves->use_id,1);
+                if($useReturn==0){
+                    return $this->error('红包使用失败',null,'true');
+                }
+            }
             if ($result['status'])
                 return $this->success($result['message'], url('achieve'), true);
             return $this->error('审核任务异常，请联系开发人员');
