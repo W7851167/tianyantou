@@ -22,9 +22,9 @@
      public function getCoupon_corp($where){
 
         $sql = DB::select("Select ad_corp_coupon.*,a.name From ad_corp_coupon INNER JOIN ad_corps a on ad_corp_coupon.corp_id=a.id Where $where");
-        $count = DB::select("Select count(1) as zs From ad_corp_coupon Where $where");
+        //$count = DB::select("Select count(1) as zs From ad_corp_coupon Where $where");
 
-        $count= $count[0]->zs;
+        $count= '';//$count[0]->zs;
         return [$sql,$count];
      }
      //添加使用记录(7-19)

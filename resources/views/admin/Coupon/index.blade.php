@@ -47,6 +47,7 @@
                             @if($status!=null)<th>{!! $value->pertinence !!}</th>@endif
                             <th>{!! $value->start_time !!}</th>
                             <th>{!! $value->over_time !!}</th>
+                            <th><a href="coupon/create/{!! $value->coupon_id !!}">修改</a></th>
                         </tr>
                         @endforeach
                     @endif
