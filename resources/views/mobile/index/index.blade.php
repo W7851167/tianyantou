@@ -25,7 +25,7 @@
         <ul>
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p1.png"/>
-                <p>多重安全<br />保障体系</p>
+               
             </li>
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p2.png"/>
