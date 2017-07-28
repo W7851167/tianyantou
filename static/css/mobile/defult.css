@@ -17,14 +17,14 @@ textarea {  -webkit-appearance: none;}
 }
 .plat-title{
 	text-align: center;
-	padding: 3% 0;
+	padding: 2% 0;
 	color: #fff;
 	margin: 0 auto;
 	width: 95%;
 
 }
 .touzhi{
-	height: 6.5vh;
+	height: 5.5vh;
 	width: 37.3%;
 	border: 1px solid #fff;
 	font-size: 3vh;
@@ -42,7 +42,7 @@ textarea {  -webkit-appearance: none;}
 .platform .header img{
 	height: 3.2vh;
     position: absolute;
-    top: 3.5vh;
+    top: 2.5vh;
     left: 16px;
 }
 .platform .header-nav{
@@ -252,7 +252,7 @@ textarea {  -webkit-appearance: none;}
 }
 .foot{
 	width: 100%;
-	padding: 3% 0;
+	padding: 1.5% 0;
 	background: #f0f2f5;
 			
 }
@@ -265,8 +265,8 @@ textarea {  -webkit-appearance: none;}
 	margin-left: 3%;
 	background: #f04f25;
 	text-align: center;
-	height: 8vh;
-	line-height: 8vh;
+	height: 5.5vh;
+	line-height: 5.5vh;
 	border-radius: 5px;
 	
 	/*box-shadow: 4px 0 7px #6d6868, /*右边阴影 */ /*0 6px 6px #7A7A7A;*/
