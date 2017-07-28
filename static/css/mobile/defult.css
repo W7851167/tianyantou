@@ -17,14 +17,14 @@ textarea {  -webkit-appearance: none;}
 }
 .plat-title{
 	text-align: center;
-	padding: 2.5% 0;
+	padding: 3% 0;
 	color: #fff;
 	margin: 0 auto;
 	width: 95%;
 
 }
 .touzhi{
-	height: 6.7vh;
+	height: 6.5vh;
 	width: 37.3%;
 	border: 1px solid #fff;
 	font-size: 3vh;
@@ -383,7 +383,7 @@ textarea {  -webkit-appearance: none;}
 }
 .jpform .header{
 	width: 100%;
-	background: #57a3ef;
+	background: #ED4E24;
 	position: relative;
 }
 .jpform .plat-title{
@@ -400,7 +400,7 @@ textarea {  -webkit-appearance: none;}
 }
 .jpform .jpform-nav{
 	width: 100%;
-	background: #57a3ef;
+	background: #ED4E24;
 	padding: 3% 0;
 	font-size: 0;
 }
@@ -409,7 +409,7 @@ textarea {  -webkit-appearance: none;}
 	display: inline-block;
 	font-size: 18px;
 	color: #ffffff;
-	background: #57a3ef;
+	background: #ED4E24;
 	text-align: center;				
 }
 .jpform-con{
@@ -555,7 +555,7 @@ textarea {  -webkit-appearance: none;}
 	font-size: 0;
 }
 .header-sec ul li{
-	width: 26%;
+	width: 25%;
 	text-align: center;
 	display: inline-block;
 }

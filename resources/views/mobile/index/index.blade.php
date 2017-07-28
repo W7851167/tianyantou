@@ -11,7 +11,9 @@
                     @foreach($advs as $av)
                         @if(!empty($av->m_img))
                             <div class="swiper-slide">
-                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->m_img !!}" alt="{!! $av->title !!}"/></a>
+                                <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank">
+                                    <img src="{!! config('app.static_url') . $av->m_img !!}" alt="{!! $av->title !!}"/>
+                                </a>
                             </div>
                         @endif
                     @endforeach
@@ -24,7 +26,7 @@
     <div class="header-sec">
 
         <ul>
-            <li style="margin-left: -2%;">
+            <li>
                 <img src="//static.tianyantou.com/images/mobile/p1.png" />
                 <p>多重安全<br />保障体系</p>
             </li>
@@ -36,7 +38,7 @@
                 <img src="//static.tianyantou.com/images/mobile/p3.png"/>
                 <p>分散投资<br />降低风险</p>
             </li>
-            <li style="margin-right: -2%;">
+            <li>
                 <img src="//static.tianyantou.com/images/mobile/p4.jpg"/>
                 <p>天眼投<br />额外加息</p>
             </li>
