@@ -65,9 +65,9 @@ textarea {  -webkit-appearance: none;}
 	height: 15vh;
 }
 .platform .content1 img{
-	height: 60%;
+	height: 50%;
     float: left;
-	margin-top: 2.4vh;
+	margin-top: 3vh;
 }
 .platform .content1 a{
 	width: 22.5%;
