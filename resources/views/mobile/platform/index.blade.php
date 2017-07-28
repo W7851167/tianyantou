@@ -16,33 +16,28 @@
     </div>
     <div class="jpform-con">
         @foreach($tasks as $tv)
-        @if(!empty($tv->corp->m_logo) && $tv->corp->m_logo != 'NULL')
-        <div class="data-list" style="cursor:pointer;">
-            <div class="data-title">
-                <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo  or ''!!}" alt="{!! $tv->platform !!}" style="height:17px;width: 46px;"/>
-                <span>{!! $tv->title or '' !!}</span>
-                <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}/{!! $tv->id or ''!!}.html">首投</a>
-            </div>
-            <ul>
-                <li class="con-red">
-                    <p class="rt"><b>{!! $tv->ratio or 0.00 !!}</b><i>%</i></p>
-                    <p>综合年化收益</p>
-                </li>
-                <li class="con-red">
-                    <p class="rt">{!! $tv->term or '' !!}@if(isset($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</p>
-                    <p>期 限</p>
-                </li>
-                <li class="con-p">
-                    <p>起投金额：{!! tmoney_format($tv->sued,true) !!} </p>
-                    <p>最大金额：{!! tmoney_format($tv->limit,true) !!}</p>
-                </li>
-            </ul>
-        </div>
-        @endif
+            @if(!empty($tv->corp->m_logo) && $tv->corp->m_logo != 'NULL')
+                <div class="data-list" style="cursor:pointer;">
+                    <div class="data-title">
+                        <img src="{!! config('app.static_url') !!}{!! $tv->corp->m_logo or ''!!}" style="height:18px;width: 49px;"/>
+                        <span>{!! $tv->title or '' !!}</span>
+                        <a href="{!! config('app.m_url') !!}/platform/{!! $tv->corp->ename or ''!!}/{!! $tv->id or ''!!}.html">首投</a>
+                    </div>
+                    <ul>
+                        <li class="con-red">
+                            <p class="rt"><b  style="font-size: 5vh;">{!! $tv->ratio or 0.00 !!}</b><i>%</i> + <b  style="font-size: 5vh;">{!! $tv->raise or 0.00!!}</b><i>%</i></p>
+                            <p>预期年化 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;天眼加息</p>
+                        </li>
+                        <li class="con-p">
+                            <p style="margin-bottom: 8%;">期限：{!! $tv->term or '' !!}@if(isset($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</p>
+                            <p>起投：{!! tmoney_format($tv->sued) !!} </p>
+                            <input id="con-input" type="button" value="投资">
+                        </li>
+                    </ul>
+                </div>
+            @endif
         @endforeach
-
-      
-</div>
+    </div>
 <!-- 公用banner开始 -->
 @include('mobile.public.userbanner')
 <!-- 公用banner结束 -->
@@ -68,6 +63,11 @@
             var url = $(this).find("a").attr("href");
             window.location.href=url;
         })
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#con-input').css('height',$('#con-input').css('width'));
     })
 </script>
 </body>

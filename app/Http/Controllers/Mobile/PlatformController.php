@@ -61,6 +61,11 @@ class PlatformController extends MobileController
         if(!empty($tasks)) {
             $corps = $this->tasks->getCorpById($tasks['corp_id']);
         }
+        switch ($tasks->term_unit){
+            case 0 :$tasks->term_name='天';break;
+            case 1 :$tasks->term_name='月';break;
+            case 2:$tasks->term_name='年';break;
+        }
         return view('mobile.platform.detail',compact('tasks','corps'));
     }
 

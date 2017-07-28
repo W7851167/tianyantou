@@ -2,6 +2,7 @@
 @include('mobile.public.header')
 <!-- 头信息结束 -->
 <body>
+
 <div class="index">
     <div class="header">
         <div class="swiper-container"style="width: 100%;"><!--swiper容器[可以随意更改该容器的样式-->
@@ -23,26 +24,26 @@
     <div class="header-sec">
 
         <ul>
-            <li>
-                <img src="//static.tianyantou.com/images/mobile/p1.png"/>
-               
+            <li style="margin-left: -2%;">
+                <img src="//static.tianyantou.com/images/mobile/p1.png" />
+                <p>多重安全<br />保障体系</p>
             </li>
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p2.png"/>
+                <p>严格审核<br />平台背景</p>
             </li>
             <li>
                 <img src="//static.tianyantou.com/images/mobile/p3.png"/>
+                <p>分散投资<br />降低风险</p>
             </li>
-            <li class="submit-gold">
-                <a href="/userInvestInfo">
-                    <img class="last-img" src="//static.tianyantou.com/images/mobile/p4.jpg"/>
-                </a>
+            <li style="margin-right: -2%;">
+                <img src="//static.tianyantou.com/images/mobile/p4.jpg"/>
+                <p>天眼投<br />额外加息</p>
             </li>
         </ul>
     </div>
     <div class="jpform-con">
-
-        @foreach($tasks as $tv)
+    @foreach($tasks as $tv)
         @if(!empty($tv->corp->m_logo) && $tv->corp->m_logo != 'NULL')
         <div class="data-list" style="cursor:pointer;">
             <div class="data-title">
@@ -52,19 +53,17 @@
             </div>
             <ul>
                 <li class="con-red">
-                    <p class="rt"><b>{!! $tv->ratio or 0.00 !!}</b><i>%</i></p>
-                    <p>综合年化收益</p>
-                </li>
-                <li class="con-red">
-                    <p class="rt">{!! $tv->term or '' !!}@if(isset($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</p>
-                    <p>期 限</p>
+                    <p class="rt"><b  style="font-size: 5vh;">{!! $tv->ratio or 0.00 !!}</b><i>%</i> + <b  style="font-size: 5vh;">{!! $tv->raise or 0.00!!}</b><i>%</i></p>
+                    <p>预期年化 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;天眼加息</p>
                 </li>
                 <li class="con-p">
-                    <p>起投金额：{!! tmoney_format($tv->sued) !!} </p>
-                    <p>最大金额：{!! tmoney_format($tv->limit) !!}</p>
+                    <p style="margin-bottom: 8%;">期限：{!! $tv->term or '' !!}@if(isset($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</p>
+                    <p>起投：{!! tmoney_format($tv->sued) !!} </p>
+                   <input id="con-input" type="button" value="投资">
                 </li>
             </ul>
         </div>
+
         @endif
         @endforeach
 
@@ -76,6 +75,7 @@
 </div>
 <script src="//static.tianyantou.com/js/mobile/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//static.tianyantou.com/js/mobile/swiper.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
 <script type="text/javascript">
     /*可以引用到js文件*/
     var mySwiper = new Swiper(".swiper-container",{
@@ -101,5 +101,11 @@
         })
     })
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#con-input').css('height',$('#con-input').css('width'));
+    })
+</script>
+
 </body>
 </html>
