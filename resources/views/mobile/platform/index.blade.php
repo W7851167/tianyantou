@@ -31,7 +31,7 @@
                         <li class="con-p">
                             <p style="margin-bottom: 8%;">期限：{!! $tv->term or '' !!}@if(isset($tv->term_unit)){!! $tv->term_unit == 0 ? '天' : ($tv->term_unit == 1 ? '个月' : '年')!!}@endif</p>
                             <p>起投：{!! tmoney_format($tv->sued) !!} </p>
-                            <input id="con-input" type="button" value="投资">
+                            <input class="con-input" type="button" value="投资">
                         </li>
                     </ul>
                 </div>
@@ -67,7 +67,7 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#con-input').css('height',$('#con-input').css('width'));
+        $('.con-input').css('height',$('.con-input').css('width'));
     })
 </script>
 </body>
