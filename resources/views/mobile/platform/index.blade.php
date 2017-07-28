@@ -25,7 +25,7 @@
                     </div>
                     <ul>
                         <li class="con-red">
-                            <p class="rt"><b  style="font-size: 5vh;">{!! $tv->ratio or 0.00 !!}</b><i>%</i> + <b  style="font-size: 5vh;">{!! $tv->raise or 0.00!!}</b><i>%</i></p>
+                            <p class="rt"><b  style="font-size: 4.5vh;">{!! $tv->ratio or 0.00 !!}</b><i>%</i> + <b  style="font-size: 4.5vh;">{!! $tv->raise or 0.00!!}</b><i>%</i></p>
                             <p>预期年化 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;天眼加息</p>
                         </li>
                         <li class="con-p">
