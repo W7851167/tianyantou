@@ -852,24 +852,26 @@ body{
     height: 3.4vh;
 
 }.zhuce li img{
-	height: 3.7vh;
-	margin-left: 3%;
+	 height: 3.3vh;
+	 margin-left: 3%;
+
  }
 .zhuce  li p{
 	width: 30%;
 	text-align: left;
-	font-size: 3vh;
+	font-size: 2.5vh;
 	color: #3D3D3D;
 	position: absolute;
-	top: 0.1vh;
+	top: 0.3vh;
 	left: 9%;
+
 }
 .zhuce  li input{
 	width: 70%;
     line-height: 3.5vh;
     height: 3.5vh;
     outline: none;
-    font-size: 3vh;
+	font-size: 2.5vh;
     text-indent: 5px;
     border: 0px;
     position: absolute;
@@ -881,11 +883,11 @@ body{
     line-height: 3.5vh;
     height: 3.5vh;
     outline: none;
-    font-size: 3vh;
+	font-size: 2.5vh;
     text-indent: 5px;
     border: 0px;
     position: absolute;
-    top: 0px;
+    top: -1px;
     left: 27%;
 }
 .zhuce li a{
@@ -909,8 +911,8 @@ body{
 }
 .zhuce .explain div{
 	float: left;				
-	width: 20px;
-    height: 20px;
+	width: 2.5vh;
+    height: 2.5vh;
     background: url(/images/mobile/rdios.png);
     background-size: 100% 100%;
 	margin-left: 3%;
@@ -921,8 +923,6 @@ body{
 	font-size:2vh ;
 	text-align: justify;
 	margin-left: 4px;
-	line-height: 20px;
-	height: 20px;
 	
 }
 .zhuce .explain span{
