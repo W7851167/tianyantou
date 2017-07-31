@@ -61,6 +61,7 @@
                             </tr>
                         @endforeach
                     </table>
+                <ul class="page_info page">{!! $pageHtml !!}</ul>
             </div>
         </div>
     </div>
