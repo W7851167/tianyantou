@@ -29,8 +29,8 @@
                             <tr>
                                 <td style="width: 800px;">
                                     <a href="{!! $av->url !!}" target="_blank" title="{!! $av->title or '' !!}">
-                                    @if(!empty($av->image->name))
-                                        <img style="width: 800px;height: 130px;padding-top: 12px;" src="{!! config('app.static_url') . $av->image->name !!}">
+                                    @if(!empty($av->p_img))
+                                        <img style="width: 800px;height: 130px;padding-top: 12px;" src="{!! config('app.admin_url') . $av->p_img !!}">
                                     @else
                                         未设置图片
                                     @endif

@@ -12,7 +12,7 @@
                         @if(!empty($av->m_img))
                             <div class="swiper-slide">
                                 <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank">
-                                    <img src="{!! config('app.static_url') . $av->m_img !!}" alt="{!! $av->title !!}"/>
+                                    <img src="{!! config('app.m_url') . $av->m_img !!}" alt="{!! $av->title !!}"/>
                                 </a>
                             </div>
                         @endif

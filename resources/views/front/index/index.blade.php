@@ -13,8 +13,8 @@
                 <div class="banner-play-con imgplaycon">
                     @if(!empty($advs))
                         @foreach($advs as $av)
-                            @if(!empty($av->image->name))
-                            <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.static_url') . $av->image->name !!}" alt="{!! $av->title !!}"/></a>
+                            @if(!empty($av->p_img))
+                            <a href="{!! $av->url or '' !!}" title="{!! $av->title or '' !!}" target="_blank"><img src="{!! config('app.admin_url') . $av->p_img !!}" alt="{!! $av->title !!}"/></a>
                             @endif
                         @endforeach
                     @endif

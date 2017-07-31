@@ -16,13 +16,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\AdminController;
 use App\Repositories\XdataRepository;
 use Illuminate\Http\Request;
-
+use App\Models\AdvModel;
 class AdController extends  AdminController
 {
-    public function __construct(XdataRepository $xdata)
+    public function __construct(
+        XdataRepository $xdata,
+        AdvModel $adv
+    )
     {
         parent::__initalize();
         $this->xdata = $xdata;
+        $this->adv = $adv;
+
     }
 
     /**
@@ -47,14 +52,31 @@ class AdController extends  AdminController
     {
         if($request->isMethod('post')) {
             $data = $request->get('data');
-            if(!empty($data['img']))
-                $data['img'] = str_replace(config('app.static_url'), '', $data['img']);
-			if(!empty($data['m_img']))
-                $data['m_img'] = str_replace(config('app.static_url'), '', $data['m_img']);
-            $result = $this->xdata->saveAdv($data);
-            if($result['status'])
-                return $this->success($result['message'],url('ad'),true);
-            return $this->error($result['message'],null,true);
+            if (!empty($_FILES['img1'])){
+                $file_path = 'data/banner/' . uniqid() . '.png';
+                if (move_uploaded_file($_FILES['img1']['tmp_name'], $file_path)) {
+                    $data['p_img'] = '/'.$file_path;
+                }
+            }
+			if(!empty($_FILES['m_img1'])) {
+                $file_path = 'data/banner/' . uniqid() . '.png';
+                if (move_uploaded_file($_FILES['m_img1']['tmp_name'], $file_path)) {
+                    $data['m_img'] = '/'.$file_path;
+                }
+            }
+            if(!empty($data['id'])){
+                if($this->adv->where('id',$data['id'])->update($data) ){
+                    return $this->success('修改成功',url('ad'),true);
+                }else {
+                    return $this->error('修改失败', null, true);
+                }
+            }else{
+                if($this->adv->insert($data)){
+                    return $this->success('添加成功',url('ad'),true);
+                }else {
+                    return $this->error('添加失败', null, true);
+                }
+            }
         }
         if(!empty($id)) {
             $adv = $this->xdata->advModel->find($id);

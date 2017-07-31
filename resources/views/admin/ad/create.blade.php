@@ -14,7 +14,7 @@
                     <a href="{!! url('census') !!}">统计管理&nbsp;&nbsp;>&nbsp;&nbsp;</a>
                     <a href="{!! url('ad/create') !!}">创建广告</a>
                 </div>
-                <form  method="post" class="base_form">
+                <form  method="post" class="base_form" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     @if(!empty($adv))
                         <input type="hidden" name="data[id]" value="{!! $adv->id !!}">
@@ -35,13 +35,12 @@
                         <div class="infospaceAddImg">
                             <div class="infospaceAddLeft h80"><span>*</span>广告图片：</div>
                             <div id="storeimg">
-                                <a class="clickUpload" id="uploadimg" href="javascript:void(0)">点击上传</a>
+                                <input onchange="img(this)" name="img1" type="file">
                             </div>
                             <p class="hint">必须上传1349*246的图片！</p>
-                            <ul class="imgbox"  style="width: 674px;height: 123px;">
-                                @if(!empty($adv->image->name))
-                                    <img style="width: 674px;height: 123px;" src="{!! config('app.static_url').$adv->image->name !!}">
-                                    <input type="hidden" name="data[img]" value="{!! $adv->image->name or '' !!}" />
+                            <ul class="imgbox" id="imgs1"  style="width: 680px;height: 124px;">
+                                @if(!empty($adv->p_img))
+                                    <img style="width: 680px;height: 124px;" src="{!! config('app.admin_url').$adv->p_img !!}">
                                @endif
                             </ul>
                         </div>
@@ -49,13 +48,12 @@
 						<div class="infospaceAddImg">
                             <div class="infospaceAddLeft h80"><span>*</span>移动端图片：</div>
                             <div id="storeimg">
-                                <a class="clickUpload" id="uploadMImg" href="javascript:void(0)">点击上传</a>
+                                <input type="file" name="m_img1" onchange="m_img(this)" />
                             </div>
-                            <p class="hint">必须上传674*176的图片！</p>
-                            <ul class="imgbox m_img"  style="width: 674px;height: 176px;">
+                            <p class="hint">必须上传1280*630的图片！</p>
+                            <ul class="imgbox" id="m_imgs1"  style="height: 180px;width: 365px;">
                                 @if(!empty($adv->m_img))
-                                    <img style="width: 674px;height: 176px;" src="{!! config('app.static_url').$adv->m_img !!}">
-                                    <input type="hidden" name="data[m_img]" value="{!! $adv->m_img or '' !!}" />
+                                    <img style="height: 180px;width: 365px;" src="{!! config('app.admin_url').$adv->m_img !!}">
                                @endif
                             </ul>
                         </div>
@@ -78,59 +76,29 @@
 
 @section('script')
     <span id="queueID"></span>
-    {!! HTML::script('/vendor/uploadify/jquery.uploadify.js') !!}
-    {!!HTML::script('vendor/validate/jquery.validate.js')!!}
-    <script type="text/javascript">
-        $('#uploadimg').uploadify({
-            'onInit': function () {$("#queueID").hide();},
-            'swf'      : '/vendor/uploadify/uploadify.swf',
-            'uploader' : '/uploadImg',
-            'formData' :{'width0':1349,'height0':246, 'type0':1},
-            'buttonText':'上传',
-            'width':'82',
-            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
-            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
-            'multi': false,
-            'button_height':36,
-            'button_width':88,
-            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
-            'fileSizeLimit' : '2MB',
-            'queueID': 'queueID',
-            'onUploadSuccess' : function(file,data) {
-                data = eval('('+data+')');
-                if (data.status == 1) {
-                    var html = '<img style="width:674px;" src="' + data.info[1349246] + '">';
-                    html += '<input type="hidden" name="data[img]" value="' + data.info[1349246] + '" />'
-                    $('.imgbox').html(html);
+    <script>
+        function img(file) {
+            if (file.files && file.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(evt) {
+                    var html = '<img style="width: 680px;height: 124px;" src="'+evt.target.result+'">';
+                    $('#imgs1').html(html);
                 }
-            },
-
-        });
-		//移动端图片
-		$('#uploadMImg').uploadify({
-            'onInit': function () {$("#queueID").hide();},
-            'swf'      : '/vendor/uploadify/uploadify.swf',
-            'uploader' : '/uploadImg',
-            'formData' :{'width0':674,'height0':176, 'type0':1},
-            'buttonText':'',
-            'width':'82',
-//            'buttonImage' : '/vendor/uploadify/btn_up_pressed.png',
-            'button_image_url' : '/vendor/uploadify/btn_up_normal.png',
-            'multi': false,
-            'button_height':36,
-            'button_width':88,
-            'fileTypeExts' : '*.jpg; *.jpeg; *.png',
-            'fileSizeLimit' : '2MB',
-            'queueID': 'queueID',
-            'onUploadSuccess' : function(file,data) {
-                data = eval('('+data+')');
-                if (data.status == 1) {
-                    var html = '<img style="width:674px;123px;" src="' + data.info[674176] + '">';
-                    html += '<input type="hidden" name="data[m_img]" value="' + data.info[674176] + '" />'
-                    $('.m_img').html(html);
+                reader.readAsDataURL(file.files[0]);
+            } else {
+            }
+        }
+        //移动端图片
+        function m_img(file) {
+            if (file.files && file.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(evt) {
+                    var html = '<img style="height: 180px;width: 365px;" src="'+evt.target.result+'">';
+                    $('#m_imgs1').html(html);
                 }
-            },
-
-        });
+                reader.readAsDataURL(file.files[0]);
+            } else {
+            }
+        }
     </script>
 @stop
