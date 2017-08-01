@@ -8,13 +8,15 @@
     <form action="" method="post" data-toggle="ajaxForm">
         <input type="hidden" value="1" name="step" />
         {!! csrf_field() !!}
-    <ul>
+    <ul class="menu">
         <li>
-            <p>手机号码</p>
+            <img src="//static.tianyantou.com/images/mobile/phone.png">
+            <p>手机号码：</p>
             <input type="text" name="mobile" id="m_reg-telephone" placeholder="请输入手机号" />
         </li>
         <li>
-            <p>验证码</p>
+            <img src="//static.tianyantou.com/images/mobile/code.png">
+            <p>验证码：</p>
             <input type="text" name="captcha" id="" placeholder="请输入验证码" />
             <a href="javascript:;" class="btn-captcha" data-toggle="m_verifyCode" data-action="m_register" data-tel="#m_reg-telephone">获取验证码</a>
         </li>

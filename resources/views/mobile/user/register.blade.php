@@ -3,17 +3,12 @@
         <!-- 头信息结束 -->
 <body>
 <div class="zhuce">
-
-
-
-
-
     <form id="m_register" data-toggle="ajaxForm" method="post" action="">
         {!! csrf_field() !!}
         <a href="{!! config("app.m_url") !!}"><img src="//static.tianyantou.com/images/mobile/return.png"  class="return_img"/></a>
         <img src="//static.tianyantou.com/images/mobile/register_banner.png" width="100%" />
         <p class="baomi">平台不会在任何地方泄露您的信息</p>
-        <ul>
+        <ul class="menu">
             <li><img src="//static.tianyantou.com/images/mobile/phone.png">
                 <p>手机号：</p>
                 <input type="text" name="mobile" id="m_reg-telephone" placeholder="请输入手机号" />

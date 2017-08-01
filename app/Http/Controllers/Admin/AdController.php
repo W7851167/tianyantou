@@ -53,13 +53,17 @@ class AdController extends  AdminController
         if($request->isMethod('post')) {
             $data = $request->get('data');
             if (!empty($_FILES['img1'])){
-                $file_path = 'data/banner/' . uniqid() . '.png';
+                $type = $this->imageType($_FILES['img1']['type']);
+                if($type=='no'){ return $this->error('图片错误', null, true);}
+                $file_path = 'data/banner/' . uniqid() .$type;
                 if (move_uploaded_file($_FILES['img1']['tmp_name'], $file_path)) {
                     $data['p_img'] = '/'.$file_path;
                 }
             }
 			if(!empty($_FILES['m_img1'])) {
-                $file_path = 'data/banner/' . uniqid() . '.png';
+                $type = $this->imageType($_FILES['m_img1']['type']);
+                if($type=='no'){ return $this->error('图片错误', null, true);}
+                $file_path = 'data/banner/' . uniqid() .$type;
                 if (move_uploaded_file($_FILES['m_img1']['tmp_name'], $file_path)) {
                     $data['m_img'] = '/'.$file_path;
                 }
@@ -83,6 +87,16 @@ class AdController extends  AdminController
             return view('admin.ad.create',compact('adv'));
         }
         return view('admin.ad.create');
+    }
+
+    public function imageType($images){
+        switch ($images){
+            case 'image/png' : return '.png';break;
+            case 'image/jpeg' : return '.jpg';break;
+            case 'image/gif' : return '.gif';break;
+            case 'image/jpg'  : return '.jpg';break;
+            default : return 'no';break;
+        }
     }
 
 }

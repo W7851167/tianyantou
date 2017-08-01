@@ -15,14 +15,6 @@ textarea {  -webkit-appearance: none;}
 	position: relative;
 
 }
-.plat-title{
-	text-align: center;
-	padding: 2% 0;
-	color: #fff;
-	margin: 0 auto;
-	width: 95%;
-
-}
 .touzhi{
 	height: 5.5vh;
 	width: 37.3%;
@@ -386,7 +378,7 @@ textarea {  -webkit-appearance: none;}
 	background: #ED4E24;
 	position: relative;
 }
-.jpform .plat-title{
+.plat-title{
 	text-align: center;
 	line-height: 40px;
 	color: #fff;
@@ -676,12 +668,6 @@ body{
 	background:#38abf8 ;
 	position: relative;
 }
-.login .header img{
-	width: 8%;
-    position: absolute;
-    left: 2%;
-    top: 25%;
-}
 .login .header p{
 	font-size: 18px;
 	font-family: "微软雅黑";
@@ -704,51 +690,16 @@ body{
     right: 2%;
     top: 4px;
 }
-.login .cont1 input{
-	width: 100%;
-    
-    line-height: 30px;
-    outline: none;	
-    font-size: 18px;	
-    text-indent: 5px;	
-    border: 0px;    
-}
-.login .cont1  .sub-btn{
-	width: 96%;
-    margin-left: 2%;
-    margin-top: 10%;
-	display: inline-block;
-	line-height: 36px;
-	height: 36px;
-	text-align: center;
-	font-size: 18px;
-	color: #FFFFFF;
-	background: #2577e3;
-	border-radius: 10px;
-}
-.login .cont1 p{
-	width: 96%;
-	margin-top: 3%;
-	text-align: right;
-	color: #228fec;
-}
-.login .cont1 p a{
-	color: #228fec;
-}
-
-
-
-
 .find-pass{
 	width: 100%;
 }
 .find-pass .header{
 	width: 100%;
-	background:#2577e3;
+	background:#ED4E24;
 	position: relative;
 }
 .find-pass .header img{
-	width: 8%;
+	width: 7%;
     position: absolute;
     left: 2%;
     top: 25%;
@@ -793,23 +744,6 @@ body{
     right: 2%;
     font-size: 16px;
 }
-.find-pass .sub-btn{
-	width: 96%;
-    margin-left: 2%;
-    margin-top: 10%;
-	display: inline-block;
-	line-height: 36px;
-	height: 36px;
-	text-align: center;
-	font-size: 18px;
-	color: #FFFFFF;
-	background: #2577e3;
-	border-radius: 10px;
-}
-	
-	
-	
-	
 .zhuce{
 	width: 100%;
 }
@@ -831,32 +765,33 @@ body{
 	width: 100%;
 	margin-top: 5%;
 }
-.zhuce .sub-btn{
+.sub-btn{
 	width: 83%;
 	margin: 7% 8.5% 7% 8.5%;
 	display: inline-block;
 	line-height: 8vh;
 	height: 8vh;
 	text-align: center;
-	font-size: 18px;
+	font-size: 3vh;
 	color: #fff;
 	background: #f04f25;
 	border-radius: 50px;
 	border: 0;
 }
-.zhuce li{
+.menu li{
 	position: relative;
-    margin-top: 5%;
-    border-bottom: 2px solid #dad5d5;
-    padding-bottom: 4%;
-    height: 3.4vh;
+	margin-top: 4%;
+	border-bottom: 2px solid #dad5d5;
+	padding-bottom: 3%;
+	height: 4.4vh;
 
-}.zhuce li img{
+
+}.menu li img{
 	 height: 3.3vh;
 	 margin-left: 3%;
 
  }
-.zhuce  li p{
+.menu  li p{
 	width: 30%;
 	text-align: left;
 	font-size: 2.5vh;
@@ -866,7 +801,7 @@ body{
 	left: 9%;
 
 }
-.zhuce  li input{
+.menu  li input{
 	width: 70%;
     line-height: 3.5vh;
     height: 3.5vh;
@@ -890,7 +825,7 @@ body{
     top: -1px;
     left: 27%;
 }
-.zhuce li a{
+.menu li a{
 	display: inline-block;
     width: 20%;
     line-height: 5.8vh;
@@ -928,12 +863,12 @@ body{
 .zhuce .explain span{
 	color: #6fb3e3;
 }	
-.zhuce  .zhuce22img{
-	width: 10%;
+.zhuce22img{
+	height: 5vh;
     position: absolute;
-    top: 5%;
     right: 3%;
 }
+
 .invitataion{
 	width: 100%;
 }
