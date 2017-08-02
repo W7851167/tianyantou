@@ -5,7 +5,7 @@
 <div class="platform">
     <div class="header">
 
-        <p class="plat-title">
+        <p class="plattitle">
             <a href="{!! config('app.m_url') !!}/platform"><img src="//static.tianyantou.com/images/mobile/return.png"></a>
             <a href="{!! config('app.m_url') !!}/platform/{!! $corps->ename or '' !!}/{!! $tasks->id or '' !!}.html">
                 <input class="touzhi t1" type="button" value="投资信息" style="border-radius: 3px 0 0 3px" />
@@ -119,9 +119,11 @@
     <p style="height: 40px;"></p>
     <div class="foot" style="position:fixed;bottom:0;">
         @if(!empty($tasks))
-                <a id="jump_url" goto="{!! $tasks->url or '' !!}" data-sso-url="/platform/login/{!! $corps->ename or 0 !!}{!! $tasks->id or 0 !!}" rel="platform_join"
-                   data-plat-url="{!! $tasks->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
-                </a>
+            <form action="/platform/sigin" method="post">
+                <input type="hidden" name="_token"         value="{!! csrf_token() !!}"/>
+                <input type="hidden" name="url" value="{!! $tasks->url or '' !!}" />
+                <input type="submit" value="立即投资">
+            </form>
         @endif
     </div>
     <input type="hidden" value="{!! $tasks->ratio or 0 !!}" id="plat_year" />

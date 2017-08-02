@@ -22,9 +22,9 @@ Route::get('platform', ['as' => 'mplatform', 'uses' => 'PlatformController@index
 Route::get('platform/{ename}/{id}.html', ['as' => 'mplatform.detail', 'uses' => 'PlatformController@detail']);
 Route::get('platform/{ename}/{task_id}.info', ['as' => 'mplatform.info', 'uses' => 'PlatformController@info']);
 Route::get('platform/login/{corp}/{task_id}', ['as' => 'mplatform.login', 'uses' => 'PlatformController@login']);
+route::post('/platform/sigin',['as' => 'mplatform.sigin', 'uses' => 'PlatformController@sigin']);
 //可允许任何的http访问
 Route::any('platform/redirect', ['as' => 'mplatform.redirect', 'uses' => 'PlatformController@redirect']);
-
 
 Route::match(['get', 'post'], 'signin/captcha', ['as' => 'mpassport.mcaptcha', 'uses' => 'PassportController@captcha']);//图形验证码
 //post路由

@@ -16,11 +16,12 @@ namespace App\Http\Controllers\Mobile;
 use App\Http\Controllers\MobileController;
 use App\Repositories\NewRepository;
 use App\Repositories\TaskRepository;
+use Illuminate\Cache\Repository;
 use Illuminate\Http\Request;
 use App\Repositories\CensusRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\XdataRepository;
-
+use Illuminate\Support\Facades\Input;
 class PlatformController extends MobileController
 {
     public function __construct(
@@ -354,6 +355,10 @@ class PlatformController extends MobileController
         return $sign;
     }
 
+    public function sigin(Request $request){
+
+            return view('mobile.platform.sigin')->with('url', $request->get('url'));
+    }
 
 
 

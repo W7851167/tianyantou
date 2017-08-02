@@ -263,7 +263,21 @@ textarea {  -webkit-appearance: none;}
 	
 	/*box-shadow: 4px 0 7px #6d6868, /*右边阴影 */ /*0 6px 6px #7A7A7A;*/
 }
+.foot input{
+	border: 0;
+	width: 94%;
+	display: inline-block;
+	font-size: 3vh;
+	color: #fff;
+	margin-left: 3%;
+	background: #f04f25;
+	text-align: center;
+	height: 5.5vh;
+	line-height: 5.5vh;
+	border-radius: 5px;
 
+	/*box-shadow: 4px 0 7px #6d6868, /*右边阴影 */ /*0 6px 6px #7A7A7A;*/
+}
 .active{
 	background: #87baf0;
 }
@@ -383,6 +397,13 @@ textarea {  -webkit-appearance: none;}
 	line-height: 40px;
 	color: #fff;
 	font-size:22px ;
+}
+.plattitle{
+	text-align: center;
+	padding: 2% 0;
+	color: #fff;
+	margin: 0 auto;
+	width: 95%;
 }
 .jpform .header img{
 	width: 7%;
