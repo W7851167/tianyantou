@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
     <title>P2P投资理财节</title>
+    <script type="text/javascript">
+        function display() {
+            passValue('{!! $url !!}');
+        }
+    </script>
 </head>
 <style>
 .img{

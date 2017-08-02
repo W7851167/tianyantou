@@ -119,9 +119,11 @@
     <p style="height: 40px;"></p>
     <div class="foot" style="position:fixed;bottom:0;">
         @if(!empty($tasks))
-            <a href="{!! $tasks->url or '' !!}" data-sso-url="/platform/login/{!! $corp->ename or ''!!}/{!! $tasks->id or 0 !!}" rel="platform_join"
-               data-plat-url="{!! $tasks->url or '' !!}" class="btn btn-blue btn-allwidth">立即投资
-            </a>
+            <form action="/platform/sigin" method="post">
+                <input type="hidden" name="_token"         value="{!! csrf_token() !!}"/>
+                <input type="hidden" name="url" value="{!! $tasks->url or '' !!}" />
+                <input type="submit" value="立即投资">
+            </form>
         @endif
     </div>
     <input type="hidden" value="{!! $tasks->ratio or 0 !!}" id="plat_year" />
